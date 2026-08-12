@@ -74,8 +74,8 @@ void QMetaType_Destroy(int typeVal, void* data) {
     QMetaType::destroy(static_cast<int>(typeVal), data);
 }
 
-void* QMetaType_Construct(int typeVal, void* where, const void* copyVal) {
-    return QMetaType::construct(static_cast<int>(typeVal), where, copyVal);
+void* QMetaType_Construct(int typeVal, void* where, const void* copy) {
+    return QMetaType::construct(static_cast<int>(typeVal), where, copy);
 }
 
 void QMetaType_Destruct(int typeVal, void* where) {
@@ -283,20 +283,20 @@ void QMetaType_UnregisterMetaType(QMetaType* typeVal) {
     QMetaType::unregisterMetaType(*typeVal);
 }
 
-void* QMetaType_Create22(int typeVal, const void* copyVal) {
-    return QMetaType::create(static_cast<int>(typeVal), copyVal);
+void* QMetaType_Create22(int typeVal, const void* copy) {
+    return QMetaType::create(static_cast<int>(typeVal), copy);
 }
 
 int QMetaType_Id1(const QMetaType* self, int param1) {
     return self->id(static_cast<int>(param1));
 }
 
-void* QMetaType_Create1(const QMetaType* self, const void* copyVal) {
-    return self->create(copyVal);
+void* QMetaType_Create1(const QMetaType* self, const void* copy) {
+    return self->create(copy);
 }
 
-void* QMetaType_Construct22(const QMetaType* self, void* where, const void* copyVal) {
-    return self->construct(where, copyVal);
+void* QMetaType_Construct22(const QMetaType* self, void* where, const void* copy) {
+    return self->construct(where, copy);
 }
 
 void QMetaType_Delete(QMetaType* self) {

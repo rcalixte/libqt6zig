@@ -23,15 +23,23 @@ pub const QFutureWatcherBase = extern struct {
     pub const _is_QFutureWatcherBase = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn MetaObject(self: QFutureWatcherBase) QMetaObject {
+    pub fn metaObject(self: QFutureWatcherBase) QMetaObject {
         return .{ .ptr = qtc.QFutureWatcherBase_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -39,10 +47,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QFutureWatcherBase, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QFutureWatcherBase, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFutureWatcherBase_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -54,9 +66,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QFutureWatcherBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QFutureWatcherBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFutureWatcherBase_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -66,14 +82,18 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `progressValue` instead
+    ///
+    pub const ProgressValue = progressValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValue)
     ///
@@ -81,9 +101,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn ProgressValue(self: QFutureWatcherBase) i32 {
+    pub fn progressValue(self: QFutureWatcherBase) i32 {
         return qtc.QFutureWatcherBase_ProgressValue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `progressMinimum` instead
+    ///
+    pub const ProgressMinimum = progressMinimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMinimum)
     ///
@@ -91,9 +115,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn ProgressMinimum(self: QFutureWatcherBase) i32 {
+    pub fn progressMinimum(self: QFutureWatcherBase) i32 {
         return qtc.QFutureWatcherBase_ProgressMinimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `progressMaximum` instead
+    ///
+    pub const ProgressMaximum = progressMaximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressMaximum)
     ///
@@ -101,9 +129,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn ProgressMaximum(self: QFutureWatcherBase) i32 {
+    pub fn progressMaximum(self: QFutureWatcherBase) i32 {
         return qtc.QFutureWatcherBase_ProgressMaximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `progressText` instead
+    ///
+    pub const ProgressText = progressText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressText)
     ///
@@ -113,13 +145,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProgressText(self: QFutureWatcherBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn progressText(self: QFutureWatcherBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFutureWatcherBase_ProgressText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.ProgressText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.progressText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isStarted` instead
+    ///
+    pub const IsStarted = isStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isStarted)
     ///
@@ -127,9 +163,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsStarted(self: QFutureWatcherBase) bool {
+    pub fn isStarted(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isFinished)
     ///
@@ -137,9 +177,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsFinished(self: QFutureWatcherBase) bool {
+    pub fn isFinished(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRunning` instead
+    ///
+    pub const IsRunning = isRunning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isRunning)
     ///
@@ -147,9 +191,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsRunning(self: QFutureWatcherBase) bool {
+    pub fn isRunning(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsRunning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCanceled` instead
+    ///
+    pub const IsCanceled = isCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isCanceled)
     ///
@@ -157,9 +205,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsCanceled(self: QFutureWatcherBase) bool {
+    pub fn isCanceled(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPaused` instead
+    ///
+    pub const IsPaused = isPaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isPaused)
     ///
@@ -167,9 +219,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsPaused(self: QFutureWatcherBase) bool {
+    pub fn isPaused(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsPaused(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspending` instead
+    ///
+    pub const IsSuspending = isSuspending;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspending)
     ///
@@ -177,9 +233,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsSuspending(self: QFutureWatcherBase) bool {
+    pub fn isSuspending(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsSuspending(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspended` instead
+    ///
+    pub const IsSuspended = isSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#isSuspended)
     ///
@@ -187,9 +247,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsSuspended(self: QFutureWatcherBase) bool {
+    pub fn isSuspended(self: QFutureWatcherBase) bool {
         return qtc.QFutureWatcherBase_IsSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForFinished` instead
+    ///
+    pub const WaitForFinished = waitForFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#waitForFinished)
     ///
@@ -197,9 +261,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn WaitForFinished(self: QFutureWatcherBase) void {
+    pub fn waitForFinished(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_WaitForFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPendingResultsLimit` instead
+    ///
+    pub const SetPendingResultsLimit = setPendingResultsLimit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPendingResultsLimit)
     ///
@@ -209,9 +277,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` limit: i32 `
     ///
-    pub fn SetPendingResultsLimit(self: QFutureWatcherBase, limit: i32) void {
+    pub fn setPendingResultsLimit(self: QFutureWatcherBase, limit: i32) void {
         qtc.QFutureWatcherBase_SetPendingResultsLimit(@ptrCast(self.ptr), @bitCast(limit));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#event)
     ///
@@ -219,12 +291,16 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QFutureWatcherBase, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFutureWatcherBase_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QFutureWatcherBase, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFutureWatcherBase_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `started` instead
+    ///
+    pub const Started = started;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
     ///
@@ -232,10 +308,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Started(self: QFutureWatcherBase) void {
+    pub fn started(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Started(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStarted` instead
+    ///
+    pub const OnStarted = onStarted;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#started)
     ///
     /// ## Parameters:
@@ -244,20 +324,28 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnStarted(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onStarted(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Finished(self: QFutureWatcherBase) void {
+    pub fn finished(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Finished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#finished)
     ///
     /// ## Parameters:
@@ -266,20 +354,28 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onFinished(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Canceled(self: QFutureWatcherBase) void {
+    pub fn canceled(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Canceled(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#canceled)
     ///
     /// ## Parameters:
@@ -288,20 +384,28 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onCanceled(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `paused` instead
+    ///
+    pub const Paused = paused;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Paused(self: QFutureWatcherBase) void {
+    pub fn paused(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Paused(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPaused` instead
+    ///
+    pub const OnPaused = onPaused;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#paused)
     ///
     /// ## Parameters:
@@ -310,20 +414,28 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnPaused(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onPaused(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Paused(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `suspending` instead
+    ///
+    pub const Suspending = suspending;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Suspending(self: QFutureWatcherBase) void {
+    pub fn suspending(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Suspending(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSuspending` instead
+    ///
+    pub const OnSuspending = onSuspending;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspending)
     ///
     /// ## Parameters:
@@ -332,20 +444,28 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnSuspending(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onSuspending(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Suspending(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `suspended` instead
+    ///
+    pub const Suspended = suspended;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Suspended(self: QFutureWatcherBase) void {
+    pub fn suspended(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Suspended(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSuspended` instead
+    ///
+    pub const OnSuspended = onSuspended;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspended)
     ///
     /// ## Parameters:
@@ -354,9 +474,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onSuspended(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resumed` instead
+    ///
+    pub const Resumed = resumed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
     ///
@@ -364,9 +488,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Resumed(self: QFutureWatcherBase) void {
+    pub fn resumed(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Resumed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResumed` instead
+    ///
+    pub const OnResumed = onResumed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resumed)
     ///
@@ -376,9 +504,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnResumed(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onResumed(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resultReadyAt` instead
+    ///
+    pub const ResultReadyAt = resultReadyAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
     ///
@@ -388,9 +520,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` resultIndex: i32 `
     ///
-    pub fn ResultReadyAt(self: QFutureWatcherBase, resultIndex: i32) void {
+    pub fn resultReadyAt(self: QFutureWatcherBase, resultIndex: i32) void {
         qtc.QFutureWatcherBase_ResultReadyAt(@ptrCast(self.ptr), @bitCast(resultIndex));
     }
+
+    /// ### DEPRECATED: Use `onResultReadyAt` instead
+    ///
+    pub const OnResultReadyAt = onResultReadyAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultReadyAt)
     ///
@@ -400,9 +536,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, resultIndex: i32) callconv(.c) void `
     ///
-    pub fn OnResultReadyAt(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32) callconv(.c) void) void {
+    pub fn onResultReadyAt(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultReadyAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resultsReadyAt` instead
+    ///
+    pub const ResultsReadyAt = resultsReadyAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
     ///
@@ -414,9 +554,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` endIndex: i32 `
     ///
-    pub fn ResultsReadyAt(self: QFutureWatcherBase, beginIndex: i32, endIndex: i32) void {
+    pub fn resultsReadyAt(self: QFutureWatcherBase, beginIndex: i32, endIndex: i32) void {
         qtc.QFutureWatcherBase_ResultsReadyAt(@ptrCast(self.ptr), @bitCast(beginIndex), @bitCast(endIndex));
     }
+
+    /// ### DEPRECATED: Use `onResultsReadyAt` instead
+    ///
+    pub const OnResultsReadyAt = onResultsReadyAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resultsReadyAt)
     ///
@@ -426,9 +570,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, beginIndex: i32, endIndex: i32) callconv(.c) void `
     ///
-    pub fn OnResultsReadyAt(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32, i32) callconv(.c) void) void {
+    pub fn onResultsReadyAt(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ResultsReadyAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `progressRangeChanged` instead
+    ///
+    pub const ProgressRangeChanged = progressRangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
     ///
@@ -440,9 +588,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` maximum: i32 `
     ///
-    pub fn ProgressRangeChanged(self: QFutureWatcherBase, minimum: i32, maximum: i32) void {
+    pub fn progressRangeChanged(self: QFutureWatcherBase, minimum: i32, maximum: i32) void {
         qtc.QFutureWatcherBase_ProgressRangeChanged(@ptrCast(self.ptr), @bitCast(minimum), @bitCast(maximum));
     }
+
+    /// ### DEPRECATED: Use `onProgressRangeChanged` instead
+    ///
+    pub const OnProgressRangeChanged = onProgressRangeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressRangeChanged)
     ///
@@ -452,9 +604,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, minimum: i32, maximum: i32) callconv(.c) void `
     ///
-    pub fn OnProgressRangeChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32, i32) callconv(.c) void) void {
+    pub fn onProgressRangeChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressRangeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `progressValueChanged` instead
+    ///
+    pub const ProgressValueChanged = progressValueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
     ///
@@ -462,11 +618,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` progressValue: i32 `
+    /// ` _progressValue: i32 `
     ///
-    pub fn ProgressValueChanged(self: QFutureWatcherBase, progressValue: i32) void {
-        qtc.QFutureWatcherBase_ProgressValueChanged(@ptrCast(self.ptr), @bitCast(progressValue));
+    pub fn progressValueChanged(self: QFutureWatcherBase, _progressValue: i32) void {
+        qtc.QFutureWatcherBase_ProgressValueChanged(@ptrCast(self.ptr), @bitCast(_progressValue));
     }
+
+    /// ### DEPRECATED: Use `onProgressValueChanged` instead
+    ///
+    pub const OnProgressValueChanged = onProgressValueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressValueChanged)
     ///
@@ -476,9 +636,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, progressValue: i32) callconv(.c) void `
     ///
-    pub fn OnProgressValueChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32) callconv(.c) void) void {
+    pub fn onProgressValueChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, i32) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `progressTextChanged` instead
+    ///
+    pub const ProgressTextChanged = progressTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
@@ -486,15 +650,19 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` progressText: []const u8 `
+    /// ` _progressText: []const u8 `
     ///
-    pub fn ProgressTextChanged(self: QFutureWatcherBase, progressText: []const u8) void {
+    pub fn progressTextChanged(self: QFutureWatcherBase, _progressText: []const u8) void {
         const progressText_str = qtc.libqt_string{
-            .len = progressText.len,
-            .data = progressText.ptr,
+            .len = _progressText.len,
+            .data = _progressText.ptr,
         };
         qtc.QFutureWatcherBase_ProgressTextChanged(@ptrCast(self.ptr), progressText_str);
     }
+
+    /// ### DEPRECATED: Use `onProgressTextChanged` instead
+    ///
+    pub const OnProgressTextChanged = onProgressTextChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#progressTextChanged)
     ///
@@ -504,9 +672,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, progressText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnProgressTextChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, [*:0]const u8) callconv(.c) void) void {
+    pub fn onProgressTextChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, [*:0]const u8) callconv(.c) void) void {
         qtc.QFutureWatcherBase_Connect_ProgressTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cancel` instead
+    ///
+    pub const Cancel = cancel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#cancel)
     ///
@@ -514,9 +686,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Cancel(self: QFutureWatcherBase) void {
+    pub fn cancel(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Cancel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSuspended` instead
+    ///
+    pub const SetSuspended = setSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setSuspended)
     ///
@@ -526,9 +702,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` suspendVal: bool `
     ///
-    pub fn SetSuspended(self: QFutureWatcherBase, suspendVal: bool) void {
+    pub fn setSuspended(self: QFutureWatcherBase, suspendVal: bool) void {
         qtc.QFutureWatcherBase_SetSuspended(@ptrCast(self.ptr), suspendVal);
     }
+
+    /// ### DEPRECATED: Use `suspend0` instead
+    ///
+    pub const Suspend = suspend0;
+
+    pub const @"suspend" = suspend0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#suspend)
     ///
@@ -536,9 +718,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Suspend(self: QFutureWatcherBase) void {
+    pub fn suspend0(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Suspend(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#resume)
     ///
@@ -546,9 +734,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Resume(self: QFutureWatcherBase) void {
+    pub fn resume0(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggleSuspended` instead
+    ///
+    pub const ToggleSuspended = toggleSuspended;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#toggleSuspended)
     ///
@@ -556,9 +748,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn ToggleSuspended(self: QFutureWatcherBase) void {
+    pub fn toggleSuspended(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_ToggleSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaused` instead
+    ///
+    pub const SetPaused = setPaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#setPaused)
     ///
@@ -566,11 +762,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` paused: bool `
+    /// ` _paused: bool `
     ///
-    pub fn SetPaused(self: QFutureWatcherBase, paused: bool) void {
-        qtc.QFutureWatcherBase_SetPaused(@ptrCast(self.ptr), paused);
+    pub fn setPaused(self: QFutureWatcherBase, _paused: bool) void {
+        qtc.QFutureWatcherBase_SetPaused(@ptrCast(self.ptr), _paused);
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#pause)
     ///
@@ -578,9 +778,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Pause(self: QFutureWatcherBase) void {
+    pub fn pause(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Pause(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `togglePaused` instead
+    ///
+    pub const TogglePaused = togglePaused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#togglePaused)
     ///
@@ -588,9 +792,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn TogglePaused(self: QFutureWatcherBase) void {
+    pub fn togglePaused(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_TogglePaused(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -602,15 +810,19 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -624,15 +836,19 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -644,13 +860,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QFutureWatcherBase, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QFutureWatcherBase, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -662,13 +882,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QFutureWatcherBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QFutureWatcherBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFutureWatcherBase.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -680,13 +904,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QFutureWatcherBase, name: []const u8) void {
+    pub fn setObjectName(self: QFutureWatcherBase, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -696,9 +924,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsWidgetType(self: QFutureWatcherBase) bool {
+    pub fn isWidgetType(self: QFutureWatcherBase) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -708,9 +940,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsWindowType(self: QFutureWatcherBase) bool {
+    pub fn isWindowType(self: QFutureWatcherBase) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -720,9 +956,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn IsQuickItemType(self: QFutureWatcherBase) bool {
+    pub fn isQuickItemType(self: QFutureWatcherBase) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -732,9 +972,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn SignalsBlocked(self: QFutureWatcherBase) bool {
+    pub fn signalsBlocked(self: QFutureWatcherBase) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -746,9 +990,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QFutureWatcherBase, b: bool) bool {
+    pub fn blockSignals(self: QFutureWatcherBase, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -758,9 +1006,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Thread(self: QFutureWatcherBase) QThread {
+    pub fn thread(self: QFutureWatcherBase) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -770,12 +1022,16 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QFutureWatcherBase, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QFutureWatcherBase, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -787,9 +1043,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QFutureWatcherBase, interval: i32) i32 {
+    pub fn startTimer(self: QFutureWatcherBase, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -801,9 +1061,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QFutureWatcherBase, time: i64) i32 {
+    pub fn startTimer2(self: QFutureWatcherBase, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -815,9 +1079,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QFutureWatcherBase, id: i32) void {
+    pub fn killTimer(self: QFutureWatcherBase, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -829,9 +1097,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QFutureWatcherBase, id: i32) void {
+    pub fn killTimer2(self: QFutureWatcherBase, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -843,15 +1115,19 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QFutureWatcherBase, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QFutureWatcherBase, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFutureWatcherBase.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFutureWatcherBase.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -861,12 +1137,16 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QFutureWatcherBase, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QFutureWatcherBase, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -878,10 +1158,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QFutureWatcherBase, filterObj: anytype) void {
+    pub fn installEventFilter(self: QFutureWatcherBase, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -893,10 +1177,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QFutureWatcherBase, obj: anytype) void {
+    pub fn removeEventFilter(self: QFutureWatcherBase, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -904,7 +1192,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -912,13 +1200,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -926,7 +1218,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -934,13 +1226,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -950,18 +1246,22 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QFutureWatcherBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QFutureWatcherBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -969,7 +1269,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -977,13 +1277,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -991,7 +1295,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -999,13 +1303,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1015,9 +1323,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Disconnect3(self: QFutureWatcherBase) bool {
+    pub fn disconnect3(self: QFutureWatcherBase) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1029,10 +1341,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QFutureWatcherBase, receiver: anytype) bool {
+    pub fn disconnect4(self: QFutureWatcherBase, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1042,10 +1358,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1055,9 +1375,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn DumpObjectTree(self: QFutureWatcherBase) void {
+    pub fn dumpObjectTree(self: QFutureWatcherBase) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1067,9 +1391,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn DumpObjectInfo(self: QFutureWatcherBase) void {
+    pub fn dumpObjectInfo(self: QFutureWatcherBase) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1083,11 +1411,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QFutureWatcherBase, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QFutureWatcherBase, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1099,10 +1431,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QFutureWatcherBase, name: [:0]const u8) QVariant {
+    pub fn property(self: QFutureWatcherBase, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1114,7 +1450,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QFutureWatcherBase, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QFutureWatcherBase, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1122,27 +1458,19 @@ pub const QFutureWatcherBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFutureWatcherBase.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFutureWatcherBase.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFutureWatcherBase.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFutureWatcherBase.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFutureWatcherBase `
-    ///
-    pub fn BindingStorage(self: QFutureWatcherBase) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1152,9 +1480,29 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn BindingStorage2(self: QFutureWatcherBase) QBindingStorage {
+    pub fn bindingStorage(self: QFutureWatcherBase) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFutureWatcherBase `
+    ///
+    pub fn bindingStorage2(self: QFutureWatcherBase) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1164,9 +1512,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Destroyed(self: QFutureWatcherBase) void {
+    pub fn destroyed(self: QFutureWatcherBase) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1178,9 +1530,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
+    pub fn onDestroyed(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1190,9 +1546,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Parent(self: QFutureWatcherBase) QObject {
+    pub fn parent(self: QFutureWatcherBase) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1204,10 +1564,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QFutureWatcherBase, classname: [:0]const u8) bool {
+    pub fn inherits(self: QFutureWatcherBase, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1217,9 +1581,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn DeleteLater(self: QFutureWatcherBase) void {
+    pub fn deleteLater(self: QFutureWatcherBase) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1233,9 +1601,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QFutureWatcherBase, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QFutureWatcherBase, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1249,9 +1621,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QFutureWatcherBase, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QFutureWatcherBase, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1259,7 +1635,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1269,13 +1645,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1283,7 +1663,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1293,13 +1673,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1309,7 +1693,7 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1317,12 +1701,16 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QFutureWatcherBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QFutureWatcherBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1334,10 +1722,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QFutureWatcherBase, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QFutureWatcherBase, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1351,11 +1743,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QFutureWatcherBase, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QFutureWatcherBase, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1371,13 +1767,17 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QFutureWatcherBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QFutureWatcherBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1390,11 +1790,15 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QFutureWatcherBase, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QFutureWatcherBase, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1406,10 +1810,14 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QFutureWatcherBase, param1: anytype) void {
+    pub fn destroyed1(self: QFutureWatcherBase, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1421,9 +1829,13 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1437,23 +1849,23 @@ pub const QFutureWatcherBase = extern struct {
     ///
     /// ` callback: *const fn (self: QFutureWatcherBase, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QFutureWatcherBase, callback: *const fn (QFutureWatcherBase, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfuturewatcherbase.html#dtor.QFutureWatcherBase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFutureWatcherBase `
     ///
-    pub fn Delete(self: QFutureWatcherBase) void {
+    pub fn delete(self: QFutureWatcherBase) void {
         qtc.QFutureWatcherBase_Delete(@ptrCast(self.ptr));
     }
 };

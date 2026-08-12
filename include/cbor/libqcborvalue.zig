@@ -25,35 +25,50 @@ pub const QCborParserError = extern struct {
 
     pub const _is_QCborParserError = {};
 
-    /// New constructs a new QCborParserError object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCborParserError {
+    pub const New = new;
+
+    /// Allocate a new QCborParserError object in C++ memory
+    ///
+    pub fn new() QCborParserError {
         return .{ .ptr = qtc.QCborParserError_new() };
     }
 
-    /// New2 constructs a new QCborParserError object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCborParserError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborParserError `
     ///
-    pub fn New2(other: anytype) QCborParserError {
+    pub fn new2(other: anytype) QCborParserError {
         comptime _ = @TypeOf(other)._is_QCborParserError;
         return .{ .ptr = qtc.QCborParserError_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCborParserError object and invalidates the source QCborParserError object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCborParserError object and invalidate the source QCborParserError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborParserError `
     ///
-    pub fn New3(other: anytype) QCborParserError {
+    pub fn new3(other: anytype) QCborParserError {
         comptime _ = @TypeOf(other)._is_QCborParserError;
         return .{ .ptr = qtc.QCborParserError_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -61,11 +76,14 @@ pub const QCborParserError = extern struct {
     ///
     /// ` other: QCborParserError `
     ///
-    pub fn CopyAssign(self: QCborParserError, other: QCborParserError) void {
+    pub fn copyAssign(self: QCborParserError, other: QCborParserError) void {
         qtc.QCborParserError_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -73,31 +91,45 @@ pub const QCborParserError = extern struct {
     ///
     /// ` other: QCborParserError `
     ///
-    pub fn MoveAssign(self: QCborParserError, other: QCborParserError) void {
+    pub fn moveAssign(self: QCborParserError, other: QCborParserError) void {
         qtc.QCborParserError_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `offset` instead
+    ///
+    pub const Offset = offset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCborParserError `
     ///
-    pub fn Offset(self: QCborParserError) i64 {
+    pub fn offset(self: QCborParserError) i64 {
         return qtc.QCborParserError_Offset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#offset-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCborParserError `
     ///
-    /// ` offset: i64 `
+    /// ` _offset: i64 `
     ///
-    pub fn SetOffset(self: QCborParserError, offset: i64) void {
-        qtc.QCborParserError_SetOffset(@ptrCast(self.ptr), @bitCast(offset));
+    pub fn setOffset(self: QCborParserError, _offset: i64) void {
+        qtc.QCborParserError_SetOffset(@ptrCast(self.ptr), @bitCast(_offset));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
     ///
@@ -105,22 +137,30 @@ pub const QCborParserError = extern struct {
     ///
     /// ` self: QCborParserError `
     ///
-    pub fn Error(self: QCborParserError) QCborError {
+    pub fn error0(self: QCborParserError) QCborError {
         return .{ .ptr = qtc.QCborParserError_Error(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#error-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCborParserError `
     ///
-    /// ` error: QCborError `
+    /// ` _error: QCborError `
     ///
-    pub fn SetError(self: QCborParserError, _error: anytype) void {
+    pub fn setError(self: QCborParserError, _error: anytype) void {
         comptime _ = @TypeOf(_error)._is_QCborError;
         qtc.QCborParserError_SetError(@ptrCast(self.ptr), @ptrCast(_error.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#errorString)
     ///
@@ -130,27 +170,27 @@ pub const QCborParserError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QCborParserError, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QCborParserError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborParserError_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborParserError.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborParserError.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborparsererror.html#dtor.QCborParserError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborParserError `
     ///
-    pub fn Delete(self: QCborParserError) void {
+    pub fn delete(self: QCborParserError) void {
         qtc.QCborParserError_Delete(@ptrCast(self.ptr));
     }
 };
@@ -165,89 +205,125 @@ pub const QCborValue = extern struct {
 
     pub const _is_QCborValue = {};
 
-    /// New constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCborValue {
+    pub const New = new;
+
+    /// Allocate a new QCborValue object in C++ memory
+    ///
+    pub fn new() QCborValue {
         return .{ .ptr = qtc.QCborValue_new() };
     }
 
-    /// New2 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` t_: qcborvalue_enums.Type `
     ///
-    pub fn New2(t_: i32) QCborValue {
+    pub fn new2(t_: i32) QCborValue {
         return .{ .ptr = qtc.QCborValue_new2(@bitCast(t_)) };
     }
 
-    /// New3 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` b_: bool `
     ///
-    pub fn New3(b_: bool) QCborValue {
+    pub fn new3(b_: bool) QCborValue {
         return .{ .ptr = qtc.QCborValue_new3(b_) };
     }
 
-    /// New4 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` i: i32 `
     ///
-    pub fn New4(i: i32) QCborValue {
+    pub fn new4(i: i32) QCborValue {
         return .{ .ptr = qtc.QCborValue_new4(@bitCast(i)) };
     }
 
-    /// New5 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` u: u32 `
     ///
-    pub fn New5(u: u32) QCborValue {
+    pub fn new5(u: u32) QCborValue {
         return .{ .ptr = qtc.QCborValue_new5(@bitCast(u)) };
     }
 
-    /// New6 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` i: i64 `
     ///
-    pub fn New6(i: i64) QCborValue {
+    pub fn new6(i: i64) QCborValue {
         return .{ .ptr = qtc.QCborValue_new6(@bitCast(i)) };
     }
 
-    /// New7 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` v: f64 `
     ///
-    pub fn New7(v: f64) QCborValue {
+    pub fn new7(v: f64) QCborValue {
         return .{ .ptr = qtc.QCborValue_new7(@bitCast(v)) };
     }
 
-    /// New8 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn New8(st: u8) QCborValue {
+    pub fn new8(st: u8) QCborValue {
         return .{ .ptr = qtc.QCborValue_new8(@bitCast(st)) };
     }
 
-    /// New9 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ba: []u8 `
     ///
-    pub fn New9(ba: []u8) QCborValue {
+    pub fn new9(ba: []u8) QCborValue {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -255,13 +331,17 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_new9(ba_str) };
     }
 
-    /// New10 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: []const u8 `
     ///
-    pub fn New10(s: []const u8) QCborValue {
+    pub fn new10(s: []const u8) QCborValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -269,13 +349,17 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_new10(s_str) };
     }
 
-    /// New11 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: []const u8 `
     ///
-    pub fn New11(s: []const u8) QCborValue {
+    pub fn new11(s: []const u8) QCborValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -283,13 +367,17 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_new11(s_str) };
     }
 
-    /// New12 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new12` instead
+    ///
+    pub const New12 = new12;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: []u8 `
     ///
-    pub fn New12(s: []u8) QCborValue {
+    pub fn new12(s: []u8) QCborValue {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
@@ -297,128 +385,176 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_new12(s_str) };
     }
 
-    /// New13 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new13` instead
+    ///
+    pub const New13 = new13;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn New13(s: [:0]const u8) QCborValue {
+    pub fn new13(s: [:0]const u8) QCborValue {
         const s_Cstring = s.ptr;
         return .{ .ptr = qtc.QCborValue_new13(s_Cstring) };
     }
 
-    /// New14 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new14` instead
+    ///
+    pub const New14 = new14;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` a: QCborArray `
     ///
-    pub fn New14(a: anytype) QCborValue {
+    pub fn new14(a: anytype) QCborValue {
         comptime _ = @TypeOf(a)._is_QCborArray;
         return .{ .ptr = qtc.QCborValue_new14(@ptrCast(a.ptr)) };
     }
 
-    /// New15 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new15` instead
+    ///
+    pub const New15 = new15;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` m: QCborMap `
     ///
-    pub fn New15(m: anytype) QCborValue {
+    pub fn new15(m: anytype) QCborValue {
         comptime _ = @TypeOf(m)._is_QCborMap;
         return .{ .ptr = qtc.QCborValue_new15(@ptrCast(m.ptr)) };
     }
 
-    /// New16 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new16` instead
+    ///
+    pub const New16 = new16;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` tag: qcborcommon_enums.QCborTag `
+    /// ` _tag: qcborcommon_enums.QCborTag `
     ///
-    pub fn New16(tag: u64) QCborValue {
-        return .{ .ptr = qtc.QCborValue_new16(@bitCast(tag)) };
+    pub fn new16(_tag: u64) QCborValue {
+        return .{ .ptr = qtc.QCborValue_new16(@bitCast(_tag)) };
     }
 
-    /// New17 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new17` instead
+    ///
+    pub const New17 = new17;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` t_: qcborcommon_enums.QCborKnownTags `
     ///
-    pub fn New17(t_: i32) QCborValue {
+    pub fn new17(t_: i32) QCborValue {
         return .{ .ptr = qtc.QCborValue_new17(@bitCast(t_)) };
     }
 
-    /// New18 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new18` instead
+    ///
+    pub const New18 = new18;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` dt: QDateTime `
     ///
-    pub fn New18(dt: anytype) QCborValue {
+    pub fn new18(dt: anytype) QCborValue {
         comptime _ = @TypeOf(dt)._is_QDateTime;
         return .{ .ptr = qtc.QCborValue_new18(@ptrCast(dt.ptr)) };
     }
 
-    /// New19 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new19` instead
+    ///
+    pub const New19 = new19;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` url: QUrl `
     ///
-    pub fn New19(url: anytype) QCborValue {
+    pub fn new19(url: anytype) QCborValue {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.QCborValue_new19(@ptrCast(url.ptr)) };
     }
 
-    /// New20 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new20` instead
+    ///
+    pub const New20 = new20;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rx: QRegularExpression `
     ///
-    pub fn New20(rx: anytype) QCborValue {
+    pub fn new20(rx: anytype) QCborValue {
         comptime _ = @TypeOf(rx)._is_QRegularExpression;
         return .{ .ptr = qtc.QCborValue_new20(@ptrCast(rx.ptr)) };
     }
 
-    /// New21 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new21` instead
+    ///
+    pub const New21 = new21;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: QUuid `
     ///
-    pub fn New21(uuid: anytype) QCborValue {
+    pub fn new21(uuid: anytype) QCborValue {
         comptime _ = @TypeOf(uuid)._is_QUuid;
         return .{ .ptr = qtc.QCborValue_new21(@ptrCast(uuid.ptr)) };
     }
 
-    /// New22 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new22` instead
+    ///
+    pub const New22 = new22;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborValue `
     ///
-    pub fn New22(other: anytype) QCborValue {
+    pub fn new22(other: anytype) QCborValue {
         comptime _ = @TypeOf(other)._is_QCborValue;
         return .{ .ptr = qtc.QCborValue_new22(@ptrCast(other.ptr)) };
     }
 
-    /// New23 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new23` instead
+    ///
+    pub const New23 = new23;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` tag: qcborcommon_enums.QCborTag `
+    /// ` _tag: qcborcommon_enums.QCborTag `
     ///
-    /// ` taggedValue: QCborValue `
+    /// ` _taggedValue: QCborValue `
     ///
-    pub fn New23(tag: u64, taggedValue: anytype) QCborValue {
-        comptime _ = @TypeOf(taggedValue)._is_QCborValue;
-        return .{ .ptr = qtc.QCborValue_new23(@bitCast(tag), @ptrCast(taggedValue.ptr)) };
+    pub fn new23(_tag: u64, _taggedValue: anytype) QCborValue {
+        comptime _ = @TypeOf(_taggedValue)._is_QCborValue;
+        return .{ .ptr = qtc.QCborValue_new23(@bitCast(_tag), @ptrCast(_taggedValue.ptr)) };
     }
 
-    /// New24 constructs a new QCborValue object.
+    /// ### DEPRECATED: Use `new24` instead
+    ///
+    pub const New24 = new24;
+
+    /// Allocate a new QCborValue object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -426,10 +562,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` tv: QCborValue `
     ///
-    pub fn New24(t_: i32, tv: anytype) QCborValue {
+    pub fn new24(t_: i32, tv: anytype) QCborValue {
         comptime _ = @TypeOf(tv)._is_QCborValue;
         return .{ .ptr = qtc.QCborValue_new24(@bitCast(t_), @ptrCast(tv.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-eq)
     ///
@@ -439,10 +579,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn OperatorAssign(self: QCborValue, other: anytype) void {
+    pub fn operatorAssign(self: QCborValue, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCborValue;
         qtc.QCborValue_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#swap)
     ///
@@ -452,10 +596,16 @@ pub const QCborValue = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn Swap(self: QCborValue, other: anytype) void {
+    pub fn swap(self: QCborValue, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCborValue;
         qtc.QCborValue_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#type)
     ///
@@ -467,9 +617,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` qcborvalue_enums.Type `
     ///
-    pub fn Type(self: QCborValue) i32 {
+    pub fn type0(self: QCborValue) i32 {
         return qtc.QCborValue_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInteger` instead
+    ///
+    pub const IsInteger = isInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isInteger)
     ///
@@ -477,9 +631,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsInteger(self: QCborValue) bool {
+    pub fn isInteger(self: QCborValue) bool {
         return qtc.QCborValue_IsInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isByteArray` instead
+    ///
+    pub const IsByteArray = isByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isByteArray)
     ///
@@ -487,9 +645,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsByteArray(self: QCborValue) bool {
+    pub fn isByteArray(self: QCborValue) bool {
         return qtc.QCborValue_IsByteArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isString)
     ///
@@ -497,9 +659,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsString(self: QCborValue) bool {
+    pub fn isString(self: QCborValue) bool {
         return qtc.QCborValue_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isArray)
     ///
@@ -507,9 +673,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsArray(self: QCborValue) bool {
+    pub fn isArray(self: QCborValue) bool {
         return qtc.QCborValue_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMap` instead
+    ///
+    pub const IsMap = isMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isMap)
     ///
@@ -517,9 +687,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsMap(self: QCborValue) bool {
+    pub fn isMap(self: QCborValue) bool {
         return qtc.QCborValue_IsMap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTag` instead
+    ///
+    pub const IsTag = isTag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isTag)
     ///
@@ -527,9 +701,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsTag(self: QCborValue) bool {
+    pub fn isTag(self: QCborValue) bool {
         return qtc.QCborValue_IsTag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFalse` instead
+    ///
+    pub const IsFalse = isFalse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isFalse)
     ///
@@ -537,9 +715,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsFalse(self: QCborValue) bool {
+    pub fn isFalse(self: QCborValue) bool {
         return qtc.QCborValue_IsFalse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTrue` instead
+    ///
+    pub const IsTrue = isTrue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isTrue)
     ///
@@ -547,9 +729,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsTrue(self: QCborValue) bool {
+    pub fn isTrue(self: QCborValue) bool {
         return qtc.QCborValue_IsTrue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isBool)
     ///
@@ -557,9 +743,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsBool(self: QCborValue) bool {
+    pub fn isBool(self: QCborValue) bool {
         return qtc.QCborValue_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isNull)
     ///
@@ -567,9 +757,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsNull(self: QCborValue) bool {
+    pub fn isNull(self: QCborValue) bool {
         return qtc.QCborValue_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUndefined)
     ///
@@ -577,9 +771,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsUndefined(self: QCborValue) bool {
+    pub fn isUndefined(self: QCborValue) bool {
         return qtc.QCborValue_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isDouble)
     ///
@@ -587,9 +785,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsDouble(self: QCborValue) bool {
+    pub fn isDouble(self: QCborValue) bool {
         return qtc.QCborValue_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDateTime` instead
+    ///
+    pub const IsDateTime = isDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isDateTime)
     ///
@@ -597,9 +799,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsDateTime(self: QCborValue) bool {
+    pub fn isDateTime(self: QCborValue) bool {
         return qtc.QCborValue_IsDateTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUrl` instead
+    ///
+    pub const IsUrl = isUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUrl)
     ///
@@ -607,9 +813,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsUrl(self: QCborValue) bool {
+    pub fn isUrl(self: QCborValue) bool {
         return qtc.QCborValue_IsUrl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRegularExpression` instead
+    ///
+    pub const IsRegularExpression = isRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isRegularExpression)
     ///
@@ -617,9 +827,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsRegularExpression(self: QCborValue) bool {
+    pub fn isRegularExpression(self: QCborValue) bool {
         return qtc.QCborValue_IsRegularExpression(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUuid` instead
+    ///
+    pub const IsUuid = isUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isUuid)
     ///
@@ -627,9 +841,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsUuid(self: QCborValue) bool {
+    pub fn isUuid(self: QCborValue) bool {
         return qtc.QCborValue_IsUuid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInvalid` instead
+    ///
+    pub const IsInvalid = isInvalid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isInvalid)
     ///
@@ -637,9 +855,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsInvalid(self: QCborValue) bool {
+    pub fn isInvalid(self: QCborValue) bool {
         return qtc.QCborValue_IsInvalid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isContainer` instead
+    ///
+    pub const IsContainer = isContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isContainer)
     ///
@@ -647,9 +869,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsContainer(self: QCborValue) bool {
+    pub fn isContainer(self: QCborValue) bool {
         return qtc.QCborValue_IsContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType` instead
+    ///
+    pub const IsSimpleType = isSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
     ///
@@ -657,9 +883,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn IsSimpleType(self: QCborValue) bool {
+    pub fn isSimpleType(self: QCborValue) bool {
         return qtc.QCborValue_IsSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType2` instead
+    ///
+    pub const IsSimpleType2 = isSimpleType2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#isSimpleType)
     ///
@@ -669,9 +899,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn IsSimpleType2(self: QCborValue, st: u8) bool {
+    pub fn isSimpleType2(self: QCborValue, st: u8) bool {
         return qtc.QCborValue_IsSimpleType2(@ptrCast(self.ptr), @bitCast(st));
     }
+
+    /// ### DEPRECATED: Use `toSimpleType` instead
+    ///
+    pub const ToSimpleType = toSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
@@ -683,9 +917,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType(self: QCborValue) u8 {
+    pub fn toSimpleType(self: QCborValue) u8 {
         return qtc.QCborValue_ToSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
     ///
@@ -693,9 +931,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToInteger(self: QCborValue) i64 {
+    pub fn toInteger(self: QCborValue) i64 {
         return qtc.QCborValue_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
     ///
@@ -703,9 +945,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToBool(self: QCborValue) bool {
+    pub fn toBool(self: QCborValue) bool {
         return qtc.QCborValue_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
     ///
@@ -713,9 +959,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToDouble(self: QCborValue) f64 {
+    pub fn toDouble(self: QCborValue) f64 {
         return qtc.QCborValue_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tag` instead
+    ///
+    pub const Tag = tag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
@@ -727,9 +977,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag(self: QCborValue) u64 {
+    pub fn tag(self: QCborValue) u64 {
         return qtc.QCborValue_Tag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `taggedValue` instead
+    ///
+    pub const TaggedValue = taggedValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
     ///
@@ -737,9 +991,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn TaggedValue(self: QCborValue) QCborValue {
+    pub fn taggedValue(self: QCborValue) QCborValue {
         return .{ .ptr = qtc.QCborValue_TaggedValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toByteArray` instead
+    ///
+    pub const ToByteArray = toByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
     ///
@@ -749,13 +1007,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToByteArray(self: QCborValue, allocator: std.mem.Allocator) []u8 {
+    pub fn toByteArray(self: QCborValue, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.toByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toString)
     ///
@@ -765,13 +1027,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QCborValue, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QCborValue, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValue_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime` instead
+    ///
+    pub const ToDateTime = toDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
     ///
@@ -779,9 +1045,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToDateTime(self: QCborValue) QDateTime {
+    pub fn toDateTime(self: QCborValue) QDateTime {
         return .{ .ptr = qtc.QCborValue_ToDateTime(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl` instead
+    ///
+    pub const ToUrl = toUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
     ///
@@ -789,9 +1059,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToUrl(self: QCborValue) QUrl {
+    pub fn toUrl(self: QCborValue) QUrl {
         return .{ .ptr = qtc.QCborValue_ToUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression` instead
+    ///
+    pub const ToRegularExpression = toRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
     ///
@@ -799,9 +1073,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToRegularExpression(self: QCborValue) QRegularExpression {
+    pub fn toRegularExpression(self: QCborValue) QRegularExpression {
         return .{ .ptr = qtc.QCborValue_ToRegularExpression(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid` instead
+    ///
+    pub const ToUuid = toUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
     ///
@@ -809,9 +1087,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToUuid(self: QCborValue) QUuid {
+    pub fn toUuid(self: QCborValue) QUuid {
         return .{ .ptr = qtc.QCborValue_ToUuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
     ///
@@ -819,9 +1101,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToArray(self: QCborValue) QCborArray {
+    pub fn toArray(self: QCborValue) QCborArray {
         return .{ .ptr = qtc.QCborValue_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray2` instead
+    ///
+    pub const ToArray2 = toArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toArray)
     ///
@@ -831,10 +1117,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QCborArray `
     ///
-    pub fn ToArray2(self: QCborValue, defaultValue: anytype) QCborArray {
+    pub fn toArray2(self: QCborValue, defaultValue: anytype) QCborArray {
         comptime _ = @TypeOf(defaultValue)._is_QCborArray;
         return .{ .ptr = qtc.QCborValue_ToArray2(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap` instead
+    ///
+    pub const ToMap = toMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
     ///
@@ -842,9 +1132,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToMap(self: QCborValue) QCborMap {
+    pub fn toMap(self: QCborValue) QCborMap {
         return .{ .ptr = qtc.QCborValue_ToMap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap2` instead
+    ///
+    pub const ToMap2 = toMap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toMap)
     ///
@@ -854,10 +1148,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QCborMap `
     ///
-    pub fn ToMap2(self: QCborValue, defaultValue: anytype) QCborMap {
+    pub fn toMap2(self: QCborValue, defaultValue: anytype) QCborMap {
         comptime _ = @TypeOf(defaultValue)._is_QCborMap;
         return .{ .ptr = qtc.QCborValue_ToMap2(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
@@ -867,7 +1165,7 @@ pub const QCborValue = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QCborValue, key: []const u8) QCborValue {
+    pub fn operatorSubscript(self: QCborValue, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -875,6 +1173,10 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -883,7 +1185,7 @@ pub const QCborValue = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QCborValue, key: []u8) QCborValue {
+    pub fn operatorSubscript2(self: QCborValue, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -891,17 +1193,9 @@ pub const QCborValue = extern struct {
         return .{ .ptr = qtc.QCborValue_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QCborValue `
-    ///
-    /// ` key: i64 `
-    ///
-    pub fn OperatorSubscript3(self: QCborValue, key: i64) QCborValue {
-        return .{ .ptr = qtc.QCborValue_OperatorSubscript3(@ptrCast(self.ptr), @bitCast(key)) };
-    }
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
@@ -911,9 +1205,29 @@ pub const QCborValue = extern struct {
     ///
     /// ` key: i64 `
     ///
-    pub fn OperatorSubscript4(self: QCborValue, key: i64) QCborValueRef {
+    pub fn operatorSubscript3(self: QCborValue, key: i64) QCborValue {
+        return .{ .ptr = qtc.QCborValue_OperatorSubscript3(@ptrCast(self.ptr), @bitCast(key)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorSubscript4` instead
+    ///
+    pub const OperatorSubscript4 = operatorSubscript4;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QCborValue `
+    ///
+    /// ` key: i64 `
+    ///
+    pub fn operatorSubscript4(self: QCborValue, key: i64) QCborValueRef {
         return .{ .ptr = qtc.QCborValue_OperatorSubscript4(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript5` instead
+    ///
+    pub const OperatorSubscript5 = operatorSubscript5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
@@ -923,13 +1237,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript5(self: QCborValue, key: []u8) QCborValueRef {
+    pub fn operatorSubscript5(self: QCborValue, key: []u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValue_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript6` instead
+    ///
+    pub const OperatorSubscript6 = operatorSubscript6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#operator-5b-5d)
     ///
@@ -939,13 +1257,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript6(self: QCborValue, key: []const u8) QCborValueRef {
+    pub fn operatorSubscript6(self: QCborValue, key: []const u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValue_OperatorSubscript6(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#compare)
     ///
@@ -955,10 +1277,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn Compare(self: QCborValue, other: anytype) i32 {
+    pub fn compare(self: QCborValue, other: anytype) i32 {
         comptime _ = @TypeOf(other)._is_QCborValue;
         return qtc.QCborValue_Compare(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromVariant` instead
+    ///
+    pub const FromVariant = fromVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromVariant)
     ///
@@ -966,10 +1292,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn FromVariant(variant: anytype) QCborValue {
+    pub fn fromVariant(variant: anytype) QCborValue {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QCborValue_FromVariant(@ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toVariant)
     ///
@@ -977,9 +1307,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToVariant(self: QCborValue) QVariant {
+    pub fn toVariant(self: QCborValue) QVariant {
         return .{ .ptr = qtc.QCborValue_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromJsonValue` instead
+    ///
+    pub const FromJsonValue = fromJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromJsonValue)
     ///
@@ -987,10 +1321,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` v: QJsonValue `
     ///
-    pub fn FromJsonValue(v: anytype) QCborValue {
+    pub fn fromJsonValue(v: anytype) QCborValue {
         comptime _ = @TypeOf(v)._is_QJsonValue;
         return .{ .ptr = qtc.QCborValue_FromJsonValue(@ptrCast(v.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toJsonValue` instead
+    ///
+    pub const ToJsonValue = toJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toJsonValue)
     ///
@@ -998,9 +1336,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` self: QCborValue `
     ///
-    pub fn ToJsonValue(self: QCborValue) QJsonValue {
+    pub fn toJsonValue(self: QCborValue) QJsonValue {
         return .{ .ptr = qtc.QCborValue_ToJsonValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor` instead
+    ///
+    pub const FromCbor = fromCbor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1008,10 +1350,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` reader: QCborStreamReader `
     ///
-    pub fn FromCbor(reader: anytype) QCborValue {
+    pub fn fromCbor(reader: anytype) QCborValue {
         comptime _ = @TypeOf(reader)._is_QCborStreamReader;
         return .{ .ptr = qtc.QCborValue_FromCbor(@ptrCast(reader.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor2` instead
+    ///
+    pub const FromCbor2 = fromCbor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1019,13 +1365,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` ba: []u8 `
     ///
-    pub fn FromCbor2(ba: []u8) QCborValue {
+    pub fn fromCbor2(ba: []u8) QCborValue {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
         };
         return .{ .ptr = qtc.QCborValue_FromCbor2(ba_str) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor3` instead
+    ///
+    pub const FromCbor3 = fromCbor3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1035,10 +1385,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn FromCbor3(data: [:0]const u8, len: isize) QCborValue {
+    pub fn fromCbor3(data: [:0]const u8, len: isize) QCborValue {
         const data_Cstring = data.ptr;
         return .{ .ptr = qtc.QCborValue_FromCbor3(data_Cstring, @bitCast(len)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor4` instead
+    ///
+    pub const FromCbor4 = fromCbor4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1048,9 +1402,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn FromCbor4(data: *const u8, len: isize) QCborValue {
+    pub fn fromCbor4(data: *const u8, len: isize) QCborValue {
         return .{ .ptr = qtc.QCborValue_FromCbor4(@ptrCast(data), @bitCast(len)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor` instead
+    ///
+    pub const ToCbor = toCbor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
@@ -1060,13 +1418,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToCbor(self: QCborValue, allocator: std.mem.Allocator) []u8 {
+    pub fn toCbor(self: QCborValue, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.ToCbor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.toCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor2` instead
+    ///
+    pub const ToCbor2 = toCbor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
@@ -1076,10 +1438,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` writer: QCborStreamWriter `
     ///
-    pub fn ToCbor2(self: QCborValue, writer: anytype) void {
+    pub fn toCbor2(self: QCborValue, writer: anytype) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValue_ToCbor2(@ptrCast(self.ptr), @ptrCast(writer.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation` instead
+    ///
+    pub const ToDiagnosticNotation = toDiagnosticNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
@@ -1089,13 +1455,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToDiagnosticNotation(self: QCborValue, allocator: std.mem.Allocator) []const u8 {
+    pub fn toDiagnosticNotation(self: QCborValue, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValue_ToDiagnosticNotation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.ToDiagnosticNotation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.toDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toSimpleType1` instead
+    ///
+    pub const ToSimpleType1 = toSimpleType1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toSimpleType)
     ///
@@ -1109,9 +1479,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType1(self: QCborValue, defaultValue: u8) u8 {
+    pub fn toSimpleType1(self: QCborValue, defaultValue: u8) u8 {
         return qtc.QCborValue_ToSimpleType1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toInteger)
     ///
@@ -1121,9 +1495,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QCborValue, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QCborValue, defaultValue: i64) i64 {
         return qtc.QCborValue_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toBool)
     ///
@@ -1133,9 +1511,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QCborValue, defaultValue: bool) bool {
+    pub fn toBool1(self: QCborValue, defaultValue: bool) bool {
         return qtc.QCborValue_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDouble)
     ///
@@ -1145,9 +1527,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QCborValue, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QCborValue, defaultValue: f64) f64 {
         return qtc.QCborValue_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `tag1` instead
+    ///
+    pub const Tag1 = tag1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#tag)
     ///
@@ -1161,9 +1547,13 @@ pub const QCborValue = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag1(self: QCborValue, defaultValue: u64) u64 {
+    pub fn tag1(self: QCborValue, defaultValue: u64) u64 {
         return qtc.QCborValue_Tag1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `taggedValue1` instead
+    ///
+    pub const TaggedValue1 = taggedValue1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#taggedValue)
     ///
@@ -1173,10 +1563,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QCborValue `
     ///
-    pub fn TaggedValue1(self: QCborValue, defaultValue: anytype) QCborValue {
+    pub fn taggedValue1(self: QCborValue, defaultValue: anytype) QCborValue {
         comptime _ = @TypeOf(defaultValue)._is_QCborValue;
         return .{ .ptr = qtc.QCborValue_TaggedValue1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toByteArray1` instead
+    ///
+    pub const ToByteArray1 = toByteArray1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toByteArray)
     ///
@@ -1188,17 +1582,21 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: []u8 `
     ///
-    pub fn ToByteArray1(self: QCborValue, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
+    pub fn toByteArray1(self: QCborValue, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QCborValue_ToByteArray1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.toByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toString)
     ///
@@ -1210,17 +1608,21 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString1(self: QCborValue, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString1(self: QCborValue, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QCborValue_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime1` instead
+    ///
+    pub const ToDateTime1 = toDateTime1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDateTime)
     ///
@@ -1230,10 +1632,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QDateTime `
     ///
-    pub fn ToDateTime1(self: QCborValue, defaultValue: anytype) QDateTime {
+    pub fn toDateTime1(self: QCborValue, defaultValue: anytype) QDateTime {
         comptime _ = @TypeOf(defaultValue)._is_QDateTime;
         return .{ .ptr = qtc.QCborValue_ToDateTime1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl1` instead
+    ///
+    pub const ToUrl1 = toUrl1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUrl)
     ///
@@ -1243,10 +1649,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QUrl `
     ///
-    pub fn ToUrl1(self: QCborValue, defaultValue: anytype) QUrl {
+    pub fn toUrl1(self: QCborValue, defaultValue: anytype) QUrl {
         comptime _ = @TypeOf(defaultValue)._is_QUrl;
         return .{ .ptr = qtc.QCborValue_ToUrl1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression1` instead
+    ///
+    pub const ToRegularExpression1 = toRegularExpression1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toRegularExpression)
     ///
@@ -1256,10 +1666,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QRegularExpression `
     ///
-    pub fn ToRegularExpression1(self: QCborValue, defaultValue: anytype) QRegularExpression {
+    pub fn toRegularExpression1(self: QCborValue, defaultValue: anytype) QRegularExpression {
         comptime _ = @TypeOf(defaultValue)._is_QRegularExpression;
         return .{ .ptr = qtc.QCborValue_ToRegularExpression1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid1` instead
+    ///
+    pub const ToUuid1 = toUuid1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toUuid)
     ///
@@ -1269,10 +1683,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` defaultValue: QUuid `
     ///
-    pub fn ToUuid1(self: QCborValue, defaultValue: anytype) QUuid {
+    pub fn toUuid1(self: QCborValue, defaultValue: anytype) QUuid {
         comptime _ = @TypeOf(defaultValue)._is_QUuid;
         return .{ .ptr = qtc.QCborValue_ToUuid1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor22` instead
+    ///
+    pub const FromCbor22 = fromCbor22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1282,7 +1700,7 @@ pub const QCborValue = extern struct {
     ///
     /// ` errorVal: QCborParserError `
     ///
-    pub fn FromCbor22(ba: []u8, errorVal: anytype) QCborValue {
+    pub fn fromCbor22(ba: []u8, errorVal: anytype) QCborValue {
         const ba_str = qtc.libqt_string{
             .len = ba.len,
             .data = ba.ptr,
@@ -1290,6 +1708,10 @@ pub const QCborValue = extern struct {
         comptime _ = @TypeOf(errorVal)._is_QCborParserError;
         return .{ .ptr = qtc.QCborValue_FromCbor22(ba_str, @ptrCast(errorVal.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor32` instead
+    ///
+    pub const FromCbor32 = fromCbor32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1301,11 +1723,15 @@ pub const QCborValue = extern struct {
     ///
     /// ` errorVal: QCborParserError `
     ///
-    pub fn FromCbor32(data: [:0]const u8, len: isize, errorVal: anytype) QCborValue {
+    pub fn fromCbor32(data: [:0]const u8, len: isize, errorVal: anytype) QCborValue {
         const data_Cstring = data.ptr;
         comptime _ = @TypeOf(errorVal)._is_QCborParserError;
         return .{ .ptr = qtc.QCborValue_FromCbor32(data_Cstring, @bitCast(len), @ptrCast(errorVal.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromCbor33` instead
+    ///
+    pub const FromCbor33 = fromCbor33;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#fromCbor)
     ///
@@ -1317,10 +1743,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` errorVal: QCborParserError `
     ///
-    pub fn FromCbor33(data: *const u8, len: isize, errorVal: anytype) QCborValue {
+    pub fn fromCbor33(data: *const u8, len: isize, errorVal: anytype) QCborValue {
         comptime _ = @TypeOf(errorVal)._is_QCborParserError;
         return .{ .ptr = qtc.QCborValue_FromCbor33(@ptrCast(data), @bitCast(len), @ptrCast(errorVal.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor1` instead
+    ///
+    pub const ToCbor1 = toCbor1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
@@ -1332,13 +1762,17 @@ pub const QCborValue = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor1(self: QCborValue, allocator: std.mem.Allocator, opt: i32) []u8 {
+    pub fn toCbor1(self: QCborValue, allocator: std.mem.Allocator, opt: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValue_ToCbor1(@ptrCast(self.ptr), @bitCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.ToCbor1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValue.toCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor22` instead
+    ///
+    pub const ToCbor22 = toCbor22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toCbor)
     ///
@@ -1350,10 +1784,14 @@ pub const QCborValue = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor22(self: QCborValue, writer: anytype, opt: i32) void {
+    pub fn toCbor22(self: QCborValue, writer: anytype, opt: i32) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValue_ToCbor22(@ptrCast(self.ptr), @ptrCast(writer.ptr), @bitCast(opt));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation1` instead
+    ///
+    pub const ToDiagnosticNotation1 = toDiagnosticNotation1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#toDiagnosticNotation)
     ///
@@ -1365,27 +1803,27 @@ pub const QCborValue = extern struct {
     ///
     /// ` opts: flag of qcborvalue_enums.DiagnosticNotationOption `
     ///
-    pub fn ToDiagnosticNotation1(self: QCborValue, allocator: std.mem.Allocator, opts: i32) []const u8 {
+    pub fn toDiagnosticNotation1(self: QCborValue, allocator: std.mem.Allocator, opts: i32) []const u8 {
         var _str = qtc.QCborValue_ToDiagnosticNotation1(@ptrCast(self.ptr), @bitCast(opts));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.ToDiagnosticNotation1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValue.toDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalue.html#dtor.QCborValue)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborValue `
     ///
-    pub fn Delete(self: QCborValue) void {
+    pub fn delete(self: QCborValue) void {
         qtc.QCborValue_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1400,27 +1838,39 @@ pub const QCborValueConstRef = extern struct {
 
     pub const _is_QCborValueConstRef = {};
 
-    /// New constructs a new QCborValueConstRef object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCborValueConstRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborValueConstRef `
     ///
-    pub fn New(other: anytype) QCborValueConstRef {
+    pub fn new(other: anytype) QCborValueConstRef {
         comptime _ = @TypeOf(other)._is_QCborValueConstRef;
         return .{ .ptr = qtc.QCborValueConstRef_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QCborValueConstRef object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCborValueConstRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QCborValueConstRef `
     ///
-    pub fn New2(param1: anytype) QCborValueConstRef {
+    pub fn new2(param1: anytype) QCborValueConstRef {
         comptime _ = @TypeOf(param1)._is_QCborValueConstRef;
         return .{ .ptr = qtc.QCborValueConstRef_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toQCborValue` instead
+    ///
+    pub const ToQCborValue = toQCborValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator)
     ///
@@ -1428,9 +1878,15 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToQCborValue(self: QCborValueConstRef) QCborValue {
+    pub fn toQCborValue(self: QCborValueConstRef) QCborValue {
         return .{ .ptr = qtc.QCborValueConstRef_ToQCborValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#type)
     ///
@@ -1442,9 +1898,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` qcborvalue_enums.Type `
     ///
-    pub fn Type(self: QCborValueConstRef) i32 {
+    pub fn type0(self: QCborValueConstRef) i32 {
         return qtc.QCborValueConstRef_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInteger` instead
+    ///
+    pub const IsInteger = isInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInteger)
     ///
@@ -1452,9 +1912,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsInteger(self: QCborValueConstRef) bool {
+    pub fn isInteger(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isByteArray` instead
+    ///
+    pub const IsByteArray = isByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isByteArray)
     ///
@@ -1462,9 +1926,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsByteArray(self: QCborValueConstRef) bool {
+    pub fn isByteArray(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsByteArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isString)
     ///
@@ -1472,9 +1940,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsString(self: QCborValueConstRef) bool {
+    pub fn isString(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isArray)
     ///
@@ -1482,9 +1954,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsArray(self: QCborValueConstRef) bool {
+    pub fn isArray(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMap` instead
+    ///
+    pub const IsMap = isMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isMap)
     ///
@@ -1492,9 +1968,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsMap(self: QCborValueConstRef) bool {
+    pub fn isMap(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsMap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTag` instead
+    ///
+    pub const IsTag = isTag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTag)
     ///
@@ -1502,9 +1982,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsTag(self: QCborValueConstRef) bool {
+    pub fn isTag(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsTag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFalse` instead
+    ///
+    pub const IsFalse = isFalse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isFalse)
     ///
@@ -1512,9 +1996,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsFalse(self: QCborValueConstRef) bool {
+    pub fn isFalse(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsFalse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTrue` instead
+    ///
+    pub const IsTrue = isTrue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isTrue)
     ///
@@ -1522,9 +2010,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsTrue(self: QCborValueConstRef) bool {
+    pub fn isTrue(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsTrue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isBool)
     ///
@@ -1532,9 +2024,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsBool(self: QCborValueConstRef) bool {
+    pub fn isBool(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isNull)
     ///
@@ -1542,9 +2038,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsNull(self: QCborValueConstRef) bool {
+    pub fn isNull(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUndefined)
     ///
@@ -1552,9 +2052,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsUndefined(self: QCborValueConstRef) bool {
+    pub fn isUndefined(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDouble)
     ///
@@ -1562,9 +2066,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsDouble(self: QCborValueConstRef) bool {
+    pub fn isDouble(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDateTime` instead
+    ///
+    pub const IsDateTime = isDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isDateTime)
     ///
@@ -1572,9 +2080,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsDateTime(self: QCborValueConstRef) bool {
+    pub fn isDateTime(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsDateTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUrl` instead
+    ///
+    pub const IsUrl = isUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUrl)
     ///
@@ -1582,9 +2094,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsUrl(self: QCborValueConstRef) bool {
+    pub fn isUrl(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsUrl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRegularExpression` instead
+    ///
+    pub const IsRegularExpression = isRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isRegularExpression)
     ///
@@ -1592,9 +2108,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsRegularExpression(self: QCborValueConstRef) bool {
+    pub fn isRegularExpression(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsRegularExpression(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUuid` instead
+    ///
+    pub const IsUuid = isUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isUuid)
     ///
@@ -1602,9 +2122,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsUuid(self: QCborValueConstRef) bool {
+    pub fn isUuid(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsUuid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInvalid` instead
+    ///
+    pub const IsInvalid = isInvalid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isInvalid)
     ///
@@ -1612,9 +2136,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsInvalid(self: QCborValueConstRef) bool {
+    pub fn isInvalid(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsInvalid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isContainer` instead
+    ///
+    pub const IsContainer = isContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isContainer)
     ///
@@ -1622,9 +2150,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsContainer(self: QCborValueConstRef) bool {
+    pub fn isContainer(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType` instead
+    ///
+    pub const IsSimpleType = isSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
     ///
@@ -1632,9 +2164,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn IsSimpleType(self: QCborValueConstRef) bool {
+    pub fn isSimpleType(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_IsSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType2` instead
+    ///
+    pub const IsSimpleType2 = isSimpleType2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#isSimpleType)
     ///
@@ -1644,9 +2180,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn IsSimpleType2(self: QCborValueConstRef, st: u8) bool {
+    pub fn isSimpleType2(self: QCborValueConstRef, st: u8) bool {
         return qtc.QCborValueConstRef_IsSimpleType2(@ptrCast(self.ptr), @bitCast(st));
     }
+
+    /// ### DEPRECATED: Use `toSimpleType` instead
+    ///
+    pub const ToSimpleType = toSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
@@ -1658,9 +2198,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType(self: QCborValueConstRef) u8 {
+    pub fn toSimpleType(self: QCborValueConstRef) u8 {
         return qtc.QCborValueConstRef_ToSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tag` instead
+    ///
+    pub const Tag = tag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
@@ -1672,9 +2216,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag(self: QCborValueConstRef) u64 {
+    pub fn tag(self: QCborValueConstRef) u64 {
         return qtc.QCborValueConstRef_Tag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `taggedValue` instead
+    ///
+    pub const TaggedValue = taggedValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
     ///
@@ -1682,9 +2230,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn TaggedValue(self: QCborValueConstRef) QCborValue {
+    pub fn taggedValue(self: QCborValueConstRef) QCborValue {
         return .{ .ptr = qtc.QCborValueConstRef_TaggedValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
     ///
@@ -1692,9 +2244,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToInteger(self: QCborValueConstRef) i64 {
+    pub fn toInteger(self: QCborValueConstRef) i64 {
         return qtc.QCborValueConstRef_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
     ///
@@ -1702,9 +2258,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToBool(self: QCborValueConstRef) bool {
+    pub fn toBool(self: QCborValueConstRef) bool {
         return qtc.QCborValueConstRef_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
     ///
@@ -1712,9 +2272,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToDouble(self: QCborValueConstRef) f64 {
+    pub fn toDouble(self: QCborValueConstRef) f64 {
         return qtc.QCborValueConstRef_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toByteArray` instead
+    ///
+    pub const ToByteArray = toByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
     ///
@@ -1724,13 +2288,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToByteArray(self: QCborValueConstRef, allocator: std.mem.Allocator) []u8 {
+    pub fn toByteArray(self: QCborValueConstRef, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.toByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
     ///
@@ -1740,13 +2308,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QCborValueConstRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QCborValueConstRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValueConstRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime` instead
+    ///
+    pub const ToDateTime = toDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
     ///
@@ -1754,9 +2326,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToDateTime(self: QCborValueConstRef) QDateTime {
+    pub fn toDateTime(self: QCborValueConstRef) QDateTime {
         return .{ .ptr = qtc.QCborValueConstRef_ToDateTime(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl` instead
+    ///
+    pub const ToUrl = toUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
     ///
@@ -1764,9 +2340,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToUrl(self: QCborValueConstRef) QUrl {
+    pub fn toUrl(self: QCborValueConstRef) QUrl {
         return .{ .ptr = qtc.QCborValueConstRef_ToUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression` instead
+    ///
+    pub const ToRegularExpression = toRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
     ///
@@ -1774,9 +2354,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToRegularExpression(self: QCborValueConstRef) QRegularExpression {
+    pub fn toRegularExpression(self: QCborValueConstRef) QRegularExpression {
         return .{ .ptr = qtc.QCborValueConstRef_ToRegularExpression(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid` instead
+    ///
+    pub const ToUuid = toUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
     ///
@@ -1784,9 +2368,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToUuid(self: QCborValueConstRef) QUuid {
+    pub fn toUuid(self: QCborValueConstRef) QUuid {
         return .{ .ptr = qtc.QCborValueConstRef_ToUuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
     ///
@@ -1794,9 +2382,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToArray(self: QCborValueConstRef) QCborArray {
+    pub fn toArray(self: QCborValueConstRef) QCborArray {
         return .{ .ptr = qtc.QCborValueConstRef_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray2` instead
+    ///
+    pub const ToArray2 = toArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toArray)
     ///
@@ -1806,10 +2398,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` a: QCborArray `
     ///
-    pub fn ToArray2(self: QCborValueConstRef, a: anytype) QCborArray {
+    pub fn toArray2(self: QCborValueConstRef, a: anytype) QCborArray {
         comptime _ = @TypeOf(a)._is_QCborArray;
         return .{ .ptr = qtc.QCborValueConstRef_ToArray2(@ptrCast(self.ptr), @ptrCast(a.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap` instead
+    ///
+    pub const ToMap = toMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
     ///
@@ -1817,9 +2413,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToMap(self: QCborValueConstRef) QCborMap {
+    pub fn toMap(self: QCborValueConstRef) QCborMap {
         return .{ .ptr = qtc.QCborValueConstRef_ToMap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap2` instead
+    ///
+    pub const ToMap2 = toMap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toMap)
     ///
@@ -1829,10 +2429,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` m: QCborMap `
     ///
-    pub fn ToMap2(self: QCborValueConstRef, m: anytype) QCborMap {
+    pub fn toMap2(self: QCborValueConstRef, m: anytype) QCborMap {
         comptime _ = @TypeOf(m)._is_QCborMap;
         return .{ .ptr = qtc.QCborValueConstRef_ToMap2(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
@@ -1842,13 +2446,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QCborValueConstRef, key: []const u8) QCborValue {
+    pub fn operatorSubscript(self: QCborValueConstRef, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueConstRef_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
@@ -1858,13 +2466,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QCborValueConstRef, key: []u8) QCborValue {
+    pub fn operatorSubscript2(self: QCborValueConstRef, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueConstRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#operator-5b-5d)
     ///
@@ -1874,9 +2486,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` key: i64 `
     ///
-    pub fn OperatorSubscript3(self: QCborValueConstRef, key: i64) QCborValue {
+    pub fn operatorSubscript3(self: QCborValueConstRef, key: i64) QCborValue {
         return .{ .ptr = qtc.QCborValueConstRef_OperatorSubscript3(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#compare)
     ///
@@ -1886,10 +2502,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn Compare(self: QCborValueConstRef, other: anytype) i32 {
+    pub fn compare(self: QCborValueConstRef, other: anytype) i32 {
         comptime _ = @TypeOf(other)._is_QCborValue;
         return qtc.QCborValueConstRef_Compare(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toVariant)
     ///
@@ -1897,9 +2517,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToVariant(self: QCborValueConstRef) QVariant {
+    pub fn toVariant(self: QCborValueConstRef) QVariant {
         return .{ .ptr = qtc.QCborValueConstRef_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toJsonValue` instead
+    ///
+    pub const ToJsonValue = toJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toJsonValue)
     ///
@@ -1907,9 +2531,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn ToJsonValue(self: QCborValueConstRef) QJsonValue {
+    pub fn toJsonValue(self: QCborValueConstRef) QJsonValue {
         return .{ .ptr = qtc.QCborValueConstRef_ToJsonValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor` instead
+    ///
+    pub const ToCbor = toCbor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
@@ -1919,13 +2547,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToCbor(self: QCborValueConstRef, allocator: std.mem.Allocator) []u8 {
+    pub fn toCbor(self: QCborValueConstRef, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.ToCbor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.toCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor2` instead
+    ///
+    pub const ToCbor2 = toCbor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
@@ -1935,10 +2567,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` writer: QCborStreamWriter `
     ///
-    pub fn ToCbor2(self: QCborValueConstRef, writer: anytype) void {
+    pub fn toCbor2(self: QCborValueConstRef, writer: anytype) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValueConstRef_ToCbor2(@ptrCast(self.ptr), @ptrCast(writer.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation` instead
+    ///
+    pub const ToDiagnosticNotation = toDiagnosticNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
@@ -1948,13 +2584,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToDiagnosticNotation(self: QCborValueConstRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toDiagnosticNotation(self: QCborValueConstRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValueConstRef_ToDiagnosticNotation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.ToDiagnosticNotation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.toDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toSimpleType1` instead
+    ///
+    pub const ToSimpleType1 = toSimpleType1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toSimpleType)
     ///
@@ -1968,9 +2608,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType1(self: QCborValueConstRef, defaultValue: u8) u8 {
+    pub fn toSimpleType1(self: QCborValueConstRef, defaultValue: u8) u8 {
         return qtc.QCborValueConstRef_ToSimpleType1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `tag1` instead
+    ///
+    pub const Tag1 = tag1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#tag)
     ///
@@ -1984,9 +2628,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag1(self: QCborValueConstRef, defaultValue: u64) u64 {
+    pub fn tag1(self: QCborValueConstRef, defaultValue: u64) u64 {
         return qtc.QCborValueConstRef_Tag1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `taggedValue1` instead
+    ///
+    pub const TaggedValue1 = taggedValue1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#taggedValue)
     ///
@@ -1996,10 +2644,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: QCborValue `
     ///
-    pub fn TaggedValue1(self: QCborValueConstRef, defaultValue: anytype) QCborValue {
+    pub fn taggedValue1(self: QCborValueConstRef, defaultValue: anytype) QCborValue {
         comptime _ = @TypeOf(defaultValue)._is_QCborValue;
         return .{ .ptr = qtc.QCborValueConstRef_TaggedValue1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toInteger)
     ///
@@ -2009,9 +2661,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QCborValueConstRef, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QCborValueConstRef, defaultValue: i64) i64 {
         return qtc.QCborValueConstRef_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toBool)
     ///
@@ -2021,9 +2677,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QCborValueConstRef, defaultValue: bool) bool {
+    pub fn toBool1(self: QCborValueConstRef, defaultValue: bool) bool {
         return qtc.QCborValueConstRef_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDouble)
     ///
@@ -2033,9 +2693,13 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QCborValueConstRef, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QCborValueConstRef, defaultValue: f64) f64 {
         return qtc.QCborValueConstRef_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toByteArray1` instead
+    ///
+    pub const ToByteArray1 = toByteArray1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toByteArray)
     ///
@@ -2047,17 +2711,21 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: []u8 `
     ///
-    pub fn ToByteArray1(self: QCborValueConstRef, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
+    pub fn toByteArray1(self: QCborValueConstRef, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToByteArray1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.toByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toString)
     ///
@@ -2069,17 +2737,21 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString1(self: QCborValueConstRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString1(self: QCborValueConstRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QCborValueConstRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime1` instead
+    ///
+    pub const ToDateTime1 = toDateTime1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDateTime)
     ///
@@ -2089,10 +2761,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: QDateTime `
     ///
-    pub fn ToDateTime1(self: QCborValueConstRef, defaultValue: anytype) QDateTime {
+    pub fn toDateTime1(self: QCborValueConstRef, defaultValue: anytype) QDateTime {
         comptime _ = @TypeOf(defaultValue)._is_QDateTime;
         return .{ .ptr = qtc.QCborValueConstRef_ToDateTime1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl1` instead
+    ///
+    pub const ToUrl1 = toUrl1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUrl)
     ///
@@ -2102,10 +2778,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: QUrl `
     ///
-    pub fn ToUrl1(self: QCborValueConstRef, defaultValue: anytype) QUrl {
+    pub fn toUrl1(self: QCborValueConstRef, defaultValue: anytype) QUrl {
         comptime _ = @TypeOf(defaultValue)._is_QUrl;
         return .{ .ptr = qtc.QCborValueConstRef_ToUrl1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression1` instead
+    ///
+    pub const ToRegularExpression1 = toRegularExpression1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toRegularExpression)
     ///
@@ -2115,10 +2795,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: QRegularExpression `
     ///
-    pub fn ToRegularExpression1(self: QCborValueConstRef, defaultValue: anytype) QRegularExpression {
+    pub fn toRegularExpression1(self: QCborValueConstRef, defaultValue: anytype) QRegularExpression {
         comptime _ = @TypeOf(defaultValue)._is_QRegularExpression;
         return .{ .ptr = qtc.QCborValueConstRef_ToRegularExpression1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid1` instead
+    ///
+    pub const ToUuid1 = toUuid1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toUuid)
     ///
@@ -2128,10 +2812,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` defaultValue: QUuid `
     ///
-    pub fn ToUuid1(self: QCborValueConstRef, defaultValue: anytype) QUuid {
+    pub fn toUuid1(self: QCborValueConstRef, defaultValue: anytype) QUuid {
         comptime _ = @TypeOf(defaultValue)._is_QUuid;
         return .{ .ptr = qtc.QCborValueConstRef_ToUuid1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor1` instead
+    ///
+    pub const ToCbor1 = toCbor1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
@@ -2143,13 +2831,17 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor1(self: QCborValueConstRef, allocator: std.mem.Allocator, opt: i32) []u8 {
+    pub fn toCbor1(self: QCborValueConstRef, allocator: std.mem.Allocator, opt: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueConstRef_ToCbor1(@ptrCast(self.ptr), @bitCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.ToCbor1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueConstRef.toCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor22` instead
+    ///
+    pub const ToCbor22 = toCbor22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toCbor)
     ///
@@ -2161,10 +2853,14 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor22(self: QCborValueConstRef, writer: anytype, opt: i32) void {
+    pub fn toCbor22(self: QCborValueConstRef, writer: anytype, opt: i32) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValueConstRef_ToCbor22(@ptrCast(self.ptr), @ptrCast(writer.ptr), @bitCast(opt));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation1` instead
+    ///
+    pub const ToDiagnosticNotation1 = toDiagnosticNotation1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#toDiagnosticNotation)
     ///
@@ -2176,27 +2872,27 @@ pub const QCborValueConstRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.DiagnosticNotationOption `
     ///
-    pub fn ToDiagnosticNotation1(self: QCborValueConstRef, allocator: std.mem.Allocator, opt: i32) []const u8 {
+    pub fn toDiagnosticNotation1(self: QCborValueConstRef, allocator: std.mem.Allocator, opt: i32) []const u8 {
         var _str = qtc.QCborValueConstRef_ToDiagnosticNotation1(@ptrCast(self.ptr), @bitCast(opt));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.ToDiagnosticNotation1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueConstRef.toDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueconstref.html#dtor.QCborValueConstRef)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborValueConstRef `
     ///
-    pub fn Delete(self: QCborValueConstRef) void {
+    pub fn delete(self: QCborValueConstRef) void {
         qtc.QCborValueConstRef_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2212,38 +2908,54 @@ pub const QCborValueRef = extern struct {
     pub const _is_QCborValueRef = {};
     pub const _is_QCborValueConstRef = {};
 
-    /// New constructs a new QCborValueRef object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCborValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborValueRef `
     ///
-    pub fn New(other: anytype) QCborValueRef {
+    pub fn new(other: anytype) QCborValueRef {
         comptime _ = @TypeOf(other)._is_QCborValueRef;
         return .{ .ptr = qtc.QCborValueRef_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QCborValueRef object and invalidates the source QCborValueRef object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCborValueRef object and invalidate the source QCborValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCborValueRef `
     ///
-    pub fn New2(other: anytype) QCborValueRef {
+    pub fn new2(other: anytype) QCborValueRef {
         comptime _ = @TypeOf(other)._is_QCborValueRef;
         return .{ .ptr = qtc.QCborValueRef_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCborValueRef object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCborValueRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QCborValueRef `
     ///
-    pub fn New3(param1: anytype) QCborValueRef {
+    pub fn new3(param1: anytype) QCborValueRef {
         comptime _ = @TypeOf(param1)._is_QCborValueRef;
         return .{ .ptr = qtc.QCborValueRef_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
@@ -2253,10 +2965,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn OperatorAssign(self: QCborValueRef, other: anytype) void {
+    pub fn operatorAssign(self: QCborValueRef, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCborValue;
         qtc.QCborValueRef_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-eq)
     ///
@@ -2266,10 +2982,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` other: QCborValueRef `
     ///
-    pub fn OperatorAssign2(self: QCborValueRef, other: anytype) void {
+    pub fn operatorAssign2(self: QCborValueRef, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCborValueRef;
         qtc.QCborValueRef_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2279,9 +2999,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: i64 `
     ///
-    pub fn OperatorSubscript(self: QCborValueRef, key: i64) QCborValueRef {
+    pub fn operatorSubscript(self: QCborValueRef, key: i64) QCborValueRef {
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2291,13 +3015,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript2(self: QCborValueRef, key: []u8) QCborValueRef {
+    pub fn operatorSubscript2(self: QCborValueRef, key: []u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2307,7 +3035,7 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript3(self: QCborValueRef, key: []const u8) QCborValueRef {
+    pub fn operatorSubscript3(self: QCborValueRef, key: []const u8) QCborValueRef {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -2315,15 +3043,25 @@ pub const QCborValueRef = extern struct {
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `toQCborValue` instead
+    ///
+    pub const ToQCborValue = toQCborValue;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToQCborValue(self: QCborValueRef) QCborValue {
+    pub fn toQCborValue(self: QCborValueRef) QCborValue {
         return .{ .ptr = qtc.QCborValueRef_ToQCborValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#type)
     ///
@@ -2335,9 +3073,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` qcborvalue_enums.Type `
     ///
-    pub fn Type(self: QCborValueRef) i32 {
+    pub fn type0(self: QCborValueRef) i32 {
         return qtc.QCborValueRef_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInteger` instead
+    ///
+    pub const IsInteger = isInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isInteger)
     ///
@@ -2345,9 +3087,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsInteger(self: QCborValueRef) bool {
+    pub fn isInteger(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isByteArray` instead
+    ///
+    pub const IsByteArray = isByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isByteArray)
     ///
@@ -2355,9 +3101,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsByteArray(self: QCborValueRef) bool {
+    pub fn isByteArray(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsByteArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isString` instead
+    ///
+    pub const IsString = isString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isString)
     ///
@@ -2365,9 +3115,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsString(self: QCborValueRef) bool {
+    pub fn isString(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsString(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isArray)
     ///
@@ -2375,9 +3129,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsArray(self: QCborValueRef) bool {
+    pub fn isArray(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMap` instead
+    ///
+    pub const IsMap = isMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isMap)
     ///
@@ -2385,9 +3143,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsMap(self: QCborValueRef) bool {
+    pub fn isMap(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsMap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTag` instead
+    ///
+    pub const IsTag = isTag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isTag)
     ///
@@ -2395,9 +3157,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsTag(self: QCborValueRef) bool {
+    pub fn isTag(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsTag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFalse` instead
+    ///
+    pub const IsFalse = isFalse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isFalse)
     ///
@@ -2405,9 +3171,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsFalse(self: QCborValueRef) bool {
+    pub fn isFalse(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsFalse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTrue` instead
+    ///
+    pub const IsTrue = isTrue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isTrue)
     ///
@@ -2415,9 +3185,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsTrue(self: QCborValueRef) bool {
+    pub fn isTrue(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsTrue(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBool` instead
+    ///
+    pub const IsBool = isBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isBool)
     ///
@@ -2425,9 +3199,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsBool(self: QCborValueRef) bool {
+    pub fn isBool(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isNull)
     ///
@@ -2435,9 +3213,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsNull(self: QCborValueRef) bool {
+    pub fn isNull(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndefined` instead
+    ///
+    pub const IsUndefined = isUndefined;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUndefined)
     ///
@@ -2445,9 +3227,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsUndefined(self: QCborValueRef) bool {
+    pub fn isUndefined(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsUndefined(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDouble` instead
+    ///
+    pub const IsDouble = isDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isDouble)
     ///
@@ -2455,9 +3241,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsDouble(self: QCborValueRef) bool {
+    pub fn isDouble(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDateTime` instead
+    ///
+    pub const IsDateTime = isDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isDateTime)
     ///
@@ -2465,9 +3255,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsDateTime(self: QCborValueRef) bool {
+    pub fn isDateTime(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsDateTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUrl` instead
+    ///
+    pub const IsUrl = isUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUrl)
     ///
@@ -2475,9 +3269,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsUrl(self: QCborValueRef) bool {
+    pub fn isUrl(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsUrl(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRegularExpression` instead
+    ///
+    pub const IsRegularExpression = isRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isRegularExpression)
     ///
@@ -2485,9 +3283,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsRegularExpression(self: QCborValueRef) bool {
+    pub fn isRegularExpression(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsRegularExpression(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUuid` instead
+    ///
+    pub const IsUuid = isUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isUuid)
     ///
@@ -2495,9 +3297,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsUuid(self: QCborValueRef) bool {
+    pub fn isUuid(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsUuid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInvalid` instead
+    ///
+    pub const IsInvalid = isInvalid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isInvalid)
     ///
@@ -2505,9 +3311,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsInvalid(self: QCborValueRef) bool {
+    pub fn isInvalid(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsInvalid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isContainer` instead
+    ///
+    pub const IsContainer = isContainer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isContainer)
     ///
@@ -2515,9 +3325,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsContainer(self: QCborValueRef) bool {
+    pub fn isContainer(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsContainer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType` instead
+    ///
+    pub const IsSimpleType = isSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
     ///
@@ -2525,9 +3339,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn IsSimpleType(self: QCborValueRef) bool {
+    pub fn isSimpleType(self: QCborValueRef) bool {
         return qtc.QCborValueRef_IsSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSimpleType2` instead
+    ///
+    pub const IsSimpleType2 = isSimpleType2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#isSimpleType)
     ///
@@ -2537,9 +3355,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` st: qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn IsSimpleType2(self: QCborValueRef, st: u8) bool {
+    pub fn isSimpleType2(self: QCborValueRef, st: u8) bool {
         return qtc.QCborValueRef_IsSimpleType2(@ptrCast(self.ptr), @bitCast(st));
     }
+
+    /// ### DEPRECATED: Use `toSimpleType` instead
+    ///
+    pub const ToSimpleType = toSimpleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
@@ -2551,9 +3373,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType(self: QCborValueRef) u8 {
+    pub fn toSimpleType(self: QCborValueRef) u8 {
         return qtc.QCborValueRef_ToSimpleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tag` instead
+    ///
+    pub const Tag = tag;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
@@ -2565,9 +3391,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag(self: QCborValueRef) u64 {
+    pub fn tag(self: QCborValueRef) u64 {
         return qtc.QCborValueRef_Tag(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `taggedValue` instead
+    ///
+    pub const TaggedValue = taggedValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
     ///
@@ -2575,9 +3405,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn TaggedValue(self: QCborValueRef) QCborValue {
+    pub fn taggedValue(self: QCborValueRef) QCborValue {
         return .{ .ptr = qtc.QCborValueRef_TaggedValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toInteger` instead
+    ///
+    pub const ToInteger = toInteger;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
     ///
@@ -2585,9 +3419,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToInteger(self: QCborValueRef) i64 {
+    pub fn toInteger(self: QCborValueRef) i64 {
         return qtc.QCborValueRef_ToInteger(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
     ///
@@ -2595,9 +3433,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToBool(self: QCborValueRef) bool {
+    pub fn toBool(self: QCborValueRef) bool {
         return qtc.QCborValueRef_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDouble` instead
+    ///
+    pub const ToDouble = toDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
     ///
@@ -2605,9 +3447,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToDouble(self: QCborValueRef) f64 {
+    pub fn toDouble(self: QCborValueRef) f64 {
         return qtc.QCborValueRef_ToDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toByteArray` instead
+    ///
+    pub const ToByteArray = toByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
     ///
@@ -2617,13 +3463,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToByteArray(self: QCborValueRef, allocator: std.mem.Allocator) []u8 {
+    pub fn toByteArray(self: QCborValueRef, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.toByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
     ///
@@ -2633,13 +3483,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QCborValueRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QCborValueRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValueRef_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime` instead
+    ///
+    pub const ToDateTime = toDateTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
     ///
@@ -2647,9 +3501,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToDateTime(self: QCborValueRef) QDateTime {
+    pub fn toDateTime(self: QCborValueRef) QDateTime {
         return .{ .ptr = qtc.QCborValueRef_ToDateTime(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl` instead
+    ///
+    pub const ToUrl = toUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
     ///
@@ -2657,9 +3515,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToUrl(self: QCborValueRef) QUrl {
+    pub fn toUrl(self: QCborValueRef) QUrl {
         return .{ .ptr = qtc.QCborValueRef_ToUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression` instead
+    ///
+    pub const ToRegularExpression = toRegularExpression;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
     ///
@@ -2667,9 +3529,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToRegularExpression(self: QCborValueRef) QRegularExpression {
+    pub fn toRegularExpression(self: QCborValueRef) QRegularExpression {
         return .{ .ptr = qtc.QCborValueRef_ToRegularExpression(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid` instead
+    ///
+    pub const ToUuid = toUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
     ///
@@ -2677,9 +3543,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToUuid(self: QCborValueRef) QUuid {
+    pub fn toUuid(self: QCborValueRef) QUuid {
         return .{ .ptr = qtc.QCborValueRef_ToUuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray` instead
+    ///
+    pub const ToArray = toArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
     ///
@@ -2687,9 +3557,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToArray(self: QCborValueRef) QCborArray {
+    pub fn toArray(self: QCborValueRef) QCborArray {
         return .{ .ptr = qtc.QCborValueRef_ToArray(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toArray2` instead
+    ///
+    pub const ToArray2 = toArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toArray)
     ///
@@ -2699,10 +3573,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` a: QCborArray `
     ///
-    pub fn ToArray2(self: QCborValueRef, a: anytype) QCborArray {
+    pub fn toArray2(self: QCborValueRef, a: anytype) QCborArray {
         comptime _ = @TypeOf(a)._is_QCborArray;
         return .{ .ptr = qtc.QCborValueRef_ToArray2(@ptrCast(self.ptr), @ptrCast(a.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap` instead
+    ///
+    pub const ToMap = toMap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
     ///
@@ -2710,9 +3588,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToMap(self: QCborValueRef) QCborMap {
+    pub fn toMap(self: QCborValueRef) QCborMap {
         return .{ .ptr = qtc.QCborValueRef_ToMap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toMap2` instead
+    ///
+    pub const ToMap2 = toMap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toMap)
     ///
@@ -2722,10 +3604,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` m: QCborMap `
     ///
-    pub fn ToMap2(self: QCborValueRef, m: anytype) QCborMap {
+    pub fn toMap2(self: QCborValueRef, m: anytype) QCborMap {
         comptime _ = @TypeOf(m)._is_QCborMap;
         return .{ .ptr = qtc.QCborValueRef_ToMap2(@ptrCast(self.ptr), @ptrCast(m.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript4` instead
+    ///
+    pub const OperatorSubscript4 = operatorSubscript4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2735,13 +3621,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript4(self: QCborValueRef, key: []const u8) QCborValue {
+    pub fn operatorSubscript4(self: QCborValueRef, key: []const u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript4(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript5` instead
+    ///
+    pub const OperatorSubscript5 = operatorSubscript5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2751,13 +3641,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript5(self: QCborValueRef, key: []u8) QCborValue {
+    pub fn operatorSubscript5(self: QCborValueRef, key: []u8) QCborValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript5(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript6` instead
+    ///
+    pub const OperatorSubscript6 = operatorSubscript6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#operator-5b-5d)
     ///
@@ -2767,9 +3661,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` key: i64 `
     ///
-    pub fn OperatorSubscript6(self: QCborValueRef, key: i64) QCborValue {
+    pub fn operatorSubscript6(self: QCborValueRef, key: i64) QCborValue {
         return .{ .ptr = qtc.QCborValueRef_OperatorSubscript6(@ptrCast(self.ptr), @bitCast(key)) };
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#compare)
     ///
@@ -2779,10 +3677,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` other: QCborValue `
     ///
-    pub fn Compare(self: QCborValueRef, other: anytype) i32 {
+    pub fn compare(self: QCborValueRef, other: anytype) i32 {
         comptime _ = @TypeOf(other)._is_QCborValue;
         return qtc.QCborValueRef_Compare(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toVariant)
     ///
@@ -2790,9 +3692,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToVariant(self: QCborValueRef) QVariant {
+    pub fn toVariant(self: QCborValueRef) QVariant {
         return .{ .ptr = qtc.QCborValueRef_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toJsonValue` instead
+    ///
+    pub const ToJsonValue = toJsonValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toJsonValue)
     ///
@@ -2800,9 +3706,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn ToJsonValue(self: QCborValueRef) QJsonValue {
+    pub fn toJsonValue(self: QCborValueRef) QJsonValue {
         return .{ .ptr = qtc.QCborValueRef_ToJsonValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor` instead
+    ///
+    pub const ToCbor = toCbor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
@@ -2812,13 +3722,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToCbor(self: QCborValueRef, allocator: std.mem.Allocator) []u8 {
+    pub fn toCbor(self: QCborValueRef, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.ToCbor: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.toCbor: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor2` instead
+    ///
+    pub const ToCbor2 = toCbor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
@@ -2828,10 +3742,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` writer: QCborStreamWriter `
     ///
-    pub fn ToCbor2(self: QCborValueRef, writer: anytype) void {
+    pub fn toCbor2(self: QCborValueRef, writer: anytype) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValueRef_ToCbor2(@ptrCast(self.ptr), @ptrCast(writer.ptr));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation` instead
+    ///
+    pub const ToDiagnosticNotation = toDiagnosticNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
@@ -2841,13 +3759,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToDiagnosticNotation(self: QCborValueRef, allocator: std.mem.Allocator) []const u8 {
+    pub fn toDiagnosticNotation(self: QCborValueRef, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborValueRef_ToDiagnosticNotation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.ToDiagnosticNotation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.toDiagnosticNotation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toSimpleType1` instead
+    ///
+    pub const ToSimpleType1 = toSimpleType1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toSimpleType)
     ///
@@ -2861,9 +3783,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborSimpleType `
     ///
-    pub fn ToSimpleType1(self: QCborValueRef, defaultValue: u8) u8 {
+    pub fn toSimpleType1(self: QCborValueRef, defaultValue: u8) u8 {
         return qtc.QCborValueRef_ToSimpleType1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `tag1` instead
+    ///
+    pub const Tag1 = tag1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#tag)
     ///
@@ -2877,9 +3803,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` qcborcommon_enums.QCborTag `
     ///
-    pub fn Tag1(self: QCborValueRef, defaultValue: u64) u64 {
+    pub fn tag1(self: QCborValueRef, defaultValue: u64) u64 {
         return qtc.QCborValueRef_Tag1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `taggedValue1` instead
+    ///
+    pub const TaggedValue1 = taggedValue1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#taggedValue)
     ///
@@ -2889,10 +3819,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: QCborValue `
     ///
-    pub fn TaggedValue1(self: QCborValueRef, defaultValue: anytype) QCborValue {
+    pub fn taggedValue1(self: QCborValueRef, defaultValue: anytype) QCborValue {
         comptime _ = @TypeOf(defaultValue)._is_QCborValue;
         return .{ .ptr = qtc.QCborValueRef_TaggedValue1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toInteger1` instead
+    ///
+    pub const ToInteger1 = toInteger1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toInteger)
     ///
@@ -2902,9 +3836,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn ToInteger1(self: QCborValueRef, defaultValue: i64) i64 {
+    pub fn toInteger1(self: QCborValueRef, defaultValue: i64) i64 {
         return qtc.QCborValueRef_ToInteger1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toBool1` instead
+    ///
+    pub const ToBool1 = toBool1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toBool)
     ///
@@ -2914,9 +3852,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn ToBool1(self: QCborValueRef, defaultValue: bool) bool {
+    pub fn toBool1(self: QCborValueRef, defaultValue: bool) bool {
         return qtc.QCborValueRef_ToBool1(@ptrCast(self.ptr), defaultValue);
     }
+
+    /// ### DEPRECATED: Use `toDouble1` instead
+    ///
+    pub const ToDouble1 = toDouble1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDouble)
     ///
@@ -2926,9 +3868,13 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn ToDouble1(self: QCborValueRef, defaultValue: f64) f64 {
+    pub fn toDouble1(self: QCborValueRef, defaultValue: f64) f64 {
         return qtc.QCborValueRef_ToDouble1(@ptrCast(self.ptr), @bitCast(defaultValue));
     }
+
+    /// ### DEPRECATED: Use `toByteArray1` instead
+    ///
+    pub const ToByteArray1 = toByteArray1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toByteArray)
     ///
@@ -2940,17 +3886,21 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: []u8 `
     ///
-    pub fn ToByteArray1(self: QCborValueRef, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
+    pub fn toByteArray1(self: QCborValueRef, allocator: std.mem.Allocator, defaultValue: []u8) []u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToByteArray1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.toByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toString)
     ///
@@ -2962,17 +3912,21 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ToString1(self: QCborValueRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
+    pub fn toString1(self: QCborValueRef, allocator: std.mem.Allocator, defaultValue: []const u8) []const u8 {
         const defaultValue_str = qtc.libqt_string{
             .len = defaultValue.len,
             .data = defaultValue.ptr,
         };
         var _str = qtc.QCborValueRef_ToString1(@ptrCast(self.ptr), defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toDateTime1` instead
+    ///
+    pub const ToDateTime1 = toDateTime1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDateTime)
     ///
@@ -2982,10 +3936,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: QDateTime `
     ///
-    pub fn ToDateTime1(self: QCborValueRef, defaultValue: anytype) QDateTime {
+    pub fn toDateTime1(self: QCborValueRef, defaultValue: anytype) QDateTime {
         comptime _ = @TypeOf(defaultValue)._is_QDateTime;
         return .{ .ptr = qtc.QCborValueRef_ToDateTime1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUrl1` instead
+    ///
+    pub const ToUrl1 = toUrl1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUrl)
     ///
@@ -2995,10 +3953,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: QUrl `
     ///
-    pub fn ToUrl1(self: QCborValueRef, defaultValue: anytype) QUrl {
+    pub fn toUrl1(self: QCborValueRef, defaultValue: anytype) QUrl {
         comptime _ = @TypeOf(defaultValue)._is_QUrl;
         return .{ .ptr = qtc.QCborValueRef_ToUrl1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRegularExpression1` instead
+    ///
+    pub const ToRegularExpression1 = toRegularExpression1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toRegularExpression)
     ///
@@ -3008,10 +3970,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: QRegularExpression `
     ///
-    pub fn ToRegularExpression1(self: QCborValueRef, defaultValue: anytype) QRegularExpression {
+    pub fn toRegularExpression1(self: QCborValueRef, defaultValue: anytype) QRegularExpression {
         comptime _ = @TypeOf(defaultValue)._is_QRegularExpression;
         return .{ .ptr = qtc.QCborValueRef_ToRegularExpression1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toUuid1` instead
+    ///
+    pub const ToUuid1 = toUuid1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toUuid)
     ///
@@ -3021,10 +3987,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` defaultValue: QUuid `
     ///
-    pub fn ToUuid1(self: QCborValueRef, defaultValue: anytype) QUuid {
+    pub fn toUuid1(self: QCborValueRef, defaultValue: anytype) QUuid {
         comptime _ = @TypeOf(defaultValue)._is_QUuid;
         return .{ .ptr = qtc.QCborValueRef_ToUuid1(@ptrCast(self.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCbor1` instead
+    ///
+    pub const ToCbor1 = toCbor1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
@@ -3036,13 +4006,17 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor1(self: QCborValueRef, allocator: std.mem.Allocator, opt: i32) []u8 {
+    pub fn toCbor1(self: QCborValueRef, allocator: std.mem.Allocator, opt: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCborValueRef_ToCbor1(@ptrCast(self.ptr), @bitCast(opt));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.ToCbor1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCborValueRef.toCbor1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toCbor22` instead
+    ///
+    pub const ToCbor22 = toCbor22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toCbor)
     ///
@@ -3054,10 +4028,14 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.EncodingOption `
     ///
-    pub fn ToCbor22(self: QCborValueRef, writer: anytype, opt: i32) void {
+    pub fn toCbor22(self: QCborValueRef, writer: anytype, opt: i32) void {
         comptime _ = @TypeOf(writer)._is_QCborStreamWriter;
         qtc.QCborValueRef_ToCbor22(@ptrCast(self.ptr), @ptrCast(writer.ptr), @bitCast(opt));
     }
+
+    /// ### DEPRECATED: Use `toDiagnosticNotation1` instead
+    ///
+    pub const ToDiagnosticNotation1 = toDiagnosticNotation1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#toDiagnosticNotation)
     ///
@@ -3069,27 +4047,27 @@ pub const QCborValueRef = extern struct {
     ///
     /// ` opt: flag of qcborvalue_enums.DiagnosticNotationOption `
     ///
-    pub fn ToDiagnosticNotation1(self: QCborValueRef, allocator: std.mem.Allocator, opt: i32) []const u8 {
+    pub fn toDiagnosticNotation1(self: QCborValueRef, allocator: std.mem.Allocator, opt: i32) []const u8 {
         var _str = qtc.QCborValueRef_ToDiagnosticNotation1(@ptrCast(self.ptr), @bitCast(opt));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.ToDiagnosticNotation1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborValueRef.toDiagnosticNotation1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborvalueref.html#dtor.QCborValueRef)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborValueRef `
     ///
-    pub fn Delete(self: QCborValueRef) void {
+    pub fn delete(self: QCborValueRef) void {
         qtc.QCborValueRef_Delete(@ptrCast(self.ptr));
     }
 };

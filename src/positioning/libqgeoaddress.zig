@@ -12,22 +12,34 @@ pub const QGeoAddress = extern struct {
 
     pub const _is_QGeoAddress = {};
 
-    /// New constructs a new QGeoAddress object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoAddress {
+    pub const New = new;
+
+    /// Allocate a new QGeoAddress object in C++ memory
+    ///
+    pub fn new() QGeoAddress {
         return .{ .ptr = qtc.QGeoAddress_new() };
     }
 
-    /// New2 constructs a new QGeoAddress object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoAddress `
     ///
-    pub fn New2(other: anytype) QGeoAddress {
+    pub fn new2(other: anytype) QGeoAddress {
         comptime _ = @TypeOf(other)._is_QGeoAddress;
         return .{ .ptr = qtc.QGeoAddress_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` other: QGeoAddress `
     ///
-    pub fn OperatorAssign(self: QGeoAddress, other: anytype) void {
+    pub fn operatorAssign(self: QGeoAddress, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoAddress;
         qtc.QGeoAddress_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` other: QGeoAddress `
     ///
-    pub fn Swap(self: QGeoAddress, other: anytype) void {
+    pub fn swap(self: QGeoAddress, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoAddress;
         qtc.QGeoAddress_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#text)
     ///
@@ -63,13 +83,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setText)
     ///
@@ -77,15 +101,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QGeoAddress, text: []const u8) void {
+    pub fn setText(self: QGeoAddress, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QGeoAddress_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `country` instead
+    ///
+    pub const Country = country;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#country)
     ///
@@ -95,13 +123,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Country(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn country(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Country(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Country: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.country: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCountry` instead
+    ///
+    pub const SetCountry = setCountry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setCountry)
     ///
@@ -109,15 +141,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` country: []const u8 `
+    /// ` _country: []const u8 `
     ///
-    pub fn SetCountry(self: QGeoAddress, country: []const u8) void {
+    pub fn setCountry(self: QGeoAddress, _country: []const u8) void {
         const country_str = qtc.libqt_string{
-            .len = country.len,
-            .data = country.ptr,
+            .len = _country.len,
+            .data = _country.ptr,
         };
         qtc.QGeoAddress_SetCountry(@ptrCast(self.ptr), country_str);
     }
+
+    /// ### DEPRECATED: Use `countryCode` instead
+    ///
+    pub const CountryCode = countryCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#countryCode)
     ///
@@ -127,13 +163,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CountryCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn countryCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_CountryCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.CountryCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.countryCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCountryCode` instead
+    ///
+    pub const SetCountryCode = setCountryCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setCountryCode)
     ///
@@ -141,15 +181,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` countryCode: []const u8 `
+    /// ` _countryCode: []const u8 `
     ///
-    pub fn SetCountryCode(self: QGeoAddress, countryCode: []const u8) void {
+    pub fn setCountryCode(self: QGeoAddress, _countryCode: []const u8) void {
         const countryCode_str = qtc.libqt_string{
-            .len = countryCode.len,
-            .data = countryCode.ptr,
+            .len = _countryCode.len,
+            .data = _countryCode.ptr,
         };
         qtc.QGeoAddress_SetCountryCode(@ptrCast(self.ptr), countryCode_str);
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#state)
     ///
@@ -159,13 +203,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn State(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn state(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_State(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.State: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.state: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setState)
     ///
@@ -173,15 +221,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` state: []const u8 `
+    /// ` _state: []const u8 `
     ///
-    pub fn SetState(self: QGeoAddress, state: []const u8) void {
+    pub fn setState(self: QGeoAddress, _state: []const u8) void {
         const state_str = qtc.libqt_string{
-            .len = state.len,
-            .data = state.ptr,
+            .len = _state.len,
+            .data = _state.ptr,
         };
         qtc.QGeoAddress_SetState(@ptrCast(self.ptr), state_str);
     }
+
+    /// ### DEPRECATED: Use `county` instead
+    ///
+    pub const County = county;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#county)
     ///
@@ -191,13 +243,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn County(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn county(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_County(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.County: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.county: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCounty` instead
+    ///
+    pub const SetCounty = setCounty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setCounty)
     ///
@@ -205,15 +261,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` county: []const u8 `
+    /// ` _county: []const u8 `
     ///
-    pub fn SetCounty(self: QGeoAddress, county: []const u8) void {
+    pub fn setCounty(self: QGeoAddress, _county: []const u8) void {
         const county_str = qtc.libqt_string{
-            .len = county.len,
-            .data = county.ptr,
+            .len = _county.len,
+            .data = _county.ptr,
         };
         qtc.QGeoAddress_SetCounty(@ptrCast(self.ptr), county_str);
     }
+
+    /// ### DEPRECATED: Use `city` instead
+    ///
+    pub const City = city;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#city)
     ///
@@ -223,13 +283,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn City(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn city(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_City(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.City: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.city: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCity` instead
+    ///
+    pub const SetCity = setCity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setCity)
     ///
@@ -237,15 +301,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` city: []const u8 `
+    /// ` _city: []const u8 `
     ///
-    pub fn SetCity(self: QGeoAddress, city: []const u8) void {
+    pub fn setCity(self: QGeoAddress, _city: []const u8) void {
         const city_str = qtc.libqt_string{
-            .len = city.len,
-            .data = city.ptr,
+            .len = _city.len,
+            .data = _city.ptr,
         };
         qtc.QGeoAddress_SetCity(@ptrCast(self.ptr), city_str);
     }
+
+    /// ### DEPRECATED: Use `district` instead
+    ///
+    pub const District = district;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#district)
     ///
@@ -255,13 +323,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn District(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn district(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_District(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.District: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.district: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDistrict` instead
+    ///
+    pub const SetDistrict = setDistrict;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setDistrict)
     ///
@@ -269,15 +341,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` district: []const u8 `
+    /// ` _district: []const u8 `
     ///
-    pub fn SetDistrict(self: QGeoAddress, district: []const u8) void {
+    pub fn setDistrict(self: QGeoAddress, _district: []const u8) void {
         const district_str = qtc.libqt_string{
-            .len = district.len,
-            .data = district.ptr,
+            .len = _district.len,
+            .data = _district.ptr,
         };
         qtc.QGeoAddress_SetDistrict(@ptrCast(self.ptr), district_str);
     }
+
+    /// ### DEPRECATED: Use `postalCode` instead
+    ///
+    pub const PostalCode = postalCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#postalCode)
     ///
@@ -287,13 +363,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PostalCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn postalCode(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_PostalCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.PostalCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.postalCode: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPostalCode` instead
+    ///
+    pub const SetPostalCode = setPostalCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setPostalCode)
     ///
@@ -301,15 +381,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` postalCode: []const u8 `
+    /// ` _postalCode: []const u8 `
     ///
-    pub fn SetPostalCode(self: QGeoAddress, postalCode: []const u8) void {
+    pub fn setPostalCode(self: QGeoAddress, _postalCode: []const u8) void {
         const postalCode_str = qtc.libqt_string{
-            .len = postalCode.len,
-            .data = postalCode.ptr,
+            .len = _postalCode.len,
+            .data = _postalCode.ptr,
         };
         qtc.QGeoAddress_SetPostalCode(@ptrCast(self.ptr), postalCode_str);
     }
+
+    /// ### DEPRECATED: Use `street` instead
+    ///
+    pub const Street = street;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#street)
     ///
@@ -319,13 +403,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Street(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn street(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_Street(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.Street: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.street: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStreet` instead
+    ///
+    pub const SetStreet = setStreet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setStreet)
     ///
@@ -333,15 +421,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` street: []const u8 `
+    /// ` _street: []const u8 `
     ///
-    pub fn SetStreet(self: QGeoAddress, street: []const u8) void {
+    pub fn setStreet(self: QGeoAddress, _street: []const u8) void {
         const street_str = qtc.libqt_string{
-            .len = street.len,
-            .data = street.ptr,
+            .len = _street.len,
+            .data = _street.ptr,
         };
         qtc.QGeoAddress_SetStreet(@ptrCast(self.ptr), street_str);
     }
+
+    /// ### DEPRECATED: Use `streetNumber` instead
+    ///
+    pub const StreetNumber = streetNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#streetNumber)
     ///
@@ -351,13 +443,17 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StreetNumber(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn streetNumber(self: QGeoAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAddress_StreetNumber(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.StreetNumber: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAddress.streetNumber: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStreetNumber` instead
+    ///
+    pub const SetStreetNumber = setStreetNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#setStreetNumber)
     ///
@@ -365,15 +461,19 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    /// ` streetNumber: []const u8 `
+    /// ` _streetNumber: []const u8 `
     ///
-    pub fn SetStreetNumber(self: QGeoAddress, streetNumber: []const u8) void {
+    pub fn setStreetNumber(self: QGeoAddress, _streetNumber: []const u8) void {
         const streetNumber_str = qtc.libqt_string{
-            .len = streetNumber.len,
-            .data = streetNumber.ptr,
+            .len = _streetNumber.len,
+            .data = _streetNumber.ptr,
         };
         qtc.QGeoAddress_SetStreetNumber(@ptrCast(self.ptr), streetNumber_str);
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#isEmpty)
     ///
@@ -381,9 +481,13 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    pub fn IsEmpty(self: QGeoAddress) bool {
+    pub fn isEmpty(self: QGeoAddress) bool {
         return qtc.QGeoAddress_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#clear)
     ///
@@ -391,9 +495,13 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    pub fn Clear(self: QGeoAddress) void {
+    pub fn clear(self: QGeoAddress) void {
         qtc.QGeoAddress_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTextGenerated` instead
+    ///
+    pub const IsTextGenerated = isTextGenerated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#isTextGenerated)
     ///
@@ -401,23 +509,23 @@ pub const QGeoAddress = extern struct {
     ///
     /// ` self: QGeoAddress `
     ///
-    pub fn IsTextGenerated(self: QGeoAddress) bool {
+    pub fn isTextGenerated(self: QGeoAddress) bool {
         return qtc.QGeoAddress_IsTextGenerated(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoaddress.html#dtor.QGeoAddress)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoAddress `
     ///
-    pub fn Delete(self: QGeoAddress) void {
+    pub fn delete(self: QGeoAddress) void {
         qtc.QGeoAddress_Delete(@ptrCast(self.ptr));
     }
 };

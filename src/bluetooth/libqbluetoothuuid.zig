@@ -18,106 +18,149 @@ pub const QBluetoothUuid = extern struct {
     pub const _is_QBluetoothUuid = {};
     pub const _is_QUuid = {};
 
-    /// New constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBluetoothUuid `
     ///
-    pub fn New(other: anytype) QBluetoothUuid {
+    pub fn new(other: anytype) QBluetoothUuid {
         comptime _ = @TypeOf(other)._is_QBluetoothUuid;
         return .{ .ptr = qtc.QBluetoothUuid_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QBluetoothUuid {
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
+    ///
+    pub fn new2() QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new2() };
     }
 
-    /// New3 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: qbluetoothuuid_enums.ProtocolUuid `
     ///
-    pub fn New3(uuid: i32) QBluetoothUuid {
+    pub fn new3(uuid: i32) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new3(@bitCast(uuid)) };
     }
 
-    /// New4 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: qbluetoothuuid_enums.ServiceClassUuid `
     ///
-    pub fn New4(uuid: i32) QBluetoothUuid {
+    pub fn new4(uuid: i32) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new4(@bitCast(uuid)) };
     }
 
-    /// New5 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: qbluetoothuuid_enums.CharacteristicType `
     ///
-    pub fn New5(uuid: i32) QBluetoothUuid {
+    pub fn new5(uuid: i32) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new5(@bitCast(uuid)) };
     }
 
-    /// New6 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: qbluetoothuuid_enums.DescriptorType `
     ///
-    pub fn New6(uuid: i32) QBluetoothUuid {
+    pub fn new6(uuid: i32) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new6(@bitCast(uuid)) };
     }
 
-    /// New7 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: u16 `
     ///
-    pub fn New7(uuid: u16) QBluetoothUuid {
+    pub fn new7(uuid: u16) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new7(@bitCast(uuid)) };
     }
 
-    /// New8 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: u32 `
     ///
-    pub fn New8(uuid: u32) QBluetoothUuid {
+    pub fn new8(uuid: u32) QBluetoothUuid {
         return .{ .ptr = qtc.QBluetoothUuid_new8(@bitCast(uuid)) };
     }
 
-    /// New9 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: QBluetoothUuid `
     ///
-    pub fn New9(uuid: anytype) QBluetoothUuid {
+    pub fn new9(uuid: anytype) QBluetoothUuid {
         comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
         return .{ .ptr = qtc.QBluetoothUuid_new9(@ptrCast(uuid.ptr)) };
     }
 
-    /// New10 constructs a new QBluetoothUuid object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QBluetoothUuid object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uuid: QUuid `
     ///
-    pub fn New10(uuid: anytype) QBluetoothUuid {
+    pub fn new10(uuid: anytype) QBluetoothUuid {
         comptime _ = @TypeOf(uuid)._is_QUuid;
         return .{ .ptr = qtc.QBluetoothUuid_new10(@ptrCast(uuid.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -125,9 +168,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` other: QBluetoothUuid `
     ///
-    pub fn CopyAssign(self: QBluetoothUuid, other: QBluetoothUuid) void {
+    pub fn copyAssign(self: QBluetoothUuid, other: QBluetoothUuid) void {
         qtc.QBluetoothUuid_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#operator-eq)
     ///
@@ -137,10 +184,14 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` other: QBluetoothUuid `
     ///
-    pub fn OperatorAssign(self: QBluetoothUuid, other: anytype) void {
+    pub fn operatorAssign(self: QBluetoothUuid, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothUuid;
         qtc.QBluetoothUuid_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#minimumSize)
     ///
@@ -148,9 +199,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn MinimumSize(self: QBluetoothUuid) i32 {
+    pub fn minimumSize(self: QBluetoothUuid) i32 {
         return qtc.QBluetoothUuid_MinimumSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUInt16` instead
+    ///
+    pub const ToUInt16 = toUInt16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt16)
     ///
@@ -158,9 +213,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn ToUInt16(self: QBluetoothUuid) u16 {
+    pub fn toUInt16(self: QBluetoothUuid) u16 {
         return qtc.QBluetoothUuid_ToUInt16(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUInt32` instead
+    ///
+    pub const ToUInt32 = toUInt32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt32)
     ///
@@ -168,9 +227,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn ToUInt32(self: QBluetoothUuid) u32 {
+    pub fn toUInt32(self: QBluetoothUuid) u32 {
         return qtc.QBluetoothUuid_ToUInt32(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toUInt128` instead
+    ///
+    pub const ToUInt128 = toUInt128;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt128)
     ///
@@ -178,9 +241,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn ToUInt128(self: QBluetoothUuid) u128 {
+    pub fn toUInt128(self: QBluetoothUuid) u128 {
         return qtc.QBluetoothUuid_ToUInt128(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `serviceClassToString` instead
+    ///
+    pub const ServiceClassToString = serviceClassToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#serviceClassToString)
     ///
@@ -190,13 +257,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` uuid: qbluetoothuuid_enums.ServiceClassUuid `
     ///
-    pub fn ServiceClassToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
+    pub fn serviceClassToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
         var _str = qtc.QBluetoothUuid_ServiceClassToString(@bitCast(uuid));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.ServiceClassToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.serviceClassToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `protocolToString` instead
+    ///
+    pub const ProtocolToString = protocolToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#protocolToString)
     ///
@@ -206,13 +277,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` uuid: qbluetoothuuid_enums.ProtocolUuid `
     ///
-    pub fn ProtocolToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
+    pub fn protocolToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
         var _str = qtc.QBluetoothUuid_ProtocolToString(@bitCast(uuid));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.ProtocolToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.protocolToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `characteristicToString` instead
+    ///
+    pub const CharacteristicToString = characteristicToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#characteristicToString)
     ///
@@ -222,13 +297,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` uuid: qbluetoothuuid_enums.CharacteristicType `
     ///
-    pub fn CharacteristicToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
+    pub fn characteristicToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
         var _str = qtc.QBluetoothUuid_CharacteristicToString(@bitCast(uuid));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.CharacteristicToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.characteristicToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `descriptorToString` instead
+    ///
+    pub const DescriptorToString = descriptorToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#descriptorToString)
     ///
@@ -238,13 +317,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` uuid: qbluetoothuuid_enums.DescriptorType `
     ///
-    pub fn DescriptorToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
+    pub fn descriptorToString(allocator: std.mem.Allocator, uuid: i32) []const u8 {
         var _str = qtc.QBluetoothUuid_DescriptorToString(@bitCast(uuid));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.DescriptorToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.descriptorToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toUInt161` instead
+    ///
+    pub const ToUInt161 = toUInt161;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt16)
     ///
@@ -254,9 +337,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToUInt161(self: QBluetoothUuid, ok: *bool) u16 {
+    pub fn toUInt161(self: QBluetoothUuid, ok: *bool) u16 {
         return qtc.QBluetoothUuid_ToUInt161(@ptrCast(self.ptr), @ptrCast(ok));
     }
+
+    /// ### DEPRECATED: Use `toUInt321` instead
+    ///
+    pub const ToUInt321 = toUInt321;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt32)
     ///
@@ -266,9 +353,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToUInt321(self: QBluetoothUuid, ok: *bool) u32 {
+    pub fn toUInt321(self: QBluetoothUuid, ok: *bool) u32 {
         return qtc.QBluetoothUuid_ToUInt321(@ptrCast(self.ptr), @ptrCast(ok));
     }
+
+    /// ### DEPRECATED: Use `toUInt1281` instead
+    ///
+    pub const ToUInt1281 = toUInt1281;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#toUInt128)
     ///
@@ -278,9 +369,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` order: qsysinfo_enums.Endian `
     ///
-    pub fn ToUInt1281(self: QBluetoothUuid, order: i32) u128 {
+    pub fn toUInt1281(self: QBluetoothUuid, order: i32) u128 {
         return qtc.QBluetoothUuid_ToUInt1281(@ptrCast(self.ptr), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// Inherited from QUuid
     ///
@@ -290,13 +385,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn FromString(string: []const u8) QUuid {
+    pub fn fromString(string: []const u8) QUuid {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return .{ .ptr = qtc.QUuid_FromString(string_str) };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// Inherited from QUuid
     ///
@@ -308,13 +407,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QBluetoothUuid, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QBluetoothUuid, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QUuid_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toByteArray` instead
+    ///
+    pub const ToByteArray = toByteArray;
 
     /// Inherited from QUuid
     ///
@@ -326,13 +429,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToByteArray(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
+    pub fn toByteArray(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toBytes` instead
+    ///
+    pub const ToBytes = toBytes;
 
     /// Inherited from QUuid
     ///
@@ -342,9 +449,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn ToBytes(self: QBluetoothUuid) QUuid__Id128Bytes {
+    pub fn toBytes(self: QBluetoothUuid) QUuid__Id128Bytes {
         return .{ .ptr = qtc.QUuid_ToBytes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toRfc4122` instead
+    ///
+    pub const ToRfc4122 = toRfc4122;
 
     /// Inherited from QUuid
     ///
@@ -356,13 +467,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToRfc4122(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
+    pub fn toRfc4122(self: QBluetoothUuid, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QUuid_ToRfc4122(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.ToRfc4122: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toRfc4122: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromBytes` instead
+    ///
+    pub const FromBytes = fromBytes;
 
     /// Inherited from QUuid
     ///
@@ -372,9 +487,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` bytes: ?*const anyopaque `
     ///
-    pub fn FromBytes(bytes: ?*const anyopaque) QUuid {
+    pub fn fromBytes(bytes: ?*const anyopaque) QUuid {
         return .{ .ptr = qtc.QUuid_FromBytes(@ptrCast(bytes)) };
     }
+
+    /// ### DEPRECATED: Use `fromRfc4122` instead
+    ///
+    pub const FromRfc4122 = fromRfc4122;
 
     /// Inherited from QUuid
     ///
@@ -384,13 +503,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` param1: []u8 `
     ///
-    pub fn FromRfc4122(param1: []u8) QUuid {
+    pub fn fromRfc4122(param1: []u8) QUuid {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return .{ .ptr = qtc.QUuid_FromRfc4122(param1_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QUuid
     ///
@@ -400,17 +523,25 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn IsNull(self: QBluetoothUuid) bool {
+    pub fn isNull(self: QBluetoothUuid) bool {
         return qtc.QUuid_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createUuid` instead
+    ///
+    pub const CreateUuid = createUuid;
 
     /// Inherited from QUuid
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#createUuid)
     ///
-    pub fn CreateUuid() QUuid {
+    pub fn createUuid() QUuid {
         return .{ .ptr = qtc.QUuid_CreateUuid() };
     }
+
+    /// ### DEPRECATED: Use `createUuidV5` instead
+    ///
+    pub const CreateUuidV5 = createUuidV5;
 
     /// Inherited from QUuid
     ///
@@ -422,7 +553,7 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` baseData: []u8 `
     ///
-    pub fn CreateUuidV5(ns: anytype, baseData: []u8) QUuid {
+    pub fn createUuidV5(ns: anytype, baseData: []u8) QUuid {
         comptime _ = @TypeOf(ns)._is_QUuid;
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
@@ -430,6 +561,10 @@ pub const QBluetoothUuid = extern struct {
         };
         return .{ .ptr = qtc.QUuid_CreateUuidV5(@ptrCast(ns.ptr), baseData_str) };
     }
+
+    /// ### DEPRECATED: Use `createUuidV3` instead
+    ///
+    pub const CreateUuidV3 = createUuidV3;
 
     /// Inherited from QUuid
     ///
@@ -441,7 +576,7 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` baseData: []u8 `
     ///
-    pub fn CreateUuidV3(ns: anytype, baseData: []u8) QUuid {
+    pub fn createUuidV3(ns: anytype, baseData: []u8) QUuid {
         comptime _ = @TypeOf(ns)._is_QUuid;
         const baseData_str = qtc.libqt_string{
             .len = baseData.len,
@@ -449,6 +584,10 @@ pub const QBluetoothUuid = extern struct {
         };
         return .{ .ptr = qtc.QUuid_CreateUuidV3(@ptrCast(ns.ptr), baseData_str) };
     }
+
+    /// ### DEPRECATED: Use `variant` instead
+    ///
+    pub const Variant = variant;
 
     /// Inherited from QUuid
     ///
@@ -462,9 +601,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` quuid_enums.Variant `
     ///
-    pub fn Variant(self: QBluetoothUuid) i32 {
+    pub fn variant(self: QBluetoothUuid) i32 {
         return qtc.QUuid_Variant(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QUuid
     ///
@@ -478,10 +621,14 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` quuid_enums.Version `
     ///
-    pub fn Version(self: QBluetoothUuid) i32 {
+    pub fn version(self: QBluetoothUuid) i32 {
         return qtc.QUuid_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `data1` instead
+    ///
+    pub const Data1 = data1;
+
     /// Inherited from QUuid
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data1-var)
@@ -490,10 +637,14 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn Data1(self: QBluetoothUuid) u32 {
+    pub fn data1(self: QBluetoothUuid) u32 {
         return qtc.QUuid_Data1(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setData1` instead
+    ///
+    pub const SetData1 = setData1;
+
     /// Inherited from QUuid
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data1-var)
@@ -502,11 +653,15 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    /// ` data1: u32 `
+    /// ` _data1: u32 `
     ///
-    pub fn SetData1(self: QBluetoothUuid, data1: u32) void {
-        qtc.QUuid_SetData1(@ptrCast(self.ptr), @bitCast(data1));
+    pub fn setData1(self: QBluetoothUuid, _data1: u32) void {
+        qtc.QUuid_SetData1(@ptrCast(self.ptr), @bitCast(_data1));
     }
+
+    /// ### DEPRECATED: Use `data2` instead
+    ///
+    pub const Data2 = data2;
 
     /// Inherited from QUuid
     ///
@@ -516,10 +671,14 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn Data2(self: QBluetoothUuid) u16 {
+    pub fn data2(self: QBluetoothUuid) u16 {
         return qtc.QUuid_Data2(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setData2` instead
+    ///
+    pub const SetData2 = setData2;
+
     /// Inherited from QUuid
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data2-var)
@@ -528,11 +687,15 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    /// ` data2: u16 `
+    /// ` _data2: u16 `
     ///
-    pub fn SetData2(self: QBluetoothUuid, data2: u16) void {
-        qtc.QUuid_SetData2(@ptrCast(self.ptr), @bitCast(data2));
+    pub fn setData2(self: QBluetoothUuid, _data2: u16) void {
+        qtc.QUuid_SetData2(@ptrCast(self.ptr), @bitCast(_data2));
     }
+
+    /// ### DEPRECATED: Use `data3` instead
+    ///
+    pub const Data3 = data3;
 
     /// Inherited from QUuid
     ///
@@ -542,10 +705,14 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn Data3(self: QBluetoothUuid) u16 {
+    pub fn data3(self: QBluetoothUuid) u16 {
         return qtc.QUuid_Data3(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setData3` instead
+    ///
+    pub const SetData3 = setData3;
+
     /// Inherited from QUuid
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/quuid.html#data3-var)
@@ -554,11 +721,15 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` self: QBluetoothUuid `
     ///
-    /// ` data3: u16 `
+    /// ` _data3: u16 `
     ///
-    pub fn SetData3(self: QBluetoothUuid, data3: u16) void {
-        qtc.QUuid_SetData3(@ptrCast(self.ptr), @bitCast(data3));
+    pub fn setData3(self: QBluetoothUuid, _data3: u16) void {
+        qtc.QUuid_SetData3(@ptrCast(self.ptr), @bitCast(_data3));
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// Inherited from QUuid
     ///
@@ -572,13 +743,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` mode: quuid_enums.StringFormat `
     ///
-    pub fn ToString1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []const u8 {
+    pub fn toString1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []const u8 {
         var _str = qtc.QUuid_ToString1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothUuid.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toByteArray1` instead
+    ///
+    pub const ToByteArray1 = toByteArray1;
 
     /// Inherited from QUuid
     ///
@@ -592,13 +767,17 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` mode: quuid_enums.StringFormat `
     ///
-    pub fn ToByteArray1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []u8 {
+    pub fn toByteArray1(self: QBluetoothUuid, allocator: std.mem.Allocator, mode: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QUuid_ToByteArray1(@ptrCast(self.ptr), @bitCast(mode));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBluetoothUuid.toByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toBytes1` instead
+    ///
+    pub const ToBytes1 = toBytes1;
 
     /// Inherited from QUuid
     ///
@@ -610,9 +789,13 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` order: qsysinfo_enums.Endian `
     ///
-    pub fn ToBytes1(self: QBluetoothUuid, order: i32) QUuid__Id128Bytes {
+    pub fn toBytes1(self: QBluetoothUuid, order: i32) QUuid__Id128Bytes {
         return .{ .ptr = qtc.QUuid_ToBytes1(@ptrCast(self.ptr), @bitCast(order)) };
     }
+
+    /// ### DEPRECATED: Use `fromBytes2` instead
+    ///
+    pub const FromBytes2 = fromBytes2;
 
     /// Inherited from QUuid
     ///
@@ -624,23 +807,23 @@ pub const QBluetoothUuid = extern struct {
     ///
     /// ` order: qsysinfo_enums.Endian `
     ///
-    pub fn FromBytes2(bytes: ?*const anyopaque, order: i32) QUuid {
+    pub fn fromBytes2(bytes: ?*const anyopaque, order: i32) QUuid {
         return .{ .ptr = qtc.QUuid_FromBytes2(@ptrCast(bytes), @bitCast(order)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothuuid.html#dtor.QBluetoothUuid)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothUuid `
     ///
-    pub fn Delete(self: QBluetoothUuid) void {
+    pub fn delete(self: QBluetoothUuid) void {
         qtc.QBluetoothUuid_Delete(@ptrCast(self.ptr));
     }
 };

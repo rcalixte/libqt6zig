@@ -14,13 +14,17 @@ pub const KProtocolInfo = extern struct {
 
     pub const _is_KProtocolInfo = {};
 
+    /// ### DEPRECATED: Use `protocols` instead
+    ///
+    pub const Protocols = protocols;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocols)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Protocols(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn protocols(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_Protocols();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -28,15 +32,19 @@ pub const KProtocolInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.Protocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.protocols: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProtocolInfo.Protocols: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProtocolInfo.protocols: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isKnownProtocol` instead
+    ///
+    pub const IsKnownProtocol = isKnownProtocol;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
@@ -44,10 +52,14 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn IsKnownProtocol(url: anytype) bool {
+    pub fn isKnownProtocol(url: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         return qtc.KProtocolInfo_IsKnownProtocol(@ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `isKnownProtocol2` instead
+    ///
+    pub const IsKnownProtocol2 = isKnownProtocol2;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
@@ -55,13 +67,17 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn IsKnownProtocol2(protocol: []const u8) bool {
+    pub fn isKnownProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         return qtc.KProtocolInfo_IsKnownProtocol2(protocol_str);
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#exec)
     ///
@@ -71,17 +87,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn Exec(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn exec(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_Exec(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.Exec: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.exec: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extraFields` instead
+    ///
+    pub const ExtraFields = extraFields;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#extraFields)
     ///
@@ -91,16 +111,20 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ExtraFields(allocator: std.mem.Allocator, url: anytype) []KProtocolInfo__ExtraField {
+    pub fn extraFields(allocator: std.mem.Allocator, url: anytype) []KProtocolInfo__ExtraField {
         comptime _ = @TypeOf(url)._is_QUrl;
         const _arr: qtc.libqt_list = qtc.KProtocolInfo_ExtraFields(@ptrCast(url.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KProtocolInfo__ExtraField, _arr.len) catch @panic("KProtocolInfo.ExtraFields: Memory allocation failed");
-        const _data: [*]QtC.KProtocolInfo__ExtraField = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KProtocolInfo__ExtraField, _arr.len) catch @panic("KProtocolInfo.extraFields: Memory allocation failed");
+        const _data_val: [*]QtC.KProtocolInfo__ExtraField = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isHelperProtocol` instead
+    ///
+    pub const IsHelperProtocol = isHelperProtocol;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
     ///
@@ -108,10 +132,14 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn IsHelperProtocol(url: anytype) bool {
+    pub fn isHelperProtocol(url: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         return qtc.KProtocolInfo_IsHelperProtocol(@ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHelperProtocol2` instead
+    ///
+    pub const IsHelperProtocol2 = isHelperProtocol2;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isHelperProtocol)
     ///
@@ -119,7 +147,7 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn IsHelperProtocol2(protocol: []const u8) bool {
+    pub fn isHelperProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -127,16 +155,24 @@ pub const KProtocolInfo = extern struct {
         return qtc.KProtocolInfo_IsHelperProtocol2(protocol_str);
     }
 
+    /// ### DEPRECATED: Use `isFilterProtocol` instead
+    ///
+    pub const IsFilterProtocol = isFilterProtocol;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
     ///
     /// ## Parameter(s):
     ///
     /// ` url: QUrl `
     ///
-    pub fn IsFilterProtocol(url: anytype) bool {
+    pub fn isFilterProtocol(url: anytype) bool {
         comptime _ = @TypeOf(url)._is_QUrl;
         return qtc.KProtocolInfo_IsFilterProtocol(@ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFilterProtocol2` instead
+    ///
+    pub const IsFilterProtocol2 = isFilterProtocol2;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isFilterProtocol)
     ///
@@ -144,13 +180,17 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn IsFilterProtocol2(protocol: []const u8) bool {
+    pub fn isFilterProtocol2(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         return qtc.KProtocolInfo_IsFilterProtocol2(protocol_str);
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#icon)
     ///
@@ -160,17 +200,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn Icon(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn icon(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_Icon(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.Icon: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.icon: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `config` instead
+    ///
+    pub const Config = config;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#config)
     ///
@@ -180,17 +224,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn Config(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn config(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_Config(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.Config: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.config: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maxWorkers` instead
+    ///
+    pub const MaxWorkers = maxWorkers;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkers)
     ///
@@ -198,7 +246,7 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn MaxWorkers(protocol: []const u8) i32 {
+    pub fn maxWorkers(protocol: []const u8) i32 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -206,13 +254,17 @@ pub const KProtocolInfo = extern struct {
         return qtc.KProtocolInfo_MaxWorkers(protocol_str);
     }
 
+    /// ### DEPRECATED: Use `maxWorkersPerHost` instead
+    ///
+    pub const MaxWorkersPerHost = maxWorkersPerHost;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#maxWorkersPerHost)
     ///
     /// ## Parameter(s):
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn MaxWorkersPerHost(protocol: []const u8) i32 {
+    pub fn maxWorkersPerHost(protocol: []const u8) i32 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -220,19 +272,27 @@ pub const KProtocolInfo = extern struct {
         return qtc.KProtocolInfo_MaxWorkersPerHost(protocol_str);
     }
 
+    /// ### DEPRECATED: Use `determineMimetypeFromExtension` instead
+    ///
+    pub const DetermineMimetypeFromExtension = determineMimetypeFromExtension;
+
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#determineMimetypeFromExtension)
     ///
     /// ## Parameter(s):
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn DetermineMimetypeFromExtension(protocol: []const u8) bool {
+    pub fn determineMimetypeFromExtension(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         return qtc.KProtocolInfo_DetermineMimetypeFromExtension(protocol_str);
     }
+
+    /// ### DEPRECATED: Use `defaultMimetype` instead
+    ///
+    pub const DefaultMimetype = defaultMimetype;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#defaultMimetype)
     ///
@@ -242,17 +302,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn DefaultMimetype(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn defaultMimetype(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_DefaultMimetype(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.DefaultMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.defaultMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `docPath` instead
+    ///
+    pub const DocPath = docPath;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#docPath)
     ///
@@ -262,17 +326,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn DocPath(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn docPath(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_DocPath(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.DocPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.docPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `protocolClass` instead
+    ///
+    pub const ProtocolClass = protocolClass;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#protocolClass)
     ///
@@ -282,17 +350,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn ProtocolClass(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn protocolClass(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_ProtocolClass(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.ProtocolClass: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.protocolClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `showFilePreview` instead
+    ///
+    pub const ShowFilePreview = showFilePreview;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#showFilePreview)
     ///
@@ -300,13 +372,17 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn ShowFilePreview(protocol: []const u8) bool {
+    pub fn showFilePreview(protocol: []const u8) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         return qtc.KProtocolInfo_ShowFilePreview(protocol_str);
     }
+
+    /// ### DEPRECATED: Use `capabilities` instead
+    ///
+    pub const Capabilities = capabilities;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#capabilities)
     ///
@@ -316,7 +392,7 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn Capabilities(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
+    pub fn capabilities(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -328,15 +404,19 @@ pub const KProtocolInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.Capabilities: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.capabilities: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProtocolInfo.Capabilities: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProtocolInfo.capabilities: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `archiveMimetypes` instead
+    ///
+    pub const ArchiveMimetypes = archiveMimetypes;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#archiveMimetypes)
     ///
@@ -346,7 +426,7 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn ArchiveMimetypes(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
+    pub fn archiveMimetypes(allocator: std.mem.Allocator, protocol: []const u8) []const []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -358,15 +438,19 @@ pub const KProtocolInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.ArchiveMimetypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProtocolInfo.archiveMimetypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProtocolInfo.ArchiveMimetypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProtocolInfo.archiveMimetypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `proxiedBy` instead
+    ///
+    pub const ProxiedBy = proxiedBy;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#proxiedBy)
     ///
@@ -376,17 +460,21 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` protocol: []const u8 `
     ///
-    pub fn ProxiedBy(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
+    pub fn proxiedBy(allocator: std.mem.Allocator, protocol: []const u8) []const u8 {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
         };
         var _str = qtc.KProtocolInfo_ProxiedBy(protocol_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.ProxiedBy: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProtocolInfo.proxiedBy: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isKnownProtocol22` instead
+    ///
+    pub const IsKnownProtocol22 = isKnownProtocol22;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#isKnownProtocol)
     ///
@@ -396,7 +484,7 @@ pub const KProtocolInfo = extern struct {
     ///
     /// ` updateCacheIfNotfound: bool `
     ///
-    pub fn IsKnownProtocol22(protocol: []const u8, updateCacheIfNotfound: bool) bool {
+    pub fn isKnownProtocol22(protocol: []const u8, updateCacheIfNotfound: bool) bool {
         const protocol_str = qtc.libqt_string{
             .len = protocol.len,
             .data = protocol.ptr,
@@ -404,19 +492,19 @@ pub const KProtocolInfo = extern struct {
         return qtc.KProtocolInfo_IsKnownProtocol22(protocol_str, updateCacheIfNotfound);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo.html#dtor.KProtocolInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KProtocolInfo `
     ///
-    pub fn Delete(self: KProtocolInfo) void {
+    pub fn delete(self: KProtocolInfo) void {
         qtc.KProtocolInfo_Delete(@ptrCast(self.ptr));
     }
 };
@@ -431,13 +519,21 @@ pub const KProtocolInfo__ExtraField = extern struct {
 
     pub const _is_KProtocolInfo__ExtraField = {};
 
-    /// New constructs a new KProtocolInfo::ExtraField object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KProtocolInfo__ExtraField {
+    pub const New = new;
+
+    /// Allocate a new KProtocolInfo::ExtraField object in C++ memory
+    ///
+    pub fn new() KProtocolInfo__ExtraField {
         return .{ .ptr = qtc.KProtocolInfo__ExtraField_new() };
     }
 
-    /// New2 constructs a new KProtocolInfo::ExtraField object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KProtocolInfo::ExtraField object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -445,7 +541,7 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` _type: kprotocolinfo_enums.Type `
     ///
-    pub fn New2(_name: []const u8, _type: i32) KProtocolInfo__ExtraField {
+    pub fn new2(_name: []const u8, _type: i32) KProtocolInfo__ExtraField {
         const _name_str = qtc.libqt_string{
             .len = _name.len,
             .data = _name.ptr,
@@ -453,16 +549,24 @@ pub const KProtocolInfo__ExtraField = extern struct {
         return .{ .ptr = qtc.KProtocolInfo__ExtraField_new2(_name_str, @bitCast(_type)) };
     }
 
-    /// New3 constructs a new KProtocolInfo::ExtraField object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KProtocolInfo::ExtraField object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KProtocolInfo__ExtraField `
     ///
-    pub fn New3(param1: anytype) KProtocolInfo__ExtraField {
+    pub fn new3(param1: anytype) KProtocolInfo__ExtraField {
         comptime _ = @TypeOf(param1)._is_KProtocolInfo__ExtraField;
         return .{ .ptr = qtc.KProtocolInfo__ExtraField_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
     ///
@@ -472,13 +576,17 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KProtocolInfo__ExtraField, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KProtocolInfo__ExtraField, allocator: std.mem.Allocator) []const u8 {
         var name_str = qtc.KProtocolInfo__ExtraField_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&name_str);
-        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("KProtocolInfo__ExtraField.Name: Memory allocation failed");
+        const name_ret = allocator.alloc(u8, name_str.len) catch @panic("KProtocolInfo__ExtraField.name: Memory allocation failed");
         @memcpy(name_ret, name_str.data[0..name_str.len]);
         return name_ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#name-var)
     ///
@@ -486,15 +594,21 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` self: KProtocolInfo__ExtraField `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: KProtocolInfo__ExtraField, name: []const u8) void {
+    pub fn setName(self: KProtocolInfo__ExtraField, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.KProtocolInfo__ExtraField_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
@@ -506,9 +620,13 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` kprotocolinfo_enums.Type `
     ///
-    pub fn Type(self: KProtocolInfo__ExtraField) i32 {
+    pub fn type0(self: KProtocolInfo__ExtraField) i32 {
         return qtc.KProtocolInfo__ExtraField_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#type-var)
     ///
@@ -516,11 +634,15 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` self: KProtocolInfo__ExtraField `
     ///
-    /// ` type: kprotocolinfo_enums.Type `
+    /// ` _type: kprotocolinfo_enums.Type `
     ///
-    pub fn SetType(self: KProtocolInfo__ExtraField, _type: i32) void {
+    pub fn setType(self: KProtocolInfo__ExtraField, _type: i32) void {
         qtc.KProtocolInfo__ExtraField_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kprotocolinfo-extrafield.html#operator-eq)
     ///
@@ -530,22 +652,22 @@ pub const KProtocolInfo__ExtraField = extern struct {
     ///
     /// ` param1: KProtocolInfo__ExtraField `
     ///
-    pub fn OperatorAssign(self: KProtocolInfo__ExtraField, param1: anytype) void {
+    pub fn operatorAssign(self: KProtocolInfo__ExtraField, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KProtocolInfo__ExtraField;
         qtc.KProtocolInfo__ExtraField_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KProtocolInfo__ExtraField `
     ///
-    pub fn Delete(self: KProtocolInfo__ExtraField) void {
+    pub fn delete(self: KProtocolInfo__ExtraField) void {
         qtc.KProtocolInfo__ExtraField_Delete(@ptrCast(self.ptr));
     }
 };

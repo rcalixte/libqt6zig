@@ -16,6 +16,10 @@ pub const QWebEngineUrlRequestInfo = extern struct {
 
     pub const _is_QWebEngineUrlRequestInfo = {};
 
+    /// ### DEPRECATED: Use `resourceType` instead
+    ///
+    pub const ResourceType = resourceType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#resourceType)
     ///
     /// ## Parameter(s):
@@ -26,9 +30,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` qwebengineurlrequestinfo_enums.ResourceType `
     ///
-    pub fn ResourceType(self: QWebEngineUrlRequestInfo) i32 {
+    pub fn resourceType(self: QWebEngineUrlRequestInfo) i32 {
         return qtc.QWebEngineUrlRequestInfo_ResourceType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `navigationType` instead
+    ///
+    pub const NavigationType = navigationType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#navigationType)
     ///
@@ -40,9 +48,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` qwebengineurlrequestinfo_enums.NavigationType `
     ///
-    pub fn NavigationType(self: QWebEngineUrlRequestInfo) i32 {
+    pub fn navigationType(self: QWebEngineUrlRequestInfo) i32 {
         return qtc.QWebEngineUrlRequestInfo_NavigationType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `requestUrl` instead
+    ///
+    pub const RequestUrl = requestUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestUrl)
     ///
@@ -50,9 +62,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    pub fn RequestUrl(self: QWebEngineUrlRequestInfo) QUrl {
+    pub fn requestUrl(self: QWebEngineUrlRequestInfo) QUrl {
         return .{ .ptr = qtc.QWebEngineUrlRequestInfo_RequestUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstPartyUrl` instead
+    ///
+    pub const FirstPartyUrl = firstPartyUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#firstPartyUrl)
     ///
@@ -60,9 +76,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    pub fn FirstPartyUrl(self: QWebEngineUrlRequestInfo) QUrl {
+    pub fn firstPartyUrl(self: QWebEngineUrlRequestInfo) QUrl {
         return .{ .ptr = qtc.QWebEngineUrlRequestInfo_FirstPartyUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `initiator` instead
+    ///
+    pub const Initiator = initiator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#initiator)
     ///
@@ -70,9 +90,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    pub fn Initiator(self: QWebEngineUrlRequestInfo) QUrl {
+    pub fn initiator(self: QWebEngineUrlRequestInfo) QUrl {
         return .{ .ptr = qtc.QWebEngineUrlRequestInfo_Initiator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `requestMethod` instead
+    ///
+    pub const RequestMethod = requestMethod;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestMethod)
     ///
@@ -82,13 +106,17 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RequestMethod(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) []u8 {
+    pub fn requestMethod(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWebEngineUrlRequestInfo_RequestMethod(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlRequestInfo.RequestMethod: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineUrlRequestInfo.requestMethod: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `requestBody` instead
+    ///
+    pub const RequestBody = requestBody;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#requestBody)
     ///
@@ -96,9 +124,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    pub fn RequestBody(self: QWebEngineUrlRequestInfo) QIODevice {
+    pub fn requestBody(self: QWebEngineUrlRequestInfo) QIODevice {
         return .{ .ptr = qtc.QWebEngineUrlRequestInfo_RequestBody(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#changed)
     ///
@@ -106,9 +138,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` self: QWebEngineUrlRequestInfo `
     ///
-    pub fn Changed(self: QWebEngineUrlRequestInfo) bool {
+    pub fn changed(self: QWebEngineUrlRequestInfo) bool {
         return qtc.QWebEngineUrlRequestInfo_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `block` instead
+    ///
+    pub const Block = block;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#block)
     ///
@@ -118,9 +154,13 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` shouldBlock: bool `
     ///
-    pub fn Block(self: QWebEngineUrlRequestInfo, shouldBlock: bool) void {
+    pub fn block(self: QWebEngineUrlRequestInfo, shouldBlock: bool) void {
         qtc.QWebEngineUrlRequestInfo_Block(@ptrCast(self.ptr), shouldBlock);
     }
+
+    /// ### DEPRECATED: Use `redirect` instead
+    ///
+    pub const Redirect = redirect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#redirect)
     ///
@@ -130,10 +170,14 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn Redirect(self: QWebEngineUrlRequestInfo, url: anytype) void {
+    pub fn redirect(self: QWebEngineUrlRequestInfo, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.QWebEngineUrlRequestInfo_Redirect(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHttpHeader` instead
+    ///
+    pub const SetHttpHeader = setHttpHeader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#setHttpHeader)
     ///
@@ -145,7 +189,7 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` value: []u8 `
     ///
-    pub fn SetHttpHeader(self: QWebEngineUrlRequestInfo, name: []u8, value: []u8) void {
+    pub fn setHttpHeader(self: QWebEngineUrlRequestInfo, name: []u8, value: []u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -157,6 +201,10 @@ pub const QWebEngineUrlRequestInfo = extern struct {
         qtc.QWebEngineUrlRequestInfo_SetHttpHeader(@ptrCast(self.ptr), name_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `httpHeaders` instead
+    ///
+    pub const HttpHeaders = httpHeaders;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineurlrequestinfo.html#httpHeaders)
     ///
     /// ## Parameter(s):
@@ -165,10 +213,10 @@ pub const QWebEngineUrlRequestInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HttpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_u8_u8 {
+    pub fn httpHeaders(self: QWebEngineUrlRequestInfo, allocator: std.mem.Allocator) Map_u8_u8 {
         const _map: qtc.libqt_map = qtc.QWebEngineUrlRequestInfo_HttpHeaders(@ptrCast(self.ptr));
         var _ret: Map_u8_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineUrlRequestInfo.httpHeaders: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -184,10 +232,10 @@ pub const QWebEngineUrlRequestInfo = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineUrlRequestInfo.httpHeaders: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QWebEngineUrlRequestInfo.HttpHeaders: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QWebEngineUrlRequestInfo.httpHeaders: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }

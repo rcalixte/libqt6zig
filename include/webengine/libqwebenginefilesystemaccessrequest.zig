@@ -13,16 +13,24 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
 
     pub const _is_QWebEngineFileSystemAccessRequest = {};
 
-    /// New constructs a new QWebEngineFileSystemAccessRequest object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebEngineFileSystemAccessRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn New(other: anytype) QWebEngineFileSystemAccessRequest {
+    pub fn new(other: anytype) QWebEngineFileSystemAccessRequest {
         comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
         return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_new(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#operator-eq)
     ///
@@ -32,10 +40,14 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn OperatorAssign(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
         qtc.QWebEngineFileSystemAccessRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#swap)
     ///
@@ -45,10 +57,14 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` other: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Swap(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
+    pub fn swap(self: QWebEngineFileSystemAccessRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineFileSystemAccessRequest;
         qtc.QWebEngineFileSystemAccessRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#accept)
     ///
@@ -56,9 +72,13 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Accept(self: QWebEngineFileSystemAccessRequest) void {
+    pub fn accept(self: QWebEngineFileSystemAccessRequest) void {
         qtc.QWebEngineFileSystemAccessRequest_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#reject)
     ///
@@ -66,9 +86,13 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Reject(self: QWebEngineFileSystemAccessRequest) void {
+    pub fn reject(self: QWebEngineFileSystemAccessRequest) void {
         qtc.QWebEngineFileSystemAccessRequest_Reject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `origin` instead
+    ///
+    pub const Origin = origin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#origin)
     ///
@@ -76,9 +100,13 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Origin(self: QWebEngineFileSystemAccessRequest) QUrl {
+    pub fn origin(self: QWebEngineFileSystemAccessRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_Origin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `filePath` instead
+    ///
+    pub const FilePath = filePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#filePath)
     ///
@@ -86,9 +114,13 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn FilePath(self: QWebEngineFileSystemAccessRequest) QUrl {
+    pub fn filePath(self: QWebEngineFileSystemAccessRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineFileSystemAccessRequest_FilePath(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `handleType` instead
+    ///
+    pub const HandleType = handleType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#handleType)
     ///
@@ -100,9 +132,13 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` qwebenginefilesystemaccessrequest_enums.HandleType `
     ///
-    pub fn HandleType(self: QWebEngineFileSystemAccessRequest) i32 {
+    pub fn handleType(self: QWebEngineFileSystemAccessRequest) i32 {
         return qtc.QWebEngineFileSystemAccessRequest_HandleType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessFlags` instead
+    ///
+    pub const AccessFlags = accessFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#accessFlags)
     ///
@@ -114,23 +150,23 @@ pub const QWebEngineFileSystemAccessRequest = extern struct {
     ///
     /// ` flag of qwebenginefilesystemaccessrequest_enums.AccessFlag `
     ///
-    pub fn AccessFlags(self: QWebEngineFileSystemAccessRequest) i32 {
+    pub fn accessFlags(self: QWebEngineFileSystemAccessRequest) i32 {
         return qtc.QWebEngineFileSystemAccessRequest_AccessFlags(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginefilesystemaccessrequest.html#dtor.QWebEngineFileSystemAccessRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineFileSystemAccessRequest `
     ///
-    pub fn Delete(self: QWebEngineFileSystemAccessRequest) void {
+    pub fn delete(self: QWebEngineFileSystemAccessRequest) void {
         qtc.QWebEngineFileSystemAccessRequest_Delete(@ptrCast(self.ptr));
     }
 };

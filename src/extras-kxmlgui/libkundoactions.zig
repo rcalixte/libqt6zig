@@ -14,6 +14,10 @@ pub const KUndoActions = extern struct {
 
     pub const _is_KUndoActions = {};
 
+    /// ### DEPRECATED: Use `createRedoAction` instead
+    ///
+    pub const CreateRedoAction = createRedoAction;
+
     /// ### [Upstream resources](https://api.kde.org/kundoactions.html#createRedoAction)
     ///
     /// ## Parameter(s):
@@ -24,7 +28,7 @@ pub const KUndoActions = extern struct {
     ///
     /// ` actionName: []const u8 `
     ///
-    pub fn CreateRedoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
+    pub fn createRedoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
         comptime _ = @TypeOf(undoStack)._is_QUndoStack;
         comptime _ = @TypeOf(actionCollection)._is_KActionCollection;
         const actionName_str = qtc.libqt_string{
@@ -33,6 +37,10 @@ pub const KUndoActions = extern struct {
         };
         return .{ .ptr = qtc.KUndoActions_CreateRedoAction(@ptrCast(undoStack.ptr), @ptrCast(actionCollection.ptr), actionName_str) };
     }
+
+    /// ### DEPRECATED: Use `createUndoAction` instead
+    ///
+    pub const CreateUndoAction = createUndoAction;
 
     /// ### [Upstream resources](https://api.kde.org/kundoactions.html#createUndoAction)
     ///
@@ -44,7 +52,7 @@ pub const KUndoActions = extern struct {
     ///
     /// ` actionName: []const u8 `
     ///
-    pub fn CreateUndoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
+    pub fn createUndoAction(undoStack: anytype, actionCollection: anytype, actionName: []const u8) QAction {
         comptime _ = @TypeOf(undoStack)._is_QUndoStack;
         comptime _ = @TypeOf(actionCollection)._is_KActionCollection;
         const actionName_str = qtc.libqt_string{

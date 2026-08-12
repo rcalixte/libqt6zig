@@ -86,53 +86,73 @@ pub const KSqueezedTextLabel = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KSqueezedTextLabel object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KSqueezedTextLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KSqueezedTextLabel {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KSqueezedTextLabel_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KSqueezedTextLabel {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KSqueezedTextLabel_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KSqueezedTextLabel object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KSqueezedTextLabel {
+    pub const New2 = new2;
+
+    /// Allocate a new KSqueezedTextLabel object in C++ memory
+    ///
+    pub fn new2() KSqueezedTextLabel {
         return .{ .ptr = qtc.KSqueezedTextLabel_new2() };
     }
 
-    /// New3 constructs a new KSqueezedTextLabel object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KSqueezedTextLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New3(text: []const u8) KSqueezedTextLabel {
+    pub fn new3(_text: []const u8) KSqueezedTextLabel {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.KSqueezedTextLabel_new3(text_str) };
     }
 
-    /// New4 constructs a new KSqueezedTextLabel object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KSqueezedTextLabel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(text: []const u8, parent: anytype) KSqueezedTextLabel {
+    pub fn new4(_text: []const u8, _parent: anytype) KSqueezedTextLabel {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KSqueezedTextLabel_new4(text_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KSqueezedTextLabel_new4(text_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -140,9 +160,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MetaObject(self: KSqueezedTextLabel) QMetaObject {
+    pub fn metaObject(self: KSqueezedTextLabel) QMetaObject {
         return .{ .ptr = qtc.KSqueezedTextLabel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -154,13 +178,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KSqueezedTextLabel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -170,9 +194,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperMetaObject(self: KSqueezedTextLabel) QMetaObject {
+    pub fn superMetaObject(self: KSqueezedTextLabel) QMetaObject {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -180,10 +208,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KSqueezedTextLabel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KSqueezedTextLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSqueezedTextLabel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -193,13 +225,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KSqueezedTextLabel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -209,10 +241,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KSqueezedTextLabel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KSqueezedTextLabel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSqueezedTextLabel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -224,9 +260,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KSqueezedTextLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KSqueezedTextLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSqueezedTextLabel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -236,13 +276,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -256,9 +296,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KSqueezedTextLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KSqueezedTextLabel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSqueezedTextLabel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -268,25 +312,33 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MinimumSizeHint(self: KSqueezedTextLabel) QSize {
+    pub fn minimumSizeHint(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.KSqueezedTextLabel_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
@@ -299,13 +351,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSqueezedTextLabel_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#minimumSizeHint)
     ///
@@ -315,9 +367,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperMinimumSizeHint(self: KSqueezedTextLabel) QSize {
+    pub fn superMinimumSizeHint(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
@@ -325,9 +381,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SizeHint(self: KSqueezedTextLabel) QSize {
+    pub fn sizeHint(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.KSqueezedTextLabel_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
@@ -341,13 +401,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSqueezedTextLabel_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#sizeHint)
     ///
@@ -357,9 +417,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperSizeHint(self: KSqueezedTextLabel) QSize {
+    pub fn superSizeHint(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIndent` instead
+    ///
+    pub const SetIndent = setIndent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setIndent)
     ///
@@ -367,11 +431,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` indent: i32 `
+    /// ` _indent: i32 `
     ///
-    pub fn SetIndent(self: KSqueezedTextLabel, indent: i32) void {
-        qtc.KSqueezedTextLabel_SetIndent(@ptrCast(self.ptr), @bitCast(indent));
+    pub fn setIndent(self: KSqueezedTextLabel, _indent: i32) void {
+        qtc.KSqueezedTextLabel_SetIndent(@ptrCast(self.ptr), @bitCast(_indent));
     }
+
+    /// ### DEPRECATED: Use `setMargin` instead
+    ///
+    pub const SetMargin = setMargin;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setMargin)
     ///
@@ -379,11 +447,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` margin: i32 `
+    /// ` _margin: i32 `
     ///
-    pub fn SetMargin(self: KSqueezedTextLabel, margin: i32) void {
-        qtc.KSqueezedTextLabel_SetMargin(@ptrCast(self.ptr), @bitCast(margin));
+    pub fn setMargin(self: KSqueezedTextLabel, _margin: i32) void {
+        qtc.KSqueezedTextLabel_SetMargin(@ptrCast(self.ptr), @bitCast(_margin));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
@@ -391,11 +463,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: KSqueezedTextLabel, alignment: i32) void {
-        qtc.KSqueezedTextLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn setAlignment(self: KSqueezedTextLabel, _alignment: i32) void {
+        qtc.KSqueezedTextLabel_SetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `onSetAlignment` instead
+    ///
+    pub const OnSetAlignment = onSetAlignment;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
@@ -407,13 +483,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, alignment: flag of qnamespace_enums.AlignmentFlag) callconv(.c) void `
     ///
-    pub fn OnSetAlignment(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) void) void {
+    pub fn onSetAlignment(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnSetAlignment(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAlignment` instead
+    /// ### DEPRECATED: Use `superSetAlignment` instead
     ///
-    pub const QBaseSetAlignment = SuperSetAlignment;
+    pub const SuperSetAlignment = superSetAlignment;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setAlignment)
     ///
@@ -423,11 +499,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SuperSetAlignment(self: KSqueezedTextLabel, alignment: i32) void {
-        qtc.KSqueezedTextLabel_SuperSetAlignment(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn superSetAlignment(self: KSqueezedTextLabel, _alignment: i32) void {
+        qtc.KSqueezedTextLabel_SuperSetAlignment(@ptrCast(self.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#textElideMode)
     ///
@@ -439,9 +519,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: KSqueezedTextLabel) i32 {
+    pub fn textElideMode(self: KSqueezedTextLabel) i32 {
         return qtc.KSqueezedTextLabel_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setTextElideMode)
     ///
@@ -451,9 +535,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: KSqueezedTextLabel, mode: i32) void {
+    pub fn setTextElideMode(self: KSqueezedTextLabel, mode: i32) void {
         qtc.KSqueezedTextLabel_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `fullText` instead
+    ///
+    pub const FullText = fullText;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#fullText)
     ///
@@ -463,13 +551,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn fullText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSqueezedTextLabel_FullText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.FullText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.fullText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isSqueezed` instead
+    ///
+    pub const IsSqueezed = isSqueezed;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#isSqueezed)
     ///
@@ -477,9 +569,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsSqueezed(self: KSqueezedTextLabel) bool {
+    pub fn isSqueezed(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_IsSqueezed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#contentsRect)
     ///
@@ -487,9 +583,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ContentsRect(self: KSqueezedTextLabel) QRect {
+    pub fn contentsRect(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.KSqueezedTextLabel_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#setText)
     ///
@@ -497,15 +597,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KSqueezedTextLabel, text: []const u8) void {
+    pub fn setText(self: KSqueezedTextLabel, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KSqueezedTextLabel_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#clear)
     ///
@@ -513,9 +617,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Clear(self: KSqueezedTextLabel) void {
+    pub fn clear(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
@@ -525,10 +633,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
@@ -540,13 +652,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#mouseReleaseEvent)
     ///
@@ -558,10 +670,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
@@ -571,10 +687,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn resizeEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KSqueezedTextLabel_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
@@ -586,13 +706,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QResizeEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#resizeEvent)
     ///
@@ -604,10 +724,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superResizeEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KSqueezedTextLabel_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
@@ -617,10 +741,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn contextMenuEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KSqueezedTextLabel_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
@@ -632,13 +760,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QContextMenuEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#contextMenuEvent)
     ///
@@ -650,10 +778,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KSqueezedTextLabel_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `squeezeTextToLabel` instead
+    ///
+    pub const SqueezeTextToLabel = squeezeTextToLabel;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
@@ -661,9 +793,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SqueezeTextToLabel(self: KSqueezedTextLabel) void {
+    pub fn squeezeTextToLabel(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_SqueezeTextToLabel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSqueezeTextToLabel` instead
+    ///
+    pub const OnSqueezeTextToLabel = onSqueezeTextToLabel;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
@@ -675,13 +811,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSqueezeTextToLabel(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onSqueezeTextToLabel(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnSqueezeTextToLabel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSqueezeTextToLabel` instead
+    /// ### DEPRECATED: Use `superSqueezeTextToLabel` instead
     ///
-    pub const QBaseSqueezeTextToLabel = SuperSqueezeTextToLabel;
+    pub const SuperSqueezeTextToLabel = superSqueezeTextToLabel;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#squeezeTextToLabel)
     ///
@@ -691,9 +827,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperSqueezeTextToLabel(self: KSqueezedTextLabel) void {
+    pub fn superSqueezeTextToLabel(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_SuperSqueezeTextToLabel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -705,15 +845,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -727,15 +871,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QLabel
     ///
@@ -747,14 +895,18 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLabel_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `pixmap` instead
+    ///
+    pub const Pixmap = pixmap;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
@@ -765,10 +917,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Pixmap(self: KSqueezedTextLabel, param1: i32) QPixmap {
+    pub fn pixmap(self: KSqueezedTextLabel, param1: i32) QPixmap {
         return .{ .ptr = qtc.QLabel_Pixmap(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
+    /// ### DEPRECATED: Use `pixmap2` instead
+    ///
+    pub const Pixmap2 = pixmap2;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#pixmap)
@@ -777,9 +933,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Pixmap2(self: KSqueezedTextLabel) QPixmap {
+    pub fn pixmap2(self: KSqueezedTextLabel) QPixmap {
         return .{ .ptr = qtc.QLabel_Pixmap2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `picture` instead
+    ///
+    pub const Picture = picture;
 
     /// Inherited from QLabel
     ///
@@ -791,9 +951,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.ReturnByValueConstant `
     ///
-    pub fn Picture(self: KSqueezedTextLabel, param1: i32) QPicture {
+    pub fn picture(self: KSqueezedTextLabel, param1: i32) QPicture {
         return .{ .ptr = qtc.QLabel_Picture(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `picture2` instead
+    ///
+    pub const Picture2 = picture2;
 
     /// Inherited from QLabel
     ///
@@ -803,9 +967,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Picture2(self: KSqueezedTextLabel) QPicture {
+    pub fn picture2(self: KSqueezedTextLabel) QPicture {
         return .{ .ptr = qtc.QLabel_Picture2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `movie` instead
+    ///
+    pub const Movie = movie;
 
     /// Inherited from QLabel
     ///
@@ -815,9 +983,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Movie(self: KSqueezedTextLabel) QMovie {
+    pub fn movie(self: KSqueezedTextLabel) QMovie {
         return .{ .ptr = qtc.QLabel_Movie(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textFormat` instead
+    ///
+    pub const TextFormat = textFormat;
 
     /// Inherited from QLabel
     ///
@@ -831,9 +1003,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TextFormat(self: KSqueezedTextLabel) i32 {
+    pub fn textFormat(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_TextFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextFormat` instead
+    ///
+    pub const SetTextFormat = setTextFormat;
 
     /// Inherited from QLabel
     ///
@@ -843,11 +1019,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` textFormat: qnamespace_enums.TextFormat `
+    /// ` _textFormat: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTextFormat(self: KSqueezedTextLabel, textFormat: i32) void {
-        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(textFormat));
+    pub fn setTextFormat(self: KSqueezedTextLabel, _textFormat: i32) void {
+        qtc.QLabel_SetTextFormat(@ptrCast(self.ptr), @bitCast(_textFormat));
     }
+
+    /// ### DEPRECATED: Use `setResourceProvider` instead
+    ///
+    pub const SetResourceProvider = setResourceProvider;
 
     /// Inherited from QLabel
     ///
@@ -859,9 +1039,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` provider: *const fn (funcparam1: QUrl) callconv(.c) QVariant `
     ///
-    pub fn SetResourceProvider(self: KSqueezedTextLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
+    pub fn setResourceProvider(self: KSqueezedTextLabel, provider: *const fn (QUrl) callconv(.c) QVariant) void {
         qtc.QLabel_SetResourceProvider(@ptrCast(self.ptr), @bitCast(@intFromPtr(provider)));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLabel
     ///
@@ -875,9 +1059,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: KSqueezedTextLabel) i32 {
+    pub fn alignment(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrap` instead
+    ///
+    pub const SetWordWrap = setWordWrap;
 
     /// Inherited from QLabel
     ///
@@ -889,9 +1077,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWordWrap(self: KSqueezedTextLabel, on: bool) void {
+    pub fn setWordWrap(self: KSqueezedTextLabel, on: bool) void {
         qtc.QLabel_SetWordWrap(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `wordWrap` instead
+    ///
+    pub const WordWrap = wordWrap;
 
     /// Inherited from QLabel
     ///
@@ -901,9 +1093,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WordWrap(self: KSqueezedTextLabel) bool {
+    pub fn wordWrap(self: KSqueezedTextLabel) bool {
         return qtc.QLabel_WordWrap(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indent` instead
+    ///
+    pub const Indent = indent;
 
     /// Inherited from QLabel
     ///
@@ -913,9 +1109,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Indent(self: KSqueezedTextLabel) i32 {
+    pub fn indent(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_Indent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `margin` instead
+    ///
+    pub const Margin = margin;
 
     /// Inherited from QLabel
     ///
@@ -925,9 +1125,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Margin(self: KSqueezedTextLabel) i32 {
+    pub fn margin(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_Margin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasScaledContents` instead
+    ///
+    pub const HasScaledContents = hasScaledContents;
 
     /// Inherited from QLabel
     ///
@@ -937,9 +1141,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasScaledContents(self: KSqueezedTextLabel) bool {
+    pub fn hasScaledContents(self: KSqueezedTextLabel) bool {
         return qtc.QLabel_HasScaledContents(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setScaledContents` instead
+    ///
+    pub const SetScaledContents = setScaledContents;
 
     /// Inherited from QLabel
     ///
@@ -951,9 +1159,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` scaledContents: bool `
     ///
-    pub fn SetScaledContents(self: KSqueezedTextLabel, scaledContents: bool) void {
+    pub fn setScaledContents(self: KSqueezedTextLabel, scaledContents: bool) void {
         qtc.QLabel_SetScaledContents(@ptrCast(self.ptr), scaledContents);
     }
+
+    /// ### DEPRECATED: Use `setBuddy` instead
+    ///
+    pub const SetBuddy = setBuddy;
 
     /// Inherited from QLabel
     ///
@@ -963,12 +1175,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` buddy: QWidget `
+    /// ` _buddy: QWidget `
     ///
-    pub fn SetBuddy(self: KSqueezedTextLabel, buddy: anytype) void {
-        comptime _ = @TypeOf(buddy)._is_QWidget;
-        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(buddy.ptr));
+    pub fn setBuddy(self: KSqueezedTextLabel, _buddy: anytype) void {
+        comptime _ = @TypeOf(_buddy)._is_QWidget;
+        qtc.QLabel_SetBuddy(@ptrCast(self.ptr), @ptrCast(_buddy.ptr));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QLabel
     ///
@@ -978,9 +1194,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Buddy(self: KSqueezedTextLabel) QWidget {
+    pub fn buddy(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QLabel_Buddy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openExternalLinks` instead
+    ///
+    pub const OpenExternalLinks = openExternalLinks;
 
     /// Inherited from QLabel
     ///
@@ -990,9 +1210,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn OpenExternalLinks(self: KSqueezedTextLabel) bool {
+    pub fn openExternalLinks(self: KSqueezedTextLabel) bool {
         return qtc.QLabel_OpenExternalLinks(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpenExternalLinks` instead
+    ///
+    pub const SetOpenExternalLinks = setOpenExternalLinks;
 
     /// Inherited from QLabel
     ///
@@ -1004,9 +1228,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` open: bool `
     ///
-    pub fn SetOpenExternalLinks(self: KSqueezedTextLabel, open: bool) void {
+    pub fn setOpenExternalLinks(self: KSqueezedTextLabel, open: bool) void {
         qtc.QLabel_SetOpenExternalLinks(@ptrCast(self.ptr), open);
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// Inherited from QLabel
     ///
@@ -1018,9 +1246,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: KSqueezedTextLabel, flags: i32) void {
+    pub fn setTextInteractionFlags(self: KSqueezedTextLabel, flags: i32) void {
         qtc.QLabel_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// Inherited from QLabel
     ///
@@ -1034,9 +1266,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: KSqueezedTextLabel) i32 {
+    pub fn textInteractionFlags(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QLabel
     ///
@@ -1050,9 +1286,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: KSqueezedTextLabel, param1: i32, param2: i32) void {
+    pub fn setSelection(self: KSqueezedTextLabel, param1: i32, param2: i32) void {
         qtc.QLabel_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `hasSelectedText` instead
+    ///
+    pub const HasSelectedText = hasSelectedText;
 
     /// Inherited from QLabel
     ///
@@ -1062,9 +1302,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasSelectedText(self: KSqueezedTextLabel) bool {
+    pub fn hasSelectedText(self: KSqueezedTextLabel) bool {
         return qtc.QLabel_HasSelectedText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// Inherited from QLabel
     ///
@@ -1076,13 +1320,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLabel_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectionStart` instead
+    ///
+    pub const SelectionStart = selectionStart;
 
     /// Inherited from QLabel
     ///
@@ -1092,9 +1340,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SelectionStart(self: KSqueezedTextLabel) i32 {
+    pub fn selectionStart(self: KSqueezedTextLabel) i32 {
         return qtc.QLabel_SelectionStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPixmap` instead
+    ///
+    pub const SetPixmap = setPixmap;
 
     /// Inherited from QLabel
     ///
@@ -1104,12 +1356,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: KSqueezedTextLabel, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
+    pub fn setPixmap(self: KSqueezedTextLabel, _pixmap: anytype) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QLabel_SetPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPicture` instead
+    ///
+    pub const SetPicture = setPicture;
 
     /// Inherited from QLabel
     ///
@@ -1119,12 +1375,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` picture: QPicture `
+    /// ` _picture: QPicture `
     ///
-    pub fn SetPicture(self: KSqueezedTextLabel, picture: anytype) void {
-        comptime _ = @TypeOf(picture)._is_QPicture;
-        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(picture.ptr));
+    pub fn setPicture(self: KSqueezedTextLabel, _picture: anytype) void {
+        comptime _ = @TypeOf(_picture)._is_QPicture;
+        qtc.QLabel_SetPicture(@ptrCast(self.ptr), @ptrCast(_picture.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMovie` instead
+    ///
+    pub const SetMovie = setMovie;
 
     /// Inherited from QLabel
     ///
@@ -1134,12 +1394,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` movie: QMovie `
+    /// ` _movie: QMovie `
     ///
-    pub fn SetMovie(self: KSqueezedTextLabel, movie: anytype) void {
-        comptime _ = @TypeOf(movie)._is_QMovie;
-        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
+    pub fn setMovie(self: KSqueezedTextLabel, _movie: anytype) void {
+        comptime _ = @TypeOf(_movie)._is_QMovie;
+        qtc.QLabel_SetMovie(@ptrCast(self.ptr), @ptrCast(_movie.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNum` instead
+    ///
+    pub const SetNum = setNum;
 
     /// Inherited from QLabel
     ///
@@ -1151,9 +1415,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` num: i32 `
     ///
-    pub fn SetNum(self: KSqueezedTextLabel, num: i32) void {
+    pub fn setNum(self: KSqueezedTextLabel, num: i32) void {
         qtc.QLabel_SetNum(@ptrCast(self.ptr), @bitCast(num));
     }
+
+    /// ### DEPRECATED: Use `setNum2` instead
+    ///
+    pub const SetNum2 = setNum2;
 
     /// Inherited from QLabel
     ///
@@ -1165,9 +1433,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` num: f64 `
     ///
-    pub fn SetNum2(self: KSqueezedTextLabel, num: f64) void {
+    pub fn setNum2(self: KSqueezedTextLabel, num: f64) void {
         qtc.QLabel_SetNum2(@ptrCast(self.ptr), @bitCast(num));
     }
+
+    /// ### DEPRECATED: Use `linkActivated` instead
+    ///
+    pub const LinkActivated = linkActivated;
 
     /// Inherited from QLabel
     ///
@@ -1179,7 +1451,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkActivated(self: KSqueezedTextLabel, link: []const u8) void {
+    pub fn linkActivated(self: KSqueezedTextLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
@@ -1187,6 +1459,10 @@ pub const KSqueezedTextLabel = extern struct {
         qtc.QLabel_LinkActivated(@ptrCast(self.ptr), link_str);
     }
 
+    /// ### DEPRECATED: Use `onLinkActivated` instead
+    ///
+    pub const OnLinkActivated = onLinkActivated;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#linkActivated)
@@ -1197,9 +1473,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkActivated(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLinkActivated(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `linkHovered` instead
+    ///
+    pub const LinkHovered = linkHovered;
 
     /// Inherited from QLabel
     ///
@@ -1211,13 +1491,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` link: []const u8 `
     ///
-    pub fn LinkHovered(self: KSqueezedTextLabel, link: []const u8) void {
+    pub fn linkHovered(self: KSqueezedTextLabel, link: []const u8) void {
         const link_str = qtc.libqt_string{
             .len = link.len,
             .data = link.ptr,
         };
         qtc.QLabel_LinkHovered(@ptrCast(self.ptr), link_str);
     }
+
+    /// ### DEPRECATED: Use `onLinkHovered` instead
+    ///
+    pub const OnLinkHovered = onLinkHovered;
 
     /// Inherited from QLabel
     ///
@@ -1229,9 +1513,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, link: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLinkHovered(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLinkHovered(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QLabel_Connect_LinkHovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1241,9 +1529,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FrameStyle(self: KSqueezedTextLabel) i32 {
+    pub fn frameStyle(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1253,11 +1545,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KSqueezedTextLabel, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KSqueezedTextLabel, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -1267,9 +1563,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FrameWidth(self: KSqueezedTextLabel) i32 {
+    pub fn frameWidth(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -1283,9 +1583,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KSqueezedTextLabel) i32 {
+    pub fn frameShape(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -1295,11 +1599,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KSqueezedTextLabel, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KSqueezedTextLabel, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1313,9 +1621,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KSqueezedTextLabel) i32 {
+    pub fn frameShadow(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1325,11 +1637,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KSqueezedTextLabel, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KSqueezedTextLabel, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1339,9 +1655,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn LineWidth(self: KSqueezedTextLabel) i32 {
+    pub fn lineWidth(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1351,11 +1671,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KSqueezedTextLabel, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KSqueezedTextLabel, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1365,9 +1689,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MidLineWidth(self: KSqueezedTextLabel) i32 {
+    pub fn midLineWidth(self: KSqueezedTextLabel) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1377,11 +1705,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KSqueezedTextLabel, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KSqueezedTextLabel, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -1391,9 +1723,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FrameRect(self: KSqueezedTextLabel) QRect {
+    pub fn frameRect(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -1403,12 +1739,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KSqueezedTextLabel, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KSqueezedTextLabel, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1418,9 +1758,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WinId(self: KSqueezedTextLabel) usize {
+    pub fn winId(self: KSqueezedTextLabel) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1430,9 +1774,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn CreateWinId(self: KSqueezedTextLabel) void {
+    pub fn createWinId(self: KSqueezedTextLabel) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1442,9 +1790,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn InternalWinId(self: KSqueezedTextLabel) usize {
+    pub fn internalWinId(self: KSqueezedTextLabel) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1454,9 +1806,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn EffectiveWinId(self: KSqueezedTextLabel) usize {
+    pub fn effectiveWinId(self: KSqueezedTextLabel) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1466,9 +1822,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Style(self: KSqueezedTextLabel) QStyle {
+    pub fn style(self: KSqueezedTextLabel) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1478,12 +1838,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KSqueezedTextLabel, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KSqueezedTextLabel, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1493,9 +1857,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsTopLevel(self: KSqueezedTextLabel) bool {
+    pub fn isTopLevel(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1505,9 +1873,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsWindow(self: KSqueezedTextLabel) bool {
+    pub fn isWindow(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1517,9 +1889,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsModal(self: KSqueezedTextLabel) bool {
+    pub fn isModal(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1533,9 +1909,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KSqueezedTextLabel) i32 {
+    pub fn windowModality(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1545,11 +1925,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KSqueezedTextLabel, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KSqueezedTextLabel, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1559,9 +1943,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsEnabled(self: KSqueezedTextLabel) bool {
+    pub fn isEnabled(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1573,10 +1961,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KSqueezedTextLabel, param1: anytype) bool {
+    pub fn isEnabledTo(self: KSqueezedTextLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1588,9 +1980,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KSqueezedTextLabel, enabled: bool) void {
+    pub fn setEnabled(self: KSqueezedTextLabel, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1602,9 +1998,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KSqueezedTextLabel, disabled: bool) void {
+    pub fn setDisabled(self: KSqueezedTextLabel, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1616,9 +2016,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KSqueezedTextLabel, windowModified: bool) void {
+    pub fn setWindowModified(self: KSqueezedTextLabel, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1628,9 +2032,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FrameGeometry(self: KSqueezedTextLabel) QRect {
+    pub fn frameGeometry(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1640,9 +2048,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Geometry(self: KSqueezedTextLabel) QRect {
+    pub fn geometry(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1652,9 +2064,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn NormalGeometry(self: KSqueezedTextLabel) QRect {
+    pub fn normalGeometry(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1664,9 +2080,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn X(self: KSqueezedTextLabel) i32 {
+    pub fn x(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1676,9 +2096,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Y(self: KSqueezedTextLabel) i32 {
+    pub fn y(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1688,9 +2112,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Pos(self: KSqueezedTextLabel) QPoint {
+    pub fn pos(self: KSqueezedTextLabel) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1700,9 +2128,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FrameSize(self: KSqueezedTextLabel) QSize {
+    pub fn frameSize(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1712,9 +2144,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Size(self: KSqueezedTextLabel) QSize {
+    pub fn size(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1724,9 +2160,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Width(self: KSqueezedTextLabel) i32 {
+    pub fn width(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1736,9 +2176,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Height(self: KSqueezedTextLabel) i32 {
+    pub fn height(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1748,9 +2192,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Rect(self: KSqueezedTextLabel) QRect {
+    pub fn rect(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1760,9 +2208,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ChildrenRect(self: KSqueezedTextLabel) QRect {
+    pub fn childrenRect(self: KSqueezedTextLabel) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1772,9 +2224,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ChildrenRegion(self: KSqueezedTextLabel) QRegion {
+    pub fn childrenRegion(self: KSqueezedTextLabel) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1784,9 +2240,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MinimumSize(self: KSqueezedTextLabel) QSize {
+    pub fn minimumSize(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1796,9 +2256,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MaximumSize(self: KSqueezedTextLabel) QSize {
+    pub fn maximumSize(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1808,9 +2272,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MinimumWidth(self: KSqueezedTextLabel) i32 {
+    pub fn minimumWidth(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1820,9 +2288,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MinimumHeight(self: KSqueezedTextLabel) i32 {
+    pub fn minimumHeight(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1832,9 +2304,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MaximumWidth(self: KSqueezedTextLabel) i32 {
+    pub fn maximumWidth(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1844,9 +2320,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn MaximumHeight(self: KSqueezedTextLabel) i32 {
+    pub fn maximumHeight(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1856,12 +2336,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KSqueezedTextLabel, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KSqueezedTextLabel, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1875,9 +2359,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KSqueezedTextLabel, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KSqueezedTextLabel, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1887,12 +2375,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KSqueezedTextLabel, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KSqueezedTextLabel, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1906,9 +2398,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KSqueezedTextLabel, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KSqueezedTextLabel, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1920,9 +2416,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KSqueezedTextLabel, minw: i32) void {
+    pub fn setMinimumWidth(self: KSqueezedTextLabel, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1934,9 +2434,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KSqueezedTextLabel, minh: i32) void {
+    pub fn setMinimumHeight(self: KSqueezedTextLabel, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1948,9 +2452,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KSqueezedTextLabel, maxw: i32) void {
+    pub fn setMaximumWidth(self: KSqueezedTextLabel, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1962,9 +2470,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KSqueezedTextLabel, maxh: i32) void {
+    pub fn setMaximumHeight(self: KSqueezedTextLabel, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1974,9 +2486,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SizeIncrement(self: KSqueezedTextLabel) QSize {
+    pub fn sizeIncrement(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1986,12 +2502,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KSqueezedTextLabel, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KSqueezedTextLabel, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2005,9 +2525,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KSqueezedTextLabel, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KSqueezedTextLabel, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2017,9 +2541,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn BaseSize(self: KSqueezedTextLabel) QSize {
+    pub fn baseSize(self: KSqueezedTextLabel) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2029,12 +2557,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KSqueezedTextLabel, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KSqueezedTextLabel, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2048,9 +2580,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KSqueezedTextLabel, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KSqueezedTextLabel, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2062,10 +2598,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KSqueezedTextLabel, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KSqueezedTextLabel, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2079,9 +2619,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KSqueezedTextLabel, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KSqueezedTextLabel, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2637,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KSqueezedTextLabel, w: i32) void {
+    pub fn setFixedWidth(self: KSqueezedTextLabel, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2107,9 +2655,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KSqueezedTextLabel, h: i32) void {
+    pub fn setFixedHeight(self: KSqueezedTextLabel, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2121,11 +2673,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KSqueezedTextLabel, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KSqueezedTextLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2136,11 +2692,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KSqueezedTextLabel, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KSqueezedTextLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2151,11 +2711,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KSqueezedTextLabel, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KSqueezedTextLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2166,11 +2730,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KSqueezedTextLabel, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KSqueezedTextLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2181,11 +2749,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KSqueezedTextLabel, param1: anytype) QPointF {
+    pub fn mapToParent(self: KSqueezedTextLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2196,10 +2768,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KSqueezedTextLabel, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KSqueezedTextLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2211,10 +2787,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KSqueezedTextLabel, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KSqueezedTextLabel, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2226,10 +2806,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KSqueezedTextLabel, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KSqueezedTextLabel, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2243,12 +2827,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2261,11 +2849,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2279,11 +2871,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2297,11 +2893,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KSqueezedTextLabel, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2311,9 +2911,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Window(self: KSqueezedTextLabel) QWidget {
+    pub fn window(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2323,9 +2927,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn NativeParentWidget(self: KSqueezedTextLabel) QWidget {
+    pub fn nativeParentWidget(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2335,9 +2943,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn TopLevelWidget(self: KSqueezedTextLabel) QWidget {
+    pub fn topLevelWidget(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2347,9 +2959,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Palette(self: KSqueezedTextLabel) QPalette {
+    pub fn palette(self: KSqueezedTextLabel) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2359,12 +2975,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KSqueezedTextLabel, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KSqueezedTextLabel, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2374,11 +2994,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KSqueezedTextLabel, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KSqueezedTextLabel, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2392,9 +3016,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KSqueezedTextLabel) i32 {
+    pub fn backgroundRole(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2404,11 +3032,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KSqueezedTextLabel, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KSqueezedTextLabel, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2422,9 +3054,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KSqueezedTextLabel) i32 {
+    pub fn foregroundRole(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2434,9 +3070,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Font(self: KSqueezedTextLabel) QFont {
+    pub fn font(self: KSqueezedTextLabel) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2446,12 +3086,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KSqueezedTextLabel, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KSqueezedTextLabel, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2461,9 +3105,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FontMetrics(self: KSqueezedTextLabel) QFontMetrics {
+    pub fn fontMetrics(self: KSqueezedTextLabel) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2473,9 +3121,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FontInfo(self: KSqueezedTextLabel) QFontInfo {
+    pub fn fontInfo(self: KSqueezedTextLabel) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2485,9 +3137,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Cursor(self: KSqueezedTextLabel) QCursor {
+    pub fn cursor(self: KSqueezedTextLabel) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2497,12 +3153,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KSqueezedTextLabel, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KSqueezedTextLabel, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2512,9 +3172,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UnsetCursor(self: KSqueezedTextLabel) void {
+    pub fn unsetCursor(self: KSqueezedTextLabel) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2526,9 +3190,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KSqueezedTextLabel, enable: bool) void {
+    pub fn setMouseTracking(self: KSqueezedTextLabel, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2538,9 +3206,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasMouseTracking(self: KSqueezedTextLabel) bool {
+    pub fn hasMouseTracking(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2550,9 +3222,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UnderMouse(self: KSqueezedTextLabel) bool {
+    pub fn underMouse(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2564,9 +3240,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KSqueezedTextLabel, enable: bool) void {
+    pub fn setTabletTracking(self: KSqueezedTextLabel, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2576,24 +3256,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasTabletTracking(self: KSqueezedTextLabel) bool {
+    pub fn hasTabletTracking(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSqueezedTextLabel `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KSqueezedTextLabel, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2603,12 +3272,35 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KSqueezedTextLabel, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KSqueezedTextLabel, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSqueezedTextLabel `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KSqueezedTextLabel, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2618,9 +3310,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Mask(self: KSqueezedTextLabel) QRegion {
+    pub fn mask(self: KSqueezedTextLabel) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2630,9 +3326,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ClearMask(self: KSqueezedTextLabel) void {
+    pub fn clearMask(self: KSqueezedTextLabel) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2644,10 +3344,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KSqueezedTextLabel, target: anytype) void {
+    pub fn render(self: KSqueezedTextLabel, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2659,10 +3363,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KSqueezedTextLabel, painter: anytype) void {
+    pub fn render2(self: KSqueezedTextLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2672,9 +3380,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Grab(self: KSqueezedTextLabel) QPixmap {
+    pub fn grab(self: KSqueezedTextLabel) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2684,9 +3396,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn GraphicsEffect(self: KSqueezedTextLabel) QGraphicsEffect {
+    pub fn graphicsEffect(self: KSqueezedTextLabel) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2698,10 +3414,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KSqueezedTextLabel, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KSqueezedTextLabel, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2713,9 +3433,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KSqueezedTextLabel, typeVal: i32) void {
+    pub fn grabGesture(self: KSqueezedTextLabel, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2727,9 +3451,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KSqueezedTextLabel, typeVal: i32) void {
+    pub fn ungrabGesture(self: KSqueezedTextLabel, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2739,15 +3467,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KSqueezedTextLabel, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KSqueezedTextLabel, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2757,15 +3489,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KSqueezedTextLabel, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KSqueezedTextLabel, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2777,13 +3513,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2795,13 +3535,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2813,10 +3557,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KSqueezedTextLabel, icon: anytype) void {
+    pub fn setWindowIcon(self: KSqueezedTextLabel, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2826,9 +3574,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WindowIcon(self: KSqueezedTextLabel) QIcon {
+    pub fn windowIcon(self: KSqueezedTextLabel) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2838,15 +3590,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KSqueezedTextLabel, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KSqueezedTextLabel, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2858,13 +3614,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2874,15 +3634,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KSqueezedTextLabel, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KSqueezedTextLabel, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2894,13 +3658,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2912,13 +3680,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KSqueezedTextLabel, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KSqueezedTextLabel, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2930,13 +3702,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2948,9 +3724,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KSqueezedTextLabel, level: f64) void {
+    pub fn setWindowOpacity(self: KSqueezedTextLabel, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2960,9 +3740,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WindowOpacity(self: KSqueezedTextLabel) f64 {
+    pub fn windowOpacity(self: KSqueezedTextLabel) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2972,9 +3756,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsWindowModified(self: KSqueezedTextLabel) bool {
+    pub fn isWindowModified(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2984,15 +3772,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KSqueezedTextLabel, toolTip: []const u8) void {
+    pub fn setToolTip(self: KSqueezedTextLabel, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3004,13 +3796,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3022,9 +3818,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KSqueezedTextLabel, msec: i32) void {
+    pub fn setToolTipDuration(self: KSqueezedTextLabel, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3034,9 +3834,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ToolTipDuration(self: KSqueezedTextLabel) i32 {
+    pub fn toolTipDuration(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3046,15 +3850,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KSqueezedTextLabel, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KSqueezedTextLabel, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3066,13 +3874,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3082,15 +3894,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KSqueezedTextLabel, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KSqueezedTextLabel, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3102,13 +3918,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3120,13 +3940,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3138,13 +3962,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KSqueezedTextLabel, name: []const u8) void {
+    pub fn setAccessibleName(self: KSqueezedTextLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3156,13 +3984,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3174,13 +4006,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KSqueezedTextLabel, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KSqueezedTextLabel, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3192,9 +4028,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KSqueezedTextLabel, direction: i32) void {
+    pub fn setLayoutDirection(self: KSqueezedTextLabel, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3208,9 +4048,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KSqueezedTextLabel) i32 {
+    pub fn layoutDirection(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3220,9 +4064,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UnsetLayoutDirection(self: KSqueezedTextLabel) void {
+    pub fn unsetLayoutDirection(self: KSqueezedTextLabel) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3232,12 +4080,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KSqueezedTextLabel, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KSqueezedTextLabel, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3247,9 +4099,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Locale(self: KSqueezedTextLabel) QLocale {
+    pub fn locale(self: KSqueezedTextLabel) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3259,9 +4115,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UnsetLocale(self: KSqueezedTextLabel) void {
+    pub fn unsetLocale(self: KSqueezedTextLabel) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4131,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsRightToLeft(self: KSqueezedTextLabel) bool {
+    pub fn isRightToLeft(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3283,9 +4147,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsLeftToRight(self: KSqueezedTextLabel) bool {
+    pub fn isLeftToRight(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3295,9 +4163,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SetFocus(self: KSqueezedTextLabel) void {
+    pub fn setFocus(self: KSqueezedTextLabel) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4179,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsActiveWindow(self: KSqueezedTextLabel) bool {
+    pub fn isActiveWindow(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4195,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ActivateWindow(self: KSqueezedTextLabel) void {
+    pub fn activateWindow(self: KSqueezedTextLabel) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3331,9 +4211,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ClearFocus(self: KSqueezedTextLabel) void {
+    pub fn clearFocus(self: KSqueezedTextLabel) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3345,9 +4229,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KSqueezedTextLabel, reason: i32) void {
+    pub fn setFocus2(self: KSqueezedTextLabel, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3361,9 +4249,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KSqueezedTextLabel) i32 {
+    pub fn focusPolicy(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3375,9 +4267,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KSqueezedTextLabel, policy: i32) void {
+    pub fn setFocusPolicy(self: KSqueezedTextLabel, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3387,9 +4283,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasFocus(self: KSqueezedTextLabel) bool {
+    pub fn hasFocus(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3401,11 +4301,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3415,12 +4319,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KSqueezedTextLabel, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KSqueezedTextLabel, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3430,9 +4338,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FocusProxy(self: KSqueezedTextLabel) QWidget {
+    pub fn focusProxy(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3446,9 +4358,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KSqueezedTextLabel) i32 {
+    pub fn contextMenuPolicy(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3460,9 +4376,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KSqueezedTextLabel, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KSqueezedTextLabel, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3472,9 +4392,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn GrabMouse(self: KSqueezedTextLabel) void {
+    pub fn grabMouse(self: KSqueezedTextLabel) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3486,10 +4410,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn grabMouse2(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3499,9 +4427,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ReleaseMouse(self: KSqueezedTextLabel) void {
+    pub fn releaseMouse(self: KSqueezedTextLabel) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3511,9 +4443,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn GrabKeyboard(self: KSqueezedTextLabel) void {
+    pub fn grabKeyboard(self: KSqueezedTextLabel) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3523,9 +4459,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ReleaseKeyboard(self: KSqueezedTextLabel) void {
+    pub fn releaseKeyboard(self: KSqueezedTextLabel) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3537,10 +4477,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KSqueezedTextLabel, key: anytype) i32 {
+    pub fn grabShortcut(self: KSqueezedTextLabel, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3552,9 +4496,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KSqueezedTextLabel, id: i32) void {
+    pub fn releaseShortcut(self: KSqueezedTextLabel, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3566,9 +4514,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KSqueezedTextLabel, id: i32) void {
+    pub fn setShortcutEnabled(self: KSqueezedTextLabel, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3580,25 +4532,37 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KSqueezedTextLabel, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KSqueezedTextLabel, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3608,9 +4572,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UpdatesEnabled(self: KSqueezedTextLabel) bool {
+    pub fn updatesEnabled(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3622,9 +4590,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KSqueezedTextLabel, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KSqueezedTextLabel, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3634,9 +4606,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn GraphicsProxyWidget(self: KSqueezedTextLabel) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KSqueezedTextLabel) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3646,9 +4622,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Update(self: KSqueezedTextLabel) void {
+    pub fn update(self: KSqueezedTextLabel) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3658,9 +4638,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Repaint(self: KSqueezedTextLabel) void {
+    pub fn repaint(self: KSqueezedTextLabel) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3670,17 +4654,21 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KSqueezedTextLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KSqueezedTextLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3692,11 +4680,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn update3(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3707,10 +4699,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn update4(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3720,17 +4716,21 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KSqueezedTextLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KSqueezedTextLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3742,10 +4742,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn repaint3(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3757,10 +4761,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn repaint4(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3772,9 +4780,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KSqueezedTextLabel, hidden: bool) void {
+    pub fn setHidden(self: KSqueezedTextLabel, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3784,9 +4796,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Show(self: KSqueezedTextLabel) void {
+    pub fn show(self: KSqueezedTextLabel) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3796,9 +4812,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Hide(self: KSqueezedTextLabel) void {
+    pub fn hide(self: KSqueezedTextLabel) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3808,9 +4828,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ShowMinimized(self: KSqueezedTextLabel) void {
+    pub fn showMinimized(self: KSqueezedTextLabel) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3820,9 +4844,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ShowMaximized(self: KSqueezedTextLabel) void {
+    pub fn showMaximized(self: KSqueezedTextLabel) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3832,9 +4860,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ShowFullScreen(self: KSqueezedTextLabel) void {
+    pub fn showFullScreen(self: KSqueezedTextLabel) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3844,9 +4876,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ShowNormal(self: KSqueezedTextLabel) void {
+    pub fn showNormal(self: KSqueezedTextLabel) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3856,9 +4892,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Close(self: KSqueezedTextLabel) bool {
+    pub fn close(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3868,9 +4908,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Raise(self: KSqueezedTextLabel) void {
+    pub fn raise(self: KSqueezedTextLabel) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3880,9 +4924,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Lower(self: KSqueezedTextLabel) void {
+    pub fn lower(self: KSqueezedTextLabel) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3894,10 +4942,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn stackUnder(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3907,13 +4959,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KSqueezedTextLabel, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KSqueezedTextLabel, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3925,10 +4981,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn move2(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3942,9 +5002,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KSqueezedTextLabel, w: i32, h: i32) void {
+    pub fn resize(self: KSqueezedTextLabel, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3956,10 +5020,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn resize2(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3969,17 +5037,21 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KSqueezedTextLabel, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KSqueezedTextLabel, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3989,12 +5061,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KSqueezedTextLabel, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KSqueezedTextLabel, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4006,13 +5082,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSqueezedTextLabel.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSqueezedTextLabel.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4022,15 +5102,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KSqueezedTextLabel, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KSqueezedTextLabel, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4040,9 +5124,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn AdjustSize(self: KSqueezedTextLabel) void {
+    pub fn adjustSize(self: KSqueezedTextLabel) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4052,9 +5140,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsVisible(self: KSqueezedTextLabel) bool {
+    pub fn isVisible(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4066,10 +5158,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KSqueezedTextLabel, param1: anytype) bool {
+    pub fn isVisibleTo(self: KSqueezedTextLabel, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4079,9 +5175,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsHidden(self: KSqueezedTextLabel) bool {
+    pub fn isHidden(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4091,9 +5191,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsMinimized(self: KSqueezedTextLabel) bool {
+    pub fn isMinimized(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4103,9 +5207,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsMaximized(self: KSqueezedTextLabel) bool {
+    pub fn isMaximized(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4115,9 +5223,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsFullScreen(self: KSqueezedTextLabel) bool {
+    pub fn isFullScreen(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4131,9 +5243,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KSqueezedTextLabel) i32 {
+    pub fn windowState(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4145,9 +5261,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KSqueezedTextLabel, state: i32) void {
+    pub fn setWindowState(self: KSqueezedTextLabel, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4159,9 +5279,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KSqueezedTextLabel, state: i32) void {
+    pub fn overrideWindowState(self: KSqueezedTextLabel, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4171,9 +5295,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SizePolicy(self: KSqueezedTextLabel) QSizePolicy {
+    pub fn sizePolicy(self: KSqueezedTextLabel) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4183,12 +5311,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KSqueezedTextLabel, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KSqueezedTextLabel, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4202,9 +5334,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KSqueezedTextLabel, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KSqueezedTextLabel, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4214,9 +5350,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn VisibleRegion(self: KSqueezedTextLabel) QRegion {
+    pub fn visibleRegion(self: KSqueezedTextLabel) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4234,9 +5374,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KSqueezedTextLabel, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KSqueezedTextLabel, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4248,10 +5392,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KSqueezedTextLabel, margins: anytype) void {
+    pub fn setContentsMargins2(self: KSqueezedTextLabel, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4261,9 +5409,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ContentsMargins(self: KSqueezedTextLabel) QMargins {
+    pub fn contentsMargins(self: KSqueezedTextLabel) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4273,9 +5425,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Layout(self: KSqueezedTextLabel) QLayout {
+    pub fn layout(self: KSqueezedTextLabel) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4285,12 +5441,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KSqueezedTextLabel, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KSqueezedTextLabel, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4300,24 +5460,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UpdateGeometry(self: KSqueezedTextLabel) void {
+    pub fn updateGeometry(self: KSqueezedTextLabel) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSqueezedTextLabel `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KSqueezedTextLabel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4327,14 +5476,37 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KSqueezedTextLabel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSqueezedTextLabel `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KSqueezedTextLabel, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KSqueezedTextLabel, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4348,9 +5520,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KSqueezedTextLabel, dx: i32, dy: i32) void {
+    pub fn scroll(self: KSqueezedTextLabel, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4366,10 +5542,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KSqueezedTextLabel, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KSqueezedTextLabel, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4379,9 +5559,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FocusWidget(self: KSqueezedTextLabel) QWidget {
+    pub fn focusWidget(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4391,9 +5575,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn NextInFocusChain(self: KSqueezedTextLabel) QWidget {
+    pub fn nextInFocusChain(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4403,9 +5591,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn PreviousInFocusChain(self: KSqueezedTextLabel) QWidget {
+    pub fn previousInFocusChain(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4415,9 +5607,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn AcceptDrops(self: KSqueezedTextLabel) bool {
+    pub fn acceptDrops(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4429,9 +5625,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KSqueezedTextLabel, on: bool) void {
+    pub fn setAcceptDrops(self: KSqueezedTextLabel, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4443,10 +5643,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KSqueezedTextLabel, action: anytype) void {
+    pub fn addAction(self: KSqueezedTextLabel, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4456,15 +5660,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KSqueezedTextLabel, actions: []QAction) void {
+    pub fn addActions(self: KSqueezedTextLabel, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4476,16 +5684,20 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KSqueezedTextLabel, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KSqueezedTextLabel, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4499,11 +5711,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KSqueezedTextLabel, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KSqueezedTextLabel, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4515,10 +5731,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KSqueezedTextLabel, action: anytype) void {
+    pub fn removeAction(self: KSqueezedTextLabel, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4530,15 +5750,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSqueezedTextLabel.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSqueezedTextLabel.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4548,15 +5772,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KSqueezedTextLabel, text: []const u8) QAction {
+    pub fn addAction2(self: KSqueezedTextLabel, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4568,16 +5796,20 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KSqueezedTextLabel, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KSqueezedTextLabel, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4587,19 +5819,23 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KSqueezedTextLabel, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KSqueezedTextLabel, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4610,19 +5846,23 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KSqueezedTextLabel, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KSqueezedTextLabel, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4632,9 +5872,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ParentWidget(self: KSqueezedTextLabel) QWidget {
+    pub fn parentWidget(self: KSqueezedTextLabel) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4646,9 +5890,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KSqueezedTextLabel, typeVal: i32) void {
+    pub fn setWindowFlags(self: KSqueezedTextLabel, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4662,9 +5910,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KSqueezedTextLabel) i32 {
+    pub fn windowFlags(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4676,9 +5928,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KSqueezedTextLabel, param1: i32) void {
+    pub fn setWindowFlag(self: KSqueezedTextLabel, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4690,9 +5946,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KSqueezedTextLabel, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KSqueezedTextLabel, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4706,9 +5966,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KSqueezedTextLabel) i32 {
+    pub fn windowType(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4718,9 +5982,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4730,13 +5998,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KSqueezedTextLabel, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KSqueezedTextLabel, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4748,10 +6020,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KSqueezedTextLabel, p: anytype) QWidget {
+    pub fn childAt2(self: KSqueezedTextLabel, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4763,10 +6039,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KSqueezedTextLabel, p: anytype) QWidget {
+    pub fn childAt3(self: KSqueezedTextLabel, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4778,9 +6058,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KSqueezedTextLabel, param1: i32) void {
+    pub fn setAttribute(self: KSqueezedTextLabel, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4792,9 +6076,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KSqueezedTextLabel, param1: i32) bool {
+    pub fn testAttribute(self: KSqueezedTextLabel, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4804,9 +6092,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn EnsurePolished(self: KSqueezedTextLabel) void {
+    pub fn ensurePolished(self: KSqueezedTextLabel) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4818,10 +6110,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KSqueezedTextLabel, child: anytype) bool {
+    pub fn isAncestorOf(self: KSqueezedTextLabel, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4831,9 +6127,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn AutoFillBackground(self: KSqueezedTextLabel) bool {
+    pub fn autoFillBackground(self: KSqueezedTextLabel) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4845,9 +6145,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KSqueezedTextLabel, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KSqueezedTextLabel, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4857,9 +6161,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn BackingStore(self: KSqueezedTextLabel) QBackingStore {
+    pub fn backingStore(self: KSqueezedTextLabel) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4869,9 +6177,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WindowHandle(self: KSqueezedTextLabel) QWindow {
+    pub fn windowHandle(self: KSqueezedTextLabel) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4881,9 +6193,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Screen(self: KSqueezedTextLabel) QScreen {
+    pub fn screen(self: KSqueezedTextLabel) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4893,12 +6209,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KSqueezedTextLabel, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KSqueezedTextLabel, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4906,12 +6226,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4923,13 +6247,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KSqueezedTextLabel, title: []const u8) void {
+    pub fn windowTitleChanged(self: KSqueezedTextLabel, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4941,9 +6269,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4955,10 +6287,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KSqueezedTextLabel, icon: anytype) void {
+    pub fn windowIconChanged(self: KSqueezedTextLabel, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4970,9 +6306,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4984,13 +6324,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KSqueezedTextLabel, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KSqueezedTextLabel, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5002,9 +6346,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5014,12 +6362,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KSqueezedTextLabel, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KSqueezedTextLabel, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5031,9 +6383,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5047,9 +6403,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KSqueezedTextLabel) i32 {
+    pub fn inputMethodHints(self: KSqueezedTextLabel) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5061,9 +6421,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KSqueezedTextLabel, hints: i32) void {
+    pub fn setInputMethodHints(self: KSqueezedTextLabel, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5077,11 +6441,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5097,13 +6465,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5120,12 +6492,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KSqueezedTextLabel, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5139,11 +6515,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5159,12 +6539,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5182,12 +6566,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KSqueezedTextLabel, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5199,10 +6587,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KSqueezedTextLabel, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KSqueezedTextLabel, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5216,9 +6608,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KSqueezedTextLabel, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KSqueezedTextLabel, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5232,10 +6628,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KSqueezedTextLabel, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KSqueezedTextLabel, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5249,9 +6649,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KSqueezedTextLabel, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KSqueezedTextLabel, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5265,9 +6669,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KSqueezedTextLabel, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KSqueezedTextLabel, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5281,9 +6689,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KSqueezedTextLabel, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KSqueezedTextLabel, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5297,25 +6709,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KSqueezedTextLabel, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KSqueezedTextLabel, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5323,17 +6723,41 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5345,13 +6769,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSqueezedTextLabel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5363,13 +6791,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KSqueezedTextLabel, name: []const u8) void {
+    pub fn setObjectName(self: KSqueezedTextLabel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5379,9 +6811,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsWidgetType(self: KSqueezedTextLabel) bool {
+    pub fn isWidgetType(self: KSqueezedTextLabel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5391,9 +6827,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsWindowType(self: KSqueezedTextLabel) bool {
+    pub fn isWindowType(self: KSqueezedTextLabel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5403,9 +6843,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn IsQuickItemType(self: KSqueezedTextLabel) bool {
+    pub fn isQuickItemType(self: KSqueezedTextLabel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5415,9 +6859,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SignalsBlocked(self: KSqueezedTextLabel) bool {
+    pub fn signalsBlocked(self: KSqueezedTextLabel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5429,9 +6877,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KSqueezedTextLabel, b: bool) bool {
+    pub fn blockSignals(self: KSqueezedTextLabel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5441,9 +6893,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Thread(self: KSqueezedTextLabel) QThread {
+    pub fn thread(self: KSqueezedTextLabel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5453,12 +6909,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KSqueezedTextLabel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KSqueezedTextLabel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5470,9 +6930,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KSqueezedTextLabel, interval: i32) i32 {
+    pub fn startTimer(self: KSqueezedTextLabel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5484,9 +6948,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KSqueezedTextLabel, time: i64) i32 {
+    pub fn startTimer2(self: KSqueezedTextLabel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5498,9 +6966,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KSqueezedTextLabel, id: i32) void {
+    pub fn killTimer(self: KSqueezedTextLabel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5512,9 +6984,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KSqueezedTextLabel, id: i32) void {
+    pub fn killTimer2(self: KSqueezedTextLabel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5526,15 +7002,19 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KSqueezedTextLabel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSqueezedTextLabel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSqueezedTextLabel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5546,10 +7026,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KSqueezedTextLabel, filterObj: anytype) void {
+    pub fn installEventFilter(self: KSqueezedTextLabel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5561,10 +7045,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KSqueezedTextLabel, obj: anytype) void {
+    pub fn removeEventFilter(self: KSqueezedTextLabel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5572,7 +7060,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5580,13 +7068,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5594,7 +7086,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5602,13 +7094,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5618,18 +7114,22 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KSqueezedTextLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KSqueezedTextLabel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5637,7 +7137,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5645,13 +7145,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5659,7 +7163,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5667,13 +7171,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5683,9 +7191,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Disconnect3(self: KSqueezedTextLabel) bool {
+    pub fn disconnect3(self: KSqueezedTextLabel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5697,10 +7209,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KSqueezedTextLabel, receiver: anytype) bool {
+    pub fn disconnect4(self: KSqueezedTextLabel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5710,10 +7226,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5723,9 +7243,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DumpObjectTree(self: KSqueezedTextLabel) void {
+    pub fn dumpObjectTree(self: KSqueezedTextLabel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5735,9 +7259,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DumpObjectInfo(self: KSqueezedTextLabel) void {
+    pub fn dumpObjectInfo(self: KSqueezedTextLabel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5751,11 +7279,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KSqueezedTextLabel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KSqueezedTextLabel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5767,10 +7299,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KSqueezedTextLabel, name: [:0]const u8) QVariant {
+    pub fn property(self: KSqueezedTextLabel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5782,7 +7318,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KSqueezedTextLabel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KSqueezedTextLabel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5790,27 +7326,19 @@ pub const KSqueezedTextLabel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSqueezedTextLabel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSqueezedTextLabel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSqueezedTextLabel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSqueezedTextLabel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSqueezedTextLabel `
-    ///
-    pub fn BindingStorage(self: KSqueezedTextLabel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5820,9 +7348,29 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn BindingStorage2(self: KSqueezedTextLabel) QBindingStorage {
+    pub fn bindingStorage(self: KSqueezedTextLabel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSqueezedTextLabel `
+    ///
+    pub fn bindingStorage2(self: KSqueezedTextLabel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5832,9 +7380,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Destroyed(self: KSqueezedTextLabel) void {
+    pub fn destroyed(self: KSqueezedTextLabel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5846,9 +7398,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel) callconv(.c) void) void {
+    pub fn onDestroyed(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5858,9 +7414,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Parent(self: KSqueezedTextLabel) QObject {
+    pub fn parent(self: KSqueezedTextLabel) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5872,10 +7432,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KSqueezedTextLabel, classname: [:0]const u8) bool {
+    pub fn inherits(self: KSqueezedTextLabel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5885,9 +7449,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DeleteLater(self: KSqueezedTextLabel) void {
+    pub fn deleteLater(self: KSqueezedTextLabel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5901,9 +7469,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KSqueezedTextLabel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KSqueezedTextLabel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5917,9 +7489,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KSqueezedTextLabel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KSqueezedTextLabel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5927,7 +7503,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5937,13 +7513,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5951,7 +7531,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5961,13 +7541,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5977,7 +7561,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5985,12 +7569,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KSqueezedTextLabel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KSqueezedTextLabel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6002,10 +7590,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KSqueezedTextLabel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KSqueezedTextLabel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6019,11 +7611,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KSqueezedTextLabel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KSqueezedTextLabel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6039,13 +7635,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KSqueezedTextLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KSqueezedTextLabel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6058,11 +7658,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KSqueezedTextLabel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KSqueezedTextLabel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6074,10 +7678,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn destroyed1(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6089,9 +7697,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6101,9 +7713,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn PaintingActive(self: KSqueezedTextLabel) bool {
+    pub fn paintingActive(self: KSqueezedTextLabel) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6113,9 +7729,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn WidthMM(self: KSqueezedTextLabel) i32 {
+    pub fn widthMM(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6125,9 +7745,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HeightMM(self: KSqueezedTextLabel) i32 {
+    pub fn heightMM(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6137,9 +7761,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn LogicalDpiX(self: KSqueezedTextLabel) i32 {
+    pub fn logicalDpiX(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6149,9 +7777,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn LogicalDpiY(self: KSqueezedTextLabel) i32 {
+    pub fn logicalDpiY(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6161,9 +7793,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn PhysicalDpiX(self: KSqueezedTextLabel) i32 {
+    pub fn physicalDpiX(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6173,9 +7809,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn PhysicalDpiY(self: KSqueezedTextLabel) i32 {
+    pub fn physicalDpiY(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6185,9 +7825,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DevicePixelRatio(self: KSqueezedTextLabel) f64 {
+    pub fn devicePixelRatio(self: KSqueezedTextLabel) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6197,9 +7841,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DevicePixelRatioF(self: KSqueezedTextLabel) f64 {
+    pub fn devicePixelRatioF(self: KSqueezedTextLabel) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6209,9 +7857,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn ColorCount(self: KSqueezedTextLabel) i32 {
+    pub fn colorCount(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6221,17 +7873,25 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Depth(self: KSqueezedTextLabel) i32 {
+    pub fn depth(self: KSqueezedTextLabel) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6239,13 +7899,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6259,13 +7923,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KSqueezedTextLabel, param1: i32) i32 {
+    pub fn heightForWidth(self: KSqueezedTextLabel, param1: i32) i32 {
         return qtc.KSqueezedTextLabel_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6279,9 +7943,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KSqueezedTextLabel, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KSqueezedTextLabel, param1: i32) i32 {
         return qtc.KSqueezedTextLabel_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QLabel
     ///
@@ -6295,9 +7963,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QLabel
     ///
@@ -6311,14 +7983,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KSqueezedTextLabel, e: anytype) bool {
+    pub fn event(self: KSqueezedTextLabel, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSqueezedTextLabel_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QLabel
     ///
@@ -6332,10 +8004,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KSqueezedTextLabel, e: anytype) bool {
+    pub fn superEvent(self: KSqueezedTextLabel, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSqueezedTextLabel_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QLabel
     ///
@@ -6349,9 +8025,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6365,14 +8045,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn keyPressEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KSqueezedTextLabel_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6386,10 +8066,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn superKeyPressEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QKeyEvent;
         qtc.KSqueezedTextLabel_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6403,9 +8087,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, ev: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QKeyEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6419,14 +8107,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn paintEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSqueezedTextLabel_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6440,10 +8128,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superPaintEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSqueezedTextLabel_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QLabel
     ///
@@ -6457,9 +8149,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPaintEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6473,14 +8169,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn changeEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KSqueezedTextLabel_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6494,10 +8190,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superChangeEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KSqueezedTextLabel_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QLabel
     ///
@@ -6511,9 +8211,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6527,14 +8231,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn mousePressEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_MousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QLabel
     ///
@@ -6548,11 +8252,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn superMousePressEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#mousePressEvent)
@@ -6565,9 +8273,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6581,14 +8293,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn mouseMoveEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6602,10 +8314,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn superMouseMoveEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QMouseEvent;
         qtc.KSqueezedTextLabel_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QLabel
     ///
@@ -6619,9 +8335,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, ev: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QLabel
     ///
@@ -6635,14 +8355,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn focusInEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KSqueezedTextLabel_FocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QLabel
     ///
@@ -6656,11 +8376,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn superFocusInEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KSqueezedTextLabel_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QLabel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlabel.html#focusInEvent)
@@ -6673,9 +8397,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QFocusEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -6689,14 +8417,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn focusOutEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KSqueezedTextLabel_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -6710,10 +8438,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` ev: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KSqueezedTextLabel, ev: anytype) void {
+    pub fn superFocusOutEvent(self: KSqueezedTextLabel, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QFocusEvent;
         qtc.KSqueezedTextLabel_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QLabel
     ///
@@ -6727,9 +8459,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, ev: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QFocusEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -6743,13 +8479,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KSqueezedTextLabel, next: bool) bool {
+    pub fn focusNextPrevChild(self: KSqueezedTextLabel, next: bool) bool {
         return qtc.KSqueezedTextLabel_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -6763,9 +8499,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KSqueezedTextLabel, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KSqueezedTextLabel, next: bool) bool {
         return qtc.KSqueezedTextLabel_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QLabel
     ///
@@ -6779,9 +8519,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, bool) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6795,14 +8539,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KSqueezedTextLabel, option: anytype) void {
+    pub fn initStyleOption(self: KSqueezedTextLabel, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KSqueezedTextLabel_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6816,10 +8560,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KSqueezedTextLabel, option: anytype) void {
+    pub fn superInitStyleOption(self: KSqueezedTextLabel, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KSqueezedTextLabel_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6833,9 +8581,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6847,13 +8599,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn DevType(self: KSqueezedTextLabel) i32 {
+    pub fn devType(self: KSqueezedTextLabel) i32 {
         return qtc.KSqueezedTextLabel_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6865,9 +8617,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperDevType(self: KSqueezedTextLabel) i32 {
+    pub fn superDevType(self: KSqueezedTextLabel) i32 {
         return qtc.KSqueezedTextLabel_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6881,9 +8637,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6897,13 +8657,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KSqueezedTextLabel, visible: bool) void {
+    pub fn setVisible(self: KSqueezedTextLabel, visible: bool) void {
         qtc.KSqueezedTextLabel_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6917,9 +8677,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KSqueezedTextLabel, visible: bool) void {
+    pub fn superSetVisible(self: KSqueezedTextLabel, visible: bool) void {
         qtc.KSqueezedTextLabel_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6933,9 +8697,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, bool) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6947,13 +8715,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn HasHeightForWidth(self: KSqueezedTextLabel) bool {
+    pub fn hasHeightForWidth(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6965,9 +8733,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperHasHeightForWidth(self: KSqueezedTextLabel) bool {
+    pub fn superHasHeightForWidth(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6981,9 +8753,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6995,13 +8771,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn PaintEngine(self: KSqueezedTextLabel) QPaintEngine {
+    pub fn paintEngine(self: KSqueezedTextLabel) QPaintEngine {
         return .{ .ptr = qtc.KSqueezedTextLabel_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7013,9 +8789,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperPaintEngine(self: KSqueezedTextLabel) QPaintEngine {
+    pub fn superPaintEngine(self: KSqueezedTextLabel) QPaintEngine {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7029,9 +8809,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KSqueezedTextLabel_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7043,16 +8827,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSqueezedTextLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSqueezedTextLabel_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7064,12 +8848,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSqueezedTextLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSqueezedTextLabel_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7083,9 +8871,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMouseEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7097,16 +8889,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KSqueezedTextLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KSqueezedTextLabel_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7118,12 +8910,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KSqueezedTextLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KSqueezedTextLabel_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7137,9 +8933,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QWheelEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7151,16 +8951,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KSqueezedTextLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KSqueezedTextLabel_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7172,12 +8972,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KSqueezedTextLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KSqueezedTextLabel_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7191,9 +8995,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QKeyEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7205,16 +9013,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSqueezedTextLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSqueezedTextLabel_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7226,12 +9034,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSqueezedTextLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSqueezedTextLabel_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7245,9 +9057,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEnterEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7259,16 +9075,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSqueezedTextLabel_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSqueezedTextLabel_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7280,12 +9096,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSqueezedTextLabel_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSqueezedTextLabel_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7299,9 +9119,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7313,16 +9137,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSqueezedTextLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSqueezedTextLabel_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7334,12 +9158,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSqueezedTextLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSqueezedTextLabel_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7353,9 +9181,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMoveEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7367,16 +9199,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSqueezedTextLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSqueezedTextLabel_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7388,12 +9220,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSqueezedTextLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSqueezedTextLabel_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7407,9 +9243,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QCloseEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7421,16 +9261,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSqueezedTextLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSqueezedTextLabel_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7442,12 +9282,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSqueezedTextLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSqueezedTextLabel_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7461,9 +9305,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QTabletEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7475,16 +9323,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KSqueezedTextLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KSqueezedTextLabel_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7496,12 +9344,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KSqueezedTextLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KSqueezedTextLabel_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7515,9 +9367,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QActionEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7529,16 +9385,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSqueezedTextLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSqueezedTextLabel_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7550,12 +9406,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSqueezedTextLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSqueezedTextLabel_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7569,9 +9429,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragEnterEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7583,16 +9447,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSqueezedTextLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSqueezedTextLabel_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7604,12 +9468,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSqueezedTextLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSqueezedTextLabel_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7623,9 +9491,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragMoveEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7637,16 +9509,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSqueezedTextLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSqueezedTextLabel_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7658,12 +9530,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSqueezedTextLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSqueezedTextLabel_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7677,9 +9553,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7691,16 +9571,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSqueezedTextLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSqueezedTextLabel_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7712,12 +9592,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSqueezedTextLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSqueezedTextLabel_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7731,9 +9615,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QDropEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7745,16 +9633,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSqueezedTextLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSqueezedTextLabel_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7766,12 +9654,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSqueezedTextLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSqueezedTextLabel_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7785,9 +9677,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QShowEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7799,16 +9695,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSqueezedTextLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSqueezedTextLabel_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7820,12 +9716,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSqueezedTextLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSqueezedTextLabel_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7839,9 +9739,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QHideEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7859,7 +9763,7 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KSqueezedTextLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KSqueezedTextLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7867,9 +9771,9 @@ pub const KSqueezedTextLabel = extern struct {
         return qtc.KSqueezedTextLabel_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7887,13 +9791,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KSqueezedTextLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KSqueezedTextLabel, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KSqueezedTextLabel_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7907,9 +9815,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7923,13 +9835,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KSqueezedTextLabel, param1: i32) i32 {
+    pub fn metric(self: KSqueezedTextLabel, param1: i32) i32 {
         return qtc.KSqueezedTextLabel_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7943,9 +9855,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KSqueezedTextLabel, param1: i32) i32 {
+    pub fn superMetric(self: KSqueezedTextLabel, param1: i32) i32 {
         return qtc.KSqueezedTextLabel_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7959,9 +9875,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7975,14 +9895,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KSqueezedTextLabel, painter: anytype) void {
+    pub fn initPainter(self: KSqueezedTextLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSqueezedTextLabel_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7996,10 +9916,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KSqueezedTextLabel, painter: anytype) void {
+    pub fn superInitPainter(self: KSqueezedTextLabel, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSqueezedTextLabel_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8013,9 +9937,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPainter) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8029,14 +9957,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KSqueezedTextLabel, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KSqueezedTextLabel, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSqueezedTextLabel_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8050,10 +9978,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KSqueezedTextLabel, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KSqueezedTextLabel, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8067,9 +9999,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KSqueezedTextLabel_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8081,13 +10017,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SharedPainter(self: KSqueezedTextLabel) QPainter {
+    pub fn sharedPainter(self: KSqueezedTextLabel) QPainter {
         return .{ .ptr = qtc.KSqueezedTextLabel_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8099,9 +10035,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperSharedPainter(self: KSqueezedTextLabel) QPainter {
+    pub fn superSharedPainter(self: KSqueezedTextLabel) QPainter {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8115,9 +10055,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KSqueezedTextLabel_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8131,14 +10075,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn inputMethodEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSqueezedTextLabel_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8152,10 +10096,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSqueezedTextLabel_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8169,9 +10117,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QInputMethodEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8185,13 +10137,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KSqueezedTextLabel, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KSqueezedTextLabel, param1: i32) QVariant {
         return .{ .ptr = qtc.KSqueezedTextLabel_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8205,9 +10157,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KSqueezedTextLabel, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KSqueezedTextLabel, param1: i32) QVariant {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8223,9 +10179,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32) callconv(.c) QVariant) void {
         qtc.KSqueezedTextLabel_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8239,17 +10199,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KSqueezedTextLabel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KSqueezedTextLabel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KSqueezedTextLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KSqueezedTextLabel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8263,13 +10223,17 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KSqueezedTextLabel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KSqueezedTextLabel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KSqueezedTextLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KSqueezedTextLabel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8283,9 +10247,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QObject, QEvent) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8297,16 +10265,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KSqueezedTextLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KSqueezedTextLabel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8318,12 +10286,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KSqueezedTextLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KSqueezedTextLabel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8337,9 +10309,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QTimerEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8351,16 +10327,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSqueezedTextLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSqueezedTextLabel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8372,12 +10348,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSqueezedTextLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSqueezedTextLabel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8391,9 +10371,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QChildEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8405,16 +10389,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSqueezedTextLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSqueezedTextLabel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8426,12 +10410,16 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KSqueezedTextLabel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSqueezedTextLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KSqueezedTextLabel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSqueezedTextLabel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8445,9 +10433,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QEvent) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8461,14 +10453,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
+    pub fn connectNotify(self: KSqueezedTextLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSqueezedTextLabel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8482,11 +10474,15 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
+    pub fn superConnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSqueezedTextLabel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8499,9 +10495,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8515,14 +10515,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
+    pub fn disconnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSqueezedTextLabel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8536,10 +10536,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KSqueezedTextLabel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSqueezedTextLabel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8553,9 +10557,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8569,14 +10577,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn drawFrame(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KSqueezedTextLabel_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8590,10 +10598,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KSqueezedTextLabel, param1: anytype) void {
+    pub fn superDrawFrame(self: KSqueezedTextLabel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KSqueezedTextLabel_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8607,10 +10619,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QPainter) callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8621,13 +10637,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn UpdateMicroFocus(self: KSqueezedTextLabel) void {
+    pub fn updateMicroFocus(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8639,10 +10655,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperUpdateMicroFocus(self: KSqueezedTextLabel) void {
+    pub fn superUpdateMicroFocus(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8655,10 +10675,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8669,13 +10693,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Create(self: KSqueezedTextLabel) void {
+    pub fn create(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8687,10 +10711,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperCreate(self: KSqueezedTextLabel) void {
+    pub fn superCreate(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8703,9 +10731,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8717,13 +10749,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Destroy(self: KSqueezedTextLabel) void {
+    pub fn destroy(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8735,9 +10767,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperDestroy(self: KSqueezedTextLabel) void {
+    pub fn superDestroy(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8751,10 +10787,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) void) void {
         qtc.KSqueezedTextLabel_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8765,13 +10805,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FocusNextChild(self: KSqueezedTextLabel) bool {
+    pub fn focusNextChild(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8783,10 +10823,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperFocusNextChild(self: KSqueezedTextLabel) bool {
+    pub fn superFocusNextChild(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8799,9 +10843,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8813,13 +10861,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn FocusPreviousChild(self: KSqueezedTextLabel) bool {
+    pub fn focusPreviousChild(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8831,9 +10879,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperFocusPreviousChild(self: KSqueezedTextLabel) bool {
+    pub fn superFocusPreviousChild(self: KSqueezedTextLabel) bool {
         return qtc.KSqueezedTextLabel_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8847,9 +10899,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8861,13 +10917,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Sender(self: KSqueezedTextLabel) QObject {
+    pub fn sender(self: KSqueezedTextLabel) QObject {
         return .{ .ptr = qtc.KSqueezedTextLabel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8879,9 +10935,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperSender(self: KSqueezedTextLabel) QObject {
+    pub fn superSender(self: KSqueezedTextLabel) QObject {
         return .{ .ptr = qtc.KSqueezedTextLabel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8895,9 +10955,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) QObject) void {
         qtc.KSqueezedTextLabel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8909,13 +10973,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SenderSignalIndex(self: KSqueezedTextLabel) i32 {
+    pub fn senderSignalIndex(self: KSqueezedTextLabel) i32 {
         return qtc.KSqueezedTextLabel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8927,9 +10991,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn SuperSenderSignalIndex(self: KSqueezedTextLabel) i32 {
+    pub fn superSenderSignalIndex(self: KSqueezedTextLabel) i32 {
         return qtc.KSqueezedTextLabel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8943,9 +11011,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KSqueezedTextLabel, callback: *const fn () callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8959,14 +11031,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KSqueezedTextLabel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KSqueezedTextLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSqueezedTextLabel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8980,10 +11052,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KSqueezedTextLabel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KSqueezedTextLabel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSqueezedTextLabel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8997,9 +11073,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) i32) void {
         qtc.KSqueezedTextLabel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9013,14 +11093,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KSqueezedTextLabel, signal: anytype) bool {
+    pub fn isSignalConnected(self: KSqueezedTextLabel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSqueezedTextLabel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9034,10 +11114,14 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KSqueezedTextLabel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KSqueezedTextLabel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSqueezedTextLabel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9051,9 +11135,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, QMetaMethod) callconv(.c) bool) void {
         qtc.KSqueezedTextLabel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9069,13 +11157,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KSqueezedTextLabel, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KSqueezedTextLabel, metricA: i32, metricB: i32) f64 {
         return qtc.KSqueezedTextLabel_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9091,9 +11179,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KSqueezedTextLabel, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KSqueezedTextLabel, metricA: i32, metricB: i32) f64 {
         return qtc.KSqueezedTextLabel_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9107,9 +11199,13 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, i32, i32) callconv(.c) f64) void {
         qtc.KSqueezedTextLabel_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9123,23 +11219,23 @@ pub const KSqueezedTextLabel = extern struct {
     ///
     /// ` callback: *const fn (self: KSqueezedTextLabel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KSqueezedTextLabel, callback: *const fn (KSqueezedTextLabel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/ksqueezedtextlabel.html#dtor.KSqueezedTextLabel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSqueezedTextLabel `
     ///
-    pub fn Delete(self: KSqueezedTextLabel) void {
+    pub fn delete(self: KSqueezedTextLabel) void {
         qtc.KSqueezedTextLabel_Delete(@ptrCast(self.ptr));
     }
 };

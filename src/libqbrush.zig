@@ -21,138 +21,190 @@ pub const QBrush = extern struct {
 
     pub const _is_QBrush = {};
 
-    /// New constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBrush {
+    pub const New = new;
+
+    /// Allocate a new QBrush object in C++ memory
+    ///
+    pub fn new() QBrush {
         return .{ .ptr = qtc.QBrush_new() };
     }
 
-    /// New2 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
-    pub fn New2(bs: i32) QBrush {
+    pub fn new2(bs: i32) QBrush {
         return .{ .ptr = qtc.QBrush_new2(@bitCast(bs)) };
     }
 
-    /// New3 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn New3(color: anytype) QBrush {
-        comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.QBrush_new3(@ptrCast(color.ptr)) };
+    pub fn new3(_color: anytype) QBrush {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        return .{ .ptr = qtc.QBrush_new3(@ptrCast(_color.ptr)) };
     }
 
-    /// New4 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: qnamespace_enums.GlobalColor `
+    /// ` _color: qnamespace_enums.GlobalColor `
     ///
-    pub fn New4(color: i32) QBrush {
-        return .{ .ptr = qtc.QBrush_new4(@bitCast(color)) };
+    pub fn new4(_color: i32) QBrush {
+        return .{ .ptr = qtc.QBrush_new4(@bitCast(_color)) };
     }
 
-    /// New5 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn New5(color: anytype, pixmap: anytype) QBrush {
-        comptime _ = @TypeOf(color)._is_QColor;
+    pub fn new5(_color: anytype, pixmap: anytype) QBrush {
+        comptime _ = @TypeOf(_color)._is_QColor;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        return .{ .ptr = qtc.QBrush_new5(@ptrCast(color.ptr), @ptrCast(pixmap.ptr)) };
+        return .{ .ptr = qtc.QBrush_new5(@ptrCast(_color.ptr), @ptrCast(pixmap.ptr)) };
     }
 
-    /// New6 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: qnamespace_enums.GlobalColor `
+    /// ` _color: qnamespace_enums.GlobalColor `
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn New6(color: i32, pixmap: anytype) QBrush {
+    pub fn new6(_color: i32, pixmap: anytype) QBrush {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        return .{ .ptr = qtc.QBrush_new6(@bitCast(color), @ptrCast(pixmap.ptr)) };
+        return .{ .ptr = qtc.QBrush_new6(@bitCast(_color), @ptrCast(pixmap.ptr)) };
     }
 
-    /// New7 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn New7(pixmap: anytype) QBrush {
+    pub fn new7(pixmap: anytype) QBrush {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.QBrush_new7(@ptrCast(pixmap.ptr)) };
     }
 
-    /// New8 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` image: QImage `
     ///
-    pub fn New8(image: anytype) QBrush {
+    pub fn new8(image: anytype) QBrush {
         comptime _ = @TypeOf(image)._is_QImage;
         return .{ .ptr = qtc.QBrush_new8(@ptrCast(image.ptr)) };
     }
 
-    /// New9 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` brush: QBrush `
     ///
-    pub fn New9(brush: anytype) QBrush {
+    pub fn new9(brush: anytype) QBrush {
         comptime _ = @TypeOf(brush)._is_QBrush;
         return .{ .ptr = qtc.QBrush_new9(@ptrCast(brush.ptr)) };
     }
 
-    /// New10 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` gradient: QGradient `
+    /// ` _gradient: QGradient `
     ///
-    pub fn New10(gradient: anytype) QBrush {
-        comptime _ = @TypeOf(gradient)._is_QGradient;
-        return .{ .ptr = qtc.QBrush_new10(@ptrCast(gradient.ptr)) };
+    pub fn new10(_gradient: anytype) QBrush {
+        comptime _ = @TypeOf(_gradient)._is_QGradient;
+        return .{ .ptr = qtc.QBrush_new10(@ptrCast(_gradient.ptr)) };
     }
 
-    /// New11 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
-    pub fn New11(color: anytype, bs: i32) QBrush {
-        comptime _ = @TypeOf(color)._is_QColor;
-        return .{ .ptr = qtc.QBrush_new11(@ptrCast(color.ptr), @bitCast(bs)) };
+    pub fn new11(_color: anytype, bs: i32) QBrush {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        return .{ .ptr = qtc.QBrush_new11(@ptrCast(_color.ptr), @bitCast(bs)) };
     }
 
-    /// New12 constructs a new QBrush object.
+    /// ### DEPRECATED: Use `new12` instead
+    ///
+    pub const New12 = new12;
+
+    /// Allocate a new QBrush object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` color: qnamespace_enums.GlobalColor `
+    /// ` _color: qnamespace_enums.GlobalColor `
     ///
     /// ` bs: qnamespace_enums.BrushStyle `
     ///
-    pub fn New12(color: i32, bs: i32) QBrush {
-        return .{ .ptr = qtc.QBrush_new12(@bitCast(color), @bitCast(bs)) };
+    pub fn new12(_color: i32, bs: i32) QBrush {
+        return .{ .ptr = qtc.QBrush_new12(@bitCast(_color), @bitCast(bs)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq)
     ///
@@ -162,10 +214,14 @@ pub const QBrush = extern struct {
     ///
     /// ` brush: QBrush `
     ///
-    pub fn OperatorAssign(self: QBrush, brush: anytype) void {
+    pub fn operatorAssign(self: QBrush, brush: anytype) void {
         comptime _ = @TypeOf(brush)._is_QBrush;
         qtc.QBrush_OperatorAssign(@ptrCast(self.ptr), @ptrCast(brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#swap)
     ///
@@ -175,10 +231,14 @@ pub const QBrush = extern struct {
     ///
     /// ` other: QBrush `
     ///
-    pub fn Swap(self: QBrush, other: anytype) void {
+    pub fn swap(self: QBrush, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBrush;
         qtc.QBrush_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator)
     ///
@@ -186,9 +246,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn ToQVariant(self: QBrush) QVariant {
+    pub fn toQVariant(self: QBrush) QVariant {
         return .{ .ptr = qtc.QBrush_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#style)
     ///
@@ -200,9 +264,13 @@ pub const QBrush = extern struct {
     ///
     /// ` qnamespace_enums.BrushStyle `
     ///
-    pub fn Style(self: QBrush) i32 {
+    pub fn style(self: QBrush) i32 {
         return qtc.QBrush_Style(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setStyle)
     ///
@@ -210,11 +278,15 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    /// ` style: qnamespace_enums.BrushStyle `
+    /// ` _style: qnamespace_enums.BrushStyle `
     ///
-    pub fn SetStyle(self: QBrush, style: i32) void {
-        qtc.QBrush_SetStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setStyle(self: QBrush, _style: i32) void {
+        qtc.QBrush_SetStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#transform)
     ///
@@ -222,9 +294,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn Transform(self: QBrush) QTransform {
+    pub fn transform(self: QBrush) QTransform {
         return .{ .ptr = qtc.QBrush_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTransform` instead
+    ///
+    pub const SetTransform = setTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTransform)
     ///
@@ -232,12 +308,16 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    /// ` transform: QTransform `
+    /// ` _transform: QTransform `
     ///
-    pub fn SetTransform(self: QBrush, transform: anytype) void {
-        comptime _ = @TypeOf(transform)._is_QTransform;
-        qtc.QBrush_SetTransform(@ptrCast(self.ptr), @ptrCast(transform.ptr));
+    pub fn setTransform(self: QBrush, _transform: anytype) void {
+        comptime _ = @TypeOf(_transform)._is_QTransform;
+        qtc.QBrush_SetTransform(@ptrCast(self.ptr), @ptrCast(_transform.ptr));
     }
+
+    /// ### DEPRECATED: Use `texture` instead
+    ///
+    pub const Texture = texture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#texture)
     ///
@@ -245,9 +325,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn Texture(self: QBrush) QPixmap {
+    pub fn texture(self: QBrush) QPixmap {
         return .{ .ptr = qtc.QBrush_Texture(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTexture` instead
+    ///
+    pub const SetTexture = setTexture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTexture)
     ///
@@ -257,10 +341,14 @@ pub const QBrush = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn SetTexture(self: QBrush, pixmap: anytype) void {
+    pub fn setTexture(self: QBrush, pixmap: anytype) void {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.QBrush_SetTexture(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `textureImage` instead
+    ///
+    pub const TextureImage = textureImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#textureImage)
     ///
@@ -268,9 +356,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn TextureImage(self: QBrush) QImage {
+    pub fn textureImage(self: QBrush) QImage {
         return .{ .ptr = qtc.QBrush_TextureImage(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextureImage` instead
+    ///
+    pub const SetTextureImage = setTextureImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setTextureImage)
     ///
@@ -280,10 +372,14 @@ pub const QBrush = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn SetTextureImage(self: QBrush, image: anytype) void {
+    pub fn setTextureImage(self: QBrush, image: anytype) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QBrush_SetTextureImage(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#color)
     ///
@@ -291,22 +387,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn Color(self: QBrush) QColor {
+    pub fn color(self: QBrush) QColor {
         return .{ .ptr = qtc.QBrush_Color(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
+    /// ### DEPRECATED: Use `setColor` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBrush `
-    ///
-    /// ` color: QColor `
-    ///
-    pub fn SetColor(self: QBrush, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBrush_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
-    }
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
     ///
@@ -314,11 +401,32 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    /// ` color: qnamespace_enums.GlobalColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor2(self: QBrush, color: i32) void {
-        qtc.QBrush_SetColor2(@ptrCast(self.ptr), @bitCast(color));
+    pub fn setColor(self: QBrush, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBrush_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColor2` instead
+    ///
+    pub const SetColor2 = setColor2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#setColor)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBrush `
+    ///
+    /// ` _color: qnamespace_enums.GlobalColor `
+    ///
+    pub fn setColor2(self: QBrush, _color: i32) void {
+        qtc.QBrush_SetColor2(@ptrCast(self.ptr), @bitCast(_color));
+    }
+
+    /// ### DEPRECATED: Use `gradient` instead
+    ///
+    pub const Gradient = gradient;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#gradient)
     ///
@@ -326,9 +434,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn Gradient(self: QBrush) QGradient {
+    pub fn gradient(self: QBrush) QGradient {
         return .{ .ptr = qtc.QBrush_Gradient(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isOpaque` instead
+    ///
+    pub const IsOpaque = isOpaque;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isOpaque)
     ///
@@ -336,9 +448,13 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn IsOpaque(self: QBrush) bool {
+    pub fn isOpaque(self: QBrush) bool {
         return qtc.QBrush_IsOpaque(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-eq-eq)
     ///
@@ -348,10 +464,14 @@ pub const QBrush = extern struct {
     ///
     /// ` b: QBrush `
     ///
-    pub fn OperatorEqual(self: QBrush, b: anytype) bool {
+    pub fn operatorEqual(self: QBrush, b: anytype) bool {
         comptime _ = @TypeOf(b)._is_QBrush;
         return qtc.QBrush_OperatorEqual(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#operator-not-eq)
     ///
@@ -361,10 +481,14 @@ pub const QBrush = extern struct {
     ///
     /// ` b: QBrush `
     ///
-    pub fn OperatorNotEqual(self: QBrush, b: anytype) bool {
+    pub fn operatorNotEqual(self: QBrush, b: anytype) bool {
         comptime _ = @TypeOf(b)._is_QBrush;
         return qtc.QBrush_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(b.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDetached` instead
+    ///
+    pub const IsDetached = isDetached;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#isDetached)
     ///
@@ -372,23 +496,23 @@ pub const QBrush = extern struct {
     ///
     /// ` self: QBrush `
     ///
-    pub fn IsDetached(self: QBrush) bool {
+    pub fn isDetached(self: QBrush) bool {
         return qtc.QBrush_IsDetached(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbrush.html#dtor.QBrush)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBrush `
     ///
-    pub fn Delete(self: QBrush) void {
+    pub fn delete(self: QBrush) void {
         qtc.QBrush_Delete(@ptrCast(self.ptr));
     }
 };
@@ -403,32 +527,50 @@ pub const QGradient = extern struct {
 
     pub const _is_QGradient = {};
 
-    /// New constructs a new QGradient object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGradient {
+    pub const New = new;
+
+    /// Allocate a new QGradient object in C++ memory
+    ///
+    pub fn new() QGradient {
         return .{ .ptr = qtc.QGradient_new() };
     }
 
-    /// New2 constructs a new QGradient object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qbrush_enums.Preset `
     ///
-    pub fn New2(param1: i32) QGradient {
+    pub fn new2(param1: i32) QGradient {
         return .{ .ptr = qtc.QGradient_new2(@bitCast(param1)) };
     }
 
-    /// New3 constructs a new QGradient object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QGradient `
     ///
-    pub fn New3(param1: anytype) QGradient {
+    pub fn new3(param1: anytype) QGradient {
         comptime _ = @TypeOf(param1)._is_QGradient;
         return .{ .ptr = qtc.QGradient_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#type)
     ///
@@ -440,9 +582,13 @@ pub const QGradient = extern struct {
     ///
     /// ` qbrush_enums.Type `
     ///
-    pub fn Type(self: QGradient) i32 {
+    pub fn type0(self: QGradient) i32 {
         return qtc.QGradient_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpread` instead
+    ///
+    pub const SetSpread = setSpread;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setSpread)
     ///
@@ -450,11 +596,15 @@ pub const QGradient = extern struct {
     ///
     /// ` self: QGradient `
     ///
-    /// ` spread: qbrush_enums.Spread `
+    /// ` _spread: qbrush_enums.Spread `
     ///
-    pub fn SetSpread(self: QGradient, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(spread));
+    pub fn setSpread(self: QGradient, _spread: i32) void {
+        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(_spread));
     }
+
+    /// ### DEPRECATED: Use `spread` instead
+    ///
+    pub const Spread = spread;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#spread)
     ///
@@ -466,9 +616,13 @@ pub const QGradient = extern struct {
     ///
     /// ` qbrush_enums.Spread `
     ///
-    pub fn Spread(self: QGradient) i32 {
+    pub fn spread(self: QGradient) i32 {
         return qtc.QGradient_Spread(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorAt` instead
+    ///
+    pub const SetColorAt = setColorAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setColorAt)
     ///
@@ -478,12 +632,16 @@ pub const QGradient = extern struct {
     ///
     /// ` pos: f64 `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColorAt(self: QGradient, pos: f64, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(color.ptr));
+    pub fn setColorAt(self: QGradient, pos: f64, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStops` instead
+    ///
+    pub const SetStops = setStops;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setStops)
     ///
@@ -491,15 +649,19 @@ pub const QGradient = extern struct {
     ///
     /// ` self: QGradient `
     ///
-    /// ` stops: []Struct_f64_QColor `
+    /// ` _stops: []Struct_f64_QColor `
     ///
-    pub fn SetStops(self: QGradient, stops: []Struct_f64_QColor) void {
+    pub fn setStops(self: QGradient, _stops: []Struct_f64_QColor) void {
         const stops_list = qtc.libqt_list{
-            .len = stops.len,
-            .data = @ptrCast(stops.ptr),
+            .len = _stops.len,
+            .data = @ptrCast(_stops.ptr),
         };
         qtc.QGradient_SetStops(@ptrCast(self.ptr), stops_list);
     }
+
+    /// ### DEPRECATED: Use `stops` instead
+    ///
+    pub const Stops = stops;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#stops)
     ///
@@ -509,14 +671,18 @@ pub const QGradient = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stops(self: QGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
+    pub fn stops(self: QGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QGradient.Stops: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QGradient.stops: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `coordinateMode` instead
+    ///
+    pub const CoordinateMode = coordinateMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#coordinateMode)
     ///
@@ -528,9 +694,13 @@ pub const QGradient = extern struct {
     ///
     /// ` qbrush_enums.CoordinateMode `
     ///
-    pub fn CoordinateMode(self: QGradient) i32 {
+    pub fn coordinateMode(self: QGradient) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCoordinateMode` instead
+    ///
+    pub const SetCoordinateMode = setCoordinateMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setCoordinateMode)
     ///
@@ -540,9 +710,13 @@ pub const QGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
-    pub fn SetCoordinateMode(self: QGradient, mode: i32) void {
+    pub fn setCoordinateMode(self: QGradient, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `interpolationMode` instead
+    ///
+    pub const InterpolationMode = interpolationMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#interpolationMode)
     ///
@@ -554,9 +728,13 @@ pub const QGradient = extern struct {
     ///
     /// ` qbrush_enums.InterpolationMode `
     ///
-    pub fn InterpolationMode(self: QGradient) i32 {
+    pub fn interpolationMode(self: QGradient) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInterpolationMode` instead
+    ///
+    pub const SetInterpolationMode = setInterpolationMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#setInterpolationMode)
     ///
@@ -566,9 +744,13 @@ pub const QGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
-    pub fn SetInterpolationMode(self: QGradient, mode: i32) void {
+    pub fn setInterpolationMode(self: QGradient, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-eq-eq)
     ///
@@ -576,12 +758,16 @@ pub const QGradient = extern struct {
     ///
     /// ` self: QGradient `
     ///
-    /// ` gradient: QGradient `
+    /// ` _gradient: QGradient `
     ///
-    pub fn OperatorEqual(self: QGradient, gradient: anytype) bool {
-        comptime _ = @TypeOf(gradient)._is_QGradient;
-        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(gradient.ptr));
+    pub fn operatorEqual(self: QGradient, _gradient: anytype) bool {
+        comptime _ = @TypeOf(_gradient)._is_QGradient;
+        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(_gradient.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#operator-not-eq)
     ///
@@ -591,24 +777,24 @@ pub const QGradient = extern struct {
     ///
     /// ` other: QGradient `
     ///
-    pub fn OperatorNotEqual(self: QGradient, other: anytype) bool {
+    pub fn operatorNotEqual(self: QGradient, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QGradient;
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgradient.html#dtor.QGradient)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGradient `
     ///
-    pub fn Delete(self: QGradient) void {
+    pub fn delete(self: QGradient) void {
         qtc.QGradient_Delete(@ptrCast(self.ptr));
     }
 };
@@ -624,27 +810,39 @@ pub const QLinearGradient = extern struct {
     pub const _is_QLinearGradient = {};
     pub const _is_QGradient = {};
 
-    /// New constructs a new QLinearGradient object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QLinearGradient {
+    pub const New = new;
+
+    /// Allocate a new QLinearGradient object in C++ memory
+    ///
+    pub fn new() QLinearGradient {
         return .{ .ptr = qtc.QLinearGradient_new() };
     }
 
-    /// New2 constructs a new QLinearGradient object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLinearGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` start: QPointF `
+    /// ` _start: QPointF `
     ///
-    /// ` finalStop: QPointF `
+    /// ` _finalStop: QPointF `
     ///
-    pub fn New2(start: anytype, finalStop: anytype) QLinearGradient {
-        comptime _ = @TypeOf(start)._is_QPointF;
-        comptime _ = @TypeOf(finalStop)._is_QPointF;
-        return .{ .ptr = qtc.QLinearGradient_new2(@ptrCast(start.ptr), @ptrCast(finalStop.ptr)) };
+    pub fn new2(_start: anytype, _finalStop: anytype) QLinearGradient {
+        comptime _ = @TypeOf(_start)._is_QPointF;
+        comptime _ = @TypeOf(_finalStop)._is_QPointF;
+        return .{ .ptr = qtc.QLinearGradient_new2(@ptrCast(_start.ptr), @ptrCast(_finalStop.ptr)) };
     }
 
-    /// New3 constructs a new QLinearGradient object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QLinearGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -656,20 +854,28 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` yFinalStop: f64 `
     ///
-    pub fn New3(xStart: f64, yStart: f64, xFinalStop: f64, yFinalStop: f64) QLinearGradient {
+    pub fn new3(xStart: f64, yStart: f64, xFinalStop: f64, yFinalStop: f64) QLinearGradient {
         return .{ .ptr = qtc.QLinearGradient_new3(@bitCast(xStart), @bitCast(yStart), @bitCast(xFinalStop), @bitCast(yFinalStop)) };
     }
 
-    /// New4 constructs a new QLinearGradient object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QLinearGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QLinearGradient `
     ///
-    pub fn New4(param1: anytype) QLinearGradient {
+    pub fn new4(param1: anytype) QLinearGradient {
         comptime _ = @TypeOf(param1)._is_QLinearGradient;
         return .{ .ptr = qtc.QLinearGradient_new4(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#start)
     ///
@@ -677,9 +883,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    pub fn Start(self: QLinearGradient) QPointF {
+    pub fn start(self: QLinearGradient) QPointF {
         return .{ .ptr = qtc.QLinearGradient_Start(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStart` instead
+    ///
+    pub const SetStart = setStart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
     ///
@@ -687,12 +897,16 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    /// ` start: QPointF `
+    /// ` _start: QPointF `
     ///
-    pub fn SetStart(self: QLinearGradient, start: anytype) void {
-        comptime _ = @TypeOf(start)._is_QPointF;
-        qtc.QLinearGradient_SetStart(@ptrCast(self.ptr), @ptrCast(start.ptr));
+    pub fn setStart(self: QLinearGradient, _start: anytype) void {
+        comptime _ = @TypeOf(_start)._is_QPointF;
+        qtc.QLinearGradient_SetStart(@ptrCast(self.ptr), @ptrCast(_start.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStart2` instead
+    ///
+    pub const SetStart2 = setStart2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setStart)
     ///
@@ -704,9 +918,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetStart2(self: QLinearGradient, x: f64, y: f64) void {
+    pub fn setStart2(self: QLinearGradient, x: f64, y: f64) void {
         qtc.QLinearGradient_SetStart2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `finalStop` instead
+    ///
+    pub const FinalStop = finalStop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#finalStop)
     ///
@@ -714,9 +932,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    pub fn FinalStop(self: QLinearGradient) QPointF {
+    pub fn finalStop(self: QLinearGradient) QPointF {
         return .{ .ptr = qtc.QLinearGradient_FinalStop(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFinalStop` instead
+    ///
+    pub const SetFinalStop = setFinalStop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
     ///
@@ -726,10 +948,14 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` stop: QPointF `
     ///
-    pub fn SetFinalStop(self: QLinearGradient, stop: anytype) void {
+    pub fn setFinalStop(self: QLinearGradient, stop: anytype) void {
         comptime _ = @TypeOf(stop)._is_QPointF;
         qtc.QLinearGradient_SetFinalStop(@ptrCast(self.ptr), @ptrCast(stop.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFinalStop2` instead
+    ///
+    pub const SetFinalStop2 = setFinalStop2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#setFinalStop)
     ///
@@ -741,9 +967,15 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetFinalStop2(self: QLinearGradient, x: f64, y: f64) void {
+    pub fn setFinalStop2(self: QLinearGradient, x: f64, y: f64) void {
         qtc.QLinearGradient_SetFinalStop2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGradient
     ///
@@ -757,9 +989,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` qbrush_enums.Type `
     ///
-    pub fn Type(self: QLinearGradient) i32 {
+    pub fn type0(self: QLinearGradient) i32 {
         return qtc.QGradient_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpread` instead
+    ///
+    pub const SetSpread = setSpread;
 
     /// Inherited from QGradient
     ///
@@ -769,11 +1005,15 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    /// ` spread: qbrush_enums.Spread `
+    /// ` _spread: qbrush_enums.Spread `
     ///
-    pub fn SetSpread(self: QLinearGradient, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(spread));
+    pub fn setSpread(self: QLinearGradient, _spread: i32) void {
+        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(_spread));
     }
+
+    /// ### DEPRECATED: Use `spread` instead
+    ///
+    pub const Spread = spread;
 
     /// Inherited from QGradient
     ///
@@ -787,9 +1027,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` qbrush_enums.Spread `
     ///
-    pub fn Spread(self: QLinearGradient) i32 {
+    pub fn spread(self: QLinearGradient) i32 {
         return qtc.QGradient_Spread(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorAt` instead
+    ///
+    pub const SetColorAt = setColorAt;
 
     /// Inherited from QGradient
     ///
@@ -801,12 +1045,16 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` pos: f64 `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColorAt(self: QLinearGradient, pos: f64, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(color.ptr));
+    pub fn setColorAt(self: QLinearGradient, pos: f64, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStops` instead
+    ///
+    pub const SetStops = setStops;
 
     /// Inherited from QGradient
     ///
@@ -816,15 +1064,19 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    /// ` stops: []Struct_f64_QColor `
+    /// ` _stops: []Struct_f64_QColor `
     ///
-    pub fn SetStops(self: QLinearGradient, stops: []Struct_f64_QColor) void {
+    pub fn setStops(self: QLinearGradient, _stops: []Struct_f64_QColor) void {
         const stops_list = qtc.libqt_list{
-            .len = stops.len,
-            .data = @ptrCast(stops.ptr),
+            .len = _stops.len,
+            .data = @ptrCast(_stops.ptr),
         };
         qtc.QGradient_SetStops(@ptrCast(self.ptr), stops_list);
     }
+
+    /// ### DEPRECATED: Use `stops` instead
+    ///
+    pub const Stops = stops;
 
     /// Inherited from QGradient
     ///
@@ -836,14 +1088,18 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stops(self: QLinearGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
+    pub fn stops(self: QLinearGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QLinearGradient.Stops: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QLinearGradient.stops: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `coordinateMode` instead
+    ///
+    pub const CoordinateMode = coordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -857,9 +1113,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` qbrush_enums.CoordinateMode `
     ///
-    pub fn CoordinateMode(self: QLinearGradient) i32 {
+    pub fn coordinateMode(self: QLinearGradient) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCoordinateMode` instead
+    ///
+    pub const SetCoordinateMode = setCoordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -871,9 +1131,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
-    pub fn SetCoordinateMode(self: QLinearGradient, mode: i32) void {
+    pub fn setCoordinateMode(self: QLinearGradient, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `interpolationMode` instead
+    ///
+    pub const InterpolationMode = interpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -887,9 +1151,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` qbrush_enums.InterpolationMode `
     ///
-    pub fn InterpolationMode(self: QLinearGradient) i32 {
+    pub fn interpolationMode(self: QLinearGradient) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInterpolationMode` instead
+    ///
+    pub const SetInterpolationMode = setInterpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -901,9 +1169,13 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
-    pub fn SetInterpolationMode(self: QLinearGradient, mode: i32) void {
+    pub fn setInterpolationMode(self: QLinearGradient, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QGradient
     ///
@@ -913,12 +1185,16 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` self: QLinearGradient `
     ///
-    /// ` gradient: QGradient `
+    /// ` _gradient: QGradient `
     ///
-    pub fn OperatorEqual(self: QLinearGradient, gradient: anytype) bool {
-        comptime _ = @TypeOf(gradient)._is_QGradient;
-        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(gradient.ptr));
+    pub fn operatorEqual(self: QLinearGradient, _gradient: anytype) bool {
+        comptime _ = @TypeOf(_gradient)._is_QGradient;
+        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(_gradient.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QGradient
     ///
@@ -930,24 +1206,24 @@ pub const QLinearGradient = extern struct {
     ///
     /// ` other: QGradient `
     ///
-    pub fn OperatorNotEqual(self: QLinearGradient, other: anytype) bool {
+    pub fn operatorNotEqual(self: QLinearGradient, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QGradient;
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineargradient.html#dtor.QLinearGradient)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLinearGradient `
     ///
-    pub fn Delete(self: QLinearGradient) void {
+    pub fn delete(self: QLinearGradient) void {
         qtc.QLinearGradient_Delete(@ptrCast(self.ptr));
     }
 };
@@ -963,29 +1239,41 @@ pub const QRadialGradient = extern struct {
     pub const _is_QRadialGradient = {};
     pub const _is_QGradient = {};
 
-    /// New constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QRadialGradient {
+    pub const New = new;
+
+    /// Allocate a new QRadialGradient object in C++ memory
+    ///
+    pub fn new() QRadialGradient {
         return .{ .ptr = qtc.QRadialGradient_new() };
     }
 
-    /// New2 constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QRadialGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QPointF `
+    /// ` _center: QPointF `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    /// ` focalPoint: QPointF `
+    /// ` _focalPoint: QPointF `
     ///
-    pub fn New2(center: anytype, radius: f64, focalPoint: anytype) QRadialGradient {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        comptime _ = @TypeOf(focalPoint)._is_QPointF;
-        return .{ .ptr = qtc.QRadialGradient_new2(@ptrCast(center.ptr), @bitCast(radius), @ptrCast(focalPoint.ptr)) };
+    pub fn new2(_center: anytype, _radius: f64, _focalPoint: anytype) QRadialGradient {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        comptime _ = @TypeOf(_focalPoint)._is_QPointF;
+        return .{ .ptr = qtc.QRadialGradient_new2(@ptrCast(_center.ptr), @bitCast(_radius), @ptrCast(_focalPoint.ptr)) };
     }
 
-    /// New3 constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QRadialGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -993,62 +1281,38 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` cy: f64 `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
     /// ` fx: f64 `
     ///
     /// ` fy: f64 `
     ///
-    pub fn New3(cx: f64, cy: f64, radius: f64, fx: f64, fy: f64) QRadialGradient {
-        return .{ .ptr = qtc.QRadialGradient_new3(@bitCast(cx), @bitCast(cy), @bitCast(radius), @bitCast(fx), @bitCast(fy)) };
+    pub fn new3(cx: f64, cy: f64, _radius: f64, fx: f64, fy: f64) QRadialGradient {
+        return .{ .ptr = qtc.QRadialGradient_new3(@bitCast(cx), @bitCast(cy), @bitCast(_radius), @bitCast(fx), @bitCast(fy)) };
     }
 
-    /// New4 constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QRadialGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QPointF `
+    /// ` _center: QPointF `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn New4(center: anytype, radius: f64) QRadialGradient {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        return .{ .ptr = qtc.QRadialGradient_new4(@ptrCast(center.ptr), @bitCast(radius)) };
+    pub fn new4(_center: anytype, _radius: f64) QRadialGradient {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        return .{ .ptr = qtc.QRadialGradient_new4(@ptrCast(_center.ptr), @bitCast(_radius)) };
     }
 
-    /// New5 constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new5` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` cx: f64 `
-    ///
-    /// ` cy: f64 `
-    ///
-    /// ` radius: f64 `
-    ///
-    pub fn New5(cx: f64, cy: f64, radius: f64) QRadialGradient {
-        return .{ .ptr = qtc.QRadialGradient_new5(@bitCast(cx), @bitCast(cy), @bitCast(radius)) };
-    }
+    pub const New5 = new5;
 
-    /// New6 constructs a new QRadialGradient object.
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` center: QPointF `
-    ///
-    /// ` centerRadius: f64 `
-    ///
-    /// ` focalPoint: QPointF `
-    ///
-    /// ` focalRadius: f64 `
-    ///
-    pub fn New6(center: anytype, centerRadius: f64, focalPoint: anytype, focalRadius: f64) QRadialGradient {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        comptime _ = @TypeOf(focalPoint)._is_QPointF;
-        return .{ .ptr = qtc.QRadialGradient_new6(@ptrCast(center.ptr), @bitCast(centerRadius), @ptrCast(focalPoint.ptr), @bitCast(focalRadius)) };
-    }
-
-    /// New7 constructs a new QRadialGradient object.
+    /// Allocate a new QRadialGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -1056,28 +1320,76 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` cy: f64 `
     ///
-    /// ` centerRadius: f64 `
+    /// ` _radius: f64 `
+    ///
+    pub fn new5(cx: f64, cy: f64, _radius: f64) QRadialGradient {
+        return .{ .ptr = qtc.QRadialGradient_new5(@bitCast(cx), @bitCast(cy), @bitCast(_radius)) };
+    }
+
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QRadialGradient object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _center: QPointF `
+    ///
+    /// ` _centerRadius: f64 `
+    ///
+    /// ` _focalPoint: QPointF `
+    ///
+    /// ` _focalRadius: f64 `
+    ///
+    pub fn new6(_center: anytype, _centerRadius: f64, _focalPoint: anytype, _focalRadius: f64) QRadialGradient {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        comptime _ = @TypeOf(_focalPoint)._is_QPointF;
+        return .{ .ptr = qtc.QRadialGradient_new6(@ptrCast(_center.ptr), @bitCast(_centerRadius), @ptrCast(_focalPoint.ptr), @bitCast(_focalRadius)) };
+    }
+
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QRadialGradient object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` cx: f64 `
+    ///
+    /// ` cy: f64 `
+    ///
+    /// ` _centerRadius: f64 `
     ///
     /// ` fx: f64 `
     ///
     /// ` fy: f64 `
     ///
-    /// ` focalRadius: f64 `
+    /// ` _focalRadius: f64 `
     ///
-    pub fn New7(cx: f64, cy: f64, centerRadius: f64, fx: f64, fy: f64, focalRadius: f64) QRadialGradient {
-        return .{ .ptr = qtc.QRadialGradient_new7(@bitCast(cx), @bitCast(cy), @bitCast(centerRadius), @bitCast(fx), @bitCast(fy), @bitCast(focalRadius)) };
+    pub fn new7(cx: f64, cy: f64, _centerRadius: f64, fx: f64, fy: f64, _focalRadius: f64) QRadialGradient {
+        return .{ .ptr = qtc.QRadialGradient_new7(@bitCast(cx), @bitCast(cy), @bitCast(_centerRadius), @bitCast(fx), @bitCast(fy), @bitCast(_focalRadius)) };
     }
 
-    /// New8 constructs a new QRadialGradient object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QRadialGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QRadialGradient `
     ///
-    pub fn New8(param1: anytype) QRadialGradient {
+    pub fn new8(param1: anytype) QRadialGradient {
         comptime _ = @TypeOf(param1)._is_QRadialGradient;
         return .{ .ptr = qtc.QRadialGradient_new8(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#center)
     ///
@@ -1085,9 +1397,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn Center(self: QRadialGradient) QPointF {
+    pub fn center(self: QRadialGradient) QPointF {
         return .{ .ptr = qtc.QRadialGradient_Center(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCenter` instead
+    ///
+    pub const SetCenter = setCenter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
     ///
@@ -1095,12 +1411,16 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` center: QPointF `
+    /// ` _center: QPointF `
     ///
-    pub fn SetCenter(self: QRadialGradient, center: anytype) void {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        qtc.QRadialGradient_SetCenter(@ptrCast(self.ptr), @ptrCast(center.ptr));
+    pub fn setCenter(self: QRadialGradient, _center: anytype) void {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        qtc.QRadialGradient_SetCenter(@ptrCast(self.ptr), @ptrCast(_center.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenter2` instead
+    ///
+    pub const SetCenter2 = setCenter2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenter)
     ///
@@ -1112,9 +1432,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetCenter2(self: QRadialGradient, x: f64, y: f64) void {
+    pub fn setCenter2(self: QRadialGradient, x: f64, y: f64) void {
         qtc.QRadialGradient_SetCenter2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `focalPoint` instead
+    ///
+    pub const FocalPoint = focalPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalPoint)
     ///
@@ -1122,9 +1446,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn FocalPoint(self: QRadialGradient) QPointF {
+    pub fn focalPoint(self: QRadialGradient) QPointF {
         return .{ .ptr = qtc.QRadialGradient_FocalPoint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFocalPoint` instead
+    ///
+    pub const SetFocalPoint = setFocalPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
     ///
@@ -1132,12 +1460,16 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` focalPoint: QPointF `
+    /// ` _focalPoint: QPointF `
     ///
-    pub fn SetFocalPoint(self: QRadialGradient, focalPoint: anytype) void {
-        comptime _ = @TypeOf(focalPoint)._is_QPointF;
-        qtc.QRadialGradient_SetFocalPoint(@ptrCast(self.ptr), @ptrCast(focalPoint.ptr));
+    pub fn setFocalPoint(self: QRadialGradient, _focalPoint: anytype) void {
+        comptime _ = @TypeOf(_focalPoint)._is_QPointF;
+        qtc.QRadialGradient_SetFocalPoint(@ptrCast(self.ptr), @ptrCast(_focalPoint.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocalPoint2` instead
+    ///
+    pub const SetFocalPoint2 = setFocalPoint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalPoint)
     ///
@@ -1149,9 +1481,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetFocalPoint2(self: QRadialGradient, x: f64, y: f64) void {
+    pub fn setFocalPoint2(self: QRadialGradient, x: f64, y: f64) void {
         qtc.QRadialGradient_SetFocalPoint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `radius` instead
+    ///
+    pub const Radius = radius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#radius)
     ///
@@ -1159,9 +1495,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn Radius(self: QRadialGradient) f64 {
+    pub fn radius(self: QRadialGradient) f64 {
         return qtc.QRadialGradient_Radius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRadius` instead
+    ///
+    pub const SetRadius = setRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setRadius)
     ///
@@ -1169,11 +1509,15 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn SetRadius(self: QRadialGradient, radius: f64) void {
-        qtc.QRadialGradient_SetRadius(@ptrCast(self.ptr), @bitCast(radius));
+    pub fn setRadius(self: QRadialGradient, _radius: f64) void {
+        qtc.QRadialGradient_SetRadius(@ptrCast(self.ptr), @bitCast(_radius));
     }
+
+    /// ### DEPRECATED: Use `centerRadius` instead
+    ///
+    pub const CenterRadius = centerRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#centerRadius)
     ///
@@ -1181,9 +1525,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn CenterRadius(self: QRadialGradient) f64 {
+    pub fn centerRadius(self: QRadialGradient) f64 {
         return qtc.QRadialGradient_CenterRadius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenterRadius` instead
+    ///
+    pub const SetCenterRadius = setCenterRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setCenterRadius)
     ///
@@ -1191,11 +1539,15 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn SetCenterRadius(self: QRadialGradient, radius: f64) void {
-        qtc.QRadialGradient_SetCenterRadius(@ptrCast(self.ptr), @bitCast(radius));
+    pub fn setCenterRadius(self: QRadialGradient, _radius: f64) void {
+        qtc.QRadialGradient_SetCenterRadius(@ptrCast(self.ptr), @bitCast(_radius));
     }
+
+    /// ### DEPRECATED: Use `focalRadius` instead
+    ///
+    pub const FocalRadius = focalRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#focalRadius)
     ///
@@ -1203,9 +1555,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn FocalRadius(self: QRadialGradient) f64 {
+    pub fn focalRadius(self: QRadialGradient) f64 {
         return qtc.QRadialGradient_FocalRadius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocalRadius` instead
+    ///
+    pub const SetFocalRadius = setFocalRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#setFocalRadius)
     ///
@@ -1213,11 +1569,17 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn SetFocalRadius(self: QRadialGradient, radius: f64) void {
-        qtc.QRadialGradient_SetFocalRadius(@ptrCast(self.ptr), @bitCast(radius));
+    pub fn setFocalRadius(self: QRadialGradient, _radius: f64) void {
+        qtc.QRadialGradient_SetFocalRadius(@ptrCast(self.ptr), @bitCast(_radius));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGradient
     ///
@@ -1231,9 +1593,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` qbrush_enums.Type `
     ///
-    pub fn Type(self: QRadialGradient) i32 {
+    pub fn type0(self: QRadialGradient) i32 {
         return qtc.QGradient_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpread` instead
+    ///
+    pub const SetSpread = setSpread;
 
     /// Inherited from QGradient
     ///
@@ -1243,11 +1609,15 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` spread: qbrush_enums.Spread `
+    /// ` _spread: qbrush_enums.Spread `
     ///
-    pub fn SetSpread(self: QRadialGradient, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(spread));
+    pub fn setSpread(self: QRadialGradient, _spread: i32) void {
+        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(_spread));
     }
+
+    /// ### DEPRECATED: Use `spread` instead
+    ///
+    pub const Spread = spread;
 
     /// Inherited from QGradient
     ///
@@ -1261,9 +1631,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` qbrush_enums.Spread `
     ///
-    pub fn Spread(self: QRadialGradient) i32 {
+    pub fn spread(self: QRadialGradient) i32 {
         return qtc.QGradient_Spread(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorAt` instead
+    ///
+    pub const SetColorAt = setColorAt;
 
     /// Inherited from QGradient
     ///
@@ -1275,12 +1649,16 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` pos: f64 `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColorAt(self: QRadialGradient, pos: f64, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(color.ptr));
+    pub fn setColorAt(self: QRadialGradient, pos: f64, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStops` instead
+    ///
+    pub const SetStops = setStops;
 
     /// Inherited from QGradient
     ///
@@ -1290,15 +1668,19 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` stops: []Struct_f64_QColor `
+    /// ` _stops: []Struct_f64_QColor `
     ///
-    pub fn SetStops(self: QRadialGradient, stops: []Struct_f64_QColor) void {
+    pub fn setStops(self: QRadialGradient, _stops: []Struct_f64_QColor) void {
         const stops_list = qtc.libqt_list{
-            .len = stops.len,
-            .data = @ptrCast(stops.ptr),
+            .len = _stops.len,
+            .data = @ptrCast(_stops.ptr),
         };
         qtc.QGradient_SetStops(@ptrCast(self.ptr), stops_list);
     }
+
+    /// ### DEPRECATED: Use `stops` instead
+    ///
+    pub const Stops = stops;
 
     /// Inherited from QGradient
     ///
@@ -1310,14 +1692,18 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stops(self: QRadialGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
+    pub fn stops(self: QRadialGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QRadialGradient.Stops: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QRadialGradient.stops: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `coordinateMode` instead
+    ///
+    pub const CoordinateMode = coordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -1331,9 +1717,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` qbrush_enums.CoordinateMode `
     ///
-    pub fn CoordinateMode(self: QRadialGradient) i32 {
+    pub fn coordinateMode(self: QRadialGradient) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCoordinateMode` instead
+    ///
+    pub const SetCoordinateMode = setCoordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -1345,9 +1735,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
-    pub fn SetCoordinateMode(self: QRadialGradient, mode: i32) void {
+    pub fn setCoordinateMode(self: QRadialGradient, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `interpolationMode` instead
+    ///
+    pub const InterpolationMode = interpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -1361,9 +1755,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` qbrush_enums.InterpolationMode `
     ///
-    pub fn InterpolationMode(self: QRadialGradient) i32 {
+    pub fn interpolationMode(self: QRadialGradient) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInterpolationMode` instead
+    ///
+    pub const SetInterpolationMode = setInterpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -1375,9 +1773,13 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
-    pub fn SetInterpolationMode(self: QRadialGradient, mode: i32) void {
+    pub fn setInterpolationMode(self: QRadialGradient, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QGradient
     ///
@@ -1387,12 +1789,16 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` self: QRadialGradient `
     ///
-    /// ` gradient: QGradient `
+    /// ` _gradient: QGradient `
     ///
-    pub fn OperatorEqual(self: QRadialGradient, gradient: anytype) bool {
-        comptime _ = @TypeOf(gradient)._is_QGradient;
-        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(gradient.ptr));
+    pub fn operatorEqual(self: QRadialGradient, _gradient: anytype) bool {
+        comptime _ = @TypeOf(_gradient)._is_QGradient;
+        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(_gradient.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QGradient
     ///
@@ -1404,24 +1810,24 @@ pub const QRadialGradient = extern struct {
     ///
     /// ` other: QGradient `
     ///
-    pub fn OperatorNotEqual(self: QRadialGradient, other: anytype) bool {
+    pub fn operatorNotEqual(self: QRadialGradient, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QGradient;
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qradialgradient.html#dtor.QRadialGradient)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QRadialGradient `
     ///
-    pub fn Delete(self: QRadialGradient) void {
+    pub fn delete(self: QRadialGradient) void {
         qtc.QRadialGradient_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1437,26 +1843,38 @@ pub const QConicalGradient = extern struct {
     pub const _is_QConicalGradient = {};
     pub const _is_QGradient = {};
 
-    /// New constructs a new QConicalGradient object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QConicalGradient {
+    pub const New = new;
+
+    /// Allocate a new QConicalGradient object in C++ memory
+    ///
+    pub fn new() QConicalGradient {
         return .{ .ptr = qtc.QConicalGradient_new() };
     }
 
-    /// New2 constructs a new QConicalGradient object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QConicalGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QPointF `
+    /// ` _center: QPointF `
     ///
     /// ` startAngle: f64 `
     ///
-    pub fn New2(center: anytype, startAngle: f64) QConicalGradient {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        return .{ .ptr = qtc.QConicalGradient_new2(@ptrCast(center.ptr), @bitCast(startAngle)) };
+    pub fn new2(_center: anytype, startAngle: f64) QConicalGradient {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        return .{ .ptr = qtc.QConicalGradient_new2(@ptrCast(_center.ptr), @bitCast(startAngle)) };
     }
 
-    /// New3 constructs a new QConicalGradient object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QConicalGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -1466,20 +1884,28 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` startAngle: f64 `
     ///
-    pub fn New3(cx: f64, cy: f64, startAngle: f64) QConicalGradient {
+    pub fn new3(cx: f64, cy: f64, startAngle: f64) QConicalGradient {
         return .{ .ptr = qtc.QConicalGradient_new3(@bitCast(cx), @bitCast(cy), @bitCast(startAngle)) };
     }
 
-    /// New4 constructs a new QConicalGradient object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QConicalGradient object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QConicalGradient `
     ///
-    pub fn New4(param1: anytype) QConicalGradient {
+    pub fn new4(param1: anytype) QConicalGradient {
         comptime _ = @TypeOf(param1)._is_QConicalGradient;
         return .{ .ptr = qtc.QConicalGradient_new4(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#center)
     ///
@@ -1487,9 +1913,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    pub fn Center(self: QConicalGradient) QPointF {
+    pub fn center(self: QConicalGradient) QPointF {
         return .{ .ptr = qtc.QConicalGradient_Center(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCenter` instead
+    ///
+    pub const SetCenter = setCenter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
     ///
@@ -1497,12 +1927,16 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    /// ` center: QPointF `
+    /// ` _center: QPointF `
     ///
-    pub fn SetCenter(self: QConicalGradient, center: anytype) void {
-        comptime _ = @TypeOf(center)._is_QPointF;
-        qtc.QConicalGradient_SetCenter(@ptrCast(self.ptr), @ptrCast(center.ptr));
+    pub fn setCenter(self: QConicalGradient, _center: anytype) void {
+        comptime _ = @TypeOf(_center)._is_QPointF;
+        qtc.QConicalGradient_SetCenter(@ptrCast(self.ptr), @ptrCast(_center.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenter2` instead
+    ///
+    pub const SetCenter2 = setCenter2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setCenter)
     ///
@@ -1514,9 +1948,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn SetCenter2(self: QConicalGradient, x: f64, y: f64) void {
+    pub fn setCenter2(self: QConicalGradient, x: f64, y: f64) void {
         qtc.QConicalGradient_SetCenter2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `angle` instead
+    ///
+    pub const Angle = angle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#angle)
     ///
@@ -1524,9 +1962,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    pub fn Angle(self: QConicalGradient) f64 {
+    pub fn angle(self: QConicalGradient) f64 {
         return qtc.QConicalGradient_Angle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAngle` instead
+    ///
+    pub const SetAngle = setAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#setAngle)
     ///
@@ -1534,11 +1976,17 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    /// ` angle: f64 `
+    /// ` _angle: f64 `
     ///
-    pub fn SetAngle(self: QConicalGradient, angle: f64) void {
-        qtc.QConicalGradient_SetAngle(@ptrCast(self.ptr), @bitCast(angle));
+    pub fn setAngle(self: QConicalGradient, _angle: f64) void {
+        qtc.QConicalGradient_SetAngle(@ptrCast(self.ptr), @bitCast(_angle));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGradient
     ///
@@ -1552,9 +2000,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` qbrush_enums.Type `
     ///
-    pub fn Type(self: QConicalGradient) i32 {
+    pub fn type0(self: QConicalGradient) i32 {
         return qtc.QGradient_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpread` instead
+    ///
+    pub const SetSpread = setSpread;
 
     /// Inherited from QGradient
     ///
@@ -1564,11 +2016,15 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    /// ` spread: qbrush_enums.Spread `
+    /// ` _spread: qbrush_enums.Spread `
     ///
-    pub fn SetSpread(self: QConicalGradient, spread: i32) void {
-        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(spread));
+    pub fn setSpread(self: QConicalGradient, _spread: i32) void {
+        qtc.QGradient_SetSpread(@ptrCast(self.ptr), @bitCast(_spread));
     }
+
+    /// ### DEPRECATED: Use `spread` instead
+    ///
+    pub const Spread = spread;
 
     /// Inherited from QGradient
     ///
@@ -1582,9 +2038,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` qbrush_enums.Spread `
     ///
-    pub fn Spread(self: QConicalGradient) i32 {
+    pub fn spread(self: QConicalGradient) i32 {
         return qtc.QGradient_Spread(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorAt` instead
+    ///
+    pub const SetColorAt = setColorAt;
 
     /// Inherited from QGradient
     ///
@@ -1596,12 +2056,16 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` pos: f64 `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColorAt(self: QConicalGradient, pos: f64, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(color.ptr));
+    pub fn setColorAt(self: QConicalGradient, pos: f64, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QGradient_SetColorAt(@ptrCast(self.ptr), @bitCast(pos), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStops` instead
+    ///
+    pub const SetStops = setStops;
 
     /// Inherited from QGradient
     ///
@@ -1611,15 +2075,19 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    /// ` stops: []Struct_f64_QColor `
+    /// ` _stops: []Struct_f64_QColor `
     ///
-    pub fn SetStops(self: QConicalGradient, stops: []Struct_f64_QColor) void {
+    pub fn setStops(self: QConicalGradient, _stops: []Struct_f64_QColor) void {
         const stops_list = qtc.libqt_list{
-            .len = stops.len,
-            .data = @ptrCast(stops.ptr),
+            .len = _stops.len,
+            .data = @ptrCast(_stops.ptr),
         };
         qtc.QGradient_SetStops(@ptrCast(self.ptr), stops_list);
     }
+
+    /// ### DEPRECATED: Use `stops` instead
+    ///
+    pub const Stops = stops;
 
     /// Inherited from QGradient
     ///
@@ -1631,14 +2099,18 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Stops(self: QConicalGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
+    pub fn stops(self: QConicalGradient, allocator: std.mem.Allocator) []Struct_f64_QColor {
         const _arr: qtc.libqt_list = qtc.QGradient_Stops(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QColor = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QConicalGradient.Stops: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QColor, _arr.len) catch @panic("QConicalGradient.stops: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `coordinateMode` instead
+    ///
+    pub const CoordinateMode = coordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -1652,9 +2124,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` qbrush_enums.CoordinateMode `
     ///
-    pub fn CoordinateMode(self: QConicalGradient) i32 {
+    pub fn coordinateMode(self: QConicalGradient) i32 {
         return qtc.QGradient_CoordinateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCoordinateMode` instead
+    ///
+    pub const SetCoordinateMode = setCoordinateMode;
 
     /// Inherited from QGradient
     ///
@@ -1666,9 +2142,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.CoordinateMode `
     ///
-    pub fn SetCoordinateMode(self: QConicalGradient, mode: i32) void {
+    pub fn setCoordinateMode(self: QConicalGradient, mode: i32) void {
         qtc.QGradient_SetCoordinateMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `interpolationMode` instead
+    ///
+    pub const InterpolationMode = interpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -1682,9 +2162,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` qbrush_enums.InterpolationMode `
     ///
-    pub fn InterpolationMode(self: QConicalGradient) i32 {
+    pub fn interpolationMode(self: QConicalGradient) i32 {
         return qtc.QGradient_InterpolationMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInterpolationMode` instead
+    ///
+    pub const SetInterpolationMode = setInterpolationMode;
 
     /// Inherited from QGradient
     ///
@@ -1696,9 +2180,13 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` mode: qbrush_enums.InterpolationMode `
     ///
-    pub fn SetInterpolationMode(self: QConicalGradient, mode: i32) void {
+    pub fn setInterpolationMode(self: QConicalGradient, mode: i32) void {
         qtc.QGradient_SetInterpolationMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QGradient
     ///
@@ -1708,12 +2196,16 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` self: QConicalGradient `
     ///
-    /// ` gradient: QGradient `
+    /// ` _gradient: QGradient `
     ///
-    pub fn OperatorEqual(self: QConicalGradient, gradient: anytype) bool {
-        comptime _ = @TypeOf(gradient)._is_QGradient;
-        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(gradient.ptr));
+    pub fn operatorEqual(self: QConicalGradient, _gradient: anytype) bool {
+        comptime _ = @TypeOf(_gradient)._is_QGradient;
+        return qtc.QGradient_OperatorEqual(@ptrCast(self.ptr), @ptrCast(_gradient.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QGradient
     ///
@@ -1725,24 +2217,24 @@ pub const QConicalGradient = extern struct {
     ///
     /// ` other: QGradient `
     ///
-    pub fn OperatorNotEqual(self: QConicalGradient, other: anytype) bool {
+    pub fn operatorNotEqual(self: QConicalGradient, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QGradient;
         return qtc.QGradient_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconicalgradient.html#dtor.QConicalGradient)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QConicalGradient `
     ///
-    pub fn Delete(self: QConicalGradient) void {
+    pub fn delete(self: QConicalGradient) void {
         qtc.QConicalGradient_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1757,28 +2249,32 @@ pub const QGradient__QGradientData = extern struct {
 
     pub const _is_QGradient__QGradientData = {};
 
-    /// New constructs a new QGradient::QGradientData object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QGradient::QGradientData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QGradient__QGradientData `
     ///
-    pub fn New(param1: anytype) QGradient__QGradientData {
+    pub fn new(param1: anytype) QGradient__QGradientData {
         comptime _ = @TypeOf(param1)._is_QGradient__QGradientData;
         return .{ .ptr = qtc.QGradient__QGradientData_new(@ptrCast(param1.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGradient__QGradientData `
     ///
-    pub fn Delete(self: QGradient__QGradientData) void {
+    pub fn delete(self: QGradient__QGradientData) void {
         qtc.QGradient__QGradientData_Delete(@ptrCast(self.ptr));
     }
 };

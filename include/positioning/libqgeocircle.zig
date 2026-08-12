@@ -17,57 +17,81 @@ pub const QGeoCircle = extern struct {
     pub const _is_QGeoCircle = {};
     pub const _is_QGeoShape = {};
 
-    /// New constructs a new QGeoCircle object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoCircle {
+    pub const New = new;
+
+    /// Allocate a new QGeoCircle object in C++ memory
+    ///
+    pub fn new() QGeoCircle {
         return .{ .ptr = qtc.QGeoCircle_new() };
     }
 
-    /// New2 constructs a new QGeoCircle object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoCircle object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QGeoCoordinate `
+    /// ` _center: QGeoCoordinate `
     ///
-    pub fn New2(center: anytype) QGeoCircle {
-        comptime _ = @TypeOf(center)._is_QGeoCoordinate;
-        return .{ .ptr = qtc.QGeoCircle_new2(@ptrCast(center.ptr)) };
+    pub fn new2(_center: anytype) QGeoCircle {
+        comptime _ = @TypeOf(_center)._is_QGeoCoordinate;
+        return .{ .ptr = qtc.QGeoCircle_new2(@ptrCast(_center.ptr)) };
     }
 
-    /// New3 constructs a new QGeoCircle object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoCircle object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoCircle `
     ///
-    pub fn New3(other: anytype) QGeoCircle {
+    pub fn new3(other: anytype) QGeoCircle {
         comptime _ = @TypeOf(other)._is_QGeoCircle;
         return .{ .ptr = qtc.QGeoCircle_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QGeoCircle object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGeoCircle object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoShape `
     ///
-    pub fn New4(other: anytype) QGeoCircle {
+    pub fn new4(other: anytype) QGeoCircle {
         comptime _ = @TypeOf(other)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoCircle_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QGeoCircle object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QGeoCircle object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` center: QGeoCoordinate `
+    /// ` _center: QGeoCoordinate `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn New5(center: anytype, radius: f64) QGeoCircle {
-        comptime _ = @TypeOf(center)._is_QGeoCoordinate;
-        return .{ .ptr = qtc.QGeoCircle_new5(@ptrCast(center.ptr), @bitCast(radius)) };
+    pub fn new5(_center: anytype, _radius: f64) QGeoCircle {
+        comptime _ = @TypeOf(_center)._is_QGeoCoordinate;
+        return .{ .ptr = qtc.QGeoCircle_new5(@ptrCast(_center.ptr), @bitCast(_radius)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#operator-eq)
     ///
@@ -77,10 +101,14 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` other: QGeoCircle `
     ///
-    pub fn OperatorAssign(self: QGeoCircle, other: anytype) void {
+    pub fn operatorAssign(self: QGeoCircle, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoCircle;
         qtc.QGeoCircle_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenter` instead
+    ///
+    pub const SetCenter = setCenter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#setCenter)
     ///
@@ -88,12 +116,16 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    /// ` center: QGeoCoordinate `
+    /// ` _center: QGeoCoordinate `
     ///
-    pub fn SetCenter(self: QGeoCircle, center: anytype) void {
-        comptime _ = @TypeOf(center)._is_QGeoCoordinate;
-        qtc.QGeoCircle_SetCenter(@ptrCast(self.ptr), @ptrCast(center.ptr));
+    pub fn setCenter(self: QGeoCircle, _center: anytype) void {
+        comptime _ = @TypeOf(_center)._is_QGeoCoordinate;
+        qtc.QGeoCircle_SetCenter(@ptrCast(self.ptr), @ptrCast(_center.ptr));
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#center)
     ///
@@ -101,9 +133,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn Center(self: QGeoCircle) QGeoCoordinate {
+    pub fn center(self: QGeoCircle) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoCircle_Center(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRadius` instead
+    ///
+    pub const SetRadius = setRadius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#setRadius)
     ///
@@ -111,11 +147,15 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    /// ` radius: f64 `
+    /// ` _radius: f64 `
     ///
-    pub fn SetRadius(self: QGeoCircle, radius: f64) void {
-        qtc.QGeoCircle_SetRadius(@ptrCast(self.ptr), @bitCast(radius));
+    pub fn setRadius(self: QGeoCircle, _radius: f64) void {
+        qtc.QGeoCircle_SetRadius(@ptrCast(self.ptr), @bitCast(_radius));
     }
+
+    /// ### DEPRECATED: Use `radius` instead
+    ///
+    pub const Radius = radius;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#radius)
     ///
@@ -123,9 +163,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn Radius(self: QGeoCircle) f64 {
+    pub fn radius(self: QGeoCircle) f64 {
         return qtc.QGeoCircle_Radius(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#translate)
     ///
@@ -137,9 +181,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translate(self: QGeoCircle, degreesLatitude: f64, degreesLongitude: f64) void {
+    pub fn translate(self: QGeoCircle, degreesLatitude: f64, degreesLongitude: f64) void {
         qtc.QGeoCircle_Translate(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
+
+    /// ### DEPRECATED: Use `translated` instead
+    ///
+    pub const Translated = translated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#translated)
     ///
@@ -151,9 +199,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translated(self: QGeoCircle, degreesLatitude: f64, degreesLongitude: f64) QGeoCircle {
+    pub fn translated(self: QGeoCircle, degreesLatitude: f64, degreesLongitude: f64) QGeoCircle {
         return .{ .ptr = qtc.QGeoCircle_Translated(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude)) };
     }
+
+    /// ### DEPRECATED: Use `extendCircle` instead
+    ///
+    pub const ExtendCircle = extendCircle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#extendCircle)
     ///
@@ -163,10 +215,14 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ExtendCircle(self: QGeoCircle, coordinate: anytype) void {
+    pub fn extendCircle(self: QGeoCircle, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoCircle_ExtendCircle(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#toString)
     ///
@@ -176,13 +232,19 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QGeoCircle, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QGeoCircle, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoCircle_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCircle.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCircle.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGeoShape
     ///
@@ -196,9 +258,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` qgeoshape_enums.ShapeType `
     ///
-    pub fn Type(self: QGeoCircle) i32 {
+    pub fn type0(self: QGeoCircle) i32 {
         return qtc.QGeoShape_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from QGeoShape
     ///
@@ -208,9 +274,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn IsValid(self: QGeoCircle) bool {
+    pub fn isValid(self: QGeoCircle) bool {
         return qtc.QGeoShape_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QGeoShape
     ///
@@ -220,9 +290,13 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn IsEmpty(self: QGeoCircle) bool {
+    pub fn isEmpty(self: QGeoCircle) bool {
         return qtc.QGeoShape_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QGeoShape
     ///
@@ -234,10 +308,14 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn Contains(self: QGeoCircle, coordinate: anytype) bool {
+    pub fn contains(self: QGeoCircle, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoShape_Contains(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingGeoRectangle` instead
+    ///
+    pub const BoundingGeoRectangle = boundingGeoRectangle;
 
     /// Inherited from QGeoShape
     ///
@@ -247,23 +325,23 @@ pub const QGeoCircle = extern struct {
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn BoundingGeoRectangle(self: QGeoCircle) QGeoRectangle {
+    pub fn boundingGeoRectangle(self: QGeoCircle) QGeoRectangle {
         return .{ .ptr = qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocircle.html#dtor.QGeoCircle)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoCircle `
     ///
-    pub fn Delete(self: QGeoCircle) void {
+    pub fn delete(self: QGeoCircle) void {
         qtc.QGeoCircle_Delete(@ptrCast(self.ptr));
     }
 };

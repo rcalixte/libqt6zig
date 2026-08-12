@@ -83,30 +83,42 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextCustomEditor::RichTextBrowserFindBar object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextCustomEditor::RichTextBrowserFindBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` view: QTextBrowser `
     ///
-    pub fn New(view: anytype) TextCustomEditor__RichTextBrowserFindBar {
+    pub fn new(view: anytype) TextCustomEditor__RichTextBrowserFindBar {
         comptime _ = @TypeOf(view)._is_QTextBrowser;
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_new(@ptrCast(view.ptr)) };
     }
 
-    /// New2 constructs a new TextCustomEditor::RichTextBrowserFindBar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextCustomEditor::RichTextBrowserFindBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` view: QTextBrowser `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(view: anytype, parent: anytype) TextCustomEditor__RichTextBrowserFindBar {
+    pub fn new2(view: anytype, _parent: anytype) TextCustomEditor__RichTextBrowserFindBar {
         comptime _ = @TypeOf(view)._is_QTextBrowser;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_new2(@ptrCast(view.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_new2(@ptrCast(view.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -114,9 +126,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MetaObject(self: TextCustomEditor__RichTextBrowserFindBar) QMetaObject {
+    pub fn metaObject(self: TextCustomEditor__RichTextBrowserFindBar) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -128,13 +144,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -144,9 +160,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperMetaObject(self: TextCustomEditor__RichTextBrowserFindBar) QMetaObject {
+    pub fn superMetaObject(self: TextCustomEditor__RichTextBrowserFindBar) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -154,10 +174,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextCustomEditor__RichTextBrowserFindBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextCustomEditor__RichTextBrowserFindBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -167,13 +191,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -183,10 +207,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextCustomEditor__RichTextBrowserFindBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextCustomEditor__RichTextBrowserFindBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -198,9 +226,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -210,13 +242,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -230,9 +262,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -242,25 +278,33 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `viewIsReadOnly` instead
+    ///
+    pub const ViewIsReadOnly = viewIsReadOnly;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ViewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn viewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_ViewIsReadOnly(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onViewIsReadOnly` instead
+    ///
+    pub const OnViewIsReadOnly = onViewIsReadOnly;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
     /// Allows for overriding the related default method
@@ -271,13 +315,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnViewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onViewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnViewIsReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperViewIsReadOnly` instead
+    /// ### DEPRECATED: Use `superViewIsReadOnly` instead
     ///
-    pub const QBaseViewIsReadOnly = SuperViewIsReadOnly;
+    pub const SuperViewIsReadOnly = superViewIsReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -287,9 +331,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperViewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn superViewIsReadOnly(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperViewIsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentIsEmpty` instead
+    ///
+    pub const DocumentIsEmpty = documentIsEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -297,9 +345,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DocumentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn documentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_DocumentIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDocumentIsEmpty` instead
+    ///
+    pub const OnDocumentIsEmpty = onDocumentIsEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -311,13 +363,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDocumentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDocumentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDocumentIsEmpty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDocumentIsEmpty` instead
+    /// ### DEPRECATED: Use `superDocumentIsEmpty` instead
     ///
-    pub const QBaseDocumentIsEmpty = SuperDocumentIsEmpty;
+    pub const SuperDocumentIsEmpty = superDocumentIsEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -327,9 +379,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperDocumentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn superDocumentIsEmpty(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDocumentIsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `searchInDocument` instead
+    ///
+    pub const SearchInDocument = searchInDocument;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -337,17 +393,21 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` searchOptions: flag of texteditfindbarbase_enums.FindFlag `
     ///
-    pub fn SearchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, text: []const u8, searchOptions: i32) bool {
+    pub fn searchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, _text: []const u8, searchOptions: i32) bool {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SearchInDocument(@ptrCast(self.ptr), text_str, @bitCast(searchOptions));
     }
+
+    /// ### DEPRECATED: Use `onSearchInDocument` instead
+    ///
+    pub const OnSearchInDocument = onSearchInDocument;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -359,13 +419,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, text: [*:0]const u8, searchOptions: flag of texteditfindbarbase_enums.FindFlag) callconv(.c) bool `
     ///
-    pub fn OnSearchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8, i32) callconv(.c) bool) void {
+    pub fn onSearchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8, i32) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSearchInDocument` instead
+    /// ### DEPRECATED: Use `superSearchInDocument` instead
     ///
-    pub const QBaseSearchInDocument = SuperSearchInDocument;
+    pub const SuperSearchInDocument = superSearchInDocument;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -375,17 +435,21 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` searchOptions: flag of texteditfindbarbase_enums.FindFlag `
     ///
-    pub fn SuperSearchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, text: []const u8, searchOptions: i32) bool {
+    pub fn superSearchInDocument(self: TextCustomEditor__RichTextBrowserFindBar, _text: []const u8, searchOptions: i32) bool {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument(@ptrCast(self.ptr), text_str, @bitCast(searchOptions));
     }
+
+    /// ### DEPRECATED: Use `searchInDocument2` instead
+    ///
+    pub const SearchInDocument2 = searchInDocument2;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -397,10 +461,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` searchOptions: flag of texteditfindbarbase_enums.FindFlag `
     ///
-    pub fn SearchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, regExp: anytype, searchOptions: i32) bool {
+    pub fn searchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, regExp: anytype, searchOptions: i32) bool {
         comptime _ = @TypeOf(regExp)._is_QRegularExpression;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SearchInDocument2(@ptrCast(self.ptr), @ptrCast(regExp.ptr), @bitCast(searchOptions));
     }
+
+    /// ### DEPRECATED: Use `onSearchInDocument2` instead
+    ///
+    pub const OnSearchInDocument2 = onSearchInDocument2;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -412,13 +480,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, regExp: QRegularExpression, searchOptions: flag of texteditfindbarbase_enums.FindFlag) callconv(.c) bool `
     ///
-    pub fn OnSearchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QRegularExpression, i32) callconv(.c) bool) void {
+    pub fn onSearchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QRegularExpression, i32) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSearchInDocument2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSearchInDocument2` instead
+    /// ### DEPRECATED: Use `superSearchInDocument2` instead
     ///
-    pub const QBaseSearchInDocument2 = SuperSearchInDocument2;
+    pub const SuperSearchInDocument2 = superSearchInDocument2;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -432,10 +500,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` searchOptions: flag of texteditfindbarbase_enums.FindFlag `
     ///
-    pub fn SuperSearchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, regExp: anytype, searchOptions: i32) bool {
+    pub fn superSearchInDocument2(self: TextCustomEditor__RichTextBrowserFindBar, regExp: anytype, searchOptions: i32) bool {
         comptime _ = @TypeOf(regExp)._is_QRegularExpression;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSearchInDocument2(@ptrCast(self.ptr), @ptrCast(regExp.ptr), @bitCast(searchOptions));
     }
+
+    /// ### DEPRECATED: Use `autoSearchMoveCursor` instead
+    ///
+    pub const AutoSearchMoveCursor = autoSearchMoveCursor;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -443,9 +515,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn AutoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn autoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_AutoSearchMoveCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAutoSearchMoveCursor` instead
+    ///
+    pub const OnAutoSearchMoveCursor = onAutoSearchMoveCursor;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -457,13 +533,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAutoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onAutoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnAutoSearchMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAutoSearchMoveCursor` instead
+    /// ### DEPRECATED: Use `superAutoSearchMoveCursor` instead
     ///
-    pub const QBaseAutoSearchMoveCursor = SuperAutoSearchMoveCursor;
+    pub const SuperAutoSearchMoveCursor = superAutoSearchMoveCursor;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -473,9 +549,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperAutoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn superAutoSearchMoveCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperAutoSearchMoveCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `slotSearchText` instead
+    ///
+    pub const SlotSearchText = slotSearchText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -487,9 +567,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` isAutoSearch: bool `
     ///
-    pub fn SlotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) void {
+    pub fn slotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SlotSearchText(@ptrCast(self.ptr), backward, isAutoSearch);
     }
+
+    /// ### DEPRECATED: Use `onSlotSearchText` instead
+    ///
+    pub const OnSlotSearchText = onSlotSearchText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -501,13 +585,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) callconv(.c) void `
     ///
-    pub fn OnSlotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool) callconv(.c) void) void {
+    pub fn onSlotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSlotSearchText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotSearchText` instead
+    /// ### DEPRECATED: Use `superSlotSearchText` instead
     ///
-    pub const QBaseSlotSearchText = SuperSlotSearchText;
+    pub const SuperSlotSearchText = superSlotSearchText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
@@ -521,9 +605,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` isAutoSearch: bool `
     ///
-    pub fn SuperSlotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) void {
+    pub fn superSlotSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSlotSearchText(@ptrCast(self.ptr), backward, isAutoSearch);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -535,15 +623,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -557,15 +649,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -577,14 +673,18 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextCustomEditor__TextEditFindBarBase_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
+
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
@@ -593,16 +693,20 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: TextCustomEditor__RichTextBrowserFindBar, text: []const u8) void {
+    pub fn setText(self: TextCustomEditor__RichTextBrowserFindBar, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.TextCustomEditor__TextEditFindBarBase_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `focusAndSetCursor` instead
+    ///
+    pub const FocusAndSetCursor = focusAndSetCursor;
+
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
@@ -611,10 +715,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FocusAndSetCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn focusAndSetCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__TextEditFindBarBase_FocusAndSetCursor(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `showReplace` instead
+    ///
+    pub const ShowReplace = showReplace;
+
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
@@ -623,21 +731,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ShowReplace(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn showReplace(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__TextEditFindBarBase_ShowReplace(@ptrCast(self.ptr));
     }
 
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
+    /// ### DEPRECATED: Use `showFind` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
-    ///
-    pub fn ShowFind(self: TextCustomEditor__RichTextBrowserFindBar) void {
-        qtc.TextCustomEditor__TextEditFindBarBase_ShowFind(@ptrCast(self.ptr));
-    }
+    pub const ShowFind = showFind;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -647,11 +747,31 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` hide: bool `
-    ///
-    pub fn SetHideWhenClose(self: TextCustomEditor__RichTextBrowserFindBar, hide: bool) void {
-        qtc.TextCustomEditor__TextEditFindBarBase_SetHideWhenClose(@ptrCast(self.ptr), hide);
+    pub fn showFind(self: TextCustomEditor__RichTextBrowserFindBar) void {
+        qtc.TextCustomEditor__TextEditFindBarBase_ShowFind(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHideWhenClose` instead
+    ///
+    pub const SetHideWhenClose = setHideWhenClose;
+
+    /// Inherited from TextCustomEditor::TextEditFindBarBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
+    ///
+    /// ` _hide: bool `
+    ///
+    pub fn setHideWhenClose(self: TextCustomEditor__RichTextBrowserFindBar, _hide: bool) void {
+        qtc.TextCustomEditor__TextEditFindBarBase_SetHideWhenClose(@ptrCast(self.ptr), _hide);
+    }
+
+    /// ### DEPRECATED: Use `displayMessageIndicator` instead
+    ///
+    pub const DisplayMessageIndicator = displayMessageIndicator;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -663,13 +783,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn DisplayMessageIndicator(self: TextCustomEditor__RichTextBrowserFindBar, message: []const u8) void {
+    pub fn displayMessageIndicator(self: TextCustomEditor__RichTextBrowserFindBar, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
         qtc.TextCustomEditor__TextEditFindBarBase_DisplayMessageIndicator(@ptrCast(self.ptr), message_str);
     }
+
+    /// ### DEPRECATED: Use `onDisplayMessageIndicator` instead
+    ///
+    pub const OnDisplayMessageIndicator = onDisplayMessageIndicator;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -681,9 +805,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDisplayMessageIndicator(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDisplayMessageIndicator(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditFindBarBase_Connect_DisplayMessageIndicator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideFindBar` instead
+    ///
+    pub const HideFindBar = hideFindBar;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -693,9 +821,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HideFindBar(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn hideFindBar(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__TextEditFindBarBase_HideFindBar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideFindBar` instead
+    ///
+    pub const OnHideFindBar = onHideFindBar;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -707,21 +839,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void `
     ///
-    pub fn OnHideFindBar(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void) void {
+    pub fn onHideFindBar(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditFindBarBase_Connect_HideFindBar(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// Inherited from TextCustomEditor::TextEditFindBarBase
+    /// ### DEPRECATED: Use `findNext` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
-    ///
-    pub fn FindNext(self: TextCustomEditor__RichTextBrowserFindBar) void {
-        qtc.TextCustomEditor__TextEditFindBarBase_FindNext(@ptrCast(self.ptr));
-    }
+    pub const FindNext = findNext;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -731,9 +855,29 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FindPrev(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn findNext(self: TextCustomEditor__RichTextBrowserFindBar) void {
+        qtc.TextCustomEditor__TextEditFindBarBase_FindNext(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `findPrev` instead
+    ///
+    pub const FindPrev = findPrev;
+
+    /// Inherited from TextCustomEditor::TextEditFindBarBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditFindBarBase.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
+    ///
+    pub fn findPrev(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__TextEditFindBarBase_FindPrev(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoSearch` instead
+    ///
+    pub const AutoSearch = autoSearch;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -745,13 +889,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn AutoSearch(self: TextCustomEditor__RichTextBrowserFindBar, str: []const u8) void {
+    pub fn autoSearch(self: TextCustomEditor__RichTextBrowserFindBar, str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         qtc.TextCustomEditor__TextEditFindBarBase_AutoSearch(@ptrCast(self.ptr), str_str);
     }
+
+    /// ### DEPRECATED: Use `closeBar` instead
+    ///
+    pub const CloseBar = closeBar;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -761,9 +909,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn CloseBar(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn closeBar(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__TextEditFindBarBase_CloseBar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -773,9 +925,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn WinId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
+    pub fn winId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -785,9 +941,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn CreateWinId(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn createWinId(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -797,9 +957,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn InternalWinId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
+    pub fn internalWinId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -809,9 +973,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn EffectiveWinId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
+    pub fn effectiveWinId(self: TextCustomEditor__RichTextBrowserFindBar) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -821,9 +989,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Style(self: TextCustomEditor__RichTextBrowserFindBar) QStyle {
+    pub fn style(self: TextCustomEditor__RichTextBrowserFindBar) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -833,12 +1005,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextCustomEditor__RichTextBrowserFindBar, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextCustomEditor__RichTextBrowserFindBar, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -848,9 +1024,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsTopLevel(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isTopLevel(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -860,9 +1040,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsWindow(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isWindow(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -872,9 +1056,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsModal(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isModal(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -888,9 +1076,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn windowModality(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -900,11 +1092,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextCustomEditor__RichTextBrowserFindBar, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextCustomEditor__RichTextBrowserFindBar, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -914,9 +1110,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsEnabled(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isEnabled(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -928,10 +1128,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -943,9 +1147,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextCustomEditor__RichTextBrowserFindBar, enabled: bool) void {
+    pub fn setEnabled(self: TextCustomEditor__RichTextBrowserFindBar, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -957,9 +1165,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextCustomEditor__RichTextBrowserFindBar, disabled: bool) void {
+    pub fn setDisabled(self: TextCustomEditor__RichTextBrowserFindBar, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -971,9 +1183,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextCustomEditor__RichTextBrowserFindBar, windowModified: bool) void {
+    pub fn setWindowModified(self: TextCustomEditor__RichTextBrowserFindBar, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -983,9 +1199,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FrameGeometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn frameGeometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -995,9 +1215,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Geometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn geometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1007,9 +1231,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn NormalGeometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn normalGeometry(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1019,9 +1247,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn X(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn x(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1031,9 +1263,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Y(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn y(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1043,9 +1279,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Pos(self: TextCustomEditor__RichTextBrowserFindBar) QPoint {
+    pub fn pos(self: TextCustomEditor__RichTextBrowserFindBar) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1055,9 +1295,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FrameSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn frameSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1067,9 +1311,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Size(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn size(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1079,9 +1327,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Width(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn width(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1091,9 +1343,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Height(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn height(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1103,9 +1359,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Rect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn rect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1115,9 +1375,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ChildrenRect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn childrenRect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1127,9 +1391,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ChildrenRegion(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
+    pub fn childrenRegion(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1139,9 +1407,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MinimumSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn minimumSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1151,9 +1423,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MaximumSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn maximumSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1163,9 +1439,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MinimumWidth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn minimumWidth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1175,9 +1455,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MinimumHeight(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn minimumHeight(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1187,9 +1471,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MaximumWidth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn maximumWidth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1199,9 +1487,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MaximumHeight(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn maximumHeight(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1211,12 +1503,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextCustomEditor__RichTextBrowserFindBar, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextCustomEditor__RichTextBrowserFindBar, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1230,9 +1526,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextCustomEditor__RichTextBrowserFindBar, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextCustomEditor__RichTextBrowserFindBar, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1242,12 +1542,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextCustomEditor__RichTextBrowserFindBar, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextCustomEditor__RichTextBrowserFindBar, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1261,9 +1565,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextCustomEditor__RichTextBrowserFindBar, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextCustomEditor__RichTextBrowserFindBar, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1275,9 +1583,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextCustomEditor__RichTextBrowserFindBar, minw: i32) void {
+    pub fn setMinimumWidth(self: TextCustomEditor__RichTextBrowserFindBar, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1289,9 +1601,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextCustomEditor__RichTextBrowserFindBar, minh: i32) void {
+    pub fn setMinimumHeight(self: TextCustomEditor__RichTextBrowserFindBar, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1303,9 +1619,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextCustomEditor__RichTextBrowserFindBar, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextCustomEditor__RichTextBrowserFindBar, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1317,9 +1637,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextCustomEditor__RichTextBrowserFindBar, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextCustomEditor__RichTextBrowserFindBar, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1329,9 +1653,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SizeIncrement(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn sizeIncrement(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1341,12 +1669,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextCustomEditor__RichTextBrowserFindBar, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextCustomEditor__RichTextBrowserFindBar, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1360,9 +1692,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1372,9 +1708,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn BaseSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn baseSize(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1384,12 +1724,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextCustomEditor__RichTextBrowserFindBar, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextCustomEditor__RichTextBrowserFindBar, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1403,9 +1747,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextCustomEditor__RichTextBrowserFindBar, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextCustomEditor__RichTextBrowserFindBar, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1417,10 +1765,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextCustomEditor__RichTextBrowserFindBar, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextCustomEditor__RichTextBrowserFindBar, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1434,9 +1786,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1448,9 +1804,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextCustomEditor__RichTextBrowserFindBar, w: i32) void {
+    pub fn setFixedWidth(self: TextCustomEditor__RichTextBrowserFindBar, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1462,9 +1822,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextCustomEditor__RichTextBrowserFindBar, h: i32) void {
+    pub fn setFixedHeight(self: TextCustomEditor__RichTextBrowserFindBar, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1476,11 +1840,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1491,11 +1859,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1506,11 +1878,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1521,11 +1897,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1536,11 +1916,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1551,10 +1935,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1566,10 +1954,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1581,10 +1973,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1598,12 +1994,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1616,11 +2016,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1634,11 +2038,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1652,11 +2060,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1666,9 +2078,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Window(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn window(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1678,9 +2094,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn NativeParentWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn nativeParentWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1690,9 +2110,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn TopLevelWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn topLevelWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1702,9 +2126,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Palette(self: TextCustomEditor__RichTextBrowserFindBar) QPalette {
+    pub fn palette(self: TextCustomEditor__RichTextBrowserFindBar) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1714,12 +2142,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextCustomEditor__RichTextBrowserFindBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextCustomEditor__RichTextBrowserFindBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1729,11 +2161,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextCustomEditor__RichTextBrowserFindBar, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextCustomEditor__RichTextBrowserFindBar, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1747,9 +2183,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn backgroundRole(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1759,11 +2199,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextCustomEditor__RichTextBrowserFindBar, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextCustomEditor__RichTextBrowserFindBar, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1777,9 +2221,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn foregroundRole(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1789,9 +2237,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Font(self: TextCustomEditor__RichTextBrowserFindBar) QFont {
+    pub fn font(self: TextCustomEditor__RichTextBrowserFindBar) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1801,12 +2253,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextCustomEditor__RichTextBrowserFindBar, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextCustomEditor__RichTextBrowserFindBar, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1816,9 +2272,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FontMetrics(self: TextCustomEditor__RichTextBrowserFindBar) QFontMetrics {
+    pub fn fontMetrics(self: TextCustomEditor__RichTextBrowserFindBar) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1828,9 +2288,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FontInfo(self: TextCustomEditor__RichTextBrowserFindBar) QFontInfo {
+    pub fn fontInfo(self: TextCustomEditor__RichTextBrowserFindBar) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1840,9 +2304,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Cursor(self: TextCustomEditor__RichTextBrowserFindBar) QCursor {
+    pub fn cursor(self: TextCustomEditor__RichTextBrowserFindBar) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1852,12 +2320,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextCustomEditor__RichTextBrowserFindBar, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextCustomEditor__RichTextBrowserFindBar, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1867,9 +2339,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UnsetCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn unsetCursor(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1881,9 +2357,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
+    pub fn setMouseTracking(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1893,9 +2373,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HasMouseTracking(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn hasMouseTracking(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1905,9 +2389,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UnderMouse(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn underMouse(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1919,9 +2407,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
+    pub fn setTabletTracking(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1931,24 +2423,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HasTabletTracking(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn hasTabletTracking(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextCustomEditor__RichTextBrowserFindBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1958,12 +2439,35 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextCustomEditor__RichTextBrowserFindBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextCustomEditor__RichTextBrowserFindBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextCustomEditor__RichTextBrowserFindBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2477,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Mask(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
+    pub fn mask(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1985,9 +2493,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ClearMask(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn clearMask(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1999,10 +2511,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype) void {
+    pub fn render(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2014,10 +2530,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
+    pub fn render2(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2027,9 +2547,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Grab(self: TextCustomEditor__RichTextBrowserFindBar) QPixmap {
+    pub fn grab(self: TextCustomEditor__RichTextBrowserFindBar) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2039,9 +2563,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn GraphicsEffect(self: TextCustomEditor__RichTextBrowserFindBar) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextCustomEditor__RichTextBrowserFindBar) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2053,10 +2581,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextCustomEditor__RichTextBrowserFindBar, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextCustomEditor__RichTextBrowserFindBar, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2068,9 +2600,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
+    pub fn grabGesture(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2082,9 +2618,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2094,15 +2634,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextCustomEditor__RichTextBrowserFindBar, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextCustomEditor__RichTextBrowserFindBar, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2112,15 +2656,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextCustomEditor__RichTextBrowserFindBar, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextCustomEditor__RichTextBrowserFindBar, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2132,13 +2680,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2150,13 +2702,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2168,10 +2724,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype) void {
+    pub fn setWindowIcon(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2181,9 +2741,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn WindowIcon(self: TextCustomEditor__RichTextBrowserFindBar) QIcon {
+    pub fn windowIcon(self: TextCustomEditor__RichTextBrowserFindBar) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2193,15 +2757,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextCustomEditor__RichTextBrowserFindBar, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextCustomEditor__RichTextBrowserFindBar, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2213,13 +2781,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2229,15 +2801,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextCustomEditor__RichTextBrowserFindBar, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextCustomEditor__RichTextBrowserFindBar, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2249,13 +2825,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2267,13 +2847,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextCustomEditor__RichTextBrowserFindBar, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextCustomEditor__RichTextBrowserFindBar, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2285,13 +2869,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2303,9 +2891,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextCustomEditor__RichTextBrowserFindBar, level: f64) void {
+    pub fn setWindowOpacity(self: TextCustomEditor__RichTextBrowserFindBar, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2315,9 +2907,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn WindowOpacity(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
+    pub fn windowOpacity(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2327,9 +2923,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsWindowModified(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isWindowModified(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2339,15 +2939,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextCustomEditor__RichTextBrowserFindBar, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextCustomEditor__RichTextBrowserFindBar, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2359,13 +2963,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2377,9 +2985,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextCustomEditor__RichTextBrowserFindBar, msec: i32) void {
+    pub fn setToolTipDuration(self: TextCustomEditor__RichTextBrowserFindBar, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2389,9 +3001,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ToolTipDuration(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn toolTipDuration(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2401,15 +3017,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextCustomEditor__RichTextBrowserFindBar, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextCustomEditor__RichTextBrowserFindBar, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2421,13 +3041,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2437,15 +3061,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextCustomEditor__RichTextBrowserFindBar, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextCustomEditor__RichTextBrowserFindBar, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2457,13 +3085,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2475,13 +3107,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2493,13 +3129,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextCustomEditor__RichTextBrowserFindBar, name: []const u8) void {
+    pub fn setAccessibleName(self: TextCustomEditor__RichTextBrowserFindBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2511,13 +3151,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2529,13 +3173,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextCustomEditor__RichTextBrowserFindBar, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextCustomEditor__RichTextBrowserFindBar, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2547,9 +3195,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextCustomEditor__RichTextBrowserFindBar, direction: i32) void {
+    pub fn setLayoutDirection(self: TextCustomEditor__RichTextBrowserFindBar, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2563,9 +3215,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn layoutDirection(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2575,9 +3231,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UnsetLayoutDirection(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn unsetLayoutDirection(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2587,12 +3247,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextCustomEditor__RichTextBrowserFindBar, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextCustomEditor__RichTextBrowserFindBar, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2602,9 +3266,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Locale(self: TextCustomEditor__RichTextBrowserFindBar) QLocale {
+    pub fn locale(self: TextCustomEditor__RichTextBrowserFindBar) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2614,9 +3282,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UnsetLocale(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn unsetLocale(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2626,9 +3298,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsRightToLeft(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isRightToLeft(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2638,9 +3314,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsLeftToRight(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isLeftToRight(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2650,9 +3330,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SetFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn setFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2662,9 +3346,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsActiveWindow(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isActiveWindow(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2674,9 +3362,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ActivateWindow(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn activateWindow(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2686,9 +3378,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ClearFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn clearFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2700,9 +3396,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextCustomEditor__RichTextBrowserFindBar, reason: i32) void {
+    pub fn setFocus2(self: TextCustomEditor__RichTextBrowserFindBar, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2716,9 +3416,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn focusPolicy(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2730,9 +3434,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextCustomEditor__RichTextBrowserFindBar, policy: i32) void {
+    pub fn setFocusPolicy(self: TextCustomEditor__RichTextBrowserFindBar, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2742,9 +3450,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HasFocus(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn hasFocus(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2756,11 +3468,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2770,12 +3486,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextCustomEditor__RichTextBrowserFindBar, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextCustomEditor__RichTextBrowserFindBar, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2785,9 +3505,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FocusProxy(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn focusProxy(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2801,9 +3525,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn contextMenuPolicy(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2815,9 +3543,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextCustomEditor__RichTextBrowserFindBar, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextCustomEditor__RichTextBrowserFindBar, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2827,9 +3559,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn GrabMouse(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn grabMouse(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2841,10 +3577,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn grabMouse2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2854,9 +3594,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ReleaseMouse(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn releaseMouse(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2866,9 +3610,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn GrabKeyboard(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn grabKeyboard(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2878,9 +3626,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ReleaseKeyboard(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn releaseKeyboard(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2892,10 +3644,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextCustomEditor__RichTextBrowserFindBar, key: anytype) i32 {
+    pub fn grabShortcut(self: TextCustomEditor__RichTextBrowserFindBar, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2907,9 +3663,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
+    pub fn releaseShortcut(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2921,9 +3681,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
+    pub fn setShortcutEnabled(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2935,25 +3699,37 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2963,9 +3739,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UpdatesEnabled(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn updatesEnabled(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2977,9 +3757,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextCustomEditor__RichTextBrowserFindBar, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2989,9 +3773,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn GraphicsProxyWidget(self: TextCustomEditor__RichTextBrowserFindBar) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextCustomEditor__RichTextBrowserFindBar) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3001,9 +3789,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Update(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn update(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3013,9 +3805,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Repaint(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn repaint(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3025,17 +3821,21 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextCustomEditor__RichTextBrowserFindBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextCustomEditor__RichTextBrowserFindBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3047,11 +3847,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn update3(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3062,10 +3866,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn update4(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3075,17 +3883,21 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextCustomEditor__RichTextBrowserFindBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextCustomEditor__RichTextBrowserFindBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3097,10 +3909,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn repaint3(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3112,10 +3928,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn repaint4(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3127,9 +3947,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextCustomEditor__RichTextBrowserFindBar, hidden: bool) void {
+    pub fn setHidden(self: TextCustomEditor__RichTextBrowserFindBar, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3139,9 +3963,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Show(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn show(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3151,9 +3979,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Hide(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn hide(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3163,9 +3995,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ShowMinimized(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn showMinimized(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3175,9 +4011,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ShowMaximized(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn showMaximized(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3187,9 +4027,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ShowFullScreen(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn showFullScreen(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3199,9 +4043,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ShowNormal(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn showNormal(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3211,9 +4059,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Close(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn close(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3223,9 +4075,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Raise(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn raise(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3235,9 +4091,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Lower(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn lower(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3249,10 +4109,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn stackUnder(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3262,13 +4126,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextCustomEditor__RichTextBrowserFindBar, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextCustomEditor__RichTextBrowserFindBar, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3280,10 +4148,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn move2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3297,9 +4169,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
+    pub fn resize(self: TextCustomEditor__RichTextBrowserFindBar, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3311,10 +4187,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn resize2(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3324,17 +4204,21 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextCustomEditor__RichTextBrowserFindBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextCustomEditor__RichTextBrowserFindBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3344,12 +4228,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextCustomEditor__RichTextBrowserFindBar, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextCustomEditor__RichTextBrowserFindBar, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3361,13 +4249,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3377,15 +4269,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextCustomEditor__RichTextBrowserFindBar, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextCustomEditor__RichTextBrowserFindBar, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3395,9 +4291,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn AdjustSize(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn adjustSize(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3407,9 +4307,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsVisible(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isVisible(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3421,10 +4325,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3434,9 +4342,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsHidden(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isHidden(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3446,9 +4358,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsMinimized(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isMinimized(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3458,9 +4374,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsMaximized(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isMaximized(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3470,9 +4390,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsFullScreen(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isFullScreen(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3486,9 +4410,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn windowState(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3500,9 +4428,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextCustomEditor__RichTextBrowserFindBar, state: i32) void {
+    pub fn setWindowState(self: TextCustomEditor__RichTextBrowserFindBar, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3514,9 +4446,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextCustomEditor__RichTextBrowserFindBar, state: i32) void {
+    pub fn overrideWindowState(self: TextCustomEditor__RichTextBrowserFindBar, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4462,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SizePolicy(self: TextCustomEditor__RichTextBrowserFindBar) QSizePolicy {
+    pub fn sizePolicy(self: TextCustomEditor__RichTextBrowserFindBar) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3538,12 +4478,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextCustomEditor__RichTextBrowserFindBar, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextCustomEditor__RichTextBrowserFindBar, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3557,9 +4501,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextCustomEditor__RichTextBrowserFindBar, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextCustomEditor__RichTextBrowserFindBar, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3569,9 +4517,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn VisibleRegion(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
+    pub fn visibleRegion(self: TextCustomEditor__RichTextBrowserFindBar) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3589,9 +4541,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextCustomEditor__RichTextBrowserFindBar, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextCustomEditor__RichTextBrowserFindBar, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3603,10 +4559,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextCustomEditor__RichTextBrowserFindBar, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextCustomEditor__RichTextBrowserFindBar, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3616,9 +4576,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ContentsMargins(self: TextCustomEditor__RichTextBrowserFindBar) QMargins {
+    pub fn contentsMargins(self: TextCustomEditor__RichTextBrowserFindBar) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3628,9 +4592,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ContentsRect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
+    pub fn contentsRect(self: TextCustomEditor__RichTextBrowserFindBar) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3640,9 +4608,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Layout(self: TextCustomEditor__RichTextBrowserFindBar) QLayout {
+    pub fn layout(self: TextCustomEditor__RichTextBrowserFindBar) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3652,12 +4624,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextCustomEditor__RichTextBrowserFindBar, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextCustomEditor__RichTextBrowserFindBar, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3667,24 +4643,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UpdateGeometry(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn updateGeometry(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextCustomEditor__RichTextBrowserFindBar, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3694,14 +4659,37 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextCustomEditor__RichTextBrowserFindBar, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextCustomEditor__RichTextBrowserFindBar, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextCustomEditor__RichTextBrowserFindBar, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3715,9 +4703,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextCustomEditor__RichTextBrowserFindBar, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextCustomEditor__RichTextBrowserFindBar, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3733,10 +4725,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextCustomEditor__RichTextBrowserFindBar, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextCustomEditor__RichTextBrowserFindBar, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3746,9 +4742,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FocusWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn focusWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3758,9 +4758,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn NextInFocusChain(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn nextInFocusChain(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3770,9 +4774,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn PreviousInFocusChain(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn previousInFocusChain(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3782,9 +4790,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn AcceptDrops(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn acceptDrops(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3796,9 +4808,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextCustomEditor__RichTextBrowserFindBar, on: bool) void {
+    pub fn setAcceptDrops(self: TextCustomEditor__RichTextBrowserFindBar, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3810,10 +4826,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextCustomEditor__RichTextBrowserFindBar, action: anytype) void {
+    pub fn addAction(self: TextCustomEditor__RichTextBrowserFindBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3823,15 +4843,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextCustomEditor__RichTextBrowserFindBar, actions: []QAction) void {
+    pub fn addActions(self: TextCustomEditor__RichTextBrowserFindBar, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3843,16 +4867,20 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextCustomEditor__RichTextBrowserFindBar, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextCustomEditor__RichTextBrowserFindBar, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3866,11 +4894,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextCustomEditor__RichTextBrowserFindBar, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextCustomEditor__RichTextBrowserFindBar, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3882,10 +4914,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextCustomEditor__RichTextBrowserFindBar, action: anytype) void {
+    pub fn removeAction(self: TextCustomEditor__RichTextBrowserFindBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3897,15 +4933,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3915,15 +4955,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: TextCustomEditor__RichTextBrowserFindBar, text: []const u8) QAction {
+    pub fn addAction2(self: TextCustomEditor__RichTextBrowserFindBar, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3935,16 +4979,20 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -3954,19 +5002,23 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextCustomEditor__RichTextBrowserFindBar, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextCustomEditor__RichTextBrowserFindBar, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3977,19 +5029,23 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3999,9 +5055,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ParentWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
+    pub fn parentWidget(self: TextCustomEditor__RichTextBrowserFindBar) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4013,9 +5073,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4029,9 +5093,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn windowFlags(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4043,9 +5111,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) void {
+    pub fn setWindowFlag(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5129,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4073,9 +5149,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn windowType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4085,9 +5165,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4097,13 +5181,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextCustomEditor__RichTextBrowserFindBar, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextCustomEditor__RichTextBrowserFindBar, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4115,10 +5203,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextCustomEditor__RichTextBrowserFindBar, p: anytype) QWidget {
+    pub fn childAt2(self: TextCustomEditor__RichTextBrowserFindBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4130,10 +5222,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextCustomEditor__RichTextBrowserFindBar, p: anytype) QWidget {
+    pub fn childAt3(self: TextCustomEditor__RichTextBrowserFindBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4145,9 +5241,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) void {
+    pub fn setAttribute(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4159,9 +5259,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) bool {
+    pub fn testAttribute(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4171,9 +5275,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn EnsurePolished(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn ensurePolished(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4185,10 +5293,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextCustomEditor__RichTextBrowserFindBar, child: anytype) bool {
+    pub fn isAncestorOf(self: TextCustomEditor__RichTextBrowserFindBar, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4198,9 +5310,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn AutoFillBackground(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn autoFillBackground(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4212,9 +5328,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextCustomEditor__RichTextBrowserFindBar, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextCustomEditor__RichTextBrowserFindBar, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4224,9 +5344,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn BackingStore(self: TextCustomEditor__RichTextBrowserFindBar) QBackingStore {
+    pub fn backingStore(self: TextCustomEditor__RichTextBrowserFindBar) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4236,9 +5360,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn WindowHandle(self: TextCustomEditor__RichTextBrowserFindBar) QWindow {
+    pub fn windowHandle(self: TextCustomEditor__RichTextBrowserFindBar) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4248,9 +5376,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Screen(self: TextCustomEditor__RichTextBrowserFindBar) QScreen {
+    pub fn screen(self: TextCustomEditor__RichTextBrowserFindBar) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4260,12 +5392,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextCustomEditor__RichTextBrowserFindBar, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextCustomEditor__RichTextBrowserFindBar, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4273,12 +5409,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4290,13 +5430,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextCustomEditor__RichTextBrowserFindBar, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextCustomEditor__RichTextBrowserFindBar, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4308,9 +5452,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4322,10 +5470,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype) void {
+    pub fn windowIconChanged(self: TextCustomEditor__RichTextBrowserFindBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4337,9 +5489,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4351,13 +5507,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextCustomEditor__RichTextBrowserFindBar, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextCustomEditor__RichTextBrowserFindBar, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4369,9 +5529,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4381,12 +5545,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextCustomEditor__RichTextBrowserFindBar, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextCustomEditor__RichTextBrowserFindBar, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4398,9 +5566,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4414,9 +5586,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn inputMethodHints(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4428,9 +5604,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextCustomEditor__RichTextBrowserFindBar, hints: i32) void {
+    pub fn setInputMethodHints(self: TextCustomEditor__RichTextBrowserFindBar, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4444,11 +5624,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4464,13 +5648,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4487,12 +5675,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextCustomEditor__RichTextBrowserFindBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4506,11 +5698,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4526,12 +5722,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4549,12 +5749,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4566,10 +5770,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextCustomEditor__RichTextBrowserFindBar, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextCustomEditor__RichTextBrowserFindBar, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4583,9 +5791,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextCustomEditor__RichTextBrowserFindBar, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4599,10 +5811,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextCustomEditor__RichTextBrowserFindBar, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextCustomEditor__RichTextBrowserFindBar, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5832,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4632,9 +5852,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4648,9 +5872,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4664,25 +5892,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4690,17 +5906,41 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4712,13 +5952,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4730,13 +5974,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextCustomEditor__RichTextBrowserFindBar, name: []const u8) void {
+    pub fn setObjectName(self: TextCustomEditor__RichTextBrowserFindBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4746,9 +5994,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsWidgetType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isWidgetType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4758,9 +6010,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsWindowType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isWindowType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4770,9 +6026,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn IsQuickItemType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn isQuickItemType(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4782,9 +6042,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SignalsBlocked(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn signalsBlocked(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4796,9 +6060,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextCustomEditor__RichTextBrowserFindBar, b: bool) bool {
+    pub fn blockSignals(self: TextCustomEditor__RichTextBrowserFindBar, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4808,9 +6076,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Thread(self: TextCustomEditor__RichTextBrowserFindBar) QThread {
+    pub fn thread(self: TextCustomEditor__RichTextBrowserFindBar) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4820,12 +6092,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextCustomEditor__RichTextBrowserFindBar, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextCustomEditor__RichTextBrowserFindBar, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4837,9 +6113,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextCustomEditor__RichTextBrowserFindBar, interval: i32) i32 {
+    pub fn startTimer(self: TextCustomEditor__RichTextBrowserFindBar, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4851,9 +6131,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextCustomEditor__RichTextBrowserFindBar, time: i64) i32 {
+    pub fn startTimer2(self: TextCustomEditor__RichTextBrowserFindBar, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4865,9 +6149,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
+    pub fn killTimer(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4879,9 +6167,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
+    pub fn killTimer2(self: TextCustomEditor__RichTextBrowserFindBar, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4893,15 +6185,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4913,10 +6209,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4928,10 +6228,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, obj: anytype) void {
+    pub fn removeEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4939,7 +6243,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4947,13 +6251,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4961,7 +6269,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4969,13 +6277,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4985,18 +6297,22 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextCustomEditor__RichTextBrowserFindBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextCustomEditor__RichTextBrowserFindBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5004,7 +6320,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5012,13 +6328,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5026,7 +6346,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5034,13 +6354,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5050,9 +6374,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Disconnect3(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn disconnect3(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5064,10 +6392,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextCustomEditor__RichTextBrowserFindBar, receiver: anytype) bool {
+    pub fn disconnect4(self: TextCustomEditor__RichTextBrowserFindBar, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5077,10 +6409,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5090,9 +6426,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DumpObjectTree(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn dumpObjectTree(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5102,9 +6442,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DumpObjectInfo(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn dumpObjectInfo(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5118,11 +6462,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextCustomEditor__RichTextBrowserFindBar, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextCustomEditor__RichTextBrowserFindBar, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5134,10 +6482,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextCustomEditor__RichTextBrowserFindBar, name: [:0]const u8) QVariant {
+    pub fn property(self: TextCustomEditor__RichTextBrowserFindBar, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5149,7 +6501,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextCustomEditor__RichTextBrowserFindBar, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5157,27 +6509,19 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextCustomEditor__RichTextBrowserFindBar.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
-    ///
-    pub fn BindingStorage(self: TextCustomEditor__RichTextBrowserFindBar) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5187,9 +6531,29 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn BindingStorage2(self: TextCustomEditor__RichTextBrowserFindBar) QBindingStorage {
+    pub fn bindingStorage(self: TextCustomEditor__RichTextBrowserFindBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextBrowserFindBar `
+    ///
+    pub fn bindingStorage2(self: TextCustomEditor__RichTextBrowserFindBar) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5199,9 +6563,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Destroyed(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn destroyed(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5213,9 +6581,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5225,9 +6597,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Parent(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
+    pub fn parent(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5239,10 +6615,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextCustomEditor__RichTextBrowserFindBar, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextCustomEditor__RichTextBrowserFindBar, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5252,9 +6632,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DeleteLater(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn deleteLater(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5268,9 +6652,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextCustomEditor__RichTextBrowserFindBar, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextCustomEditor__RichTextBrowserFindBar, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5284,9 +6672,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextCustomEditor__RichTextBrowserFindBar, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextCustomEditor__RichTextBrowserFindBar, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5294,7 +6686,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5304,13 +6696,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5318,7 +6714,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5328,13 +6724,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5344,7 +6744,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5352,12 +6752,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextCustomEditor__RichTextBrowserFindBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextCustomEditor__RichTextBrowserFindBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5369,10 +6773,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5386,11 +6794,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5406,13 +6818,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5425,11 +6841,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextCustomEditor__RichTextBrowserFindBar, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextCustomEditor__RichTextBrowserFindBar, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5441,10 +6861,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn destroyed1(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5456,9 +6880,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5468,9 +6896,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn PaintingActive(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn paintingActive(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5480,9 +6912,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn WidthMM(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn widthMM(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5492,9 +6928,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HeightMM(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn heightMM(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5504,9 +6944,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn LogicalDpiX(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn logicalDpiX(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5516,9 +6960,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn LogicalDpiY(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn logicalDpiY(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5528,9 +6976,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn PhysicalDpiX(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn physicalDpiX(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5540,9 +6992,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn PhysicalDpiY(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn physicalDpiY(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5552,9 +7008,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DevicePixelRatio(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
+    pub fn devicePixelRatio(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5564,9 +7024,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DevicePixelRatioF(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
+    pub fn devicePixelRatioF(self: TextCustomEditor__RichTextBrowserFindBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5576,9 +7040,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ColorCount(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn colorCount(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5588,17 +7056,25 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Depth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn depth(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5606,13 +7082,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -5626,14 +7106,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: TextCustomEditor__RichTextBrowserFindBar, e: anytype) bool {
+    pub fn event(self: TextCustomEditor__RichTextBrowserFindBar, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -5647,10 +7127,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: TextCustomEditor__RichTextBrowserFindBar, e: anytype) bool {
+    pub fn superEvent(self: TextCustomEditor__RichTextBrowserFindBar, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -5664,9 +7148,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5678,13 +7166,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn DevType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn devType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5696,9 +7184,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperDevType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn superDevType(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5712,9 +7204,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5728,13 +7224,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextCustomEditor__RichTextBrowserFindBar, visible: bool) void {
+    pub fn setVisible(self: TextCustomEditor__RichTextBrowserFindBar, visible: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5748,9 +7244,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextCustomEditor__RichTextBrowserFindBar, visible: bool) void {
+    pub fn superSetVisible(self: TextCustomEditor__RichTextBrowserFindBar, visible: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5764,10 +7264,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5778,13 +7282,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn sizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5796,10 +7300,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn superSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5814,9 +7322,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5828,13 +7340,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn MinimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn minimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5846,9 +7358,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperMinimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
+    pub fn superMinimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5864,9 +7380,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5880,13 +7400,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
+    pub fn heightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5900,9 +7420,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5916,9 +7440,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5930,13 +7458,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn HasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn hasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5948,9 +7476,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperHasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn superHasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5964,9 +7496,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5978,13 +7514,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn PaintEngine(self: TextCustomEditor__RichTextBrowserFindBar) QPaintEngine {
+    pub fn paintEngine(self: TextCustomEditor__RichTextBrowserFindBar) QPaintEngine {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5996,9 +7532,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperPaintEngine(self: TextCustomEditor__RichTextBrowserFindBar) QPaintEngine {
+    pub fn superPaintEngine(self: TextCustomEditor__RichTextBrowserFindBar) QPaintEngine {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6012,10 +7552,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6026,16 +7570,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6047,12 +7591,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6066,10 +7614,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6080,16 +7632,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6101,12 +7653,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6120,10 +7676,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6134,16 +7694,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6155,12 +7715,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6174,10 +7738,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6188,16 +7756,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6209,12 +7777,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6228,9 +7800,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6242,16 +7818,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6263,12 +7839,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6282,10 +7862,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QWheelEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6296,16 +7880,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6317,12 +7901,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6336,10 +7924,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QKeyEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6350,16 +7942,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6371,12 +7963,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6390,10 +7986,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QKeyEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6404,16 +8004,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6425,12 +8025,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6444,10 +8048,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QFocusEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6458,16 +8066,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6479,12 +8087,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6498,9 +8110,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QFocusEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6512,16 +8128,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6533,12 +8149,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6552,9 +8172,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEnterEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6566,16 +8190,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6587,12 +8211,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6606,9 +8234,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6620,16 +8252,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6641,12 +8273,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6660,9 +8296,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPaintEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6674,16 +8314,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6695,12 +8335,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6714,9 +8358,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMoveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6728,16 +8376,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6749,12 +8397,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6768,9 +8420,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QResizeEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6782,16 +8438,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6803,12 +8459,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6822,9 +8482,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QCloseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6836,16 +8500,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6857,12 +8521,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6876,9 +8544,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6890,16 +8562,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6911,12 +8583,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6930,9 +8606,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QTabletEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6944,16 +8624,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6965,12 +8645,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6984,9 +8668,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QActionEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6998,16 +8686,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7019,12 +8707,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7038,9 +8730,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7052,16 +8748,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7073,12 +8769,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7092,9 +8792,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7106,16 +8810,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7127,12 +8831,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7146,9 +8854,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7160,16 +8872,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7181,12 +8893,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7200,9 +8916,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QDropEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7214,16 +8934,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7235,12 +8955,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7254,9 +8978,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QShowEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7268,16 +8996,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7289,12 +9017,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7308,9 +9040,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QHideEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7328,7 +9064,7 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7336,9 +9072,9 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7356,13 +9092,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7376,9 +9116,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7392,14 +9136,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn changeEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextCustomEditor__RichTextBrowserFindBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7413,10 +9157,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn superChangeEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7430,9 +9178,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7446,13 +9198,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
+    pub fn metric(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7466,9 +9218,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
+    pub fn superMetric(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7482,9 +9238,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7498,14 +9258,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
+    pub fn initPainter(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextCustomEditor__RichTextBrowserFindBar_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7519,10 +9279,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
+    pub fn superInitPainter(self: TextCustomEditor__RichTextBrowserFindBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7536,9 +9300,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPainter) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7552,14 +9320,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextCustomEditor__RichTextBrowserFindBar, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextCustomEditor__RichTextBrowserFindBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7573,10 +9341,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextCustomEditor__RichTextBrowserFindBar, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextCustomEditor__RichTextBrowserFindBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7590,9 +9362,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7604,13 +9380,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SharedPainter(self: TextCustomEditor__RichTextBrowserFindBar) QPainter {
+    pub fn sharedPainter(self: TextCustomEditor__RichTextBrowserFindBar) QPainter {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7622,9 +9398,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperSharedPainter(self: TextCustomEditor__RichTextBrowserFindBar) QPainter {
+    pub fn superSharedPainter(self: TextCustomEditor__RichTextBrowserFindBar) QPainter {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7638,9 +9418,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7654,14 +9438,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextCustomEditor__RichTextBrowserFindBar_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7675,10 +9459,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7692,9 +9480,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7708,13 +9500,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) QVariant {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7728,9 +9520,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, param1: i32) QVariant {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7746,9 +9542,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7762,13 +9562,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, next: bool) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7782,9 +9582,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, next: bool) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7798,9 +9602,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7814,17 +9622,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextCustomEditor__RichTextBrowserFindBar, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextCustomEditor__RichTextBrowserFindBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__RichTextBrowserFindBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__RichTextBrowserFindBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7838,13 +9646,17 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7858,9 +9670,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7872,16 +9688,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7893,12 +9709,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7912,9 +9732,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QTimerEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7926,16 +9750,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7947,12 +9771,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7966,9 +9794,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QChildEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7980,16 +9812,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8001,12 +9833,16 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextCustomEditor__RichTextBrowserFindBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextCustomEditor__RichTextBrowserFindBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextBrowserFindBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8020,9 +9856,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8036,14 +9876,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
+    pub fn connectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextBrowserFindBar_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8057,11 +9897,15 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
+    pub fn superConnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8074,9 +9918,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8090,14 +9938,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
+    pub fn disconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextBrowserFindBar_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8111,10 +9959,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8128,9 +9980,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearSelections` instead
+    ///
+    pub const ClearSelections = clearSelections;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8142,13 +9998,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn ClearSelections(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn clearSelections(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_ClearSelections(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClearSelections` instead
+    /// ### DEPRECATED: Use `superClearSelections` instead
     ///
-    pub const QBaseClearSelections = SuperClearSelections;
+    pub const SuperClearSelections = superClearSelections;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8160,9 +10016,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperClearSelections(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn superClearSelections(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperClearSelections(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearSelections` instead
+    ///
+    pub const OnClearSelections = onClearSelections;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8176,9 +10036,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClearSelections(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearSelections(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnClearSelections(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `searchText` instead
+    ///
+    pub const SearchText = searchText;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8194,13 +10058,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` isAutoSearch: bool `
     ///
-    pub fn SearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) bool {
+    pub fn searchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SearchText(@ptrCast(self.ptr), backward, isAutoSearch);
     }
 
-    /// ### DEPRECATED: Use `SuperSearchText` instead
+    /// ### DEPRECATED: Use `superSearchText` instead
     ///
-    pub const QBaseSearchText = SuperSearchText;
+    pub const SuperSearchText = superSearchText;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8216,9 +10080,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` isAutoSearch: bool `
     ///
-    pub fn SuperSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) bool {
+    pub fn superSearchText(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSearchText(@ptrCast(self.ptr), backward, isAutoSearch);
     }
+
+    /// ### DEPRECATED: Use `onSearchText` instead
+    ///
+    pub const OnSearchText = onSearchText;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8232,9 +10100,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool) callconv(.c) bool `
     ///
-    pub fn OnSearchText(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool) callconv(.c) bool) void {
+    pub fn onSearchText(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSearchText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setFoundMatch` instead
+    ///
+    pub const SetFoundMatch = setFoundMatch;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8248,13 +10120,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` match: bool `
     ///
-    pub fn SetFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, match: bool) void {
+    pub fn setFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, match: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SetFoundMatch(@ptrCast(self.ptr), match);
     }
 
-    /// ### DEPRECATED: Use `SuperSetFoundMatch` instead
+    /// ### DEPRECATED: Use `superSetFoundMatch` instead
     ///
-    pub const QBaseSetFoundMatch = SuperSetFoundMatch;
+    pub const SuperSetFoundMatch = superSetFoundMatch;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8268,9 +10140,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` match: bool `
     ///
-    pub fn SuperSetFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, match: bool) void {
+    pub fn superSetFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, match: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSetFoundMatch(@ptrCast(self.ptr), match);
     }
+
+    /// ### DEPRECATED: Use `onSetFoundMatch` instead
+    ///
+    pub const OnSetFoundMatch = onSetFoundMatch;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8284,9 +10160,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, match: bool) callconv(.c) void `
     ///
-    pub fn OnSetFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) void) void {
+    pub fn onSetFoundMatch(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSetFoundMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `messageInfo` instead
+    ///
+    pub const MessageInfo = messageInfo;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8304,13 +10184,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` found: bool `
     ///
-    pub fn MessageInfo(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool, found: bool) void {
+    pub fn messageInfo(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool, found: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_MessageInfo(@ptrCast(self.ptr), backward, isAutoSearch, found);
     }
 
-    /// ### DEPRECATED: Use `SuperMessageInfo` instead
+    /// ### DEPRECATED: Use `superMessageInfo` instead
     ///
-    pub const QBaseMessageInfo = SuperMessageInfo;
+    pub const SuperMessageInfo = superMessageInfo;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8328,9 +10208,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` found: bool `
     ///
-    pub fn SuperMessageInfo(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool, found: bool) void {
+    pub fn superMessageInfo(self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool, found: bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperMessageInfo(@ptrCast(self.ptr), backward, isAutoSearch, found);
     }
+
+    /// ### DEPRECATED: Use `onMessageInfo` instead
+    ///
+    pub const OnMessageInfo = onMessageInfo;
 
     /// Inherited from TextCustomEditor::TextEditFindBarBase
     ///
@@ -8344,10 +10228,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, backward: bool, isAutoSearch: bool, found: bool) callconv(.c) void `
     ///
-    pub fn OnMessageInfo(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool, bool) callconv(.c) void) void {
+    pub fn onMessageInfo(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, bool, bool, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnMessageInfo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8358,13 +10246,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn UpdateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn updateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8376,10 +10264,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn superUpdateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8392,10 +10284,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8406,13 +10302,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Create(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn create(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8424,10 +10320,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperCreate(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn superCreate(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8440,9 +10340,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8454,13 +10358,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Destroy(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn destroy(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8472,9 +10376,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperDestroy(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn superDestroy(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8488,10 +10396,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8502,13 +10414,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FocusNextChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn focusNextChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8520,10 +10432,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperFocusNextChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn superFocusNextChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8536,9 +10452,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8550,13 +10470,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn FocusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn focusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8568,9 +10488,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperFocusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
+    pub fn superFocusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar) bool {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8584,9 +10508,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8598,13 +10526,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Sender(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
+    pub fn sender(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8616,9 +10544,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperSender(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
+    pub fn superSender(self: TextCustomEditor__RichTextBrowserFindBar) QObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8632,9 +10564,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8646,13 +10582,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SenderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn senderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8664,9 +10600,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn SuperSenderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
+    pub fn superSenderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar) i32 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8680,9 +10620,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn () callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8696,14 +10640,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8717,10 +10661,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextCustomEditor__RichTextBrowserFindBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8734,9 +10682,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8750,14 +10702,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8771,10 +10723,14 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8788,9 +10744,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, QMetaMethod) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8806,13 +10766,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8828,9 +10788,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__RichTextBrowserFindBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8844,9 +10808,13 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, i32, i32) callconv(.c) f64) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8860,23 +10828,23 @@ pub const TextCustomEditor__RichTextBrowserFindBar = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextBrowserFindBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextCustomEditor__RichTextBrowserFindBar, callback: *const fn (TextCustomEditor__RichTextBrowserFindBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextBrowserFindBar.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextCustomEditor__RichTextBrowserFindBar `
     ///
-    pub fn Delete(self: TextCustomEditor__RichTextBrowserFindBar) void {
+    pub fn delete(self: TextCustomEditor__RichTextBrowserFindBar) void {
         qtc.TextCustomEditor__RichTextBrowserFindBar_Delete(@ptrCast(self.ptr));
     }
 };

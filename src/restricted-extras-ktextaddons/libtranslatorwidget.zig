@@ -102,22 +102,34 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextTranslator::TranslatorTextEdit object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorTextEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextTranslator__TranslatorTextEdit {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextTranslator__TranslatorTextEdit {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorTextEdit object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextTranslator__TranslatorTextEdit {
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorTextEdit object in C++ memory
+    ///
+    pub fn new2() TextTranslator__TranslatorTextEdit {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -125,9 +137,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MetaObject(self: TextTranslator__TranslatorTextEdit) QMetaObject {
+    pub fn metaObject(self: TextTranslator__TranslatorTextEdit) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -139,13 +155,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -155,9 +171,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperMetaObject(self: TextTranslator__TranslatorTextEdit) QMetaObject {
+    pub fn superMetaObject(self: TextTranslator__TranslatorTextEdit) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -165,10 +185,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextTranslator__TranslatorTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextTranslator__TranslatorTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorTextEdit_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -178,13 +202,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -194,10 +218,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextTranslator__TranslatorTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextTranslator__TranslatorTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorTextEdit_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -209,9 +237,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextTranslator__TranslatorTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextTranslator__TranslatorTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -221,13 +253,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -241,9 +273,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextTranslator__TranslatorTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextTranslator__TranslatorTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -253,14 +289,18 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `translateText` instead
+    ///
+    pub const TranslateText = translateText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -268,9 +308,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TranslateText(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn translateText(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_TranslateText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTranslateText` instead
+    ///
+    pub const OnTranslateText = onTranslateText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -280,9 +324,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) void `
     ///
-    pub fn OnTranslateText(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
+    pub fn onTranslateText(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_Connect_TranslateText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -292,10 +340,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn DropEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn dropEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.TextTranslator__TranslatorTextEdit_DropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -307,13 +359,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDropEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
@@ -325,10 +377,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn superDropEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -340,15 +396,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -362,15 +422,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocument` instead
+    ///
+    pub const SetDocument = setDocument;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -380,12 +444,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn SetDocument(self: TextTranslator__TranslatorTextEdit, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        qtc.QPlainTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn setDocument(self: TextTranslator__TranslatorTextEdit, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        qtc.QPlainTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -395,9 +463,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Document(self: TextTranslator__TranslatorTextEdit) QTextDocument {
+    pub fn document(self: TextTranslator__TranslatorTextEdit) QTextDocument {
         return .{ .ptr = qtc.QPlainTextEdit_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -407,15 +479,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: TextTranslator__TranslatorTextEdit, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: TextTranslator__TranslatorTextEdit, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QPlainTextEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -427,13 +503,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextCursor` instead
+    ///
+    pub const SetTextCursor = setTextCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -443,12 +523,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SetTextCursor(self: TextTranslator__TranslatorTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QPlainTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setTextCursor(self: TextTranslator__TranslatorTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QPlainTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `textCursor` instead
+    ///
+    pub const TextCursor = textCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -458,9 +542,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TextCursor(self: TextTranslator__TranslatorTextEdit) QTextCursor {
+    pub fn textCursor(self: TextTranslator__TranslatorTextEdit) QTextCursor {
         return .{ .ptr = qtc.QPlainTextEdit_TextCursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -470,9 +558,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsReadOnly(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isReadOnly(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -484,9 +576,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` ro: bool `
     ///
-    pub fn SetReadOnly(self: TextTranslator__TranslatorTextEdit, ro: bool) void {
+    pub fn setReadOnly(self: TextTranslator__TranslatorTextEdit, ro: bool) void {
         qtc.QPlainTextEdit_SetReadOnly(@ptrCast(self.ptr), ro);
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -498,9 +594,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: TextTranslator__TranslatorTextEdit, flags: i32) void {
+    pub fn setTextInteractionFlags(self: TextTranslator__TranslatorTextEdit, flags: i32) void {
         qtc.QPlainTextEdit_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -514,9 +614,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn textInteractionFlags(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeCurrentCharFormat` instead
+    ///
+    pub const MergeCurrentCharFormat = mergeCurrentCharFormat;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -528,10 +632,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCurrentCharFormat(self: TextTranslator__TranslatorTextEdit, modifier: anytype) void {
+    pub fn mergeCurrentCharFormat(self: TextTranslator__TranslatorTextEdit, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QPlainTextEdit_MergeCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCharFormat` instead
+    ///
+    pub const SetCurrentCharFormat = setCurrentCharFormat;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -543,10 +651,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetCurrentCharFormat(self: TextTranslator__TranslatorTextEdit, format: anytype) void {
+    pub fn setCurrentCharFormat(self: TextTranslator__TranslatorTextEdit, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QPlainTextEdit_SetCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormat` instead
+    ///
+    pub const CurrentCharFormat = currentCharFormat;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -556,9 +668,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CurrentCharFormat(self: TextTranslator__TranslatorTextEdit) QTextCharFormat {
+    pub fn currentCharFormat(self: TextTranslator__TranslatorTextEdit) QTextCharFormat {
         return .{ .ptr = qtc.QPlainTextEdit_CurrentCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tabChangesFocus` instead
+    ///
+    pub const TabChangesFocus = tabChangesFocus;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -568,9 +684,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TabChangesFocus(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn tabChangesFocus(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_TabChangesFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabChangesFocus` instead
+    ///
+    pub const SetTabChangesFocus = setTabChangesFocus;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -582,9 +702,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTabChangesFocus(self: TextTranslator__TranslatorTextEdit, b: bool) void {
+    pub fn setTabChangesFocus(self: TextTranslator__TranslatorTextEdit, b: bool) void {
         qtc.QPlainTextEdit_SetTabChangesFocus(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setDocumentTitle` instead
+    ///
+    pub const SetDocumentTitle = setDocumentTitle;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -596,13 +720,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetDocumentTitle(self: TextTranslator__TranslatorTextEdit, title: []const u8) void {
+    pub fn setDocumentTitle(self: TextTranslator__TranslatorTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QPlainTextEdit_SetDocumentTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `documentTitle` instead
+    ///
+    pub const DocumentTitle = documentTitle;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -614,13 +742,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentTitle(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentTitle(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.documentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isUndoRedoEnabled` instead
+    ///
+    pub const IsUndoRedoEnabled = isUndoRedoEnabled;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -630,9 +762,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsUndoRedoEnabled(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isUndoRedoEnabled(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUndoRedoEnabled` instead
+    ///
+    pub const SetUndoRedoEnabled = setUndoRedoEnabled;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -644,9 +780,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
+    pub fn setUndoRedoEnabled(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
         qtc.QPlainTextEdit_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setMaximumBlockCount` instead
+    ///
+    pub const SetMaximumBlockCount = setMaximumBlockCount;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -658,9 +798,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetMaximumBlockCount(self: TextTranslator__TranslatorTextEdit, maximum: i32) void {
+    pub fn setMaximumBlockCount(self: TextTranslator__TranslatorTextEdit, maximum: i32) void {
         qtc.QPlainTextEdit_SetMaximumBlockCount(@ptrCast(self.ptr), @bitCast(maximum));
     }
+
+    /// ### DEPRECATED: Use `maximumBlockCount` instead
+    ///
+    pub const MaximumBlockCount = maximumBlockCount;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -670,9 +814,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MaximumBlockCount(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn maximumBlockCount(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_MaximumBlockCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineWrapMode` instead
+    ///
+    pub const LineWrapMode = lineWrapMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -686,9 +834,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qplaintextedit_enums.LineWrapMode `
     ///
-    pub fn LineWrapMode(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn lineWrapMode(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_LineWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapMode` instead
+    ///
+    pub const SetLineWrapMode = setLineWrapMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -700,9 +852,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` mode: qplaintextedit_enums.LineWrapMode `
     ///
-    pub fn SetLineWrapMode(self: TextTranslator__TranslatorTextEdit, mode: i32) void {
+    pub fn setLineWrapMode(self: TextTranslator__TranslatorTextEdit, mode: i32) void {
         qtc.QPlainTextEdit_SetLineWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `wordWrapMode` instead
+    ///
+    pub const WordWrapMode = wordWrapMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -716,9 +872,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WordWrapMode(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn wordWrapMode(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_WordWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrapMode` instead
+    ///
+    pub const SetWordWrapMode = setWordWrapMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -730,9 +890,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` policy: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWordWrapMode(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
+    pub fn setWordWrapMode(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
         qtc.QPlainTextEdit_SetWordWrapMode(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundVisible` instead
+    ///
+    pub const SetBackgroundVisible = setBackgroundVisible;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -744,9 +908,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetBackgroundVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
+    pub fn setBackgroundVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
         qtc.QPlainTextEdit_SetBackgroundVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `backgroundVisible` instead
+    ///
+    pub const BackgroundVisible = backgroundVisible;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -756,9 +924,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn BackgroundVisible(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn backgroundVisible(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_BackgroundVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenterOnScroll` instead
+    ///
+    pub const SetCenterOnScroll = setCenterOnScroll;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -770,9 +942,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetCenterOnScroll(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
+    pub fn setCenterOnScroll(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
         qtc.QPlainTextEdit_SetCenterOnScroll(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `centerOnScroll` instead
+    ///
+    pub const CenterOnScroll = centerOnScroll;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -782,9 +958,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CenterOnScroll(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn centerOnScroll(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_CenterOnScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -796,13 +976,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` exp: []const u8 `
     ///
-    pub fn Find(self: TextTranslator__TranslatorTextEdit, exp: []const u8) bool {
+    pub fn find(self: TextTranslator__TranslatorTextEdit, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QPlainTextEdit_Find(@ptrCast(self.ptr), exp_str);
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -814,10 +998,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` exp: QRegularExpression `
     ///
-    pub fn Find2(self: TextTranslator__TranslatorTextEdit, exp: anytype) bool {
+    pub fn find2(self: TextTranslator__TranslatorTextEdit, exp: anytype) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QPlainTextEdit_Find2(@ptrCast(self.ptr), @ptrCast(exp.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPlainText` instead
+    ///
+    pub const ToPlainText = toPlainText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -829,13 +1017,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toPlainText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.toPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ensureCursorVisible` instead
+    ///
+    pub const EnsureCursorVisible = ensureCursorVisible;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -845,9 +1037,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn EnsureCursorVisible(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn ensureCursorVisible(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_EnsureCursorVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -857,9 +1053,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CreateStandardContextMenu(self: TextTranslator__TranslatorTextEdit) QMenu {
+    pub fn createStandardContextMenu(self: TextTranslator__TranslatorTextEdit) QMenu {
         return .{ .ptr = qtc.QPlainTextEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu2` instead
+    ///
+    pub const CreateStandardContextMenu2 = createStandardContextMenu2;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -871,10 +1071,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn CreateStandardContextMenu2(self: TextTranslator__TranslatorTextEdit, position: anytype) QMenu {
+    pub fn createStandardContextMenu2(self: TextTranslator__TranslatorTextEdit, position: anytype) QMenu {
         comptime _ = @TypeOf(position)._is_QPoint;
         return .{ .ptr = qtc.QPlainTextEdit_CreateStandardContextMenu2(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForPosition` instead
+    ///
+    pub const CursorForPosition = cursorForPosition;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -884,12 +1088,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorForPosition(self: TextTranslator__TranslatorTextEdit, pos: anytype) QTextCursor {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QPlainTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn cursorForPosition(self: TextTranslator__TranslatorTextEdit, _pos: anytype) QTextCursor {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QPlainTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -899,12 +1107,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn CursorRect(self: TextTranslator__TranslatorTextEdit, cursor: anytype) QRect {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        return .{ .ptr = qtc.QPlainTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
+    pub fn cursorRect(self: TextTranslator__TranslatorTextEdit, _cursor: anytype) QRect {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QPlainTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(_cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect2` instead
+    ///
+    pub const CursorRect2 = cursorRect2;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -914,9 +1126,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CursorRect2(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn cursorRect2(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QPlainTextEdit_CursorRect2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `anchorAt` instead
+    ///
+    pub const AnchorAt = anchorAt;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -928,16 +1144,20 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn AnchorAt(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        var _str = qtc.QPlainTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn anchorAt(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        var _str = qtc.QPlainTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.anchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `overwriteMode` instead
+    ///
+    pub const OverwriteMode = overwriteMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -947,9 +1167,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn OverwriteMode(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn overwriteMode(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_OverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOverwriteMode` instead
+    ///
+    pub const SetOverwriteMode = setOverwriteMode;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -961,9 +1185,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: TextTranslator__TranslatorTextEdit, overwrite: bool) void {
+    pub fn setOverwriteMode(self: TextTranslator__TranslatorTextEdit, overwrite: bool) void {
         qtc.QPlainTextEdit_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `tabStopDistance` instead
+    ///
+    pub const TabStopDistance = tabStopDistance;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -973,9 +1201,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TabStopDistance(self: TextTranslator__TranslatorTextEdit) f64 {
+    pub fn tabStopDistance(self: TextTranslator__TranslatorTextEdit) f64 {
         return qtc.QPlainTextEdit_TabStopDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabStopDistance` instead
+    ///
+    pub const SetTabStopDistance = setTabStopDistance;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -987,9 +1219,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetTabStopDistance(self: TextTranslator__TranslatorTextEdit, distance: f64) void {
+    pub fn setTabStopDistance(self: TextTranslator__TranslatorTextEdit, distance: f64) void {
         qtc.QPlainTextEdit_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
+
+    /// ### DEPRECATED: Use `cursorWidth` instead
+    ///
+    pub const CursorWidth = cursorWidth;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -999,9 +1235,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CursorWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn cursorWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_CursorWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorWidth` instead
+    ///
+    pub const SetCursorWidth = setCursorWidth;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1011,11 +1251,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetCursorWidth(self: TextTranslator__TranslatorTextEdit, width: i32) void {
-        qtc.QPlainTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setCursorWidth(self: TextTranslator__TranslatorTextEdit, _width: i32) void {
+        qtc.QPlainTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `setExtraSelections` instead
+    ///
+    pub const SetExtraSelections = setExtraSelections;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1027,13 +1271,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` selections: []QTextEdit__ExtraSelection `
     ///
-    pub fn SetExtraSelections(self: TextTranslator__TranslatorTextEdit, selections: []QTextEdit__ExtraSelection) void {
+    pub fn setExtraSelections(self: TextTranslator__TranslatorTextEdit, selections: []QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
         qtc.QPlainTextEdit_SetExtraSelections(@ptrCast(self.ptr), selections_list);
     }
+
+    /// ### DEPRECATED: Use `extraSelections` instead
+    ///
+    pub const ExtraSelections = extraSelections;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1045,15 +1293,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelections(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
+    pub fn extraSelections(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QPlainTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.ExtraSelections: Memory allocation failed");
-        const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.extraSelections: Memory allocation failed");
+        const _data_val: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1065,9 +1317,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MoveCursor(self: TextTranslator__TranslatorTextEdit, operation: i32) void {
+    pub fn moveCursor(self: TextTranslator__TranslatorTextEdit, operation: i32) void {
         qtc.QPlainTextEdit_MoveCursor(@ptrCast(self.ptr), @bitCast(operation));
     }
+
+    /// ### DEPRECATED: Use `canPaste` instead
+    ///
+    pub const CanPaste = canPaste;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1077,9 +1333,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CanPaste(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn canPaste(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPlainTextEdit_CanPaste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1091,10 +1351,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: TextTranslator__TranslatorTextEdit, printer: anytype) void {
+    pub fn print(self: TextTranslator__TranslatorTextEdit, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
         qtc.QPlainTextEdit_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockCount` instead
+    ///
+    pub const BlockCount = blockCount;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1104,9 +1368,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn BlockCount(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn blockCount(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPlainTextEdit_BlockCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1120,10 +1388,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: TextTranslator__TranslatorTextEdit, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: TextTranslator__TranslatorTextEdit, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QPlainTextEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlainText` instead
+    ///
+    pub const SetPlainText = setPlainText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1135,13 +1407,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
+    pub fn setPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPlainTextEdit_SetPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1151,9 +1427,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Cut(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn cut(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1163,9 +1443,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Copy(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn copy(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1175,9 +1459,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Paste(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn paste(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1187,9 +1475,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Undo(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn undo(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1199,9 +1491,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Redo(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn redo(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1211,9 +1507,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Clear(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn clear(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1223,9 +1523,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SelectAll(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn selectAll(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPlainText` instead
+    ///
+    pub const InsertPlainText = insertPlainText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1237,13 +1541,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
+    pub fn insertPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPlainTextEdit_InsertPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `appendPlainText` instead
+    ///
+    pub const AppendPlainText = appendPlainText;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1255,13 +1563,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AppendPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
+    pub fn appendPlainText(self: TextTranslator__TranslatorTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPlainTextEdit_AppendPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `appendHtml` instead
+    ///
+    pub const AppendHtml = appendHtml;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1273,13 +1585,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` html: []const u8 `
     ///
-    pub fn AppendHtml(self: TextTranslator__TranslatorTextEdit, html: []const u8) void {
+    pub fn appendHtml(self: TextTranslator__TranslatorTextEdit, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
         qtc.QPlainTextEdit_AppendHtml(@ptrCast(self.ptr), html_str);
     }
+
+    /// ### DEPRECATED: Use `centerCursor` instead
+    ///
+    pub const CenterCursor = centerCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1289,9 +1605,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CenterCursor(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn centerCursor(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_CenterCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1301,9 +1621,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ZoomIn(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn zoomIn(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_ZoomIn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1313,10 +1637,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ZoomOut(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn zoomOut(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_ZoomOut(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textChanged)
@@ -1325,10 +1653,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TextChanged(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn textChanged(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_TextChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textChanged)
@@ -1339,10 +1671,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
+    pub fn onTextChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `undoAvailable` instead
+    ///
+    pub const UndoAvailable = undoAvailable;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#undoAvailable)
@@ -1353,10 +1689,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UndoAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
+    pub fn undoAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
         qtc.QPlainTextEdit_UndoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onUndoAvailable` instead
+    ///
+    pub const OnUndoAvailable = onUndoAvailable;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#undoAvailable)
@@ -1367,10 +1707,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
+    pub fn onUndoAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `redoAvailable` instead
+    ///
+    pub const RedoAvailable = redoAvailable;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#redoAvailable)
@@ -1381,10 +1725,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn RedoAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
+    pub fn redoAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
         qtc.QPlainTextEdit_RedoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onRedoAvailable` instead
+    ///
+    pub const OnRedoAvailable = onRedoAvailable;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#redoAvailable)
@@ -1395,9 +1743,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
+    pub fn onRedoAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `copyAvailable` instead
+    ///
+    pub const CopyAvailable = copyAvailable;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1409,9 +1761,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn CopyAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
+    pub fn copyAvailable(self: TextTranslator__TranslatorTextEdit, b: bool) void {
         qtc.QPlainTextEdit_CopyAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onCopyAvailable` instead
+    ///
+    pub const OnCopyAvailable = onCopyAvailable;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1423,10 +1779,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
+    pub fn onCopyAvailable(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#selectionChanged)
@@ -1435,10 +1795,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SelectionChanged(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn selectionChanged(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#selectionChanged)
@@ -1449,9 +1813,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1461,9 +1829,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CursorPositionChanged(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn cursorPositionChanged(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QPlainTextEdit_CursorPositionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1475,9 +1847,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateRequest` instead
+    ///
+    pub const UpdateRequest = updateRequest;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1487,14 +1863,18 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` dy: i32 `
     ///
-    pub fn UpdateRequest(self: TextTranslator__TranslatorTextEdit, rect: anytype, dy: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QPlainTextEdit_UpdateRequest(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(dy));
+    pub fn updateRequest(self: TextTranslator__TranslatorTextEdit, _rect: anytype, dy: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QPlainTextEdit_UpdateRequest(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onUpdateRequest` instead
+    ///
+    pub const OnUpdateRequest = onUpdateRequest;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1506,9 +1886,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, rect: QRect, dy: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateRequest(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QRect, i32) callconv(.c) void) void {
+    pub fn onUpdateRequest(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QRect, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_UpdateRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockCountChanged` instead
+    ///
+    pub const BlockCountChanged = blockCountChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1520,9 +1904,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` newBlockCount: i32 `
     ///
-    pub fn BlockCountChanged(self: TextTranslator__TranslatorTextEdit, newBlockCount: i32) void {
+    pub fn blockCountChanged(self: TextTranslator__TranslatorTextEdit, newBlockCount: i32) void {
         qtc.QPlainTextEdit_BlockCountChanged(@ptrCast(self.ptr), @bitCast(newBlockCount));
     }
+
+    /// ### DEPRECATED: Use `onBlockCountChanged` instead
+    ///
+    pub const OnBlockCountChanged = onBlockCountChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1534,9 +1922,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, newBlockCount: i32) callconv(.c) void `
     ///
-    pub fn OnBlockCountChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) void) void {
+    pub fn onBlockCountChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_BlockCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modificationChanged` instead
+    ///
+    pub const ModificationChanged = modificationChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1548,9 +1940,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn ModificationChanged(self: TextTranslator__TranslatorTextEdit, param1: bool) void {
+    pub fn modificationChanged(self: TextTranslator__TranslatorTextEdit, param1: bool) void {
         qtc.QPlainTextEdit_ModificationChanged(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onModificationChanged` instead
+    ///
+    pub const OnModificationChanged = onModificationChanged;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1562,9 +1958,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: bool) callconv(.c) void `
     ///
-    pub fn OnModificationChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
+    pub fn onModificationChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_ModificationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `find22` instead
+    ///
+    pub const Find22 = find22;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1578,13 +1978,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find22(self: TextTranslator__TranslatorTextEdit, exp: []const u8, options: i32) bool {
+    pub fn find22(self: TextTranslator__TranslatorTextEdit, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QPlainTextEdit_Find22(@ptrCast(self.ptr), exp_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `find23` instead
+    ///
+    pub const Find23 = find23;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1598,10 +2002,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find23(self: TextTranslator__TranslatorTextEdit, exp: anytype, options: i32) bool {
+    pub fn find23(self: TextTranslator__TranslatorTextEdit, exp: anytype, options: i32) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QPlainTextEdit_Find23(@ptrCast(self.ptr), @ptrCast(exp.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `moveCursor2` instead
+    ///
+    pub const MoveCursor2 = moveCursor2;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1615,9 +2023,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn MoveCursor2(self: TextTranslator__TranslatorTextEdit, operation: i32, mode: i32) void {
+    pub fn moveCursor2(self: TextTranslator__TranslatorTextEdit, operation: i32, mode: i32) void {
         qtc.QPlainTextEdit_MoveCursor2(@ptrCast(self.ptr), @bitCast(operation), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `zoomIn1` instead
+    ///
+    pub const ZoomIn1 = zoomIn1;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1629,9 +2041,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn1(self: TextTranslator__TranslatorTextEdit, range: i32) void {
+    pub fn zoomIn1(self: TextTranslator__TranslatorTextEdit, range: i32) void {
         qtc.QPlainTextEdit_ZoomIn1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `zoomOut1` instead
+    ///
+    pub const ZoomOut1 = zoomOut1;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -1643,9 +2059,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut1(self: TextTranslator__TranslatorTextEdit, range: i32) void {
+    pub fn zoomOut1(self: TextTranslator__TranslatorTextEdit, range: i32) void {
         qtc.QPlainTextEdit_ZoomOut1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1659,9 +2079,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn verticalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1671,11 +2095,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1685,9 +2113,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn VerticalScrollBar(self: TextTranslator__TranslatorTextEdit) QScrollBar {
+    pub fn verticalScrollBar(self: TextTranslator__TranslatorTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1699,10 +2131,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: TextTranslator__TranslatorTextEdit, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: TextTranslator__TranslatorTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1716,9 +2152,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn horizontalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1728,11 +2168,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: TextTranslator__TranslatorTextEdit, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1742,9 +2186,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HorizontalScrollBar(self: TextTranslator__TranslatorTextEdit) QScrollBar {
+    pub fn horizontalScrollBar(self: TextTranslator__TranslatorTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1756,10 +2204,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: TextTranslator__TranslatorTextEdit, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: TextTranslator__TranslatorTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1769,9 +2221,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CornerWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn cornerWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1783,10 +2239,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: TextTranslator__TranslatorTextEdit, widget: anytype) void {
+    pub fn setCornerWidget(self: TextTranslator__TranslatorTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1800,10 +2260,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: TextTranslator__TranslatorTextEdit, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: TextTranslator__TranslatorTextEdit, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1817,15 +2281,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1835,9 +2303,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Viewport(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn viewport(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1849,10 +2321,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: TextTranslator__TranslatorTextEdit, widget: anytype) void {
+    pub fn setViewport(self: TextTranslator__TranslatorTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1862,9 +2338,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MaximumViewportSize(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn maximumViewportSize(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1878,9 +2358,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn sizeAdjustPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -1892,9 +2376,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1904,9 +2392,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FrameStyle(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn frameStyle(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1916,11 +2408,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: TextTranslator__TranslatorTextEdit, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: TextTranslator__TranslatorTextEdit, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -1930,9 +2426,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FrameWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn frameWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -1946,9 +2446,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn frameShape(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -1958,11 +2462,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: TextTranslator__TranslatorTextEdit, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: TextTranslator__TranslatorTextEdit, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1976,9 +2484,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn frameShadow(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1988,11 +2500,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: TextTranslator__TranslatorTextEdit, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: TextTranslator__TranslatorTextEdit, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2002,9 +2518,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn LineWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn lineWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2014,11 +2534,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: TextTranslator__TranslatorTextEdit, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: TextTranslator__TranslatorTextEdit, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2028,9 +2552,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MidLineWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn midLineWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2040,11 +2568,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: TextTranslator__TranslatorTextEdit, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: TextTranslator__TranslatorTextEdit, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -2054,9 +2586,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FrameRect(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn frameRect(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -2066,12 +2602,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: TextTranslator__TranslatorTextEdit, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: TextTranslator__TranslatorTextEdit, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2621,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn WinId(self: TextTranslator__TranslatorTextEdit) usize {
+    pub fn winId(self: TextTranslator__TranslatorTextEdit) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2637,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CreateWinId(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn createWinId(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2105,9 +2653,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn InternalWinId(self: TextTranslator__TranslatorTextEdit) usize {
+    pub fn internalWinId(self: TextTranslator__TranslatorTextEdit) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2117,9 +2669,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn EffectiveWinId(self: TextTranslator__TranslatorTextEdit) usize {
+    pub fn effectiveWinId(self: TextTranslator__TranslatorTextEdit) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2129,9 +2685,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Style(self: TextTranslator__TranslatorTextEdit) QStyle {
+    pub fn style(self: TextTranslator__TranslatorTextEdit) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2141,12 +2701,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextTranslator__TranslatorTextEdit, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextTranslator__TranslatorTextEdit, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2156,9 +2720,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsTopLevel(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isTopLevel(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2168,9 +2736,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsWindow(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isWindow(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2180,9 +2752,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsModal(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isModal(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2196,9 +2772,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn windowModality(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2208,11 +2788,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextTranslator__TranslatorTextEdit, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextTranslator__TranslatorTextEdit, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2222,9 +2806,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsEnabled(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isEnabled(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2236,10 +2824,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2251,9 +2843,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
+    pub fn setEnabled(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2265,9 +2861,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextTranslator__TranslatorTextEdit, disabled: bool) void {
+    pub fn setDisabled(self: TextTranslator__TranslatorTextEdit, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2279,9 +2879,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextTranslator__TranslatorTextEdit, windowModified: bool) void {
+    pub fn setWindowModified(self: TextTranslator__TranslatorTextEdit, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2291,9 +2895,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FrameGeometry(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn frameGeometry(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2303,9 +2911,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Geometry(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn geometry(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2315,9 +2927,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn NormalGeometry(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn normalGeometry(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2327,9 +2943,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn X(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn x(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2339,9 +2959,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Y(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn y(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2351,9 +2975,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Pos(self: TextTranslator__TranslatorTextEdit) QPoint {
+    pub fn pos(self: TextTranslator__TranslatorTextEdit) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2363,9 +2991,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FrameSize(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn frameSize(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2375,9 +3007,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Size(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn size(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2387,9 +3023,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Width(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn width(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2399,9 +3039,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Height(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn height(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2411,9 +3055,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Rect(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn rect(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2423,9 +3071,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ChildrenRect(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn childrenRect(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2435,9 +3087,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ChildrenRegion(self: TextTranslator__TranslatorTextEdit) QRegion {
+    pub fn childrenRegion(self: TextTranslator__TranslatorTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2447,9 +3103,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MinimumSize(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn minimumSize(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2459,9 +3119,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MaximumSize(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn maximumSize(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2471,9 +3135,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MinimumWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn minimumWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2483,9 +3151,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MinimumHeight(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn minimumHeight(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2495,9 +3167,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MaximumWidth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn maximumWidth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2507,9 +3183,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MaximumHeight(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn maximumHeight(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2519,12 +3199,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextTranslator__TranslatorTextEdit, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextTranslator__TranslatorTextEdit, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2538,9 +3222,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextTranslator__TranslatorTextEdit, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextTranslator__TranslatorTextEdit, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2550,12 +3238,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextTranslator__TranslatorTextEdit, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextTranslator__TranslatorTextEdit, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2569,9 +3261,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextTranslator__TranslatorTextEdit, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextTranslator__TranslatorTextEdit, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2583,9 +3279,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextTranslator__TranslatorTextEdit, minw: i32) void {
+    pub fn setMinimumWidth(self: TextTranslator__TranslatorTextEdit, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2597,9 +3297,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextTranslator__TranslatorTextEdit, minh: i32) void {
+    pub fn setMinimumHeight(self: TextTranslator__TranslatorTextEdit, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2611,9 +3315,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextTranslator__TranslatorTextEdit, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextTranslator__TranslatorTextEdit, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2625,9 +3333,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextTranslator__TranslatorTextEdit, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextTranslator__TranslatorTextEdit, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2637,9 +3349,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SizeIncrement(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn sizeIncrement(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2649,12 +3365,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextTranslator__TranslatorTextEdit, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextTranslator__TranslatorTextEdit, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2668,9 +3388,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2680,9 +3404,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn BaseSize(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn baseSize(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2692,12 +3420,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextTranslator__TranslatorTextEdit, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextTranslator__TranslatorTextEdit, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2711,9 +3443,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextTranslator__TranslatorTextEdit, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextTranslator__TranslatorTextEdit, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2725,10 +3461,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextTranslator__TranslatorTextEdit, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextTranslator__TranslatorTextEdit, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2742,9 +3482,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2756,9 +3500,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextTranslator__TranslatorTextEdit, w: i32) void {
+    pub fn setFixedWidth(self: TextTranslator__TranslatorTextEdit, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3518,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextTranslator__TranslatorTextEdit, h: i32) void {
+    pub fn setFixedHeight(self: TextTranslator__TranslatorTextEdit, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2784,11 +3536,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2799,11 +3555,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2814,11 +3574,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2829,11 +3593,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2844,11 +3612,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2859,10 +3631,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2874,10 +3650,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2889,10 +3669,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextTranslator__TranslatorTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2906,12 +3690,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2924,11 +3712,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2942,11 +3734,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2960,11 +3756,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2974,9 +3774,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Window(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn window(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2986,9 +3790,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn NativeParentWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn nativeParentWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2998,9 +3806,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn TopLevelWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn topLevelWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3010,9 +3822,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Palette(self: TextTranslator__TranslatorTextEdit) QPalette {
+    pub fn palette(self: TextTranslator__TranslatorTextEdit) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3022,12 +3838,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextTranslator__TranslatorTextEdit, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextTranslator__TranslatorTextEdit, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3037,11 +3857,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextTranslator__TranslatorTextEdit, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextTranslator__TranslatorTextEdit, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3055,9 +3879,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn backgroundRole(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3067,11 +3895,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextTranslator__TranslatorTextEdit, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextTranslator__TranslatorTextEdit, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3085,9 +3917,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn foregroundRole(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3097,9 +3933,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Font(self: TextTranslator__TranslatorTextEdit) QFont {
+    pub fn font(self: TextTranslator__TranslatorTextEdit) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3109,12 +3949,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextTranslator__TranslatorTextEdit, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextTranslator__TranslatorTextEdit, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3124,9 +3968,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FontMetrics(self: TextTranslator__TranslatorTextEdit) QFontMetrics {
+    pub fn fontMetrics(self: TextTranslator__TranslatorTextEdit) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3136,9 +3984,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FontInfo(self: TextTranslator__TranslatorTextEdit) QFontInfo {
+    pub fn fontInfo(self: TextTranslator__TranslatorTextEdit) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3148,9 +4000,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Cursor(self: TextTranslator__TranslatorTextEdit) QCursor {
+    pub fn cursor(self: TextTranslator__TranslatorTextEdit) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3160,12 +4016,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextTranslator__TranslatorTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextTranslator__TranslatorTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3175,9 +4035,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UnsetCursor(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn unsetCursor(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3189,9 +4053,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
+    pub fn setMouseTracking(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3201,9 +4069,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HasMouseTracking(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn hasMouseTracking(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3213,9 +4085,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UnderMouse(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn underMouse(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3227,9 +4103,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
+    pub fn setTabletTracking(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3239,24 +4119,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HasTabletTracking(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn hasTabletTracking(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextTranslator__TranslatorTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3266,12 +4135,35 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextTranslator__TranslatorTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextTranslator__TranslatorTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorTextEdit `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextTranslator__TranslatorTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3281,9 +4173,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Mask(self: TextTranslator__TranslatorTextEdit) QRegion {
+    pub fn mask(self: TextTranslator__TranslatorTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3293,9 +4189,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ClearMask(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn clearMask(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3307,10 +4207,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextTranslator__TranslatorTextEdit, target: anytype) void {
+    pub fn render(self: TextTranslator__TranslatorTextEdit, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3322,10 +4226,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
+    pub fn render2(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3335,9 +4243,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Grab(self: TextTranslator__TranslatorTextEdit) QPixmap {
+    pub fn grab(self: TextTranslator__TranslatorTextEdit) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3347,9 +4259,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn GraphicsEffect(self: TextTranslator__TranslatorTextEdit) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextTranslator__TranslatorTextEdit) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3361,10 +4277,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextTranslator__TranslatorTextEdit, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextTranslator__TranslatorTextEdit, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3376,9 +4296,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
+    pub fn grabGesture(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3390,9 +4314,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3402,15 +4330,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextTranslator__TranslatorTextEdit, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextTranslator__TranslatorTextEdit, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3420,15 +4352,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextTranslator__TranslatorTextEdit, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextTranslator__TranslatorTextEdit, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3440,13 +4376,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3458,13 +4398,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3476,10 +4420,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextTranslator__TranslatorTextEdit, icon: anytype) void {
+    pub fn setWindowIcon(self: TextTranslator__TranslatorTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3489,9 +4437,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn WindowIcon(self: TextTranslator__TranslatorTextEdit) QIcon {
+    pub fn windowIcon(self: TextTranslator__TranslatorTextEdit) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3501,15 +4453,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextTranslator__TranslatorTextEdit, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextTranslator__TranslatorTextEdit, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3521,13 +4477,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3537,15 +4497,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextTranslator__TranslatorTextEdit, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextTranslator__TranslatorTextEdit, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3557,13 +4521,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3575,13 +4543,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextTranslator__TranslatorTextEdit, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextTranslator__TranslatorTextEdit, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3593,13 +4565,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3611,9 +4587,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextTranslator__TranslatorTextEdit, level: f64) void {
+    pub fn setWindowOpacity(self: TextTranslator__TranslatorTextEdit, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3623,9 +4603,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn WindowOpacity(self: TextTranslator__TranslatorTextEdit) f64 {
+    pub fn windowOpacity(self: TextTranslator__TranslatorTextEdit) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3635,9 +4619,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsWindowModified(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isWindowModified(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3647,15 +4635,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextTranslator__TranslatorTextEdit, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextTranslator__TranslatorTextEdit, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3667,13 +4659,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3685,9 +4681,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextTranslator__TranslatorTextEdit, msec: i32) void {
+    pub fn setToolTipDuration(self: TextTranslator__TranslatorTextEdit, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3697,9 +4697,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ToolTipDuration(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn toolTipDuration(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3709,15 +4713,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextTranslator__TranslatorTextEdit, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextTranslator__TranslatorTextEdit, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3729,13 +4737,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3745,15 +4757,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextTranslator__TranslatorTextEdit, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextTranslator__TranslatorTextEdit, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3765,13 +4781,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3783,13 +4803,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3801,13 +4825,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextTranslator__TranslatorTextEdit, name: []const u8) void {
+    pub fn setAccessibleName(self: TextTranslator__TranslatorTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3819,13 +4847,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3837,13 +4869,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextTranslator__TranslatorTextEdit, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextTranslator__TranslatorTextEdit, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3855,9 +4891,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextTranslator__TranslatorTextEdit, direction: i32) void {
+    pub fn setLayoutDirection(self: TextTranslator__TranslatorTextEdit, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3871,9 +4911,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn layoutDirection(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3883,9 +4927,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UnsetLayoutDirection(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn unsetLayoutDirection(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3895,12 +4943,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextTranslator__TranslatorTextEdit, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextTranslator__TranslatorTextEdit, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3910,9 +4962,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Locale(self: TextTranslator__TranslatorTextEdit) QLocale {
+    pub fn locale(self: TextTranslator__TranslatorTextEdit) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3922,9 +4978,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UnsetLocale(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn unsetLocale(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3934,9 +4994,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsRightToLeft(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isRightToLeft(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3946,9 +5010,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsLeftToRight(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isLeftToRight(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3958,9 +5026,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SetFocus(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn setFocus(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3970,9 +5042,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsActiveWindow(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isActiveWindow(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3982,9 +5058,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ActivateWindow(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn activateWindow(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3994,9 +5074,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ClearFocus(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn clearFocus(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4008,9 +5092,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextTranslator__TranslatorTextEdit, reason: i32) void {
+    pub fn setFocus2(self: TextTranslator__TranslatorTextEdit, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4024,9 +5112,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn focusPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4038,9 +5130,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
+    pub fn setFocusPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4050,9 +5146,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HasFocus(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn hasFocus(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4064,11 +5164,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4078,12 +5182,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextTranslator__TranslatorTextEdit, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextTranslator__TranslatorTextEdit, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4093,9 +5201,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FocusProxy(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn focusProxy(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4109,9 +5221,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn contextMenuPolicy(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4123,9 +5239,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextTranslator__TranslatorTextEdit, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4135,9 +5255,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn GrabMouse(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn grabMouse(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4149,10 +5273,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn grabMouse2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4162,9 +5290,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ReleaseMouse(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn releaseMouse(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4174,9 +5306,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn GrabKeyboard(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn grabKeyboard(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4186,9 +5322,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ReleaseKeyboard(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn releaseKeyboard(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4200,10 +5340,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextTranslator__TranslatorTextEdit, key: anytype) i32 {
+    pub fn grabShortcut(self: TextTranslator__TranslatorTextEdit, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4215,9 +5359,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextTranslator__TranslatorTextEdit, id: i32) void {
+    pub fn releaseShortcut(self: TextTranslator__TranslatorTextEdit, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4229,9 +5377,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextTranslator__TranslatorTextEdit, id: i32) void {
+    pub fn setShortcutEnabled(self: TextTranslator__TranslatorTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4243,25 +5395,37 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextTranslator__TranslatorTextEdit, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextTranslator__TranslatorTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4271,9 +5435,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UpdatesEnabled(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn updatesEnabled(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4285,9 +5453,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextTranslator__TranslatorTextEdit, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4297,9 +5469,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn GraphicsProxyWidget(self: TextTranslator__TranslatorTextEdit) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextTranslator__TranslatorTextEdit) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4309,9 +5485,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Update(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn update(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4321,9 +5501,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Repaint(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn repaint(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4333,17 +5517,21 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextTranslator__TranslatorTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextTranslator__TranslatorTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4355,11 +5543,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn update3(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4370,10 +5562,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn update4(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4383,17 +5579,21 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextTranslator__TranslatorTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextTranslator__TranslatorTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4405,10 +5605,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn repaint3(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4420,10 +5624,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn repaint4(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4435,9 +5643,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextTranslator__TranslatorTextEdit, hidden: bool) void {
+    pub fn setHidden(self: TextTranslator__TranslatorTextEdit, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4447,9 +5659,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Show(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn show(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4459,9 +5675,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Hide(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn hide(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4471,9 +5691,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ShowMinimized(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn showMinimized(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4483,9 +5707,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ShowMaximized(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn showMaximized(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4495,9 +5723,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ShowFullScreen(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn showFullScreen(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4507,9 +5739,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ShowNormal(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn showNormal(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4519,9 +5755,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Close(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn close(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4531,9 +5771,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Raise(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn raise(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4543,9 +5787,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Lower(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn lower(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4557,10 +5805,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn stackUnder(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4570,13 +5822,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextTranslator__TranslatorTextEdit, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextTranslator__TranslatorTextEdit, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4588,10 +5844,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn move2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4605,9 +5865,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
+    pub fn resize(self: TextTranslator__TranslatorTextEdit, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4619,10 +5883,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn resize2(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4632,17 +5900,21 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextTranslator__TranslatorTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextTranslator__TranslatorTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4652,12 +5924,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextTranslator__TranslatorTextEdit, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextTranslator__TranslatorTextEdit, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4669,13 +5945,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorTextEdit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorTextEdit.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4685,15 +5965,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextTranslator__TranslatorTextEdit, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextTranslator__TranslatorTextEdit, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4703,9 +5987,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn AdjustSize(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn adjustSize(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4715,9 +6003,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsVisible(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isVisible(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4729,10 +6021,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4742,9 +6038,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsHidden(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isHidden(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4754,9 +6054,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsMinimized(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isMinimized(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4766,9 +6070,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsMaximized(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isMaximized(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4778,9 +6086,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsFullScreen(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isFullScreen(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4794,9 +6106,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn windowState(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4808,9 +6124,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextTranslator__TranslatorTextEdit, state: i32) void {
+    pub fn setWindowState(self: TextTranslator__TranslatorTextEdit, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4822,9 +6142,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextTranslator__TranslatorTextEdit, state: i32) void {
+    pub fn overrideWindowState(self: TextTranslator__TranslatorTextEdit, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4834,9 +6158,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SizePolicy(self: TextTranslator__TranslatorTextEdit) QSizePolicy {
+    pub fn sizePolicy(self: TextTranslator__TranslatorTextEdit) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4846,12 +6174,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextTranslator__TranslatorTextEdit, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextTranslator__TranslatorTextEdit, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4865,9 +6197,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextTranslator__TranslatorTextEdit, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextTranslator__TranslatorTextEdit, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4877,9 +6213,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn VisibleRegion(self: TextTranslator__TranslatorTextEdit) QRegion {
+    pub fn visibleRegion(self: TextTranslator__TranslatorTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4897,9 +6237,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4911,10 +6255,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextTranslator__TranslatorTextEdit, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextTranslator__TranslatorTextEdit, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4924,9 +6272,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ContentsMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
+    pub fn contentsMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4936,9 +6288,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ContentsRect(self: TextTranslator__TranslatorTextEdit) QRect {
+    pub fn contentsRect(self: TextTranslator__TranslatorTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4948,9 +6304,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Layout(self: TextTranslator__TranslatorTextEdit) QLayout {
+    pub fn layout(self: TextTranslator__TranslatorTextEdit) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4960,12 +6320,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextTranslator__TranslatorTextEdit, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextTranslator__TranslatorTextEdit, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4975,24 +6339,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UpdateGeometry(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn updateGeometry(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextTranslator__TranslatorTextEdit, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5002,14 +6355,37 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextTranslator__TranslatorTextEdit, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorTextEdit `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextTranslator__TranslatorTextEdit, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextTranslator__TranslatorTextEdit, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5023,9 +6399,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5041,10 +6421,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5054,9 +6438,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FocusWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn focusWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5066,9 +6454,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn NextInFocusChain(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn nextInFocusChain(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5078,9 +6470,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn PreviousInFocusChain(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn previousInFocusChain(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5090,9 +6486,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn AcceptDrops(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn acceptDrops(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5104,9 +6504,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextTranslator__TranslatorTextEdit, on: bool) void {
+    pub fn setAcceptDrops(self: TextTranslator__TranslatorTextEdit, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5118,10 +6522,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextTranslator__TranslatorTextEdit, action: anytype) void {
+    pub fn addAction(self: TextTranslator__TranslatorTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5131,15 +6539,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextTranslator__TranslatorTextEdit, actions: []QAction) void {
+    pub fn addActions(self: TextTranslator__TranslatorTextEdit, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5151,16 +6563,20 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextTranslator__TranslatorTextEdit, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextTranslator__TranslatorTextEdit, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5174,11 +6590,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextTranslator__TranslatorTextEdit, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextTranslator__TranslatorTextEdit, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5190,10 +6610,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextTranslator__TranslatorTextEdit, action: anytype) void {
+    pub fn removeAction(self: TextTranslator__TranslatorTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5205,15 +6629,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5225,13 +6653,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextTranslator__TranslatorTextEdit, text: []const u8) QAction {
+    pub fn addAction2(self: TextTranslator__TranslatorTextEdit, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5245,7 +6677,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextTranslator__TranslatorTextEdit, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextTranslator__TranslatorTextEdit, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5254,6 +6686,10 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5266,7 +6702,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextTranslator__TranslatorTextEdit, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextTranslator__TranslatorTextEdit, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5274,6 +6710,10 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5289,7 +6729,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextTranslator__TranslatorTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextTranslator__TranslatorTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5299,6 +6739,10 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5307,9 +6751,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ParentWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
+    pub fn parentWidget(self: TextTranslator__TranslatorTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5321,9 +6769,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5337,9 +6789,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn windowFlags(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5351,9 +6807,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextTranslator__TranslatorTextEdit, param1: i32) void {
+    pub fn setWindowFlag(self: TextTranslator__TranslatorTextEdit, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5365,9 +6825,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextTranslator__TranslatorTextEdit, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5381,9 +6845,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn windowType(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5393,13 +6861,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextTranslator__TranslatorTextEdit, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextTranslator__TranslatorTextEdit, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5411,10 +6883,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextTranslator__TranslatorTextEdit, p: anytype) QWidget {
+    pub fn childAt2(self: TextTranslator__TranslatorTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5426,10 +6902,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextTranslator__TranslatorTextEdit, p: anytype) QWidget {
+    pub fn childAt3(self: TextTranslator__TranslatorTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5441,9 +6921,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextTranslator__TranslatorTextEdit, param1: i32) void {
+    pub fn setAttribute(self: TextTranslator__TranslatorTextEdit, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5455,9 +6939,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextTranslator__TranslatorTextEdit, param1: i32) bool {
+    pub fn testAttribute(self: TextTranslator__TranslatorTextEdit, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5467,9 +6955,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn EnsurePolished(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn ensurePolished(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5481,10 +6973,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextTranslator__TranslatorTextEdit, child: anytype) bool {
+    pub fn isAncestorOf(self: TextTranslator__TranslatorTextEdit, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5494,9 +6990,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn AutoFillBackground(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn autoFillBackground(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5508,9 +7008,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextTranslator__TranslatorTextEdit, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5520,9 +7024,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn BackingStore(self: TextTranslator__TranslatorTextEdit) QBackingStore {
+    pub fn backingStore(self: TextTranslator__TranslatorTextEdit) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5532,9 +7040,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn WindowHandle(self: TextTranslator__TranslatorTextEdit) QWindow {
+    pub fn windowHandle(self: TextTranslator__TranslatorTextEdit) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5544,9 +7056,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Screen(self: TextTranslator__TranslatorTextEdit) QScreen {
+    pub fn screen(self: TextTranslator__TranslatorTextEdit) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5556,12 +7072,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextTranslator__TranslatorTextEdit, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextTranslator__TranslatorTextEdit, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5569,12 +7089,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5586,13 +7110,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextTranslator__TranslatorTextEdit, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextTranslator__TranslatorTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5604,9 +7132,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5618,10 +7150,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextTranslator__TranslatorTextEdit, icon: anytype) void {
+    pub fn windowIconChanged(self: TextTranslator__TranslatorTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5633,9 +7169,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5647,13 +7187,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextTranslator__TranslatorTextEdit, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextTranslator__TranslatorTextEdit, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5665,9 +7209,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5677,12 +7225,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextTranslator__TranslatorTextEdit, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextTranslator__TranslatorTextEdit, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5694,9 +7246,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5710,9 +7266,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn inputMethodHints(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5724,9 +7284,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextTranslator__TranslatorTextEdit, hints: i32) void {
+    pub fn setInputMethodHints(self: TextTranslator__TranslatorTextEdit, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5740,11 +7304,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5760,13 +7328,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5783,12 +7355,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextTranslator__TranslatorTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5802,11 +7378,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5822,12 +7402,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5845,12 +7429,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextTranslator__TranslatorTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5862,10 +7450,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextTranslator__TranslatorTextEdit, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextTranslator__TranslatorTextEdit, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5879,9 +7471,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextTranslator__TranslatorTextEdit, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextTranslator__TranslatorTextEdit, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5895,10 +7491,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextTranslator__TranslatorTextEdit, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextTranslator__TranslatorTextEdit, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5912,9 +7512,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextTranslator__TranslatorTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextTranslator__TranslatorTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5928,9 +7532,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextTranslator__TranslatorTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextTranslator__TranslatorTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5944,9 +7552,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextTranslator__TranslatorTextEdit, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextTranslator__TranslatorTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5960,25 +7572,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextTranslator__TranslatorTextEdit, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextTranslator__TranslatorTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5986,17 +7586,41 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6008,13 +7632,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorTextEdit.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6026,13 +7654,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextTranslator__TranslatorTextEdit, name: []const u8) void {
+    pub fn setObjectName(self: TextTranslator__TranslatorTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6042,9 +7674,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsWidgetType(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isWidgetType(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6054,9 +7690,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsWindowType(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isWindowType(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6066,9 +7706,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn IsQuickItemType(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn isQuickItemType(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6078,9 +7722,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SignalsBlocked(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn signalsBlocked(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6092,9 +7740,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextTranslator__TranslatorTextEdit, b: bool) bool {
+    pub fn blockSignals(self: TextTranslator__TranslatorTextEdit, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6104,9 +7756,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Thread(self: TextTranslator__TranslatorTextEdit) QThread {
+    pub fn thread(self: TextTranslator__TranslatorTextEdit) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6116,12 +7772,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextTranslator__TranslatorTextEdit, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextTranslator__TranslatorTextEdit, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6133,9 +7793,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextTranslator__TranslatorTextEdit, interval: i32) i32 {
+    pub fn startTimer(self: TextTranslator__TranslatorTextEdit, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6147,9 +7811,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextTranslator__TranslatorTextEdit, time: i64) i32 {
+    pub fn startTimer2(self: TextTranslator__TranslatorTextEdit, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6161,9 +7829,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextTranslator__TranslatorTextEdit, id: i32) void {
+    pub fn killTimer(self: TextTranslator__TranslatorTextEdit, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6175,9 +7847,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextTranslator__TranslatorTextEdit, id: i32) void {
+    pub fn killTimer2(self: TextTranslator__TranslatorTextEdit, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6189,15 +7865,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6209,10 +7889,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextTranslator__TranslatorTextEdit, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextTranslator__TranslatorTextEdit, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6224,10 +7908,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextTranslator__TranslatorTextEdit, obj: anytype) void {
+    pub fn removeEventFilter(self: TextTranslator__TranslatorTextEdit, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6235,7 +7923,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6243,13 +7931,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6257,7 +7949,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6265,13 +7957,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6281,18 +7977,22 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextTranslator__TranslatorTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextTranslator__TranslatorTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6300,7 +8000,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6308,13 +8008,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6322,7 +8026,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6330,13 +8034,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6346,9 +8054,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Disconnect3(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn disconnect3(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6360,10 +8072,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextTranslator__TranslatorTextEdit, receiver: anytype) bool {
+    pub fn disconnect4(self: TextTranslator__TranslatorTextEdit, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6373,10 +8089,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6386,9 +8106,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DumpObjectTree(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn dumpObjectTree(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6398,9 +8122,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DumpObjectInfo(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn dumpObjectInfo(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6414,11 +8142,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextTranslator__TranslatorTextEdit, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextTranslator__TranslatorTextEdit, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6430,10 +8162,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextTranslator__TranslatorTextEdit, name: [:0]const u8) QVariant {
+    pub fn property(self: TextTranslator__TranslatorTextEdit, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6445,7 +8181,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextTranslator__TranslatorTextEdit, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6453,27 +8189,19 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorTextEdit.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorTextEdit.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextTranslator__TranslatorTextEdit.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorTextEdit `
-    ///
-    pub fn BindingStorage(self: TextTranslator__TranslatorTextEdit) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6483,9 +8211,29 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn BindingStorage2(self: TextTranslator__TranslatorTextEdit) QBindingStorage {
+    pub fn bindingStorage(self: TextTranslator__TranslatorTextEdit) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorTextEdit `
+    ///
+    pub fn bindingStorage2(self: TextTranslator__TranslatorTextEdit) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6495,9 +8243,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Destroyed(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn destroyed(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6509,9 +8261,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6521,9 +8277,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Parent(self: TextTranslator__TranslatorTextEdit) QObject {
+    pub fn parent(self: TextTranslator__TranslatorTextEdit) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6535,10 +8295,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextTranslator__TranslatorTextEdit, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextTranslator__TranslatorTextEdit, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6548,9 +8312,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DeleteLater(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn deleteLater(self: TextTranslator__TranslatorTextEdit) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6564,9 +8332,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextTranslator__TranslatorTextEdit, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextTranslator__TranslatorTextEdit, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6580,9 +8352,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextTranslator__TranslatorTextEdit, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextTranslator__TranslatorTextEdit, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6590,7 +8366,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6600,13 +8376,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6614,7 +8394,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6624,13 +8404,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6640,7 +8424,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6648,12 +8432,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextTranslator__TranslatorTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextTranslator__TranslatorTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6665,10 +8453,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6682,11 +8474,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6702,13 +8498,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6721,11 +8521,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextTranslator__TranslatorTextEdit, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextTranslator__TranslatorTextEdit, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6737,10 +8541,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn destroyed1(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6752,9 +8560,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6764,9 +8576,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn PaintingActive(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn paintingActive(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6776,9 +8592,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn WidthMM(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn widthMM(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6788,9 +8608,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HeightMM(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn heightMM(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6800,9 +8624,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn LogicalDpiX(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn logicalDpiX(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6812,9 +8640,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn LogicalDpiY(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn logicalDpiY(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6824,9 +8656,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn PhysicalDpiX(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn physicalDpiX(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6836,9 +8672,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn PhysicalDpiY(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn physicalDpiY(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6848,9 +8688,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DevicePixelRatio(self: TextTranslator__TranslatorTextEdit) f64 {
+    pub fn devicePixelRatio(self: TextTranslator__TranslatorTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6860,9 +8704,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DevicePixelRatioF(self: TextTranslator__TranslatorTextEdit) f64 {
+    pub fn devicePixelRatioF(self: TextTranslator__TranslatorTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6872,9 +8720,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ColorCount(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn colorCount(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6884,17 +8736,25 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Depth(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn depth(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6902,13 +8762,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `loadResource` instead
+    ///
+    pub const LoadResource = loadResource;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -6924,14 +8788,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: TextTranslator__TranslatorTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn loadResource(self: TextTranslator__TranslatorTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    /// ### DEPRECATED: Use `superLoadResource` instead
     ///
-    pub const QBaseLoadResource = SuperLoadResource;
+    pub const SuperLoadResource = superLoadResource;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -6947,10 +8811,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: TextTranslator__TranslatorTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn superLoadResource(self: TextTranslator__TranslatorTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLoadResource` instead
+    ///
+    pub const OnLoadResource = onLoadResource;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -6966,9 +8834,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnLoadResource(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, QUrl) callconv(.c) QVariant) void {
+    pub fn onLoadResource(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -6980,15 +8852,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextTranslator__TranslatorTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn inputMethodQuery(self: TextTranslator__TranslatorTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7000,11 +8872,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextTranslator__TranslatorTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn superInputMethodQuery(self: TextTranslator__TranslatorTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7020,9 +8896,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7036,14 +8916,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: TextTranslator__TranslatorTextEdit, e: anytype) bool {
+    pub fn event(self: TextTranslator__TranslatorTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7057,10 +8937,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) bool {
+    pub fn superEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7074,9 +8958,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7090,14 +8978,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn timerEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextTranslator__TranslatorTextEdit_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7111,10 +8999,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superTimerEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7128,9 +9020,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTimerEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7144,14 +9040,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn keyPressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextTranslator__TranslatorTextEdit_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7165,11 +9061,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superKeyPressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
@@ -7182,9 +9082,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7198,14 +9102,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn keyReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextTranslator__TranslatorTextEdit_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7219,10 +9123,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7236,9 +9144,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7252,14 +9164,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn resizeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextTranslator__TranslatorTextEdit_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7273,10 +9185,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superResizeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7290,9 +9206,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QResizeEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7306,14 +9226,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn paintEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextTranslator__TranslatorTextEdit_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7327,10 +9247,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superPaintEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7344,9 +9268,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPaintEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7360,14 +9288,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn mousePressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7381,11 +9309,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superMousePressEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
@@ -7398,9 +9330,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7414,14 +9350,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn mouseMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7435,11 +9371,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superMouseMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
@@ -7452,9 +9392,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7468,14 +9412,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn mouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7489,11 +9433,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
@@ -7506,9 +9454,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7522,14 +9474,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn mouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7543,10 +9495,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7560,9 +9516,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7576,13 +9536,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextTranslator__TranslatorTextEdit, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextTranslator__TranslatorTextEdit, next: bool) bool {
         return qtc.TextTranslator__TranslatorTextEdit_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7596,9 +9556,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextTranslator__TranslatorTextEdit, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextTranslator__TranslatorTextEdit, next: bool) bool {
         return qtc.TextTranslator__TranslatorTextEdit_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7612,9 +9576,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7628,14 +9596,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn contextMenuEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextTranslator__TranslatorTextEdit_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7649,10 +9617,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superContextMenuEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7666,9 +9638,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7682,14 +9658,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn dragEnterEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextTranslator__TranslatorTextEdit_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7703,10 +9679,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superDragEnterEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7720,9 +9700,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7736,14 +9720,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn dragLeaveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextTranslator__TranslatorTextEdit_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7757,10 +9741,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superDragLeaveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7774,9 +9762,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7790,14 +9782,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn dragMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextTranslator__TranslatorTextEdit_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7811,10 +9803,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superDragMoveEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7828,9 +9824,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7844,14 +9844,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn focusInEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextTranslator__TranslatorTextEdit_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7865,11 +9865,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superFocusInEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
@@ -7882,9 +9886,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7898,14 +9906,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn focusOutEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextTranslator__TranslatorTextEdit_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7919,10 +9927,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superFocusOutEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7936,9 +9948,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7952,14 +9968,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn showEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextTranslator__TranslatorTextEdit_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7973,10 +9989,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn superShowEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -7990,9 +10010,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QShowEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8006,14 +10030,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn changeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextTranslator__TranslatorTextEdit_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8027,10 +10051,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superChangeEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8044,9 +10072,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8060,14 +10092,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn wheelEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextTranslator__TranslatorTextEdit_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8081,10 +10113,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
+    pub fn superWheelEvent(self: TextTranslator__TranslatorTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8098,9 +10134,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QWheelEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createMimeDataFromSelection` instead
+    ///
+    pub const CreateMimeDataFromSelection = createMimeDataFromSelection;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8112,13 +10152,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn CreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit) QMimeData {
+    pub fn createMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit) QMimeData {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_CreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    /// ### DEPRECATED: Use `superCreateMimeDataFromSelection` instead
     ///
-    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+    pub const SuperCreateMimeDataFromSelection = superCreateMimeDataFromSelection;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8130,9 +10170,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit) QMimeData {
+    pub fn superCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit) QMimeData {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperCreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateMimeDataFromSelection` instead
+    ///
+    pub const OnCreateMimeDataFromSelection = onCreateMimeDataFromSelection;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8146,9 +10190,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMimeData `
     ///
-    pub fn OnCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canInsertFromMimeData` instead
+    ///
+    pub const CanInsertFromMimeData = canInsertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8162,14 +10210,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) bool {
+    pub fn canInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextTranslator__TranslatorTextEdit_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superCanInsertFromMimeData` instead
     ///
-    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+    pub const SuperCanInsertFromMimeData = superCanInsertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8183,10 +10231,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) bool {
+    pub fn superCanInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextTranslator__TranslatorTextEdit_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanInsertFromMimeData` instead
+    ///
+    pub const OnCanInsertFromMimeData = onCanInsertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8200,9 +10252,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMimeData) callconv(.c) bool) void {
+    pub fn onCanInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMimeData) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `insertFromMimeData` instead
+    ///
+    pub const InsertFromMimeData = insertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8216,14 +10272,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn InsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) void {
+    pub fn insertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextTranslator__TranslatorTextEdit_InsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superInsertFromMimeData` instead
     ///
-    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+    pub const SuperInsertFromMimeData = superInsertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8237,10 +10293,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) void {
+    pub fn superInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextTranslator__TranslatorTextEdit_SuperInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertFromMimeData` instead
+    ///
+    pub const OnInsertFromMimeData = onInsertFromMimeData;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8254,9 +10314,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, source: QMimeData) callconv(.c) void `
     ///
-    pub fn OnInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMimeData) callconv(.c) void) void {
+    pub fn onInsertFromMimeData(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMimeData) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8270,14 +10334,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorTextEdit_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8291,10 +10355,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorTextEdit_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8308,9 +10376,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8326,13 +10398,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
         qtc.TextTranslator__TranslatorTextEdit_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8348,9 +10420,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8364,9 +10440,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doSetTextCursor` instead
+    ///
+    pub const DoSetTextCursor = doSetTextCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8378,16 +10458,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn DoSetTextCursor(self: TextTranslator__TranslatorTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextTranslator__TranslatorTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn doSetTextCursor(self: TextTranslator__TranslatorTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextTranslator__TranslatorTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    /// ### DEPRECATED: Use `superDoSetTextCursor` instead
     ///
-    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+    pub const SuperDoSetTextCursor = superDoSetTextCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8399,12 +10479,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SuperDoSetTextCursor(self: TextTranslator__TranslatorTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextTranslator__TranslatorTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn superDoSetTextCursor(self: TextTranslator__TranslatorTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextTranslator__TranslatorTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoSetTextCursor` instead
+    ///
+    pub const OnDoSetTextCursor = onDoSetTextCursor;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -8418,10 +10502,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnDoSetTextCursor(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextCursor) callconv(.c) void) void {
+    pub fn onDoSetTextCursor(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextCursor) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDoSetTextCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8432,13 +10520,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn MinimumSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn minimumSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8450,10 +10538,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperMinimumSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn superMinimumSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8468,9 +10560,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8482,13 +10578,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn sizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8500,9 +10596,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn superSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8518,9 +10618,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8532,16 +10636,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: TextTranslator__TranslatorTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextTranslator__TranslatorTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: TextTranslator__TranslatorTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextTranslator__TranslatorTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8553,12 +10657,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: TextTranslator__TranslatorTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextTranslator__TranslatorTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: TextTranslator__TranslatorTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextTranslator__TranslatorTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8572,9 +10680,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QWidget) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8590,15 +10702,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8614,11 +10726,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: TextTranslator__TranslatorTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8632,9 +10748,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8648,14 +10768,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
+    pub fn viewportEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8669,10 +10789,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
+    pub fn superViewportEvent(self: TextTranslator__TranslatorTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextTranslator__TranslatorTextEdit_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8686,9 +10810,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8700,13 +10828,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ViewportSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn viewportSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8718,9 +10846,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperViewportSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
+    pub fn superViewportSizeHint(self: TextTranslator__TranslatorTextEdit) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8736,9 +10868,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8752,14 +10888,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: TextTranslator__TranslatorTextEdit, option: anytype) void {
+    pub fn initStyleOption(self: TextTranslator__TranslatorTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextTranslator__TranslatorTextEdit_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8773,10 +10909,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: TextTranslator__TranslatorTextEdit, option: anytype) void {
+    pub fn superInitStyleOption(self: TextTranslator__TranslatorTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextTranslator__TranslatorTextEdit_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8790,9 +10930,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QStyleOptionFrame) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8804,13 +10948,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn DevType(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn devType(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8822,9 +10966,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperDevType(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn superDevType(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8838,9 +10986,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8854,13 +11006,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
+    pub fn setVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
         qtc.TextTranslator__TranslatorTextEdit_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8874,9 +11026,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
+    pub fn superSetVisible(self: TextTranslator__TranslatorTextEdit, visible: bool) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8890,9 +11046,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, bool) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8906,13 +11066,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
+    pub fn heightForWidth(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8926,9 +11086,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8942,9 +11106,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8956,13 +11124,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn HasHeightForWidth(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn hasHeightForWidth(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8974,9 +11142,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperHasHeightForWidth(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn superHasHeightForWidth(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8990,9 +11162,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9004,13 +11180,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn PaintEngine(self: TextTranslator__TranslatorTextEdit) QPaintEngine {
+    pub fn paintEngine(self: TextTranslator__TranslatorTextEdit) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9022,9 +11198,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperPaintEngine(self: TextTranslator__TranslatorTextEdit) QPaintEngine {
+    pub fn superPaintEngine(self: TextTranslator__TranslatorTextEdit) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -9038,9 +11218,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9052,16 +11236,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9073,12 +11257,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9092,9 +11280,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9106,16 +11298,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9127,12 +11319,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9146,9 +11342,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9160,16 +11360,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9181,12 +11381,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9200,9 +11404,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9214,16 +11422,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9235,12 +11443,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9254,9 +11466,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QCloseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9268,16 +11484,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9289,12 +11505,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9308,9 +11528,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTabletEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9322,16 +11546,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9343,12 +11567,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9362,9 +11590,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QActionEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9376,16 +11608,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9397,12 +11629,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9416,9 +11652,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QHideEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9436,7 +11676,7 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextTranslator__TranslatorTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextTranslator__TranslatorTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9444,9 +11684,9 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
         return qtc.TextTranslator__TranslatorTextEdit_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9464,13 +11704,17 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextTranslator__TranslatorTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextTranslator__TranslatorTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextTranslator__TranslatorTextEdit_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9484,9 +11728,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9500,13 +11748,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
+    pub fn metric(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9520,9 +11768,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
+    pub fn superMetric(self: TextTranslator__TranslatorTextEdit, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9536,9 +11788,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9552,14 +11808,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
+    pub fn initPainter(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorTextEdit_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9573,10 +11829,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
+    pub fn superInitPainter(self: TextTranslator__TranslatorTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorTextEdit_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9590,9 +11850,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPainter) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9606,14 +11870,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextTranslator__TranslatorTextEdit, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextTranslator__TranslatorTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9627,10 +11891,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextTranslator__TranslatorTextEdit, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextTranslator__TranslatorTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9644,9 +11912,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextTranslator__TranslatorTextEdit_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9658,13 +11930,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SharedPainter(self: TextTranslator__TranslatorTextEdit) QPainter {
+    pub fn sharedPainter(self: TextTranslator__TranslatorTextEdit) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9676,9 +11948,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperSharedPainter(self: TextTranslator__TranslatorTextEdit) QPainter {
+    pub fn superSharedPainter(self: TextTranslator__TranslatorTextEdit) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9692,9 +11968,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9706,16 +11986,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9727,12 +12007,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9746,9 +12030,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QChildEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9760,16 +12048,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9781,12 +12069,16 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextTranslator__TranslatorTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextTranslator__TranslatorTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9800,9 +12092,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9816,14 +12112,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
+    pub fn connectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorTextEdit_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9837,11 +12133,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
+    pub fn superConnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorTextEdit_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9854,9 +12154,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9870,14 +12174,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
+    pub fn disconnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorTextEdit_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9891,10 +12195,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextTranslator__TranslatorTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorTextEdit_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9908,9 +12216,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `firstVisibleBlock` instead
+    ///
+    pub const FirstVisibleBlock = firstVisibleBlock;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -9922,13 +12234,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FirstVisibleBlock(self: TextTranslator__TranslatorTextEdit) QTextBlock {
+    pub fn firstVisibleBlock(self: TextTranslator__TranslatorTextEdit) QTextBlock {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_FirstVisibleBlock(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFirstVisibleBlock` instead
+    /// ### DEPRECATED: Use `superFirstVisibleBlock` instead
     ///
-    pub const QBaseFirstVisibleBlock = SuperFirstVisibleBlock;
+    pub const SuperFirstVisibleBlock = superFirstVisibleBlock;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -9940,9 +12252,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit) QTextBlock {
+    pub fn superFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit) QTextBlock {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperFirstVisibleBlock(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFirstVisibleBlock` instead
+    ///
+    pub const OnFirstVisibleBlock = onFirstVisibleBlock;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -9958,9 +12274,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
+    pub fn onFirstVisibleBlock(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contentOffset` instead
+    ///
+    pub const ContentOffset = contentOffset;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -9972,13 +12292,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ContentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
+    pub fn contentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_ContentOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperContentOffset` instead
+    /// ### DEPRECATED: Use `superContentOffset` instead
     ///
-    pub const QBaseContentOffset = SuperContentOffset;
+    pub const SuperContentOffset = superContentOffset;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -9990,9 +12310,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperContentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
+    pub fn superContentOffset(self: TextTranslator__TranslatorTextEdit) QPointF {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperContentOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onContentOffset` instead
+    ///
+    pub const OnContentOffset = onContentOffset;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10008,9 +12332,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnContentOffset(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPointF) void {
+    pub fn onContentOffset(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QPointF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockBoundingRect` instead
+    ///
+    pub const BlockBoundingRect = blockBoundingRect;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10024,14 +12352,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn BlockBoundingRect(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
+    pub fn blockBoundingRect(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_BlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
     ///
-    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+    pub const SuperBlockBoundingRect = superBlockBoundingRect;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10045,11 +12373,15 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn SuperBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
+    pub fn superBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onBlockBoundingRect` instead
+    ///
+    pub const OnBlockBoundingRect = onBlockBoundingRect;
+
     /// Inherited from QPlainTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
@@ -10064,9 +12396,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
+    pub fn onBlockBoundingRect(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockBoundingGeometry` instead
+    ///
+    pub const BlockBoundingGeometry = blockBoundingGeometry;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10080,14 +12416,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn BlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
+    pub fn blockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_BlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBlockBoundingGeometry` instead
+    /// ### DEPRECATED: Use `superBlockBoundingGeometry` instead
     ///
-    pub const QBaseBlockBoundingGeometry = SuperBlockBoundingGeometry;
+    pub const SuperBlockBoundingGeometry = superBlockBoundingGeometry;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10101,10 +12437,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn SuperBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
+    pub fn superBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperBlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBlockBoundingGeometry` instead
+    ///
+    pub const OnBlockBoundingGeometry = onBlockBoundingGeometry;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10120,9 +12460,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
+    pub fn onBlockBoundingGeometry(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.TextTranslator__TranslatorTextEdit_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getPaintContext` instead
+    ///
+    pub const GetPaintContext = getPaintContext;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10134,13 +12478,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn GetPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
+    pub fn getPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_GetPaintContext(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperGetPaintContext` instead
+    /// ### DEPRECATED: Use `superGetPaintContext` instead
     ///
-    pub const QBaseGetPaintContext = SuperGetPaintContext;
+    pub const SuperGetPaintContext = superGetPaintContext;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10152,9 +12496,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperGetPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
+    pub fn superGetPaintContext(self: TextTranslator__TranslatorTextEdit) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperGetPaintContext(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGetPaintContext` instead
+    ///
+    pub const OnGetPaintContext = onGetPaintContext;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10170,9 +12518,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGetPaintContext(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
+    pub fn onGetPaintContext(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
         qtc.TextTranslator__TranslatorTextEdit_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `zoomInF` instead
+    ///
+    pub const ZoomInF = zoomInF;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10186,13 +12538,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn ZoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
+    pub fn zoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
         qtc.TextTranslator__TranslatorTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
-    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    /// ### DEPRECATED: Use `superZoomInF` instead
     ///
-    pub const QBaseZoomInF = SuperZoomInF;
+    pub const SuperZoomInF = superZoomInF;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10206,9 +12558,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn SuperZoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
+    pub fn superZoomInF(self: TextTranslator__TranslatorTextEdit, range: f32) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `onZoomInF` instead
+    ///
+    pub const OnZoomInF = onZoomInF;
 
     /// Inherited from QPlainTextEdit
     ///
@@ -10222,9 +12578,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, range: f32) callconv(.c) void `
     ///
-    pub fn OnZoomInF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, f32) callconv(.c) void) void {
+    pub fn onZoomInF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, f32) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10244,13 +12604,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextTranslator__TranslatorTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10270,9 +12630,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10286,9 +12650,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10300,13 +12668,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn ViewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
+    pub fn viewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10318,9 +12686,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperViewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
+    pub fn superViewportMargins(self: TextTranslator__TranslatorTextEdit) QMargins {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10336,9 +12708,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextTranslator__TranslatorTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10352,14 +12728,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn drawFrame(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextTranslator__TranslatorTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10373,10 +12749,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
+    pub fn superDrawFrame(self: TextTranslator__TranslatorTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextTranslator__TranslatorTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -10390,10 +12770,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QPainter) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10404,13 +12788,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn UpdateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn updateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10422,10 +12806,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10438,10 +12826,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10452,13 +12844,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Create(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn create(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10470,10 +12862,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperCreate(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn superCreate(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10486,9 +12882,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10500,13 +12900,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Destroy(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn destroy(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10518,9 +12918,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperDestroy(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn superDestroy(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10534,10 +12938,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10548,13 +12956,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FocusNextChild(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn focusNextChild(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10566,10 +12974,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperFocusNextChild(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn superFocusNextChild(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10582,9 +12994,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10596,13 +13012,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn FocusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn focusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10614,9 +13030,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperFocusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
+    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorTextEdit) bool {
         return qtc.TextTranslator__TranslatorTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10630,9 +13050,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10644,13 +13068,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Sender(self: TextTranslator__TranslatorTextEdit) QObject {
+    pub fn sender(self: TextTranslator__TranslatorTextEdit) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10662,9 +13086,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperSender(self: TextTranslator__TranslatorTextEdit) QObject {
+    pub fn superSender(self: TextTranslator__TranslatorTextEdit) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorTextEdit_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10678,9 +13106,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10692,13 +13124,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SenderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn senderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10710,9 +13142,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn SuperSenderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
+    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorTextEdit) i32 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10726,9 +13162,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10742,14 +13182,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10763,10 +13203,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextTranslator__TranslatorTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10780,9 +13224,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10796,14 +13244,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10817,10 +13265,14 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextTranslator__TranslatorTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10834,9 +13286,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, QMetaMethod) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10852,13 +13308,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10874,9 +13330,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10890,9 +13350,13 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, i32, i32) callconv(.c) f64) void {
         qtc.TextTranslator__TranslatorTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10906,23 +13370,23 @@ pub const TextTranslator__TranslatorTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorTextEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextTranslator__TranslatorTextEdit, callback: *const fn (TextTranslator__TranslatorTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorTextEdit.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorTextEdit `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorTextEdit) void {
+    pub fn delete(self: TextTranslator__TranslatorTextEdit) void {
         qtc.TextTranslator__TranslatorTextEdit_Delete(@ptrCast(self.ptr));
     }
 };
@@ -10940,30 +13404,42 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextTranslator::TranslatorWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextTranslator__TranslatorWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextTranslator__TranslatorWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextTranslator__TranslatorWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorWidget object in C++ memory
+    ///
+    pub fn new2() TextTranslator__TranslatorWidget {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new2() };
     }
 
-    /// New3 constructs a new TextTranslator::TranslatorWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new TextTranslator::TranslatorWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New3(text: []const u8) TextTranslator__TranslatorWidget {
+    pub fn new3(text: []const u8) TextTranslator__TranslatorWidget {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -10971,22 +13447,30 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new3(text_str) };
     }
 
-    /// New4 constructs a new TextTranslator::TranslatorWidget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new TextTranslator::TranslatorWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(text: []const u8, parent: anytype) TextTranslator__TranslatorWidget {
+    pub fn new4(text: []const u8, _parent: anytype) TextTranslator__TranslatorWidget {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new4(text_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextTranslator__TranslatorWidget_new4(text_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -10994,9 +13478,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MetaObject(self: TextTranslator__TranslatorWidget) QMetaObject {
+    pub fn metaObject(self: TextTranslator__TranslatorWidget) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11008,13 +13496,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11024,9 +13512,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperMetaObject(self: TextTranslator__TranslatorWidget) QMetaObject {
+    pub fn superMetaObject(self: TextTranslator__TranslatorWidget) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -11034,10 +13526,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextTranslator__TranslatorWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextTranslator__TranslatorWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -11047,13 +13543,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextTranslator__TranslatorWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -11063,10 +13559,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextTranslator__TranslatorWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextTranslator__TranslatorWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -11078,9 +13578,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextTranslator__TranslatorWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextTranslator__TranslatorWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -11090,13 +13594,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -11110,9 +13614,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextTranslator__TranslatorWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextTranslator__TranslatorWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -11122,14 +13630,18 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextToTranslate` instead
+    ///
+    pub const SetTextToTranslate = setTextToTranslate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11139,7 +13651,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` textToTranslate: []const u8 `
     ///
-    pub fn SetTextToTranslate(self: TextTranslator__TranslatorWidget, textToTranslate: []const u8) void {
+    pub fn setTextToTranslate(self: TextTranslator__TranslatorWidget, textToTranslate: []const u8) void {
         const textToTranslate_str = qtc.libqt_string{
             .len = textToTranslate.len,
             .data = textToTranslate.ptr,
@@ -11147,15 +13659,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         qtc.TextTranslator__TranslatorWidget_SetTextToTranslate(@ptrCast(self.ptr), textToTranslate_str);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
+    /// ### DEPRECATED: Use `writeConfig` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn WriteConfig(self: TextTranslator__TranslatorWidget) void {
-        qtc.TextTranslator__TranslatorWidget_WriteConfig(@ptrCast(self.ptr));
-    }
+    pub const WriteConfig = writeConfig;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11163,9 +13669,27 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ReadConfig(self: TextTranslator__TranslatorWidget) void {
+    pub fn writeConfig(self: TextTranslator__TranslatorWidget) void {
+        qtc.TextTranslator__TranslatorWidget_WriteConfig(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `readConfig` instead
+    ///
+    pub const ReadConfig = readConfig;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorWidget `
+    ///
+    pub fn readConfig(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_ReadConfig(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStandalone` instead
+    ///
+    pub const SetStandalone = setStandalone;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11175,19 +13699,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetStandalone(self: TextTranslator__TranslatorWidget, b: bool) void {
+    pub fn setStandalone(self: TextTranslator__TranslatorWidget, b: bool) void {
         qtc.TextTranslator__TranslatorWidget_SetStandalone(@ptrCast(self.ptr), b);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
+    /// ### DEPRECATED: Use `slotTranslate` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn SlotTranslate(self: TextTranslator__TranslatorWidget) void {
-        qtc.TextTranslator__TranslatorWidget_SlotTranslate(@ptrCast(self.ptr));
-    }
+    pub const SlotTranslate = slotTranslate;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11195,9 +13713,27 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SlotCloseWidget(self: TextTranslator__TranslatorWidget) void {
+    pub fn slotTranslate(self: TextTranslator__TranslatorWidget) void {
+        qtc.TextTranslator__TranslatorWidget_SlotTranslate(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `slotCloseWidget` instead
+    ///
+    pub const SlotCloseWidget = slotCloseWidget;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorWidget `
+    ///
+    pub fn slotCloseWidget(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_SlotCloseWidget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11207,10 +13743,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: TextTranslator__TranslatorWidget, e: anytype) bool {
+    pub fn event(self: TextTranslator__TranslatorWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextTranslator__TranslatorWidget_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11222,13 +13762,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11240,10 +13780,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: TextTranslator__TranslatorWidget, e: anytype) bool {
+    pub fn superEvent(self: TextTranslator__TranslatorWidget, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextTranslator__TranslatorWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `toolsWasClosed` instead
+    ///
+    pub const ToolsWasClosed = toolsWasClosed;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11251,9 +13795,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ToolsWasClosed(self: TextTranslator__TranslatorWidget) void {
+    pub fn toolsWasClosed(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_ToolsWasClosed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onToolsWasClosed` instead
+    ///
+    pub const OnToolsWasClosed = onToolsWasClosed;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
@@ -11263,9 +13811,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) void `
     ///
-    pub fn OnToolsWasClosed(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) void) void {
+    pub fn onToolsWasClosed(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_Connect_ToolsWasClosed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -11277,15 +13829,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -11299,15 +13855,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -11317,9 +13877,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn WinId(self: TextTranslator__TranslatorWidget) usize {
+    pub fn winId(self: TextTranslator__TranslatorWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -11329,9 +13893,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn CreateWinId(self: TextTranslator__TranslatorWidget) void {
+    pub fn createWinId(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -11341,9 +13909,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn InternalWinId(self: TextTranslator__TranslatorWidget) usize {
+    pub fn internalWinId(self: TextTranslator__TranslatorWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -11353,9 +13925,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn EffectiveWinId(self: TextTranslator__TranslatorWidget) usize {
+    pub fn effectiveWinId(self: TextTranslator__TranslatorWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -11365,9 +13941,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Style(self: TextTranslator__TranslatorWidget) QStyle {
+    pub fn style(self: TextTranslator__TranslatorWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -11377,12 +13957,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextTranslator__TranslatorWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextTranslator__TranslatorWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -11392,9 +13976,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsTopLevel(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isTopLevel(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -11404,9 +13992,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsWindow(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isWindow(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -11416,9 +14008,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsModal(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isModal(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -11432,9 +14028,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn windowModality(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -11444,11 +14044,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextTranslator__TranslatorWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextTranslator__TranslatorWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11458,9 +14062,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsEnabled(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isEnabled(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -11472,10 +14080,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextTranslator__TranslatorWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextTranslator__TranslatorWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11487,9 +14099,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextTranslator__TranslatorWidget, enabled: bool) void {
+    pub fn setEnabled(self: TextTranslator__TranslatorWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -11501,9 +14117,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextTranslator__TranslatorWidget, disabled: bool) void {
+    pub fn setDisabled(self: TextTranslator__TranslatorWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -11515,9 +14135,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextTranslator__TranslatorWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: TextTranslator__TranslatorWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11527,9 +14151,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FrameGeometry(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn frameGeometry(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -11539,9 +14167,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Geometry(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn geometry(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11551,9 +14183,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn NormalGeometry(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn normalGeometry(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -11563,9 +14199,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn X(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn x(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -11575,9 +14215,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Y(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn y(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -11587,9 +14231,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Pos(self: TextTranslator__TranslatorWidget) QPoint {
+    pub fn pos(self: TextTranslator__TranslatorWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -11599,9 +14247,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FrameSize(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn frameSize(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -11611,9 +14263,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Size(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn size(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -11623,9 +14279,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Width(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn width(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -11635,9 +14295,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Height(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn height(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -11647,9 +14311,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Rect(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn rect(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -11659,9 +14327,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ChildrenRect(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn childrenRect(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -11671,9 +14343,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ChildrenRegion(self: TextTranslator__TranslatorWidget) QRegion {
+    pub fn childrenRegion(self: TextTranslator__TranslatorWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -11683,9 +14359,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MinimumSize(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn minimumSize(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -11695,9 +14375,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MaximumSize(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn maximumSize(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -11707,9 +14391,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MinimumWidth(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn minimumWidth(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -11719,9 +14407,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MinimumHeight(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn minimumHeight(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -11731,9 +14423,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MaximumWidth(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn maximumWidth(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -11743,9 +14439,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MaximumHeight(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn maximumHeight(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -11755,12 +14455,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextTranslator__TranslatorWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextTranslator__TranslatorWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -11774,9 +14478,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextTranslator__TranslatorWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextTranslator__TranslatorWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -11786,12 +14494,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextTranslator__TranslatorWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextTranslator__TranslatorWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -11805,9 +14517,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextTranslator__TranslatorWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextTranslator__TranslatorWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -11819,9 +14535,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextTranslator__TranslatorWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: TextTranslator__TranslatorWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -11833,9 +14553,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextTranslator__TranslatorWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: TextTranslator__TranslatorWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -11847,9 +14571,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextTranslator__TranslatorWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextTranslator__TranslatorWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -11861,9 +14589,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextTranslator__TranslatorWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextTranslator__TranslatorWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -11873,9 +14605,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SizeIncrement(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn sizeIncrement(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -11885,12 +14621,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextTranslator__TranslatorWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextTranslator__TranslatorWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -11904,9 +14644,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -11916,9 +14660,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn BaseSize(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn baseSize(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -11928,12 +14676,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextTranslator__TranslatorWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextTranslator__TranslatorWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -11947,9 +14699,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextTranslator__TranslatorWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextTranslator__TranslatorWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -11961,10 +14717,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextTranslator__TranslatorWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextTranslator__TranslatorWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -11978,9 +14738,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -11992,9 +14756,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextTranslator__TranslatorWidget, w: i32) void {
+    pub fn setFixedWidth(self: TextTranslator__TranslatorWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -12006,9 +14774,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextTranslator__TranslatorWidget, h: i32) void {
+    pub fn setFixedHeight(self: TextTranslator__TranslatorWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -12020,11 +14792,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -12035,11 +14811,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -12050,11 +14830,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -12065,11 +14849,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -12080,11 +14868,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -12095,10 +14887,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -12110,10 +14906,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextTranslator__TranslatorWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -12125,10 +14925,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextTranslator__TranslatorWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -12142,12 +14946,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -12160,11 +14968,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -12178,11 +14990,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -12196,11 +15012,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextTranslator__TranslatorWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -12210,9 +15030,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Window(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn window(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -12222,9 +15046,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn NativeParentWidget(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn nativeParentWidget(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -12234,9 +15062,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn TopLevelWidget(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn topLevelWidget(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -12246,9 +15078,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Palette(self: TextTranslator__TranslatorWidget) QPalette {
+    pub fn palette(self: TextTranslator__TranslatorWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -12258,12 +15094,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextTranslator__TranslatorWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextTranslator__TranslatorWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -12273,11 +15113,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextTranslator__TranslatorWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextTranslator__TranslatorWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -12291,9 +15135,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn backgroundRole(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -12303,11 +15151,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextTranslator__TranslatorWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextTranslator__TranslatorWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -12321,9 +15173,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn foregroundRole(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -12333,9 +15189,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Font(self: TextTranslator__TranslatorWidget) QFont {
+    pub fn font(self: TextTranslator__TranslatorWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -12345,12 +15205,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextTranslator__TranslatorWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextTranslator__TranslatorWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -12360,9 +15224,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FontMetrics(self: TextTranslator__TranslatorWidget) QFontMetrics {
+    pub fn fontMetrics(self: TextTranslator__TranslatorWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -12372,9 +15240,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FontInfo(self: TextTranslator__TranslatorWidget) QFontInfo {
+    pub fn fontInfo(self: TextTranslator__TranslatorWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -12384,9 +15256,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Cursor(self: TextTranslator__TranslatorWidget) QCursor {
+    pub fn cursor(self: TextTranslator__TranslatorWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -12396,12 +15272,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextTranslator__TranslatorWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextTranslator__TranslatorWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -12411,9 +15291,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UnsetCursor(self: TextTranslator__TranslatorWidget) void {
+    pub fn unsetCursor(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -12425,9 +15309,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextTranslator__TranslatorWidget, enable: bool) void {
+    pub fn setMouseTracking(self: TextTranslator__TranslatorWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -12437,9 +15325,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn HasMouseTracking(self: TextTranslator__TranslatorWidget) bool {
+    pub fn hasMouseTracking(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -12449,9 +15341,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UnderMouse(self: TextTranslator__TranslatorWidget) bool {
+    pub fn underMouse(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -12463,9 +15359,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextTranslator__TranslatorWidget, enable: bool) void {
+    pub fn setTabletTracking(self: TextTranslator__TranslatorWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -12475,24 +15375,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn HasTabletTracking(self: TextTranslator__TranslatorWidget) bool {
+    pub fn hasTabletTracking(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextTranslator__TranslatorWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -12502,12 +15391,35 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextTranslator__TranslatorWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextTranslator__TranslatorWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextTranslator__TranslatorWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -12517,9 +15429,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Mask(self: TextTranslator__TranslatorWidget) QRegion {
+    pub fn mask(self: TextTranslator__TranslatorWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -12529,9 +15445,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ClearMask(self: TextTranslator__TranslatorWidget) void {
+    pub fn clearMask(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -12543,10 +15463,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextTranslator__TranslatorWidget, target: anytype) void {
+    pub fn render(self: TextTranslator__TranslatorWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -12558,10 +15482,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextTranslator__TranslatorWidget, painter: anytype) void {
+    pub fn render2(self: TextTranslator__TranslatorWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -12571,9 +15499,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Grab(self: TextTranslator__TranslatorWidget) QPixmap {
+    pub fn grab(self: TextTranslator__TranslatorWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -12583,9 +15515,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn GraphicsEffect(self: TextTranslator__TranslatorWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextTranslator__TranslatorWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -12597,10 +15533,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextTranslator__TranslatorWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextTranslator__TranslatorWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -12612,9 +15552,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
+    pub fn grabGesture(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -12626,9 +15570,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -12638,15 +15586,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextTranslator__TranslatorWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextTranslator__TranslatorWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -12656,15 +15608,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextTranslator__TranslatorWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextTranslator__TranslatorWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -12676,13 +15632,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -12694,13 +15654,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -12712,10 +15676,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextTranslator__TranslatorWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: TextTranslator__TranslatorWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -12725,9 +15693,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn WindowIcon(self: TextTranslator__TranslatorWidget) QIcon {
+    pub fn windowIcon(self: TextTranslator__TranslatorWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -12737,15 +15709,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextTranslator__TranslatorWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextTranslator__TranslatorWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -12757,13 +15733,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -12773,15 +15753,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextTranslator__TranslatorWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextTranslator__TranslatorWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -12793,13 +15777,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -12811,13 +15799,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextTranslator__TranslatorWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextTranslator__TranslatorWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -12829,13 +15821,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -12847,9 +15843,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextTranslator__TranslatorWidget, level: f64) void {
+    pub fn setWindowOpacity(self: TextTranslator__TranslatorWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -12859,9 +15859,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn WindowOpacity(self: TextTranslator__TranslatorWidget) f64 {
+    pub fn windowOpacity(self: TextTranslator__TranslatorWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -12871,9 +15875,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsWindowModified(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isWindowModified(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -12883,15 +15891,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextTranslator__TranslatorWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextTranslator__TranslatorWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -12903,13 +15915,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -12921,9 +15937,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextTranslator__TranslatorWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: TextTranslator__TranslatorWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -12933,9 +15953,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ToolTipDuration(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn toolTipDuration(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -12945,15 +15969,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextTranslator__TranslatorWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextTranslator__TranslatorWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -12965,13 +15993,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -12981,15 +16013,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextTranslator__TranslatorWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextTranslator__TranslatorWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -13001,13 +16037,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -13019,13 +16059,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -13037,13 +16081,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextTranslator__TranslatorWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: TextTranslator__TranslatorWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -13055,13 +16103,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -13073,13 +16125,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextTranslator__TranslatorWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextTranslator__TranslatorWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -13091,9 +16147,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextTranslator__TranslatorWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: TextTranslator__TranslatorWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -13107,9 +16167,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn layoutDirection(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -13119,9 +16183,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UnsetLayoutDirection(self: TextTranslator__TranslatorWidget) void {
+    pub fn unsetLayoutDirection(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -13131,12 +16199,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextTranslator__TranslatorWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextTranslator__TranslatorWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -13146,9 +16218,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Locale(self: TextTranslator__TranslatorWidget) QLocale {
+    pub fn locale(self: TextTranslator__TranslatorWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -13158,9 +16234,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UnsetLocale(self: TextTranslator__TranslatorWidget) void {
+    pub fn unsetLocale(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -13170,9 +16250,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsRightToLeft(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isRightToLeft(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -13182,9 +16266,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsLeftToRight(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isLeftToRight(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -13194,9 +16282,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SetFocus(self: TextTranslator__TranslatorWidget) void {
+    pub fn setFocus(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -13206,9 +16298,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsActiveWindow(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isActiveWindow(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -13218,9 +16314,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ActivateWindow(self: TextTranslator__TranslatorWidget) void {
+    pub fn activateWindow(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -13230,9 +16330,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ClearFocus(self: TextTranslator__TranslatorWidget) void {
+    pub fn clearFocus(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -13244,9 +16348,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextTranslator__TranslatorWidget, reason: i32) void {
+    pub fn setFocus2(self: TextTranslator__TranslatorWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -13260,9 +16368,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn focusPolicy(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -13274,9 +16386,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextTranslator__TranslatorWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: TextTranslator__TranslatorWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -13286,9 +16402,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn HasFocus(self: TextTranslator__TranslatorWidget) bool {
+    pub fn hasFocus(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -13300,11 +16420,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -13314,12 +16438,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextTranslator__TranslatorWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextTranslator__TranslatorWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -13329,9 +16457,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FocusProxy(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn focusProxy(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -13345,9 +16477,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn contextMenuPolicy(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -13359,9 +16495,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextTranslator__TranslatorWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextTranslator__TranslatorWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -13371,9 +16511,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn GrabMouse(self: TextTranslator__TranslatorWidget) void {
+    pub fn grabMouse(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -13385,10 +16529,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn grabMouse2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -13398,9 +16546,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ReleaseMouse(self: TextTranslator__TranslatorWidget) void {
+    pub fn releaseMouse(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -13410,9 +16562,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn GrabKeyboard(self: TextTranslator__TranslatorWidget) void {
+    pub fn grabKeyboard(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -13422,9 +16578,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ReleaseKeyboard(self: TextTranslator__TranslatorWidget) void {
+    pub fn releaseKeyboard(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -13436,10 +16596,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextTranslator__TranslatorWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: TextTranslator__TranslatorWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -13451,9 +16615,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextTranslator__TranslatorWidget, id: i32) void {
+    pub fn releaseShortcut(self: TextTranslator__TranslatorWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -13465,9 +16633,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextTranslator__TranslatorWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: TextTranslator__TranslatorWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -13479,25 +16651,37 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextTranslator__TranslatorWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextTranslator__TranslatorWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -13507,9 +16691,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UpdatesEnabled(self: TextTranslator__TranslatorWidget) bool {
+    pub fn updatesEnabled(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -13521,9 +16709,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextTranslator__TranslatorWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextTranslator__TranslatorWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -13533,9 +16725,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn GraphicsProxyWidget(self: TextTranslator__TranslatorWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextTranslator__TranslatorWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -13545,9 +16741,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Update(self: TextTranslator__TranslatorWidget) void {
+    pub fn update(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -13557,9 +16757,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Repaint(self: TextTranslator__TranslatorWidget) void {
+    pub fn repaint(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -13569,17 +16773,21 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextTranslator__TranslatorWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextTranslator__TranslatorWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -13591,11 +16799,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn update3(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -13606,10 +16818,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn update4(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -13619,17 +16835,21 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextTranslator__TranslatorWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextTranslator__TranslatorWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -13641,10 +16861,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn repaint3(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -13656,10 +16880,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn repaint4(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -13671,9 +16899,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextTranslator__TranslatorWidget, hidden: bool) void {
+    pub fn setHidden(self: TextTranslator__TranslatorWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -13683,9 +16915,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Show(self: TextTranslator__TranslatorWidget) void {
+    pub fn show(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -13695,9 +16931,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Hide(self: TextTranslator__TranslatorWidget) void {
+    pub fn hide(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -13707,9 +16947,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ShowMinimized(self: TextTranslator__TranslatorWidget) void {
+    pub fn showMinimized(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -13719,9 +16963,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ShowMaximized(self: TextTranslator__TranslatorWidget) void {
+    pub fn showMaximized(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -13731,9 +16979,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ShowFullScreen(self: TextTranslator__TranslatorWidget) void {
+    pub fn showFullScreen(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -13743,9 +16995,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ShowNormal(self: TextTranslator__TranslatorWidget) void {
+    pub fn showNormal(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -13755,9 +17011,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Close(self: TextTranslator__TranslatorWidget) bool {
+    pub fn close(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -13767,9 +17027,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Raise(self: TextTranslator__TranslatorWidget) void {
+    pub fn raise(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -13779,9 +17043,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Lower(self: TextTranslator__TranslatorWidget) void {
+    pub fn lower(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -13793,10 +17061,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn stackUnder(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -13806,13 +17078,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextTranslator__TranslatorWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextTranslator__TranslatorWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -13824,10 +17100,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn move2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -13841,9 +17121,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
+    pub fn resize(self: TextTranslator__TranslatorWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -13855,10 +17139,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn resize2(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -13868,17 +17156,21 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextTranslator__TranslatorWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextTranslator__TranslatorWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -13888,12 +17180,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextTranslator__TranslatorWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextTranslator__TranslatorWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -13905,13 +17201,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -13921,15 +17221,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextTranslator__TranslatorWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextTranslator__TranslatorWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -13939,9 +17243,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn AdjustSize(self: TextTranslator__TranslatorWidget) void {
+    pub fn adjustSize(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -13951,9 +17259,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsVisible(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isVisible(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -13965,10 +17277,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextTranslator__TranslatorWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextTranslator__TranslatorWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -13978,9 +17294,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsHidden(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isHidden(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -13990,9 +17310,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsMinimized(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isMinimized(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -14002,9 +17326,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsMaximized(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isMaximized(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -14014,9 +17342,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsFullScreen(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isFullScreen(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -14030,9 +17362,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn windowState(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -14044,9 +17380,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextTranslator__TranslatorWidget, state: i32) void {
+    pub fn setWindowState(self: TextTranslator__TranslatorWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -14058,9 +17398,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextTranslator__TranslatorWidget, state: i32) void {
+    pub fn overrideWindowState(self: TextTranslator__TranslatorWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -14070,9 +17414,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SizePolicy(self: TextTranslator__TranslatorWidget) QSizePolicy {
+    pub fn sizePolicy(self: TextTranslator__TranslatorWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -14082,12 +17430,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextTranslator__TranslatorWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextTranslator__TranslatorWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -14101,9 +17453,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextTranslator__TranslatorWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextTranslator__TranslatorWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -14113,9 +17469,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn VisibleRegion(self: TextTranslator__TranslatorWidget) QRegion {
+    pub fn visibleRegion(self: TextTranslator__TranslatorWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -14133,9 +17493,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextTranslator__TranslatorWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextTranslator__TranslatorWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -14147,10 +17511,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextTranslator__TranslatorWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextTranslator__TranslatorWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -14160,9 +17528,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ContentsMargins(self: TextTranslator__TranslatorWidget) QMargins {
+    pub fn contentsMargins(self: TextTranslator__TranslatorWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -14172,9 +17544,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ContentsRect(self: TextTranslator__TranslatorWidget) QRect {
+    pub fn contentsRect(self: TextTranslator__TranslatorWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -14184,9 +17560,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Layout(self: TextTranslator__TranslatorWidget) QLayout {
+    pub fn layout(self: TextTranslator__TranslatorWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -14196,12 +17576,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextTranslator__TranslatorWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextTranslator__TranslatorWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -14211,24 +17595,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UpdateGeometry(self: TextTranslator__TranslatorWidget) void {
+    pub fn updateGeometry(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextTranslator__TranslatorWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -14238,14 +17611,37 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextTranslator__TranslatorWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextTranslator__TranslatorWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextTranslator__TranslatorWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -14259,9 +17655,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextTranslator__TranslatorWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextTranslator__TranslatorWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -14277,10 +17677,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextTranslator__TranslatorWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextTranslator__TranslatorWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -14290,9 +17694,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FocusWidget(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn focusWidget(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -14302,9 +17710,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn NextInFocusChain(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn nextInFocusChain(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -14314,9 +17726,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn PreviousInFocusChain(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn previousInFocusChain(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -14326,9 +17742,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn AcceptDrops(self: TextTranslator__TranslatorWidget) bool {
+    pub fn acceptDrops(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -14340,9 +17760,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextTranslator__TranslatorWidget, on: bool) void {
+    pub fn setAcceptDrops(self: TextTranslator__TranslatorWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -14354,10 +17778,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextTranslator__TranslatorWidget, action: anytype) void {
+    pub fn addAction(self: TextTranslator__TranslatorWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -14367,15 +17795,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextTranslator__TranslatorWidget, actions: []QAction) void {
+    pub fn addActions(self: TextTranslator__TranslatorWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -14387,16 +17819,20 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextTranslator__TranslatorWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextTranslator__TranslatorWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -14410,11 +17846,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextTranslator__TranslatorWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextTranslator__TranslatorWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -14426,10 +17866,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextTranslator__TranslatorWidget, action: anytype) void {
+    pub fn removeAction(self: TextTranslator__TranslatorWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -14441,15 +17885,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -14461,13 +17909,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextTranslator__TranslatorWidget, text: []const u8) QAction {
+    pub fn addAction2(self: TextTranslator__TranslatorWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -14481,7 +17933,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextTranslator__TranslatorWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextTranslator__TranslatorWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -14490,6 +17942,10 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -14502,7 +17958,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextTranslator__TranslatorWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextTranslator__TranslatorWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -14510,6 +17966,10 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -14525,7 +17985,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextTranslator__TranslatorWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextTranslator__TranslatorWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -14535,6 +17995,10 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -14543,9 +18007,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ParentWidget(self: TextTranslator__TranslatorWidget) QWidget {
+    pub fn parentWidget(self: TextTranslator__TranslatorWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -14557,9 +18025,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -14573,9 +18045,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn windowFlags(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -14587,9 +18063,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextTranslator__TranslatorWidget, param1: i32) void {
+    pub fn setWindowFlag(self: TextTranslator__TranslatorWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -14601,9 +18081,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextTranslator__TranslatorWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -14617,9 +18101,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn windowType(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -14629,9 +18117,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -14641,13 +18133,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextTranslator__TranslatorWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextTranslator__TranslatorWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -14659,10 +18155,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextTranslator__TranslatorWidget, p: anytype) QWidget {
+    pub fn childAt2(self: TextTranslator__TranslatorWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -14674,10 +18174,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextTranslator__TranslatorWidget, p: anytype) QWidget {
+    pub fn childAt3(self: TextTranslator__TranslatorWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -14689,9 +18193,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextTranslator__TranslatorWidget, param1: i32) void {
+    pub fn setAttribute(self: TextTranslator__TranslatorWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -14703,9 +18211,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextTranslator__TranslatorWidget, param1: i32) bool {
+    pub fn testAttribute(self: TextTranslator__TranslatorWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -14715,9 +18227,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn EnsurePolished(self: TextTranslator__TranslatorWidget) void {
+    pub fn ensurePolished(self: TextTranslator__TranslatorWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -14729,10 +18245,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextTranslator__TranslatorWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: TextTranslator__TranslatorWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -14742,9 +18262,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn AutoFillBackground(self: TextTranslator__TranslatorWidget) bool {
+    pub fn autoFillBackground(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -14756,9 +18280,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextTranslator__TranslatorWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextTranslator__TranslatorWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -14768,9 +18296,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn BackingStore(self: TextTranslator__TranslatorWidget) QBackingStore {
+    pub fn backingStore(self: TextTranslator__TranslatorWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -14780,9 +18312,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn WindowHandle(self: TextTranslator__TranslatorWidget) QWindow {
+    pub fn windowHandle(self: TextTranslator__TranslatorWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -14792,9 +18328,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Screen(self: TextTranslator__TranslatorWidget) QScreen {
+    pub fn screen(self: TextTranslator__TranslatorWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -14804,12 +18344,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextTranslator__TranslatorWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextTranslator__TranslatorWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -14817,12 +18361,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -14834,13 +18382,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextTranslator__TranslatorWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextTranslator__TranslatorWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -14852,9 +18404,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -14866,10 +18422,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextTranslator__TranslatorWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: TextTranslator__TranslatorWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -14881,9 +18441,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -14895,13 +18459,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextTranslator__TranslatorWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextTranslator__TranslatorWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -14913,9 +18481,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -14925,12 +18497,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextTranslator__TranslatorWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextTranslator__TranslatorWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -14942,9 +18518,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -14958,9 +18538,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn inputMethodHints(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -14972,9 +18556,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextTranslator__TranslatorWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: TextTranslator__TranslatorWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -14988,11 +18576,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -15008,13 +18600,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -15031,12 +18627,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextTranslator__TranslatorWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -15050,11 +18650,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -15070,12 +18674,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -15093,12 +18701,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextTranslator__TranslatorWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -15110,10 +18722,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextTranslator__TranslatorWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextTranslator__TranslatorWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -15127,9 +18743,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextTranslator__TranslatorWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextTranslator__TranslatorWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -15143,10 +18763,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextTranslator__TranslatorWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextTranslator__TranslatorWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -15160,9 +18784,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextTranslator__TranslatorWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextTranslator__TranslatorWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -15176,9 +18804,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextTranslator__TranslatorWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextTranslator__TranslatorWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -15192,9 +18824,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextTranslator__TranslatorWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextTranslator__TranslatorWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -15208,25 +18844,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextTranslator__TranslatorWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextTranslator__TranslatorWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -15234,17 +18858,41 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -15256,13 +18904,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -15274,13 +18926,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextTranslator__TranslatorWidget, name: []const u8) void {
+    pub fn setObjectName(self: TextTranslator__TranslatorWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -15290,9 +18946,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsWidgetType(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isWidgetType(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -15302,9 +18962,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsWindowType(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isWindowType(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -15314,9 +18978,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn IsQuickItemType(self: TextTranslator__TranslatorWidget) bool {
+    pub fn isQuickItemType(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -15326,9 +18994,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SignalsBlocked(self: TextTranslator__TranslatorWidget) bool {
+    pub fn signalsBlocked(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -15340,9 +19012,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextTranslator__TranslatorWidget, b: bool) bool {
+    pub fn blockSignals(self: TextTranslator__TranslatorWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -15352,9 +19028,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Thread(self: TextTranslator__TranslatorWidget) QThread {
+    pub fn thread(self: TextTranslator__TranslatorWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -15364,12 +19044,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextTranslator__TranslatorWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextTranslator__TranslatorWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -15381,9 +19065,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextTranslator__TranslatorWidget, interval: i32) i32 {
+    pub fn startTimer(self: TextTranslator__TranslatorWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -15395,9 +19083,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextTranslator__TranslatorWidget, time: i64) i32 {
+    pub fn startTimer2(self: TextTranslator__TranslatorWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -15409,9 +19101,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextTranslator__TranslatorWidget, id: i32) void {
+    pub fn killTimer(self: TextTranslator__TranslatorWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -15423,9 +19119,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextTranslator__TranslatorWidget, id: i32) void {
+    pub fn killTimer2(self: TextTranslator__TranslatorWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -15437,15 +19137,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -15457,10 +19161,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextTranslator__TranslatorWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextTranslator__TranslatorWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -15472,10 +19180,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextTranslator__TranslatorWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: TextTranslator__TranslatorWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -15483,7 +19195,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -15491,13 +19203,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -15505,7 +19221,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -15513,13 +19229,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -15529,18 +19249,22 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextTranslator__TranslatorWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextTranslator__TranslatorWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -15548,7 +19272,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -15556,13 +19280,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -15570,7 +19298,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -15578,13 +19306,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -15594,9 +19326,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Disconnect3(self: TextTranslator__TranslatorWidget) bool {
+    pub fn disconnect3(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -15608,10 +19344,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextTranslator__TranslatorWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: TextTranslator__TranslatorWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -15621,10 +19361,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -15634,9 +19378,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DumpObjectTree(self: TextTranslator__TranslatorWidget) void {
+    pub fn dumpObjectTree(self: TextTranslator__TranslatorWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -15646,9 +19394,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DumpObjectInfo(self: TextTranslator__TranslatorWidget) void {
+    pub fn dumpObjectInfo(self: TextTranslator__TranslatorWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -15662,11 +19414,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextTranslator__TranslatorWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextTranslator__TranslatorWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -15678,10 +19434,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextTranslator__TranslatorWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: TextTranslator__TranslatorWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -15693,7 +19453,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextTranslator__TranslatorWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -15701,27 +19461,19 @@ pub const TextTranslator__TranslatorWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextTranslator__TranslatorWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorWidget `
-    ///
-    pub fn BindingStorage(self: TextTranslator__TranslatorWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -15731,9 +19483,29 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn BindingStorage2(self: TextTranslator__TranslatorWidget) QBindingStorage {
+    pub fn bindingStorage(self: TextTranslator__TranslatorWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorWidget `
+    ///
+    pub fn bindingStorage2(self: TextTranslator__TranslatorWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -15743,9 +19515,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Destroyed(self: TextTranslator__TranslatorWidget) void {
+    pub fn destroyed(self: TextTranslator__TranslatorWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -15757,9 +19533,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -15769,9 +19549,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Parent(self: TextTranslator__TranslatorWidget) QObject {
+    pub fn parent(self: TextTranslator__TranslatorWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -15783,10 +19567,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextTranslator__TranslatorWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextTranslator__TranslatorWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -15796,9 +19584,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DeleteLater(self: TextTranslator__TranslatorWidget) void {
+    pub fn deleteLater(self: TextTranslator__TranslatorWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -15812,9 +19604,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextTranslator__TranslatorWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextTranslator__TranslatorWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -15828,9 +19624,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextTranslator__TranslatorWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextTranslator__TranslatorWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -15838,7 +19638,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -15848,13 +19648,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -15862,7 +19666,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -15872,13 +19676,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -15888,7 +19696,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -15896,12 +19704,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextTranslator__TranslatorWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextTranslator__TranslatorWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -15913,10 +19725,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -15930,11 +19746,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextTranslator__TranslatorWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextTranslator__TranslatorWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -15950,13 +19770,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextTranslator__TranslatorWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextTranslator__TranslatorWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -15969,11 +19793,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextTranslator__TranslatorWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextTranslator__TranslatorWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -15985,10 +19813,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn destroyed1(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -16000,9 +19832,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -16012,9 +19848,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn PaintingActive(self: TextTranslator__TranslatorWidget) bool {
+    pub fn paintingActive(self: TextTranslator__TranslatorWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -16024,9 +19864,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn WidthMM(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn widthMM(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -16036,9 +19880,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn HeightMM(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn heightMM(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -16048,9 +19896,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn LogicalDpiX(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn logicalDpiX(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -16060,9 +19912,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn LogicalDpiY(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn logicalDpiY(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -16072,9 +19928,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn PhysicalDpiX(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn physicalDpiX(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -16084,9 +19944,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn PhysicalDpiY(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn physicalDpiY(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -16096,9 +19960,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DevicePixelRatio(self: TextTranslator__TranslatorWidget) f64 {
+    pub fn devicePixelRatio(self: TextTranslator__TranslatorWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -16108,9 +19976,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DevicePixelRatioF(self: TextTranslator__TranslatorWidget) f64 {
+    pub fn devicePixelRatioF(self: TextTranslator__TranslatorWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -16120,9 +19992,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn ColorCount(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn colorCount(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -16132,17 +20008,25 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Depth(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn depth(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -16150,13 +20034,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -16168,13 +20056,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn DevType(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn devType(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.TextTranslator__TranslatorWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -16186,9 +20074,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperDevType(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn superDevType(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.TextTranslator__TranslatorWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -16202,9 +20094,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -16218,13 +20114,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextTranslator__TranslatorWidget, visible: bool) void {
+    pub fn setVisible(self: TextTranslator__TranslatorWidget, visible: bool) void {
         qtc.TextTranslator__TranslatorWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -16238,9 +20134,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextTranslator__TranslatorWidget, visible: bool) void {
+    pub fn superSetVisible(self: TextTranslator__TranslatorWidget, visible: bool) void {
         qtc.TextTranslator__TranslatorWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -16254,10 +20154,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, bool) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -16268,13 +20172,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SizeHint(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn sizeHint(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -16286,10 +20190,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperSizeHint(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn superSizeHint(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -16304,9 +20212,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -16318,13 +20230,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn MinimumSizeHint(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn minimumSizeHint(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -16336,9 +20248,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: TextTranslator__TranslatorWidget) QSize {
+    pub fn superMinimumSizeHint(self: TextTranslator__TranslatorWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -16354,9 +20270,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16370,13 +20290,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16390,9 +20310,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16406,9 +20330,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16420,13 +20348,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn HasHeightForWidth(self: TextTranslator__TranslatorWidget) bool {
+    pub fn hasHeightForWidth(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16438,9 +20366,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: TextTranslator__TranslatorWidget) bool {
+    pub fn superHasHeightForWidth(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -16454,9 +20386,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -16468,13 +20404,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn PaintEngine(self: TextTranslator__TranslatorWidget) QPaintEngine {
+    pub fn paintEngine(self: TextTranslator__TranslatorWidget) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -16486,9 +20422,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperPaintEngine(self: TextTranslator__TranslatorWidget) QPaintEngine {
+    pub fn superPaintEngine(self: TextTranslator__TranslatorWidget) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -16502,10 +20442,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -16516,16 +20460,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -16537,12 +20481,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -16556,10 +20504,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -16570,16 +20522,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16591,12 +20543,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16610,10 +20566,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -16624,16 +20584,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -16645,12 +20605,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -16664,10 +20628,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -16678,16 +20646,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16699,12 +20667,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -16718,9 +20690,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -16732,16 +20708,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextTranslator__TranslatorWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextTranslator__TranslatorWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -16753,12 +20729,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -16772,10 +20752,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QWheelEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -16786,16 +20770,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -16807,12 +20791,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -16826,10 +20814,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -16840,16 +20832,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16861,12 +20853,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -16880,10 +20876,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -16894,16 +20894,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -16915,12 +20915,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -16934,10 +20938,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -16948,16 +20956,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -16969,12 +20977,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -16988,9 +21000,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17002,16 +21018,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17023,12 +21039,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17042,9 +21062,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17056,16 +21080,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17077,12 +21101,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17096,9 +21124,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -17110,16 +21142,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextTranslator__TranslatorWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextTranslator__TranslatorWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -17131,12 +21163,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -17150,9 +21186,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPaintEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17164,16 +21204,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17185,12 +21225,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17204,9 +21248,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17218,16 +21266,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextTranslator__TranslatorWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextTranslator__TranslatorWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17239,12 +21287,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17258,9 +21310,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QResizeEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17272,16 +21328,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -17293,12 +21349,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -17312,9 +21372,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QCloseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -17326,16 +21390,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextTranslator__TranslatorWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextTranslator__TranslatorWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -17347,12 +21411,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -17366,9 +21434,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -17380,16 +21452,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -17401,12 +21473,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -17420,9 +21496,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QTabletEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -17434,16 +21514,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -17455,12 +21535,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -17474,9 +21558,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QActionEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17488,16 +21576,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextTranslator__TranslatorWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextTranslator__TranslatorWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17509,12 +21597,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -17528,9 +21620,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17542,16 +21638,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextTranslator__TranslatorWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextTranslator__TranslatorWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17563,12 +21659,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17582,9 +21682,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17596,16 +21700,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextTranslator__TranslatorWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextTranslator__TranslatorWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17617,12 +21721,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -17636,9 +21744,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -17650,16 +21762,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextTranslator__TranslatorWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextTranslator__TranslatorWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -17671,12 +21783,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -17690,9 +21806,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QDropEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -17704,16 +21824,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextTranslator__TranslatorWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextTranslator__TranslatorWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -17725,12 +21845,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -17744,9 +21868,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QShowEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -17758,16 +21886,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -17779,12 +21907,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -17798,9 +21930,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QHideEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17818,7 +21954,7 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextTranslator__TranslatorWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextTranslator__TranslatorWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -17826,9 +21962,9 @@ pub const TextTranslator__TranslatorWidget = extern struct {
         return qtc.TextTranslator__TranslatorWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17846,13 +21982,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextTranslator__TranslatorWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextTranslator__TranslatorWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextTranslator__TranslatorWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17866,9 +22006,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17882,14 +22026,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn changeEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextTranslator__TranslatorWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17903,10 +22047,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextTranslator__TranslatorWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -17920,9 +22068,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -17936,13 +22088,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
+    pub fn metric(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -17956,9 +22108,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
+    pub fn superMetric(self: TextTranslator__TranslatorWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -17972,9 +22128,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -17988,14 +22148,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextTranslator__TranslatorWidget, painter: anytype) void {
+    pub fn initPainter(self: TextTranslator__TranslatorWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -18009,10 +22169,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextTranslator__TranslatorWidget, painter: anytype) void {
+    pub fn superInitPainter(self: TextTranslator__TranslatorWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -18026,9 +22190,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPainter) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -18042,14 +22210,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextTranslator__TranslatorWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextTranslator__TranslatorWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -18063,10 +22231,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextTranslator__TranslatorWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextTranslator__TranslatorWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -18080,9 +22252,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextTranslator__TranslatorWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -18094,13 +22270,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SharedPainter(self: TextTranslator__TranslatorWidget) QPainter {
+    pub fn sharedPainter(self: TextTranslator__TranslatorWidget) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -18112,9 +22288,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperSharedPainter(self: TextTranslator__TranslatorWidget) QPainter {
+    pub fn superSharedPainter(self: TextTranslator__TranslatorWidget) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -18128,9 +22308,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -18144,14 +22328,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -18165,10 +22349,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextTranslator__TranslatorWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -18182,9 +22370,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -18198,13 +22390,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextTranslator__TranslatorWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextTranslator__TranslatorWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -18218,9 +22410,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextTranslator__TranslatorWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextTranslator__TranslatorWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -18236,9 +22432,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -18252,13 +22452,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextTranslator__TranslatorWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextTranslator__TranslatorWidget, next: bool) bool {
         return qtc.TextTranslator__TranslatorWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -18272,9 +22472,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextTranslator__TranslatorWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextTranslator__TranslatorWidget, next: bool) bool {
         return qtc.TextTranslator__TranslatorWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -18288,9 +22492,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, bool) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -18304,17 +22512,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextTranslator__TranslatorWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextTranslator__TranslatorWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -18328,13 +22536,17 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextTranslator__TranslatorWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextTranslator__TranslatorWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -18348,9 +22560,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -18362,16 +22578,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -18383,12 +22599,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -18402,9 +22622,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QTimerEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -18416,16 +22640,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -18437,12 +22661,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -18456,9 +22684,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QChildEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -18470,16 +22702,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -18491,12 +22723,16 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextTranslator__TranslatorWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextTranslator__TranslatorWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -18510,9 +22746,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -18526,14 +22766,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
+    pub fn connectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -18547,11 +22787,15 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -18564,9 +22808,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -18580,14 +22828,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -18601,10 +22849,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextTranslator__TranslatorWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -18618,10 +22870,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -18632,13 +22888,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn UpdateMicroFocus(self: TextTranslator__TranslatorWidget) void {
+    pub fn updateMicroFocus(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -18650,10 +22906,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextTranslator__TranslatorWidget) void {
+    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -18666,10 +22926,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -18680,13 +22944,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Create(self: TextTranslator__TranslatorWidget) void {
+    pub fn create(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -18698,10 +22962,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperCreate(self: TextTranslator__TranslatorWidget) void {
+    pub fn superCreate(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -18714,9 +22982,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -18728,13 +23000,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Destroy(self: TextTranslator__TranslatorWidget) void {
+    pub fn destroy(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -18746,9 +23018,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperDestroy(self: TextTranslator__TranslatorWidget) void {
+    pub fn superDestroy(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -18762,10 +23038,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -18776,13 +23056,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FocusNextChild(self: TextTranslator__TranslatorWidget) bool {
+    pub fn focusNextChild(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -18794,10 +23074,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperFocusNextChild(self: TextTranslator__TranslatorWidget) bool {
+    pub fn superFocusNextChild(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -18810,9 +23094,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -18824,13 +23112,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn FocusPreviousChild(self: TextTranslator__TranslatorWidget) bool {
+    pub fn focusPreviousChild(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -18842,9 +23130,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: TextTranslator__TranslatorWidget) bool {
+    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorWidget) bool {
         return qtc.TextTranslator__TranslatorWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -18858,9 +23150,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -18872,13 +23168,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Sender(self: TextTranslator__TranslatorWidget) QObject {
+    pub fn sender(self: TextTranslator__TranslatorWidget) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -18890,9 +23186,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperSender(self: TextTranslator__TranslatorWidget) QObject {
+    pub fn superSender(self: TextTranslator__TranslatorWidget) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -18906,9 +23206,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextTranslator__TranslatorWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -18920,13 +23224,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SenderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn senderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.TextTranslator__TranslatorWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -18938,9 +23242,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
+    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorWidget) i32 {
         return qtc.TextTranslator__TranslatorWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -18954,9 +23262,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -18970,14 +23282,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -18991,10 +23303,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextTranslator__TranslatorWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -19008,9 +23324,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -19024,14 +23344,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -19045,10 +23365,14 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextTranslator__TranslatorWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -19062,9 +23386,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -19080,13 +23408,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -19102,9 +23430,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -19118,9 +23450,13 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, i32, i32) callconv(.c) f64) void {
         qtc.TextTranslator__TranslatorWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -19134,23 +23470,23 @@ pub const TextTranslator__TranslatorWidget = extern struct {
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextTranslator__TranslatorWidget, callback: *const fn (TextTranslator__TranslatorWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorWidget.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorWidget `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorWidget) void {
+    pub fn delete(self: TextTranslator__TranslatorWidget) void {
         qtc.TextTranslator__TranslatorWidget_Delete(@ptrCast(self.ptr));
     }
 };

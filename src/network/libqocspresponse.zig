@@ -13,22 +13,34 @@ pub const QOcspResponse = extern struct {
 
     pub const _is_QOcspResponse = {};
 
-    /// New constructs a new QOcspResponse object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOcspResponse {
+    pub const New = new;
+
+    /// Allocate a new QOcspResponse object in C++ memory
+    ///
+    pub fn new() QOcspResponse {
         return .{ .ptr = qtc.QOcspResponse_new() };
     }
 
-    /// New2 constructs a new QOcspResponse object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOcspResponse object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOcspResponse `
     ///
-    pub fn New2(other: anytype) QOcspResponse {
+    pub fn new2(other: anytype) QOcspResponse {
         comptime _ = @TypeOf(other)._is_QOcspResponse;
         return .{ .ptr = qtc.QOcspResponse_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` other: QOcspResponse `
     ///
-    pub fn OperatorAssign(self: QOcspResponse, other: anytype) void {
+    pub fn operatorAssign(self: QOcspResponse, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QOcspResponse;
         qtc.QOcspResponse_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `certificateStatus` instead
+    ///
+    pub const CertificateStatus = certificateStatus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#certificateStatus)
     ///
@@ -53,9 +69,13 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` qocspresponse_enums.QOcspCertificateStatus `
     ///
-    pub fn CertificateStatus(self: QOcspResponse) i32 {
+    pub fn certificateStatus(self: QOcspResponse) i32 {
         return qtc.QOcspResponse_CertificateStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revocationReason` instead
+    ///
+    pub const RevocationReason = revocationReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#revocationReason)
     ///
@@ -67,9 +87,13 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` qocspresponse_enums.QOcspRevocationReason `
     ///
-    pub fn RevocationReason(self: QOcspResponse) i32 {
+    pub fn revocationReason(self: QOcspResponse) i32 {
         return qtc.QOcspResponse_RevocationReason(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `responder` instead
+    ///
+    pub const Responder = responder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#responder)
     ///
@@ -77,9 +101,13 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` self: QOcspResponse `
     ///
-    pub fn Responder(self: QOcspResponse) QSslCertificate {
+    pub fn responder(self: QOcspResponse) QSslCertificate {
         return .{ .ptr = qtc.QOcspResponse_Responder(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `subject` instead
+    ///
+    pub const Subject = subject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#subject)
     ///
@@ -87,9 +115,13 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` self: QOcspResponse `
     ///
-    pub fn Subject(self: QOcspResponse) QSslCertificate {
+    pub fn subject(self: QOcspResponse) QSslCertificate {
         return .{ .ptr = qtc.QOcspResponse_Subject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#swap)
     ///
@@ -99,24 +131,24 @@ pub const QOcspResponse = extern struct {
     ///
     /// ` other: QOcspResponse `
     ///
-    pub fn Swap(self: QOcspResponse, other: anytype) void {
+    pub fn swap(self: QOcspResponse, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QOcspResponse;
         qtc.QOcspResponse_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qocspresponse.html#dtor.QOcspResponse)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOcspResponse `
     ///
-    pub fn Delete(self: QOcspResponse) void {
+    pub fn delete(self: QOcspResponse) void {
         qtc.QOcspResponse_Delete(@ptrCast(self.ptr));
     }
 };

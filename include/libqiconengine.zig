@@ -18,11 +18,19 @@ pub const QIconEngine = extern struct {
 
     pub const _is_QIconEngine = {};
 
-    /// New constructs a new QIconEngine object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QIconEngine {
+    pub const New = new;
+
+    /// Allocate a new QIconEngine object in C++ memory
+    ///
+    pub fn new() QIconEngine {
         return .{ .ptr = qtc.QIconEngine_new() };
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#paint)
     ///
@@ -38,11 +46,15 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Paint(self: QIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
+    pub fn paint(self: QIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIconEngine_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `onPaint` instead
+    ///
+    pub const OnPaint = onPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#paint)
     ///
@@ -54,13 +66,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, painter: QPainter, rect: QRect, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnPaint(self: QIconEngine, callback: *const fn (QIconEngine, QPainter, QRect, i32, i32) callconv(.c) void) void {
+    pub fn onPaint(self: QIconEngine, callback: *const fn (QIconEngine, QPainter, QRect, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaint` instead
+    /// ### DEPRECATED: Use `superPaint` instead
     ///
-    pub const QBasePaint = SuperPaint;
+    pub const SuperPaint = superPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#paint)
     ///
@@ -78,11 +90,15 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperPaint(self: QIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
+    pub fn superPaint(self: QIconEngine, painter: anytype, rect: anytype, mode: i32, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QIconEngine_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `actualSize` instead
+    ///
+    pub const ActualSize = actualSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
@@ -96,10 +112,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn ActualSize(self: QIconEngine, size: anytype, mode: i32, state: i32) QSize {
+    pub fn actualSize(self: QIconEngine, size: anytype, mode: i32, state: i32) QSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_ActualSize(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `onActualSize` instead
+    ///
+    pub const OnActualSize = onActualSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
@@ -113,13 +133,13 @@ pub const QIconEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnActualSize(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32) callconv(.c) QSize) void {
+    pub fn onActualSize(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32) callconv(.c) QSize) void {
         qtc.QIconEngine_OnActualSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperActualSize` instead
+    /// ### DEPRECATED: Use `superActualSize` instead
     ///
-    pub const QBaseActualSize = SuperActualSize;
+    pub const SuperActualSize = superActualSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#actualSize)
     ///
@@ -135,10 +155,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperActualSize(self: QIconEngine, size: anytype, mode: i32, state: i32) QSize {
+    pub fn superActualSize(self: QIconEngine, size: anytype, mode: i32, state: i32) QSize {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_SuperActualSize(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `pixmap` instead
+    ///
+    pub const Pixmap = pixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#pixmap)
     ///
@@ -152,10 +176,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn Pixmap(self: QIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
+    pub fn pixmap(self: QIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_Pixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `onPixmap` instead
+    ///
+    pub const OnPixmap = onPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#pixmap)
     ///
@@ -169,13 +197,13 @@ pub const QIconEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32) callconv(.c) QPixmap) void {
+    pub fn onPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32) callconv(.c) QPixmap) void {
         qtc.QIconEngine_OnPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPixmap` instead
+    /// ### DEPRECATED: Use `superPixmap` instead
     ///
-    pub const QBasePixmap = SuperPixmap;
+    pub const SuperPixmap = superPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#pixmap)
     ///
@@ -191,10 +219,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
+    pub fn superPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_SuperPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state)) };
     }
+
+    /// ### DEPRECATED: Use `addPixmap` instead
+    ///
+    pub const AddPixmap = addPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
@@ -202,16 +234,20 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddPixmap(self: QIconEngine, pixmap: anytype, mode: i32, state: i32) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIconEngine_AddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode), @bitCast(state));
+    pub fn addPixmap(self: QIconEngine, _pixmap: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIconEngine_AddPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `onAddPixmap` instead
+    ///
+    pub const OnAddPixmap = onAddPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
@@ -223,13 +259,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, pixmap: QPixmap, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnAddPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QPixmap, i32, i32) callconv(.c) void) void {
+    pub fn onAddPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QPixmap, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnAddPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddPixmap` instead
+    /// ### DEPRECATED: Use `superAddPixmap` instead
     ///
-    pub const QBaseAddPixmap = SuperAddPixmap;
+    pub const SuperAddPixmap = superAddPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addPixmap)
     ///
@@ -239,16 +275,20 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
     /// ` mode: qicon_enums.Mode `
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperAddPixmap(self: QIconEngine, pixmap: anytype, mode: i32, state: i32) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIconEngine_SuperAddPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @bitCast(mode), @bitCast(state));
+    pub fn superAddPixmap(self: QIconEngine, _pixmap: anytype, mode: i32, state: i32) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIconEngine_SuperAddPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `addFile` instead
+    ///
+    pub const AddFile = addFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
@@ -264,7 +304,7 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AddFile(self: QIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
+    pub fn addFile(self: QIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -272,6 +312,10 @@ pub const QIconEngine = extern struct {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QIconEngine_AddFile(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `onAddFile` instead
+    ///
+    pub const OnAddFile = onAddFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
@@ -283,13 +327,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, fileName: [*:0]const u8, size: QSize, mode: qicon_enums.Mode, state: qicon_enums.State) callconv(.c) void `
     ///
-    pub fn OnAddFile(self: QIconEngine, callback: *const fn (QIconEngine, [*:0]const u8, QSize, i32, i32) callconv(.c) void) void {
+    pub fn onAddFile(self: QIconEngine, callback: *const fn (QIconEngine, [*:0]const u8, QSize, i32, i32) callconv(.c) void) void {
         qtc.QIconEngine_OnAddFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddFile` instead
+    /// ### DEPRECATED: Use `superAddFile` instead
     ///
-    pub const QBaseAddFile = SuperAddFile;
+    pub const SuperAddFile = superAddFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#addFile)
     ///
@@ -307,7 +351,7 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperAddFile(self: QIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
+    pub fn superAddFile(self: QIconEngine, fileName: []const u8, size: anytype, mode: i32, state: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -315,6 +359,10 @@ pub const QIconEngine = extern struct {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QIconEngine_SuperAddFile(@ptrCast(self.ptr), fileName_str, @ptrCast(size.ptr), @bitCast(mode), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#key)
     ///
@@ -324,13 +372,17 @@ pub const QIconEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn key(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIconEngine_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onKey` instead
+    ///
+    pub const OnKey = onKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#key)
     ///
@@ -342,13 +394,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnKey(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onKey(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnKey(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKey` instead
+    /// ### DEPRECATED: Use `superKey` instead
     ///
-    pub const QBaseKey = SuperKey;
+    pub const SuperKey = superKey;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#key)
     ///
@@ -360,13 +412,17 @@ pub const QIconEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperKey(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn superKey(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIconEngine_SuperKey(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#clone)
     ///
@@ -374,9 +430,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    pub fn Clone(self: QIconEngine) QIconEngine {
+    pub fn clone(self: QIconEngine) QIconEngine {
         return .{ .ptr = qtc.QIconEngine_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#clone)
     ///
@@ -388,13 +448,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QIconEngine `
     ///
-    pub fn OnClone(self: QIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
+    pub fn onClone(self: QIconEngine, callback: *const fn () callconv(.c) QIconEngine) void {
         qtc.QIconEngine_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#clone)
     ///
@@ -404,9 +464,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    pub fn SuperClone(self: QIconEngine) QIconEngine {
+    pub fn superClone(self: QIconEngine) QIconEngine {
         return .{ .ptr = qtc.QIconEngine_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
@@ -416,10 +480,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` in: QDataStream `
     ///
-    pub fn Read(self: QIconEngine, in: anytype) bool {
+    pub fn read(self: QIconEngine, in: anytype) bool {
         comptime _ = @TypeOf(in)._is_QDataStream;
         return qtc.QIconEngine_Read(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRead` instead
+    ///
+    pub const OnRead = onRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
@@ -431,13 +499,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, in: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnRead(self: QIconEngine, callback: *const fn (QIconEngine, QDataStream) callconv(.c) bool) void {
+    pub fn onRead(self: QIconEngine, callback: *const fn (QIconEngine, QDataStream) callconv(.c) bool) void {
         qtc.QIconEngine_OnRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRead` instead
+    /// ### DEPRECATED: Use `superRead` instead
     ///
-    pub const QBaseRead = SuperRead;
+    pub const SuperRead = superRead;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#read)
     ///
@@ -449,10 +517,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` in: QDataStream `
     ///
-    pub fn SuperRead(self: QIconEngine, in: anytype) bool {
+    pub fn superRead(self: QIconEngine, in: anytype) bool {
         comptime _ = @TypeOf(in)._is_QDataStream;
         return qtc.QIconEngine_SuperRead(@ptrCast(self.ptr), @ptrCast(in.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
@@ -462,10 +534,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` out: QDataStream `
     ///
-    pub fn Write(self: QIconEngine, out: anytype) bool {
+    pub fn write(self: QIconEngine, out: anytype) bool {
         comptime _ = @TypeOf(out)._is_QDataStream;
         return qtc.QIconEngine_Write(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWrite` instead
+    ///
+    pub const OnWrite = onWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
@@ -477,13 +553,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, out: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnWrite(self: QIconEngine, callback: *const fn (QIconEngine, QDataStream) callconv(.c) bool) void {
+    pub fn onWrite(self: QIconEngine, callback: *const fn (QIconEngine, QDataStream) callconv(.c) bool) void {
         qtc.QIconEngine_OnWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWrite` instead
+    /// ### DEPRECATED: Use `superWrite` instead
     ///
-    pub const QBaseWrite = SuperWrite;
+    pub const SuperWrite = superWrite;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#write)
     ///
@@ -495,10 +571,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` out: QDataStream `
     ///
-    pub fn SuperWrite(self: QIconEngine, out: anytype) bool {
+    pub fn superWrite(self: QIconEngine, out: anytype) bool {
         comptime _ = @TypeOf(out)._is_QDataStream;
         return qtc.QIconEngine_SuperWrite(@ptrCast(self.ptr), @ptrCast(out.ptr));
     }
+
+    /// ### DEPRECATED: Use `availableSizes` instead
+    ///
+    pub const AvailableSizes = availableSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
@@ -512,15 +592,19 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn AvailableSizes(self: QIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
+    pub fn availableSizes(self: QIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.QIconEngine_AvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIconEngine.AvailableSizes: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIconEngine.availableSizes: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onAvailableSizes` instead
+    ///
+    pub const OnAvailableSizes = onAvailableSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
@@ -538,13 +622,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` C ABI representation of []QSize `
     ///
-    pub fn OnAvailableSizes(self: QIconEngine, callback: *const fn (QIconEngine, i32, i32) callconv(.c) qtc.libqt_list) void {
+    pub fn onAvailableSizes(self: QIconEngine, callback: *const fn (QIconEngine, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QIconEngine_OnAvailableSizes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAvailableSizes` instead
+    /// ### DEPRECATED: Use `superAvailableSizes` instead
     ///
-    pub const QBaseAvailableSizes = SuperAvailableSizes;
+    pub const SuperAvailableSizes = superAvailableSizes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#availableSizes)
     ///
@@ -560,15 +644,19 @@ pub const QIconEngine = extern struct {
     ///
     /// ` state: qicon_enums.State `
     ///
-    pub fn SuperAvailableSizes(self: QIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
+    pub fn superAvailableSizes(self: QIconEngine, allocator: std.mem.Allocator, mode: i32, state: i32) []QSize {
         const _arr: qtc.libqt_list = qtc.QIconEngine_SuperAvailableSizes(@ptrCast(self.ptr), @bitCast(mode), @bitCast(state));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIconEngine.AvailableSizes: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QIconEngine.availableSizes: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
@@ -578,13 +666,17 @@ pub const QIconEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIconEngine_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onIconName` instead
+    ///
+    pub const OnIconName = onIconName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
@@ -596,13 +688,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnIconName(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onIconName(self: QIconEngine, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QIconEngine_OnIconName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIconName` instead
+    /// ### DEPRECATED: Use `superIconName` instead
     ///
-    pub const QBaseIconName = SuperIconName;
+    pub const SuperIconName = superIconName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#iconName)
     ///
@@ -614,13 +706,17 @@ pub const QIconEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperIconName(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn superIconName(self: QIconEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIconEngine_SuperIconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QIconEngine.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#isNull)
     ///
@@ -628,9 +724,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    pub fn IsNull(self: QIconEngine) bool {
+    pub fn isNull(self: QIconEngine) bool {
         return qtc.QIconEngine_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsNull` instead
+    ///
+    pub const OnIsNull = onIsNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#isNull)
     ///
@@ -642,13 +742,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsNull(self: QIconEngine, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsNull(self: QIconEngine, callback: *const fn () callconv(.c) bool) void {
         qtc.QIconEngine_OnIsNull(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsNull` instead
+    /// ### DEPRECATED: Use `superIsNull` instead
     ///
-    pub const QBaseIsNull = SuperIsNull;
+    pub const SuperIsNull = superIsNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#isNull)
     ///
@@ -658,9 +758,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` self: QIconEngine `
     ///
-    pub fn SuperIsNull(self: QIconEngine) bool {
+    pub fn superIsNull(self: QIconEngine) bool {
         return qtc.QIconEngine_SuperIsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scaledPixmap` instead
+    ///
+    pub const ScaledPixmap = scaledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#scaledPixmap)
     ///
@@ -676,10 +780,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn ScaledPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
+    pub fn scaledPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_ScaledPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state), @bitCast(scale)) };
     }
+
+    /// ### DEPRECATED: Use `onScaledPixmap` instead
+    ///
+    pub const OnScaledPixmap = onScaledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#scaledPixmap)
     ///
@@ -693,13 +801,13 @@ pub const QIconEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnScaledPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32, f64) callconv(.c) QPixmap) void {
+    pub fn onScaledPixmap(self: QIconEngine, callback: *const fn (QIconEngine, QSize, i32, i32, f64) callconv(.c) QPixmap) void {
         qtc.QIconEngine_OnScaledPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScaledPixmap` instead
+    /// ### DEPRECATED: Use `superScaledPixmap` instead
     ///
-    pub const QBaseScaledPixmap = SuperScaledPixmap;
+    pub const SuperScaledPixmap = superScaledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#scaledPixmap)
     ///
@@ -717,10 +825,14 @@ pub const QIconEngine = extern struct {
     ///
     /// ` scale: f64 `
     ///
-    pub fn SuperScaledPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
+    pub fn superScaledPixmap(self: QIconEngine, size: anytype, mode: i32, state: i32, scale: f64) QPixmap {
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QIconEngine_SuperScaledPixmap(@ptrCast(self.ptr), @ptrCast(size.ptr), @bitCast(mode), @bitCast(state), @bitCast(scale)) };
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
@@ -732,9 +844,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: QIconEngine, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: QIconEngine, id: i32, data: ?*anyopaque) void {
         qtc.QIconEngine_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
@@ -746,13 +862,13 @@ pub const QIconEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QIconEngine, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: QIconEngine, callback: *const fn (QIconEngine, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: QIconEngine, callback: *const fn (QIconEngine, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.QIconEngine_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#virtual_hook)
     ///
@@ -766,23 +882,23 @@ pub const QIconEngine = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: QIconEngine, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: QIconEngine, id: i32, data: ?*anyopaque) void {
         qtc.QIconEngine_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine.html#dtor.QIconEngine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIconEngine `
     ///
-    pub fn Delete(self: QIconEngine) void {
+    pub fn delete(self: QIconEngine) void {
         qtc.QIconEngine_Delete(@ptrCast(self.ptr));
     }
 };
@@ -797,32 +913,34 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
 
     pub const _is_QIconEngine__ScaledPixmapArgument = {};
 
-    /// New constructs a new QIconEngine::ScaledPixmapArgument object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QIconEngine__ScaledPixmapArgument {
+    pub const New = new;
+
+    /// Allocate a new QIconEngine::ScaledPixmapArgument object in C++ memory
+    ///
+    pub fn new() QIconEngine__ScaledPixmapArgument {
         return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_new() };
     }
 
-    /// New2 constructs a new QIconEngine::ScaledPixmapArgument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QIconEngine::ScaledPixmapArgument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn New2(param1: anytype) QIconEngine__ScaledPixmapArgument {
+    pub fn new2(param1: anytype) QIconEngine__ScaledPixmapArgument {
         comptime _ = @TypeOf(param1)._is_QIconEngine__ScaledPixmapArgument;
         return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)
+    /// ### DEPRECATED: Use `size` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QIconEngine__ScaledPixmapArgument `
-    ///
-    pub fn Size(self: QIconEngine__ScaledPixmapArgument) QSize {
-        return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_Size(@ptrCast(self.ptr)) };
-    }
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)
     ///
@@ -830,12 +948,30 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    /// ` size: QSize `
-    ///
-    pub fn SetSize(self: QIconEngine__ScaledPixmapArgument, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QIconEngine__ScaledPixmapArgument_SetSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn size(self: QIconEngine__ScaledPixmapArgument) QSize {
+        return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#size-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QIconEngine__ScaledPixmapArgument `
+    ///
+    /// ` _size: QSize `
+    ///
+    pub fn setSize(self: QIconEngine__ScaledPixmapArgument, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QIconEngine__ScaledPixmapArgument_SetSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#mode-var)
     ///
@@ -847,9 +983,13 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` qicon_enums.Mode `
     ///
-    pub fn Mode(self: QIconEngine__ScaledPixmapArgument) i32 {
+    pub fn mode(self: QIconEngine__ScaledPixmapArgument) i32 {
         return qtc.QIconEngine__ScaledPixmapArgument_Mode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#mode-var)
     ///
@@ -857,11 +997,15 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    /// ` mode: qicon_enums.Mode `
+    /// ` _mode: qicon_enums.Mode `
     ///
-    pub fn SetMode(self: QIconEngine__ScaledPixmapArgument, mode: i32) void {
-        qtc.QIconEngine__ScaledPixmapArgument_SetMode(@ptrCast(self.ptr), @bitCast(mode));
+    pub fn setMode(self: QIconEngine__ScaledPixmapArgument, _mode: i32) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetMode(@ptrCast(self.ptr), @bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#state-var)
     ///
@@ -873,9 +1017,13 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` qicon_enums.State `
     ///
-    pub fn State(self: QIconEngine__ScaledPixmapArgument) i32 {
+    pub fn state(self: QIconEngine__ScaledPixmapArgument) i32 {
         return qtc.QIconEngine__ScaledPixmapArgument_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#state-var)
     ///
@@ -883,11 +1031,15 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    /// ` state: qicon_enums.State `
+    /// ` _state: qicon_enums.State `
     ///
-    pub fn SetState(self: QIconEngine__ScaledPixmapArgument, state: i32) void {
-        qtc.QIconEngine__ScaledPixmapArgument_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QIconEngine__ScaledPixmapArgument, _state: i32) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#scale-var)
     ///
@@ -895,21 +1047,29 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn Scale(self: QIconEngine__ScaledPixmapArgument) f64 {
+    pub fn scale(self: QIconEngine__ScaledPixmapArgument) f64 {
         return qtc.QIconEngine__ScaledPixmapArgument_Scale(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setScale` instead
+    ///
+    pub const SetScale = setScale;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#scale-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    /// ` scale: f64 `
+    /// ` _scale: f64 `
     ///
-    pub fn SetScale(self: QIconEngine__ScaledPixmapArgument, scale: f64) void {
-        qtc.QIconEngine__ScaledPixmapArgument_SetScale(@ptrCast(self.ptr), @bitCast(scale));
+    pub fn setScale(self: QIconEngine__ScaledPixmapArgument, _scale: f64) void {
+        qtc.QIconEngine__ScaledPixmapArgument_SetScale(@ptrCast(self.ptr), @bitCast(_scale));
     }
+
+    /// ### DEPRECATED: Use `pixmap` instead
+    ///
+    pub const Pixmap = pixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#pixmap-var)
     ///
@@ -917,22 +1077,30 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn Pixmap(self: QIconEngine__ScaledPixmapArgument) QPixmap {
+    pub fn pixmap(self: QIconEngine__ScaledPixmapArgument) QPixmap {
         return .{ .ptr = qtc.QIconEngine__ScaledPixmapArgument_Pixmap(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPixmap` instead
+    ///
+    pub const SetPixmap = setPixmap;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#pixmap-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    /// ` pixmap: QPixmap `
+    /// ` _pixmap: QPixmap `
     ///
-    pub fn SetPixmap(self: QIconEngine__ScaledPixmapArgument, pixmap: anytype) void {
-        comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QIconEngine__ScaledPixmapArgument_SetPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
+    pub fn setPixmap(self: QIconEngine__ScaledPixmapArgument, _pixmap: anytype) void {
+        comptime _ = @TypeOf(_pixmap)._is_QPixmap;
+        qtc.QIconEngine__ScaledPixmapArgument_SetPixmap(@ptrCast(self.ptr), @ptrCast(_pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiconengine-scaledpixmapargument.html#operator-eq)
     ///
@@ -942,22 +1110,22 @@ pub const QIconEngine__ScaledPixmapArgument = extern struct {
     ///
     /// ` param1: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn OperatorAssign(self: QIconEngine__ScaledPixmapArgument, param1: anytype) void {
+    pub fn operatorAssign(self: QIconEngine__ScaledPixmapArgument, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QIconEngine__ScaledPixmapArgument;
         qtc.QIconEngine__ScaledPixmapArgument_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIconEngine__ScaledPixmapArgument `
     ///
-    pub fn Delete(self: QIconEngine__ScaledPixmapArgument) void {
+    pub fn delete(self: QIconEngine__ScaledPixmapArgument) void {
         qtc.QIconEngine__ScaledPixmapArgument_Delete(@ptrCast(self.ptr));
     }
 };

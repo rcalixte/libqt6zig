@@ -23,6 +23,10 @@ pub const KMessageBox = extern struct {
 
     pub const _is_KMessageBox = {};
 
+    /// ### DEPRECATED: Use `questionTwoActions` instead
+    ///
+    pub const QuestionTwoActions = questionTwoActions;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActions)
     ///
     /// ## Parameter(s):
@@ -45,7 +49,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActions(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActions(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -63,6 +67,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActions(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `questionTwoActionsCancel` instead
+    ///
+    pub const QuestionTwoActionsCancel = questionTwoActionsCancel;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsCancel)
     ///
@@ -88,7 +96,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsCancel(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActionsCancel(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -107,6 +115,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActionsCancel(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `questionTwoActionsList` instead
+    ///
+    pub const QuestionTwoActionsList = questionTwoActionsList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsList)
     ///
@@ -134,18 +146,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActionsList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.QuestionTwoActionsList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.questionTwoActionsList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -163,6 +175,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActionsList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActions` instead
+    ///
+    pub const WarningTwoActions = warningTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActions)
     ///
@@ -186,7 +202,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActions(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActions(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -204,6 +220,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActions(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsList` instead
+    ///
+    pub const WarningTwoActionsList = warningTwoActionsList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsList)
     ///
@@ -231,18 +251,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningTwoActionsList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -260,6 +280,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActionsList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningContinueCancel` instead
+    ///
+    pub const WarningContinueCancel = warningContinueCancel;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancel)
     ///
@@ -283,7 +307,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancel(parent: anytype, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningContinueCancel(parent: anytype, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -301,6 +325,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningContinueCancel(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(buttonContinue.ptr), @ptrCast(buttonCancel.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningContinueCancelDetailed` instead
+    ///
+    pub const WarningContinueCancelDetailed = warningContinueCancelDetailed;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelDetailed)
     ///
@@ -326,7 +354,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelDetailed(parent: anytype, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32, details: []const u8) i32 {
+    pub fn warningContinueCancelDetailed(parent: anytype, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32, details: []const u8) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -348,6 +376,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningContinueCancelDetailed(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(buttonContinue.ptr), @ptrCast(buttonCancel.ptr), dontAskAgainName_str, @bitCast(options), details_str);
     }
+
+    /// ### DEPRECATED: Use `warningContinueCancelList` instead
+    ///
+    pub const WarningContinueCancelList = warningContinueCancelList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelList)
     ///
@@ -375,18 +407,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningContinueCancelList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningContinueCancelList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningContinueCancelList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -404,6 +436,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningContinueCancelList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, @ptrCast(buttonContinue.ptr), @ptrCast(buttonCancel.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsCancel` instead
+    ///
+    pub const WarningTwoActionsCancel = warningTwoActionsCancel;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancel)
     ///
@@ -429,7 +465,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancel(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsCancel(parent: anytype, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -448,6 +484,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActionsCancel(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsCancelList` instead
+    ///
+    pub const WarningTwoActionsCancelList = warningTwoActionsCancelList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelList)
     ///
@@ -477,18 +517,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancelList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsCancelList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsCancelList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningTwoActionsCancelList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -508,6 +548,12 @@ pub const KMessageBox = extern struct {
         return qtc.KMessageBox_WarningTwoActionsCancelList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#error)
     ///
     /// ## Parameter(s):
@@ -520,7 +566,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn Error(parent: anytype, text: []const u8, title: []const u8, options: i32) void {
+    pub fn error0(parent: anytype, text: []const u8, title: []const u8, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -532,6 +578,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_Error(@ptrCast(parent.ptr), text_str, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `error2` instead
+    ///
+    pub const Error2 = error2;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#error)
     ///
@@ -547,7 +597,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn Error2(parent: anytype, text: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
+    pub fn error2(parent: anytype, text: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -560,6 +610,10 @@ pub const KMessageBox = extern struct {
         comptime _ = @TypeOf(buttonOk)._is_KGuiItem;
         qtc.KMessageBox_Error2(@ptrCast(parent.ptr), text_str, title_str, @ptrCast(buttonOk.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `errorList` instead
+    ///
+    pub const ErrorList = errorList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorList)
     ///
@@ -577,18 +631,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn ErrorList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, options: i32) void {
+    pub fn errorList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.ErrorList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.errorList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -600,6 +654,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_ErrorList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `detailedError` instead
+    ///
+    pub const DetailedError = detailedError;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedError)
     ///
@@ -615,7 +673,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn DetailedError(parent: anytype, text: []const u8, details: []const u8, title: []const u8, options: i32) void {
+    pub fn detailedError(parent: anytype, text: []const u8, details: []const u8, title: []const u8, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -631,6 +689,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_DetailedError(@ptrCast(parent.ptr), text_str, details_str, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `detailedError2` instead
+    ///
+    pub const DetailedError2 = detailedError2;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedError)
     ///
@@ -648,7 +710,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn DetailedError2(parent: anytype, text: []const u8, details: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
+    pub fn detailedError2(parent: anytype, text: []const u8, details: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -666,6 +728,10 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_DetailedError2(@ptrCast(parent.ptr), text_str, details_str, title_str, @ptrCast(buttonOk.ptr), @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `information` instead
+    ///
+    pub const Information = information;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#information)
     ///
     /// ## Parameter(s):
@@ -680,7 +746,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn Information(parent: anytype, text: []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
+    pub fn information(parent: anytype, text: []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -696,6 +762,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_Information(@ptrCast(parent.ptr), text_str, title_str, dontShowAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `informationList` instead
+    ///
+    pub const InformationList = informationList;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationList)
     ///
@@ -715,18 +785,18 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn InformationList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
+    pub fn informationList(allocator: std.mem.Allocator, parent: anytype, text: []const u8, strlist: []const []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.InformationList: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.informationList: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -743,11 +813,19 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_InformationList(@ptrCast(parent.ptr), text_str, strlist_list, title_str, dontShowAgainName_str, @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `enableAllMessages` instead
+    ///
+    pub const EnableAllMessages = enableAllMessages;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#enableAllMessages)
     ///
-    pub fn EnableAllMessages() void {
+    pub fn enableAllMessages() void {
         qtc.KMessageBox_EnableAllMessages();
     }
+
+    /// ### DEPRECATED: Use `enableMessage` instead
+    ///
+    pub const EnableMessage = enableMessage;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#enableMessage)
     ///
@@ -755,7 +833,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn EnableMessage(dontShowAgainName: []const u8) void {
+    pub fn enableMessage(dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
@@ -763,13 +841,17 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_EnableMessage(dontShowAgainName_str);
     }
 
+    /// ### DEPRECATED: Use `messageBox` instead
+    ///
+    pub const MessageBox = messageBox;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#messageBox)
     ///
     /// ## Parameter(s):
     ///
     /// ` parent: QWidget `
     ///
-    /// ` type: kmessagebox_enums.DialogType `
+    /// ` _type: kmessagebox_enums.DialogType `
     ///
     /// ` text: []const u8 `
     ///
@@ -789,7 +871,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn MessageBox(parent: anytype, _type: i32, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontShowAskAgainName: []const u8, options: i32) i32 {
+    pub fn messageBox(parent: anytype, _type: i32, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontShowAskAgainName: []const u8, options: i32) i32 {
         comptime _ = @TypeOf(parent)._is_QWidget;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -809,6 +891,10 @@ pub const KMessageBox = extern struct {
         return qtc.KMessageBox_MessageBox(@ptrCast(parent.ptr), @bitCast(_type), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontShowAskAgainName_str, @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `shouldBeShownTwoActions` instead
+    ///
+    pub const ShouldBeShownTwoActions = shouldBeShownTwoActions;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#shouldBeShownTwoActions)
     ///
     /// ## Parameter(s):
@@ -817,7 +903,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` result: *kmessagebox_enums.ButtonCode `
     ///
-    pub fn ShouldBeShownTwoActions(dontShowAgainName: []const u8, result: *i32) bool {
+    pub fn shouldBeShownTwoActions(dontShowAgainName: []const u8, result: *i32) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
@@ -825,19 +911,27 @@ pub const KMessageBox = extern struct {
         return qtc.KMessageBox_ShouldBeShownTwoActions(dontShowAgainName_str, @ptrCast(result));
     }
 
+    /// ### DEPRECATED: Use `shouldBeShownContinue` instead
+    ///
+    pub const ShouldBeShownContinue = shouldBeShownContinue;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#shouldBeShownContinue)
     ///
     /// ## Parameter(s):
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn ShouldBeShownContinue(dontShowAgainName: []const u8) bool {
+    pub fn shouldBeShownContinue(dontShowAgainName: []const u8) bool {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
         };
         return qtc.KMessageBox_ShouldBeShownContinue(dontShowAgainName_str);
     }
+
+    /// ### DEPRECATED: Use `saveDontShowAgainTwoActions` instead
+    ///
+    pub const SaveDontShowAgainTwoActions = saveDontShowAgainTwoActions;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#saveDontShowAgainTwoActions)
     ///
@@ -847,7 +941,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` result: kmessagebox_enums.ButtonCode `
     ///
-    pub fn SaveDontShowAgainTwoActions(dontShowAgainName: []const u8, result: i32) void {
+    pub fn saveDontShowAgainTwoActions(dontShowAgainName: []const u8, result: i32) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
@@ -855,13 +949,17 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_SaveDontShowAgainTwoActions(dontShowAgainName_str, @bitCast(result));
     }
 
+    /// ### DEPRECATED: Use `saveDontShowAgainContinue` instead
+    ///
+    pub const SaveDontShowAgainContinue = saveDontShowAgainContinue;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#saveDontShowAgainContinue)
     ///
     /// ## Parameter(s):
     ///
     /// ` dontShowAgainName: []const u8 `
     ///
-    pub fn SaveDontShowAgainContinue(dontShowAgainName: []const u8) void {
+    pub fn saveDontShowAgainContinue(dontShowAgainName: []const u8) void {
         const dontShowAgainName_str = qtc.libqt_string{
             .len = dontShowAgainName.len,
             .data = dontShowAgainName.ptr,
@@ -869,16 +967,24 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_SaveDontShowAgainContinue(dontShowAgainName_str);
     }
 
+    /// ### DEPRECATED: Use `setDontShowAgainConfig` instead
+    ///
+    pub const SetDontShowAgainConfig = setDontShowAgainConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#setDontShowAgainConfig)
     ///
     /// ## Parameter(s):
     ///
     /// ` cfg: KConfig `
     ///
-    pub fn SetDontShowAgainConfig(cfg: anytype) void {
+    pub fn setDontShowAgainConfig(cfg: anytype) void {
         comptime _ = @TypeOf(cfg)._is_KConfig;
         qtc.KMessageBox_SetDontShowAgainConfig(@ptrCast(cfg.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDontShowAgainInterface` instead
+    ///
+    pub const SetDontShowAgainInterface = setDontShowAgainInterface;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#setDontShowAgainInterface)
     ///
@@ -886,10 +992,14 @@ pub const KMessageBox = extern struct {
     ///
     /// ` dontAskAgainInterface: KMessageBoxDontAskAgainInterface `
     ///
-    pub fn SetDontShowAgainInterface(dontAskAgainInterface: anytype) void {
+    pub fn setDontShowAgainInterface(dontAskAgainInterface: anytype) void {
         comptime _ = @TypeOf(dontAskAgainInterface)._is_KMessageBoxDontAskAgainInterface;
         qtc.KMessageBox_SetDontShowAgainInterface(@ptrCast(dontAskAgainInterface.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNotifyInterface` instead
+    ///
+    pub const SetNotifyInterface = setNotifyInterface;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#setNotifyInterface)
     ///
@@ -897,10 +1007,14 @@ pub const KMessageBox = extern struct {
     ///
     /// ` notifyInterface: KMessageBoxNotifyInterface `
     ///
-    pub fn SetNotifyInterface(notifyInterface: anytype) void {
+    pub fn setNotifyInterface(notifyInterface: anytype) void {
         comptime _ = @TypeOf(notifyInterface)._is_KMessageBoxNotifyInterface;
         qtc.KMessageBox_SetNotifyInterface(@ptrCast(notifyInterface.ptr));
     }
+
+    /// ### DEPRECATED: Use `createKMessageBox` instead
+    ///
+    pub const CreateKMessageBox = createKMessageBox;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#createKMessageBox)
     ///
@@ -930,19 +1044,19 @@ pub const KMessageBox = extern struct {
     ///
     /// ` qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn CreateKMessageBox(allocator: std.mem.Allocator, dialog: anytype, buttons: anytype, icon: i32, text: []const u8, strlist: []const []const u8, ask: []const u8, checkboxReturn: *bool, options: i32, details: []const u8) i32 {
+    pub fn createKMessageBox(allocator: std.mem.Allocator, dialog: anytype, buttons: anytype, icon: i32, text: []const u8, strlist: []const []const u8, ask: []const u8, checkboxReturn: *bool, options: i32, details: []const u8) i32 {
         comptime _ = @TypeOf(dialog)._is_QDialog;
         comptime _ = @TypeOf(buttons)._is_QDialogButtonBox;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.CreateKMessageBox: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.createKMessageBox: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -958,6 +1072,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_CreateKMessageBox(@ptrCast(dialog.ptr), @ptrCast(buttons.ptr), @bitCast(icon), text_str, strlist_list, ask_str, @ptrCast(checkboxReturn), @bitCast(options), details_str);
     }
+
+    /// ### DEPRECATED: Use `createKMessageBox2` instead
+    ///
+    pub const CreateKMessageBox2 = createKMessageBox2;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#createKMessageBox)
     ///
@@ -989,7 +1107,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` qdialogbuttonbox_enums.StandardButton `
     ///
-    pub fn CreateKMessageBox2(allocator: std.mem.Allocator, dialog: anytype, buttons: anytype, icon: anytype, text: []const u8, strlist: []const []const u8, ask: []const u8, checkboxReturn: *bool, options: i32, details: []const u8, notifyType: i32) i32 {
+    pub fn createKMessageBox2(allocator: std.mem.Allocator, dialog: anytype, buttons: anytype, icon: anytype, text: []const u8, strlist: []const []const u8, ask: []const u8, checkboxReturn: *bool, options: i32, details: []const u8, notifyType: i32) i32 {
         comptime _ = @TypeOf(dialog)._is_QDialog;
         comptime _ = @TypeOf(buttons)._is_QDialogButtonBox;
         comptime _ = @TypeOf(icon)._is_QIcon;
@@ -997,12 +1115,12 @@ pub const KMessageBox = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.CreateKMessageBox2: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.createKMessageBox2: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1018,6 +1136,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_CreateKMessageBox2(@ptrCast(dialog.ptr), @ptrCast(buttons.ptr), @ptrCast(icon.ptr), text_str, strlist_list, ask_str, @ptrCast(checkboxReturn), @bitCast(options), details_str, @bitCast(notifyType));
     }
+
+    /// ### DEPRECATED: Use `questionTwoActionsWId` instead
+    ///
+    pub const QuestionTwoActionsWId = questionTwoActionsWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsWId)
     ///
@@ -1041,7 +1163,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActionsWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1058,6 +1180,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActionsWId(@bitCast(parent_id), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `questionTwoActionsCancelWId` instead
+    ///
+    pub const QuestionTwoActionsCancelWId = questionTwoActionsCancelWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsCancelWId)
     ///
@@ -1083,7 +1209,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsCancelWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActionsCancelWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1101,6 +1227,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActionsCancelWId(@bitCast(parent_id), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `questionTwoActionsListWId` instead
+    ///
+    pub const QuestionTwoActionsListWId = questionTwoActionsListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#questionTwoActionsListWId)
     ///
@@ -1128,17 +1258,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn QuestionTwoActionsListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn questionTwoActionsListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.QuestionTwoActionsListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.questionTwoActionsListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1156,6 +1286,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_QuestionTwoActionsListWId(@bitCast(parent_id), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsWId` instead
+    ///
+    pub const WarningTwoActionsWId = warningTwoActionsWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsWId)
     ///
@@ -1179,7 +1313,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1196,6 +1330,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActionsWId(@bitCast(parent_id), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsListWId` instead
+    ///
+    pub const WarningTwoActionsListWId = warningTwoActionsListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsListWId)
     ///
@@ -1223,17 +1361,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningTwoActionsListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1251,6 +1389,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActionsListWId(@bitCast(parent_id), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningContinueCancelWId` instead
+    ///
+    pub const WarningContinueCancelWId = warningContinueCancelWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelWId)
     ///
@@ -1274,7 +1416,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelWId(parent_id: usize, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningContinueCancelWId(parent_id: usize, text: []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1291,6 +1433,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningContinueCancelWId(@bitCast(parent_id), text_str, title_str, @ptrCast(buttonContinue.ptr), @ptrCast(buttonCancel.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningContinueCancelListWId` instead
+    ///
+    pub const WarningContinueCancelListWId = warningContinueCancelListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningContinueCancelListWId)
     ///
@@ -1318,17 +1464,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningContinueCancelListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningContinueCancelListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, buttonContinue: anytype, buttonCancel: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningContinueCancelListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningContinueCancelListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1346,6 +1492,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningContinueCancelListWId(@bitCast(parent_id), text_str, strlist_list, title_str, @ptrCast(buttonContinue.ptr), @ptrCast(buttonCancel.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsCancelWId` instead
+    ///
+    pub const WarningTwoActionsCancelWId = warningTwoActionsCancelWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelWId)
     ///
@@ -1371,7 +1521,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancelWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsCancelWId(parent_id: usize, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1389,6 +1539,10 @@ pub const KMessageBox = extern struct {
         };
         return qtc.KMessageBox_WarningTwoActionsCancelWId(@bitCast(parent_id), text_str, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `warningTwoActionsCancelListWId` instead
+    ///
+    pub const WarningTwoActionsCancelListWId = warningTwoActionsCancelListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#warningTwoActionsCancelListWId)
     ///
@@ -1418,17 +1572,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn WarningTwoActionsCancelListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
+    pub fn warningTwoActionsCancelListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.WarningTwoActionsCancelListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.warningTwoActionsCancelListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1448,6 +1602,10 @@ pub const KMessageBox = extern struct {
         return qtc.KMessageBox_WarningTwoActionsCancelListWId(@bitCast(parent_id), text_str, strlist_list, title_str, @ptrCast(primaryAction.ptr), @ptrCast(secondaryAction.ptr), @ptrCast(cancelAction.ptr), dontAskAgainName_str, @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `errorWId` instead
+    ///
+    pub const ErrorWId = errorWId;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorWId)
     ///
     /// ## Parameter(s):
@@ -1460,7 +1618,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn ErrorWId(parent_id: usize, text: []const u8, title: []const u8, options: i32) void {
+    pub fn errorWId(parent_id: usize, text: []const u8, title: []const u8, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1471,6 +1629,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_ErrorWId(@bitCast(parent_id), text_str, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `errorListWId` instead
+    ///
+    pub const ErrorListWId = errorListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#errorListWId)
     ///
@@ -1488,17 +1650,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn ErrorListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, options: i32) void {
+    pub fn errorListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.ErrorListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.errorListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1510,6 +1672,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_ErrorListWId(@bitCast(parent_id), text_str, strlist_list, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `detailedErrorWId` instead
+    ///
+    pub const DetailedErrorWId = detailedErrorWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedErrorWId)
     ///
@@ -1525,7 +1691,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn DetailedErrorWId(parent_id: usize, text: []const u8, details: []const u8, title: []const u8, options: i32) void {
+    pub fn detailedErrorWId(parent_id: usize, text: []const u8, details: []const u8, title: []const u8, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1540,6 +1706,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_DetailedErrorWId(@bitCast(parent_id), text_str, details_str, title_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `detailedErrorWId2` instead
+    ///
+    pub const DetailedErrorWId2 = detailedErrorWId2;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#detailedErrorWId)
     ///
@@ -1557,7 +1727,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn DetailedErrorWId2(parent_id: usize, text: []const u8, details: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
+    pub fn detailedErrorWId2(parent_id: usize, text: []const u8, details: []const u8, title: []const u8, buttonOk: anytype, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1574,6 +1744,10 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_DetailedErrorWId2(@bitCast(parent_id), text_str, details_str, title_str, @ptrCast(buttonOk.ptr), @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `informationWId` instead
+    ///
+    pub const InformationWId = informationWId;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationWId)
     ///
     /// ## Parameter(s):
@@ -1588,7 +1762,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn InformationWId(parent_id: usize, text: []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
+    pub fn informationWId(parent_id: usize, text: []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1603,6 +1777,10 @@ pub const KMessageBox = extern struct {
         };
         qtc.KMessageBox_InformationWId(@bitCast(parent_id), text_str, title_str, dontShowAgainName_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `informationListWId` instead
+    ///
+    pub const InformationListWId = informationListWId;
 
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#informationListWId)
     ///
@@ -1622,17 +1800,17 @@ pub const KMessageBox = extern struct {
     ///
     /// ` options: flag of kmessagebox_enums.Option `
     ///
-    pub fn InformationListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
+    pub fn informationListWId(allocator: std.mem.Allocator, parent_id: usize, text: []const u8, strlist: []const []const u8, title: []const u8, dontShowAgainName: []const u8, options: i32) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.InformationListWId: Memory allocation failed");
+        const strlist_arr = allocator.alloc(qtc.libqt_string, strlist.len) catch @panic("KMessageBox.informationListWId: Memory allocation failed");
         defer allocator.free(strlist_arr);
-        for (strlist, 0..strlist.len) |item, i|
+        for (strlist, 0..strlist.len) |str_item, i|
             strlist_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const strlist_list = qtc.libqt_list{
             .len = strlist.len,
@@ -1649,13 +1827,17 @@ pub const KMessageBox = extern struct {
         qtc.KMessageBox_InformationListWId(@bitCast(parent_id), text_str, strlist_list, title_str, dontShowAgainName_str, @bitCast(options));
     }
 
+    /// ### DEPRECATED: Use `messageBoxWId` instead
+    ///
+    pub const MessageBoxWId = messageBoxWId;
+
     /// ### [Upstream resources](https://api.kde.org/kmessagebox.html#messageBoxWId)
     ///
     /// ## Parameter(s):
     ///
     /// ` parent_id: usize `
     ///
-    /// ` type: kmessagebox_enums.DialogType `
+    /// ` _type: kmessagebox_enums.DialogType `
     ///
     /// ` text: []const u8 `
     ///
@@ -1675,7 +1857,7 @@ pub const KMessageBox = extern struct {
     ///
     /// ` kmessagebox_enums.ButtonCode `
     ///
-    pub fn MessageBoxWId(parent_id: usize, _type: i32, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontShowAskAgainName: []const u8, options: i32) i32 {
+    pub fn messageBoxWId(parent_id: usize, _type: i32, text: []const u8, title: []const u8, primaryAction: anytype, secondaryAction: anytype, cancelAction: anytype, dontShowAskAgainName: []const u8, options: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,

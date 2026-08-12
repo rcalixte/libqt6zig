@@ -16,60 +16,72 @@ pub const KArchiveFile = extern struct {
     pub const _is_KArchiveFile = {};
     pub const _is_KArchiveEntry = {};
 
-    /// New constructs a new KArchiveFile object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KArchiveFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` archive: KArchive `
+    /// ` _archive: KArchive `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` access: i32 `
     ///
-    /// ` date: QDateTime `
+    /// ` _date: QDateTime `
     ///
-    /// ` user: []const u8 `
+    /// ` _user: []const u8 `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
     /// ` symlink: []const u8 `
     ///
     /// ` pos: i64 `
     ///
-    /// ` size: i64 `
+    /// ` _size: i64 `
     ///
-    pub fn New(archive: anytype, name: []const u8, access: i32, date: anytype, user: []const u8, group: []const u8, symlink: []const u8, pos: i64, size: i64) KArchiveFile {
-        comptime _ = @TypeOf(archive)._is_KArchive;
+    pub fn new(_archive: anytype, _name: []const u8, access: i32, _date: anytype, _user: []const u8, _group: []const u8, symlink: []const u8, pos: i64, _size: i64) KArchiveFile {
+        comptime _ = @TypeOf(_archive)._is_KArchive;
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(date)._is_QDateTime;
+        comptime _ = @TypeOf(_date)._is_QDateTime;
         const user_str = qtc.libqt_string{
-            .len = user.len,
-            .data = user.ptr,
+            .len = _user.len,
+            .data = _user.ptr,
         };
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         const symlink_str = qtc.libqt_string{
             .len = symlink.len,
             .data = symlink.ptr,
         };
-        return .{ .ptr = qtc.KArchiveFile_new(@ptrCast(archive.ptr), name_str, @bitCast(access), @ptrCast(date.ptr), user_str, group_str, symlink_str, @bitCast(pos), @bitCast(size)) };
+        return .{ .ptr = qtc.KArchiveFile_new(@ptrCast(_archive.ptr), name_str, @bitCast(access), @ptrCast(_date.ptr), user_str, group_str, symlink_str, @bitCast(pos), @bitCast(_size)) };
     }
 
-    /// New2 constructs a new KArchiveFile object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KArchiveFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KArchiveFile `
     ///
-    pub fn New2(param1: anytype) KArchiveFile {
+    pub fn new2(param1: anytype) KArchiveFile {
         comptime _ = @TypeOf(param1)._is_KArchiveFile;
         return .{ .ptr = qtc.KArchiveFile_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#position)
     ///
@@ -77,9 +89,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Position(self: KArchiveFile) i64 {
+    pub fn position(self: KArchiveFile) i64 {
         return qtc.KArchiveFile_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#size)
     ///
@@ -87,9 +103,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Size(self: KArchiveFile) i64 {
+    pub fn size(self: KArchiveFile) i64 {
         return qtc.KArchiveFile_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSize` instead
+    ///
+    pub const SetSize = setSize;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#setSize)
     ///
@@ -99,9 +119,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` s: i64 `
     ///
-    pub fn SetSize(self: KArchiveFile, s: i64) void {
+    pub fn setSize(self: KArchiveFile, s: i64) void {
         qtc.KArchiveFile_SetSize(@ptrCast(self.ptr), @bitCast(s));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
     ///
@@ -111,13 +135,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
+    pub fn data(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KArchiveFile_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
     ///
@@ -129,13 +157,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) qtc.libqt_string `
     ///
-    pub fn OnData(self: KArchiveFile, callback: *const fn () callconv(.c) qtc.libqt_string) void {
+    pub fn onData(self: KArchiveFile, callback: *const fn () callconv(.c) qtc.libqt_string) void {
         qtc.KArchiveFile_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#data)
     ///
@@ -147,13 +175,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperData(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
+    pub fn superData(self: KArchiveFile, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.KArchiveFile_SuperData(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KArchiveFile.data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createDevice` instead
+    ///
+    pub const CreateDevice = createDevice;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#createDevice)
     ///
@@ -161,9 +193,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn CreateDevice(self: KArchiveFile) QIODevice {
+    pub fn createDevice(self: KArchiveFile) QIODevice {
         return .{ .ptr = qtc.KArchiveFile_CreateDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateDevice` instead
+    ///
+    pub const OnCreateDevice = onCreateDevice;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#createDevice)
     ///
@@ -175,13 +211,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QIODevice `
     ///
-    pub fn OnCreateDevice(self: KArchiveFile, callback: *const fn () callconv(.c) QIODevice) void {
+    pub fn onCreateDevice(self: KArchiveFile, callback: *const fn () callconv(.c) QIODevice) void {
         qtc.KArchiveFile_OnCreateDevice(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateDevice` instead
+    /// ### DEPRECATED: Use `superCreateDevice` instead
     ///
-    pub const QBaseCreateDevice = SuperCreateDevice;
+    pub const SuperCreateDevice = superCreateDevice;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#createDevice)
     ///
@@ -191,9 +227,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn SuperCreateDevice(self: KArchiveFile) QIODevice {
+    pub fn superCreateDevice(self: KArchiveFile) QIODevice {
         return .{ .ptr = qtc.KArchiveFile_SuperCreateDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isFile` instead
+    ///
+    pub const IsFile = isFile;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
     ///
@@ -201,9 +241,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn IsFile(self: KArchiveFile) bool {
+    pub fn isFile(self: KArchiveFile) bool {
         return qtc.KArchiveFile_IsFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsFile` instead
+    ///
+    pub const OnIsFile = onIsFile;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
     ///
@@ -215,13 +259,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsFile(self: KArchiveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsFile(self: KArchiveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.KArchiveFile_OnIsFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsFile` instead
+    /// ### DEPRECATED: Use `superIsFile` instead
     ///
-    pub const QBaseIsFile = SuperIsFile;
+    pub const SuperIsFile = superIsFile;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#isFile)
     ///
@@ -231,9 +275,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn SuperIsFile(self: KArchiveFile) bool {
+    pub fn superIsFile(self: KArchiveFile) bool {
         return qtc.KArchiveFile_SuperIsFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copyTo` instead
+    ///
+    pub const CopyTo = copyTo;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#copyTo)
     ///
@@ -243,13 +291,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` dest: []const u8 `
     ///
-    pub fn CopyTo(self: KArchiveFile, dest: []const u8) bool {
+    pub fn copyTo(self: KArchiveFile, dest: []const u8) bool {
         const dest_str = qtc.libqt_string{
             .len = dest.len,
             .data = dest.ptr,
         };
         return qtc.KArchiveFile_CopyTo(@ptrCast(self.ptr), dest_str);
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
     ///
@@ -259,11 +311,15 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` id: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` _data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KArchiveFile, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveFile_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
+    pub fn virtualHook(self: KArchiveFile, id: i32, _data: ?*anyopaque) void {
+        qtc.KArchiveFile_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(_data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
     ///
@@ -275,13 +331,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn (self: KArchiveFile, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KArchiveFile, callback: *const fn (KArchiveFile, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KArchiveFile, callback: *const fn (KArchiveFile, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KArchiveFile_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#virtual_hook)
     ///
@@ -293,11 +349,15 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` id: i32 `
     ///
-    /// ` data: ?*anyopaque `
+    /// ` _data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KArchiveFile, id: i32, data: ?*anyopaque) void {
-        qtc.KArchiveFile_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
+    pub fn superVirtualHook(self: KArchiveFile, id: i32, _data: ?*anyopaque) void {
+        qtc.KArchiveFile_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(_data));
     }
+
+    /// ### DEPRECATED: Use `date` instead
+    ///
+    pub const Date = date;
 
     /// Inherited from KArchiveEntry
     ///
@@ -307,9 +367,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Date(self: KArchiveFile) QDateTime {
+    pub fn date(self: KArchiveFile) QDateTime {
         return .{ .ptr = qtc.KArchiveEntry_Date(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from KArchiveEntry
     ///
@@ -321,13 +385,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `permissions` instead
+    ///
+    pub const Permissions = permissions;
 
     /// Inherited from KArchiveEntry
     ///
@@ -337,9 +405,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Permissions(self: KArchiveFile) u32 {
+    pub fn permissions(self: KArchiveFile) u32 {
         return @bitCast(qtc.KArchiveEntry_Permissions(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `user` instead
+    ///
+    pub const User = user;
 
     /// Inherited from KArchiveEntry
     ///
@@ -351,13 +423,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn user(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.user: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from KArchiveEntry
     ///
@@ -369,13 +445,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Group(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn group(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_Group(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.Group: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.group: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `symLinkTarget` instead
+    ///
+    pub const SymLinkTarget = symLinkTarget;
 
     /// Inherited from KArchiveEntry
     ///
@@ -387,13 +467,17 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SymLinkTarget(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn symLinkTarget(self: KArchiveFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KArchiveEntry_SymLinkTarget(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.SymLinkTarget: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KArchiveFile.symLinkTarget: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isDirectory` instead
+    ///
+    pub const IsDirectory = isDirectory;
 
     /// Inherited from KArchiveEntry
     ///
@@ -405,13 +489,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn IsDirectory(self: KArchiveFile) bool {
+    pub fn isDirectory(self: KArchiveFile) bool {
         return qtc.KArchiveFile_IsDirectory(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsDirectory` instead
+    /// ### DEPRECATED: Use `superIsDirectory` instead
     ///
-    pub const QBaseIsDirectory = SuperIsDirectory;
+    pub const SuperIsDirectory = superIsDirectory;
 
     /// Inherited from KArchiveEntry
     ///
@@ -423,9 +507,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn SuperIsDirectory(self: KArchiveFile) bool {
+    pub fn superIsDirectory(self: KArchiveFile) bool {
         return qtc.KArchiveFile_SuperIsDirectory(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsDirectory` instead
+    ///
+    pub const OnIsDirectory = onIsDirectory;
 
     /// Inherited from KArchiveEntry
     ///
@@ -439,9 +527,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsDirectory(self: KArchiveFile, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsDirectory(self: KArchiveFile, callback: *const fn () callconv(.c) bool) void {
         qtc.KArchiveFile_OnIsDirectory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `archive` instead
+    ///
+    pub const Archive = archive;
 
     /// Inherited from KArchiveEntry
     ///
@@ -453,13 +545,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Archive(self: KArchiveFile) KArchive {
+    pub fn archive(self: KArchiveFile) KArchive {
         return .{ .ptr = qtc.KArchiveFile_Archive(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperArchive` instead
+    /// ### DEPRECATED: Use `superArchive` instead
     ///
-    pub const QBaseArchive = SuperArchive;
+    pub const SuperArchive = superArchive;
 
     /// Inherited from KArchiveEntry
     ///
@@ -471,9 +563,13 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn SuperArchive(self: KArchiveFile) KArchive {
+    pub fn superArchive(self: KArchiveFile) KArchive {
         return .{ .ptr = qtc.KArchiveFile_SuperArchive(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onArchive` instead
+    ///
+    pub const OnArchive = onArchive;
 
     /// Inherited from KArchiveEntry
     ///
@@ -487,23 +583,23 @@ pub const KArchiveFile = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KArchive `
     ///
-    pub fn OnArchive(self: KArchiveFile, callback: *const fn () callconv(.c) KArchive) void {
+    pub fn onArchive(self: KArchiveFile, callback: *const fn () callconv(.c) KArchive) void {
         qtc.KArchiveFile_OnArchive(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/karchivefile.html#dtor.KArchiveFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KArchiveFile `
     ///
-    pub fn Delete(self: KArchiveFile) void {
+    pub fn delete(self: KArchiveFile) void {
         qtc.KArchiveFile_Delete(@ptrCast(self.ptr));
     }
 };

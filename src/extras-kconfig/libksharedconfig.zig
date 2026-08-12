@@ -21,6 +21,10 @@ pub const KSharedConfig = extern struct {
     pub const _is_KConfigBase = {};
     pub const _is_QSharedData = {};
 
+    /// ### DEPRECATED: Use `locationType` instead
+    ///
+    pub const LocationType = locationType;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#locationType)
@@ -33,9 +37,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` qstandardpaths_enums.StandardLocation `
     ///
-    pub fn LocationType(self: KSharedConfig) i32 {
+    pub fn locationType(self: KSharedConfig) i32 {
         return qtc.KConfig_LocationType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from KConfig
     ///
@@ -47,13 +55,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KSharedConfig, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KSharedConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openFlags` instead
+    ///
+    pub const OpenFlags = openFlags;
 
     /// Inherited from KConfig
     ///
@@ -67,9 +79,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` flag of kconfig_enums.OpenFlag `
     ///
-    pub fn OpenFlags(self: KSharedConfig) i32 {
+    pub fn openFlags(self: KSharedConfig) i32 {
         return qtc.KConfig_OpenFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sync` instead
+    ///
+    pub const Sync = sync;
 
     /// Inherited from KConfig
     ///
@@ -79,9 +95,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn Sync(self: KSharedConfig) bool {
+    pub fn sync(self: KSharedConfig) bool {
         return qtc.KConfig_Sync(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDirty` instead
+    ///
+    pub const IsDirty = isDirty;
 
     /// Inherited from KConfig
     ///
@@ -91,9 +111,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn IsDirty(self: KSharedConfig) bool {
+    pub fn isDirty(self: KSharedConfig) bool {
         return qtc.KConfig_IsDirty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `markAsClean` instead
+    ///
+    pub const MarkAsClean = markAsClean;
 
     /// Inherited from KConfig
     ///
@@ -103,9 +127,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn MarkAsClean(self: KSharedConfig) void {
+    pub fn markAsClean(self: KSharedConfig) void {
         qtc.KConfig_MarkAsClean(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accessMode` instead
+    ///
+    pub const AccessMode = accessMode;
 
     /// Inherited from KConfig
     ///
@@ -119,9 +147,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` kconfigbase_enums.AccessMode `
     ///
-    pub fn AccessMode(self: KSharedConfig) i32 {
+    pub fn accessMode(self: KSharedConfig) i32 {
         return qtc.KConfig_AccessMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isConfigWritable` instead
+    ///
+    pub const IsConfigWritable = isConfigWritable;
 
     /// Inherited from KConfig
     ///
@@ -133,9 +165,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` warnUser: bool `
     ///
-    pub fn IsConfigWritable(self: KSharedConfig, warnUser: bool) bool {
+    pub fn isConfigWritable(self: KSharedConfig, warnUser: bool) bool {
         return qtc.KConfig_IsConfigWritable(@ptrCast(self.ptr), warnUser);
     }
+
+    /// ### DEPRECATED: Use `copyTo` instead
+    ///
+    pub const CopyTo = copyTo;
 
     /// Inherited from KConfig
     ///
@@ -147,13 +183,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` file: []const u8 `
     ///
-    pub fn CopyTo(self: KSharedConfig, file: []const u8) KConfig {
+    pub fn copyTo(self: KSharedConfig, file: []const u8) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
         };
         return .{ .ptr = qtc.KConfig_CopyTo(@ptrCast(self.ptr), file_str) };
     }
+
+    /// ### DEPRECATED: Use `checkUpdate` instead
+    ///
+    pub const CheckUpdate = checkUpdate;
 
     /// Inherited from KConfig
     ///
@@ -167,7 +207,7 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` updateFile: []const u8 `
     ///
-    pub fn CheckUpdate(self: KSharedConfig, id: []const u8, updateFile: []const u8) void {
+    pub fn checkUpdate(self: KSharedConfig, id: []const u8, updateFile: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -179,6 +219,10 @@ pub const KSharedConfig = extern struct {
         qtc.KConfig_CheckUpdate(@ptrCast(self.ptr), id_str, updateFile_str);
     }
 
+    /// ### DEPRECATED: Use `reparseConfiguration` instead
+    ///
+    pub const ReparseConfiguration = reparseConfiguration;
+
     /// Inherited from KConfig
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfig.html#reparseConfiguration)
@@ -187,9 +231,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn ReparseConfiguration(self: KSharedConfig) void {
+    pub fn reparseConfiguration(self: KSharedConfig) void {
         qtc.KConfig_ReparseConfiguration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addConfigSources` instead
+    ///
+    pub const AddConfigSources = addConfigSources;
 
     /// Inherited from KConfig
     ///
@@ -203,13 +251,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` sources: []const []const u8 `
     ///
-    pub fn AddConfigSources(self: KSharedConfig, allocator: std.mem.Allocator, sources: []const []const u8) void {
-        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KSharedConfig.AddConfigSources: Memory allocation failed");
+    pub fn addConfigSources(self: KSharedConfig, allocator: std.mem.Allocator, sources: []const []const u8) void {
+        const sources_arr = allocator.alloc(qtc.libqt_string, sources.len) catch @panic("KSharedConfig.addConfigSources: Memory allocation failed");
         defer allocator.free(sources_arr);
-        for (sources, 0..sources.len) |item, i|
+        for (sources, 0..sources.len) |str_item, i|
             sources_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const sources_list = qtc.libqt_list{
             .len = sources.len,
@@ -217,6 +265,10 @@ pub const KSharedConfig = extern struct {
         };
         qtc.KConfig_AddConfigSources(@ptrCast(self.ptr), sources_list);
     }
+
+    /// ### DEPRECATED: Use `additionalConfigSources` instead
+    ///
+    pub const AdditionalConfigSources = additionalConfigSources;
 
     /// Inherited from KConfig
     ///
@@ -228,7 +280,7 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AdditionalConfigSources(self: KSharedConfig, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn additionalConfigSources(self: KSharedConfig, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_AdditionalConfigSources(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -236,15 +288,19 @@ pub const KSharedConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSharedConfig.AdditionalConfigSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSharedConfig.additionalConfigSources: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSharedConfig.AdditionalConfigSources: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSharedConfig.additionalConfigSources: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from KConfig
     ///
@@ -256,13 +312,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Locale(self: KSharedConfig, allocator: std.mem.Allocator) []const u8 {
+    pub fn locale(self: KSharedConfig, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_Locale(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.Locale: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.locale: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from KConfig
     ///
@@ -274,13 +334,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` aLocale: []const u8 `
     ///
-    pub fn SetLocale(self: KSharedConfig, aLocale: []const u8) bool {
+    pub fn setLocale(self: KSharedConfig, aLocale: []const u8) bool {
         const aLocale_str = qtc.libqt_string{
             .len = aLocale.len,
             .data = aLocale.ptr,
         };
         return qtc.KConfig_SetLocale(@ptrCast(self.ptr), aLocale_str);
     }
+
+    /// ### DEPRECATED: Use `setReadDefaults` instead
+    ///
+    pub const SetReadDefaults = setReadDefaults;
 
     /// Inherited from KConfig
     ///
@@ -292,9 +356,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReadDefaults(self: KSharedConfig, b: bool) void {
+    pub fn setReadDefaults(self: KSharedConfig, b: bool) void {
         qtc.KConfig_SetReadDefaults(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `readDefaults` instead
+    ///
+    pub const ReadDefaults = readDefaults;
 
     /// Inherited from KConfig
     ///
@@ -304,9 +372,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn ReadDefaults(self: KSharedConfig) bool {
+    pub fn readDefaults(self: KSharedConfig) bool {
         return qtc.KConfig_ReadDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImmutable` instead
+    ///
+    pub const IsImmutable = isImmutable;
 
     /// Inherited from KConfig
     ///
@@ -316,9 +388,13 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    pub fn IsImmutable(self: KSharedConfig) bool {
+    pub fn isImmutable(self: KSharedConfig) bool {
         return qtc.KConfig_IsImmutable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `groupList` instead
+    ///
+    pub const GroupList = groupList;
 
     /// Inherited from KConfig
     ///
@@ -330,7 +406,7 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: KSharedConfig, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn groupList(self: KSharedConfig, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfig_GroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -338,15 +414,19 @@ pub const KSharedConfig = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSharedConfig.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSharedConfig.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSharedConfig.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSharedConfig.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entryMap` instead
+    ///
+    pub const EntryMap = entryMap;
 
     /// Inherited from KConfig
     ///
@@ -358,10 +438,10 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn EntryMap(self: KSharedConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
+    pub fn entryMap(self: KSharedConfig, allocator: std.mem.Allocator) ArrayMap_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KSharedConfig.EntryMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KSharedConfig.entryMap: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -377,15 +457,19 @@ pub const KSharedConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KSharedConfig.EntryMap: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KSharedConfig.entryMap: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KSharedConfig.EntryMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KSharedConfig.entryMap: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMainConfigName` instead
+    ///
+    pub const SetMainConfigName = setMainConfigName;
 
     /// Inherited from KConfig
     ///
@@ -395,13 +479,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` str: []const u8 `
     ///
-    pub fn SetMainConfigName(str: []const u8) void {
+    pub fn setMainConfigName(str: []const u8) void {
         const str_str = qtc.libqt_string{
             .len = str.len,
             .data = str.ptr,
         };
         qtc.KConfig_SetMainConfigName(str_str);
     }
+
+    /// ### DEPRECATED: Use `mainConfigName` instead
+    ///
+    pub const MainConfigName = mainConfigName;
 
     /// Inherited from KConfig
     ///
@@ -411,13 +499,17 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MainConfigName(allocator: std.mem.Allocator) []const u8 {
+    pub fn mainConfigName(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KConfig_MainConfigName();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.MainConfigName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSharedConfig.mainConfigName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `copyTo2` instead
+    ///
+    pub const CopyTo2 = copyTo2;
 
     /// Inherited from KConfig
     ///
@@ -431,7 +523,7 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` config: KConfig `
     ///
-    pub fn CopyTo2(self: KSharedConfig, file: []const u8, config: anytype) KConfig {
+    pub fn copyTo2(self: KSharedConfig, file: []const u8, config: anytype) KConfig {
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -439,6 +531,10 @@ pub const KSharedConfig = extern struct {
         comptime _ = @TypeOf(config)._is_KConfig;
         return .{ .ptr = qtc.KConfig_CopyTo2(@ptrCast(self.ptr), file_str, @ptrCast(config.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `entryMap1` instead
+    ///
+    pub const EntryMap1 = entryMap1;
 
     /// Inherited from KConfig
     ///
@@ -452,14 +548,14 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` aGroup: []const u8 `
     ///
-    pub fn EntryMap1(self: KSharedConfig, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
+    pub fn entryMap1(self: KSharedConfig, allocator: std.mem.Allocator, aGroup: []const u8) ArrayMap_constu8_constu8 {
         const aGroup_str = qtc.libqt_string{
             .len = aGroup.len,
             .data = aGroup.ptr,
         };
         const _map: qtc.libqt_map = qtc.KConfig_EntryMap1(@ptrCast(self.ptr), aGroup_str);
         var _ret: ArrayMap_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KSharedConfig.EntryMap1: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KSharedConfig.entryMap1: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -475,15 +571,19 @@ pub const KSharedConfig = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KSharedConfig.EntryMap1: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("KSharedConfig.entryMap1: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KSharedConfig.EntryMap1: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KSharedConfig.entryMap1: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasGroup` instead
+    ///
+    pub const HasGroup = hasGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -493,33 +593,19 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn HasGroup(self: KSharedConfig, group: []const u8) bool {
+    pub fn hasGroup(self: KSharedConfig, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_HasGroup(@ptrCast(self.ptr), group_str);
     }
 
-    /// Inherited from KConfigBase
+    /// ### DEPRECATED: Use `group` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSharedConfig `
-    ///
-    /// ` group: []const u8 `
-    ///
-    pub fn Group(self: KSharedConfig, group: []const u8) KConfigGroup {
-        const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
-        };
-        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
-    }
+    pub const Group = group;
 
     /// Inherited from KConfigBase
     ///
@@ -529,15 +615,41 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn Group2(self: KSharedConfig, group: []const u8) KConfigGroup {
+    pub fn group(self: KSharedConfig, _group: []const u8) KConfigGroup {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
+        };
+        return .{ .ptr = qtc.KConfigBase_Group(@ptrCast(self.ptr), group_str) };
+    }
+
+    /// ### DEPRECATED: Use `group2` instead
+    ///
+    pub const Group2 = group2;
+
+    /// Inherited from KConfigBase
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kconfigbase.html#group)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSharedConfig `
+    ///
+    /// ` _group: []const u8 `
+    ///
+    pub fn group2(self: KSharedConfig, _group: []const u8) KConfigGroup {
+        const group_str = qtc.libqt_string{
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return .{ .ptr = qtc.KConfigBase_Group2(@ptrCast(self.ptr), group_str) };
     }
+
+    /// ### DEPRECATED: Use `deleteGroup` instead
+    ///
+    pub const DeleteGroup = deleteGroup;
 
     /// Inherited from KConfigBase
     ///
@@ -547,15 +659,19 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn DeleteGroup(self: KSharedConfig, group: []const u8) void {
+    pub fn deleteGroup(self: KSharedConfig, _group: []const u8) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `isGroupImmutable` instead
+    ///
+    pub const IsGroupImmutable = isGroupImmutable;
 
     /// Inherited from KConfigBase
     ///
@@ -565,15 +681,19 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
-    pub fn IsGroupImmutable(self: KSharedConfig, group: []const u8) bool {
+    pub fn isGroupImmutable(self: KSharedConfig, _group: []const u8) bool {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         return qtc.KConfigBase_IsGroupImmutable(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `deleteGroup2` instead
+    ///
+    pub const DeleteGroup2 = deleteGroup2;
 
     /// Inherited from KConfigBase
     ///
@@ -583,14 +703,14 @@ pub const KSharedConfig = extern struct {
     ///
     /// ` self: KSharedConfig `
     ///
-    /// ` group: []const u8 `
+    /// ` _group: []const u8 `
     ///
     /// ` flags: flag of kconfigbase_enums.WriteConfigFlag `
     ///
-    pub fn DeleteGroup2(self: KSharedConfig, group: []const u8, flags: i32) void {
+    pub fn deleteGroup2(self: KSharedConfig, _group: []const u8, flags: i32) void {
         const group_str = qtc.libqt_string{
-            .len = group.len,
-            .data = group.ptr,
+            .len = _group.len,
+            .data = _group.ptr,
         };
         qtc.KConfigBase_DeleteGroup2(@ptrCast(self.ptr), group_str, @bitCast(flags));
     }

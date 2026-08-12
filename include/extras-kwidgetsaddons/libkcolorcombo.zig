@@ -90,22 +90,34 @@ pub const KColorCombo = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KColorCombo object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KColorCombo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KColorCombo {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KColorCombo_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KColorCombo {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KColorCombo_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KColorCombo object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KColorCombo {
+    pub const New2 = new2;
+
+    /// Allocate a new KColorCombo object in C++ memory
+    ///
+    pub fn new2() KColorCombo {
         return .{ .ptr = qtc.KColorCombo_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -113,9 +125,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MetaObject(self: KColorCombo) QMetaObject {
+    pub fn metaObject(self: KColorCombo) QMetaObject {
         return .{ .ptr = qtc.KColorCombo_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -127,13 +143,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KColorCombo, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KColorCombo, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KColorCombo_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -143,9 +159,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperMetaObject(self: KColorCombo) QMetaObject {
+    pub fn superMetaObject(self: KColorCombo) QMetaObject {
         return .{ .ptr = qtc.KColorCombo_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -153,10 +173,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KColorCombo, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KColorCombo, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KColorCombo_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -166,13 +190,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KColorCombo_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -182,10 +206,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KColorCombo, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KColorCombo, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KColorCombo_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -197,9 +225,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KColorCombo, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KColorCombo, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KColorCombo_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -209,13 +241,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KColorCombo, callback: *const fn (KColorCombo, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KColorCombo, callback: *const fn (KColorCombo, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KColorCombo_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -229,9 +261,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KColorCombo, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KColorCombo, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KColorCombo_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -241,14 +277,18 @@ pub const KColorCombo = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#setColor)
     ///
@@ -258,10 +298,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` col: QColor `
     ///
-    pub fn SetColor(self: KColorCombo, col: anytype) void {
+    pub fn setColor(self: KColorCombo, col: anytype) void {
         comptime _ = @TypeOf(col)._is_QColor;
         qtc.KColorCombo_SetColor(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#color)
     ///
@@ -269,9 +313,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Color(self: KColorCombo) QColor {
+    pub fn color(self: KColorCombo) QColor {
         return .{ .ptr = qtc.KColorCombo_Color(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isCustomColor` instead
+    ///
+    pub const IsCustomColor = isCustomColor;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#isCustomColor)
     ///
@@ -279,9 +327,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsCustomColor(self: KColorCombo) bool {
+    pub fn isCustomColor(self: KColorCombo) bool {
         return qtc.KColorCombo_IsCustomColor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColors` instead
+    ///
+    pub const SetColors = setColors;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#setColors)
     ///
@@ -289,15 +341,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` colors: []QColor `
+    /// ` _colors: []QColor `
     ///
-    pub fn SetColors(self: KColorCombo, colors: []QColor) void {
+    pub fn setColors(self: KColorCombo, _colors: []QColor) void {
         const colors_list = qtc.libqt_list{
-            .len = colors.len,
-            .data = @ptrCast(colors.ptr),
+            .len = _colors.len,
+            .data = @ptrCast(_colors.ptr),
         };
         qtc.KColorCombo_SetColors(@ptrCast(self.ptr), colors_list);
     }
+
+    /// ### DEPRECATED: Use `colors` instead
+    ///
+    pub const Colors = colors;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#colors)
     ///
@@ -307,15 +363,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Colors(self: KColorCombo, allocator: std.mem.Allocator) []QColor {
+    pub fn colors(self: KColorCombo, allocator: std.mem.Allocator) []QColor {
         const _arr: qtc.libqt_list = qtc.KColorCombo_Colors(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QColor, _arr.len) catch @panic("KColorCombo.Colors: Memory allocation failed");
-        const _data: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QColor, _arr.len) catch @panic("KColorCombo.colors: Memory allocation failed");
+        const _data_val: [*]QtC.QColor = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `showEmptyList` instead
+    ///
+    pub const ShowEmptyList = showEmptyList;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#showEmptyList)
     ///
@@ -323,9 +383,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowEmptyList(self: KColorCombo) void {
+    pub fn showEmptyList(self: KColorCombo) void {
         qtc.KColorCombo_ShowEmptyList(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#activated)
     ///
@@ -335,11 +399,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` col: QColor `
     ///
-    pub fn Activated(self: KColorCombo, col: anytype) void {
+    pub fn activated(self: KColorCombo, col: anytype) void {
         comptime _ = @TypeOf(col)._is_QColor;
         qtc.KColorCombo_Activated(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#activated)
     ///
     /// ## Parameters:
@@ -348,9 +416,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, col: QColor) callconv(.c) void `
     ///
-    pub fn OnActivated(self: KColorCombo, callback: *const fn (KColorCombo, QColor) callconv(.c) void) void {
+    pub fn onActivated(self: KColorCombo, callback: *const fn (KColorCombo, QColor) callconv(.c) void) void {
         qtc.KColorCombo_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#highlighted)
     ///
@@ -360,10 +432,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` col: QColor `
     ///
-    pub fn Highlighted(self: KColorCombo, col: anytype) void {
+    pub fn highlighted(self: KColorCombo, col: anytype) void {
         comptime _ = @TypeOf(col)._is_QColor;
         qtc.KColorCombo_Highlighted(@ptrCast(self.ptr), @ptrCast(col.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#highlighted)
     ///
@@ -373,9 +449,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, col: QColor) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: KColorCombo, callback: *const fn (KColorCombo, QColor) callconv(.c) void) void {
+    pub fn onHighlighted(self: KColorCombo, callback: *const fn (KColorCombo, QColor) callconv(.c) void) void {
         qtc.KColorCombo_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
@@ -383,12 +463,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KColorCombo_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KColorCombo_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
@@ -400,13 +484,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KColorCombo, callback: *const fn (KColorCombo, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KColorCombo, callback: *const fn (KColorCombo, QPaintEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#paintEvent)
     ///
@@ -416,12 +500,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KColorCombo_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KColorCombo_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -433,15 +521,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -455,15 +547,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -473,9 +569,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MaxVisibleItems(self: KColorCombo) i32 {
+    pub fn maxVisibleItems(self: KColorCombo) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -487,9 +587,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: KColorCombo, maxItems: i32) void {
+    pub fn setMaxVisibleItems(self: KColorCombo, maxItems: i32) void {
         qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -499,9 +603,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Count(self: KColorCombo) i32 {
+    pub fn count(self: KColorCombo) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -513,9 +621,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: KColorCombo, max: i32) void {
+    pub fn setMaxCount(self: KColorCombo, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -525,9 +637,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MaxCount(self: KColorCombo) i32 {
+    pub fn maxCount(self: KColorCombo) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -537,9 +653,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DuplicatesEnabled(self: KColorCombo) bool {
+    pub fn duplicatesEnabled(self: KColorCombo) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -551,9 +671,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: KColorCombo, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: KColorCombo, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -565,9 +689,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: KColorCombo, frame: bool) void {
+    pub fn setFrame(self: KColorCombo, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -577,9 +705,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HasFrame(self: KColorCombo) bool {
+    pub fn hasFrame(self: KColorCombo) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -591,13 +723,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: KColorCombo, text: []const u8) i32 {
+    pub fn findText(self: KColorCombo, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -609,10 +745,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: KColorCombo, data: anytype) i32 {
+    pub fn findData(self: KColorCombo, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -626,9 +766,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: KColorCombo) i32 {
+    pub fn insertPolicy(self: KColorCombo) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -640,9 +784,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: KColorCombo, policy: i32) void {
+    pub fn setInsertPolicy(self: KColorCombo, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -656,9 +804,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: KColorCombo) i32 {
+    pub fn sizeAdjustPolicy(self: KColorCombo) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -670,9 +822,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: KColorCombo, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: KColorCombo, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -682,9 +838,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MinimumContentsLength(self: KColorCombo) i32 {
+    pub fn minimumContentsLength(self: KColorCombo) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -696,9 +856,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: KColorCombo, characters: i32) void {
+    pub fn setMinimumContentsLength(self: KColorCombo, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -708,9 +872,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IconSize(self: KColorCombo) QSize {
+    pub fn iconSize(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -720,12 +888,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KColorCombo, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KColorCombo, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -735,15 +907,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KColorCombo, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: KColorCombo, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -755,13 +931,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -771,9 +951,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsEditable(self: KColorCombo) bool {
+    pub fn isEditable(self: KColorCombo) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from QComboBox
     ///
@@ -785,9 +969,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: KColorCombo, editable: bool) void {
+    pub fn setEditable(self: KColorCombo, editable: bool) void {
         qtc.QComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -799,10 +987,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: KColorCombo, edit: anytype) void {
+    pub fn setLineEdit(self: KColorCombo, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -812,9 +1004,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn LineEdit(self: KColorCombo) QLineEdit {
+    pub fn lineEdit(self: KColorCombo) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -826,10 +1022,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: KColorCombo, v: anytype) void {
+    pub fn setValidator(self: KColorCombo, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -839,9 +1039,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Validator(self: KColorCombo) QValidator {
+    pub fn validator(self: KColorCombo) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -853,10 +1057,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: KColorCombo, c: anytype) void {
+    pub fn setCompleter(self: KColorCombo, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -866,9 +1074,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Completer(self: KColorCombo) QCompleter {
+    pub fn completer(self: KColorCombo) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -878,9 +1090,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ItemDelegate(self: KColorCombo) QAbstractItemDelegate {
+    pub fn itemDelegate(self: KColorCombo) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -892,10 +1108,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: KColorCombo, delegate: anytype) void {
+    pub fn setItemDelegate(self: KColorCombo, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -905,9 +1125,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Model(self: KColorCombo) QAbstractItemModel {
+    pub fn model(self: KColorCombo) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -917,9 +1141,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn RootModelIndex(self: KColorCombo) QModelIndex {
+    pub fn rootModelIndex(self: KColorCombo) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -931,10 +1159,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: KColorCombo, index: anytype) void {
+    pub fn setRootModelIndex(self: KColorCombo, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -944,9 +1176,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ModelColumn(self: KColorCombo) i32 {
+    pub fn modelColumn(self: KColorCombo) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -958,9 +1194,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: KColorCombo, visibleColumn: i32) void {
+    pub fn setModelColumn(self: KColorCombo, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -970,9 +1210,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn CurrentIndex(self: KColorCombo) i32 {
+    pub fn currentIndex(self: KColorCombo) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -984,13 +1228,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -1000,9 +1248,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn CurrentData(self: KColorCombo) QVariant {
+    pub fn currentData(self: KColorCombo) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -1016,13 +1268,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: KColorCombo, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: KColorCombo, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1034,9 +1290,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: KColorCombo, index: i32) QIcon {
+    pub fn itemIcon(self: KColorCombo, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -1048,9 +1308,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: KColorCombo, index: i32) QVariant {
+    pub fn itemData(self: KColorCombo, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -1062,13 +1326,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: KColorCombo, text: []const u8) void {
+    pub fn addItem(self: KColorCombo, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1082,7 +1350,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: KColorCombo, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: KColorCombo, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1090,6 +1358,10 @@ pub const KColorCombo = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -1103,13 +1375,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: KColorCombo, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KColorCombo.AddItems: Memory allocation failed");
+    pub fn addItems(self: KColorCombo, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KColorCombo.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1117,6 +1389,10 @@ pub const KColorCombo = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -1130,13 +1406,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: KColorCombo, index: i32, text: []const u8) void {
+    pub fn insertItem(self: KColorCombo, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1152,7 +1432,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: KColorCombo, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: KColorCombo, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1160,6 +1440,10 @@ pub const KColorCombo = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1175,13 +1459,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: KColorCombo, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KColorCombo.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: KColorCombo, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("KColorCombo.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1189,6 +1473,10 @@ pub const KColorCombo = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1200,9 +1488,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: KColorCombo, index: i32) void {
+    pub fn insertSeparator(self: KColorCombo, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1214,9 +1506,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: KColorCombo, index: i32) void {
+    pub fn removeItem(self: KColorCombo, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1230,13 +1526,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: KColorCombo, index: i32, text: []const u8) void {
+    pub fn setItemText(self: KColorCombo, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1250,10 +1550,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: KColorCombo, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: KColorCombo, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -1267,10 +1571,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: KColorCombo, index: i32, value: anytype) void {
+    pub fn setItemData(self: KColorCombo, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -1280,9 +1588,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn View(self: KColorCombo) QAbstractItemView {
+    pub fn view(self: KColorCombo) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -1294,10 +1606,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: KColorCombo, itemView: anytype) void {
+    pub fn setView(self: KColorCombo, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -1311,10 +1627,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: KColorCombo, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: KColorCombo, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -1324,9 +1644,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Clear(self: KColorCombo) void {
+    pub fn clear(self: KColorCombo) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1336,9 +1660,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ClearEditText(self: KColorCombo) void {
+    pub fn clearEditText(self: KColorCombo) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1350,13 +1678,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: KColorCombo, text: []const u8) void {
+    pub fn setEditText(self: KColorCombo, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1368,9 +1700,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: KColorCombo, index: i32) void {
+    pub fn setCurrentIndex(self: KColorCombo, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -1382,7 +1718,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: KColorCombo, text: []const u8) void {
+    pub fn setCurrentText(self: KColorCombo, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1390,6 +1726,10 @@ pub const KColorCombo = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1400,7 +1740,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: KColorCombo, param1: []const u8) void {
+    pub fn editTextChanged(self: KColorCombo, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1408,6 +1748,10 @@ pub const KColorCombo = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1418,9 +1762,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1432,7 +1780,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: KColorCombo, param1: []const u8) void {
+    pub fn textActivated(self: KColorCombo, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1440,6 +1788,10 @@ pub const KColorCombo = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -1450,9 +1802,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1464,13 +1820,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: KColorCombo, param1: []const u8) void {
+    pub fn textHighlighted(self: KColorCombo, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1482,9 +1842,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1496,9 +1860,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: KColorCombo, index: i32) void {
+    pub fn currentIndexChanged(self: KColorCombo, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1510,9 +1878,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1524,13 +1896,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: KColorCombo, param1: []const u8) void {
+    pub fn currentTextChanged(self: KColorCombo, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1542,9 +1918,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -1558,13 +1938,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: KColorCombo, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: KColorCombo, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -1578,10 +1962,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: KColorCombo, data: anytype, role: i32) i32 {
+    pub fn findData2(self: KColorCombo, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -1597,10 +1985,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: KColorCombo, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: KColorCombo, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -1612,9 +2004,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: KColorCombo, role: i32) QVariant {
+    pub fn currentData1(self: KColorCombo, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -1628,9 +2024,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: KColorCombo, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: KColorCombo, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -1644,7 +2044,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: KColorCombo, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: KColorCombo, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1652,6 +2052,10 @@ pub const KColorCombo = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -1667,7 +2071,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: KColorCombo, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: KColorCombo, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1677,6 +2081,10 @@ pub const KColorCombo = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -1691,7 +2099,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: KColorCombo, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: KColorCombo, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1699,6 +2107,10 @@ pub const KColorCombo = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -1716,7 +2128,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: KColorCombo, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: KColorCombo, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1725,6 +2137,10 @@ pub const KColorCombo = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -1740,10 +2156,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: KColorCombo, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: KColorCombo, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1753,9 +2173,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn WinId(self: KColorCombo) usize {
+    pub fn winId(self: KColorCombo) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1765,9 +2189,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn CreateWinId(self: KColorCombo) void {
+    pub fn createWinId(self: KColorCombo) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1777,9 +2205,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn InternalWinId(self: KColorCombo) usize {
+    pub fn internalWinId(self: KColorCombo) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1789,9 +2221,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn EffectiveWinId(self: KColorCombo) usize {
+    pub fn effectiveWinId(self: KColorCombo) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1801,9 +2237,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Style(self: KColorCombo) QStyle {
+    pub fn style(self: KColorCombo) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1813,12 +2253,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KColorCombo, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KColorCombo, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1828,9 +2272,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsTopLevel(self: KColorCombo) bool {
+    pub fn isTopLevel(self: KColorCombo) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1840,9 +2288,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsWindow(self: KColorCombo) bool {
+    pub fn isWindow(self: KColorCombo) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1852,9 +2304,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsModal(self: KColorCombo) bool {
+    pub fn isModal(self: KColorCombo) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1868,9 +2324,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KColorCombo) i32 {
+    pub fn windowModality(self: KColorCombo) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1880,11 +2340,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KColorCombo, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KColorCombo, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1894,9 +2358,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsEnabled(self: KColorCombo) bool {
+    pub fn isEnabled(self: KColorCombo) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1908,10 +2376,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KColorCombo, param1: anytype) bool {
+    pub fn isEnabledTo(self: KColorCombo, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1923,9 +2395,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KColorCombo, enabled: bool) void {
+    pub fn setEnabled(self: KColorCombo, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1937,9 +2413,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KColorCombo, disabled: bool) void {
+    pub fn setDisabled(self: KColorCombo, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1951,9 +2431,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KColorCombo, windowModified: bool) void {
+    pub fn setWindowModified(self: KColorCombo, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1963,9 +2447,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FrameGeometry(self: KColorCombo) QRect {
+    pub fn frameGeometry(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1975,9 +2463,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Geometry(self: KColorCombo) QRect {
+    pub fn geometry(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1987,9 +2479,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn NormalGeometry(self: KColorCombo) QRect {
+    pub fn normalGeometry(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1999,9 +2495,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn X(self: KColorCombo) i32 {
+    pub fn x(self: KColorCombo) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2011,9 +2511,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Y(self: KColorCombo) i32 {
+    pub fn y(self: KColorCombo) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2023,9 +2527,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Pos(self: KColorCombo) QPoint {
+    pub fn pos(self: KColorCombo) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2035,9 +2543,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FrameSize(self: KColorCombo) QSize {
+    pub fn frameSize(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2047,9 +2559,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Size(self: KColorCombo) QSize {
+    pub fn size(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2059,9 +2575,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Width(self: KColorCombo) i32 {
+    pub fn width(self: KColorCombo) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2071,9 +2591,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Height(self: KColorCombo) i32 {
+    pub fn height(self: KColorCombo) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2083,9 +2607,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Rect(self: KColorCombo) QRect {
+    pub fn rect(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2095,9 +2623,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ChildrenRect(self: KColorCombo) QRect {
+    pub fn childrenRect(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2107,9 +2639,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ChildrenRegion(self: KColorCombo) QRegion {
+    pub fn childrenRegion(self: KColorCombo) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2119,9 +2655,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MinimumSize(self: KColorCombo) QSize {
+    pub fn minimumSize(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2131,9 +2671,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MaximumSize(self: KColorCombo) QSize {
+    pub fn maximumSize(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2143,9 +2687,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MinimumWidth(self: KColorCombo) i32 {
+    pub fn minimumWidth(self: KColorCombo) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2155,9 +2703,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MinimumHeight(self: KColorCombo) i32 {
+    pub fn minimumHeight(self: KColorCombo) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2167,9 +2719,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MaximumWidth(self: KColorCombo) i32 {
+    pub fn maximumWidth(self: KColorCombo) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2179,9 +2735,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MaximumHeight(self: KColorCombo) i32 {
+    pub fn maximumHeight(self: KColorCombo) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2191,12 +2751,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KColorCombo, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KColorCombo, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2210,9 +2774,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KColorCombo, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KColorCombo, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2222,12 +2790,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KColorCombo, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KColorCombo, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2241,9 +2813,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KColorCombo, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KColorCombo, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2255,9 +2831,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KColorCombo, minw: i32) void {
+    pub fn setMinimumWidth(self: KColorCombo, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2849,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KColorCombo, minh: i32) void {
+    pub fn setMinimumHeight(self: KColorCombo, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2283,9 +2867,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KColorCombo, maxw: i32) void {
+    pub fn setMaximumWidth(self: KColorCombo, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2297,9 +2885,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KColorCombo, maxh: i32) void {
+    pub fn setMaximumHeight(self: KColorCombo, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2309,9 +2901,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SizeIncrement(self: KColorCombo) QSize {
+    pub fn sizeIncrement(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2321,12 +2917,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KColorCombo, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KColorCombo, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2340,9 +2940,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KColorCombo, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KColorCombo, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2352,9 +2956,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn BaseSize(self: KColorCombo) QSize {
+    pub fn baseSize(self: KColorCombo) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2364,12 +2972,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KColorCombo, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KColorCombo, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2383,9 +2995,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KColorCombo, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KColorCombo, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2397,10 +3013,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KColorCombo, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KColorCombo, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2414,9 +3034,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KColorCombo, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KColorCombo, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2428,9 +3052,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KColorCombo, w: i32) void {
+    pub fn setFixedWidth(self: KColorCombo, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2442,9 +3070,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KColorCombo, h: i32) void {
+    pub fn setFixedHeight(self: KColorCombo, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2456,11 +3088,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KColorCombo, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KColorCombo, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2471,11 +3107,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KColorCombo, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KColorCombo, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2486,11 +3126,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KColorCombo, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KColorCombo, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2501,11 +3145,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KColorCombo, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KColorCombo, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2516,11 +3164,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KColorCombo, param1: anytype) QPointF {
+    pub fn mapToParent(self: KColorCombo, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2531,10 +3183,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KColorCombo, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KColorCombo, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2546,10 +3202,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KColorCombo, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KColorCombo, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2561,10 +3221,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KColorCombo, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KColorCombo, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2578,12 +3242,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KColorCombo, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KColorCombo, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2596,11 +3264,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KColorCombo, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KColorCombo, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2614,11 +3286,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KColorCombo, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KColorCombo, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2632,11 +3308,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KColorCombo, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KColorCombo, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2646,9 +3326,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Window(self: KColorCombo) QWidget {
+    pub fn window(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2658,9 +3342,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn NativeParentWidget(self: KColorCombo) QWidget {
+    pub fn nativeParentWidget(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2670,9 +3358,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn TopLevelWidget(self: KColorCombo) QWidget {
+    pub fn topLevelWidget(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2682,9 +3374,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Palette(self: KColorCombo) QPalette {
+    pub fn palette(self: KColorCombo) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2694,12 +3390,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KColorCombo, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KColorCombo, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2709,11 +3409,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KColorCombo, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KColorCombo, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2727,9 +3431,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KColorCombo) i32 {
+    pub fn backgroundRole(self: KColorCombo) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2739,11 +3447,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KColorCombo, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KColorCombo, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2757,9 +3469,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KColorCombo) i32 {
+    pub fn foregroundRole(self: KColorCombo) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2769,9 +3485,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Font(self: KColorCombo) QFont {
+    pub fn font(self: KColorCombo) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2781,12 +3501,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KColorCombo, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KColorCombo, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2796,9 +3520,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FontMetrics(self: KColorCombo) QFontMetrics {
+    pub fn fontMetrics(self: KColorCombo) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2808,9 +3536,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FontInfo(self: KColorCombo) QFontInfo {
+    pub fn fontInfo(self: KColorCombo) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2820,9 +3552,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Cursor(self: KColorCombo) QCursor {
+    pub fn cursor(self: KColorCombo) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2832,12 +3568,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KColorCombo, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KColorCombo, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3587,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UnsetCursor(self: KColorCombo) void {
+    pub fn unsetCursor(self: KColorCombo) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2861,9 +3605,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KColorCombo, enable: bool) void {
+    pub fn setMouseTracking(self: KColorCombo, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3621,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HasMouseTracking(self: KColorCombo) bool {
+    pub fn hasMouseTracking(self: KColorCombo) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2885,9 +3637,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UnderMouse(self: KColorCombo) bool {
+    pub fn underMouse(self: KColorCombo) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2899,9 +3655,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KColorCombo, enable: bool) void {
+    pub fn setTabletTracking(self: KColorCombo, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2911,24 +3671,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HasTabletTracking(self: KColorCombo) bool {
+    pub fn hasTabletTracking(self: KColorCombo) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KColorCombo `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KColorCombo, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2938,12 +3687,35 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KColorCombo, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KColorCombo, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KColorCombo `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KColorCombo, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2953,9 +3725,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Mask(self: KColorCombo) QRegion {
+    pub fn mask(self: KColorCombo) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2965,9 +3741,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ClearMask(self: KColorCombo) void {
+    pub fn clearMask(self: KColorCombo) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2979,10 +3759,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KColorCombo, target: anytype) void {
+    pub fn render(self: KColorCombo, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2994,10 +3778,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KColorCombo, painter: anytype) void {
+    pub fn render2(self: KColorCombo, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3007,9 +3795,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Grab(self: KColorCombo) QPixmap {
+    pub fn grab(self: KColorCombo) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3019,9 +3811,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn GraphicsEffect(self: KColorCombo) QGraphicsEffect {
+    pub fn graphicsEffect(self: KColorCombo) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3033,10 +3829,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KColorCombo, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KColorCombo, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3048,9 +3848,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KColorCombo, typeVal: i32) void {
+    pub fn grabGesture(self: KColorCombo, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3062,9 +3866,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KColorCombo, typeVal: i32) void {
+    pub fn ungrabGesture(self: KColorCombo, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3074,15 +3882,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KColorCombo, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KColorCombo, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3092,15 +3904,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KColorCombo, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KColorCombo, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3112,13 +3928,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3130,13 +3950,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3148,10 +3972,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KColorCombo, icon: anytype) void {
+    pub fn setWindowIcon(self: KColorCombo, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3161,9 +3989,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn WindowIcon(self: KColorCombo) QIcon {
+    pub fn windowIcon(self: KColorCombo) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3173,15 +4005,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KColorCombo, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KColorCombo, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3193,13 +4029,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3209,15 +4049,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KColorCombo, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KColorCombo, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3229,13 +4073,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3247,13 +4095,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KColorCombo, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KColorCombo, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3265,13 +4117,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3283,9 +4139,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KColorCombo, level: f64) void {
+    pub fn setWindowOpacity(self: KColorCombo, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3295,9 +4155,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn WindowOpacity(self: KColorCombo) f64 {
+    pub fn windowOpacity(self: KColorCombo) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4171,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsWindowModified(self: KColorCombo) bool {
+    pub fn isWindowModified(self: KColorCombo) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3319,15 +4187,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KColorCombo, toolTip: []const u8) void {
+    pub fn setToolTip(self: KColorCombo, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3339,13 +4211,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3357,9 +4233,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KColorCombo, msec: i32) void {
+    pub fn setToolTipDuration(self: KColorCombo, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3369,9 +4249,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ToolTipDuration(self: KColorCombo) i32 {
+    pub fn toolTipDuration(self: KColorCombo) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3381,15 +4265,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KColorCombo, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KColorCombo, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3401,13 +4289,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3417,15 +4309,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KColorCombo, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KColorCombo, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3437,13 +4333,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3455,13 +4355,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3473,13 +4377,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KColorCombo, name: []const u8) void {
+    pub fn setAccessibleName(self: KColorCombo, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3491,13 +4399,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3509,13 +4421,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KColorCombo, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KColorCombo, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3527,9 +4443,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KColorCombo, direction: i32) void {
+    pub fn setLayoutDirection(self: KColorCombo, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3543,9 +4463,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KColorCombo) i32 {
+    pub fn layoutDirection(self: KColorCombo) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3555,9 +4479,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UnsetLayoutDirection(self: KColorCombo) void {
+    pub fn unsetLayoutDirection(self: KColorCombo) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3567,12 +4495,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KColorCombo, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KColorCombo, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3582,9 +4514,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Locale(self: KColorCombo) QLocale {
+    pub fn locale(self: KColorCombo) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4530,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UnsetLocale(self: KColorCombo) void {
+    pub fn unsetLocale(self: KColorCombo) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4546,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsRightToLeft(self: KColorCombo) bool {
+    pub fn isRightToLeft(self: KColorCombo) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3618,9 +4562,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsLeftToRight(self: KColorCombo) bool {
+    pub fn isLeftToRight(self: KColorCombo) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3630,9 +4578,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SetFocus(self: KColorCombo) void {
+    pub fn setFocus(self: KColorCombo) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3642,9 +4594,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsActiveWindow(self: KColorCombo) bool {
+    pub fn isActiveWindow(self: KColorCombo) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3654,9 +4610,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ActivateWindow(self: KColorCombo) void {
+    pub fn activateWindow(self: KColorCombo) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3666,9 +4626,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ClearFocus(self: KColorCombo) void {
+    pub fn clearFocus(self: KColorCombo) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3680,9 +4644,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KColorCombo, reason: i32) void {
+    pub fn setFocus2(self: KColorCombo, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3696,9 +4664,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KColorCombo) i32 {
+    pub fn focusPolicy(self: KColorCombo) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3710,9 +4682,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KColorCombo, policy: i32) void {
+    pub fn setFocusPolicy(self: KColorCombo, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3722,9 +4698,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HasFocus(self: KColorCombo) bool {
+    pub fn hasFocus(self: KColorCombo) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3736,11 +4716,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3750,12 +4734,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KColorCombo, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KColorCombo, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3765,9 +4753,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FocusProxy(self: KColorCombo) QWidget {
+    pub fn focusProxy(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3781,9 +4773,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KColorCombo) i32 {
+    pub fn contextMenuPolicy(self: KColorCombo) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3795,9 +4791,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KColorCombo, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KColorCombo, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3807,9 +4807,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn GrabMouse(self: KColorCombo) void {
+    pub fn grabMouse(self: KColorCombo) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3821,10 +4825,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KColorCombo, param1: anytype) void {
+    pub fn grabMouse2(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3834,9 +4842,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ReleaseMouse(self: KColorCombo) void {
+    pub fn releaseMouse(self: KColorCombo) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3846,9 +4858,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn GrabKeyboard(self: KColorCombo) void {
+    pub fn grabKeyboard(self: KColorCombo) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3858,9 +4874,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ReleaseKeyboard(self: KColorCombo) void {
+    pub fn releaseKeyboard(self: KColorCombo) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3872,10 +4892,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KColorCombo, key: anytype) i32 {
+    pub fn grabShortcut(self: KColorCombo, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3887,9 +4911,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KColorCombo, id: i32) void {
+    pub fn releaseShortcut(self: KColorCombo, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4929,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KColorCombo, id: i32) void {
+    pub fn setShortcutEnabled(self: KColorCombo, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3915,25 +4947,37 @@ pub const KColorCombo = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KColorCombo, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KColorCombo, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3943,9 +4987,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UpdatesEnabled(self: KColorCombo) bool {
+    pub fn updatesEnabled(self: KColorCombo) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3957,9 +5005,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KColorCombo, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KColorCombo, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3969,9 +5021,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn GraphicsProxyWidget(self: KColorCombo) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KColorCombo) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3981,9 +5037,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Update(self: KColorCombo) void {
+    pub fn update(self: KColorCombo) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3993,9 +5053,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Repaint(self: KColorCombo) void {
+    pub fn repaint(self: KColorCombo) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4005,17 +5069,21 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KColorCombo, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KColorCombo, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4027,11 +5095,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KColorCombo, param1: anytype) void {
+    pub fn update3(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4042,10 +5114,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KColorCombo, param1: anytype) void {
+    pub fn update4(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4055,17 +5131,21 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KColorCombo, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KColorCombo, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4077,10 +5157,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KColorCombo, param1: anytype) void {
+    pub fn repaint3(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4092,10 +5176,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KColorCombo, param1: anytype) void {
+    pub fn repaint4(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4107,9 +5195,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KColorCombo, hidden: bool) void {
+    pub fn setHidden(self: KColorCombo, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4119,9 +5211,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Show(self: KColorCombo) void {
+    pub fn show(self: KColorCombo) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4131,9 +5227,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Hide(self: KColorCombo) void {
+    pub fn hide(self: KColorCombo) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4143,9 +5243,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowMinimized(self: KColorCombo) void {
+    pub fn showMinimized(self: KColorCombo) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4155,9 +5259,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowMaximized(self: KColorCombo) void {
+    pub fn showMaximized(self: KColorCombo) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4167,9 +5275,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowFullScreen(self: KColorCombo) void {
+    pub fn showFullScreen(self: KColorCombo) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4179,9 +5291,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowNormal(self: KColorCombo) void {
+    pub fn showNormal(self: KColorCombo) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4191,9 +5307,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Close(self: KColorCombo) bool {
+    pub fn close(self: KColorCombo) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4203,9 +5323,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Raise(self: KColorCombo) void {
+    pub fn raise(self: KColorCombo) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4215,9 +5339,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Lower(self: KColorCombo) void {
+    pub fn lower(self: KColorCombo) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4229,10 +5357,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KColorCombo, param1: anytype) void {
+    pub fn stackUnder(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4242,13 +5374,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KColorCombo, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KColorCombo, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4260,10 +5396,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KColorCombo, param1: anytype) void {
+    pub fn move2(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4277,9 +5417,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KColorCombo, w: i32, h: i32) void {
+    pub fn resize(self: KColorCombo, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4291,10 +5435,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KColorCombo, param1: anytype) void {
+    pub fn resize2(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4304,17 +5452,21 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KColorCombo, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KColorCombo, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4324,12 +5476,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KColorCombo, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KColorCombo, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4341,13 +5497,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KColorCombo, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KColorCombo, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KColorCombo.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KColorCombo.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4357,15 +5517,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KColorCombo, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KColorCombo, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4375,9 +5539,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn AdjustSize(self: KColorCombo) void {
+    pub fn adjustSize(self: KColorCombo) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4387,9 +5555,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsVisible(self: KColorCombo) bool {
+    pub fn isVisible(self: KColorCombo) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4401,10 +5573,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KColorCombo, param1: anytype) bool {
+    pub fn isVisibleTo(self: KColorCombo, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4414,9 +5590,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsHidden(self: KColorCombo) bool {
+    pub fn isHidden(self: KColorCombo) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4426,9 +5606,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsMinimized(self: KColorCombo) bool {
+    pub fn isMinimized(self: KColorCombo) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4438,9 +5622,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsMaximized(self: KColorCombo) bool {
+    pub fn isMaximized(self: KColorCombo) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4450,9 +5638,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsFullScreen(self: KColorCombo) bool {
+    pub fn isFullScreen(self: KColorCombo) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4466,9 +5658,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KColorCombo) i32 {
+    pub fn windowState(self: KColorCombo) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4480,9 +5676,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KColorCombo, state: i32) void {
+    pub fn setWindowState(self: KColorCombo, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4494,9 +5694,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KColorCombo, state: i32) void {
+    pub fn overrideWindowState(self: KColorCombo, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4506,9 +5710,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SizePolicy(self: KColorCombo) QSizePolicy {
+    pub fn sizePolicy(self: KColorCombo) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4518,12 +5726,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KColorCombo, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KColorCombo, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4537,9 +5749,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KColorCombo, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KColorCombo, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4549,9 +5765,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn VisibleRegion(self: KColorCombo) QRegion {
+    pub fn visibleRegion(self: KColorCombo) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4569,9 +5789,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KColorCombo, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KColorCombo, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4583,10 +5807,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KColorCombo, margins: anytype) void {
+    pub fn setContentsMargins2(self: KColorCombo, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4596,9 +5824,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ContentsMargins(self: KColorCombo) QMargins {
+    pub fn contentsMargins(self: KColorCombo) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4608,9 +5840,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ContentsRect(self: KColorCombo) QRect {
+    pub fn contentsRect(self: KColorCombo) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4620,9 +5856,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Layout(self: KColorCombo) QLayout {
+    pub fn layout(self: KColorCombo) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4632,12 +5872,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KColorCombo, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KColorCombo, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4647,24 +5891,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UpdateGeometry(self: KColorCombo) void {
+    pub fn updateGeometry(self: KColorCombo) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KColorCombo `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KColorCombo, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4674,14 +5907,37 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KColorCombo, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KColorCombo `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KColorCombo, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KColorCombo, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4695,9 +5951,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KColorCombo, dx: i32, dy: i32) void {
+    pub fn scroll(self: KColorCombo, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4713,10 +5973,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KColorCombo, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KColorCombo, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4726,9 +5990,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FocusWidget(self: KColorCombo) QWidget {
+    pub fn focusWidget(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4738,9 +6006,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn NextInFocusChain(self: KColorCombo) QWidget {
+    pub fn nextInFocusChain(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4750,9 +6022,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn PreviousInFocusChain(self: KColorCombo) QWidget {
+    pub fn previousInFocusChain(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4762,9 +6038,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn AcceptDrops(self: KColorCombo) bool {
+    pub fn acceptDrops(self: KColorCombo) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4776,9 +6056,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KColorCombo, on: bool) void {
+    pub fn setAcceptDrops(self: KColorCombo, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4790,10 +6074,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KColorCombo, action: anytype) void {
+    pub fn addAction(self: KColorCombo, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4803,15 +6091,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KColorCombo, actions: []QAction) void {
+    pub fn addActions(self: KColorCombo, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4823,16 +6115,20 @@ pub const KColorCombo = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KColorCombo, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KColorCombo, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4846,11 +6142,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KColorCombo, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KColorCombo, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4862,10 +6162,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KColorCombo, action: anytype) void {
+    pub fn removeAction(self: KColorCombo, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4877,15 +6181,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KColorCombo, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KColorCombo, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KColorCombo.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KColorCombo.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4897,13 +6205,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KColorCombo, text: []const u8) QAction {
+    pub fn addAction2(self: KColorCombo, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4917,7 +6229,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KColorCombo, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KColorCombo, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4926,6 +6238,10 @@ pub const KColorCombo = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4938,7 +6254,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KColorCombo, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KColorCombo, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4946,6 +6262,10 @@ pub const KColorCombo = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4961,7 +6281,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KColorCombo, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KColorCombo, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4971,6 +6291,10 @@ pub const KColorCombo = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4979,9 +6303,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ParentWidget(self: KColorCombo) QWidget {
+    pub fn parentWidget(self: KColorCombo) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4993,9 +6321,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KColorCombo, typeVal: i32) void {
+    pub fn setWindowFlags(self: KColorCombo, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5009,9 +6341,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KColorCombo) i32 {
+    pub fn windowFlags(self: KColorCombo) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5023,9 +6359,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KColorCombo, param1: i32) void {
+    pub fn setWindowFlag(self: KColorCombo, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5037,9 +6377,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KColorCombo, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KColorCombo, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5053,9 +6397,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KColorCombo) i32 {
+    pub fn windowType(self: KColorCombo) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5065,9 +6413,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5077,13 +6429,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KColorCombo, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KColorCombo, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5095,10 +6451,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KColorCombo, p: anytype) QWidget {
+    pub fn childAt2(self: KColorCombo, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5110,10 +6470,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KColorCombo, p: anytype) QWidget {
+    pub fn childAt3(self: KColorCombo, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5125,9 +6489,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KColorCombo, param1: i32) void {
+    pub fn setAttribute(self: KColorCombo, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5139,9 +6507,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KColorCombo, param1: i32) bool {
+    pub fn testAttribute(self: KColorCombo, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5151,9 +6523,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn EnsurePolished(self: KColorCombo) void {
+    pub fn ensurePolished(self: KColorCombo) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5165,10 +6541,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KColorCombo, child: anytype) bool {
+    pub fn isAncestorOf(self: KColorCombo, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5178,9 +6558,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn AutoFillBackground(self: KColorCombo) bool {
+    pub fn autoFillBackground(self: KColorCombo) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5192,9 +6576,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KColorCombo, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KColorCombo, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5204,9 +6592,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn BackingStore(self: KColorCombo) QBackingStore {
+    pub fn backingStore(self: KColorCombo) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5216,9 +6608,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn WindowHandle(self: KColorCombo) QWindow {
+    pub fn windowHandle(self: KColorCombo) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5228,9 +6624,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Screen(self: KColorCombo) QScreen {
+    pub fn screen(self: KColorCombo) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5240,12 +6640,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KColorCombo, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KColorCombo, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5253,12 +6657,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5270,13 +6678,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KColorCombo, title: []const u8) void {
+    pub fn windowTitleChanged(self: KColorCombo, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5288,9 +6700,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5302,10 +6718,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KColorCombo, icon: anytype) void {
+    pub fn windowIconChanged(self: KColorCombo, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5317,9 +6737,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KColorCombo, callback: *const fn (KColorCombo, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KColorCombo, callback: *const fn (KColorCombo, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5331,13 +6755,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KColorCombo, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KColorCombo, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5349,9 +6777,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5361,12 +6793,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KColorCombo, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KColorCombo, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5378,9 +6814,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KColorCombo, callback: *const fn (KColorCombo, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KColorCombo, callback: *const fn (KColorCombo, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5394,9 +6834,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KColorCombo) i32 {
+    pub fn inputMethodHints(self: KColorCombo) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5408,9 +6852,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KColorCombo, hints: i32) void {
+    pub fn setInputMethodHints(self: KColorCombo, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5424,11 +6872,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KColorCombo, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KColorCombo, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5444,13 +6896,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KColorCombo, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KColorCombo, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5467,12 +6923,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KColorCombo, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KColorCombo, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5486,11 +6946,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KColorCombo, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KColorCombo, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5506,12 +6970,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KColorCombo, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KColorCombo, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5529,12 +6997,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KColorCombo, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KColorCombo, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5546,10 +7018,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KColorCombo, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KColorCombo, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5563,9 +7039,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KColorCombo, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KColorCombo, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5579,10 +7059,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KColorCombo, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KColorCombo, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5596,9 +7080,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KColorCombo, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KColorCombo, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5612,9 +7100,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KColorCombo, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KColorCombo, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5628,9 +7120,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KColorCombo, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KColorCombo, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5644,25 +7140,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KColorCombo, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KColorCombo, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5670,17 +7154,41 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5692,13 +7200,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KColorCombo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KColorCombo.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5710,13 +7222,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KColorCombo, name: []const u8) void {
+    pub fn setObjectName(self: KColorCombo, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5726,9 +7242,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsWidgetType(self: KColorCombo) bool {
+    pub fn isWidgetType(self: KColorCombo) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5738,9 +7258,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsWindowType(self: KColorCombo) bool {
+    pub fn isWindowType(self: KColorCombo) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5750,9 +7274,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn IsQuickItemType(self: KColorCombo) bool {
+    pub fn isQuickItemType(self: KColorCombo) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5762,9 +7290,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SignalsBlocked(self: KColorCombo) bool {
+    pub fn signalsBlocked(self: KColorCombo) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5776,9 +7308,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KColorCombo, b: bool) bool {
+    pub fn blockSignals(self: KColorCombo, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5788,9 +7324,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Thread(self: KColorCombo) QThread {
+    pub fn thread(self: KColorCombo) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5800,12 +7340,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KColorCombo, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KColorCombo, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5817,9 +7361,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KColorCombo, interval: i32) i32 {
+    pub fn startTimer(self: KColorCombo, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5831,9 +7379,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KColorCombo, time: i64) i32 {
+    pub fn startTimer2(self: KColorCombo, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5845,9 +7397,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KColorCombo, id: i32) void {
+    pub fn killTimer(self: KColorCombo, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5859,9 +7415,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KColorCombo, id: i32) void {
+    pub fn killTimer2(self: KColorCombo, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5873,15 +7433,19 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KColorCombo, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KColorCombo, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KColorCombo.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KColorCombo.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5893,10 +7457,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KColorCombo, filterObj: anytype) void {
+    pub fn installEventFilter(self: KColorCombo, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5908,10 +7476,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KColorCombo, obj: anytype) void {
+    pub fn removeEventFilter(self: KColorCombo, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5919,7 +7491,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5927,13 +7499,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5941,7 +7517,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5949,13 +7525,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5965,18 +7545,22 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KColorCombo, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KColorCombo, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5984,7 +7568,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5992,13 +7576,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6006,7 +7594,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6014,13 +7602,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6030,9 +7622,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Disconnect3(self: KColorCombo) bool {
+    pub fn disconnect3(self: KColorCombo) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6044,10 +7640,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KColorCombo, receiver: anytype) bool {
+    pub fn disconnect4(self: KColorCombo, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6057,10 +7657,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6070,9 +7674,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DumpObjectTree(self: KColorCombo) void {
+    pub fn dumpObjectTree(self: KColorCombo) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6082,9 +7690,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DumpObjectInfo(self: KColorCombo) void {
+    pub fn dumpObjectInfo(self: KColorCombo) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6098,11 +7710,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KColorCombo, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KColorCombo, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6114,10 +7730,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KColorCombo, name: [:0]const u8) QVariant {
+    pub fn property(self: KColorCombo, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6129,7 +7749,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KColorCombo, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KColorCombo, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6137,27 +7757,19 @@ pub const KColorCombo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KColorCombo.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KColorCombo.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KColorCombo.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KColorCombo.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KColorCombo `
-    ///
-    pub fn BindingStorage(self: KColorCombo) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6167,9 +7779,29 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn BindingStorage2(self: KColorCombo) QBindingStorage {
+    pub fn bindingStorage(self: KColorCombo) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KColorCombo `
+    ///
+    pub fn bindingStorage2(self: KColorCombo) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6179,9 +7811,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Destroyed(self: KColorCombo) void {
+    pub fn destroyed(self: KColorCombo) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6193,9 +7829,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KColorCombo, callback: *const fn (KColorCombo) callconv(.c) void) void {
+    pub fn onDestroyed(self: KColorCombo, callback: *const fn (KColorCombo) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6205,9 +7845,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Parent(self: KColorCombo) QObject {
+    pub fn parent(self: KColorCombo) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6219,10 +7863,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KColorCombo, classname: [:0]const u8) bool {
+    pub fn inherits(self: KColorCombo, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6232,9 +7880,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DeleteLater(self: KColorCombo) void {
+    pub fn deleteLater(self: KColorCombo) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6248,9 +7900,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KColorCombo, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KColorCombo, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6264,9 +7920,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KColorCombo, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KColorCombo, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6274,7 +7934,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6284,13 +7944,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6298,7 +7962,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6308,13 +7972,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6324,7 +7992,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6332,12 +8000,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KColorCombo, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KColorCombo, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6349,10 +8021,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KColorCombo, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KColorCombo, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6366,11 +8042,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KColorCombo, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KColorCombo, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6386,13 +8066,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KColorCombo, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KColorCombo, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6405,11 +8089,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KColorCombo, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KColorCombo, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6421,10 +8109,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KColorCombo, param1: anytype) void {
+    pub fn destroyed1(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6436,9 +8128,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KColorCombo, callback: *const fn (KColorCombo, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KColorCombo, callback: *const fn (KColorCombo, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6448,9 +8144,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn PaintingActive(self: KColorCombo) bool {
+    pub fn paintingActive(self: KColorCombo) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6460,9 +8160,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn WidthMM(self: KColorCombo) i32 {
+    pub fn widthMM(self: KColorCombo) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6472,9 +8176,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HeightMM(self: KColorCombo) i32 {
+    pub fn heightMM(self: KColorCombo) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6484,9 +8192,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn LogicalDpiX(self: KColorCombo) i32 {
+    pub fn logicalDpiX(self: KColorCombo) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6496,9 +8208,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn LogicalDpiY(self: KColorCombo) i32 {
+    pub fn logicalDpiY(self: KColorCombo) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6508,9 +8224,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn PhysicalDpiX(self: KColorCombo) i32 {
+    pub fn physicalDpiX(self: KColorCombo) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6520,9 +8240,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn PhysicalDpiY(self: KColorCombo) i32 {
+    pub fn physicalDpiY(self: KColorCombo) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6532,9 +8256,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DevicePixelRatio(self: KColorCombo) f64 {
+    pub fn devicePixelRatio(self: KColorCombo) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6544,9 +8272,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DevicePixelRatioF(self: KColorCombo) f64 {
+    pub fn devicePixelRatioF(self: KColorCombo) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6556,9 +8288,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ColorCount(self: KColorCombo) i32 {
+    pub fn colorCount(self: KColorCombo) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6568,17 +8304,25 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Depth(self: KColorCombo) i32 {
+    pub fn depth(self: KColorCombo) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6586,13 +8330,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -6604,16 +8352,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KColorCombo, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KColorCombo_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KColorCombo, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KColorCombo_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6625,12 +8373,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: KColorCombo, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.KColorCombo_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: KColorCombo, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.KColorCombo_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6644,10 +8396,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: KColorCombo, callback: *const fn (KColorCombo, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: KColorCombo, callback: *const fn (KColorCombo, QAbstractItemModel) callconv(.c) void) void {
         qtc.KColorCombo_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6658,13 +8414,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SizeHint(self: KColorCombo) QSize {
+    pub fn sizeHint(self: KColorCombo) QSize {
         return .{ .ptr = qtc.KColorCombo_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6676,10 +8432,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperSizeHint(self: KColorCombo) QSize {
+    pub fn superSizeHint(self: KColorCombo) QSize {
         return .{ .ptr = qtc.KColorCombo_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#sizeHint)
@@ -6694,9 +8454,13 @@ pub const KColorCombo = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorCombo_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6708,13 +8472,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn MinimumSizeHint(self: KColorCombo) QSize {
+    pub fn minimumSizeHint(self: KColorCombo) QSize {
         return .{ .ptr = qtc.KColorCombo_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6726,9 +8490,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperMinimumSizeHint(self: KColorCombo) QSize {
+    pub fn superMinimumSizeHint(self: KColorCombo) QSize {
         return .{ .ptr = qtc.KColorCombo_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6744,10 +8512,14 @@ pub const KColorCombo = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KColorCombo, callback: *const fn () callconv(.c) QSize) void {
         qtc.KColorCombo_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6758,13 +8530,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn ShowPopup(self: KColorCombo) void {
+    pub fn showPopup(self: KColorCombo) void {
         qtc.KColorCombo_ShowPopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// Inherited from QComboBox
     ///
@@ -6776,10 +8548,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperShowPopup(self: KColorCombo) void {
+    pub fn superShowPopup(self: KColorCombo) void {
         qtc.KColorCombo_SuperShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6792,9 +8568,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
         qtc.KColorCombo_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6806,13 +8586,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HidePopup(self: KColorCombo) void {
+    pub fn hidePopup(self: KColorCombo) void {
         qtc.KColorCombo_HidePopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6824,9 +8604,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperHidePopup(self: KColorCombo) void {
+    pub fn superHidePopup(self: KColorCombo) void {
         qtc.KColorCombo_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6840,9 +8624,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
         qtc.KColorCombo_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QComboBox
     ///
@@ -6854,16 +8642,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KColorCombo, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorCombo_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KColorCombo, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorCombo_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6875,12 +8663,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KColorCombo, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorCombo_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KColorCombo, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorCombo_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6894,9 +8686,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) bool) void {
         qtc.KColorCombo_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6910,13 +8706,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KColorCombo, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KColorCombo, param1: i32) QVariant {
         return .{ .ptr = qtc.KColorCombo_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6930,9 +8726,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KColorCombo, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KColorCombo, param1: i32) QVariant {
         return .{ .ptr = qtc.KColorCombo_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6948,9 +8748,13 @@ pub const KColorCombo = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) QVariant) void {
         qtc.KColorCombo_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6964,14 +8768,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KColorCombo, e: anytype) void {
+    pub fn focusInEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KColorCombo_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -6985,11 +8789,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KColorCombo, e: anytype) void {
+    pub fn superFocusInEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KColorCombo_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#focusInEvent)
@@ -7002,9 +8810,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KColorCombo, callback: *const fn (KColorCombo, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KColorCombo, callback: *const fn (KColorCombo, QFocusEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7018,14 +8830,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KColorCombo, e: anytype) void {
+    pub fn focusOutEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KColorCombo_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7039,10 +8851,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KColorCombo, e: anytype) void {
+    pub fn superFocusOutEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KColorCombo_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7056,9 +8872,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KColorCombo, callback: *const fn (KColorCombo, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KColorCombo, callback: *const fn (KColorCombo, QFocusEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7072,14 +8892,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: KColorCombo, e: anytype) void {
+    pub fn changeEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KColorCombo_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7093,10 +8913,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KColorCombo, e: anytype) void {
+    pub fn superChangeEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.KColorCombo_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7110,9 +8934,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7126,14 +8954,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KColorCombo, e: anytype) void {
+    pub fn resizeEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KColorCombo_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7147,10 +8975,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KColorCombo, e: anytype) void {
+    pub fn superResizeEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.KColorCombo_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7164,9 +8996,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KColorCombo, callback: *const fn (KColorCombo, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KColorCombo, callback: *const fn (KColorCombo, QResizeEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7180,14 +9016,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: KColorCombo, e: anytype) void {
+    pub fn showEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KColorCombo_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7201,10 +9037,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KColorCombo, e: anytype) void {
+    pub fn superShowEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.KColorCombo_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7218,9 +9058,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KColorCombo, callback: *const fn (KColorCombo, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KColorCombo, callback: *const fn (KColorCombo, QShowEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7234,14 +9078,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: KColorCombo, e: anytype) void {
+    pub fn hideEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KColorCombo_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7255,10 +9099,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KColorCombo, e: anytype) void {
+    pub fn superHideEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.KColorCombo_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7272,9 +9120,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KColorCombo, callback: *const fn (KColorCombo, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KColorCombo, callback: *const fn (KColorCombo, QHideEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7288,14 +9140,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KColorCombo, e: anytype) void {
+    pub fn mousePressEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KColorCombo_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7309,11 +9161,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KColorCombo, e: anytype) void {
+    pub fn superMousePressEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KColorCombo_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mousePressEvent)
@@ -7326,9 +9182,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7342,14 +9202,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KColorCombo, e: anytype) void {
+    pub fn mouseReleaseEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KColorCombo_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7363,10 +9223,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KColorCombo, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KColorCombo_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7380,9 +9244,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7396,14 +9264,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KColorCombo, e: anytype) void {
+    pub fn keyPressEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KColorCombo_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7417,11 +9285,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KColorCombo, e: anytype) void {
+    pub fn superKeyPressEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KColorCombo_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent)
@@ -7434,9 +9306,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KColorCombo, callback: *const fn (KColorCombo, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KColorCombo, callback: *const fn (KColorCombo, QKeyEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7450,14 +9326,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KColorCombo, e: anytype) void {
+    pub fn keyReleaseEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KColorCombo_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7471,10 +9347,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KColorCombo, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KColorCombo_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7488,9 +9368,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QKeyEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7504,14 +9388,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KColorCombo, e: anytype) void {
+    pub fn wheelEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KColorCombo_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7525,10 +9409,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KColorCombo, e: anytype) void {
+    pub fn superWheelEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.KColorCombo_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7542,9 +9430,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KColorCombo, callback: *const fn (KColorCombo, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KColorCombo, callback: *const fn (KColorCombo, QWheelEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7558,14 +9450,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KColorCombo, e: anytype) void {
+    pub fn contextMenuEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KColorCombo_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7579,10 +9471,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KColorCombo, e: anytype) void {
+    pub fn superContextMenuEvent(self: KColorCombo, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.KColorCombo_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7596,9 +9492,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KColorCombo, callback: *const fn (KColorCombo, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KColorCombo, callback: *const fn (KColorCombo, QContextMenuEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7612,14 +9512,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KColorCombo, param1: anytype) void {
+    pub fn inputMethodEvent(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KColorCombo_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7633,10 +9533,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KColorCombo, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KColorCombo, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KColorCombo_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7650,9 +9554,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KColorCombo, callback: *const fn (KColorCombo, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KColorCombo, callback: *const fn (KColorCombo, QInputMethodEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7666,14 +9574,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: KColorCombo, option: anytype) void {
+    pub fn initStyleOption(self: KColorCombo, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KColorCombo_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7687,10 +9595,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: KColorCombo, option: anytype) void {
+    pub fn superInitStyleOption(self: KColorCombo, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.KColorCombo_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7704,9 +9616,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KColorCombo, callback: *const fn (KColorCombo, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KColorCombo, callback: *const fn (KColorCombo, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.KColorCombo_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7718,13 +9634,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn DevType(self: KColorCombo) i32 {
+    pub fn devType(self: KColorCombo) i32 {
         return qtc.KColorCombo_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7736,9 +9652,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperDevType(self: KColorCombo) i32 {
+    pub fn superDevType(self: KColorCombo) i32 {
         return qtc.KColorCombo_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7752,9 +9672,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KColorCombo, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KColorCombo, callback: *const fn () callconv(.c) i32) void {
         qtc.KColorCombo_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7768,13 +9692,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KColorCombo, visible: bool) void {
+    pub fn setVisible(self: KColorCombo, visible: bool) void {
         qtc.KColorCombo_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7788,9 +9712,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KColorCombo, visible: bool) void {
+    pub fn superSetVisible(self: KColorCombo, visible: bool) void {
         qtc.KColorCombo_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7804,9 +9732,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KColorCombo, callback: *const fn (KColorCombo, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KColorCombo, callback: *const fn (KColorCombo, bool) callconv(.c) void) void {
         qtc.KColorCombo_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7820,13 +9752,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KColorCombo, param1: i32) i32 {
+    pub fn heightForWidth(self: KColorCombo, param1: i32) i32 {
         return qtc.KColorCombo_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7840,9 +9772,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KColorCombo, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KColorCombo, param1: i32) i32 {
         return qtc.KColorCombo_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7856,9 +9792,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) i32) void {
         qtc.KColorCombo_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7870,13 +9810,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn HasHeightForWidth(self: KColorCombo) bool {
+    pub fn hasHeightForWidth(self: KColorCombo) bool {
         return qtc.KColorCombo_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7888,9 +9828,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperHasHeightForWidth(self: KColorCombo) bool {
+    pub fn superHasHeightForWidth(self: KColorCombo) bool {
         return qtc.KColorCombo_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7904,9 +9848,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
         qtc.KColorCombo_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7918,13 +9866,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn PaintEngine(self: KColorCombo) QPaintEngine {
+    pub fn paintEngine(self: KColorCombo) QPaintEngine {
         return .{ .ptr = qtc.KColorCombo_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7936,9 +9884,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperPaintEngine(self: KColorCombo) QPaintEngine {
+    pub fn superPaintEngine(self: KColorCombo) QPaintEngine {
         return .{ .ptr = qtc.KColorCombo_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7952,10 +9904,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KColorCombo, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KColorCombo, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KColorCombo_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -7966,16 +9922,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KColorCombo_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KColorCombo_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7987,12 +9943,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KColorCombo_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KColorCombo_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8006,10 +9966,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8020,16 +9984,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KColorCombo_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KColorCombo_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8041,12 +10005,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KColorCombo_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KColorCombo_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8060,9 +10028,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMouseEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8074,16 +10046,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KColorCombo_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KColorCombo_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8095,12 +10067,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KColorCombo_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KColorCombo_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8114,9 +10090,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEnterEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8128,16 +10108,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorCombo_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorCombo_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8149,12 +10129,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorCombo_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorCombo_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8168,9 +10152,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8182,16 +10170,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KColorCombo_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KColorCombo_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8203,12 +10191,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KColorCombo_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KColorCombo_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8222,9 +10214,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QMoveEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8236,16 +10232,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KColorCombo_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KColorCombo_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8257,12 +10253,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KColorCombo_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KColorCombo_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8276,9 +10276,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KColorCombo, callback: *const fn (KColorCombo, QCloseEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8290,16 +10294,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KColorCombo_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KColorCombo_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8311,12 +10315,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KColorCombo_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KColorCombo_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8330,9 +10338,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KColorCombo, callback: *const fn (KColorCombo, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KColorCombo, callback: *const fn (KColorCombo, QTabletEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8344,16 +10356,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KColorCombo_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KColorCombo_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8365,12 +10377,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KColorCombo_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KColorCombo_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8384,9 +10400,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KColorCombo, callback: *const fn (KColorCombo, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KColorCombo, callback: *const fn (KColorCombo, QActionEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8398,16 +10418,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KColorCombo_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KColorCombo_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8419,12 +10439,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KColorCombo_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KColorCombo_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8438,9 +10462,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragEnterEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8452,16 +10480,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KColorCombo_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KColorCombo_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8473,12 +10501,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KColorCombo_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KColorCombo_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8492,9 +10524,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragMoveEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8506,16 +10542,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KColorCombo_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KColorCombo_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8527,12 +10563,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KColorCombo_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KColorCombo_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8546,9 +10586,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8560,16 +10604,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KColorCombo_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KColorCombo_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8581,12 +10625,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KColorCombo_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KColorCombo_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8600,9 +10648,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KColorCombo, callback: *const fn (KColorCombo, QDropEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8620,7 +10672,7 @@ pub const KColorCombo = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KColorCombo, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KColorCombo, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8628,9 +10680,9 @@ pub const KColorCombo = extern struct {
         return qtc.KColorCombo_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8648,13 +10700,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KColorCombo, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KColorCombo, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KColorCombo_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8668,9 +10724,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KColorCombo, callback: *const fn (KColorCombo, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KColorCombo, callback: *const fn (KColorCombo, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KColorCombo_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8684,13 +10744,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KColorCombo, param1: i32) i32 {
+    pub fn metric(self: KColorCombo, param1: i32) i32 {
         return qtc.KColorCombo_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8704,9 +10764,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KColorCombo, param1: i32) i32 {
+    pub fn superMetric(self: KColorCombo, param1: i32) i32 {
         return qtc.KColorCombo_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8720,9 +10784,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KColorCombo, callback: *const fn (KColorCombo, i32) callconv(.c) i32) void {
         qtc.KColorCombo_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8736,14 +10804,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KColorCombo, painter: anytype) void {
+    pub fn initPainter(self: KColorCombo, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KColorCombo_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8757,10 +10825,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KColorCombo, painter: anytype) void {
+    pub fn superInitPainter(self: KColorCombo, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KColorCombo_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8774,9 +10846,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KColorCombo, callback: *const fn (KColorCombo, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KColorCombo, callback: *const fn (KColorCombo, QPainter) callconv(.c) void) void {
         qtc.KColorCombo_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8790,14 +10866,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KColorCombo, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KColorCombo, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KColorCombo_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8811,10 +10887,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KColorCombo, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KColorCombo, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KColorCombo_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8828,9 +10908,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KColorCombo, callback: *const fn (KColorCombo, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KColorCombo, callback: *const fn (KColorCombo, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KColorCombo_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8842,13 +10926,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SharedPainter(self: KColorCombo) QPainter {
+    pub fn sharedPainter(self: KColorCombo) QPainter {
         return .{ .ptr = qtc.KColorCombo_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8860,9 +10944,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperSharedPainter(self: KColorCombo) QPainter {
+    pub fn superSharedPainter(self: KColorCombo) QPainter {
         return .{ .ptr = qtc.KColorCombo_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8876,9 +10964,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KColorCombo, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KColorCombo, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KColorCombo_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8892,13 +10984,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KColorCombo, next: bool) bool {
+    pub fn focusNextPrevChild(self: KColorCombo, next: bool) bool {
         return qtc.KColorCombo_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8912,9 +11004,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KColorCombo, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KColorCombo, next: bool) bool {
         return qtc.KColorCombo_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8928,9 +11024,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KColorCombo, callback: *const fn (KColorCombo, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KColorCombo, callback: *const fn (KColorCombo, bool) callconv(.c) bool) void {
         qtc.KColorCombo_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8944,17 +11044,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KColorCombo, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KColorCombo, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorCombo_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorCombo_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8968,13 +11068,17 @@ pub const KColorCombo = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KColorCombo, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KColorCombo, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KColorCombo_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KColorCombo_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8988,9 +11092,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KColorCombo, callback: *const fn (KColorCombo, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KColorCombo, callback: *const fn (KColorCombo, QObject, QEvent) callconv(.c) bool) void {
         qtc.KColorCombo_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -9002,16 +11110,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KColorCombo_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KColorCombo_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9023,12 +11131,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KColorCombo_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KColorCombo_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9042,9 +11154,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KColorCombo, callback: *const fn (KColorCombo, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KColorCombo, callback: *const fn (KColorCombo, QTimerEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9056,16 +11172,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KColorCombo_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KColorCombo_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9077,12 +11193,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KColorCombo_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KColorCombo_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9096,9 +11216,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KColorCombo, callback: *const fn (KColorCombo, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KColorCombo, callback: *const fn (KColorCombo, QChildEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9110,16 +11234,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorCombo_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorCombo_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9131,12 +11255,16 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KColorCombo, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KColorCombo_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KColorCombo, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KColorCombo_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9150,9 +11278,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KColorCombo, callback: *const fn (KColorCombo, QEvent) callconv(.c) void) void {
         qtc.KColorCombo_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9166,14 +11298,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KColorCombo, signal: anytype) void {
+    pub fn connectNotify(self: KColorCombo, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorCombo_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9187,11 +11319,15 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KColorCombo, signal: anytype) void {
+    pub fn superConnectNotify(self: KColorCombo, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorCombo_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9204,9 +11340,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) void) void {
         qtc.KColorCombo_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9220,14 +11360,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KColorCombo, signal: anytype) void {
+    pub fn disconnectNotify(self: KColorCombo, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorCombo_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9241,10 +11381,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KColorCombo, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KColorCombo, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KColorCombo_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9258,10 +11402,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) void) void {
         qtc.KColorCombo_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9272,13 +11420,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn UpdateMicroFocus(self: KColorCombo) void {
+    pub fn updateMicroFocus(self: KColorCombo) void {
         qtc.KColorCombo_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9290,10 +11438,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperUpdateMicroFocus(self: KColorCombo) void {
+    pub fn superUpdateMicroFocus(self: KColorCombo) void {
         qtc.KColorCombo_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9306,10 +11458,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
         qtc.KColorCombo_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9320,13 +11476,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Create(self: KColorCombo) void {
+    pub fn create(self: KColorCombo) void {
         qtc.KColorCombo_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9338,10 +11494,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperCreate(self: KColorCombo) void {
+    pub fn superCreate(self: KColorCombo) void {
         qtc.KColorCombo_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9354,9 +11514,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
         qtc.KColorCombo_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9368,13 +11532,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Destroy(self: KColorCombo) void {
+    pub fn destroy(self: KColorCombo) void {
         qtc.KColorCombo_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9386,9 +11550,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperDestroy(self: KColorCombo) void {
+    pub fn superDestroy(self: KColorCombo) void {
         qtc.KColorCombo_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9402,10 +11570,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KColorCombo, callback: *const fn () callconv(.c) void) void {
         qtc.KColorCombo_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9416,13 +11588,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FocusNextChild(self: KColorCombo) bool {
+    pub fn focusNextChild(self: KColorCombo) bool {
         return qtc.KColorCombo_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9434,10 +11606,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperFocusNextChild(self: KColorCombo) bool {
+    pub fn superFocusNextChild(self: KColorCombo) bool {
         return qtc.KColorCombo_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9450,9 +11626,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
         qtc.KColorCombo_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9464,13 +11644,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn FocusPreviousChild(self: KColorCombo) bool {
+    pub fn focusPreviousChild(self: KColorCombo) bool {
         return qtc.KColorCombo_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9482,9 +11662,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperFocusPreviousChild(self: KColorCombo) bool {
+    pub fn superFocusPreviousChild(self: KColorCombo) bool {
         return qtc.KColorCombo_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9498,9 +11682,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KColorCombo, callback: *const fn () callconv(.c) bool) void {
         qtc.KColorCombo_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9512,13 +11700,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Sender(self: KColorCombo) QObject {
+    pub fn sender(self: KColorCombo) QObject {
         return .{ .ptr = qtc.KColorCombo_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9530,9 +11718,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperSender(self: KColorCombo) QObject {
+    pub fn superSender(self: KColorCombo) QObject {
         return .{ .ptr = qtc.KColorCombo_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9546,9 +11738,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KColorCombo, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KColorCombo, callback: *const fn () callconv(.c) QObject) void {
         qtc.KColorCombo_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9560,13 +11756,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SenderSignalIndex(self: KColorCombo) i32 {
+    pub fn senderSignalIndex(self: KColorCombo) i32 {
         return qtc.KColorCombo_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9578,9 +11774,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn SuperSenderSignalIndex(self: KColorCombo) i32 {
+    pub fn superSenderSignalIndex(self: KColorCombo) i32 {
         return qtc.KColorCombo_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9594,9 +11794,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KColorCombo, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KColorCombo, callback: *const fn () callconv(.c) i32) void {
         qtc.KColorCombo_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9610,14 +11814,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KColorCombo, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KColorCombo, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KColorCombo_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9631,10 +11835,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KColorCombo, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KColorCombo, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KColorCombo_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9648,9 +11856,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) i32) void {
         qtc.KColorCombo_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9664,14 +11876,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KColorCombo, signal: anytype) bool {
+    pub fn isSignalConnected(self: KColorCombo, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KColorCombo_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9685,10 +11897,14 @@ pub const KColorCombo = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KColorCombo, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KColorCombo, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KColorCombo_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9702,9 +11918,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KColorCombo, callback: *const fn (KColorCombo, QMetaMethod) callconv(.c) bool) void {
         qtc.KColorCombo_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9720,13 +11940,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KColorCombo, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KColorCombo, metricA: i32, metricB: i32) f64 {
         return qtc.KColorCombo_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9742,9 +11962,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KColorCombo, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KColorCombo, metricA: i32, metricB: i32) f64 {
         return qtc.KColorCombo_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9758,9 +11982,13 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KColorCombo, callback: *const fn (KColorCombo, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KColorCombo, callback: *const fn (KColorCombo, i32, i32) callconv(.c) f64) void {
         qtc.KColorCombo_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9774,23 +12002,23 @@ pub const KColorCombo = extern struct {
     ///
     /// ` callback: *const fn (self: KColorCombo, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KColorCombo, callback: *const fn (KColorCombo, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorcombo.html#dtor.KColorCombo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KColorCombo `
     ///
-    pub fn Delete(self: KColorCombo) void {
+    pub fn delete(self: KColorCombo) void {
         qtc.KColorCombo_Delete(@ptrCast(self.ptr));
     }
 };

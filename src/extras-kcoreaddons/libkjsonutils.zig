@@ -14,6 +14,10 @@ pub const KJsonUtils = extern struct {
 
     pub const _is_KJsonUtils = {};
 
+    /// ### DEPRECATED: Use `readTranslatedValue` instead
+    ///
+    pub const ReadTranslatedValue = readTranslatedValue;
+
     /// ### [Upstream resources](https://api.kde.org/kjsonutils.html#readTranslatedValue)
     ///
     /// ## Parameter(s):
@@ -24,7 +28,7 @@ pub const KJsonUtils = extern struct {
     ///
     /// ` defaultValue: QJsonValue `
     ///
-    pub fn ReadTranslatedValue(jo: anytype, key: []const u8, defaultValue: anytype) QJsonValue {
+    pub fn readTranslatedValue(jo: anytype, key: []const u8, defaultValue: anytype) QJsonValue {
         comptime _ = @TypeOf(jo)._is_QJsonObject;
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -33,6 +37,10 @@ pub const KJsonUtils = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QJsonValue;
         return .{ .ptr = qtc.KJsonUtils_ReadTranslatedValue(@ptrCast(jo.ptr), key_str, @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `readTranslatedString` instead
+    ///
+    pub const ReadTranslatedString = readTranslatedString;
 
     /// ### [Upstream resources](https://api.kde.org/kjsonutils.html#readTranslatedString)
     ///
@@ -46,7 +54,7 @@ pub const KJsonUtils = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn ReadTranslatedString(allocator: std.mem.Allocator, jo: anytype, key: []const u8, defaultValue: []const u8) []const u8 {
+    pub fn readTranslatedString(allocator: std.mem.Allocator, jo: anytype, key: []const u8, defaultValue: []const u8) []const u8 {
         comptime _ = @TypeOf(jo)._is_QJsonObject;
         const key_str = qtc.libqt_string{
             .len = key.len,
@@ -58,7 +66,7 @@ pub const KJsonUtils = extern struct {
         };
         var _str = qtc.KJsonUtils_ReadTranslatedString(@ptrCast(jo.ptr), key_str, defaultValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KJsonUtils.ReadTranslatedString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KJsonUtils.readTranslatedString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

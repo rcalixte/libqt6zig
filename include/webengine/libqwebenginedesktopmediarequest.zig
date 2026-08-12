@@ -13,16 +13,24 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
 
     pub const _is_QWebEngineDesktopMediaRequest = {};
 
-    /// New constructs a new QWebEngineDesktopMediaRequest object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebEngineDesktopMediaRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebEngineDesktopMediaRequest `
     ///
-    pub fn New(other: anytype) QWebEngineDesktopMediaRequest {
+    pub fn new(other: anytype) QWebEngineDesktopMediaRequest {
         comptime _ = @TypeOf(other)._is_QWebEngineDesktopMediaRequest;
         return .{ .ptr = qtc.QWebEngineDesktopMediaRequest_new(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#operator-eq)
     ///
@@ -32,10 +40,14 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` other: QWebEngineDesktopMediaRequest `
     ///
-    pub fn OperatorAssign(self: QWebEngineDesktopMediaRequest, other: anytype) void {
+    pub fn operatorAssign(self: QWebEngineDesktopMediaRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineDesktopMediaRequest;
         qtc.QWebEngineDesktopMediaRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#swap)
     ///
@@ -45,10 +57,14 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` other: QWebEngineDesktopMediaRequest `
     ///
-    pub fn Swap(self: QWebEngineDesktopMediaRequest, other: anytype) void {
+    pub fn swap(self: QWebEngineDesktopMediaRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebEngineDesktopMediaRequest;
         qtc.QWebEngineDesktopMediaRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `screensModel` instead
+    ///
+    pub const ScreensModel = screensModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#screensModel)
     ///
@@ -56,9 +72,13 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` self: QWebEngineDesktopMediaRequest `
     ///
-    pub fn ScreensModel(self: QWebEngineDesktopMediaRequest) QAbstractListModel {
+    pub fn screensModel(self: QWebEngineDesktopMediaRequest) QAbstractListModel {
         return .{ .ptr = qtc.QWebEngineDesktopMediaRequest_ScreensModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowsModel` instead
+    ///
+    pub const WindowsModel = windowsModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#windowsModel)
     ///
@@ -66,9 +86,13 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` self: QWebEngineDesktopMediaRequest `
     ///
-    pub fn WindowsModel(self: QWebEngineDesktopMediaRequest) QAbstractListModel {
+    pub fn windowsModel(self: QWebEngineDesktopMediaRequest) QAbstractListModel {
         return .{ .ptr = qtc.QWebEngineDesktopMediaRequest_WindowsModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectScreen` instead
+    ///
+    pub const SelectScreen = selectScreen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#selectScreen)
     ///
@@ -78,10 +102,14 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SelectScreen(self: QWebEngineDesktopMediaRequest, index: anytype) void {
+    pub fn selectScreen(self: QWebEngineDesktopMediaRequest, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QWebEngineDesktopMediaRequest_SelectScreen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectWindow` instead
+    ///
+    pub const SelectWindow = selectWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#selectWindow)
     ///
@@ -91,10 +119,14 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SelectWindow(self: QWebEngineDesktopMediaRequest, index: anytype) void {
+    pub fn selectWindow(self: QWebEngineDesktopMediaRequest, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QWebEngineDesktopMediaRequest_SelectWindow(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancel` instead
+    ///
+    pub const Cancel = cancel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#cancel)
     ///
@@ -102,23 +134,23 @@ pub const QWebEngineDesktopMediaRequest = extern struct {
     ///
     /// ` self: QWebEngineDesktopMediaRequest `
     ///
-    pub fn Cancel(self: QWebEngineDesktopMediaRequest) void {
+    pub fn cancel(self: QWebEngineDesktopMediaRequest) void {
         qtc.QWebEngineDesktopMediaRequest_Cancel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginedesktopmediarequest.html#dtor.QWebEngineDesktopMediaRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineDesktopMediaRequest `
     ///
-    pub fn Delete(self: QWebEngineDesktopMediaRequest) void {
+    pub fn delete(self: QWebEngineDesktopMediaRequest) void {
         qtc.QWebEngineDesktopMediaRequest_Delete(@ptrCast(self.ptr));
     }
 };

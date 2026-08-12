@@ -83,115 +83,143 @@ pub const QProgressDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QProgressDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QProgressDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QProgressDialog_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QProgressDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QProgressDialog_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QProgressDialog {
+    pub const New2 = new2;
+
+    /// Allocate a new QProgressDialog object in C++ memory
+    ///
+    pub fn new2() QProgressDialog {
         return .{ .ptr = qtc.QProgressDialog_new2() };
     }
 
-    /// New3 constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QProgressDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` labelText: []const u8 `
+    /// ` _labelText: []const u8 `
     ///
     /// ` cancelButtonText: []const u8 `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn New3(labelText: []const u8, cancelButtonText: []const u8, minimum: i32, maximum: i32) QProgressDialog {
+    pub fn new3(_labelText: []const u8, cancelButtonText: []const u8, _minimum: i32, _maximum: i32) QProgressDialog {
         const labelText_str = qtc.libqt_string{
-            .len = labelText.len,
-            .data = labelText.ptr,
+            .len = _labelText.len,
+            .data = _labelText.ptr,
         };
         const cancelButtonText_str = qtc.libqt_string{
             .len = cancelButtonText.len,
             .data = cancelButtonText.ptr,
         };
-        return .{ .ptr = qtc.QProgressDialog_new3(labelText_str, cancelButtonText_str, @bitCast(minimum), @bitCast(maximum)) };
+        return .{ .ptr = qtc.QProgressDialog_new3(labelText_str, cancelButtonText_str, @bitCast(_minimum), @bitCast(_maximum)) };
     }
 
-    /// New4 constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QProgressDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New4(parent: anytype, flags: i32) QProgressDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QProgressDialog_new4(@ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn new4(_parent: anytype, flags: i32) QProgressDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QProgressDialog_new4(@ptrCast(_parent.ptr), @bitCast(flags)) };
     }
 
-    /// New5 constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QProgressDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` labelText: []const u8 `
+    /// ` _labelText: []const u8 `
     ///
     /// ` cancelButtonText: []const u8 `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New5(labelText: []const u8, cancelButtonText: []const u8, minimum: i32, maximum: i32, parent: anytype) QProgressDialog {
+    pub fn new5(_labelText: []const u8, cancelButtonText: []const u8, _minimum: i32, _maximum: i32, _parent: anytype) QProgressDialog {
         const labelText_str = qtc.libqt_string{
-            .len = labelText.len,
-            .data = labelText.ptr,
+            .len = _labelText.len,
+            .data = _labelText.ptr,
         };
         const cancelButtonText_str = qtc.libqt_string{
             .len = cancelButtonText.len,
             .data = cancelButtonText.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QProgressDialog_new5(labelText_str, cancelButtonText_str, @bitCast(minimum), @bitCast(maximum), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QProgressDialog_new5(labelText_str, cancelButtonText_str, @bitCast(_minimum), @bitCast(_maximum), @ptrCast(_parent.ptr)) };
     }
 
-    /// New6 constructs a new QProgressDialog object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QProgressDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` labelText: []const u8 `
+    /// ` _labelText: []const u8 `
     ///
     /// ` cancelButtonText: []const u8 `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New6(labelText: []const u8, cancelButtonText: []const u8, minimum: i32, maximum: i32, parent: anytype, flags: i32) QProgressDialog {
+    pub fn new6(_labelText: []const u8, cancelButtonText: []const u8, _minimum: i32, _maximum: i32, _parent: anytype, flags: i32) QProgressDialog {
         const labelText_str = qtc.libqt_string{
-            .len = labelText.len,
-            .data = labelText.ptr,
+            .len = _labelText.len,
+            .data = _labelText.ptr,
         };
         const cancelButtonText_str = qtc.libqt_string{
             .len = cancelButtonText.len,
             .data = cancelButtonText.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QProgressDialog_new6(labelText_str, cancelButtonText_str, @bitCast(minimum), @bitCast(maximum), @ptrCast(parent.ptr), @bitCast(flags)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QProgressDialog_new6(labelText_str, cancelButtonText_str, @bitCast(_minimum), @bitCast(_maximum), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -199,9 +227,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MetaObject(self: QProgressDialog) QMetaObject {
+    pub fn metaObject(self: QProgressDialog) QMetaObject {
         return .{ .ptr = qtc.QProgressDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -213,13 +245,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QProgressDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QProgressDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QProgressDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -229,9 +261,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperMetaObject(self: QProgressDialog) QMetaObject {
+    pub fn superMetaObject(self: QProgressDialog) QMetaObject {
         return .{ .ptr = qtc.QProgressDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -239,10 +275,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QProgressDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QProgressDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QProgressDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -252,13 +292,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QProgressDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -268,10 +308,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QProgressDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QProgressDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QProgressDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -283,9 +327,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QProgressDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -295,13 +343,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QProgressDialog, callback: *const fn (QProgressDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QProgressDialog, callback: *const fn (QProgressDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QProgressDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -315,9 +363,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QProgressDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QProgressDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -327,14 +379,18 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setLabel)
     ///
@@ -344,10 +400,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` label: QLabel `
     ///
-    pub fn SetLabel(self: QProgressDialog, label: anytype) void {
+    pub fn setLabel(self: QProgressDialog, label: anytype) void {
         comptime _ = @TypeOf(label)._is_QLabel;
         qtc.QProgressDialog_SetLabel(@ptrCast(self.ptr), @ptrCast(label.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCancelButton` instead
+    ///
+    pub const SetCancelButton = setCancelButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setCancelButton)
     ///
@@ -357,10 +417,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` button: QPushButton `
     ///
-    pub fn SetCancelButton(self: QProgressDialog, button: anytype) void {
+    pub fn setCancelButton(self: QProgressDialog, button: anytype) void {
         comptime _ = @TypeOf(button)._is_QPushButton;
         qtc.QProgressDialog_SetCancelButton(@ptrCast(self.ptr), @ptrCast(button.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBar` instead
+    ///
+    pub const SetBar = setBar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setBar)
     ///
@@ -370,10 +434,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` bar: QProgressBar `
     ///
-    pub fn SetBar(self: QProgressDialog, bar: anytype) void {
+    pub fn setBar(self: QProgressDialog, bar: anytype) void {
         comptime _ = @TypeOf(bar)._is_QProgressBar;
         qtc.QProgressDialog_SetBar(@ptrCast(self.ptr), @ptrCast(bar.ptr));
     }
+
+    /// ### DEPRECATED: Use `wasCanceled` instead
+    ///
+    pub const WasCanceled = wasCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#wasCanceled)
     ///
@@ -381,9 +449,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WasCanceled(self: QProgressDialog) bool {
+    pub fn wasCanceled(self: QProgressDialog) bool {
         return qtc.QProgressDialog_WasCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#minimum)
     ///
@@ -391,9 +463,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Minimum(self: QProgressDialog) i32 {
+    pub fn minimum(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_Minimum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#maximum)
     ///
@@ -401,9 +477,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Maximum(self: QProgressDialog) i32 {
+    pub fn maximum(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#value)
     ///
@@ -411,9 +491,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Value(self: QProgressDialog) i32 {
+    pub fn value(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#sizeHint)
     ///
@@ -421,9 +505,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SizeHint(self: QProgressDialog) QSize {
+    pub fn sizeHint(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QProgressDialog_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#sizeHint)
     ///
@@ -437,13 +525,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QProgressDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QProgressDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QProgressDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#sizeHint)
     ///
@@ -453,9 +541,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperSizeHint(self: QProgressDialog) QSize {
+    pub fn superSizeHint(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QProgressDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `labelText` instead
+    ///
+    pub const LabelText = labelText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#labelText)
     ///
@@ -465,13 +557,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelText(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn labelText(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QProgressDialog_LabelText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.LabelText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.labelText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `minimumDuration` instead
+    ///
+    pub const MinimumDuration = minimumDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#minimumDuration)
     ///
@@ -479,9 +575,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MinimumDuration(self: QProgressDialog) i32 {
+    pub fn minimumDuration(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_MinimumDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoReset` instead
+    ///
+    pub const SetAutoReset = setAutoReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setAutoReset)
     ///
@@ -489,11 +589,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` reset: bool `
+    /// ` _reset: bool `
     ///
-    pub fn SetAutoReset(self: QProgressDialog, reset: bool) void {
-        qtc.QProgressDialog_SetAutoReset(@ptrCast(self.ptr), reset);
+    pub fn setAutoReset(self: QProgressDialog, _reset: bool) void {
+        qtc.QProgressDialog_SetAutoReset(@ptrCast(self.ptr), _reset);
     }
+
+    /// ### DEPRECATED: Use `autoReset` instead
+    ///
+    pub const AutoReset = autoReset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#autoReset)
     ///
@@ -501,9 +605,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn AutoReset(self: QProgressDialog) bool {
+    pub fn autoReset(self: QProgressDialog) bool {
         return qtc.QProgressDialog_AutoReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoClose` instead
+    ///
+    pub const SetAutoClose = setAutoClose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setAutoClose)
     ///
@@ -511,11 +619,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` close: bool `
+    /// ` _close: bool `
     ///
-    pub fn SetAutoClose(self: QProgressDialog, close: bool) void {
-        qtc.QProgressDialog_SetAutoClose(@ptrCast(self.ptr), close);
+    pub fn setAutoClose(self: QProgressDialog, _close: bool) void {
+        qtc.QProgressDialog_SetAutoClose(@ptrCast(self.ptr), _close);
     }
+
+    /// ### DEPRECATED: Use `autoClose` instead
+    ///
+    pub const AutoClose = autoClose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#autoClose)
     ///
@@ -523,9 +635,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn AutoClose(self: QProgressDialog) bool {
+    pub fn autoClose(self: QProgressDialog) bool {
         return qtc.QProgressDialog_AutoClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cancel` instead
+    ///
+    pub const Cancel = cancel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#cancel)
     ///
@@ -533,9 +649,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Cancel(self: QProgressDialog) void {
+    pub fn cancel(self: QProgressDialog) void {
         qtc.QProgressDialog_Cancel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#reset)
     ///
@@ -543,9 +663,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Reset(self: QProgressDialog) void {
+    pub fn reset(self: QProgressDialog) void {
         qtc.QProgressDialog_Reset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setMaximum)
     ///
@@ -553,11 +677,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: QProgressDialog, maximum: i32) void {
-        qtc.QProgressDialog_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: QProgressDialog, _maximum: i32) void {
+        qtc.QProgressDialog_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setMinimum)
     ///
@@ -565,11 +693,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: QProgressDialog, minimum: i32) void {
-        qtc.QProgressDialog_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: QProgressDialog, _minimum: i32) void {
+        qtc.QProgressDialog_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `setRange` instead
+    ///
+    pub const SetRange = setRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setRange)
     ///
@@ -577,13 +709,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetRange(self: QProgressDialog, minimum: i32, maximum: i32) void {
-        qtc.QProgressDialog_SetRange(@ptrCast(self.ptr), @bitCast(minimum), @bitCast(maximum));
+    pub fn setRange(self: QProgressDialog, _minimum: i32, _maximum: i32) void {
+        qtc.QProgressDialog_SetRange(@ptrCast(self.ptr), @bitCast(_minimum), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setValue)
     ///
@@ -593,9 +729,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` progress: i32 `
     ///
-    pub fn SetValue(self: QProgressDialog, progress: i32) void {
+    pub fn setValue(self: QProgressDialog, progress: i32) void {
         qtc.QProgressDialog_SetValue(@ptrCast(self.ptr), @bitCast(progress));
     }
+
+    /// ### DEPRECATED: Use `setLabelText` instead
+    ///
+    pub const SetLabelText = setLabelText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setLabelText)
     ///
@@ -605,13 +745,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetLabelText(self: QProgressDialog, text: []const u8) void {
+    pub fn setLabelText(self: QProgressDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QProgressDialog_SetLabelText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCancelButtonText` instead
+    ///
+    pub const SetCancelButtonText = setCancelButtonText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setCancelButtonText)
     ///
@@ -621,13 +765,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCancelButtonText(self: QProgressDialog, text: []const u8) void {
+    pub fn setCancelButtonText(self: QProgressDialog, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QProgressDialog_SetCancelButtonText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setMinimumDuration` instead
+    ///
+    pub const SetMinimumDuration = setMinimumDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#setMinimumDuration)
     ///
@@ -637,9 +785,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` ms: i32 `
     ///
-    pub fn SetMinimumDuration(self: QProgressDialog, ms: i32) void {
+    pub fn setMinimumDuration(self: QProgressDialog, ms: i32) void {
         qtc.QProgressDialog_SetMinimumDuration(@ptrCast(self.ptr), @bitCast(ms));
     }
+
+    /// ### DEPRECATED: Use `canceled` instead
+    ///
+    pub const Canceled = canceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#canceled)
     ///
@@ -647,9 +799,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Canceled(self: QProgressDialog) void {
+    pub fn canceled(self: QProgressDialog) void {
         qtc.QProgressDialog_Canceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanceled` instead
+    ///
+    pub const OnCanceled = onCanceled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#canceled)
     ///
@@ -659,9 +815,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog) callconv(.c) void `
     ///
-    pub fn OnCanceled(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
+    pub fn onCanceled(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
         qtc.QProgressDialog_Connect_Canceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#resizeEvent)
     ///
@@ -669,12 +829,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QProgressDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QProgressDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#resizeEvent)
     ///
@@ -686,13 +850,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QResizeEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#resizeEvent)
     ///
@@ -702,12 +866,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QProgressDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QProgressDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#closeEvent)
     ///
@@ -715,12 +883,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QProgressDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QProgressDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#closeEvent)
     ///
@@ -732,13 +904,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QCloseEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#closeEvent)
     ///
@@ -748,12 +920,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QProgressDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QProgressDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#changeEvent)
     ///
@@ -761,12 +937,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#changeEvent)
     ///
@@ -778,13 +958,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#changeEvent)
     ///
@@ -794,12 +974,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#showEvent)
     ///
@@ -807,12 +991,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QProgressDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QProgressDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#showEvent)
     ///
@@ -824,13 +1012,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QShowEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#showEvent)
     ///
@@ -840,12 +1028,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QProgressDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QProgressDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `forceShow` instead
+    ///
+    pub const ForceShow = forceShow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#forceShow)
     ///
@@ -853,9 +1045,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ForceShow(self: QProgressDialog) void {
+    pub fn forceShow(self: QProgressDialog) void {
         qtc.QProgressDialog_ForceShow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onForceShow` instead
+    ///
+    pub const OnForceShow = onForceShow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#forceShow)
     ///
@@ -867,13 +1063,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnForceShow(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onForceShow(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnForceShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperForceShow` instead
+    /// ### DEPRECATED: Use `superForceShow` instead
     ///
-    pub const QBaseForceShow = SuperForceShow;
+    pub const SuperForceShow = superForceShow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#forceShow)
     ///
@@ -883,9 +1079,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperForceShow(self: QProgressDialog) void {
+    pub fn superForceShow(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperForceShow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -897,15 +1097,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -919,15 +1123,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -937,9 +1145,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Result(self: QProgressDialog) i32 {
+    pub fn result(self: QProgressDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -951,9 +1163,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: QProgressDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: QProgressDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -963,9 +1179,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsSizeGripEnabled(self: QProgressDialog) bool {
+    pub fn isSizeGripEnabled(self: QProgressDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -977,9 +1197,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: QProgressDialog, modal: bool) void {
+    pub fn setModal(self: QProgressDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -991,9 +1215,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: QProgressDialog, r: i32) void {
+    pub fn setResult(self: QProgressDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -1003,11 +1231,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: QProgressDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: QProgressDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -1019,10 +1251,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -1031,10 +1267,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Accepted(self: QProgressDialog) void {
+    pub fn accepted(self: QProgressDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -1045,9 +1285,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -1057,9 +1301,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Rejected(self: QProgressDialog) void {
+    pub fn rejected(self: QProgressDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -1071,9 +1319,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
+    pub fn onRejected(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1083,9 +1335,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WinId(self: QProgressDialog) usize {
+    pub fn winId(self: QProgressDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1095,9 +1351,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn CreateWinId(self: QProgressDialog) void {
+    pub fn createWinId(self: QProgressDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1107,9 +1367,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn InternalWinId(self: QProgressDialog) usize {
+    pub fn internalWinId(self: QProgressDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1119,9 +1383,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn EffectiveWinId(self: QProgressDialog) usize {
+    pub fn effectiveWinId(self: QProgressDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1131,9 +1399,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Style(self: QProgressDialog) QStyle {
+    pub fn style(self: QProgressDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1143,12 +1415,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QProgressDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QProgressDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1158,9 +1434,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsTopLevel(self: QProgressDialog) bool {
+    pub fn isTopLevel(self: QProgressDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1170,9 +1450,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsWindow(self: QProgressDialog) bool {
+    pub fn isWindow(self: QProgressDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1182,9 +1466,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsModal(self: QProgressDialog) bool {
+    pub fn isModal(self: QProgressDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1198,9 +1486,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QProgressDialog) i32 {
+    pub fn windowModality(self: QProgressDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1210,11 +1502,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QProgressDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QProgressDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1224,9 +1520,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsEnabled(self: QProgressDialog) bool {
+    pub fn isEnabled(self: QProgressDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1238,10 +1538,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QProgressDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: QProgressDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1253,9 +1557,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QProgressDialog, enabled: bool) void {
+    pub fn setEnabled(self: QProgressDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1267,9 +1575,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QProgressDialog, disabled: bool) void {
+    pub fn setDisabled(self: QProgressDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1281,9 +1593,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QProgressDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: QProgressDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1293,9 +1609,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FrameGeometry(self: QProgressDialog) QRect {
+    pub fn frameGeometry(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1305,9 +1625,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Geometry(self: QProgressDialog) QRect {
+    pub fn geometry(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1317,9 +1641,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn NormalGeometry(self: QProgressDialog) QRect {
+    pub fn normalGeometry(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1329,9 +1657,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn X(self: QProgressDialog) i32 {
+    pub fn x(self: QProgressDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1341,9 +1673,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Y(self: QProgressDialog) i32 {
+    pub fn y(self: QProgressDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1353,9 +1689,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Pos(self: QProgressDialog) QPoint {
+    pub fn pos(self: QProgressDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1365,9 +1705,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FrameSize(self: QProgressDialog) QSize {
+    pub fn frameSize(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1377,9 +1721,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Size(self: QProgressDialog) QSize {
+    pub fn size(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1389,9 +1737,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Width(self: QProgressDialog) i32 {
+    pub fn width(self: QProgressDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1401,9 +1753,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Height(self: QProgressDialog) i32 {
+    pub fn height(self: QProgressDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1413,9 +1769,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Rect(self: QProgressDialog) QRect {
+    pub fn rect(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1425,9 +1785,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ChildrenRect(self: QProgressDialog) QRect {
+    pub fn childrenRect(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1437,9 +1801,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ChildrenRegion(self: QProgressDialog) QRegion {
+    pub fn childrenRegion(self: QProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1449,9 +1817,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MinimumSize(self: QProgressDialog) QSize {
+    pub fn minimumSize(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1461,9 +1833,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MaximumSize(self: QProgressDialog) QSize {
+    pub fn maximumSize(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1473,9 +1849,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MinimumWidth(self: QProgressDialog) i32 {
+    pub fn minimumWidth(self: QProgressDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1485,9 +1865,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MinimumHeight(self: QProgressDialog) i32 {
+    pub fn minimumHeight(self: QProgressDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1497,9 +1881,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MaximumWidth(self: QProgressDialog) i32 {
+    pub fn maximumWidth(self: QProgressDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1509,9 +1897,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MaximumHeight(self: QProgressDialog) i32 {
+    pub fn maximumHeight(self: QProgressDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1521,12 +1913,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QProgressDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QProgressDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1540,9 +1936,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QProgressDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QProgressDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1552,12 +1952,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QProgressDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QProgressDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1571,9 +1975,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QProgressDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QProgressDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1585,9 +1993,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QProgressDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: QProgressDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1599,9 +2011,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QProgressDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: QProgressDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1613,9 +2029,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QProgressDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: QProgressDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1627,9 +2047,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QProgressDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: QProgressDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1639,9 +2063,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SizeIncrement(self: QProgressDialog) QSize {
+    pub fn sizeIncrement(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1651,12 +2079,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QProgressDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QProgressDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1670,9 +2102,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QProgressDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2118,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn BaseSize(self: QProgressDialog) QSize {
+    pub fn baseSize(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1694,12 +2134,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QProgressDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QProgressDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1713,9 +2157,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QProgressDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QProgressDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1727,10 +2175,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QProgressDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QProgressDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1744,9 +2196,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QProgressDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1758,9 +2214,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QProgressDialog, w: i32) void {
+    pub fn setFixedWidth(self: QProgressDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1772,9 +2232,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QProgressDialog, h: i32) void {
+    pub fn setFixedHeight(self: QProgressDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1786,11 +2250,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QProgressDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1801,11 +2269,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QProgressDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1816,11 +2288,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QProgressDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1831,11 +2307,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QProgressDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1846,11 +2326,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QProgressDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: QProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1861,10 +2345,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QProgressDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1876,10 +2364,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QProgressDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QProgressDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1891,10 +2383,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QProgressDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QProgressDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1908,12 +2404,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QProgressDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QProgressDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1926,11 +2426,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QProgressDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QProgressDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1944,11 +2448,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QProgressDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QProgressDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1962,11 +2470,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QProgressDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QProgressDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1976,9 +2488,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Window(self: QProgressDialog) QWidget {
+    pub fn window(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1988,9 +2504,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn NativeParentWidget(self: QProgressDialog) QWidget {
+    pub fn nativeParentWidget(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2000,9 +2520,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn TopLevelWidget(self: QProgressDialog) QWidget {
+    pub fn topLevelWidget(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2012,9 +2536,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Palette(self: QProgressDialog) QPalette {
+    pub fn palette(self: QProgressDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2024,12 +2552,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QProgressDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QProgressDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2039,11 +2571,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QProgressDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QProgressDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2057,9 +2593,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QProgressDialog) i32 {
+    pub fn backgroundRole(self: QProgressDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2069,11 +2609,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QProgressDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QProgressDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2087,9 +2631,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QProgressDialog) i32 {
+    pub fn foregroundRole(self: QProgressDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2099,9 +2647,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Font(self: QProgressDialog) QFont {
+    pub fn font(self: QProgressDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2111,12 +2663,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QProgressDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QProgressDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2126,9 +2682,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FontMetrics(self: QProgressDialog) QFontMetrics {
+    pub fn fontMetrics(self: QProgressDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2138,9 +2698,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FontInfo(self: QProgressDialog) QFontInfo {
+    pub fn fontInfo(self: QProgressDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2150,9 +2714,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Cursor(self: QProgressDialog) QCursor {
+    pub fn cursor(self: QProgressDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2162,12 +2730,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QProgressDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QProgressDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2177,9 +2749,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UnsetCursor(self: QProgressDialog) void {
+    pub fn unsetCursor(self: QProgressDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2191,9 +2767,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QProgressDialog, enable: bool) void {
+    pub fn setMouseTracking(self: QProgressDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2203,9 +2783,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn HasMouseTracking(self: QProgressDialog) bool {
+    pub fn hasMouseTracking(self: QProgressDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2215,9 +2799,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UnderMouse(self: QProgressDialog) bool {
+    pub fn underMouse(self: QProgressDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2229,9 +2817,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QProgressDialog, enable: bool) void {
+    pub fn setTabletTracking(self: QProgressDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2241,24 +2833,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn HasTabletTracking(self: QProgressDialog) bool {
+    pub fn hasTabletTracking(self: QProgressDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QProgressDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QProgressDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2268,12 +2849,35 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QProgressDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QProgressDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QProgressDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QProgressDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2283,9 +2887,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Mask(self: QProgressDialog) QRegion {
+    pub fn mask(self: QProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2295,9 +2903,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ClearMask(self: QProgressDialog) void {
+    pub fn clearMask(self: QProgressDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2309,10 +2921,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QProgressDialog, target: anytype) void {
+    pub fn render(self: QProgressDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2324,10 +2940,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QProgressDialog, painter: anytype) void {
+    pub fn render2(self: QProgressDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2337,9 +2957,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Grab(self: QProgressDialog) QPixmap {
+    pub fn grab(self: QProgressDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2349,9 +2973,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn GraphicsEffect(self: QProgressDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: QProgressDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2363,10 +2991,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QProgressDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QProgressDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2378,9 +3010,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QProgressDialog, typeVal: i32) void {
+    pub fn grabGesture(self: QProgressDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2392,9 +3028,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QProgressDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: QProgressDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2404,15 +3044,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QProgressDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QProgressDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2422,15 +3066,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QProgressDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QProgressDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2442,13 +3090,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2460,13 +3112,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2478,10 +3134,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QProgressDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: QProgressDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2491,9 +3151,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WindowIcon(self: QProgressDialog) QIcon {
+    pub fn windowIcon(self: QProgressDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2503,15 +3167,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QProgressDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QProgressDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2523,13 +3191,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2539,15 +3211,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QProgressDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QProgressDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2559,13 +3235,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2577,13 +3257,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QProgressDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QProgressDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2595,13 +3279,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2613,9 +3301,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QProgressDialog, level: f64) void {
+    pub fn setWindowOpacity(self: QProgressDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2625,9 +3317,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WindowOpacity(self: QProgressDialog) f64 {
+    pub fn windowOpacity(self: QProgressDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2637,9 +3333,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsWindowModified(self: QProgressDialog) bool {
+    pub fn isWindowModified(self: QProgressDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2649,15 +3349,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QProgressDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: QProgressDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2669,13 +3373,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2687,9 +3395,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QProgressDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: QProgressDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2699,9 +3411,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ToolTipDuration(self: QProgressDialog) i32 {
+    pub fn toolTipDuration(self: QProgressDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2711,15 +3427,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QProgressDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QProgressDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2731,13 +3451,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2747,15 +3471,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QProgressDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QProgressDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2767,13 +3495,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2785,13 +3517,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2803,13 +3539,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QProgressDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: QProgressDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2821,13 +3561,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2839,13 +3583,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QProgressDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QProgressDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2857,9 +3605,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QProgressDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: QProgressDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3625,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QProgressDialog) i32 {
+    pub fn layoutDirection(self: QProgressDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2885,9 +3641,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UnsetLayoutDirection(self: QProgressDialog) void {
+    pub fn unsetLayoutDirection(self: QProgressDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2897,12 +3657,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QProgressDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QProgressDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2912,9 +3676,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Locale(self: QProgressDialog) QLocale {
+    pub fn locale(self: QProgressDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2924,9 +3692,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UnsetLocale(self: QProgressDialog) void {
+    pub fn unsetLocale(self: QProgressDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2936,9 +3708,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsRightToLeft(self: QProgressDialog) bool {
+    pub fn isRightToLeft(self: QProgressDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2948,9 +3724,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsLeftToRight(self: QProgressDialog) bool {
+    pub fn isLeftToRight(self: QProgressDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2960,9 +3740,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SetFocus(self: QProgressDialog) void {
+    pub fn setFocus(self: QProgressDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2972,9 +3756,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsActiveWindow(self: QProgressDialog) bool {
+    pub fn isActiveWindow(self: QProgressDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2984,9 +3772,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ActivateWindow(self: QProgressDialog) void {
+    pub fn activateWindow(self: QProgressDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2996,9 +3788,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ClearFocus(self: QProgressDialog) void {
+    pub fn clearFocus(self: QProgressDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3010,9 +3806,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QProgressDialog, reason: i32) void {
+    pub fn setFocus2(self: QProgressDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3026,9 +3826,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QProgressDialog) i32 {
+    pub fn focusPolicy(self: QProgressDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3040,9 +3844,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QProgressDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: QProgressDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3052,9 +3860,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn HasFocus(self: QProgressDialog) bool {
+    pub fn hasFocus(self: QProgressDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3066,11 +3878,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3080,12 +3896,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QProgressDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QProgressDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3095,9 +3915,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FocusProxy(self: QProgressDialog) QWidget {
+    pub fn focusProxy(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3111,9 +3935,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QProgressDialog) i32 {
+    pub fn contextMenuPolicy(self: QProgressDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3125,9 +3953,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QProgressDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QProgressDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3137,9 +3969,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn GrabMouse(self: QProgressDialog) void {
+    pub fn grabMouse(self: QProgressDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3151,10 +3987,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QProgressDialog, param1: anytype) void {
+    pub fn grabMouse2(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3164,9 +4004,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ReleaseMouse(self: QProgressDialog) void {
+    pub fn releaseMouse(self: QProgressDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3176,9 +4020,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn GrabKeyboard(self: QProgressDialog) void {
+    pub fn grabKeyboard(self: QProgressDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4036,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ReleaseKeyboard(self: QProgressDialog) void {
+    pub fn releaseKeyboard(self: QProgressDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3202,10 +4054,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QProgressDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: QProgressDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3217,9 +4073,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QProgressDialog, id: i32) void {
+    pub fn releaseShortcut(self: QProgressDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3231,9 +4091,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QProgressDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: QProgressDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3245,25 +4109,37 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QProgressDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QProgressDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3273,9 +4149,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UpdatesEnabled(self: QProgressDialog) bool {
+    pub fn updatesEnabled(self: QProgressDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3287,9 +4167,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QProgressDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QProgressDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3299,9 +4183,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn GraphicsProxyWidget(self: QProgressDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QProgressDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3311,9 +4199,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Update(self: QProgressDialog) void {
+    pub fn update(self: QProgressDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3323,9 +4215,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Repaint(self: QProgressDialog) void {
+    pub fn repaint(self: QProgressDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3335,17 +4231,21 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3357,11 +4257,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QProgressDialog, param1: anytype) void {
+    pub fn update3(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3372,10 +4276,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QProgressDialog, param1: anytype) void {
+    pub fn update4(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3385,17 +4293,21 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3407,10 +4319,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QProgressDialog, param1: anytype) void {
+    pub fn repaint3(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3422,10 +4338,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QProgressDialog, param1: anytype) void {
+    pub fn repaint4(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3437,9 +4357,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QProgressDialog, hidden: bool) void {
+    pub fn setHidden(self: QProgressDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3449,9 +4373,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Show(self: QProgressDialog) void {
+    pub fn show(self: QProgressDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3461,9 +4389,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Hide(self: QProgressDialog) void {
+    pub fn hide(self: QProgressDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3473,9 +4405,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ShowMinimized(self: QProgressDialog) void {
+    pub fn showMinimized(self: QProgressDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3485,9 +4421,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ShowMaximized(self: QProgressDialog) void {
+    pub fn showMaximized(self: QProgressDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3497,9 +4437,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ShowFullScreen(self: QProgressDialog) void {
+    pub fn showFullScreen(self: QProgressDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3509,9 +4453,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ShowNormal(self: QProgressDialog) void {
+    pub fn showNormal(self: QProgressDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3521,9 +4469,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Close(self: QProgressDialog) bool {
+    pub fn close(self: QProgressDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3533,9 +4485,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Raise(self: QProgressDialog) void {
+    pub fn raise(self: QProgressDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3545,9 +4501,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Lower(self: QProgressDialog) void {
+    pub fn lower(self: QProgressDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3559,10 +4519,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QProgressDialog, param1: anytype) void {
+    pub fn stackUnder(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3572,13 +4536,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QProgressDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QProgressDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3590,10 +4558,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QProgressDialog, param1: anytype) void {
+    pub fn move2(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3607,9 +4579,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QProgressDialog, w: i32, h: i32) void {
+    pub fn resize(self: QProgressDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3621,10 +4597,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QProgressDialog, param1: anytype) void {
+    pub fn resize2(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3634,17 +4614,21 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QProgressDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QProgressDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3654,12 +4638,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QProgressDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QProgressDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3671,13 +4659,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QProgressDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QProgressDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QProgressDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QProgressDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3687,15 +4679,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QProgressDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QProgressDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3705,9 +4701,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn AdjustSize(self: QProgressDialog) void {
+    pub fn adjustSize(self: QProgressDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3717,9 +4717,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsVisible(self: QProgressDialog) bool {
+    pub fn isVisible(self: QProgressDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3731,10 +4735,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QProgressDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: QProgressDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3744,9 +4752,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsHidden(self: QProgressDialog) bool {
+    pub fn isHidden(self: QProgressDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3756,9 +4768,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsMinimized(self: QProgressDialog) bool {
+    pub fn isMinimized(self: QProgressDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3768,9 +4784,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsMaximized(self: QProgressDialog) bool {
+    pub fn isMaximized(self: QProgressDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3780,9 +4800,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsFullScreen(self: QProgressDialog) bool {
+    pub fn isFullScreen(self: QProgressDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3796,9 +4820,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QProgressDialog) i32 {
+    pub fn windowState(self: QProgressDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3810,9 +4838,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QProgressDialog, state: i32) void {
+    pub fn setWindowState(self: QProgressDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3824,9 +4856,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QProgressDialog, state: i32) void {
+    pub fn overrideWindowState(self: QProgressDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3836,9 +4872,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SizePolicy(self: QProgressDialog) QSizePolicy {
+    pub fn sizePolicy(self: QProgressDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3848,12 +4888,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QProgressDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QProgressDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3867,9 +4911,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QProgressDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QProgressDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3879,9 +4927,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn VisibleRegion(self: QProgressDialog) QRegion {
+    pub fn visibleRegion(self: QProgressDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3899,9 +4951,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QProgressDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QProgressDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3913,10 +4969,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QProgressDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: QProgressDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3926,9 +4986,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ContentsMargins(self: QProgressDialog) QMargins {
+    pub fn contentsMargins(self: QProgressDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3938,9 +5002,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ContentsRect(self: QProgressDialog) QRect {
+    pub fn contentsRect(self: QProgressDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3950,9 +5018,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Layout(self: QProgressDialog) QLayout {
+    pub fn layout(self: QProgressDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3962,12 +5034,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QProgressDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QProgressDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3977,24 +5053,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UpdateGeometry(self: QProgressDialog) void {
+    pub fn updateGeometry(self: QProgressDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QProgressDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QProgressDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4004,14 +5069,37 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QProgressDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QProgressDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QProgressDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QProgressDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5113,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QProgressDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: QProgressDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4043,10 +5135,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QProgressDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QProgressDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4056,9 +5152,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FocusWidget(self: QProgressDialog) QWidget {
+    pub fn focusWidget(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4068,9 +5168,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn NextInFocusChain(self: QProgressDialog) QWidget {
+    pub fn nextInFocusChain(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4080,9 +5184,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn PreviousInFocusChain(self: QProgressDialog) QWidget {
+    pub fn previousInFocusChain(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4092,9 +5200,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn AcceptDrops(self: QProgressDialog) bool {
+    pub fn acceptDrops(self: QProgressDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4106,9 +5218,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QProgressDialog, on: bool) void {
+    pub fn setAcceptDrops(self: QProgressDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4120,10 +5236,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QProgressDialog, action: anytype) void {
+    pub fn addAction(self: QProgressDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4133,15 +5253,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QProgressDialog, actions: []QAction) void {
+    pub fn addActions(self: QProgressDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4153,16 +5277,20 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QProgressDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QProgressDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4176,11 +5304,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QProgressDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QProgressDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4192,10 +5324,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QProgressDialog, action: anytype) void {
+    pub fn removeAction(self: QProgressDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4207,15 +5343,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QProgressDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QProgressDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QProgressDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QProgressDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4227,13 +5367,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QProgressDialog, text: []const u8) QAction {
+    pub fn addAction2(self: QProgressDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4247,7 +5391,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QProgressDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QProgressDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4256,6 +5400,10 @@ pub const QProgressDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4268,7 +5416,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QProgressDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QProgressDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4276,6 +5424,10 @@ pub const QProgressDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4291,7 +5443,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QProgressDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QProgressDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4301,6 +5453,10 @@ pub const QProgressDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4309,9 +5465,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ParentWidget(self: QProgressDialog) QWidget {
+    pub fn parentWidget(self: QProgressDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4323,9 +5483,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QProgressDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: QProgressDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4339,9 +5503,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QProgressDialog) i32 {
+    pub fn windowFlags(self: QProgressDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4353,9 +5521,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QProgressDialog, param1: i32) void {
+    pub fn setWindowFlag(self: QProgressDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4367,9 +5539,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QProgressDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QProgressDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4383,9 +5559,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QProgressDialog) i32 {
+    pub fn windowType(self: QProgressDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4395,9 +5575,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4407,13 +5591,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QProgressDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QProgressDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4425,10 +5613,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QProgressDialog, p: anytype) QWidget {
+    pub fn childAt2(self: QProgressDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4440,10 +5632,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QProgressDialog, p: anytype) QWidget {
+    pub fn childAt3(self: QProgressDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4455,9 +5651,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QProgressDialog, param1: i32) void {
+    pub fn setAttribute(self: QProgressDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4469,9 +5669,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QProgressDialog, param1: i32) bool {
+    pub fn testAttribute(self: QProgressDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4481,9 +5685,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn EnsurePolished(self: QProgressDialog) void {
+    pub fn ensurePolished(self: QProgressDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4495,10 +5703,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QProgressDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: QProgressDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4508,9 +5720,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn AutoFillBackground(self: QProgressDialog) bool {
+    pub fn autoFillBackground(self: QProgressDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4522,9 +5738,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QProgressDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QProgressDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4534,9 +5754,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn BackingStore(self: QProgressDialog) QBackingStore {
+    pub fn backingStore(self: QProgressDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4546,9 +5770,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WindowHandle(self: QProgressDialog) QWindow {
+    pub fn windowHandle(self: QProgressDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4558,9 +5786,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Screen(self: QProgressDialog) QScreen {
+    pub fn screen(self: QProgressDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4570,12 +5802,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QProgressDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QProgressDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4583,12 +5819,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4600,13 +5840,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QProgressDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: QProgressDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4618,9 +5862,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4632,10 +5880,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QProgressDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: QProgressDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4647,9 +5899,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4661,13 +5917,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QProgressDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QProgressDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4679,9 +5939,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4691,12 +5955,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QProgressDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QProgressDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4708,9 +5976,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QProgressDialog, callback: *const fn (QProgressDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QProgressDialog, callback: *const fn (QProgressDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4724,9 +5996,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QProgressDialog) i32 {
+    pub fn inputMethodHints(self: QProgressDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4738,9 +6014,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QProgressDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: QProgressDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4754,11 +6034,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QProgressDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QProgressDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4774,13 +6058,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4797,12 +6085,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QProgressDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4816,11 +6108,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QProgressDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QProgressDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4836,12 +6132,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4859,12 +6159,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QProgressDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4876,10 +6180,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QProgressDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QProgressDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4893,9 +6201,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QProgressDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QProgressDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4909,10 +6221,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QProgressDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QProgressDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4926,9 +6242,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QProgressDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QProgressDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4942,9 +6262,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QProgressDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QProgressDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4958,9 +6282,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QProgressDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QProgressDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4974,25 +6302,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QProgressDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QProgressDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5000,17 +6316,41 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5022,13 +6362,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QProgressDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QProgressDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5040,13 +6384,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QProgressDialog, name: []const u8) void {
+    pub fn setObjectName(self: QProgressDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5056,9 +6404,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsWidgetType(self: QProgressDialog) bool {
+    pub fn isWidgetType(self: QProgressDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5068,9 +6420,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsWindowType(self: QProgressDialog) bool {
+    pub fn isWindowType(self: QProgressDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5080,9 +6436,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn IsQuickItemType(self: QProgressDialog) bool {
+    pub fn isQuickItemType(self: QProgressDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5092,9 +6452,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SignalsBlocked(self: QProgressDialog) bool {
+    pub fn signalsBlocked(self: QProgressDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5106,9 +6470,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QProgressDialog, b: bool) bool {
+    pub fn blockSignals(self: QProgressDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5118,9 +6486,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Thread(self: QProgressDialog) QThread {
+    pub fn thread(self: QProgressDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5130,12 +6502,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QProgressDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QProgressDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5147,9 +6523,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QProgressDialog, interval: i32) i32 {
+    pub fn startTimer(self: QProgressDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5161,9 +6541,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QProgressDialog, time: i64) i32 {
+    pub fn startTimer2(self: QProgressDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5175,9 +6559,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QProgressDialog, id: i32) void {
+    pub fn killTimer(self: QProgressDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5189,9 +6577,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QProgressDialog, id: i32) void {
+    pub fn killTimer2(self: QProgressDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5203,15 +6595,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QProgressDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QProgressDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QProgressDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QProgressDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5223,10 +6619,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QProgressDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: QProgressDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5238,10 +6638,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QProgressDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: QProgressDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5249,7 +6653,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5257,13 +6661,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5271,7 +6679,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5279,13 +6687,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5295,18 +6707,22 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QProgressDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QProgressDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5314,7 +6730,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5322,13 +6738,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5336,7 +6756,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5344,13 +6764,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5360,9 +6784,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Disconnect3(self: QProgressDialog) bool {
+    pub fn disconnect3(self: QProgressDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5374,10 +6802,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QProgressDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: QProgressDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5387,10 +6819,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5400,9 +6836,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DumpObjectTree(self: QProgressDialog) void {
+    pub fn dumpObjectTree(self: QProgressDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5412,9 +6852,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DumpObjectInfo(self: QProgressDialog) void {
+    pub fn dumpObjectInfo(self: QProgressDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5426,13 +6870,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QProgressDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QProgressDialog, name: [:0]const u8, _value: anytype) bool {
         const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5444,10 +6892,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QProgressDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: QProgressDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5459,7 +6911,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QProgressDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QProgressDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5467,27 +6919,19 @@ pub const QProgressDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QProgressDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QProgressDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QProgressDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QProgressDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QProgressDialog `
-    ///
-    pub fn BindingStorage(self: QProgressDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5497,9 +6941,29 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn BindingStorage2(self: QProgressDialog) QBindingStorage {
+    pub fn bindingStorage(self: QProgressDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QProgressDialog `
+    ///
+    pub fn bindingStorage2(self: QProgressDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5509,9 +6973,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Destroyed(self: QProgressDialog) void {
+    pub fn destroyed(self: QProgressDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5523,9 +6991,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: QProgressDialog, callback: *const fn (QProgressDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5535,9 +7007,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Parent(self: QProgressDialog) QObject {
+    pub fn parent(self: QProgressDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5549,10 +7025,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QProgressDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: QProgressDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5562,9 +7042,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DeleteLater(self: QProgressDialog) void {
+    pub fn deleteLater(self: QProgressDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5578,9 +7062,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QProgressDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QProgressDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5594,9 +7082,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QProgressDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QProgressDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5604,7 +7096,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5614,13 +7106,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5628,7 +7124,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5638,13 +7134,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5654,7 +7154,7 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5662,12 +7162,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QProgressDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QProgressDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5679,10 +7183,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QProgressDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QProgressDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5696,11 +7204,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QProgressDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QProgressDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5716,13 +7228,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QProgressDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QProgressDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5735,11 +7251,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QProgressDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QProgressDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5751,10 +7271,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QProgressDialog, param1: anytype) void {
+    pub fn destroyed1(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5766,9 +7290,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QProgressDialog, callback: *const fn (QProgressDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QProgressDialog, callback: *const fn (QProgressDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5778,9 +7306,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn PaintingActive(self: QProgressDialog) bool {
+    pub fn paintingActive(self: QProgressDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5790,9 +7322,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn WidthMM(self: QProgressDialog) i32 {
+    pub fn widthMM(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5802,9 +7338,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn HeightMM(self: QProgressDialog) i32 {
+    pub fn heightMM(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5814,9 +7354,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn LogicalDpiX(self: QProgressDialog) i32 {
+    pub fn logicalDpiX(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5826,9 +7370,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn LogicalDpiY(self: QProgressDialog) i32 {
+    pub fn logicalDpiY(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5838,9 +7386,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn PhysicalDpiX(self: QProgressDialog) i32 {
+    pub fn physicalDpiX(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5850,9 +7402,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn PhysicalDpiY(self: QProgressDialog) i32 {
+    pub fn physicalDpiY(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5862,9 +7418,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DevicePixelRatio(self: QProgressDialog) f64 {
+    pub fn devicePixelRatio(self: QProgressDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5874,9 +7434,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DevicePixelRatioF(self: QProgressDialog) f64 {
+    pub fn devicePixelRatioF(self: QProgressDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5886,9 +7450,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn ColorCount(self: QProgressDialog) i32 {
+    pub fn colorCount(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5898,17 +7466,25 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Depth(self: QProgressDialog) i32 {
+    pub fn depth(self: QProgressDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5916,13 +7492,17 @@ pub const QProgressDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    /// ` value: f64 `
+    /// ` _value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, _value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5936,13 +7516,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QProgressDialog, visible: bool) void {
+    pub fn setVisible(self: QProgressDialog, visible: bool) void {
         qtc.QProgressDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5956,9 +7536,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QProgressDialog, visible: bool) void {
+    pub fn superSetVisible(self: QProgressDialog, visible: bool) void {
         qtc.QProgressDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5972,9 +7556,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QProgressDialog, callback: *const fn (QProgressDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QProgressDialog, callback: *const fn (QProgressDialog, bool) callconv(.c) void) void {
         qtc.QProgressDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5986,13 +7574,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn MinimumSizeHint(self: QProgressDialog) QSize {
+    pub fn minimumSizeHint(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QProgressDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6004,9 +7592,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: QProgressDialog) QSize {
+    pub fn superMinimumSizeHint(self: QProgressDialog) QSize {
         return .{ .ptr = qtc.QProgressDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -6022,9 +7614,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QProgressDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QProgressDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QProgressDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -6036,13 +7632,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Open(self: QProgressDialog) void {
+    pub fn open(self: QProgressDialog) void {
         qtc.QProgressDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -6054,9 +7650,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperOpen(self: QProgressDialog) void {
+    pub fn superOpen(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -6070,9 +7670,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -6084,13 +7688,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Exec(self: QProgressDialog) i32 {
+    pub fn exec(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -6102,9 +7706,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperExec(self: QProgressDialog) i32 {
+    pub fn superExec(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -6118,9 +7726,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QProgressDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -6134,13 +7746,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: QProgressDialog, param1: i32) void {
+    pub fn done(self: QProgressDialog, param1: i32) void {
         qtc.QProgressDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -6154,9 +7766,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: QProgressDialog, param1: i32) void {
+    pub fn superDone(self: QProgressDialog, param1: i32) void {
         qtc.QProgressDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -6170,10 +7786,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) void) void {
         qtc.QProgressDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -6184,13 +7804,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Accept(self: QProgressDialog) void {
+    pub fn accept(self: QProgressDialog) void {
         qtc.QProgressDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -6202,9 +7822,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperAccept(self: QProgressDialog) void {
+    pub fn superAccept(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -6218,9 +7842,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -6232,13 +7860,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Reject(self: QProgressDialog) void {
+    pub fn reject(self: QProgressDialog) void {
         qtc.QProgressDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -6250,9 +7878,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperReject(self: QProgressDialog) void {
+    pub fn superReject(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -6266,9 +7898,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6282,14 +7918,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QProgressDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6303,10 +7939,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QProgressDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6320,9 +7960,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6336,14 +7980,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QProgressDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6357,10 +8001,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QProgressDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6374,9 +8022,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6392,15 +8044,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QProgressDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QProgressDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QProgressDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6416,11 +8068,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QProgressDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QProgressDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QProgressDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6434,9 +8090,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QProgressDialog, callback: *const fn (QProgressDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QProgressDialog, callback: *const fn (QProgressDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.QProgressDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6448,13 +8108,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn DevType(self: QProgressDialog) i32 {
+    pub fn devType(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6466,9 +8126,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperDevType(self: QProgressDialog) i32 {
+    pub fn superDevType(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6482,9 +8146,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QProgressDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6498,13 +8166,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QProgressDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: QProgressDialog, param1: i32) i32 {
         return qtc.QProgressDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6518,9 +8186,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QProgressDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QProgressDialog, param1: i32) i32 {
         return qtc.QProgressDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6534,9 +8206,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) i32) void {
         qtc.QProgressDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6548,13 +8224,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn HasHeightForWidth(self: QProgressDialog) bool {
+    pub fn hasHeightForWidth(self: QProgressDialog) bool {
         return qtc.QProgressDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6566,9 +8242,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: QProgressDialog) bool {
+    pub fn superHasHeightForWidth(self: QProgressDialog) bool {
         return qtc.QProgressDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6582,9 +8262,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QProgressDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6596,13 +8280,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn PaintEngine(self: QProgressDialog) QPaintEngine {
+    pub fn paintEngine(self: QProgressDialog) QPaintEngine {
         return .{ .ptr = qtc.QProgressDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6614,9 +8298,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperPaintEngine(self: QProgressDialog) QPaintEngine {
+    pub fn superPaintEngine(self: QProgressDialog) QPaintEngine {
         return .{ .ptr = qtc.QProgressDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6630,9 +8318,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QProgressDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QProgressDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QProgressDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6644,16 +8336,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QProgressDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QProgressDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QProgressDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QProgressDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6665,12 +8357,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QProgressDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QProgressDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QProgressDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QProgressDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6684,10 +8380,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) bool) void {
         qtc.QProgressDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6698,16 +8398,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6719,12 +8419,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6738,10 +8442,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6752,16 +8460,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6773,12 +8481,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6792,10 +8504,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6806,16 +8522,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6827,12 +8543,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6846,10 +8566,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6860,16 +8584,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6881,12 +8605,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QProgressDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QProgressDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6900,9 +8628,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6914,16 +8646,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QProgressDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QProgressDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6935,12 +8667,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QProgressDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QProgressDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6954,9 +8690,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QWheelEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6968,16 +8708,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QProgressDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QProgressDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6989,12 +8729,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QProgressDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QProgressDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7008,10 +8752,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7022,16 +8770,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QProgressDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QProgressDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7043,12 +8791,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QProgressDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QProgressDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7062,10 +8814,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7076,16 +8832,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QProgressDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QProgressDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7097,12 +8853,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QProgressDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QProgressDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7116,9 +8876,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7130,16 +8894,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QProgressDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QProgressDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7151,12 +8915,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QProgressDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QProgressDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7170,9 +8938,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEnterEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7184,16 +8956,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7205,12 +8977,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7224,9 +9000,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7238,16 +9018,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QProgressDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QProgressDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7259,12 +9039,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QProgressDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QProgressDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7278,9 +9062,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QPaintEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7292,16 +9080,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QProgressDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QProgressDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7313,12 +9101,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QProgressDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QProgressDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7332,9 +9124,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QMoveEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7346,16 +9142,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QProgressDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QProgressDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7367,12 +9163,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QProgressDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QProgressDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7386,9 +9186,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QTabletEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7400,16 +9204,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QProgressDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QProgressDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7421,12 +9225,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QProgressDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QProgressDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7440,9 +9248,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QActionEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7454,16 +9266,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QProgressDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QProgressDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7475,12 +9287,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QProgressDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QProgressDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7494,9 +9310,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7508,16 +9328,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QProgressDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QProgressDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7529,12 +9349,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QProgressDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QProgressDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7548,9 +9372,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7562,16 +9390,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QProgressDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QProgressDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7583,12 +9411,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QProgressDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QProgressDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7602,9 +9434,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7616,16 +9452,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QProgressDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QProgressDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7637,12 +9473,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QProgressDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QProgressDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7656,9 +9496,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QDropEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7670,16 +9514,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QProgressDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QProgressDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7691,12 +9535,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QProgressDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QProgressDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7710,9 +9558,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QHideEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7728,19 +9580,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: QProgressDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QProgressDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QProgressDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QProgressDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7756,15 +9608,19 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QProgressDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QProgressDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QProgressDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QProgressDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7778,9 +9634,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QProgressDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7794,13 +9654,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QProgressDialog, param1: i32) i32 {
+    pub fn metric(self: QProgressDialog, param1: i32) i32 {
         return qtc.QProgressDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7814,9 +9674,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QProgressDialog, param1: i32) i32 {
+    pub fn superMetric(self: QProgressDialog, param1: i32) i32 {
         return qtc.QProgressDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7830,9 +9694,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) i32) void {
         qtc.QProgressDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7846,14 +9714,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QProgressDialog, painter: anytype) void {
+    pub fn initPainter(self: QProgressDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QProgressDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7867,10 +9735,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QProgressDialog, painter: anytype) void {
+    pub fn superInitPainter(self: QProgressDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QProgressDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7884,9 +9756,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QProgressDialog, callback: *const fn (QProgressDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QProgressDialog, callback: *const fn (QProgressDialog, QPainter) callconv(.c) void) void {
         qtc.QProgressDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7900,14 +9776,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QProgressDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QProgressDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QProgressDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7921,10 +9797,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QProgressDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QProgressDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QProgressDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7938,9 +9818,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QProgressDialog, callback: *const fn (QProgressDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QProgressDialog, callback: *const fn (QProgressDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QProgressDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7952,13 +9836,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SharedPainter(self: QProgressDialog) QPainter {
+    pub fn sharedPainter(self: QProgressDialog) QPainter {
         return .{ .ptr = qtc.QProgressDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7970,9 +9854,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperSharedPainter(self: QProgressDialog) QPainter {
+    pub fn superSharedPainter(self: QProgressDialog) QPainter {
         return .{ .ptr = qtc.QProgressDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7986,9 +9874,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QProgressDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QProgressDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QProgressDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8002,14 +9894,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QProgressDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8023,10 +9915,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QProgressDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QProgressDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8040,9 +9936,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8056,13 +9956,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QProgressDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QProgressDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QProgressDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8076,9 +9976,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QProgressDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QProgressDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QProgressDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8094,9 +9998,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QProgressDialog, callback: *const fn (QProgressDialog, i32) callconv(.c) QVariant) void {
         qtc.QProgressDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8110,13 +10018,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QProgressDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: QProgressDialog, next: bool) bool {
         return qtc.QProgressDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8130,9 +10038,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QProgressDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QProgressDialog, next: bool) bool {
         return qtc.QProgressDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8146,9 +10058,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QProgressDialog, callback: *const fn (QProgressDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QProgressDialog, callback: *const fn (QProgressDialog, bool) callconv(.c) bool) void {
         qtc.QProgressDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8160,16 +10076,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QProgressDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QProgressDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8181,12 +10097,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QProgressDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QProgressDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8200,9 +10120,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QTimerEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8214,16 +10138,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QProgressDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QProgressDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8235,12 +10159,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QProgressDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QProgressDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8254,9 +10182,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QChildEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8268,16 +10200,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8289,12 +10221,16 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QProgressDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QProgressDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QProgressDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QProgressDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8308,9 +10244,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QProgressDialog, callback: *const fn (QProgressDialog, QEvent) callconv(.c) void) void {
         qtc.QProgressDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8324,14 +10264,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QProgressDialog, signal: anytype) void {
+    pub fn connectNotify(self: QProgressDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QProgressDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8345,11 +10285,15 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QProgressDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: QProgressDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QProgressDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8362,9 +10306,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QProgressDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8378,14 +10326,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QProgressDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: QProgressDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QProgressDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8399,10 +10347,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QProgressDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QProgressDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QProgressDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8416,9 +10368,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QProgressDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8432,14 +10388,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: QProgressDialog, param1: anytype) void {
+    pub fn adjustPosition(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QProgressDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8453,10 +10409,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: QProgressDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: QProgressDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QProgressDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8470,10 +10430,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: QProgressDialog, callback: *const fn (QProgressDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: QProgressDialog, callback: *const fn (QProgressDialog, QWidget) callconv(.c) void) void {
         qtc.QProgressDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8484,13 +10448,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn UpdateMicroFocus(self: QProgressDialog) void {
+    pub fn updateMicroFocus(self: QProgressDialog) void {
         qtc.QProgressDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8502,10 +10466,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: QProgressDialog) void {
+    pub fn superUpdateMicroFocus(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8518,10 +10486,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8532,13 +10504,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Create(self: QProgressDialog) void {
+    pub fn create(self: QProgressDialog) void {
         qtc.QProgressDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8550,10 +10522,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperCreate(self: QProgressDialog) void {
+    pub fn superCreate(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8566,9 +10542,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8580,13 +10560,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Destroy(self: QProgressDialog) void {
+    pub fn destroy(self: QProgressDialog) void {
         qtc.QProgressDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8598,9 +10578,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperDestroy(self: QProgressDialog) void {
+    pub fn superDestroy(self: QProgressDialog) void {
         qtc.QProgressDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8614,10 +10598,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QProgressDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QProgressDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8628,13 +10616,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FocusNextChild(self: QProgressDialog) bool {
+    pub fn focusNextChild(self: QProgressDialog) bool {
         return qtc.QProgressDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8646,10 +10634,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperFocusNextChild(self: QProgressDialog) bool {
+    pub fn superFocusNextChild(self: QProgressDialog) bool {
         return qtc.QProgressDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8662,9 +10654,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QProgressDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8676,13 +10672,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn FocusPreviousChild(self: QProgressDialog) bool {
+    pub fn focusPreviousChild(self: QProgressDialog) bool {
         return qtc.QProgressDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8694,9 +10690,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: QProgressDialog) bool {
+    pub fn superFocusPreviousChild(self: QProgressDialog) bool {
         return qtc.QProgressDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8710,9 +10710,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QProgressDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QProgressDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8724,13 +10728,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Sender(self: QProgressDialog) QObject {
+    pub fn sender(self: QProgressDialog) QObject {
         return .{ .ptr = qtc.QProgressDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8742,9 +10746,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperSender(self: QProgressDialog) QObject {
+    pub fn superSender(self: QProgressDialog) QObject {
         return .{ .ptr = qtc.QProgressDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8758,9 +10766,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QProgressDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QProgressDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.QProgressDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8772,13 +10784,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SenderSignalIndex(self: QProgressDialog) i32 {
+    pub fn senderSignalIndex(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8790,9 +10802,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: QProgressDialog) i32 {
+    pub fn superSenderSignalIndex(self: QProgressDialog) i32 {
         return qtc.QProgressDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8806,9 +10822,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QProgressDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QProgressDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8822,14 +10842,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QProgressDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QProgressDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QProgressDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8843,10 +10863,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QProgressDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QProgressDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QProgressDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8860,9 +10884,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.QProgressDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8876,14 +10904,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QProgressDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: QProgressDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QProgressDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8897,10 +10925,14 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QProgressDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QProgressDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QProgressDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8914,9 +10946,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QProgressDialog, callback: *const fn (QProgressDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.QProgressDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8932,13 +10968,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QProgressDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QProgressDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QProgressDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8954,9 +10990,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QProgressDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QProgressDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QProgressDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8970,9 +11010,13 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QProgressDialog, callback: *const fn (QProgressDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QProgressDialog, callback: *const fn (QProgressDialog, i32, i32) callconv(.c) f64) void {
         qtc.QProgressDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8986,23 +11030,23 @@ pub const QProgressDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QProgressDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QProgressDialog, callback: *const fn (QProgressDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprogressdialog.html#dtor.QProgressDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QProgressDialog `
     ///
-    pub fn Delete(self: QProgressDialog) void {
+    pub fn delete(self: QProgressDialog) void {
         qtc.QProgressDialog_Delete(@ptrCast(self.ptr));
     }
 };

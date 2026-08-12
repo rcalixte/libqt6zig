@@ -13,6 +13,10 @@ pub const QCborError = extern struct {
 
     pub const _is_QCborError = {};
 
+    /// ### DEPRECATED: Use `c` instead
+    ///
+    pub const C = c;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
     /// ## Parameter(s):
@@ -23,9 +27,13 @@ pub const QCborError = extern struct {
     ///
     /// ` qcborcommon_enums.Code `
     ///
-    pub fn C(self: QCborError) i32 {
+    pub fn c(self: QCborError) i32 {
         return qtc.QCborError_C(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setC` instead
+    ///
+    pub const SetC = setC;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#c-var)
     ///
@@ -33,11 +41,15 @@ pub const QCborError = extern struct {
     ///
     /// ` self: QCborError `
     ///
-    /// ` c: qcborcommon_enums.Code `
+    /// ` _c: qcborcommon_enums.Code `
     ///
-    pub fn SetC(self: QCborError, c: i32) void {
-        qtc.QCborError_SetC(@ptrCast(self.ptr), @bitCast(c));
+    pub fn setC(self: QCborError, _c: i32) void {
+        qtc.QCborError_SetC(@ptrCast(self.ptr), @bitCast(_c));
     }
+
+    /// ### DEPRECATED: Use `toQCborError__Code` instead
+    ///
+    pub const ToQCborError__Code = toQCborError__Code;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#operator)
     ///
@@ -49,9 +61,13 @@ pub const QCborError = extern struct {
     ///
     /// ` qcborcommon_enums.Code `
     ///
-    pub fn ToQCborError__Code(self: QCborError) i32 {
+    pub fn toQCborError__Code(self: QCborError) i32 {
         return qtc.QCborError_ToQCborError__Code(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#toString)
     ///
@@ -61,27 +77,27 @@ pub const QCborError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QCborError, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QCborError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCborError_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborError.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCborError.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcborerror.html#dtor.QCborError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCborError `
     ///
-    pub fn Delete(self: QCborError) void {
+    pub fn delete(self: QCborError) void {
         qtc.QCborError_Delete(@ptrCast(self.ptr));
     }
 };

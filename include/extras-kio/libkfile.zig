@@ -13,29 +13,40 @@ pub const KFile = extern struct {
 
     pub const _is_KFile = {};
 
-    /// New constructs a new KFile object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KFile `
     ///
-    pub fn New(other: anytype) KFile {
+    pub fn new(other: anytype) KFile {
         comptime _ = @TypeOf(other)._is_KFile;
         return .{ .ptr = qtc.KFile_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new KFile object and invalidates the source KFile object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFile object and invalidate the source KFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KFile `
     ///
-    pub fn New2(other: anytype) KFile {
+    pub fn new2(other: anytype) KFile {
         comptime _ = @TypeOf(other)._is_KFile;
         return .{ .ptr = qtc.KFile_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -43,11 +54,14 @@ pub const KFile = extern struct {
     ///
     /// ` other: KFile `
     ///
-    pub fn CopyAssign(self: KFile, other: KFile) void {
+    pub fn copyAssign(self: KFile, other: KFile) void {
         qtc.KFile_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -55,9 +69,13 @@ pub const KFile = extern struct {
     ///
     /// ` other: KFile `
     ///
-    pub fn MoveAssign(self: KFile, other: KFile) void {
+    pub fn moveAssign(self: KFile, other: KFile) void {
         qtc.KFile_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSortByName` instead
+    ///
+    pub const IsSortByName = isSortByName;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortByName)
     ///
@@ -65,9 +83,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortByName(sort: *const i32) bool {
+    pub fn isSortByName(sort: *const i32) bool {
         return qtc.KFile_IsSortByName(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isSortBySize` instead
+    ///
+    pub const IsSortBySize = isSortBySize;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortBySize)
     ///
@@ -75,9 +97,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortBySize(sort: *const i32) bool {
+    pub fn isSortBySize(sort: *const i32) bool {
         return qtc.KFile_IsSortBySize(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isSortByDate` instead
+    ///
+    pub const IsSortByDate = isSortByDate;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortByDate)
     ///
@@ -85,9 +111,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortByDate(sort: *const i32) bool {
+    pub fn isSortByDate(sort: *const i32) bool {
         return qtc.KFile_IsSortByDate(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isSortByType` instead
+    ///
+    pub const IsSortByType = isSortByType;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortByType)
     ///
@@ -95,9 +125,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortByType(sort: *const i32) bool {
+    pub fn isSortByType(sort: *const i32) bool {
         return qtc.KFile_IsSortByType(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isSortDirsFirst` instead
+    ///
+    pub const IsSortDirsFirst = isSortDirsFirst;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortDirsFirst)
     ///
@@ -105,9 +139,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortDirsFirst(sort: *const i32) bool {
+    pub fn isSortDirsFirst(sort: *const i32) bool {
         return qtc.KFile_IsSortDirsFirst(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isSortCaseInsensitive` instead
+    ///
+    pub const IsSortCaseInsensitive = isSortCaseInsensitive;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSortCaseInsensitive)
     ///
@@ -115,9 +153,13 @@ pub const KFile = extern struct {
     ///
     /// ` sort: *const flag of qdir_enums.SortFlag `
     ///
-    pub fn IsSortCaseInsensitive(sort: *const i32) bool {
+    pub fn isSortCaseInsensitive(sort: *const i32) bool {
         return qtc.KFile_IsSortCaseInsensitive(@ptrCast(sort));
     }
+
+    /// ### DEPRECATED: Use `isDefaultView` instead
+    ///
+    pub const IsDefaultView = isDefaultView;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isDefaultView)
     ///
@@ -125,9 +167,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsDefaultView(view: *const i32) bool {
+    pub fn isDefaultView(view: *const i32) bool {
         return qtc.KFile_IsDefaultView(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isSimpleView` instead
+    ///
+    pub const IsSimpleView = isSimpleView;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSimpleView)
     ///
@@ -135,9 +181,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsSimpleView(view: *const i32) bool {
+    pub fn isSimpleView(view: *const i32) bool {
         return qtc.KFile_IsSimpleView(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isDetailView` instead
+    ///
+    pub const IsDetailView = isDetailView;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isDetailView)
     ///
@@ -145,9 +195,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsDetailView(view: *const i32) bool {
+    pub fn isDetailView(view: *const i32) bool {
         return qtc.KFile_IsDetailView(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isSeparateDirs` instead
+    ///
+    pub const IsSeparateDirs = isSeparateDirs;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isSeparateDirs)
     ///
@@ -155,9 +209,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsSeparateDirs(view: *const i32) bool {
+    pub fn isSeparateDirs(view: *const i32) bool {
         return qtc.KFile_IsSeparateDirs(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isPreviewContents` instead
+    ///
+    pub const IsPreviewContents = isPreviewContents;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isPreviewContents)
     ///
@@ -165,9 +223,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsPreviewContents(view: *const i32) bool {
+    pub fn isPreviewContents(view: *const i32) bool {
         return qtc.KFile_IsPreviewContents(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isPreviewInfo` instead
+    ///
+    pub const IsPreviewInfo = isPreviewInfo;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isPreviewInfo)
     ///
@@ -175,9 +237,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsPreviewInfo(view: *const i32) bool {
+    pub fn isPreviewInfo(view: *const i32) bool {
         return qtc.KFile_IsPreviewInfo(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isTreeView` instead
+    ///
+    pub const IsTreeView = isTreeView;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isTreeView)
     ///
@@ -185,9 +251,13 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsTreeView(view: *const i32) bool {
+    pub fn isTreeView(view: *const i32) bool {
         return qtc.KFile_IsTreeView(@ptrCast(view));
     }
+
+    /// ### DEPRECATED: Use `isDetailTreeView` instead
+    ///
+    pub const IsDetailTreeView = isDetailTreeView;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#isDetailTreeView)
     ///
@@ -195,23 +265,23 @@ pub const KFile = extern struct {
     ///
     /// ` view: *const kfile_enums.FileView `
     ///
-    pub fn IsDetailTreeView(view: *const i32) bool {
+    pub fn isDetailTreeView(view: *const i32) bool {
         return qtc.KFile_IsDetailTreeView(@ptrCast(view));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kfile.html#dtor.KFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFile `
     ///
-    pub fn Delete(self: KFile) void {
+    pub fn delete(self: KFile) void {
         qtc.KFile_Delete(@ptrCast(self.ptr));
     }
 };

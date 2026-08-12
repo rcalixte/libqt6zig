@@ -33,15 +33,23 @@ pub const Poppler__OptContentModel = extern struct {
     pub const _is_QAbstractItemModel = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn MetaObject(self: Poppler__OptContentModel) QMetaObject {
+    pub fn metaObject(self: Poppler__OptContentModel) QMetaObject {
         return .{ .ptr = qtc.Poppler__OptContentModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -49,10 +57,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: Poppler__OptContentModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: Poppler__OptContentModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Poppler__OptContentModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -64,9 +76,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: Poppler__OptContentModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: Poppler__OptContentModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Poppler__OptContentModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -76,14 +92,18 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -95,12 +115,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn Index(self: Poppler__OptContentModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.Poppler__OptContentModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn index(self: Poppler__OptContentModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.Poppler__OptContentModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -110,23 +134,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: Poppler__OptContentModel, child: anytype) QModelIndex {
+    pub fn parent(self: Poppler__OptContentModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.Poppler__OptContentModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
+    /// ### DEPRECATED: Use `rowCount` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__OptContentModel `
-    ///
-    /// ` parent: QModelIndex `
-    ///
-    pub fn RowCount(self: Poppler__OptContentModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.Poppler__OptContentModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -134,12 +149,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: Poppler__OptContentModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.Poppler__OptContentModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn rowCount(self: Poppler__OptContentModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.Poppler__OptContentModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -147,14 +166,35 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _parent: QModelIndex `
+    ///
+    pub fn columnCount(self: Poppler__OptContentModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.Poppler__OptContentModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__OptContentModel `
+    ///
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: Poppler__OptContentModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.Poppler__OptContentModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn data(self: Poppler__OptContentModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.Poppler__OptContentModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -162,17 +202,21 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: Poppler__OptContentModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setData(self: Poppler__OptContentModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.Poppler__OptContentModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.Poppler__OptContentModel_SetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -180,16 +224,20 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: Poppler__OptContentModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.Poppler__OptContentModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn flags(self: Poppler__OptContentModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.Poppler__OptContentModel_Flags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `headerData` instead
+    ///
+    pub const HeaderData = headerData;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -203,9 +251,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: Poppler__OptContentModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn headerData(self: Poppler__OptContentModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.Poppler__OptContentModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `applyLink` instead
+    ///
+    pub const ApplyLink = applyLink;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
@@ -215,10 +267,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` link: Poppler__LinkOCGState `
     ///
-    pub fn ApplyLink(self: Poppler__OptContentModel, link: anytype) void {
+    pub fn applyLink(self: Poppler__OptContentModel, link: anytype) void {
         comptime _ = @TypeOf(link)._is_Poppler__LinkOCGState;
         qtc.Poppler__OptContentModel_ApplyLink(@ptrCast(self.ptr), @ptrCast(link.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -230,15 +286,19 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -252,15 +312,19 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasIndex` instead
+    ///
+    pub const HasIndex = hasIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -274,9 +338,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: Poppler__OptContentModel, row: i32, column: i32) bool {
+    pub fn hasIndex(self: Poppler__OptContentModel, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `sibling` instead
+    ///
+    pub const Sibling = sibling;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -292,10 +360,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: Poppler__OptContentModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn sibling(self: Poppler__OptContentModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildren` instead
+    ///
+    pub const HasChildren = hasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -305,12 +377,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasChildren(self: Poppler__OptContentModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn hasChildren(self: Poppler__OptContentModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHeaderData` instead
+    ///
+    pub const SetHeaderData = setHeaderData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -328,10 +404,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: Poppler__OptContentModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn setHeaderData(self: Poppler__OptContentModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QAbstractItemModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -343,13 +423,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ItemData(self: Poppler__OptContentModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn itemData(self: Poppler__OptContentModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.QAbstractItemModel_ItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Poppler__OptContentModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Poppler__OptContentModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -365,6 +445,10 @@ pub const Poppler__OptContentModel = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#setItemData)
@@ -375,16 +459,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SetItemData(self: Poppler__OptContentModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setItemData(self: Poppler__OptContentModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("Poppler__OptContentModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("Poppler__OptContentModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("Poppler__OptContentModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("Poppler__OptContentModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -398,8 +482,12 @@ pub const Poppler__OptContentModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QAbstractItemModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.QAbstractItemModel_SetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `clearItemData` instead
+    ///
+    pub const ClearItemData = clearItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -409,12 +497,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ClearItemData(self: Poppler__OptContentModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn clearItemData(self: Poppler__OptContentModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -426,7 +518,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QAbstractItemModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -434,15 +526,19 @@ pub const Poppler__OptContentModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__OptContentModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__OptContentModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Poppler__OptContentModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Poppler__OptContentModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -454,13 +550,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: Poppler__OptContentModel, indexes: []QModelIndex) QMimeData {
+    pub fn mimeData(self: Poppler__OptContentModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         return .{ .ptr = qtc.QAbstractItemModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
+
+    /// ### DEPRECATED: Use `canDropMimeData` instead
+    ///
+    pub const CanDropMimeData = canDropMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -470,7 +570,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -478,13 +578,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: Poppler__OptContentModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn canDropMimeData(self: Poppler__OptContentModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -494,7 +598,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -502,13 +606,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: Poppler__OptContentModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn dropMimeData(self: Poppler__OptContentModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -522,9 +630,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: Poppler__OptContentModel) i32 {
+    pub fn supportedDropActions(self: Poppler__OptContentModel) i32 {
         return qtc.QAbstractItemModel_SupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedDragActions` instead
+    ///
+    pub const SupportedDragActions = supportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -538,9 +650,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: Poppler__OptContentModel) i32 {
+    pub fn supportedDragActions(self: Poppler__OptContentModel) i32 {
         return qtc.QAbstractItemModel_SupportedDragActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRows` instead
+    ///
+    pub const InsertRows = insertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -554,12 +670,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRows(self: Poppler__OptContentModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertRows(self: Poppler__OptContentModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumns` instead
+    ///
+    pub const InsertColumns = insertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -573,12 +693,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: Poppler__OptContentModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertColumns(self: Poppler__OptContentModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRows` instead
+    ///
+    pub const RemoveRows = removeRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -592,12 +716,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: Poppler__OptContentModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeRows(self: Poppler__OptContentModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumns` instead
+    ///
+    pub const RemoveColumns = removeColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -611,12 +739,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: Poppler__OptContentModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeColumns(self: Poppler__OptContentModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `moveRows` instead
+    ///
+    pub const MoveRows = moveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -636,11 +768,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: Poppler__OptContentModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRows(self: Poppler__OptContentModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumns` instead
+    ///
+    pub const MoveColumns = moveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -660,11 +796,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: Poppler__OptContentModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumns(self: Poppler__OptContentModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -676,9 +816,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: Poppler__OptContentModel, row: i32) bool {
+    pub fn insertRow(self: Poppler__OptContentModel, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -690,9 +834,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: Poppler__OptContentModel, column: i32) bool {
+    pub fn insertColumn(self: Poppler__OptContentModel, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -704,9 +852,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: Poppler__OptContentModel, row: i32) bool {
+    pub fn removeRow(self: Poppler__OptContentModel, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -718,9 +870,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: Poppler__OptContentModel, column: i32) bool {
+    pub fn removeColumn(self: Poppler__OptContentModel, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `moveRow` instead
+    ///
+    pub const MoveRow = moveRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -738,11 +894,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: Poppler__OptContentModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRow(self: Poppler__OptContentModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumn` instead
+    ///
+    pub const MoveColumn = moveColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -760,11 +920,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: Poppler__OptContentModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumn(self: Poppler__OptContentModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `fetchMore` instead
+    ///
+    pub const FetchMore = fetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -774,12 +938,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn FetchMore(self: Poppler__OptContentModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QAbstractItemModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn fetchMore(self: Poppler__OptContentModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QAbstractItemModel_FetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `canFetchMore` instead
+    ///
+    pub const CanFetchMore = canFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -789,12 +957,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: Poppler__OptContentModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn canFetchMore(self: Poppler__OptContentModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `sort` instead
+    ///
+    pub const Sort = sort;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -808,9 +980,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: Poppler__OptContentModel, column: i32, order: i32) void {
+    pub fn sort(self: Poppler__OptContentModel, column: i32, order: i32) void {
         qtc.QAbstractItemModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -820,12 +996,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Buddy(self: Poppler__OptContentModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn buddy(self: Poppler__OptContentModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_Buddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -845,19 +1025,23 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn Match(self: Poppler__OptContentModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn match(self: Poppler__OptContentModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QAbstractItemModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("Poppler__OptContentModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("Poppler__OptContentModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `span` instead
+    ///
+    pub const Span = span;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -867,12 +1051,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Span(self: Poppler__OptContentModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QAbstractItemModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn span(self: Poppler__OptContentModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QAbstractItemModel_Span(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `roleNames` instead
+    ///
+    pub const RoleNames = roleNames;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -884,10 +1072,10 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: Poppler__OptContentModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: Poppler__OptContentModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QAbstractItemModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Poppler__OptContentModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Poppler__OptContentModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -902,12 +1090,16 @@ pub const Poppler__OptContentModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("Poppler__OptContentModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("Poppler__OptContentModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `checkIndex` instead
+    ///
+    pub const CheckIndex = checkIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -917,12 +1109,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn CheckIndex(self: Poppler__OptContentModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn checkIndex(self: Poppler__OptContentModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `multiData` instead
+    ///
+    pub const MultiData = multiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -932,15 +1128,19 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: Poppler__OptContentModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn multiData(self: Poppler__OptContentModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.QAbstractItemModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.QAbstractItemModel_MultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -954,11 +1154,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: Poppler__OptContentModel, topLeft: anytype, bottomRight: anytype) void {
+    pub fn dataChanged(self: Poppler__OptContentModel, topLeft: anytype, bottomRight: anytype) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -970,9 +1174,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onDataChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -988,9 +1196,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: Poppler__OptContentModel, orientation: i32, first: i32, last: i32) void {
+    pub fn headerDataChanged(self: Poppler__OptContentModel, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onHeaderDataChanged` instead
+    ///
+    pub const OnHeaderDataChanged = onHeaderDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1002,10 +1214,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, i32, i32, i32) callconv(.c) void) void {
+    pub fn onHeaderDataChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `layoutChanged` instead
+    ///
+    pub const LayoutChanged = layoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1014,10 +1230,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn LayoutChanged(self: Poppler__OptContentModel) void {
+    pub fn layoutChanged(self: Poppler__OptContentModel) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged` instead
+    ///
+    pub const OnLayoutChanged = onLayoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1028,9 +1248,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
+    pub fn onLayoutChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged` instead
+    ///
+    pub const LayoutAboutToBeChanged = layoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1040,9 +1264,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: Poppler__OptContentModel) void {
+    pub fn layoutAboutToBeChanged(self: Poppler__OptContentModel) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged` instead
+    ///
+    pub const OnLayoutAboutToBeChanged = onLayoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1054,9 +1282,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1066,9 +1298,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Submit(self: Poppler__OptContentModel) bool {
+    pub fn submit(self: Poppler__OptContentModel) bool {
         return qtc.QAbstractItemModel_Submit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1078,9 +1314,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Revert(self: Poppler__OptContentModel) void {
+    pub fn revert(self: Poppler__OptContentModel) void {
         qtc.QAbstractItemModel_Revert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasIndex3` instead
+    ///
+    pub const HasIndex3 = hasIndex3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1094,12 +1334,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: Poppler__OptContentModel, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn hasIndex3(self: Poppler__OptContentModel, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1111,12 +1355,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: Poppler__OptContentModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn insertRow2(self: Poppler__OptContentModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumn2` instead
+    ///
+    pub const InsertColumn2 = insertColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1128,12 +1376,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: Poppler__OptContentModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn insertColumn2(self: Poppler__OptContentModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow2` instead
+    ///
+    pub const RemoveRow2 = removeRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1145,12 +1397,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: Poppler__OptContentModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn removeRow2(self: Poppler__OptContentModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumn2` instead
+    ///
+    pub const RemoveColumn2 = removeColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1162,12 +1418,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: Poppler__OptContentModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn removeColumn2(self: Poppler__OptContentModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkIndex2` instead
+    ///
+    pub const CheckIndex2 = checkIndex2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1177,14 +1437,18 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: Poppler__OptContentModel, index: anytype, options: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
+    pub fn checkIndex2(self: Poppler__OptContentModel, _index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dataChanged3` instead
+    ///
+    pub const DataChanged3 = dataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1200,7 +1464,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: Poppler__OptContentModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged3(self: Poppler__OptContentModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1209,6 +1473,10 @@ pub const Poppler__OptContentModel = extern struct {
         };
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged3` instead
+    ///
+    pub const OnDataChanged3 = onDataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1220,9 +1488,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged3(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged1` instead
+    ///
+    pub const LayoutChanged1 = layoutChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1234,7 +1506,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: Poppler__OptContentModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutChanged1(self: Poppler__OptContentModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1242,6 +1514,10 @@ pub const Poppler__OptContentModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged1` instead
+    ///
+    pub const OnLayoutChanged1 = onLayoutChanged1;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1252,9 +1528,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutChanged1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged2` instead
+    ///
+    pub const LayoutChanged2 = layoutChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1268,7 +1548,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: Poppler__OptContentModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutChanged2(self: Poppler__OptContentModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1276,6 +1556,10 @@ pub const Poppler__OptContentModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged2` instead
+    ///
+    pub const OnLayoutChanged2 = onLayoutChanged2;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1286,9 +1570,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutChanged2(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged1` instead
+    ///
+    pub const LayoutAboutToBeChanged1 = layoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1300,13 +1588,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: Poppler__OptContentModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutAboutToBeChanged1(self: Poppler__OptContentModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged1` instead
+    ///
+    pub const OnLayoutAboutToBeChanged1 = onLayoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1318,9 +1610,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged2` instead
+    ///
+    pub const LayoutAboutToBeChanged2 = layoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1334,13 +1630,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: Poppler__OptContentModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutAboutToBeChanged2(self: Poppler__OptContentModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged2` instead
+    ///
+    pub const OnLayoutAboutToBeChanged2 = onLayoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1352,9 +1652,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged2(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1364,12 +1668,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: Poppler__OptContentModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: Poppler__OptContentModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1381,13 +1689,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: Poppler__OptContentModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: Poppler__OptContentModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1399,13 +1711,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__OptContentModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1417,13 +1733,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: Poppler__OptContentModel, name: []const u8) void {
+    pub fn setObjectName(self: Poppler__OptContentModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1433,9 +1753,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn IsWidgetType(self: Poppler__OptContentModel) bool {
+    pub fn isWidgetType(self: Poppler__OptContentModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1445,9 +1769,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn IsWindowType(self: Poppler__OptContentModel) bool {
+    pub fn isWindowType(self: Poppler__OptContentModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1457,9 +1785,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn IsQuickItemType(self: Poppler__OptContentModel) bool {
+    pub fn isQuickItemType(self: Poppler__OptContentModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1469,9 +1801,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn SignalsBlocked(self: Poppler__OptContentModel) bool {
+    pub fn signalsBlocked(self: Poppler__OptContentModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1819,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: Poppler__OptContentModel, b: bool) bool {
+    pub fn blockSignals(self: Poppler__OptContentModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1495,9 +1835,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Thread(self: Poppler__OptContentModel) QThread {
+    pub fn thread(self: Poppler__OptContentModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1507,12 +1851,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: Poppler__OptContentModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: Poppler__OptContentModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1524,9 +1872,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: Poppler__OptContentModel, interval: i32) i32 {
+    pub fn startTimer(self: Poppler__OptContentModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1538,9 +1890,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: Poppler__OptContentModel, time: i64) i32 {
+    pub fn startTimer2(self: Poppler__OptContentModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1552,9 +1908,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: Poppler__OptContentModel, id: i32) void {
+    pub fn killTimer(self: Poppler__OptContentModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1566,9 +1926,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: Poppler__OptContentModel, id: i32) void {
+    pub fn killTimer2(self: Poppler__OptContentModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1580,15 +1944,19 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: Poppler__OptContentModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Poppler__OptContentModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Poppler__OptContentModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1598,12 +1966,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: Poppler__OptContentModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: Poppler__OptContentModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1615,10 +1987,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: Poppler__OptContentModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: Poppler__OptContentModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1630,10 +2006,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: Poppler__OptContentModel, obj: anytype) void {
+    pub fn removeEventFilter(self: Poppler__OptContentModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1641,7 +2021,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1649,13 +2029,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1663,7 +2047,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1671,13 +2055,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1687,18 +2075,22 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: Poppler__OptContentModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: Poppler__OptContentModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1706,7 +2098,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1714,13 +2106,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1728,7 +2124,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1736,13 +2132,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1752,9 +2152,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Disconnect3(self: Poppler__OptContentModel) bool {
+    pub fn disconnect3(self: Poppler__OptContentModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1766,10 +2170,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: Poppler__OptContentModel, receiver: anytype) bool {
+    pub fn disconnect4(self: Poppler__OptContentModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1779,10 +2187,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1792,9 +2204,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn DumpObjectTree(self: Poppler__OptContentModel) void {
+    pub fn dumpObjectTree(self: Poppler__OptContentModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1804,9 +2220,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn DumpObjectInfo(self: Poppler__OptContentModel) void {
+    pub fn dumpObjectInfo(self: Poppler__OptContentModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1820,11 +2240,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: Poppler__OptContentModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: Poppler__OptContentModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1836,10 +2260,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: Poppler__OptContentModel, name: [:0]const u8) QVariant {
+    pub fn property(self: Poppler__OptContentModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1851,7 +2279,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: Poppler__OptContentModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Poppler__OptContentModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1859,27 +2287,19 @@ pub const Poppler__OptContentModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Poppler__OptContentModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Poppler__OptContentModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Poppler__OptContentModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Poppler__OptContentModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__OptContentModel `
-    ///
-    pub fn BindingStorage(self: Poppler__OptContentModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1889,9 +2309,29 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn BindingStorage2(self: Poppler__OptContentModel) QBindingStorage {
+    pub fn bindingStorage(self: Poppler__OptContentModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__OptContentModel `
+    ///
+    pub fn bindingStorage2(self: Poppler__OptContentModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1901,9 +2341,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Destroyed(self: Poppler__OptContentModel) void {
+    pub fn destroyed(self: Poppler__OptContentModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1915,9 +2359,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1929,10 +2377,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: Poppler__OptContentModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: Poppler__OptContentModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1942,9 +2394,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn DeleteLater(self: Poppler__OptContentModel) void {
+    pub fn deleteLater(self: Poppler__OptContentModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1958,9 +2414,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: Poppler__OptContentModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: Poppler__OptContentModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1974,9 +2434,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: Poppler__OptContentModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: Poppler__OptContentModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1984,7 +2448,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1994,13 +2458,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2008,7 +2476,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2018,13 +2486,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2034,7 +2506,7 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2042,12 +2514,16 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: Poppler__OptContentModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: Poppler__OptContentModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2059,10 +2535,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: Poppler__OptContentModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: Poppler__OptContentModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2076,11 +2556,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: Poppler__OptContentModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: Poppler__OptContentModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2096,13 +2580,17 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: Poppler__OptContentModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: Poppler__OptContentModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2115,11 +2603,15 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: Poppler__OptContentModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: Poppler__OptContentModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2131,10 +2623,14 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: Poppler__OptContentModel, param1: anytype) void {
+    pub fn destroyed1(self: Poppler__OptContentModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2146,9 +2642,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
+    ///
+    pub const OnRowsAboutToBeInserted = onRowsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2162,9 +2662,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2178,9 +2682,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2194,9 +2702,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsRemoved` instead
+    ///
+    pub const OnRowsRemoved = onRowsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2210,9 +2722,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeInserted` instead
+    ///
+    pub const OnColumnsAboutToBeInserted = onColumnsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2226,9 +2742,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsInserted` instead
+    ///
+    pub const OnColumnsInserted = onColumnsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2242,9 +2762,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsInserted(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeRemoved` instead
+    ///
+    pub const OnColumnsAboutToBeRemoved = onColumnsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2258,9 +2782,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsRemoved` instead
+    ///
+    pub const OnColumnsRemoved = onColumnsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2274,9 +2802,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsRemoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelAboutToBeReset` instead
+    ///
+    pub const OnModelAboutToBeReset = onModelAboutToBeReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2290,9 +2822,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
+    pub fn onModelAboutToBeReset(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelReset` instead
+    ///
+    pub const OnModelReset = onModelReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2306,9 +2842,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
+    pub fn onModelReset(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeMoved` instead
+    ///
+    pub const OnRowsAboutToBeMoved = onRowsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2322,9 +2862,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsMoved` instead
+    ///
+    pub const OnRowsMoved = onRowsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2338,9 +2882,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeMoved` instead
+    ///
+    pub const OnColumnsAboutToBeMoved = onColumnsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2354,9 +2902,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsMoved` instead
+    ///
+    pub const OnColumnsMoved = onColumnsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2370,9 +2922,13 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsMoved(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2386,23 +2942,23 @@ pub const Poppler__OptContentModel = extern struct {
     ///
     /// ` callback: *const fn (self: Poppler__OptContentModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: Poppler__OptContentModel, callback: *const fn (Poppler__OptContentModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1OptContentModel.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__OptContentModel `
     ///
-    pub fn Delete(self: Poppler__OptContentModel) void {
+    pub fn delete(self: Poppler__OptContentModel) void {
         qtc.Poppler__OptContentModel_Delete(@ptrCast(self.ptr));
     }
 };

@@ -29,36 +29,48 @@ pub const QBarSet = extern struct {
     pub const _is_QBarSet = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QBarSet object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QBarSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    pub fn New(label: []const u8) QBarSet {
+    pub fn new(_label: []const u8) QBarSet {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
         return .{ .ptr = qtc.QBarSet_new(label_str) };
     }
 
-    /// New2 constructs a new QBarSet object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBarSet object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(label: []const u8, parent: anytype) QBarSet {
+    pub fn new2(_label: []const u8, _parent: anytype) QBarSet {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QBarSet_new2(label_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QBarSet_new2(label_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,9 +78,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn MetaObject(self: QBarSet) QMetaObject {
+    pub fn metaObject(self: QBarSet) QMetaObject {
         return .{ .ptr = qtc.QBarSet_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,13 +96,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QBarSet, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBarSet, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QBarSet_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -96,9 +112,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SuperMetaObject(self: QBarSet) QMetaObject {
+    pub fn superMetaObject(self: QBarSet) QMetaObject {
         return .{ .ptr = qtc.QBarSet_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -106,10 +126,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QBarSet, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QBarSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBarSet_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -119,13 +143,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QBarSet_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -135,10 +159,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QBarSet, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QBarSet, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBarSet_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -150,9 +178,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QBarSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QBarSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBarSet_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -162,13 +194,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QBarSet, callback: *const fn (QBarSet, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QBarSet, callback: *const fn (QBarSet, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QBarSet_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -182,9 +214,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QBarSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QBarSet, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBarSet_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -194,14 +230,18 @@ pub const QBarSet = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabel)
     ///
@@ -209,15 +249,19 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    pub fn SetLabel(self: QBarSet, label: []const u8) void {
+    pub fn setLabel(self: QBarSet, _label: []const u8) void {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
         qtc.QBarSet_SetLabel(@ptrCast(self.ptr), label_str);
     }
+
+    /// ### DEPRECATED: Use `label` instead
+    ///
+    pub const Label = label;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#label)
     ///
@@ -227,13 +271,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: QBarSet, allocator: std.mem.Allocator) []const u8 {
+    pub fn label(self: QBarSet, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBarSet_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#append)
     ///
@@ -243,9 +291,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn Append(self: QBarSet, value: f64) void {
+    pub fn append(self: QBarSet, value: f64) void {
         qtc.QBarSet_Append(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `append2` instead
+    ///
+    pub const Append2 = append2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#append)
     ///
@@ -255,13 +307,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` values: []f64 `
     ///
-    pub fn Append2(self: QBarSet, values: []f64) void {
+    pub fn append2(self: QBarSet, values: []f64) void {
         const values_list = qtc.libqt_list{
             .len = values.len,
             .data = values.ptr,
         };
         qtc.QBarSet_Append2(@ptrCast(self.ptr), values_list);
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator-lt-lt)
     ///
@@ -271,9 +327,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` value: *const f64 `
     ///
-    pub fn OperatorShiftLeft(self: QBarSet, value: *const f64) QBarSet {
+    pub fn operatorShiftLeft(self: QBarSet, value: *const f64) QBarSet {
         return .{ .ptr = qtc.QBarSet_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(value)) };
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#insert)
     ///
@@ -285,9 +345,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn Insert(self: QBarSet, index: i32, value: f64) void {
+    pub fn insert(self: QBarSet, index: i32, value: f64) void {
         qtc.QBarSet_Insert(@ptrCast(self.ptr), @bitCast(index), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#remove)
     ///
@@ -297,9 +361,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Remove(self: QBarSet, index: i32) void {
+    pub fn remove(self: QBarSet, index: i32) void {
         qtc.QBarSet_Remove(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#replace)
     ///
@@ -311,9 +379,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn Replace(self: QBarSet, index: i32, value: f64) void {
+    pub fn replace(self: QBarSet, index: i32, value: f64) void {
         qtc.QBarSet_Replace(@ptrCast(self.ptr), @bitCast(index), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#at)
     ///
@@ -323,9 +395,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn At(self: QBarSet, index: i32) f64 {
+    pub fn at(self: QBarSet, index: i32) f64 {
         return qtc.QBarSet_At(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#operator-5b-5d)
     ///
@@ -335,9 +411,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn OperatorSubscript(self: QBarSet, index: i32) f64 {
+    pub fn operatorSubscript(self: QBarSet, index: i32) f64 {
         return qtc.QBarSet_OperatorSubscript(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#count)
     ///
@@ -345,9 +425,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Count(self: QBarSet) i32 {
+    pub fn count(self: QBarSet) i32 {
         return qtc.QBarSet_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sum` instead
+    ///
+    pub const Sum = sum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#sum)
     ///
@@ -355,9 +439,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Sum(self: QBarSet) f64 {
+    pub fn sum(self: QBarSet) f64 {
         return qtc.QBarSet_Sum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setPen)
     ///
@@ -365,12 +453,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetPen(self: QBarSet, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QBarSet_SetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setPen(self: QBarSet, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QBarSet_SetPen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pen)
     ///
@@ -378,9 +470,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Pen(self: QBarSet) QPen {
+    pub fn pen(self: QBarSet) QPen {
         return .{ .ptr = qtc.QBarSet_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBrush)
     ///
@@ -388,12 +484,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QBarSet, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QBarSet_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QBarSet, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QBarSet_SetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brush)
     ///
@@ -401,9 +501,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Brush(self: QBarSet) QBrush {
+    pub fn brush(self: QBarSet) QBrush {
         return .{ .ptr = qtc.QBarSet_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelBrush` instead
+    ///
+    pub const SetLabelBrush = setLabelBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelBrush)
     ///
@@ -411,12 +515,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetLabelBrush(self: QBarSet, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QBarSet_SetLabelBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setLabelBrush(self: QBarSet, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QBarSet_SetLabelBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelBrush` instead
+    ///
+    pub const LabelBrush = labelBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrush)
     ///
@@ -424,9 +532,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelBrush(self: QBarSet) QBrush {
+    pub fn labelBrush(self: QBarSet) QBrush {
         return .{ .ptr = qtc.QBarSet_LabelBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelFont` instead
+    ///
+    pub const SetLabelFont = setLabelFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelFont)
     ///
@@ -436,10 +548,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetLabelFont(self: QBarSet, font: anytype) void {
+    pub fn setLabelFont(self: QBarSet, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QBarSet_SetLabelFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelFont` instead
+    ///
+    pub const LabelFont = labelFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFont)
     ///
@@ -447,9 +563,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelFont(self: QBarSet) QFont {
+    pub fn labelFont(self: QBarSet) QFont {
         return .{ .ptr = qtc.QBarSet_LabelFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#color)
     ///
@@ -457,9 +577,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Color(self: QBarSet) QColor {
+    pub fn color(self: QBarSet) QColor {
         return .{ .ptr = qtc.QBarSet_Color(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setColor)
     ///
@@ -467,12 +591,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setColor(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `borderColor` instead
+    ///
+    pub const BorderColor = borderColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColor)
     ///
@@ -480,9 +608,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn BorderColor(self: QBarSet) QColor {
+    pub fn borderColor(self: QBarSet) QColor {
         return .{ .ptr = qtc.QBarSet_BorderColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBorderColor` instead
+    ///
+    pub const SetBorderColor = setBorderColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBorderColor)
     ///
@@ -490,12 +622,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetBorderColor(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_SetBorderColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setBorderColor(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_SetBorderColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `labelColor` instead
+    ///
+    pub const LabelColor = labelColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColor)
     ///
@@ -503,9 +639,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelColor(self: QBarSet) QColor {
+    pub fn labelColor(self: QBarSet) QColor {
         return .{ .ptr = qtc.QBarSet_LabelColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelColor` instead
+    ///
+    pub const SetLabelColor = setLabelColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setLabelColor)
     ///
@@ -513,12 +653,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetLabelColor(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_SetLabelColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setLabelColor(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_SetLabelColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedColor` instead
+    ///
+    pub const SelectedColor = selectedColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColor)
     ///
@@ -526,9 +670,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SelectedColor(self: QBarSet) QColor {
+    pub fn selectedColor(self: QBarSet) QColor {
         return .{ .ptr = qtc.QBarSet_SelectedColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectedColor` instead
+    ///
+    pub const SetSelectedColor = setSelectedColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setSelectedColor)
     ///
@@ -536,12 +684,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetSelectedColor(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setSelectedColor(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBarSelected` instead
+    ///
+    pub const IsBarSelected = isBarSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#isBarSelected)
     ///
@@ -551,9 +703,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsBarSelected(self: QBarSet, index: i32) bool {
+    pub fn isBarSelected(self: QBarSet, index: i32) bool {
         return qtc.QBarSet_IsBarSelected(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `selectBar` instead
+    ///
+    pub const SelectBar = selectBar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectBar)
     ///
@@ -563,9 +719,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SelectBar(self: QBarSet, index: i32) void {
+    pub fn selectBar(self: QBarSet, index: i32) void {
         qtc.QBarSet_SelectBar(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `deselectBar` instead
+    ///
+    pub const DeselectBar = deselectBar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectBar)
     ///
@@ -575,9 +735,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn DeselectBar(self: QBarSet, index: i32) void {
+    pub fn deselectBar(self: QBarSet, index: i32) void {
         qtc.QBarSet_DeselectBar(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setBarSelected` instead
+    ///
+    pub const SetBarSelected = setBarSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#setBarSelected)
     ///
@@ -589,9 +753,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` selected: bool `
     ///
-    pub fn SetBarSelected(self: QBarSet, index: i32, selected: bool) void {
+    pub fn setBarSelected(self: QBarSet, index: i32, selected: bool) void {
         qtc.QBarSet_SetBarSelected(@ptrCast(self.ptr), @bitCast(index), selected);
     }
+
+    /// ### DEPRECATED: Use `selectAllBars` instead
+    ///
+    pub const SelectAllBars = selectAllBars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectAllBars)
     ///
@@ -599,9 +767,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SelectAllBars(self: QBarSet) void {
+    pub fn selectAllBars(self: QBarSet) void {
         qtc.QBarSet_SelectAllBars(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deselectAllBars` instead
+    ///
+    pub const DeselectAllBars = deselectAllBars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectAllBars)
     ///
@@ -609,9 +781,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn DeselectAllBars(self: QBarSet) void {
+    pub fn deselectAllBars(self: QBarSet) void {
         qtc.QBarSet_DeselectAllBars(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectBars` instead
+    ///
+    pub const SelectBars = selectBars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectBars)
     ///
@@ -621,13 +797,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn SelectBars(self: QBarSet, indexes: []i32) void {
+    pub fn selectBars(self: QBarSet, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QBarSet_SelectBars(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `deselectBars` instead
+    ///
+    pub const DeselectBars = deselectBars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#deselectBars)
     ///
@@ -637,13 +817,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn DeselectBars(self: QBarSet, indexes: []i32) void {
+    pub fn deselectBars(self: QBarSet, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QBarSet_DeselectBars(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `toggleSelection` instead
+    ///
+    pub const ToggleSelection = toggleSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#toggleSelection)
     ///
@@ -653,13 +837,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn ToggleSelection(self: QBarSet, indexes: []i32) void {
+    pub fn toggleSelection(self: QBarSet, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QBarSet_ToggleSelection(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `selectedBars` instead
+    ///
+    pub const SelectedBars = selectedBars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBars)
     ///
@@ -669,14 +857,18 @@ pub const QBarSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedBars(self: QBarSet, allocator: std.mem.Allocator) []i32 {
+    pub fn selectedBars(self: QBarSet, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QBarSet_SelectedBars(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QBarSet.SelectedBars: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QBarSet.selectedBars: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#clicked)
     ///
@@ -686,9 +878,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Clicked(self: QBarSet, index: i32) void {
+    pub fn clicked(self: QBarSet, index: i32) void {
         qtc.QBarSet_Clicked(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#clicked)
     ///
@@ -698,9 +894,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
+    pub fn onClicked(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
     ///
@@ -712,9 +912,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Hovered(self: QBarSet, status: bool, index: i32) void {
+    pub fn hovered(self: QBarSet, status: bool, index: i32) void {
         qtc.QBarSet_Hovered(@ptrCast(self.ptr), status, @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#hovered)
     ///
@@ -724,10 +928,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, status: bool, index: i32) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QBarSet, callback: *const fn (QBarSet, bool, i32) callconv(.c) void) void {
+    pub fn onHovered(self: QBarSet, callback: *const fn (QBarSet, bool, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
     ///
     /// ## Parameter(s):
@@ -736,10 +944,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Pressed(self: QBarSet, index: i32) void {
+    pub fn pressed(self: QBarSet, index: i32) void {
         qtc.QBarSet_Pressed(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#pressed)
     ///
     /// ## Parameters:
@@ -748,10 +960,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
+    pub fn onPressed(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
     ///
     /// ## Parameter(s):
@@ -760,10 +976,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Released(self: QBarSet, index: i32) void {
+    pub fn released(self: QBarSet, index: i32) void {
         qtc.QBarSet_Released(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#released)
     ///
     /// ## Parameters:
@@ -772,10 +992,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnReleased(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
+    pub fn onReleased(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameter(s):
@@ -784,10 +1008,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn DoubleClicked(self: QBarSet, index: i32) void {
+    pub fn doubleClicked(self: QBarSet, index: i32) void {
         qtc.QBarSet_DoubleClicked(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#doubleClicked)
     ///
     /// ## Parameters:
@@ -796,20 +1024,28 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `penChanged` instead
+    ///
+    pub const PenChanged = penChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    pub fn PenChanged(self: QBarSet) void {
+    pub fn penChanged(self: QBarSet) void {
         qtc.QBarSet_PenChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPenChanged` instead
+    ///
+    pub const OnPenChanged = onPenChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#penChanged)
     ///
     /// ## Parameters:
@@ -818,20 +1054,28 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnPenChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onPenChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QBarSet_Connect_PenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `brushChanged` instead
+    ///
+    pub const BrushChanged = brushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    pub fn BrushChanged(self: QBarSet) void {
+    pub fn brushChanged(self: QBarSet) void {
         qtc.QBarSet_BrushChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBrushChanged` instead
+    ///
+    pub const OnBrushChanged = onBrushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#brushChanged)
     ///
     /// ## Parameters:
@@ -840,20 +1084,28 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnBrushChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onBrushChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QBarSet_Connect_BrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `labelChanged` instead
+    ///
+    pub const LabelChanged = labelChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelChanged(self: QBarSet) void {
+    pub fn labelChanged(self: QBarSet) void {
         qtc.QBarSet_LabelChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLabelChanged` instead
+    ///
+    pub const OnLabelChanged = onLabelChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelChanged)
     ///
     /// ## Parameters:
@@ -862,20 +1114,28 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnLabelChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onLabelChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QBarSet_Connect_LabelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `labelBrushChanged` instead
+    ///
+    pub const LabelBrushChanged = labelBrushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelBrushChanged(self: QBarSet) void {
+    pub fn labelBrushChanged(self: QBarSet) void {
         qtc.QBarSet_LabelBrushChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLabelBrushChanged` instead
+    ///
+    pub const OnLabelBrushChanged = onLabelBrushChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelBrushChanged)
     ///
     /// ## Parameters:
@@ -884,9 +1144,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnLabelBrushChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onLabelBrushChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QBarSet_Connect_LabelBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelFontChanged` instead
+    ///
+    pub const LabelFontChanged = labelFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
     ///
@@ -894,9 +1158,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn LabelFontChanged(self: QBarSet) void {
+    pub fn labelFontChanged(self: QBarSet) void {
         qtc.QBarSet_LabelFontChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelFontChanged` instead
+    ///
+    pub const OnLabelFontChanged = onLabelFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelFontChanged)
     ///
@@ -906,22 +1174,30 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnLabelFontChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onLabelFontChanged(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QBarSet_Connect_LabelFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn ColorChanged(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn colorChanged(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_ColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#colorChanged)
     ///
@@ -931,22 +1207,30 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
         qtc.QBarSet_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `borderColorChanged` instead
+    ///
+    pub const BorderColorChanged = borderColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn BorderColorChanged(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_BorderColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn borderColorChanged(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_BorderColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBorderColorChanged` instead
+    ///
+    pub const OnBorderColorChanged = onBorderColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#borderColorChanged)
     ///
@@ -956,22 +1240,30 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, color: QColor) callconv(.c) void `
     ///
-    pub fn OnBorderColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
+    pub fn onBorderColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
         qtc.QBarSet_Connect_BorderColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `labelColorChanged` instead
+    ///
+    pub const LabelColorChanged = labelColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn LabelColorChanged(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_LabelColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn labelColorChanged(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_LabelColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelColorChanged` instead
+    ///
+    pub const OnLabelColorChanged = onLabelColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#labelColorChanged)
     ///
@@ -981,22 +1273,30 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, color: QColor) callconv(.c) void `
     ///
-    pub fn OnLabelColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
+    pub fn onLabelColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
         qtc.QBarSet_Connect_LabelColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectedColorChanged` instead
+    ///
+    pub const SelectedColorChanged = selectedColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBarSet `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SelectedColorChanged(self: QBarSet, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QBarSet_SelectedColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn selectedColorChanged(self: QBarSet, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QBarSet_SelectedColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectedColorChanged` instead
+    ///
+    pub const OnSelectedColorChanged = onSelectedColorChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedColorChanged)
     ///
@@ -1006,10 +1306,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, color: QColor) callconv(.c) void `
     ///
-    pub fn OnSelectedColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
+    pub fn onSelectedColorChanged(self: QBarSet, callback: *const fn (QBarSet, QColor) callconv(.c) void) void {
         qtc.QBarSet_Connect_SelectedColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `valuesAdded` instead
+    ///
+    pub const ValuesAdded = valuesAdded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
     ///
     /// ## Parameter(s):
@@ -1018,11 +1322,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn ValuesAdded(self: QBarSet, index: i32, count: i32) void {
-        qtc.QBarSet_ValuesAdded(@ptrCast(self.ptr), @bitCast(index), @bitCast(count));
+    pub fn valuesAdded(self: QBarSet, index: i32, _count: i32) void {
+        qtc.QBarSet_ValuesAdded(@ptrCast(self.ptr), @bitCast(index), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `onValuesAdded` instead
+    ///
+    pub const OnValuesAdded = onValuesAdded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesAdded)
     ///
@@ -1032,10 +1340,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32, count: i32) callconv(.c) void `
     ///
-    pub fn OnValuesAdded(self: QBarSet, callback: *const fn (QBarSet, i32, i32) callconv(.c) void) void {
+    pub fn onValuesAdded(self: QBarSet, callback: *const fn (QBarSet, i32, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_ValuesAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `valuesRemoved` instead
+    ///
+    pub const ValuesRemoved = valuesRemoved;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
     ///
     /// ## Parameter(s):
@@ -1044,11 +1356,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn ValuesRemoved(self: QBarSet, index: i32, count: i32) void {
-        qtc.QBarSet_ValuesRemoved(@ptrCast(self.ptr), @bitCast(index), @bitCast(count));
+    pub fn valuesRemoved(self: QBarSet, index: i32, _count: i32) void {
+        qtc.QBarSet_ValuesRemoved(@ptrCast(self.ptr), @bitCast(index), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `onValuesRemoved` instead
+    ///
+    pub const OnValuesRemoved = onValuesRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valuesRemoved)
     ///
@@ -1058,9 +1374,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32, count: i32) callconv(.c) void `
     ///
-    pub fn OnValuesRemoved(self: QBarSet, callback: *const fn (QBarSet, i32, i32) callconv(.c) void) void {
+    pub fn onValuesRemoved(self: QBarSet, callback: *const fn (QBarSet, i32, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_ValuesRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `valueChanged` instead
+    ///
+    pub const ValueChanged = valueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
     ///
@@ -1070,9 +1390,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ValueChanged(self: QBarSet, index: i32) void {
+    pub fn valueChanged(self: QBarSet, index: i32) void {
         qtc.QBarSet_ValueChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#valueChanged)
     ///
@@ -1082,9 +1406,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, index: i32) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
+    pub fn onValueChanged(self: QBarSet, callback: *const fn (QBarSet, i32) callconv(.c) void) void {
         qtc.QBarSet_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedBarsChanged` instead
+    ///
+    pub const SelectedBarsChanged = selectedBarsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
     ///
@@ -1094,13 +1422,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn SelectedBarsChanged(self: QBarSet, indexes: []i32) void {
+    pub fn selectedBarsChanged(self: QBarSet, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QBarSet_SelectedBarsChanged(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `onSelectedBarsChanged` instead
+    ///
+    pub const OnSelectedBarsChanged = onSelectedBarsChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#selectedBarsChanged)
     ///
@@ -1110,9 +1442,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, indexes: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnSelectedBarsChanged(self: QBarSet, callback: *const fn (QBarSet, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSelectedBarsChanged(self: QBarSet, callback: *const fn (QBarSet, qtc.libqt_list) callconv(.c) void) void {
         qtc.QBarSet_Connect_SelectedBarsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1124,15 +1460,19 @@ pub const QBarSet = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1146,15 +1486,19 @@ pub const QBarSet = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `remove2` instead
+    ///
+    pub const Remove2 = remove2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#remove)
     ///
@@ -1164,11 +1508,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn Remove2(self: QBarSet, index: i32, count: i32) void {
-        qtc.QBarSet_Remove2(@ptrCast(self.ptr), @bitCast(index), @bitCast(count));
+    pub fn remove2(self: QBarSet, index: i32, _count: i32) void {
+        qtc.QBarSet_Remove2(@ptrCast(self.ptr), @bitCast(index), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1180,13 +1528,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QBarSet, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QBarSet, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBarSet.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1198,13 +1550,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QBarSet, name: []const u8) void {
+    pub fn setObjectName(self: QBarSet, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1214,9 +1570,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn IsWidgetType(self: QBarSet) bool {
+    pub fn isWidgetType(self: QBarSet) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1226,9 +1586,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn IsWindowType(self: QBarSet) bool {
+    pub fn isWindowType(self: QBarSet) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1238,9 +1602,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn IsQuickItemType(self: QBarSet) bool {
+    pub fn isQuickItemType(self: QBarSet) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1250,9 +1618,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SignalsBlocked(self: QBarSet) bool {
+    pub fn signalsBlocked(self: QBarSet) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1264,9 +1636,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QBarSet, b: bool) bool {
+    pub fn blockSignals(self: QBarSet, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1276,9 +1652,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Thread(self: QBarSet) QThread {
+    pub fn thread(self: QBarSet) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1288,12 +1668,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QBarSet, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QBarSet, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1305,9 +1689,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QBarSet, interval: i32) i32 {
+    pub fn startTimer(self: QBarSet, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1319,9 +1707,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QBarSet, time: i64) i32 {
+    pub fn startTimer2(self: QBarSet, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1333,9 +1725,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QBarSet, id: i32) void {
+    pub fn killTimer(self: QBarSet, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1347,9 +1743,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QBarSet, id: i32) void {
+    pub fn killTimer2(self: QBarSet, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1361,15 +1761,19 @@ pub const QBarSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QBarSet, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QBarSet, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBarSet.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBarSet.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1379,12 +1783,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QBarSet, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QBarSet, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1396,10 +1804,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QBarSet, filterObj: anytype) void {
+    pub fn installEventFilter(self: QBarSet, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1411,10 +1823,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QBarSet, obj: anytype) void {
+    pub fn removeEventFilter(self: QBarSet, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1422,7 +1838,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1430,13 +1846,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1444,7 +1864,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1452,13 +1872,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1468,18 +1892,22 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QBarSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QBarSet, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1487,7 +1915,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1495,13 +1923,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1509,7 +1941,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1517,13 +1949,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1533,9 +1969,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Disconnect3(self: QBarSet) bool {
+    pub fn disconnect3(self: QBarSet) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1547,10 +1987,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QBarSet, receiver: anytype) bool {
+    pub fn disconnect4(self: QBarSet, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1560,10 +2004,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1573,9 +2021,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn DumpObjectTree(self: QBarSet) void {
+    pub fn dumpObjectTree(self: QBarSet) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1585,9 +2037,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn DumpObjectInfo(self: QBarSet) void {
+    pub fn dumpObjectInfo(self: QBarSet) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1601,11 +2057,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QBarSet, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QBarSet, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1617,10 +2077,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QBarSet, name: [:0]const u8) QVariant {
+    pub fn property(self: QBarSet, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1632,7 +2096,7 @@ pub const QBarSet = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QBarSet, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QBarSet, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1640,27 +2104,19 @@ pub const QBarSet = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBarSet.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBarSet.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBarSet.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QBarSet.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBarSet `
-    ///
-    pub fn BindingStorage(self: QBarSet) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1670,9 +2126,29 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn BindingStorage2(self: QBarSet) QBindingStorage {
+    pub fn bindingStorage(self: QBarSet) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBarSet `
+    ///
+    pub fn bindingStorage2(self: QBarSet) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1682,9 +2158,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Destroyed(self: QBarSet) void {
+    pub fn destroyed(self: QBarSet) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1696,9 +2176,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
+    pub fn onDestroyed(self: QBarSet, callback: *const fn (QBarSet) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1708,9 +2192,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Parent(self: QBarSet) QObject {
+    pub fn parent(self: QBarSet) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1722,10 +2210,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QBarSet, classname: [:0]const u8) bool {
+    pub fn inherits(self: QBarSet, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1735,9 +2227,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn DeleteLater(self: QBarSet) void {
+    pub fn deleteLater(self: QBarSet) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1751,9 +2247,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QBarSet, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QBarSet, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1767,9 +2267,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QBarSet, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QBarSet, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1777,7 +2281,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1787,13 +2291,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1801,7 +2309,7 @@ pub const QBarSet = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1811,13 +2319,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1827,7 +2339,7 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1835,12 +2347,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QBarSet, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QBarSet, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1852,10 +2368,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QBarSet, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QBarSet, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1869,11 +2389,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QBarSet, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QBarSet, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1889,13 +2413,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QBarSet, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QBarSet, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1908,11 +2436,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QBarSet, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QBarSet, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1924,10 +2456,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QBarSet, param1: anytype) void {
+    pub fn destroyed1(self: QBarSet, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1939,9 +2475,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QBarSet, callback: *const fn (QBarSet, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QBarSet, callback: *const fn (QBarSet, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1953,16 +2493,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QBarSet, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBarSet_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QBarSet, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBarSet_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1974,12 +2514,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QBarSet, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBarSet_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QBarSet, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBarSet_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1993,9 +2537,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QBarSet, callback: *const fn (QBarSet, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QBarSet, callback: *const fn (QBarSet, QEvent) callconv(.c) bool) void {
         qtc.QBarSet_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2009,17 +2557,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QBarSet, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QBarSet, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBarSet_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBarSet_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2033,13 +2581,17 @@ pub const QBarSet = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QBarSet, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QBarSet, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBarSet_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBarSet_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2053,9 +2605,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QBarSet, callback: *const fn (QBarSet, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QBarSet, callback: *const fn (QBarSet, QObject, QEvent) callconv(.c) bool) void {
         qtc.QBarSet_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2067,16 +2623,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBarSet_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBarSet_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2088,12 +2644,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBarSet_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBarSet_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2107,9 +2667,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QBarSet, callback: *const fn (QBarSet, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QBarSet, callback: *const fn (QBarSet, QTimerEvent) callconv(.c) void) void {
         qtc.QBarSet_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2121,16 +2685,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBarSet_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBarSet_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2142,12 +2706,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBarSet_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBarSet_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2161,9 +2729,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QBarSet, callback: *const fn (QBarSet, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QBarSet, callback: *const fn (QBarSet, QChildEvent) callconv(.c) void) void {
         qtc.QBarSet_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2175,16 +2747,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBarSet_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBarSet_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2196,12 +2768,16 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QBarSet, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBarSet_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QBarSet, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBarSet_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2215,9 +2791,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QBarSet, callback: *const fn (QBarSet, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QBarSet, callback: *const fn (QBarSet, QEvent) callconv(.c) void) void {
         qtc.QBarSet_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2231,14 +2811,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QBarSet, signal: anytype) void {
+    pub fn connectNotify(self: QBarSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBarSet_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2252,11 +2832,15 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QBarSet, signal: anytype) void {
+    pub fn superConnectNotify(self: QBarSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBarSet_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2269,9 +2853,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) void) void {
         qtc.QBarSet_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2285,14 +2873,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QBarSet, signal: anytype) void {
+    pub fn disconnectNotify(self: QBarSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBarSet_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2306,10 +2894,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QBarSet, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QBarSet, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QBarSet_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2323,9 +2915,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) void) void {
         qtc.QBarSet_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2337,13 +2933,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Sender(self: QBarSet) QObject {
+    pub fn sender(self: QBarSet) QObject {
         return .{ .ptr = qtc.QBarSet_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2355,9 +2951,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SuperSender(self: QBarSet) QObject {
+    pub fn superSender(self: QBarSet) QObject {
         return .{ .ptr = qtc.QBarSet_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2371,9 +2971,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QBarSet, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QBarSet, callback: *const fn () callconv(.c) QObject) void {
         qtc.QBarSet_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2385,13 +2989,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SenderSignalIndex(self: QBarSet) i32 {
+    pub fn senderSignalIndex(self: QBarSet) i32 {
         return qtc.QBarSet_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2403,9 +3007,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` self: QBarSet `
     ///
-    pub fn SuperSenderSignalIndex(self: QBarSet) i32 {
+    pub fn superSenderSignalIndex(self: QBarSet) i32 {
         return qtc.QBarSet_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2419,9 +3027,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QBarSet, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QBarSet, callback: *const fn () callconv(.c) i32) void {
         qtc.QBarSet_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2435,14 +3047,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QBarSet, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QBarSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBarSet_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2456,10 +3068,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QBarSet, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QBarSet, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBarSet_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2473,9 +3089,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) i32) void {
         qtc.QBarSet_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2489,14 +3109,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QBarSet, signal: anytype) bool {
+    pub fn isSignalConnected(self: QBarSet, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBarSet_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2510,10 +3130,14 @@ pub const QBarSet = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QBarSet, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QBarSet, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBarSet_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2527,9 +3151,13 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QBarSet, callback: *const fn (QBarSet, QMetaMethod) callconv(.c) bool) void {
         qtc.QBarSet_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2543,23 +3171,23 @@ pub const QBarSet = extern struct {
     ///
     /// ` callback: *const fn (self: QBarSet, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QBarSet, callback: *const fn (QBarSet, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbarset-qtcharts.html#dtor.QBarSet)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBarSet `
     ///
-    pub fn Delete(self: QBarSet) void {
+    pub fn delete(self: QBarSet) void {
         qtc.QBarSet_Delete(@ptrCast(self.ptr));
     }
 };

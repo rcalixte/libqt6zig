@@ -28,33 +28,45 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     pub const _is_TextCustomEditor__TextEditorCompleter = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new TextCustomEditor::TextEditorCompleter object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextCustomEditor::TextEditorCompleter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` editor: QTextEdit `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New(editor: anytype, parent: anytype) TextCustomEditor__TextEditorCompleter {
+    pub fn new(editor: anytype, _parent: anytype) TextCustomEditor__TextEditorCompleter {
         comptime _ = @TypeOf(editor)._is_QTextEdit;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_new(@ptrCast(editor.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_new(@ptrCast(editor.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextCustomEditor::TextEditorCompleter object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextCustomEditor::TextEditorCompleter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` editor: QPlainTextEdit `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(editor: anytype, parent: anytype) TextCustomEditor__TextEditorCompleter {
+    pub fn new2(editor: anytype, _parent: anytype) TextCustomEditor__TextEditorCompleter {
         comptime _ = @TypeOf(editor)._is_QPlainTextEdit;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_new2(@ptrCast(editor.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_new2(@ptrCast(editor.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -62,9 +74,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn MetaObject(self: TextCustomEditor__TextEditorCompleter) QMetaObject {
+    pub fn metaObject(self: TextCustomEditor__TextEditorCompleter) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -76,13 +92,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -92,9 +108,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn SuperMetaObject(self: TextCustomEditor__TextEditorCompleter) QMetaObject {
+    pub fn superMetaObject(self: TextCustomEditor__TextEditorCompleter) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -102,10 +122,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextCustomEditor__TextEditorCompleter, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextCustomEditor__TextEditorCompleter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__TextEditorCompleter_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -115,13 +139,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -131,10 +155,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextCustomEditor__TextEditorCompleter, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextCustomEditor__TextEditorCompleter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__TextEditorCompleter_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -146,9 +174,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextCustomEditor__TextEditorCompleter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextCustomEditor__TextEditorCompleter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__TextEditorCompleter_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +190,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -178,9 +210,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextCustomEditor__TextEditorCompleter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextCustomEditor__TextEditorCompleter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__TextEditorCompleter_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -190,14 +226,18 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCompleterStringList` instead
+    ///
+    pub const SetCompleterStringList = setCompleterStringList;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -209,13 +249,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` list: []const []const u8 `
     ///
-    pub fn SetCompleterStringList(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("TextCustomEditor__TextEditorCompleter.SetCompleterStringList: Memory allocation failed");
+    pub fn setCompleterStringList(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator, list: []const []const u8) void {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("TextCustomEditor__TextEditorCompleter.setCompleterStringList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -224,15 +264,9 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
         qtc.TextCustomEditor__TextEditorCompleter_SetCompleterStringList(@ptrCast(self.ptr), list_list);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
+    /// ### DEPRECATED: Use `completer` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextEditorCompleter `
-    ///
-    pub fn Completer(self: TextCustomEditor__TextEditorCompleter) QCompleter {
-        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_Completer(@ptrCast(self.ptr)) };
-    }
+    pub const Completer = completer;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -240,9 +274,27 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn CompleteText(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn completer(self: TextCustomEditor__TextEditorCompleter) QCompleter {
+        return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_Completer(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `completeText` instead
+    ///
+    pub const CompleteText = completeText;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__TextEditorCompleter `
+    ///
+    pub fn completeText(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.TextCustomEditor__TextEditorCompleter_CompleteText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setExcludeOfCharacters` instead
+    ///
+    pub const SetExcludeOfCharacters = setExcludeOfCharacters;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
@@ -252,13 +304,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` excludes: []const u8 `
     ///
-    pub fn SetExcludeOfCharacters(self: TextCustomEditor__TextEditorCompleter, excludes: []const u8) void {
+    pub fn setExcludeOfCharacters(self: TextCustomEditor__TextEditorCompleter, excludes: []const u8) void {
         const excludes_str = qtc.libqt_string{
             .len = excludes.len,
             .data = excludes.ptr,
         };
         qtc.TextCustomEditor__TextEditorCompleter_SetExcludeOfCharacters(@ptrCast(self.ptr), excludes_str);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -270,15 +326,19 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -292,15 +352,19 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -312,13 +376,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__TextEditorCompleter.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -330,13 +398,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextCustomEditor__TextEditorCompleter, name: []const u8) void {
+    pub fn setObjectName(self: TextCustomEditor__TextEditorCompleter, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -346,9 +418,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn IsWidgetType(self: TextCustomEditor__TextEditorCompleter) bool {
+    pub fn isWidgetType(self: TextCustomEditor__TextEditorCompleter) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -358,9 +434,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn IsWindowType(self: TextCustomEditor__TextEditorCompleter) bool {
+    pub fn isWindowType(self: TextCustomEditor__TextEditorCompleter) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -370,9 +450,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn IsQuickItemType(self: TextCustomEditor__TextEditorCompleter) bool {
+    pub fn isQuickItemType(self: TextCustomEditor__TextEditorCompleter) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -382,9 +466,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn SignalsBlocked(self: TextCustomEditor__TextEditorCompleter) bool {
+    pub fn signalsBlocked(self: TextCustomEditor__TextEditorCompleter) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -396,9 +484,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextCustomEditor__TextEditorCompleter, b: bool) bool {
+    pub fn blockSignals(self: TextCustomEditor__TextEditorCompleter, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -408,9 +500,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Thread(self: TextCustomEditor__TextEditorCompleter) QThread {
+    pub fn thread(self: TextCustomEditor__TextEditorCompleter) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -420,12 +516,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextCustomEditor__TextEditorCompleter, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextCustomEditor__TextEditorCompleter, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -437,9 +537,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextCustomEditor__TextEditorCompleter, interval: i32) i32 {
+    pub fn startTimer(self: TextCustomEditor__TextEditorCompleter, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -451,9 +555,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextCustomEditor__TextEditorCompleter, time: i64) i32 {
+    pub fn startTimer2(self: TextCustomEditor__TextEditorCompleter, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -465,9 +573,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextCustomEditor__TextEditorCompleter, id: i32) void {
+    pub fn killTimer(self: TextCustomEditor__TextEditorCompleter, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -479,9 +591,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextCustomEditor__TextEditorCompleter, id: i32) void {
+    pub fn killTimer2(self: TextCustomEditor__TextEditorCompleter, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -493,15 +609,19 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__TextEditorCompleter.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__TextEditorCompleter.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -511,12 +631,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: TextCustomEditor__TextEditorCompleter, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: TextCustomEditor__TextEditorCompleter, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -528,10 +652,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextCustomEditor__TextEditorCompleter, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextCustomEditor__TextEditorCompleter, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -543,10 +671,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextCustomEditor__TextEditorCompleter, obj: anytype) void {
+    pub fn removeEventFilter(self: TextCustomEditor__TextEditorCompleter, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -554,7 +686,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -562,13 +694,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -576,7 +712,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -584,13 +720,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -600,18 +740,22 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextCustomEditor__TextEditorCompleter, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextCustomEditor__TextEditorCompleter, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -619,7 +763,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -627,13 +771,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -641,7 +789,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -649,13 +797,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -665,9 +817,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Disconnect3(self: TextCustomEditor__TextEditorCompleter) bool {
+    pub fn disconnect3(self: TextCustomEditor__TextEditorCompleter) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -679,10 +835,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextCustomEditor__TextEditorCompleter, receiver: anytype) bool {
+    pub fn disconnect4(self: TextCustomEditor__TextEditorCompleter, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -692,10 +852,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -705,9 +869,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn DumpObjectTree(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn dumpObjectTree(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -717,9 +885,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn DumpObjectInfo(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn dumpObjectInfo(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -733,11 +905,15 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextCustomEditor__TextEditorCompleter, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextCustomEditor__TextEditorCompleter, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -749,10 +925,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextCustomEditor__TextEditorCompleter, name: [:0]const u8) QVariant {
+    pub fn property(self: TextCustomEditor__TextEditorCompleter, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -764,7 +944,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextCustomEditor__TextEditorCompleter, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -772,27 +952,19 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__TextEditorCompleter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__TextEditorCompleter.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__TextEditorCompleter.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextCustomEditor__TextEditorCompleter.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__TextEditorCompleter `
-    ///
-    pub fn BindingStorage(self: TextCustomEditor__TextEditorCompleter) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -802,9 +974,29 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn BindingStorage2(self: TextCustomEditor__TextEditorCompleter) QBindingStorage {
+    pub fn bindingStorage(self: TextCustomEditor__TextEditorCompleter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__TextEditorCompleter `
+    ///
+    pub fn bindingStorage2(self: TextCustomEditor__TextEditorCompleter) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -814,9 +1006,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Destroyed(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn destroyed(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -828,9 +1024,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -840,9 +1040,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Parent(self: TextCustomEditor__TextEditorCompleter) QObject {
+    pub fn parent(self: TextCustomEditor__TextEditorCompleter) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -854,10 +1058,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextCustomEditor__TextEditorCompleter, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextCustomEditor__TextEditorCompleter, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -867,9 +1075,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn DeleteLater(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn deleteLater(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -883,9 +1095,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextCustomEditor__TextEditorCompleter, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextCustomEditor__TextEditorCompleter, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -899,9 +1115,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextCustomEditor__TextEditorCompleter, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextCustomEditor__TextEditorCompleter, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -909,7 +1129,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -919,13 +1139,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -933,7 +1157,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -943,13 +1167,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -959,7 +1187,7 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -967,12 +1195,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextCustomEditor__TextEditorCompleter, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextCustomEditor__TextEditorCompleter, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -984,10 +1216,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1001,11 +1237,15 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1021,13 +1261,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1040,11 +1284,15 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextCustomEditor__TextEditorCompleter, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextCustomEditor__TextEditorCompleter, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1056,10 +1304,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextCustomEditor__TextEditorCompleter, param1: anytype) void {
+    pub fn destroyed1(self: TextCustomEditor__TextEditorCompleter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1071,9 +1323,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1085,16 +1341,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextCustomEditor__TextEditorCompleter, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__TextEditorCompleter_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextCustomEditor__TextEditorCompleter, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__TextEditorCompleter_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1106,12 +1362,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__TextEditorCompleter_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__TextEditorCompleter_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1125,9 +1385,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1141,17 +1405,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextCustomEditor__TextEditorCompleter, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextCustomEditor__TextEditorCompleter, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__TextEditorCompleter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__TextEditorCompleter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1165,13 +1429,17 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextCustomEditor__TextEditorCompleter, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextCustomEditor__TextEditorCompleter, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextCustomEditor__TextEditorCompleter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextCustomEditor__TextEditorCompleter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1185,9 +1453,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1199,16 +1471,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1220,12 +1492,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1239,9 +1515,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QTimerEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1253,16 +1533,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1274,12 +1554,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1293,9 +1577,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QChildEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1307,16 +1595,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1328,12 +1616,16 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextCustomEditor__TextEditorCompleter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__TextEditorCompleter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextCustomEditor__TextEditorCompleter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__TextEditorCompleter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1347,9 +1639,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1363,14 +1659,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
+    pub fn connectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__TextEditorCompleter_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1384,11 +1680,15 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
+    pub fn superConnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__TextEditorCompleter_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1401,9 +1701,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1417,14 +1721,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
+    pub fn disconnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__TextEditorCompleter_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1438,10 +1742,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextCustomEditor__TextEditorCompleter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__TextEditorCompleter_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1455,9 +1763,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1469,13 +1781,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Sender(self: TextCustomEditor__TextEditorCompleter) QObject {
+    pub fn sender(self: TextCustomEditor__TextEditorCompleter) QObject {
         return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1487,9 +1799,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn SuperSender(self: TextCustomEditor__TextEditorCompleter) QObject {
+    pub fn superSender(self: TextCustomEditor__TextEditorCompleter) QObject {
         return .{ .ptr = qtc.TextCustomEditor__TextEditorCompleter_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1503,9 +1819,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1517,13 +1837,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn SenderSignalIndex(self: TextCustomEditor__TextEditorCompleter) i32 {
+    pub fn senderSignalIndex(self: TextCustomEditor__TextEditorCompleter) i32 {
         return qtc.TextCustomEditor__TextEditorCompleter_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1535,9 +1855,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn SuperSenderSignalIndex(self: TextCustomEditor__TextEditorCompleter) i32 {
+    pub fn superSenderSignalIndex(self: TextCustomEditor__TextEditorCompleter) i32 {
         return qtc.TextCustomEditor__TextEditorCompleter_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1551,9 +1875,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextCustomEditor__TextEditorCompleter, callback: *const fn () callconv(.c) i32) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1567,14 +1895,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__TextEditorCompleter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1588,10 +1916,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextCustomEditor__TextEditorCompleter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__TextEditorCompleter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1605,9 +1937,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1621,14 +1957,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextCustomEditor__TextEditorCompleter, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextCustomEditor__TextEditorCompleter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__TextEditorCompleter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1642,10 +1978,14 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextCustomEditor__TextEditorCompleter, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextCustomEditor__TextEditorCompleter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__TextEditorCompleter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1659,9 +1999,13 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, QMetaMethod) callconv(.c) bool) void {
         qtc.TextCustomEditor__TextEditorCompleter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1675,23 +2019,23 @@ pub const TextCustomEditor__TextEditorCompleter = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__TextEditorCompleter, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextCustomEditor__TextEditorCompleter, callback: *const fn (TextCustomEditor__TextEditorCompleter, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1TextEditorCompleter.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextCustomEditor__TextEditorCompleter `
     ///
-    pub fn Delete(self: TextCustomEditor__TextEditorCompleter) void {
+    pub fn delete(self: TextCustomEditor__TextEditorCompleter) void {
         qtc.TextCustomEditor__TextEditorCompleter_Delete(@ptrCast(self.ptr));
     }
 };

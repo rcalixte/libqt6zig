@@ -15,50 +15,66 @@ pub const QFont = extern struct {
 
     pub const _is_QFont = {};
 
-    /// New constructs a new QFont object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFont {
+    pub const New = new;
+
+    /// Allocate a new QFont object in C++ memory
+    ///
+    pub fn new() QFont {
         return .{ .ptr = qtc.QFont_new() };
     }
 
-    /// New2 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` family: []const u8 `
+    /// ` _family: []const u8 `
     ///
-    pub fn New2(family: []const u8) QFont {
+    pub fn new2(_family: []const u8) QFont {
         const family_str = qtc.libqt_string{
-            .len = family.len,
-            .data = family.ptr,
+            .len = _family.len,
+            .data = _family.ptr,
         };
         return .{ .ptr = qtc.QFont_new2(family_str) };
     }
 
-    /// New3 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` families: []const []const u8 `
+    /// ` _families: []const []const u8 `
     ///
-    pub fn New3(allocator: std.mem.Allocator, families: []const []const u8) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New3: Memory allocation failed");
+    pub fn new3(allocator: std.mem.Allocator, _families: []const []const u8) QFont {
+        const families_arr = allocator.alloc(qtc.libqt_string, _families.len) catch @panic("QFont.new3: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (_families, 0.._families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
-            .len = families.len,
+            .len = _families.len,
             .data = families_arr.ptr,
         };
         return .{ .ptr = qtc.QFont_new3(families_list) };
     }
 
-    /// New4 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -66,157 +82,189 @@ pub const QFont = extern struct {
     ///
     /// ` pd: QPaintDevice `
     ///
-    pub fn New4(font: anytype, pd: anytype) QFont {
+    pub fn new4(font: anytype, pd: anytype) QFont {
         comptime _ = @TypeOf(font)._is_QFont;
         comptime _ = @TypeOf(pd)._is_QPaintDevice;
         return .{ .ptr = qtc.QFont_new4(@ptrCast(font.ptr), @ptrCast(pd.ptr)) };
     }
 
-    /// New5 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` font: QFont `
     ///
-    pub fn New5(font: anytype) QFont {
+    pub fn new5(font: anytype) QFont {
         comptime _ = @TypeOf(font)._is_QFont;
         return .{ .ptr = qtc.QFont_new5(@ptrCast(font.ptr)) };
     }
 
-    /// New6 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` family: []const u8 `
+    /// ` _family: []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    pub fn New6(family: []const u8, pointSize: i32) QFont {
+    pub fn new6(_family: []const u8, _pointSize: i32) QFont {
         const family_str = qtc.libqt_string{
-            .len = family.len,
-            .data = family.ptr,
+            .len = _family.len,
+            .data = _family.ptr,
         };
-        return .{ .ptr = qtc.QFont_new6(family_str, @bitCast(pointSize)) };
+        return .{ .ptr = qtc.QFont_new6(family_str, @bitCast(_pointSize)) };
     }
 
-    /// New7 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` family: []const u8 `
+    /// ` _family: []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    /// ` weight: i32 `
+    /// ` _weight: i32 `
     ///
-    pub fn New7(family: []const u8, pointSize: i32, weight: i32) QFont {
+    pub fn new7(_family: []const u8, _pointSize: i32, _weight: i32) QFont {
         const family_str = qtc.libqt_string{
-            .len = family.len,
-            .data = family.ptr,
+            .len = _family.len,
+            .data = _family.ptr,
         };
-        return .{ .ptr = qtc.QFont_new7(family_str, @bitCast(pointSize), @bitCast(weight)) };
+        return .{ .ptr = qtc.QFont_new7(family_str, @bitCast(_pointSize), @bitCast(_weight)) };
     }
 
-    /// New8 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` family: []const u8 `
+    /// ` _family: []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    /// ` weight: i32 `
+    /// ` _weight: i32 `
     ///
-    /// ` italic: bool `
+    /// ` _italic: bool `
     ///
-    pub fn New8(family: []const u8, pointSize: i32, weight: i32, italic: bool) QFont {
+    pub fn new8(_family: []const u8, _pointSize: i32, _weight: i32, _italic: bool) QFont {
         const family_str = qtc.libqt_string{
-            .len = family.len,
-            .data = family.ptr,
+            .len = _family.len,
+            .data = _family.ptr,
         };
-        return .{ .ptr = qtc.QFont_new8(family_str, @bitCast(pointSize), @bitCast(weight), italic) };
+        return .{ .ptr = qtc.QFont_new8(family_str, @bitCast(_pointSize), @bitCast(_weight), _italic) };
     }
 
-    /// New9 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` families: []const []const u8 `
+    /// ` _families: []const []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    pub fn New9(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New9: Memory allocation failed");
+    pub fn new9(allocator: std.mem.Allocator, _families: []const []const u8, _pointSize: i32) QFont {
+        const families_arr = allocator.alloc(qtc.libqt_string, _families.len) catch @panic("QFont.new9: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (_families, 0.._families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
-            .len = families.len,
+            .len = _families.len,
             .data = families_arr.ptr,
         };
-        return .{ .ptr = qtc.QFont_new9(families_list, @bitCast(pointSize)) };
+        return .{ .ptr = qtc.QFont_new9(families_list, @bitCast(_pointSize)) };
     }
 
-    /// New10 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` families: []const []const u8 `
+    /// ` _families: []const []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    /// ` weight: i32 `
+    /// ` _weight: i32 `
     ///
-    pub fn New10(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32, weight: i32) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New10: Memory allocation failed");
+    pub fn new10(allocator: std.mem.Allocator, _families: []const []const u8, _pointSize: i32, _weight: i32) QFont {
+        const families_arr = allocator.alloc(qtc.libqt_string, _families.len) catch @panic("QFont.new10: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (_families, 0.._families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
-            .len = families.len,
+            .len = _families.len,
             .data = families_arr.ptr,
         };
-        return .{ .ptr = qtc.QFont_new10(families_list, @bitCast(pointSize), @bitCast(weight)) };
+        return .{ .ptr = qtc.QFont_new10(families_list, @bitCast(_pointSize), @bitCast(_weight)) };
     }
 
-    /// New11 constructs a new QFont object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new QFont object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` families: []const []const u8 `
+    /// ` _families: []const []const u8 `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    /// ` weight: i32 `
+    /// ` _weight: i32 `
     ///
-    /// ` italic: bool `
+    /// ` _italic: bool `
     ///
-    pub fn New11(allocator: std.mem.Allocator, families: []const []const u8, pointSize: i32, weight: i32, italic: bool) QFont {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.New11: Memory allocation failed");
+    pub fn new11(allocator: std.mem.Allocator, _families: []const []const u8, _pointSize: i32, _weight: i32, _italic: bool) QFont {
+        const families_arr = allocator.alloc(qtc.libqt_string, _families.len) catch @panic("QFont.new11: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (_families, 0.._families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
-            .len = families.len,
+            .len = _families.len,
             .data = families_arr.ptr,
         };
-        return .{ .ptr = qtc.QFont_new11(families_list, @bitCast(pointSize), @bitCast(weight), italic) };
+        return .{ .ptr = qtc.QFont_new11(families_list, @bitCast(_pointSize), @bitCast(_weight), _italic) };
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#swap)
     ///
@@ -226,10 +274,14 @@ pub const QFont = extern struct {
     ///
     /// ` other: QFont `
     ///
-    pub fn Swap(self: QFont, other: anytype) void {
+    pub fn swap(self: QFont, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QFont;
         qtc.QFont_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `family` instead
+    ///
+    pub const Family = family;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#family)
     ///
@@ -239,13 +291,17 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Family(self: QFont, allocator: std.mem.Allocator) []const u8 {
+    pub fn family(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_Family(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Family: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.family: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFamily` instead
+    ///
+    pub const SetFamily = setFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setFamily)
     ///
@@ -253,15 +309,19 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` family: []const u8 `
+    /// ` _family: []const u8 `
     ///
-    pub fn SetFamily(self: QFont, family: []const u8) void {
+    pub fn setFamily(self: QFont, _family: []const u8) void {
         const family_str = qtc.libqt_string{
-            .len = family.len,
-            .data = family.ptr,
+            .len = _family.len,
+            .data = _family.ptr,
         };
         qtc.QFont_SetFamily(@ptrCast(self.ptr), family_str);
     }
+
+    /// ### DEPRECATED: Use `families` instead
+    ///
+    pub const Families = families;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#families)
     ///
@@ -271,7 +331,7 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Families(self: QFont, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn families(self: QFont, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFont_Families(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -279,15 +339,19 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Families: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.families: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Families: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFont.families: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setFamilies` instead
+    ///
+    pub const SetFamilies = setFamilies;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setFamilies)
     ///
@@ -297,22 +361,26 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` families: []const []const u8 `
+    /// ` _families: []const []const u8 `
     ///
-    pub fn SetFamilies(self: QFont, allocator: std.mem.Allocator, families: []const []const u8) void {
-        const families_arr = allocator.alloc(qtc.libqt_string, families.len) catch @panic("QFont.SetFamilies: Memory allocation failed");
+    pub fn setFamilies(self: QFont, allocator: std.mem.Allocator, _families: []const []const u8) void {
+        const families_arr = allocator.alloc(qtc.libqt_string, _families.len) catch @panic("QFont.setFamilies: Memory allocation failed");
         defer allocator.free(families_arr);
-        for (families, 0..families.len) |item, i|
+        for (_families, 0.._families.len) |str_item, i|
             families_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const families_list = qtc.libqt_list{
-            .len = families.len,
+            .len = _families.len,
             .data = families_arr.ptr,
         };
         qtc.QFont_SetFamilies(@ptrCast(self.ptr), families_list);
     }
+
+    /// ### DEPRECATED: Use `styleName` instead
+    ///
+    pub const StyleName = styleName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#styleName)
     ///
@@ -322,13 +390,17 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleName(self: QFont, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleName(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_StyleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.StyleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.styleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setStyleName` instead
+    ///
+    pub const SetStyleName = setStyleName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyleName)
     ///
@@ -336,15 +408,19 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` styleName: []const u8 `
+    /// ` _styleName: []const u8 `
     ///
-    pub fn SetStyleName(self: QFont, styleName: []const u8) void {
+    pub fn setStyleName(self: QFont, _styleName: []const u8) void {
         const styleName_str = qtc.libqt_string{
-            .len = styleName.len,
-            .data = styleName.ptr,
+            .len = _styleName.len,
+            .data = _styleName.ptr,
         };
         qtc.QFont_SetStyleName(@ptrCast(self.ptr), styleName_str);
     }
+
+    /// ### DEPRECATED: Use `pointSize` instead
+    ///
+    pub const PointSize = pointSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#pointSize)
     ///
@@ -352,9 +428,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn PointSize(self: QFont) i32 {
+    pub fn pointSize(self: QFont) i32 {
         return qtc.QFont_PointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointSize` instead
+    ///
+    pub const SetPointSize = setPointSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setPointSize)
     ///
@@ -362,11 +442,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` pointSize: i32 `
+    /// ` _pointSize: i32 `
     ///
-    pub fn SetPointSize(self: QFont, pointSize: i32) void {
-        qtc.QFont_SetPointSize(@ptrCast(self.ptr), @bitCast(pointSize));
+    pub fn setPointSize(self: QFont, _pointSize: i32) void {
+        qtc.QFont_SetPointSize(@ptrCast(self.ptr), @bitCast(_pointSize));
     }
+
+    /// ### DEPRECATED: Use `pointSizeF` instead
+    ///
+    pub const PointSizeF = pointSizeF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#pointSizeF)
     ///
@@ -374,9 +458,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn PointSizeF(self: QFont) f64 {
+    pub fn pointSizeF(self: QFont) f64 {
         return qtc.QFont_PointSizeF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointSizeF` instead
+    ///
+    pub const SetPointSizeF = setPointSizeF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setPointSizeF)
     ///
@@ -384,11 +472,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` pointSizeF: f64 `
+    /// ` _pointSizeF: f64 `
     ///
-    pub fn SetPointSizeF(self: QFont, pointSizeF: f64) void {
-        qtc.QFont_SetPointSizeF(@ptrCast(self.ptr), @bitCast(pointSizeF));
+    pub fn setPointSizeF(self: QFont, _pointSizeF: f64) void {
+        qtc.QFont_SetPointSizeF(@ptrCast(self.ptr), @bitCast(_pointSizeF));
     }
+
+    /// ### DEPRECATED: Use `pixelSize` instead
+    ///
+    pub const PixelSize = pixelSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#pixelSize)
     ///
@@ -396,9 +488,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn PixelSize(self: QFont) i32 {
+    pub fn pixelSize(self: QFont) i32 {
         return qtc.QFont_PixelSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPixelSize` instead
+    ///
+    pub const SetPixelSize = setPixelSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setPixelSize)
     ///
@@ -406,11 +502,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` pixelSize: i32 `
+    /// ` _pixelSize: i32 `
     ///
-    pub fn SetPixelSize(self: QFont, pixelSize: i32) void {
-        qtc.QFont_SetPixelSize(@ptrCast(self.ptr), @bitCast(pixelSize));
+    pub fn setPixelSize(self: QFont, _pixelSize: i32) void {
+        qtc.QFont_SetPixelSize(@ptrCast(self.ptr), @bitCast(_pixelSize));
     }
+
+    /// ### DEPRECATED: Use `weight` instead
+    ///
+    pub const Weight = weight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#weight)
     ///
@@ -422,9 +522,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.Weight `
     ///
-    pub fn Weight(self: QFont) i32 {
+    pub fn weight(self: QFont) i32 {
         return qtc.QFont_Weight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWeight` instead
+    ///
+    pub const SetWeight = setWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setWeight)
     ///
@@ -432,11 +536,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` weight: qfont_enums.Weight `
+    /// ` _weight: qfont_enums.Weight `
     ///
-    pub fn SetWeight(self: QFont, weight: i32) void {
-        qtc.QFont_SetWeight(@ptrCast(self.ptr), @bitCast(weight));
+    pub fn setWeight(self: QFont, _weight: i32) void {
+        qtc.QFont_SetWeight(@ptrCast(self.ptr), @bitCast(_weight));
     }
+
+    /// ### DEPRECATED: Use `bold` instead
+    ///
+    pub const Bold = bold;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#bold)
     ///
@@ -444,9 +552,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Bold(self: QFont) bool {
+    pub fn bold(self: QFont) bool {
         return qtc.QFont_Bold(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBold` instead
+    ///
+    pub const SetBold = setBold;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setBold)
     ///
@@ -454,11 +566,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` bold: bool `
+    /// ` _bold: bool `
     ///
-    pub fn SetBold(self: QFont, bold: bool) void {
-        qtc.QFont_SetBold(@ptrCast(self.ptr), bold);
+    pub fn setBold(self: QFont, _bold: bool) void {
+        qtc.QFont_SetBold(@ptrCast(self.ptr), _bold);
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyle)
     ///
@@ -466,11 +582,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` style: qfont_enums.Style `
+    /// ` _style: qfont_enums.Style `
     ///
-    pub fn SetStyle(self: QFont, style: i32) void {
-        qtc.QFont_SetStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setStyle(self: QFont, _style: i32) void {
+        qtc.QFont_SetStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#style)
     ///
@@ -482,9 +602,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.Style `
     ///
-    pub fn Style(self: QFont) i32 {
+    pub fn style(self: QFont) i32 {
         return qtc.QFont_Style(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `italic` instead
+    ///
+    pub const Italic = italic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#italic)
     ///
@@ -492,9 +616,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Italic(self: QFont) bool {
+    pub fn italic(self: QFont) bool {
         return qtc.QFont_Italic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItalic` instead
+    ///
+    pub const SetItalic = setItalic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setItalic)
     ///
@@ -504,9 +632,13 @@ pub const QFont = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetItalic(self: QFont, b: bool) void {
+    pub fn setItalic(self: QFont, b: bool) void {
         qtc.QFont_SetItalic(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `underline` instead
+    ///
+    pub const Underline = underline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#underline)
     ///
@@ -514,9 +646,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Underline(self: QFont) bool {
+    pub fn underline(self: QFont) bool {
         return qtc.QFont_Underline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnderline` instead
+    ///
+    pub const SetUnderline = setUnderline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setUnderline)
     ///
@@ -524,11 +660,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` underline: bool `
+    /// ` _underline: bool `
     ///
-    pub fn SetUnderline(self: QFont, underline: bool) void {
-        qtc.QFont_SetUnderline(@ptrCast(self.ptr), underline);
+    pub fn setUnderline(self: QFont, _underline: bool) void {
+        qtc.QFont_SetUnderline(@ptrCast(self.ptr), _underline);
     }
+
+    /// ### DEPRECATED: Use `overline` instead
+    ///
+    pub const Overline = overline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#overline)
     ///
@@ -536,9 +676,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Overline(self: QFont) bool {
+    pub fn overline(self: QFont) bool {
         return qtc.QFont_Overline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOverline` instead
+    ///
+    pub const SetOverline = setOverline;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setOverline)
     ///
@@ -546,11 +690,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` overline: bool `
+    /// ` _overline: bool `
     ///
-    pub fn SetOverline(self: QFont, overline: bool) void {
-        qtc.QFont_SetOverline(@ptrCast(self.ptr), overline);
+    pub fn setOverline(self: QFont, _overline: bool) void {
+        qtc.QFont_SetOverline(@ptrCast(self.ptr), _overline);
     }
+
+    /// ### DEPRECATED: Use `strikeOut` instead
+    ///
+    pub const StrikeOut = strikeOut;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#strikeOut)
     ///
@@ -558,9 +706,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn StrikeOut(self: QFont) bool {
+    pub fn strikeOut(self: QFont) bool {
         return qtc.QFont_StrikeOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStrikeOut` instead
+    ///
+    pub const SetStrikeOut = setStrikeOut;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStrikeOut)
     ///
@@ -568,11 +720,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` strikeOut: bool `
+    /// ` _strikeOut: bool `
     ///
-    pub fn SetStrikeOut(self: QFont, strikeOut: bool) void {
-        qtc.QFont_SetStrikeOut(@ptrCast(self.ptr), strikeOut);
+    pub fn setStrikeOut(self: QFont, _strikeOut: bool) void {
+        qtc.QFont_SetStrikeOut(@ptrCast(self.ptr), _strikeOut);
     }
+
+    /// ### DEPRECATED: Use `fixedPitch` instead
+    ///
+    pub const FixedPitch = fixedPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#fixedPitch)
     ///
@@ -580,9 +736,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn FixedPitch(self: QFont) bool {
+    pub fn fixedPitch(self: QFont) bool {
         return qtc.QFont_FixedPitch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedPitch` instead
+    ///
+    pub const SetFixedPitch = setFixedPitch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setFixedPitch)
     ///
@@ -590,11 +750,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` fixedPitch: bool `
+    /// ` _fixedPitch: bool `
     ///
-    pub fn SetFixedPitch(self: QFont, fixedPitch: bool) void {
-        qtc.QFont_SetFixedPitch(@ptrCast(self.ptr), fixedPitch);
+    pub fn setFixedPitch(self: QFont, _fixedPitch: bool) void {
+        qtc.QFont_SetFixedPitch(@ptrCast(self.ptr), _fixedPitch);
     }
+
+    /// ### DEPRECATED: Use `kerning` instead
+    ///
+    pub const Kerning = kerning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#kerning)
     ///
@@ -602,9 +766,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Kerning(self: QFont) bool {
+    pub fn kerning(self: QFont) bool {
         return qtc.QFont_Kerning(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKerning` instead
+    ///
+    pub const SetKerning = setKerning;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setKerning)
     ///
@@ -612,11 +780,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` kerning: bool `
+    /// ` _kerning: bool `
     ///
-    pub fn SetKerning(self: QFont, kerning: bool) void {
-        qtc.QFont_SetKerning(@ptrCast(self.ptr), kerning);
+    pub fn setKerning(self: QFont, _kerning: bool) void {
+        qtc.QFont_SetKerning(@ptrCast(self.ptr), _kerning);
     }
+
+    /// ### DEPRECATED: Use `styleHint` instead
+    ///
+    pub const StyleHint = styleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#styleHint)
     ///
@@ -628,9 +800,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.StyleHint `
     ///
-    pub fn StyleHint(self: QFont) i32 {
+    pub fn styleHint(self: QFont) i32 {
         return qtc.QFont_StyleHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleStrategy` instead
+    ///
+    pub const StyleStrategy = styleStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#styleStrategy)
     ///
@@ -642,9 +818,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.StyleStrategy `
     ///
-    pub fn StyleStrategy(self: QFont) i32 {
+    pub fn styleStrategy(self: QFont) i32 {
         return qtc.QFont_StyleStrategy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStyleHint` instead
+    ///
+    pub const SetStyleHint = setStyleHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyleHint)
     ///
@@ -654,9 +834,13 @@ pub const QFont = extern struct {
     ///
     /// ` param1: qfont_enums.StyleHint `
     ///
-    pub fn SetStyleHint(self: QFont, param1: i32) void {
+    pub fn setStyleHint(self: QFont, param1: i32) void {
         qtc.QFont_SetStyleHint(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `setStyleStrategy` instead
+    ///
+    pub const SetStyleStrategy = setStyleStrategy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyleStrategy)
     ///
@@ -666,9 +850,13 @@ pub const QFont = extern struct {
     ///
     /// ` s: qfont_enums.StyleStrategy `
     ///
-    pub fn SetStyleStrategy(self: QFont, s: i32) void {
+    pub fn setStyleStrategy(self: QFont, s: i32) void {
         qtc.QFont_SetStyleStrategy(@ptrCast(self.ptr), @bitCast(s));
     }
+
+    /// ### DEPRECATED: Use `stretch` instead
+    ///
+    pub const Stretch = stretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#stretch)
     ///
@@ -676,9 +864,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn Stretch(self: QFont) i32 {
+    pub fn stretch(self: QFont) i32 {
         return qtc.QFont_Stretch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStretch` instead
+    ///
+    pub const SetStretch = setStretch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStretch)
     ///
@@ -686,11 +878,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` stretch: i32 `
+    /// ` _stretch: i32 `
     ///
-    pub fn SetStretch(self: QFont, stretch: i32) void {
-        qtc.QFont_SetStretch(@ptrCast(self.ptr), @bitCast(stretch));
+    pub fn setStretch(self: QFont, _stretch: i32) void {
+        qtc.QFont_SetStretch(@ptrCast(self.ptr), @bitCast(_stretch));
     }
+
+    /// ### DEPRECATED: Use `letterSpacing` instead
+    ///
+    pub const LetterSpacing = letterSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#letterSpacing)
     ///
@@ -698,9 +894,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn LetterSpacing(self: QFont) f64 {
+    pub fn letterSpacing(self: QFont) f64 {
         return qtc.QFont_LetterSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `letterSpacingType` instead
+    ///
+    pub const LetterSpacingType = letterSpacingType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#letterSpacingType)
     ///
@@ -712,9 +912,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.SpacingType `
     ///
-    pub fn LetterSpacingType(self: QFont) i32 {
+    pub fn letterSpacingType(self: QFont) i32 {
         return qtc.QFont_LetterSpacingType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLetterSpacing` instead
+    ///
+    pub const SetLetterSpacing = setLetterSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setLetterSpacing)
     ///
@@ -726,9 +930,13 @@ pub const QFont = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetLetterSpacing(self: QFont, typeVal: i32, spacing: f64) void {
+    pub fn setLetterSpacing(self: QFont, typeVal: i32, spacing: f64) void {
         qtc.QFont_SetLetterSpacing(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `wordSpacing` instead
+    ///
+    pub const WordSpacing = wordSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#wordSpacing)
     ///
@@ -736,9 +944,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn WordSpacing(self: QFont) f64 {
+    pub fn wordSpacing(self: QFont) f64 {
         return qtc.QFont_WordSpacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordSpacing` instead
+    ///
+    pub const SetWordSpacing = setWordSpacing;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setWordSpacing)
     ///
@@ -748,9 +960,13 @@ pub const QFont = extern struct {
     ///
     /// ` spacing: f64 `
     ///
-    pub fn SetWordSpacing(self: QFont, spacing: f64) void {
+    pub fn setWordSpacing(self: QFont, spacing: f64) void {
         qtc.QFont_SetWordSpacing(@ptrCast(self.ptr), @bitCast(spacing));
     }
+
+    /// ### DEPRECATED: Use `setCapitalization` instead
+    ///
+    pub const SetCapitalization = setCapitalization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setCapitalization)
     ///
@@ -758,11 +974,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` capitalization: qfont_enums.Capitalization `
+    /// ` _capitalization: qfont_enums.Capitalization `
     ///
-    pub fn SetCapitalization(self: QFont, capitalization: i32) void {
-        qtc.QFont_SetCapitalization(@ptrCast(self.ptr), @bitCast(capitalization));
+    pub fn setCapitalization(self: QFont, _capitalization: i32) void {
+        qtc.QFont_SetCapitalization(@ptrCast(self.ptr), @bitCast(_capitalization));
     }
+
+    /// ### DEPRECATED: Use `capitalization` instead
+    ///
+    pub const Capitalization = capitalization;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#capitalization)
     ///
@@ -774,9 +994,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.Capitalization `
     ///
-    pub fn Capitalization(self: QFont) i32 {
+    pub fn capitalization(self: QFont) i32 {
         return qtc.QFont_Capitalization(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHintingPreference` instead
+    ///
+    pub const SetHintingPreference = setHintingPreference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setHintingPreference)
     ///
@@ -784,11 +1008,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` hintingPreference: qfont_enums.HintingPreference `
+    /// ` _hintingPreference: qfont_enums.HintingPreference `
     ///
-    pub fn SetHintingPreference(self: QFont, hintingPreference: i32) void {
-        qtc.QFont_SetHintingPreference(@ptrCast(self.ptr), @bitCast(hintingPreference));
+    pub fn setHintingPreference(self: QFont, _hintingPreference: i32) void {
+        qtc.QFont_SetHintingPreference(@ptrCast(self.ptr), @bitCast(_hintingPreference));
     }
+
+    /// ### DEPRECATED: Use `hintingPreference` instead
+    ///
+    pub const HintingPreference = hintingPreference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#hintingPreference)
     ///
@@ -800,9 +1028,13 @@ pub const QFont = extern struct {
     ///
     /// ` qfont_enums.HintingPreference `
     ///
-    pub fn HintingPreference(self: QFont) i32 {
+    pub fn hintingPreference(self: QFont) i32 {
         return qtc.QFont_HintingPreference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeature` instead
+    ///
+    pub const SetFeature = setFeature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setFeature)
     ///
@@ -814,10 +1046,14 @@ pub const QFont = extern struct {
     ///
     /// ` value: u32 `
     ///
-    pub fn SetFeature(self: QFont, tag: anytype, value: u32) void {
+    pub fn setFeature(self: QFont, tag: anytype, value: u32) void {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         qtc.QFont_SetFeature(@ptrCast(self.ptr), @ptrCast(tag.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `unsetFeature` instead
+    ///
+    pub const UnsetFeature = unsetFeature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#unsetFeature)
     ///
@@ -827,10 +1063,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn UnsetFeature(self: QFont, tag: anytype) void {
+    pub fn unsetFeature(self: QFont, tag: anytype) void {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         qtc.QFont_UnsetFeature(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `featureValue` instead
+    ///
+    pub const FeatureValue = featureValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#featureValue)
     ///
@@ -840,10 +1080,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn FeatureValue(self: QFont, tag: anytype) u32 {
+    pub fn featureValue(self: QFont, tag: anytype) u32 {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         return qtc.QFont_FeatureValue(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFeatureSet` instead
+    ///
+    pub const IsFeatureSet = isFeatureSet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#isFeatureSet)
     ///
@@ -853,10 +1097,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn IsFeatureSet(self: QFont, tag: anytype) bool {
+    pub fn isFeatureSet(self: QFont, tag: anytype) bool {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         return qtc.QFont_IsFeatureSet(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `featureTags` instead
+    ///
+    pub const FeatureTags = featureTags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#featureTags)
     ///
@@ -866,15 +1114,19 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FeatureTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
+    pub fn featureTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
         const _arr: qtc.libqt_list = qtc.QFont_FeatureTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.FeatureTags: Memory allocation failed");
-        const _data: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.featureTags: Memory allocation failed");
+        const _data_val: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearFeatures` instead
+    ///
+    pub const ClearFeatures = clearFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#clearFeatures)
     ///
@@ -882,9 +1134,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn ClearFeatures(self: QFont) void {
+    pub fn clearFeatures(self: QFont) void {
         qtc.QFont_ClearFeatures(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVariableAxis` instead
+    ///
+    pub const SetVariableAxis = setVariableAxis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setVariableAxis)
     ///
@@ -896,10 +1152,14 @@ pub const QFont = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn SetVariableAxis(self: QFont, tag: anytype, value: f32) void {
+    pub fn setVariableAxis(self: QFont, tag: anytype, value: f32) void {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         qtc.QFont_SetVariableAxis(@ptrCast(self.ptr), @ptrCast(tag.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `unsetVariableAxis` instead
+    ///
+    pub const UnsetVariableAxis = unsetVariableAxis;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#unsetVariableAxis)
     ///
@@ -909,10 +1169,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn UnsetVariableAxis(self: QFont, tag: anytype) void {
+    pub fn unsetVariableAxis(self: QFont, tag: anytype) void {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         qtc.QFont_UnsetVariableAxis(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVariableAxisSet` instead
+    ///
+    pub const IsVariableAxisSet = isVariableAxisSet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#isVariableAxisSet)
     ///
@@ -922,10 +1186,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn IsVariableAxisSet(self: QFont, tag: anytype) bool {
+    pub fn isVariableAxisSet(self: QFont, tag: anytype) bool {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         return qtc.QFont_IsVariableAxisSet(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `variableAxisValue` instead
+    ///
+    pub const VariableAxisValue = variableAxisValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#variableAxisValue)
     ///
@@ -935,10 +1203,14 @@ pub const QFont = extern struct {
     ///
     /// ` tag: QFont__Tag `
     ///
-    pub fn VariableAxisValue(self: QFont, tag: anytype) f32 {
+    pub fn variableAxisValue(self: QFont, tag: anytype) f32 {
         comptime _ = @TypeOf(tag)._is_QFont__Tag;
         return qtc.QFont_VariableAxisValue(@ptrCast(self.ptr), @ptrCast(tag.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearVariableAxes` instead
+    ///
+    pub const ClearVariableAxes = clearVariableAxes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#clearVariableAxes)
     ///
@@ -946,9 +1218,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn ClearVariableAxes(self: QFont) void {
+    pub fn clearVariableAxes(self: QFont) void {
         qtc.QFont_ClearVariableAxes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `variableAxisTags` instead
+    ///
+    pub const VariableAxisTags = variableAxisTags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#variableAxisTags)
     ///
@@ -958,15 +1234,19 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VariableAxisTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
+    pub fn variableAxisTags(self: QFont, allocator: std.mem.Allocator) []QFont__Tag {
         const _arr: qtc.libqt_list = qtc.QFont_VariableAxisTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.VariableAxisTags: Memory allocation failed");
-        const _data: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QFont__Tag, _arr.len) catch @panic("QFont.variableAxisTags: Memory allocation failed");
+        const _data_val: [*]QtC.QFont__Tag = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `exactMatch` instead
+    ///
+    pub const ExactMatch = exactMatch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#exactMatch)
     ///
@@ -974,9 +1254,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn ExactMatch(self: QFont) bool {
+    pub fn exactMatch(self: QFont) bool {
         return qtc.QFont_ExactMatch(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator-eq)
     ///
@@ -986,10 +1270,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn OperatorAssign(self: QFont, param1: anytype) void {
+    pub fn operatorAssign(self: QFont, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFont;
         qtc.QFont_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator-eq-eq)
     ///
@@ -999,10 +1287,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn OperatorEqual(self: QFont, param1: anytype) bool {
+    pub fn operatorEqual(self: QFont, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QFont;
         return qtc.QFont_OperatorEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator-not-eq)
     ///
@@ -1012,10 +1304,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn OperatorNotEqual(self: QFont, param1: anytype) bool {
+    pub fn operatorNotEqual(self: QFont, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QFont;
         return qtc.QFont_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator-lt)
     ///
@@ -1025,10 +1321,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn OperatorLesser(self: QFont, param1: anytype) bool {
+    pub fn operatorLesser(self: QFont, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QFont;
         return qtc.QFont_OperatorLesser(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `toQVariant` instead
+    ///
+    pub const ToQVariant = toQVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#operator)
     ///
@@ -1036,9 +1336,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn ToQVariant(self: QFont) QVariant {
+    pub fn toQVariant(self: QFont) QVariant {
         return .{ .ptr = qtc.QFont_ToQVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isCopyOf` instead
+    ///
+    pub const IsCopyOf = isCopyOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#isCopyOf)
     ///
@@ -1048,10 +1352,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn IsCopyOf(self: QFont, param1: anytype) bool {
+    pub fn isCopyOf(self: QFont, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QFont;
         return qtc.QFont_IsCopyOf(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `key` instead
+    ///
+    pub const Key = key;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#key)
     ///
@@ -1061,13 +1369,17 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Key(self: QFont, allocator: std.mem.Allocator) []const u8 {
+    pub fn key(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_Key(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Key: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.key: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#toString)
     ///
@@ -1077,13 +1389,17 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QFont, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#fromString)
     ///
@@ -1093,13 +1409,17 @@ pub const QFont = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn FromString(self: QFont, param1: []const u8) bool {
+    pub fn fromString(self: QFont, param1: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.QFont_FromString(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `substitute` instead
+    ///
+    pub const Substitute = substitute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#substitute)
     ///
@@ -1109,17 +1429,21 @@ pub const QFont = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Substitute(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
+    pub fn substitute(allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         var _str = qtc.QFont_Substitute(param1_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.Substitute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.substitute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `substitutes` instead
+    ///
+    pub const Substitutes = substitutes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#substitutes)
     ///
@@ -1129,7 +1453,7 @@ pub const QFont = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Substitutes(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
+    pub fn substitutes(allocator: std.mem.Allocator, param1: []const u8) []const []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1141,15 +1465,19 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Substitutes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.substitutes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Substitutes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFont.substitutes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `substitutions` instead
+    ///
+    pub const Substitutions = substitutions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#substitutions)
     ///
@@ -1157,7 +1485,7 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Substitutions(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn substitutions(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QFont_Substitutions();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1165,15 +1493,19 @@ pub const QFont = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.Substitutions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QFont.substitutions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFont.Substitutions: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFont.substitutions: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertSubstitution` instead
+    ///
+    pub const InsertSubstitution = insertSubstitution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#insertSubstitution)
     ///
@@ -1183,7 +1515,7 @@ pub const QFont = extern struct {
     ///
     /// ` param2: []const u8 `
     ///
-    pub fn InsertSubstitution(param1: []const u8, param2: []const u8) void {
+    pub fn insertSubstitution(param1: []const u8, param2: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1195,6 +1527,10 @@ pub const QFont = extern struct {
         qtc.QFont_InsertSubstitution(param1_str, param2_str);
     }
 
+    /// ### DEPRECATED: Use `insertSubstitutions` instead
+    ///
+    pub const InsertSubstitutions = insertSubstitutions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#insertSubstitutions)
     ///
     /// ## Parameter(s):
@@ -1205,17 +1541,17 @@ pub const QFont = extern struct {
     ///
     /// ` param2: []const []const u8 `
     ///
-    pub fn InsertSubstitutions(allocator: std.mem.Allocator, param1: []const u8, param2: []const []const u8) void {
+    pub fn insertSubstitutions(allocator: std.mem.Allocator, param1: []const u8, param2: []const []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
-        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("QFont.InsertSubstitutions: Memory allocation failed");
+        const param2_arr = allocator.alloc(qtc.libqt_string, param2.len) catch @panic("QFont.insertSubstitutions: Memory allocation failed");
         defer allocator.free(param2_arr);
-        for (param2, 0..param2.len) |item, i|
+        for (param2, 0..param2.len) |str_item, i|
             param2_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const param2_list = qtc.libqt_list{
             .len = param2.len,
@@ -1224,13 +1560,17 @@ pub const QFont = extern struct {
         qtc.QFont_InsertSubstitutions(param1_str, param2_list);
     }
 
+    /// ### DEPRECATED: Use `removeSubstitutions` instead
+    ///
+    pub const RemoveSubstitutions = removeSubstitutions;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#removeSubstitutions)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn RemoveSubstitutions(param1: []const u8) void {
+    pub fn removeSubstitutions(param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1238,23 +1578,39 @@ pub const QFont = extern struct {
         qtc.QFont_RemoveSubstitutions(param1_str);
     }
 
+    /// ### DEPRECATED: Use `initialize` instead
+    ///
+    pub const Initialize = initialize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#initialize)
     ///
-    pub fn Initialize() void {
+    pub fn initialize() void {
         qtc.QFont_Initialize();
     }
 
+    /// ### DEPRECATED: Use `cleanup` instead
+    ///
+    pub const Cleanup = cleanup;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#cleanup)
     ///
-    pub fn Cleanup() void {
+    pub fn cleanup() void {
         qtc.QFont_Cleanup();
     }
 
+    /// ### DEPRECATED: Use `cacheStatistics` instead
+    ///
+    pub const CacheStatistics = cacheStatistics;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#cacheStatistics)
     ///
-    pub fn CacheStatistics() void {
+    pub fn cacheStatistics() void {
         qtc.QFont_CacheStatistics();
     }
+
+    /// ### DEPRECATED: Use `defaultFamily` instead
+    ///
+    pub const DefaultFamily = defaultFamily;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#defaultFamily)
     ///
@@ -1264,13 +1620,17 @@ pub const QFont = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultFamily(self: QFont, allocator: std.mem.Allocator) []const u8 {
+    pub fn defaultFamily(self: QFont, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QFont_DefaultFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.DefaultFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFont.defaultFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `resolve` instead
+    ///
+    pub const Resolve = resolve;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#resolve)
     ///
@@ -1280,10 +1640,14 @@ pub const QFont = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn Resolve(self: QFont, param1: anytype) QFont {
+    pub fn resolve(self: QFont, param1: anytype) QFont {
         comptime _ = @TypeOf(param1)._is_QFont;
         return .{ .ptr = qtc.QFont_Resolve(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resolveMask` instead
+    ///
+    pub const ResolveMask = resolveMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#resolveMask)
     ///
@@ -1291,9 +1655,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn ResolveMask(self: QFont) u32 {
+    pub fn resolveMask(self: QFont) u32 {
         return qtc.QFont_ResolveMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResolveMask` instead
+    ///
+    pub const SetResolveMask = setResolveMask;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setResolveMask)
     ///
@@ -1303,9 +1671,13 @@ pub const QFont = extern struct {
     ///
     /// ` mask: u32 `
     ///
-    pub fn SetResolveMask(self: QFont, mask: u32) void {
+    pub fn setResolveMask(self: QFont, mask: u32) void {
         qtc.QFont_SetResolveMask(@ptrCast(self.ptr), @bitCast(mask));
     }
+
+    /// ### DEPRECATED: Use `setLegacyWeight` instead
+    ///
+    pub const SetLegacyWeight = setLegacyWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setLegacyWeight)
     ///
@@ -1313,11 +1685,15 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    /// ` legacyWeight: i32 `
+    /// ` _legacyWeight: i32 `
     ///
-    pub fn SetLegacyWeight(self: QFont, legacyWeight: i32) void {
-        qtc.QFont_SetLegacyWeight(@ptrCast(self.ptr), @bitCast(legacyWeight));
+    pub fn setLegacyWeight(self: QFont, _legacyWeight: i32) void {
+        qtc.QFont_SetLegacyWeight(@ptrCast(self.ptr), @bitCast(_legacyWeight));
     }
+
+    /// ### DEPRECATED: Use `legacyWeight` instead
+    ///
+    pub const LegacyWeight = legacyWeight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#legacyWeight)
     ///
@@ -1325,9 +1701,13 @@ pub const QFont = extern struct {
     ///
     /// ` self: QFont `
     ///
-    pub fn LegacyWeight(self: QFont) i32 {
+    pub fn legacyWeight(self: QFont) i32 {
         return qtc.QFont_LegacyWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStyleHint2` instead
+    ///
+    pub const SetStyleHint2 = setStyleHint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#setStyleHint)
     ///
@@ -1339,23 +1719,23 @@ pub const QFont = extern struct {
     ///
     /// ` param2: qfont_enums.StyleStrategy `
     ///
-    pub fn SetStyleHint2(self: QFont, param1: i32, param2: i32) void {
+    pub fn setStyleHint2(self: QFont, param1: i32, param2: i32) void {
         qtc.QFont_SetStyleHint2(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont.html#dtor.QFont)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFont `
     ///
-    pub fn Delete(self: QFont) void {
+    pub fn delete(self: QFont) void {
         qtc.QFont_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1370,46 +1750,65 @@ pub const QFont__Tag = extern struct {
 
     pub const _is_QFont__Tag = {};
 
-    /// New constructs a new QFont::Tag object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QFont__Tag {
+    pub const New = new;
+
+    /// Allocate a new QFont::Tag object in C++ memory
+    ///
+    pub fn new() QFont__Tag {
         return .{ .ptr = qtc.QFont__Tag_new() };
     }
 
-    /// New2 constructs a new QFont::Tag object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QFont::Tag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFont__Tag `
     ///
-    pub fn New2(other: anytype) QFont__Tag {
+    pub fn new2(other: anytype) QFont__Tag {
         comptime _ = @TypeOf(other)._is_QFont__Tag;
         return .{ .ptr = qtc.QFont__Tag_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QFont::Tag object and invalidates the source QFont::Tag object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QFont::Tag object and invalidate the source QFont::Tag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QFont__Tag `
     ///
-    pub fn New3(other: anytype) QFont__Tag {
+    pub fn new3(other: anytype) QFont__Tag {
         comptime _ = @TypeOf(other)._is_QFont__Tag;
         return .{ .ptr = qtc.QFont__Tag_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QFont::Tag object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QFont::Tag object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QFont__Tag `
     ///
-    pub fn New4(param1: anytype) QFont__Tag {
+    pub fn new4(param1: anytype) QFont__Tag {
         comptime _ = @TypeOf(param1)._is_QFont__Tag;
         return .{ .ptr = qtc.QFont__Tag_new4(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1417,11 +1816,14 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` other: QFont__Tag `
     ///
-    pub fn CopyAssign(self: QFont__Tag, other: QFont__Tag) void {
+    pub fn copyAssign(self: QFont__Tag, other: QFont__Tag) void {
         qtc.QFont__Tag_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -1429,9 +1831,13 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` other: QFont__Tag `
     ///
-    pub fn MoveAssign(self: QFont__Tag, other: QFont__Tag) void {
+    pub fn moveAssign(self: QFont__Tag, other: QFont__Tag) void {
         qtc.QFont__Tag_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#isValid)
     ///
@@ -1439,9 +1845,13 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` self: QFont__Tag `
     ///
-    pub fn IsValid(self: QFont__Tag) bool {
+    pub fn isValid(self: QFont__Tag) bool {
         return qtc.QFont__Tag_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#value)
     ///
@@ -1449,9 +1859,13 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` self: QFont__Tag `
     ///
-    pub fn Value(self: QFont__Tag) u32 {
+    pub fn value(self: QFont__Tag) u32 {
         return qtc.QFont__Tag_Value(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#toString)
     ///
@@ -1461,27 +1875,35 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QFont__Tag, allocator: std.mem.Allocator) []u8 {
+    pub fn toString(self: QFont__Tag, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QFont__Tag_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFont__Tag.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFont__Tag.toString: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromValue` instead
+    ///
+    pub const FromValue = fromValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#fromValue)
     ///
     /// ## Parameter(s):
     ///
-    /// ` value: u32 `
+    /// ` _value: u32 `
     ///
     /// ## Returns:
     ///
     /// ` QFont__Tag ` (NOTE: The `ptr` field could be `null`.)
     ///
-    pub fn FromValue(value: u32) QFont__Tag {
-        return .{ .ptr = qtc.QFont__Tag_FromValue(@bitCast(value)) };
+    pub fn fromValue(_value: u32) QFont__Tag {
+        return .{ .ptr = qtc.QFont__Tag_FromValue(@bitCast(_value)) };
     }
+
+    /// ### DEPRECATED: Use `fromString` instead
+    ///
+    pub const FromString = fromString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfont-tag.html#fromString)
     ///
@@ -1493,7 +1915,7 @@ pub const QFont__Tag = extern struct {
     ///
     /// ` QFont__Tag ` (NOTE: The `ptr` field could be `null`.)
     ///
-    pub fn FromString(view: []const u8) QFont__Tag {
+    pub fn fromString(view: []const u8) QFont__Tag {
         const view_str = qtc.libqt_string{
             .len = view.len,
             .data = view.ptr,
@@ -1501,17 +1923,17 @@ pub const QFont__Tag = extern struct {
         return .{ .ptr = qtc.QFont__Tag_FromString(view_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFont__Tag `
     ///
-    pub fn Delete(self: QFont__Tag) void {
+    pub fn delete(self: QFont__Tag) void {
         qtc.QFont__Tag_Delete(@ptrCast(self.ptr));
     }
 };

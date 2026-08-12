@@ -11,35 +11,51 @@ pub const QPoint = extern struct {
 
     pub const _is_QPoint = {};
 
-    /// New constructs a new QPoint object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPoint `
     ///
-    pub fn New(other: anytype) QPoint {
+    pub fn new(other: anytype) QPoint {
         comptime _ = @TypeOf(other)._is_QPoint;
         return .{ .ptr = qtc.QPoint_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QPoint object and invalidates the source QPoint object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPoint object and invalidate the source QPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPoint `
     ///
-    pub fn New2(other: anytype) QPoint {
+    pub fn new2(other: anytype) QPoint {
         comptime _ = @TypeOf(other)._is_QPoint;
         return .{ .ptr = qtc.QPoint_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPoint object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QPoint {
+    pub const New3 = new3;
+
+    /// Allocate a new QPoint object in C++ memory
+    ///
+    pub fn new3() QPoint {
         return .{ .ptr = qtc.QPoint_new3() };
     }
 
-    /// New4 constructs a new QPoint object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -47,22 +63,29 @@ pub const QPoint = extern struct {
     ///
     /// ` ypos: i32 `
     ///
-    pub fn New4(xpos: i32, ypos: i32) QPoint {
+    pub fn new4(xpos: i32, ypos: i32) QPoint {
         return .{ .ptr = qtc.QPoint_new4(@bitCast(xpos), @bitCast(ypos)) };
     }
 
-    /// New5 constructs a new QPoint object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QPoint object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPoint `
     ///
-    pub fn New5(param1: anytype) QPoint {
+    pub fn new5(param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QPoint_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -70,11 +93,14 @@ pub const QPoint = extern struct {
     ///
     /// ` other: QPoint `
     ///
-    pub fn CopyAssign(self: QPoint, other: QPoint) void {
+    pub fn copyAssign(self: QPoint, other: QPoint) void {
         qtc.QPoint_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -82,9 +108,13 @@ pub const QPoint = extern struct {
     ///
     /// ` other: QPoint `
     ///
-    pub fn MoveAssign(self: QPoint, other: QPoint) void {
+    pub fn moveAssign(self: QPoint, other: QPoint) void {
         qtc.QPoint_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#isNull)
     ///
@@ -92,9 +122,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn IsNull(self: QPoint) bool {
+    pub fn isNull(self: QPoint) bool {
         return qtc.QPoint_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#x)
     ///
@@ -102,9 +136,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn X(self: QPoint) i32 {
+    pub fn x(self: QPoint) i32 {
         return qtc.QPoint_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#y)
     ///
@@ -112,9 +150,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn Y(self: QPoint) i32 {
+    pub fn y(self: QPoint) i32 {
         return qtc.QPoint_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#setX)
     ///
@@ -122,11 +164,15 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    pub fn SetX(self: QPoint, x: i32) void {
-        qtc.QPoint_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QPoint, _x: i32) void {
+        qtc.QPoint_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#setY)
     ///
@@ -134,11 +180,15 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn SetY(self: QPoint, y: i32) void {
-        qtc.QPoint_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QPoint, _y: i32) void {
+        qtc.QPoint_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `manhattanLength` instead
+    ///
+    pub const ManhattanLength = manhattanLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#manhattanLength)
     ///
@@ -146,9 +196,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn ManhattanLength(self: QPoint) i32 {
+    pub fn manhattanLength(self: QPoint) i32 {
         return qtc.QPoint_ManhattanLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#transposed)
     ///
@@ -156,9 +210,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn Transposed(self: QPoint) QPoint {
+    pub fn transposed(self: QPoint) QPoint {
         return .{ .ptr = qtc.QPoint_Transposed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rx` instead
+    ///
+    pub const Rx = rx;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#rx)
     ///
@@ -166,9 +224,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn Rx(self: QPoint) ?*i32 {
+    pub fn rx(self: QPoint) ?*i32 {
         return @ptrCast(qtc.QPoint_Rx(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `ry` instead
+    ///
+    pub const Ry = ry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#ry)
     ///
@@ -176,9 +238,13 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn Ry(self: QPoint) ?*i32 {
+    pub fn ry(self: QPoint) ?*i32 {
         return @ptrCast(qtc.QPoint_Ry(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2b-eq)
     ///
@@ -188,10 +254,14 @@ pub const QPoint = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn OperatorPlusAssign(self: QPoint, p: anytype) QPoint {
+    pub fn operatorPlusAssign(self: QPoint, p: anytype) QPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QPoint_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator--eq)
     ///
@@ -201,10 +271,14 @@ pub const QPoint = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn OperatorMinusAssign(self: QPoint, p: anytype) QPoint {
+    pub fn operatorMinusAssign(self: QPoint, p: anytype) QPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QPoint_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
@@ -214,9 +288,13 @@ pub const QPoint = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn OperatorMultiplyAssign(self: QPoint, factor: f32) QPoint {
+    pub fn operatorMultiplyAssign(self: QPoint, factor: f32) QPoint {
         return .{ .ptr = qtc.QPoint_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(factor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign2` instead
+    ///
+    pub const OperatorMultiplyAssign2 = operatorMultiplyAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
@@ -226,9 +304,13 @@ pub const QPoint = extern struct {
     ///
     /// ` factor: f64 `
     ///
-    pub fn OperatorMultiplyAssign2(self: QPoint, factor: f64) QPoint {
+    pub fn operatorMultiplyAssign2(self: QPoint, factor: f64) QPoint {
         return .{ .ptr = qtc.QPoint_OperatorMultiplyAssign2(@ptrCast(self.ptr), @bitCast(factor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign3` instead
+    ///
+    pub const OperatorMultiplyAssign3 = operatorMultiplyAssign3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2a-eq)
     ///
@@ -238,9 +320,13 @@ pub const QPoint = extern struct {
     ///
     /// ` factor: i32 `
     ///
-    pub fn OperatorMultiplyAssign3(self: QPoint, factor: i32) QPoint {
+    pub fn operatorMultiplyAssign3(self: QPoint, factor: i32) QPoint {
         return .{ .ptr = qtc.QPoint_OperatorMultiplyAssign3(@ptrCast(self.ptr), @bitCast(factor)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#operator-2f-eq)
     ///
@@ -250,9 +336,13 @@ pub const QPoint = extern struct {
     ///
     /// ` divisor: f64 `
     ///
-    pub fn OperatorDivideAssign(self: QPoint, divisor: f64) QPoint {
+    pub fn operatorDivideAssign(self: QPoint, divisor: f64) QPoint {
         return .{ .ptr = qtc.QPoint_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(divisor)) };
     }
+
+    /// ### DEPRECATED: Use `dotProduct` instead
+    ///
+    pub const DotProduct = dotProduct;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#dotProduct)
     ///
@@ -262,11 +352,15 @@ pub const QPoint = extern struct {
     ///
     /// ` p2: QPoint `
     ///
-    pub fn DotProduct(p1: anytype, p2: anytype) i32 {
+    pub fn dotProduct(p1: anytype, p2: anytype) i32 {
         comptime _ = @TypeOf(p1)._is_QPoint;
         comptime _ = @TypeOf(p2)._is_QPoint;
         return qtc.QPoint_DotProduct(@ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPointF` instead
+    ///
+    pub const ToPointF = toPointF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#toPointF)
     ///
@@ -274,23 +368,23 @@ pub const QPoint = extern struct {
     ///
     /// ` self: QPoint `
     ///
-    pub fn ToPointF(self: QPoint) QPointF {
+    pub fn toPointF(self: QPoint) QPointF {
         return .{ .ptr = qtc.QPoint_ToPointF(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpoint.html#dtor.QPoint)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPoint `
     ///
-    pub fn Delete(self: QPoint) void {
+    pub fn delete(self: QPoint) void {
         qtc.QPoint_Delete(@ptrCast(self.ptr));
     }
 };
@@ -305,46 +399,66 @@ pub const QPointF = extern struct {
 
     pub const _is_QPointF = {};
 
-    /// New constructs a new QPointF object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPointF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPointF `
     ///
-    pub fn New(other: anytype) QPointF {
+    pub fn new(other: anytype) QPointF {
         comptime _ = @TypeOf(other)._is_QPointF;
         return .{ .ptr = qtc.QPointF_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QPointF object and invalidates the source QPointF object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPointF object and invalidate the source QPointF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPointF `
     ///
-    pub fn New2(other: anytype) QPointF {
+    pub fn new2(other: anytype) QPointF {
         comptime _ = @TypeOf(other)._is_QPointF;
         return .{ .ptr = qtc.QPointF_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPointF object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QPointF {
+    pub const New3 = new3;
+
+    /// Allocate a new QPointF object in C++ memory
+    ///
+    pub fn new3() QPointF {
         return .{ .ptr = qtc.QPointF_new3() };
     }
 
-    /// New4 constructs a new QPointF object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPointF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` p: QPoint `
     ///
-    pub fn New4(p: anytype) QPointF {
+    pub fn new4(p: anytype) QPointF {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QPointF_new4(@ptrCast(p.ptr)) };
     }
 
-    /// New5 constructs a new QPointF object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QPointF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -352,22 +466,29 @@ pub const QPointF = extern struct {
     ///
     /// ` ypos: f64 `
     ///
-    pub fn New5(xpos: f64, ypos: f64) QPointF {
+    pub fn new5(xpos: f64, ypos: f64) QPointF {
         return .{ .ptr = qtc.QPointF_new5(@bitCast(xpos), @bitCast(ypos)) };
     }
 
-    /// New6 constructs a new QPointF object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QPointF object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPointF `
     ///
-    pub fn New6(param1: anytype) QPointF {
+    pub fn new6(param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QPointF_new6(@ptrCast(param1.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -375,11 +496,14 @@ pub const QPointF = extern struct {
     ///
     /// ` other: QPointF `
     ///
-    pub fn CopyAssign(self: QPointF, other: QPointF) void {
+    pub fn copyAssign(self: QPointF, other: QPointF) void {
         qtc.QPointF_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -387,9 +511,13 @@ pub const QPointF = extern struct {
     ///
     /// ` other: QPointF `
     ///
-    pub fn MoveAssign(self: QPointF, other: QPointF) void {
+    pub fn moveAssign(self: QPointF, other: QPointF) void {
         qtc.QPointF_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `manhattanLength` instead
+    ///
+    pub const ManhattanLength = manhattanLength;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#manhattanLength)
     ///
@@ -397,9 +525,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn ManhattanLength(self: QPointF) f64 {
+    pub fn manhattanLength(self: QPointF) f64 {
         return qtc.QPointF_ManhattanLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#isNull)
     ///
@@ -407,9 +539,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn IsNull(self: QPointF) bool {
+    pub fn isNull(self: QPointF) bool {
         return qtc.QPointF_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#x)
     ///
@@ -417,9 +553,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn X(self: QPointF) f64 {
+    pub fn x(self: QPointF) f64 {
         return qtc.QPointF_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#y)
     ///
@@ -427,9 +567,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn Y(self: QPointF) f64 {
+    pub fn y(self: QPointF) f64 {
         return qtc.QPointF_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#setX)
     ///
@@ -437,11 +581,15 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    pub fn SetX(self: QPointF, x: f64) void {
-        qtc.QPointF_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QPointF, _x: f64) void {
+        qtc.QPointF_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#setY)
     ///
@@ -449,11 +597,15 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn SetY(self: QPointF, y: f64) void {
-        qtc.QPointF_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QPointF, _y: f64) void {
+        qtc.QPointF_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `transposed` instead
+    ///
+    pub const Transposed = transposed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#transposed)
     ///
@@ -461,9 +613,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn Transposed(self: QPointF) QPointF {
+    pub fn transposed(self: QPointF) QPointF {
         return .{ .ptr = qtc.QPointF_Transposed(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rx` instead
+    ///
+    pub const Rx = rx;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#rx)
     ///
@@ -471,9 +627,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn Rx(self: QPointF) ?*f64 {
+    pub fn rx(self: QPointF) ?*f64 {
         return @ptrCast(qtc.QPointF_Rx(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `ry` instead
+    ///
+    pub const Ry = ry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#ry)
     ///
@@ -481,9 +641,13 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn Ry(self: QPointF) ?*f64 {
+    pub fn ry(self: QPointF) ?*f64 {
         return @ptrCast(qtc.QPointF_Ry(@ptrCast(self.ptr)));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#operator-2b-eq)
     ///
@@ -493,10 +657,14 @@ pub const QPointF = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn OperatorPlusAssign(self: QPointF, p: anytype) QPointF {
+    pub fn operatorPlusAssign(self: QPointF, p: anytype) QPointF {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QPointF_OperatorPlusAssign(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#operator--eq)
     ///
@@ -506,10 +674,14 @@ pub const QPointF = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn OperatorMinusAssign(self: QPointF, p: anytype) QPointF {
+    pub fn operatorMinusAssign(self: QPointF, p: anytype) QPointF {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QPointF_OperatorMinusAssign(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiplyAssign` instead
+    ///
+    pub const OperatorMultiplyAssign = operatorMultiplyAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#operator-2a-eq)
     ///
@@ -519,9 +691,13 @@ pub const QPointF = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorMultiplyAssign(self: QPointF, c: f64) QPointF {
+    pub fn operatorMultiplyAssign(self: QPointF, c: f64) QPointF {
         return .{ .ptr = qtc.QPointF_OperatorMultiplyAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `operatorDivideAssign` instead
+    ///
+    pub const OperatorDivideAssign = operatorDivideAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#operator-2f-eq)
     ///
@@ -531,9 +707,13 @@ pub const QPointF = extern struct {
     ///
     /// ` c: f64 `
     ///
-    pub fn OperatorDivideAssign(self: QPointF, c: f64) QPointF {
+    pub fn operatorDivideAssign(self: QPointF, c: f64) QPointF {
         return .{ .ptr = qtc.QPointF_OperatorDivideAssign(@ptrCast(self.ptr), @bitCast(c)) };
     }
+
+    /// ### DEPRECATED: Use `dotProduct` instead
+    ///
+    pub const DotProduct = dotProduct;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#dotProduct)
     ///
@@ -543,11 +723,15 @@ pub const QPointF = extern struct {
     ///
     /// ` p2: QPointF `
     ///
-    pub fn DotProduct(p1: anytype, p2: anytype) f64 {
+    pub fn dotProduct(p1: anytype, p2: anytype) f64 {
         comptime _ = @TypeOf(p1)._is_QPointF;
         comptime _ = @TypeOf(p2)._is_QPointF;
         return qtc.QPointF_DotProduct(@ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPoint` instead
+    ///
+    pub const ToPoint = toPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#toPoint)
     ///
@@ -555,23 +739,23 @@ pub const QPointF = extern struct {
     ///
     /// ` self: QPointF `
     ///
-    pub fn ToPoint(self: QPointF) QPoint {
+    pub fn toPoint(self: QPointF) QPoint {
         return .{ .ptr = qtc.QPointF_ToPoint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpointf.html#dtor.QPointF)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPointF `
     ///
-    pub fn Delete(self: QPointF) void {
+    pub fn delete(self: QPointF) void {
         qtc.QPointF_Delete(@ptrCast(self.ptr));
     }
 };

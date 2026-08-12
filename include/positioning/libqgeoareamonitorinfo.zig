@@ -16,36 +16,52 @@ pub const QGeoAreaMonitorInfo = extern struct {
 
     pub const _is_QGeoAreaMonitorInfo = {};
 
-    /// New constructs a new QGeoAreaMonitorInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoAreaMonitorInfo {
+    pub const New = new;
+
+    /// Allocate a new QGeoAreaMonitorInfo object in C++ memory
+    ///
+    pub fn new() QGeoAreaMonitorInfo {
         return .{ .ptr = qtc.QGeoAreaMonitorInfo_new() };
     }
 
-    /// New2 constructs a new QGeoAreaMonitorInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoAreaMonitorInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoAreaMonitorInfo `
     ///
-    pub fn New2(other: anytype) QGeoAreaMonitorInfo {
+    pub fn new2(other: anytype) QGeoAreaMonitorInfo {
         comptime _ = @TypeOf(other)._is_QGeoAreaMonitorInfo;
         return .{ .ptr = qtc.QGeoAreaMonitorInfo_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QGeoAreaMonitorInfo object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoAreaMonitorInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New3(name: []const u8) QGeoAreaMonitorInfo {
+    pub fn new3(_name: []const u8) QGeoAreaMonitorInfo {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QGeoAreaMonitorInfo_new3(name_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#operator-eq)
     ///
@@ -55,10 +71,14 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` other: QGeoAreaMonitorInfo `
     ///
-    pub fn OperatorAssign(self: QGeoAreaMonitorInfo, other: anytype) void {
+    pub fn operatorAssign(self: QGeoAreaMonitorInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoAreaMonitorInfo;
         qtc.QGeoAreaMonitorInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#swap)
     ///
@@ -68,10 +88,14 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` other: QGeoAreaMonitorInfo `
     ///
-    pub fn Swap(self: QGeoAreaMonitorInfo, other: anytype) void {
+    pub fn swap(self: QGeoAreaMonitorInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoAreaMonitorInfo;
         qtc.QGeoAreaMonitorInfo_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#name)
     ///
@@ -81,13 +105,17 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAreaMonitorInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#setName)
     ///
@@ -95,15 +123,19 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QGeoAreaMonitorInfo, name: []const u8) void {
+    pub fn setName(self: QGeoAreaMonitorInfo, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QGeoAreaMonitorInfo_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `identifier` instead
+    ///
+    pub const Identifier = identifier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#identifier)
     ///
@@ -113,13 +145,17 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Identifier(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn identifier(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoAreaMonitorInfo_Identifier(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.Identifier: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoAreaMonitorInfo.identifier: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#isValid)
     ///
@@ -127,9 +163,13 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn IsValid(self: QGeoAreaMonitorInfo) bool {
+    pub fn isValid(self: QGeoAreaMonitorInfo) bool {
         return qtc.QGeoAreaMonitorInfo_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `area` instead
+    ///
+    pub const Area = area;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#area)
     ///
@@ -137,9 +177,13 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn Area(self: QGeoAreaMonitorInfo) QGeoShape {
+    pub fn area(self: QGeoAreaMonitorInfo) QGeoShape {
         return .{ .ptr = qtc.QGeoAreaMonitorInfo_Area(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setArea` instead
+    ///
+    pub const SetArea = setArea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#setArea)
     ///
@@ -149,10 +193,14 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` newShape: QGeoShape `
     ///
-    pub fn SetArea(self: QGeoAreaMonitorInfo, newShape: anytype) void {
+    pub fn setArea(self: QGeoAreaMonitorInfo, newShape: anytype) void {
         comptime _ = @TypeOf(newShape)._is_QGeoShape;
         qtc.QGeoAreaMonitorInfo_SetArea(@ptrCast(self.ptr), @ptrCast(newShape.ptr));
     }
+
+    /// ### DEPRECATED: Use `expiration` instead
+    ///
+    pub const Expiration = expiration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#expiration)
     ///
@@ -160,9 +208,13 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn Expiration(self: QGeoAreaMonitorInfo) QDateTime {
+    pub fn expiration(self: QGeoAreaMonitorInfo) QDateTime {
         return .{ .ptr = qtc.QGeoAreaMonitorInfo_Expiration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setExpiration` instead
+    ///
+    pub const SetExpiration = setExpiration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#setExpiration)
     ///
@@ -172,10 +224,14 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` expiry: QDateTime `
     ///
-    pub fn SetExpiration(self: QGeoAreaMonitorInfo, expiry: anytype) void {
+    pub fn setExpiration(self: QGeoAreaMonitorInfo, expiry: anytype) void {
         comptime _ = @TypeOf(expiry)._is_QDateTime;
         qtc.QGeoAreaMonitorInfo_SetExpiration(@ptrCast(self.ptr), @ptrCast(expiry.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistent` instead
+    ///
+    pub const IsPersistent = isPersistent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#isPersistent)
     ///
@@ -183,9 +239,13 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn IsPersistent(self: QGeoAreaMonitorInfo) bool {
+    pub fn isPersistent(self: QGeoAreaMonitorInfo) bool {
         return qtc.QGeoAreaMonitorInfo_IsPersistent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPersistent` instead
+    ///
+    pub const SetPersistent = setPersistent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#setPersistent)
     ///
@@ -193,11 +253,15 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    /// ` isPersistent: bool `
+    /// ` _isPersistent: bool `
     ///
-    pub fn SetPersistent(self: QGeoAreaMonitorInfo, isPersistent: bool) void {
-        qtc.QGeoAreaMonitorInfo_SetPersistent(@ptrCast(self.ptr), isPersistent);
+    pub fn setPersistent(self: QGeoAreaMonitorInfo, _isPersistent: bool) void {
+        qtc.QGeoAreaMonitorInfo_SetPersistent(@ptrCast(self.ptr), _isPersistent);
     }
+
+    /// ### DEPRECATED: Use `notificationParameters` instead
+    ///
+    pub const NotificationParameters = notificationParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#notificationParameters)
     ///
@@ -207,10 +271,10 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NotificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn notificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QGeoAreaMonitorInfo_NotificationParameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoAreaMonitorInfo.NotificationParameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QGeoAreaMonitorInfo.notificationParameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -224,13 +288,17 @@ pub const QGeoAreaMonitorInfo = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoAreaMonitorInfo.NotificationParameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QGeoAreaMonitorInfo.notificationParameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNotificationParameters` instead
+    ///
+    pub const SetNotificationParameters = setNotificationParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#setNotificationParameters)
     ///
@@ -242,11 +310,11 @@ pub const QGeoAreaMonitorInfo = extern struct {
     ///
     /// ` parameters: ArrayMap_constu8_QVariant `
     ///
-    pub fn SetNotificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
+    pub fn setNotificationParameters(self: QGeoAreaMonitorInfo, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoAreaMonitorInfo.SetNotificationParameters: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QGeoAreaMonitorInfo.setNotificationParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoAreaMonitorInfo.SetNotificationParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QGeoAreaMonitorInfo.setNotificationParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -266,29 +334,33 @@ pub const QGeoAreaMonitorInfo = extern struct {
         qtc.QGeoAreaMonitorInfo_SetNotificationParameters(@ptrCast(self.ptr), parameters_map);
     }
 
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#detach)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn Detach(self: QGeoAreaMonitorInfo) void {
+    pub fn detach(self: QGeoAreaMonitorInfo) void {
         qtc.QGeoAreaMonitorInfo_Detach(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoareamonitorinfo.html#dtor.QGeoAreaMonitorInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoAreaMonitorInfo `
     ///
-    pub fn Delete(self: QGeoAreaMonitorInfo) void {
+    pub fn delete(self: QGeoAreaMonitorInfo) void {
         qtc.QGeoAreaMonitorInfo_Delete(@ptrCast(self.ptr));
     }
 };

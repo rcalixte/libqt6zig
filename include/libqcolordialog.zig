@@ -82,47 +82,67 @@ pub const QColorDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QColorDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QColorDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QColorDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QColorDialog_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QColorDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QColorDialog object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QColorDialog {
+    pub const New2 = new2;
+
+    /// Allocate a new QColorDialog object in C++ memory
+    ///
+    pub fn new2() QColorDialog {
         return .{ .ptr = qtc.QColorDialog_new2() };
     }
 
-    /// New3 constructs a new QColorDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QColorDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` initial: QColor `
     ///
-    pub fn New3(initial: anytype) QColorDialog {
+    pub fn new3(initial: anytype) QColorDialog {
         comptime _ = @TypeOf(initial)._is_QColor;
         return .{ .ptr = qtc.QColorDialog_new3(@ptrCast(initial.ptr)) };
     }
 
-    /// New4 constructs a new QColorDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QColorDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` initial: QColor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(initial: anytype, parent: anytype) QColorDialog {
+    pub fn new4(initial: anytype, _parent: anytype) QColorDialog {
         comptime _ = @TypeOf(initial)._is_QColor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QColorDialog_new4(@ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_new4(@ptrCast(initial.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -130,9 +150,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MetaObject(self: QColorDialog) QMetaObject {
+    pub fn metaObject(self: QColorDialog) QMetaObject {
         return .{ .ptr = qtc.QColorDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -144,13 +168,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QColorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QColorDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QColorDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -160,9 +184,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperMetaObject(self: QColorDialog) QMetaObject {
+    pub fn superMetaObject(self: QColorDialog) QMetaObject {
         return .{ .ptr = qtc.QColorDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -170,10 +198,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QColorDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -183,13 +215,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QColorDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -199,10 +231,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QColorDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QColorDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -214,9 +250,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QColorDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -226,13 +266,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QColorDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -246,9 +286,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QColorDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QColorDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -258,14 +302,18 @@ pub const QColorDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCurrentColor` instead
+    ///
+    pub const SetCurrentColor = setCurrentColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setCurrentColor)
     ///
@@ -275,10 +323,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetCurrentColor(self: QColorDialog, color: anytype) void {
+    pub fn setCurrentColor(self: QColorDialog, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QColorDialog_SetCurrentColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentColor` instead
+    ///
+    pub const CurrentColor = currentColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColor)
     ///
@@ -286,9 +338,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn CurrentColor(self: QColorDialog) QColor {
+    pub fn currentColor(self: QColorDialog) QColor {
         return .{ .ptr = qtc.QColorDialog_CurrentColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectedColor` instead
+    ///
+    pub const SelectedColor = selectedColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#selectedColor)
     ///
@@ -296,9 +352,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SelectedColor(self: QColorDialog) QColor {
+    pub fn selectedColor(self: QColorDialog) QColor {
         return .{ .ptr = qtc.QColorDialog_SelectedColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOption` instead
+    ///
+    pub const SetOption = setOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setOption)
     ///
@@ -308,9 +368,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` option: qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn SetOption(self: QColorDialog, option: i32) void {
+    pub fn setOption(self: QColorDialog, option: i32) void {
         qtc.QColorDialog_SetOption(@ptrCast(self.ptr), @bitCast(option));
     }
+
+    /// ### DEPRECATED: Use `testOption` instead
+    ///
+    pub const TestOption = testOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#testOption)
     ///
@@ -320,9 +384,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` option: qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn TestOption(self: QColorDialog, option: i32) bool {
+    pub fn testOption(self: QColorDialog, option: i32) bool {
         return qtc.QColorDialog_TestOption(@ptrCast(self.ptr), @bitCast(option));
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setOptions)
     ///
@@ -330,11 +398,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` options: flag of qcolordialog_enums.ColorDialogOption `
+    /// ` _options: flag of qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn SetOptions(self: QColorDialog, options: i32) void {
-        qtc.QColorDialog_SetOptions(@ptrCast(self.ptr), @bitCast(options));
+    pub fn setOptions(self: QColorDialog, _options: i32) void {
+        qtc.QColorDialog_SetOptions(@ptrCast(self.ptr), @bitCast(_options));
     }
+
+    /// ### DEPRECATED: Use `options` instead
+    ///
+    pub const Options = options;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#options)
     ///
@@ -346,9 +418,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` flag of qcolordialog_enums.ColorDialogOption `
     ///
-    pub fn Options(self: QColorDialog) i32 {
+    pub fn options(self: QColorDialog) i32 {
         return qtc.QColorDialog_Options(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setVisible)
     ///
@@ -358,9 +434,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QColorDialog, visible: bool) void {
+    pub fn setVisible(self: QColorDialog, visible: bool) void {
         qtc.QColorDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setVisible)
     ///
@@ -372,13 +452,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) void) void {
         qtc.QColorDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setVisible)
     ///
@@ -390,21 +470,33 @@ pub const QColorDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QColorDialog, visible: bool) void {
+    pub fn superSetVisible(self: QColorDialog, visible: bool) void {
         qtc.QColorDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
 
+    /// ### DEPRECATED: Use `getColor` instead
+    ///
+    pub const GetColor = getColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
-    pub fn GetColor() QColor {
+    pub fn getColor() QColor {
         return .{ .ptr = qtc.QColorDialog_GetColor() };
     }
 
+    /// ### DEPRECATED: Use `customCount` instead
+    ///
+    pub const CustomCount = customCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#customCount)
     ///
-    pub fn CustomCount() i32 {
+    pub fn customCount() i32 {
         return qtc.QColorDialog_CustomCount();
     }
+
+    /// ### DEPRECATED: Use `customColor` instead
+    ///
+    pub const CustomColor = customColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#customColor)
     ///
@@ -412,9 +504,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CustomColor(index: i32) QColor {
+    pub fn customColor(index: i32) QColor {
         return .{ .ptr = qtc.QColorDialog_CustomColor(@bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setCustomColor` instead
+    ///
+    pub const SetCustomColor = setCustomColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setCustomColor)
     ///
@@ -424,10 +520,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetCustomColor(index: i32, color: anytype) void {
+    pub fn setCustomColor(index: i32, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QColorDialog_SetCustomColor(@bitCast(index), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `standardColor` instead
+    ///
+    pub const StandardColor = standardColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#standardColor)
     ///
@@ -435,9 +535,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn StandardColor(index: i32) QColor {
+    pub fn standardColor(index: i32) QColor {
         return .{ .ptr = qtc.QColorDialog_StandardColor(@bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `setStandardColor` instead
+    ///
+    pub const SetStandardColor = setStandardColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setStandardColor)
     ///
@@ -447,11 +551,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetStandardColor(index: i32, color: anytype) void {
+    pub fn setStandardColor(index: i32, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QColorDialog_SetStandardColor(@bitCast(index), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `currentColorChanged` instead
+    ///
+    pub const CurrentColorChanged = currentColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColorChanged)
     ///
     /// ## Parameter(s):
@@ -460,11 +568,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn CurrentColorChanged(self: QColorDialog, color: anytype) void {
+    pub fn currentColorChanged(self: QColorDialog, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QColorDialog_CurrentColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCurrentColorChanged` instead
+    ///
+    pub const OnCurrentColorChanged = onCurrentColorChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#currentColorChanged)
     ///
     /// ## Parameters:
@@ -473,9 +585,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, color: QColor) callconv(.c) void `
     ///
-    pub fn OnCurrentColorChanged(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
+    pub fn onCurrentColorChanged(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
         qtc.QColorDialog_Connect_CurrentColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `colorSelected` instead
+    ///
+    pub const ColorSelected = colorSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#colorSelected)
     ///
@@ -485,10 +601,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn ColorSelected(self: QColorDialog, color: anytype) void {
+    pub fn colorSelected(self: QColorDialog, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QColorDialog_ColorSelected(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColorSelected` instead
+    ///
+    pub const OnColorSelected = onColorSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#colorSelected)
     ///
@@ -498,9 +618,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorSelected(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
+    pub fn onColorSelected(self: QColorDialog, callback: *const fn (QColorDialog, QColor) callconv(.c) void) void {
         qtc.QColorDialog_Connect_ColorSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#changeEvent)
     ///
@@ -508,12 +632,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#changeEvent)
     ///
@@ -525,13 +653,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#changeEvent)
     ///
@@ -541,12 +669,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#done)
     ///
@@ -554,11 +686,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Done(self: QColorDialog, result: i32) void {
-        qtc.QColorDialog_Done(@ptrCast(self.ptr), @bitCast(result));
+    pub fn done(self: QColorDialog, _result: i32) void {
+        qtc.QColorDialog_Done(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#done)
     ///
@@ -570,13 +706,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
         qtc.QColorDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#done)
     ///
@@ -586,11 +722,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn SuperDone(self: QColorDialog, result: i32) void {
-        qtc.QColorDialog_SuperDone(@ptrCast(self.ptr), @bitCast(result));
+    pub fn superDone(self: QColorDialog, _result: i32) void {
+        qtc.QColorDialog_SuperDone(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -602,15 +742,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -624,15 +768,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOption2` instead
+    ///
+    pub const SetOption2 = setOption2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#setOption)
     ///
@@ -644,9 +792,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetOption2(self: QColorDialog, option: i32, on: bool) void {
+    pub fn setOption2(self: QColorDialog, option: i32, on: bool) void {
         qtc.QColorDialog_SetOption2(@ptrCast(self.ptr), @bitCast(option), on);
     }
+
+    /// ### DEPRECATED: Use `getColor1` instead
+    ///
+    pub const GetColor1 = getColor1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
@@ -654,24 +806,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` initial: QColor `
     ///
-    pub fn GetColor1(initial: anytype) QColor {
+    pub fn getColor1(initial: anytype) QColor {
         comptime _ = @TypeOf(initial)._is_QColor;
         return .{ .ptr = qtc.QColorDialog_GetColor1(@ptrCast(initial.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
+    /// ### DEPRECATED: Use `getColor2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` initial: QColor `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetColor2(initial: anytype, parent: anytype) QColor {
-        comptime _ = @TypeOf(initial)._is_QColor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QColorDialog_GetColor2(@ptrCast(initial.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const GetColor2 = getColor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
@@ -679,19 +821,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` initial: QColor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetColor3(initial: anytype, parent: anytype, title: []const u8) QColor {
+    pub fn getColor2(initial: anytype, _parent: anytype) QColor {
         comptime _ = @TypeOf(initial)._is_QColor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
-        };
-        return .{ .ptr = qtc.QColorDialog_GetColor3(@ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QColorDialog_GetColor2(@ptrCast(initial.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getColor3` instead
+    ///
+    pub const GetColor3 = getColor3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
     ///
@@ -699,21 +839,49 @@ pub const QColorDialog = extern struct {
     ///
     /// ` initial: QColor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` title: []const u8 `
     ///
-    /// ` options: flag of qcolordialog_enums.ColorDialogOption `
-    ///
-    pub fn GetColor4(initial: anytype, parent: anytype, title: []const u8, options: i32) QColor {
+    pub fn getColor3(initial: anytype, _parent: anytype, title: []const u8) QColor {
         comptime _ = @TypeOf(initial)._is_QColor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.QColorDialog_GetColor4(@ptrCast(initial.ptr), @ptrCast(parent.ptr), title_str, @bitCast(options)) };
+        return .{ .ptr = qtc.QColorDialog_GetColor3(@ptrCast(initial.ptr), @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getColor4` instead
+    ///
+    pub const GetColor4 = getColor4;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#getColor)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` initial: QColor `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    /// ` _options: flag of qcolordialog_enums.ColorDialogOption `
+    ///
+    pub fn getColor4(initial: anytype, _parent: anytype, title: []const u8, _options: i32) QColor {
+        comptime _ = @TypeOf(initial)._is_QColor;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        const title_str = qtc.libqt_string{
+            .len = title.len,
+            .data = title.ptr,
+        };
+        return .{ .ptr = qtc.QColorDialog_GetColor4(@ptrCast(initial.ptr), @ptrCast(_parent.ptr), title_str, @bitCast(_options)) };
+    }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -723,9 +891,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Result(self: QColorDialog) i32 {
+    pub fn result(self: QColorDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -737,9 +909,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: QColorDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: QColorDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -749,9 +925,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsSizeGripEnabled(self: QColorDialog) bool {
+    pub fn isSizeGripEnabled(self: QColorDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -763,9 +943,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: QColorDialog, modal: bool) void {
+    pub fn setModal(self: QColorDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -777,9 +961,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: QColorDialog, r: i32) void {
+    pub fn setResult(self: QColorDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -789,11 +977,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: QColorDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: QColorDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -805,10 +997,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -817,10 +1013,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Accepted(self: QColorDialog) void {
+    pub fn accepted(self: QColorDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -831,9 +1031,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -843,9 +1047,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Rejected(self: QColorDialog) void {
+    pub fn rejected(self: QColorDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -857,9 +1065,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+    pub fn onRejected(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -869,9 +1081,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn WinId(self: QColorDialog) usize {
+    pub fn winId(self: QColorDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -881,9 +1097,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn CreateWinId(self: QColorDialog) void {
+    pub fn createWinId(self: QColorDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -893,9 +1113,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn InternalWinId(self: QColorDialog) usize {
+    pub fn internalWinId(self: QColorDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -905,9 +1129,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn EffectiveWinId(self: QColorDialog) usize {
+    pub fn effectiveWinId(self: QColorDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -917,9 +1145,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Style(self: QColorDialog) QStyle {
+    pub fn style(self: QColorDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -929,12 +1161,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QColorDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QColorDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -944,9 +1180,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsTopLevel(self: QColorDialog) bool {
+    pub fn isTopLevel(self: QColorDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -956,9 +1196,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsWindow(self: QColorDialog) bool {
+    pub fn isWindow(self: QColorDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -968,9 +1212,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsModal(self: QColorDialog) bool {
+    pub fn isModal(self: QColorDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -984,9 +1232,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QColorDialog) i32 {
+    pub fn windowModality(self: QColorDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -996,11 +1248,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QColorDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QColorDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1010,9 +1266,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsEnabled(self: QColorDialog) bool {
+    pub fn isEnabled(self: QColorDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1024,10 +1284,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QColorDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: QColorDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1039,9 +1303,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QColorDialog, enabled: bool) void {
+    pub fn setEnabled(self: QColorDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1053,9 +1321,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QColorDialog, disabled: bool) void {
+    pub fn setDisabled(self: QColorDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1067,9 +1339,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QColorDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: QColorDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1079,9 +1355,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FrameGeometry(self: QColorDialog) QRect {
+    pub fn frameGeometry(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1091,9 +1371,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Geometry(self: QColorDialog) QRect {
+    pub fn geometry(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1103,9 +1387,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn NormalGeometry(self: QColorDialog) QRect {
+    pub fn normalGeometry(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1115,9 +1403,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn X(self: QColorDialog) i32 {
+    pub fn x(self: QColorDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1127,9 +1419,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Y(self: QColorDialog) i32 {
+    pub fn y(self: QColorDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1139,9 +1435,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Pos(self: QColorDialog) QPoint {
+    pub fn pos(self: QColorDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1151,9 +1451,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FrameSize(self: QColorDialog) QSize {
+    pub fn frameSize(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1163,9 +1467,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Size(self: QColorDialog) QSize {
+    pub fn size(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1175,9 +1483,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Width(self: QColorDialog) i32 {
+    pub fn width(self: QColorDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1187,9 +1499,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Height(self: QColorDialog) i32 {
+    pub fn height(self: QColorDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1199,9 +1515,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Rect(self: QColorDialog) QRect {
+    pub fn rect(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1211,9 +1531,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ChildrenRect(self: QColorDialog) QRect {
+    pub fn childrenRect(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1223,9 +1547,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ChildrenRegion(self: QColorDialog) QRegion {
+    pub fn childrenRegion(self: QColorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1235,9 +1563,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MinimumSize(self: QColorDialog) QSize {
+    pub fn minimumSize(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1247,9 +1579,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MaximumSize(self: QColorDialog) QSize {
+    pub fn maximumSize(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1259,9 +1595,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MinimumWidth(self: QColorDialog) i32 {
+    pub fn minimumWidth(self: QColorDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1271,9 +1611,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MinimumHeight(self: QColorDialog) i32 {
+    pub fn minimumHeight(self: QColorDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1283,9 +1627,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MaximumWidth(self: QColorDialog) i32 {
+    pub fn maximumWidth(self: QColorDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1295,9 +1643,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MaximumHeight(self: QColorDialog) i32 {
+    pub fn maximumHeight(self: QColorDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1307,12 +1659,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QColorDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QColorDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1326,9 +1682,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QColorDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QColorDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1338,12 +1698,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QColorDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QColorDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1357,9 +1721,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QColorDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QColorDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1371,9 +1739,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QColorDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: QColorDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1385,9 +1757,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QColorDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: QColorDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1399,9 +1775,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QColorDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: QColorDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1413,9 +1793,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QColorDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: QColorDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1425,9 +1809,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SizeIncrement(self: QColorDialog) QSize {
+    pub fn sizeIncrement(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1437,12 +1825,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QColorDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QColorDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1456,9 +1848,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QColorDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QColorDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1468,9 +1864,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn BaseSize(self: QColorDialog) QSize {
+    pub fn baseSize(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1480,12 +1880,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QColorDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QColorDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1499,9 +1903,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QColorDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QColorDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1513,10 +1921,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QColorDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QColorDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1530,9 +1942,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QColorDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QColorDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1544,9 +1960,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QColorDialog, w: i32) void {
+    pub fn setFixedWidth(self: QColorDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1558,9 +1978,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QColorDialog, h: i32) void {
+    pub fn setFixedHeight(self: QColorDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1572,11 +1996,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QColorDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QColorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1587,11 +2015,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QColorDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QColorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1602,11 +2034,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QColorDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QColorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1617,11 +2053,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QColorDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QColorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1632,11 +2072,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QColorDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: QColorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1647,10 +2091,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QColorDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QColorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1662,10 +2110,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QColorDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QColorDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1677,10 +2129,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QColorDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QColorDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1694,12 +2150,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1712,11 +2172,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1730,11 +2194,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QColorDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1748,11 +2216,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QColorDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1762,9 +2234,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Window(self: QColorDialog) QWidget {
+    pub fn window(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1774,9 +2250,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn NativeParentWidget(self: QColorDialog) QWidget {
+    pub fn nativeParentWidget(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1786,9 +2266,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn TopLevelWidget(self: QColorDialog) QWidget {
+    pub fn topLevelWidget(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1798,9 +2282,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Palette(self: QColorDialog) QPalette {
+    pub fn palette(self: QColorDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1810,12 +2298,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QColorDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QColorDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1825,11 +2317,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QColorDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QColorDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1843,9 +2339,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QColorDialog) i32 {
+    pub fn backgroundRole(self: QColorDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1855,11 +2355,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QColorDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QColorDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1873,9 +2377,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QColorDialog) i32 {
+    pub fn foregroundRole(self: QColorDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1885,9 +2393,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Font(self: QColorDialog) QFont {
+    pub fn font(self: QColorDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1897,12 +2409,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QColorDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QColorDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1912,9 +2428,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FontMetrics(self: QColorDialog) QFontMetrics {
+    pub fn fontMetrics(self: QColorDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1924,9 +2444,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FontInfo(self: QColorDialog) QFontInfo {
+    pub fn fontInfo(self: QColorDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1936,9 +2460,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Cursor(self: QColorDialog) QCursor {
+    pub fn cursor(self: QColorDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1948,12 +2476,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QColorDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QColorDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1963,9 +2495,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UnsetCursor(self: QColorDialog) void {
+    pub fn unsetCursor(self: QColorDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1977,9 +2513,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QColorDialog, enable: bool) void {
+    pub fn setMouseTracking(self: QColorDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1989,9 +2529,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn HasMouseTracking(self: QColorDialog) bool {
+    pub fn hasMouseTracking(self: QColorDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2001,9 +2545,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UnderMouse(self: QColorDialog) bool {
+    pub fn underMouse(self: QColorDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2015,9 +2563,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QColorDialog, enable: bool) void {
+    pub fn setTabletTracking(self: QColorDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2027,24 +2579,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn HasTabletTracking(self: QColorDialog) bool {
+    pub fn hasTabletTracking(self: QColorDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QColorDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2054,12 +2595,35 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QColorDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QColorDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColorDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QColorDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2633,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Mask(self: QColorDialog) QRegion {
+    pub fn mask(self: QColorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2649,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ClearMask(self: QColorDialog) void {
+    pub fn clearMask(self: QColorDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2095,10 +2667,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QColorDialog, target: anytype) void {
+    pub fn render(self: QColorDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2110,10 +2686,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QColorDialog, painter: anytype) void {
+    pub fn render2(self: QColorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2123,9 +2703,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Grab(self: QColorDialog) QPixmap {
+    pub fn grab(self: QColorDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2135,9 +2719,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn GraphicsEffect(self: QColorDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: QColorDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2149,10 +2737,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QColorDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QColorDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2164,9 +2756,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QColorDialog, typeVal: i32) void {
+    pub fn grabGesture(self: QColorDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2178,9 +2774,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QColorDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: QColorDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2190,15 +2790,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QColorDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QColorDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2208,15 +2812,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QColorDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QColorDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2228,13 +2836,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2246,13 +2858,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2264,10 +2880,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QColorDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: QColorDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2277,9 +2897,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn WindowIcon(self: QColorDialog) QIcon {
+    pub fn windowIcon(self: QColorDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2289,15 +2913,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QColorDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QColorDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2309,13 +2937,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2325,15 +2957,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QColorDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QColorDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2345,13 +2981,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2363,13 +3003,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QColorDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QColorDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2381,13 +3025,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2399,9 +3047,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QColorDialog, level: f64) void {
+    pub fn setWindowOpacity(self: QColorDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2411,9 +3063,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn WindowOpacity(self: QColorDialog) f64 {
+    pub fn windowOpacity(self: QColorDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2423,9 +3079,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsWindowModified(self: QColorDialog) bool {
+    pub fn isWindowModified(self: QColorDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2435,15 +3095,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QColorDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: QColorDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2455,13 +3119,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2473,9 +3141,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QColorDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: QColorDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2485,9 +3157,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ToolTipDuration(self: QColorDialog) i32 {
+    pub fn toolTipDuration(self: QColorDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2497,15 +3173,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QColorDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QColorDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2517,13 +3197,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2533,15 +3217,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QColorDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QColorDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2553,13 +3241,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2571,13 +3263,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2589,13 +3285,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QColorDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: QColorDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2607,13 +3307,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2625,13 +3329,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QColorDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QColorDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2643,9 +3351,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QColorDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: QColorDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2659,9 +3371,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QColorDialog) i32 {
+    pub fn layoutDirection(self: QColorDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2671,9 +3387,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UnsetLayoutDirection(self: QColorDialog) void {
+    pub fn unsetLayoutDirection(self: QColorDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2683,12 +3403,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QColorDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QColorDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2698,9 +3422,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Locale(self: QColorDialog) QLocale {
+    pub fn locale(self: QColorDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2710,9 +3438,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UnsetLocale(self: QColorDialog) void {
+    pub fn unsetLocale(self: QColorDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2722,9 +3454,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsRightToLeft(self: QColorDialog) bool {
+    pub fn isRightToLeft(self: QColorDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2734,9 +3470,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsLeftToRight(self: QColorDialog) bool {
+    pub fn isLeftToRight(self: QColorDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2746,9 +3486,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SetFocus(self: QColorDialog) void {
+    pub fn setFocus(self: QColorDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2758,9 +3502,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsActiveWindow(self: QColorDialog) bool {
+    pub fn isActiveWindow(self: QColorDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3518,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ActivateWindow(self: QColorDialog) void {
+    pub fn activateWindow(self: QColorDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3534,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ClearFocus(self: QColorDialog) void {
+    pub fn clearFocus(self: QColorDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2796,9 +3552,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QColorDialog, reason: i32) void {
+    pub fn setFocus2(self: QColorDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2812,9 +3572,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QColorDialog) i32 {
+    pub fn focusPolicy(self: QColorDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2826,9 +3590,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QColorDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: QColorDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2838,9 +3606,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn HasFocus(self: QColorDialog) bool {
+    pub fn hasFocus(self: QColorDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2852,11 +3624,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2866,12 +3642,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QColorDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QColorDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2881,9 +3661,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FocusProxy(self: QColorDialog) QWidget {
+    pub fn focusProxy(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2897,9 +3681,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QColorDialog) i32 {
+    pub fn contextMenuPolicy(self: QColorDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2911,9 +3699,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QColorDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QColorDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2923,9 +3715,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn GrabMouse(self: QColorDialog) void {
+    pub fn grabMouse(self: QColorDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2937,10 +3733,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QColorDialog, param1: anytype) void {
+    pub fn grabMouse2(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2950,9 +3750,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ReleaseMouse(self: QColorDialog) void {
+    pub fn releaseMouse(self: QColorDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2962,9 +3766,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn GrabKeyboard(self: QColorDialog) void {
+    pub fn grabKeyboard(self: QColorDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2974,9 +3782,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ReleaseKeyboard(self: QColorDialog) void {
+    pub fn releaseKeyboard(self: QColorDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2988,10 +3800,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QColorDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: QColorDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3003,9 +3819,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QColorDialog, id: i32) void {
+    pub fn releaseShortcut(self: QColorDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3017,9 +3837,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QColorDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: QColorDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3031,25 +3855,37 @@ pub const QColorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QColorDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QColorDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3059,9 +3895,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UpdatesEnabled(self: QColorDialog) bool {
+    pub fn updatesEnabled(self: QColorDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3073,9 +3913,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QColorDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QColorDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3085,9 +3929,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn GraphicsProxyWidget(self: QColorDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QColorDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3097,9 +3945,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Update(self: QColorDialog) void {
+    pub fn update(self: QColorDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3109,9 +3961,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Repaint(self: QColorDialog) void {
+    pub fn repaint(self: QColorDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3121,17 +3977,21 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QColorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3143,11 +4003,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QColorDialog, param1: anytype) void {
+    pub fn update3(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3158,10 +4022,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QColorDialog, param1: anytype) void {
+    pub fn update4(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3171,17 +4039,21 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QColorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3193,10 +4065,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QColorDialog, param1: anytype) void {
+    pub fn repaint3(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3208,10 +4084,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QColorDialog, param1: anytype) void {
+    pub fn repaint4(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3223,9 +4103,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QColorDialog, hidden: bool) void {
+    pub fn setHidden(self: QColorDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3235,9 +4119,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Show(self: QColorDialog) void {
+    pub fn show(self: QColorDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3247,9 +4135,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Hide(self: QColorDialog) void {
+    pub fn hide(self: QColorDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3259,9 +4151,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ShowMinimized(self: QColorDialog) void {
+    pub fn showMinimized(self: QColorDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4167,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ShowMaximized(self: QColorDialog) void {
+    pub fn showMaximized(self: QColorDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3283,9 +4183,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ShowFullScreen(self: QColorDialog) void {
+    pub fn showFullScreen(self: QColorDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3295,9 +4199,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ShowNormal(self: QColorDialog) void {
+    pub fn showNormal(self: QColorDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4215,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Close(self: QColorDialog) bool {
+    pub fn close(self: QColorDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4231,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Raise(self: QColorDialog) void {
+    pub fn raise(self: QColorDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3331,9 +4247,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Lower(self: QColorDialog) void {
+    pub fn lower(self: QColorDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3345,10 +4265,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QColorDialog, param1: anytype) void {
+    pub fn stackUnder(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3358,13 +4282,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QColorDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QColorDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3376,10 +4304,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QColorDialog, param1: anytype) void {
+    pub fn move2(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3393,9 +4325,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QColorDialog, w: i32, h: i32) void {
+    pub fn resize(self: QColorDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3407,10 +4343,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QColorDialog, param1: anytype) void {
+    pub fn resize2(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3420,17 +4360,21 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QColorDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QColorDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3440,12 +4384,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QColorDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QColorDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3457,13 +4405,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QColorDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QColorDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QColorDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QColorDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3473,15 +4425,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QColorDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QColorDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3491,9 +4447,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn AdjustSize(self: QColorDialog) void {
+    pub fn adjustSize(self: QColorDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3503,9 +4463,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsVisible(self: QColorDialog) bool {
+    pub fn isVisible(self: QColorDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3517,10 +4481,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QColorDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: QColorDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3530,9 +4498,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsHidden(self: QColorDialog) bool {
+    pub fn isHidden(self: QColorDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3542,9 +4514,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsMinimized(self: QColorDialog) bool {
+    pub fn isMinimized(self: QColorDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3554,9 +4530,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsMaximized(self: QColorDialog) bool {
+    pub fn isMaximized(self: QColorDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3566,9 +4546,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsFullScreen(self: QColorDialog) bool {
+    pub fn isFullScreen(self: QColorDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3582,9 +4566,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QColorDialog) i32 {
+    pub fn windowState(self: QColorDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3596,9 +4584,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QColorDialog, state: i32) void {
+    pub fn setWindowState(self: QColorDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3610,9 +4602,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QColorDialog, state: i32) void {
+    pub fn overrideWindowState(self: QColorDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3622,9 +4618,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SizePolicy(self: QColorDialog) QSizePolicy {
+    pub fn sizePolicy(self: QColorDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3634,12 +4634,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QColorDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QColorDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3653,9 +4657,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QColorDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QColorDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3665,9 +4673,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn VisibleRegion(self: QColorDialog) QRegion {
+    pub fn visibleRegion(self: QColorDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3685,9 +4697,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QColorDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QColorDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3699,10 +4715,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QColorDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: QColorDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3712,9 +4732,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ContentsMargins(self: QColorDialog) QMargins {
+    pub fn contentsMargins(self: QColorDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3724,9 +4748,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ContentsRect(self: QColorDialog) QRect {
+    pub fn contentsRect(self: QColorDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3736,9 +4764,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Layout(self: QColorDialog) QLayout {
+    pub fn layout(self: QColorDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3748,12 +4780,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QColorDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QColorDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3763,24 +4799,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UpdateGeometry(self: QColorDialog) void {
+    pub fn updateGeometry(self: QColorDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QColorDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3790,14 +4815,37 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QColorDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColorDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QColorDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QColorDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3811,9 +4859,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QColorDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: QColorDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3829,10 +4881,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QColorDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QColorDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3842,9 +4898,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FocusWidget(self: QColorDialog) QWidget {
+    pub fn focusWidget(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3854,9 +4914,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn NextInFocusChain(self: QColorDialog) QWidget {
+    pub fn nextInFocusChain(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3866,9 +4930,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn PreviousInFocusChain(self: QColorDialog) QWidget {
+    pub fn previousInFocusChain(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3878,9 +4946,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn AcceptDrops(self: QColorDialog) bool {
+    pub fn acceptDrops(self: QColorDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3892,9 +4964,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QColorDialog, on: bool) void {
+    pub fn setAcceptDrops(self: QColorDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3906,10 +4982,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QColorDialog, action: anytype) void {
+    pub fn addAction(self: QColorDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3919,15 +4999,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QColorDialog, actions: []QAction) void {
+    pub fn addActions(self: QColorDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3939,16 +5023,20 @@ pub const QColorDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QColorDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QColorDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3962,11 +5050,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QColorDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QColorDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3978,10 +5070,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QColorDialog, action: anytype) void {
+    pub fn removeAction(self: QColorDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3993,15 +5089,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QColorDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QColorDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QColorDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QColorDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4013,13 +5113,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QColorDialog, text: []const u8) QAction {
+    pub fn addAction2(self: QColorDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4033,7 +5137,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QColorDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QColorDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4042,6 +5146,10 @@ pub const QColorDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4054,7 +5162,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QColorDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QColorDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4062,6 +5170,10 @@ pub const QColorDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4077,7 +5189,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QColorDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QColorDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4087,6 +5199,10 @@ pub const QColorDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4095,9 +5211,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ParentWidget(self: QColorDialog) QWidget {
+    pub fn parentWidget(self: QColorDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4109,9 +5229,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QColorDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: QColorDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4125,9 +5249,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QColorDialog) i32 {
+    pub fn windowFlags(self: QColorDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4139,9 +5267,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QColorDialog, param1: i32) void {
+    pub fn setWindowFlag(self: QColorDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4153,9 +5285,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QColorDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QColorDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4169,9 +5305,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QColorDialog) i32 {
+    pub fn windowType(self: QColorDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4181,9 +5321,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4193,13 +5337,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QColorDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QColorDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4211,10 +5359,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QColorDialog, p: anytype) QWidget {
+    pub fn childAt2(self: QColorDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4226,10 +5378,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QColorDialog, p: anytype) QWidget {
+    pub fn childAt3(self: QColorDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4241,9 +5397,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QColorDialog, param1: i32) void {
+    pub fn setAttribute(self: QColorDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4255,9 +5415,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QColorDialog, param1: i32) bool {
+    pub fn testAttribute(self: QColorDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4267,9 +5431,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn EnsurePolished(self: QColorDialog) void {
+    pub fn ensurePolished(self: QColorDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4281,10 +5449,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QColorDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: QColorDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4294,9 +5466,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn AutoFillBackground(self: QColorDialog) bool {
+    pub fn autoFillBackground(self: QColorDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4308,9 +5484,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QColorDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QColorDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4320,9 +5500,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn BackingStore(self: QColorDialog) QBackingStore {
+    pub fn backingStore(self: QColorDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4332,9 +5516,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn WindowHandle(self: QColorDialog) QWindow {
+    pub fn windowHandle(self: QColorDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4344,9 +5532,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Screen(self: QColorDialog) QScreen {
+    pub fn screen(self: QColorDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4356,12 +5548,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QColorDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QColorDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4369,12 +5565,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4386,13 +5586,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QColorDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: QColorDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4404,9 +5608,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4418,10 +5626,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QColorDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: QColorDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4433,9 +5645,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QColorDialog, callback: *const fn (QColorDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QColorDialog, callback: *const fn (QColorDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4447,13 +5663,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QColorDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QColorDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4465,9 +5685,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4477,12 +5701,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QColorDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QColorDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4494,9 +5722,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4510,9 +5742,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QColorDialog) i32 {
+    pub fn inputMethodHints(self: QColorDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4524,9 +5760,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QColorDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: QColorDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4540,11 +5780,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QColorDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QColorDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4560,13 +5804,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4583,12 +5831,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QColorDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4602,11 +5854,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QColorDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QColorDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4622,12 +5878,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4645,12 +5905,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QColorDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4662,10 +5926,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QColorDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QColorDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4679,9 +5947,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QColorDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QColorDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4695,10 +5967,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QColorDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QColorDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4712,9 +5988,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QColorDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QColorDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4728,9 +6008,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QColorDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QColorDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4744,9 +6028,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QColorDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QColorDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4760,25 +6048,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QColorDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QColorDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4786,17 +6062,41 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4808,13 +6108,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QColorDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColorDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4826,13 +6130,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QColorDialog, name: []const u8) void {
+    pub fn setObjectName(self: QColorDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4842,9 +6150,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsWidgetType(self: QColorDialog) bool {
+    pub fn isWidgetType(self: QColorDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4854,9 +6166,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsWindowType(self: QColorDialog) bool {
+    pub fn isWindowType(self: QColorDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4866,9 +6182,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn IsQuickItemType(self: QColorDialog) bool {
+    pub fn isQuickItemType(self: QColorDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4878,9 +6198,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SignalsBlocked(self: QColorDialog) bool {
+    pub fn signalsBlocked(self: QColorDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4892,9 +6216,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QColorDialog, b: bool) bool {
+    pub fn blockSignals(self: QColorDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4904,9 +6232,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Thread(self: QColorDialog) QThread {
+    pub fn thread(self: QColorDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4916,12 +6248,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QColorDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QColorDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4933,9 +6269,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QColorDialog, interval: i32) i32 {
+    pub fn startTimer(self: QColorDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4947,9 +6287,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QColorDialog, time: i64) i32 {
+    pub fn startTimer2(self: QColorDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4961,9 +6305,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QColorDialog, id: i32) void {
+    pub fn killTimer(self: QColorDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4975,9 +6323,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QColorDialog, id: i32) void {
+    pub fn killTimer2(self: QColorDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4989,15 +6341,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QColorDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QColorDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QColorDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QColorDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5009,10 +6365,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QColorDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: QColorDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5024,10 +6384,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QColorDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: QColorDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5035,7 +6399,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5043,13 +6407,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5057,7 +6425,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5065,13 +6433,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5081,18 +6453,22 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QColorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QColorDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5100,7 +6476,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5108,13 +6484,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5122,7 +6502,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5130,13 +6510,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5146,9 +6530,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Disconnect3(self: QColorDialog) bool {
+    pub fn disconnect3(self: QColorDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5160,10 +6548,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QColorDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: QColorDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5173,10 +6565,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5186,9 +6582,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DumpObjectTree(self: QColorDialog) void {
+    pub fn dumpObjectTree(self: QColorDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5198,9 +6598,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DumpObjectInfo(self: QColorDialog) void {
+    pub fn dumpObjectInfo(self: QColorDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5214,11 +6618,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QColorDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QColorDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5230,10 +6638,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QColorDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: QColorDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5245,7 +6657,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QColorDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QColorDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5253,27 +6665,19 @@ pub const QColorDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QColorDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QColorDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QColorDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QColorDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColorDialog `
-    ///
-    pub fn BindingStorage(self: QColorDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5283,9 +6687,29 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn BindingStorage2(self: QColorDialog) QBindingStorage {
+    pub fn bindingStorage(self: QColorDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColorDialog `
+    ///
+    pub fn bindingStorage2(self: QColorDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5295,9 +6719,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Destroyed(self: QColorDialog) void {
+    pub fn destroyed(self: QColorDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5309,9 +6737,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: QColorDialog, callback: *const fn (QColorDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5321,9 +6753,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Parent(self: QColorDialog) QObject {
+    pub fn parent(self: QColorDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5335,10 +6771,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QColorDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: QColorDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5348,9 +6788,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DeleteLater(self: QColorDialog) void {
+    pub fn deleteLater(self: QColorDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5364,9 +6808,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QColorDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QColorDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5380,9 +6828,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QColorDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QColorDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5390,7 +6842,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5400,13 +6852,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5414,7 +6870,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5424,13 +6880,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5440,7 +6900,7 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5448,12 +6908,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QColorDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QColorDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5465,10 +6929,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QColorDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QColorDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5482,11 +6950,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QColorDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QColorDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5502,13 +6974,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QColorDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QColorDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5521,11 +6997,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QColorDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QColorDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5537,10 +7017,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QColorDialog, param1: anytype) void {
+    pub fn destroyed1(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5552,9 +7036,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QColorDialog, callback: *const fn (QColorDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QColorDialog, callback: *const fn (QColorDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5564,9 +7052,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn PaintingActive(self: QColorDialog) bool {
+    pub fn paintingActive(self: QColorDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5576,9 +7068,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn WidthMM(self: QColorDialog) i32 {
+    pub fn widthMM(self: QColorDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5588,9 +7084,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn HeightMM(self: QColorDialog) i32 {
+    pub fn heightMM(self: QColorDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5600,9 +7100,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn LogicalDpiX(self: QColorDialog) i32 {
+    pub fn logicalDpiX(self: QColorDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5612,9 +7116,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn LogicalDpiY(self: QColorDialog) i32 {
+    pub fn logicalDpiY(self: QColorDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5624,9 +7132,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn PhysicalDpiX(self: QColorDialog) i32 {
+    pub fn physicalDpiX(self: QColorDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5636,9 +7148,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn PhysicalDpiY(self: QColorDialog) i32 {
+    pub fn physicalDpiY(self: QColorDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5648,9 +7164,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DevicePixelRatio(self: QColorDialog) f64 {
+    pub fn devicePixelRatio(self: QColorDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5660,9 +7180,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DevicePixelRatioF(self: QColorDialog) f64 {
+    pub fn devicePixelRatioF(self: QColorDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5672,9 +7196,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn ColorCount(self: QColorDialog) i32 {
+    pub fn colorCount(self: QColorDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5684,17 +7212,25 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Depth(self: QColorDialog) i32 {
+    pub fn depth(self: QColorDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5702,13 +7238,17 @@ pub const QColorDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5720,13 +7260,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SizeHint(self: QColorDialog) QSize {
+    pub fn sizeHint(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QColorDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5738,10 +7278,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperSizeHint(self: QColorDialog) QSize {
+    pub fn superSizeHint(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QColorDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5756,9 +7300,13 @@ pub const QColorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QColorDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5770,13 +7318,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn MinimumSizeHint(self: QColorDialog) QSize {
+    pub fn minimumSizeHint(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QColorDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5788,9 +7336,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: QColorDialog) QSize {
+    pub fn superMinimumSizeHint(self: QColorDialog) QSize {
         return .{ .ptr = qtc.QColorDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5806,9 +7358,13 @@ pub const QColorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QColorDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QColorDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5820,13 +7376,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Open(self: QColorDialog) void {
+    pub fn open(self: QColorDialog) void {
         qtc.QColorDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5838,9 +7394,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperOpen(self: QColorDialog) void {
+    pub fn superOpen(self: QColorDialog) void {
         qtc.QColorDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -5854,9 +7414,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -5868,13 +7432,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Exec(self: QColorDialog) i32 {
+    pub fn exec(self: QColorDialog) i32 {
         return qtc.QColorDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -5886,9 +7450,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperExec(self: QColorDialog) i32 {
+    pub fn superExec(self: QColorDialog) i32 {
         return qtc.QColorDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -5902,10 +7470,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QColorDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -5916,13 +7488,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Accept(self: QColorDialog) void {
+    pub fn accept(self: QColorDialog) void {
         qtc.QColorDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -5934,9 +7506,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperAccept(self: QColorDialog) void {
+    pub fn superAccept(self: QColorDialog) void {
         qtc.QColorDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -5950,9 +7526,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -5964,13 +7544,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Reject(self: QColorDialog) void {
+    pub fn reject(self: QColorDialog) void {
         qtc.QColorDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -5982,9 +7562,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperReject(self: QColorDialog) void {
+    pub fn superReject(self: QColorDialog) void {
         qtc.QColorDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -5998,9 +7582,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6014,14 +7602,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QColorDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QColorDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6035,10 +7623,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QColorDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6052,9 +7644,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6068,14 +7664,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QColorDialog, param1: anytype) void {
+    pub fn closeEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QColorDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6089,10 +7685,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QColorDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6106,9 +7706,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QCloseEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -6122,14 +7726,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: QColorDialog, param1: anytype) void {
+    pub fn showEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QColorDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6143,10 +7747,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superShowEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QColorDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6160,9 +7768,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QColorDialog, callback: *const fn (QColorDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QColorDialog, callback: *const fn (QColorDialog, QShowEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6176,14 +7788,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QColorDialog, param1: anytype) void {
+    pub fn resizeEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QColorDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6197,10 +7809,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QColorDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6214,9 +7830,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QColorDialog, callback: *const fn (QColorDialog, QResizeEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6230,14 +7850,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QColorDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QColorDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6251,10 +7871,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QColorDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6268,9 +7892,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QColorDialog, callback: *const fn (QColorDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QColorDialog, callback: *const fn (QColorDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6286,15 +7914,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QColorDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6310,11 +7938,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QColorDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QColorDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6328,9 +7960,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QColorDialog, callback: *const fn (QColorDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QColorDialog, callback: *const fn (QColorDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.QColorDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6342,13 +7978,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn DevType(self: QColorDialog) i32 {
+    pub fn devType(self: QColorDialog) i32 {
         return qtc.QColorDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6360,9 +7996,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperDevType(self: QColorDialog) i32 {
+    pub fn superDevType(self: QColorDialog) i32 {
         return qtc.QColorDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6376,9 +8016,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QColorDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6392,13 +8036,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QColorDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: QColorDialog, param1: i32) i32 {
         return qtc.QColorDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6412,9 +8056,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QColorDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QColorDialog, param1: i32) i32 {
         return qtc.QColorDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6428,9 +8076,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
         qtc.QColorDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6442,13 +8094,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn HasHeightForWidth(self: QColorDialog) bool {
+    pub fn hasHeightForWidth(self: QColorDialog) bool {
         return qtc.QColorDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6460,9 +8112,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: QColorDialog) bool {
+    pub fn superHasHeightForWidth(self: QColorDialog) bool {
         return qtc.QColorDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6476,9 +8132,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QColorDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6490,13 +8150,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn PaintEngine(self: QColorDialog) QPaintEngine {
+    pub fn paintEngine(self: QColorDialog) QPaintEngine {
         return .{ .ptr = qtc.QColorDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6508,9 +8168,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperPaintEngine(self: QColorDialog) QPaintEngine {
+    pub fn superPaintEngine(self: QColorDialog) QPaintEngine {
         return .{ .ptr = qtc.QColorDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6524,9 +8188,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QColorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QColorDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QColorDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6538,16 +8206,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QColorDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColorDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QColorDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColorDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6559,12 +8227,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QColorDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColorDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QColorDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColorDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6578,10 +8250,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) bool) void {
         qtc.QColorDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6592,16 +8268,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6613,12 +8289,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6632,10 +8312,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6646,16 +8330,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6667,12 +8351,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6686,10 +8374,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6700,16 +8392,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6721,12 +8413,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6740,10 +8436,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6754,16 +8454,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6775,12 +8475,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColorDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColorDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6794,9 +8498,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6808,16 +8516,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QColorDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QColorDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6829,12 +8537,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QColorDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QColorDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6848,9 +8560,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QColorDialog, callback: *const fn (QColorDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QColorDialog, callback: *const fn (QColorDialog, QWheelEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6862,16 +8578,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColorDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColorDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6883,12 +8599,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColorDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColorDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6902,10 +8622,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QColorDialog, callback: *const fn (QColorDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6916,16 +8640,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColorDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColorDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6937,12 +8661,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColorDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColorDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6956,10 +8684,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6970,16 +8702,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColorDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColorDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6991,12 +8723,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColorDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColorDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7010,9 +8746,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QColorDialog, callback: *const fn (QColorDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7024,16 +8764,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QColorDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QColorDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7045,12 +8785,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QColorDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QColorDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7064,9 +8808,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEnterEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7078,16 +8826,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7099,12 +8847,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7118,9 +8870,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7132,16 +8888,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QColorDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QColorDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7153,12 +8909,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QColorDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QColorDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7172,9 +8932,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QColorDialog, callback: *const fn (QColorDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QColorDialog, callback: *const fn (QColorDialog, QPaintEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7186,16 +8950,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QColorDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QColorDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7207,12 +8971,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QColorDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QColorDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7226,9 +8994,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QMoveEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7240,16 +9012,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QColorDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QColorDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7261,12 +9033,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QColorDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QColorDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7280,9 +9056,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTabletEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7294,16 +9074,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QColorDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QColorDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7315,12 +9095,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QColorDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QColorDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7334,9 +9118,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QColorDialog, callback: *const fn (QColorDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QColorDialog, callback: *const fn (QColorDialog, QActionEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7348,16 +9136,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QColorDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QColorDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7369,12 +9157,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QColorDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QColorDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7388,9 +9180,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7402,16 +9198,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QColorDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QColorDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7423,12 +9219,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QColorDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QColorDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7442,9 +9242,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7456,16 +9260,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QColorDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QColorDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7477,12 +9281,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QColorDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QColorDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7496,9 +9304,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7510,16 +9322,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QColorDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QColorDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7531,12 +9343,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QColorDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QColorDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7550,9 +9366,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QColorDialog, callback: *const fn (QColorDialog, QDropEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7564,16 +9384,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QColorDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QColorDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7585,12 +9405,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QColorDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QColorDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7604,9 +9428,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QColorDialog, callback: *const fn (QColorDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QColorDialog, callback: *const fn (QColorDialog, QHideEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7622,19 +9450,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QColorDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QColorDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7650,15 +9478,19 @@ pub const QColorDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QColorDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QColorDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QColorDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7672,9 +9504,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QColorDialog, callback: *const fn (QColorDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QColorDialog, callback: *const fn (QColorDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QColorDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7688,13 +9524,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QColorDialog, param1: i32) i32 {
+    pub fn metric(self: QColorDialog, param1: i32) i32 {
         return qtc.QColorDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7708,9 +9544,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QColorDialog, param1: i32) i32 {
+    pub fn superMetric(self: QColorDialog, param1: i32) i32 {
         return qtc.QColorDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7724,9 +9564,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) i32) void {
         qtc.QColorDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7740,14 +9584,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QColorDialog, painter: anytype) void {
+    pub fn initPainter(self: QColorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QColorDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7761,10 +9605,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QColorDialog, painter: anytype) void {
+    pub fn superInitPainter(self: QColorDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QColorDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7778,9 +9626,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QColorDialog, callback: *const fn (QColorDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QColorDialog, callback: *const fn (QColorDialog, QPainter) callconv(.c) void) void {
         qtc.QColorDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7794,14 +9646,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QColorDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QColorDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QColorDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7815,10 +9667,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QColorDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QColorDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QColorDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7832,9 +9688,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QColorDialog, callback: *const fn (QColorDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QColorDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7846,13 +9706,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SharedPainter(self: QColorDialog) QPainter {
+    pub fn sharedPainter(self: QColorDialog) QPainter {
         return .{ .ptr = qtc.QColorDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7864,9 +9724,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperSharedPainter(self: QColorDialog) QPainter {
+    pub fn superSharedPainter(self: QColorDialog) QPainter {
         return .{ .ptr = qtc.QColorDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7880,9 +9744,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QColorDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QColorDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QColorDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7896,14 +9764,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QColorDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QColorDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7917,10 +9785,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QColorDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QColorDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7934,9 +9806,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QColorDialog, callback: *const fn (QColorDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QColorDialog, callback: *const fn (QColorDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7950,13 +9826,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QColorDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QColorDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QColorDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7970,9 +9846,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QColorDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QColorDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QColorDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7988,9 +9868,13 @@ pub const QColorDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QColorDialog, callback: *const fn (QColorDialog, i32) callconv(.c) QVariant) void {
         qtc.QColorDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8004,13 +9888,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QColorDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: QColorDialog, next: bool) bool {
         return qtc.QColorDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8024,9 +9908,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QColorDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QColorDialog, next: bool) bool {
         return qtc.QColorDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8040,9 +9928,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QColorDialog, callback: *const fn (QColorDialog, bool) callconv(.c) bool) void {
         qtc.QColorDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8054,16 +9946,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QColorDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QColorDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8075,12 +9967,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QColorDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QColorDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8094,9 +9990,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QColorDialog, callback: *const fn (QColorDialog, QTimerEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8108,16 +10008,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QColorDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QColorDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8129,12 +10029,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QColorDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QColorDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8148,9 +10052,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QColorDialog, callback: *const fn (QColorDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QColorDialog, callback: *const fn (QColorDialog, QChildEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8162,16 +10070,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8183,12 +10091,16 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QColorDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColorDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QColorDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColorDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8202,9 +10114,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QColorDialog, callback: *const fn (QColorDialog, QEvent) callconv(.c) void) void {
         qtc.QColorDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8218,14 +10134,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QColorDialog, signal: anytype) void {
+    pub fn connectNotify(self: QColorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColorDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8239,11 +10155,15 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QColorDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: QColorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColorDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8256,9 +10176,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QColorDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8272,14 +10196,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QColorDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: QColorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColorDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8293,10 +10217,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QColorDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QColorDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColorDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8310,9 +10238,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QColorDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8326,14 +10258,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: QColorDialog, param1: anytype) void {
+    pub fn adjustPosition(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QColorDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8347,10 +10279,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: QColorDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: QColorDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QColorDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8364,10 +10300,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: QColorDialog, callback: *const fn (QColorDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: QColorDialog, callback: *const fn (QColorDialog, QWidget) callconv(.c) void) void {
         qtc.QColorDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8378,13 +10318,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn UpdateMicroFocus(self: QColorDialog) void {
+    pub fn updateMicroFocus(self: QColorDialog) void {
         qtc.QColorDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8396,10 +10336,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: QColorDialog) void {
+    pub fn superUpdateMicroFocus(self: QColorDialog) void {
         qtc.QColorDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8412,10 +10356,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8426,13 +10374,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Create(self: QColorDialog) void {
+    pub fn create(self: QColorDialog) void {
         qtc.QColorDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8444,10 +10392,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperCreate(self: QColorDialog) void {
+    pub fn superCreate(self: QColorDialog) void {
         qtc.QColorDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8460,9 +10412,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8474,13 +10430,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Destroy(self: QColorDialog) void {
+    pub fn destroy(self: QColorDialog) void {
         qtc.QColorDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8492,9 +10448,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperDestroy(self: QColorDialog) void {
+    pub fn superDestroy(self: QColorDialog) void {
         qtc.QColorDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8508,10 +10468,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QColorDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QColorDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8522,13 +10486,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FocusNextChild(self: QColorDialog) bool {
+    pub fn focusNextChild(self: QColorDialog) bool {
         return qtc.QColorDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8540,10 +10504,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperFocusNextChild(self: QColorDialog) bool {
+    pub fn superFocusNextChild(self: QColorDialog) bool {
         return qtc.QColorDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8556,9 +10524,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QColorDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8570,13 +10542,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn FocusPreviousChild(self: QColorDialog) bool {
+    pub fn focusPreviousChild(self: QColorDialog) bool {
         return qtc.QColorDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8588,9 +10560,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: QColorDialog) bool {
+    pub fn superFocusPreviousChild(self: QColorDialog) bool {
         return qtc.QColorDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8604,9 +10580,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QColorDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QColorDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8618,13 +10598,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Sender(self: QColorDialog) QObject {
+    pub fn sender(self: QColorDialog) QObject {
         return .{ .ptr = qtc.QColorDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8636,9 +10616,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperSender(self: QColorDialog) QObject {
+    pub fn superSender(self: QColorDialog) QObject {
         return .{ .ptr = qtc.QColorDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8652,9 +10636,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QColorDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QColorDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.QColorDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8666,13 +10654,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SenderSignalIndex(self: QColorDialog) i32 {
+    pub fn senderSignalIndex(self: QColorDialog) i32 {
         return qtc.QColorDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8684,9 +10672,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: QColorDialog) i32 {
+    pub fn superSenderSignalIndex(self: QColorDialog) i32 {
         return qtc.QColorDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8700,9 +10692,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QColorDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QColorDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8716,14 +10712,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QColorDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QColorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QColorDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8737,10 +10733,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QColorDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QColorDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QColorDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8754,9 +10754,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.QColorDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8770,14 +10774,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QColorDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: QColorDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColorDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8791,10 +10795,14 @@ pub const QColorDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QColorDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QColorDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColorDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8808,9 +10816,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QColorDialog, callback: *const fn (QColorDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.QColorDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8826,13 +10838,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QColorDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8848,9 +10860,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QColorDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QColorDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8864,9 +10880,13 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QColorDialog, callback: *const fn (QColorDialog, i32, i32) callconv(.c) f64) void {
         qtc.QColorDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8880,23 +10900,23 @@ pub const QColorDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QColorDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QColorDialog, callback: *const fn (QColorDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolordialog.html#dtor.QColorDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QColorDialog `
     ///
-    pub fn Delete(self: QColorDialog) void {
+    pub fn delete(self: QColorDialog) void {
         qtc.QColorDialog_Delete(@ptrCast(self.ptr));
     }
 };

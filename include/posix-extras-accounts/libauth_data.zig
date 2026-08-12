@@ -14,27 +14,39 @@ pub const Accounts__AuthData = extern struct {
 
     pub const _is_Accounts__AuthData = {};
 
-    /// New constructs a new Accounts::AuthData object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Accounts::AuthData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Accounts__AuthData `
     ///
-    pub fn New(other: anytype) Accounts__AuthData {
+    pub fn new(other: anytype) Accounts__AuthData {
         comptime _ = @TypeOf(other)._is_Accounts__AuthData;
         return .{ .ptr = qtc.Accounts__AuthData_new(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `credentialsId` instead
+    ///
+    pub const CredentialsId = credentialsId;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Accounts__AuthData `
     ///
-    pub fn CredentialsId(self: Accounts__AuthData) u32 {
+    pub fn credentialsId(self: Accounts__AuthData) u32 {
         return qtc.Accounts__AuthData_CredentialsId(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `method` instead
+    ///
+    pub const Method = method;
+
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
     /// ## Parameter(s):
@@ -43,13 +55,17 @@ pub const Accounts__AuthData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Method(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
+    pub fn method(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__AuthData_Method(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.Method: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.method: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mechanism` instead
+    ///
+    pub const Mechanism = mechanism;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
@@ -59,13 +75,17 @@ pub const Accounts__AuthData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Mechanism(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
+    pub fn mechanism(self: Accounts__AuthData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Accounts__AuthData_Mechanism(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.Mechanism: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Accounts__AuthData.mechanism: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parameters` instead
+    ///
+    pub const Parameters = parameters;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
@@ -75,10 +95,10 @@ pub const Accounts__AuthData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parameters(self: Accounts__AuthData, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn parameters(self: Accounts__AuthData, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.Accounts__AuthData_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Accounts__AuthData.Parameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("Accounts__AuthData.parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -92,7 +112,7 @@ pub const Accounts__AuthData = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Accounts__AuthData.Parameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("Accounts__AuthData.parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -100,19 +120,19 @@ pub const Accounts__AuthData = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://accounts-sso.gitlab.io/libaccounts-qt/classAccounts_1_1AuthData.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Accounts__AuthData `
     ///
-    pub fn Delete(self: Accounts__AuthData) void {
+    pub fn delete(self: Accounts__AuthData) void {
         qtc.Accounts__AuthData_Delete(@ptrCast(self.ptr));
     }
 };

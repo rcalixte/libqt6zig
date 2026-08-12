@@ -96,36 +96,52 @@ pub const KDirOperator = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KDirOperator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KDirOperator {
+    pub const New = new;
+
+    /// Allocate a new KDirOperator object in C++ memory
+    ///
+    pub fn new() KDirOperator {
         return .{ .ptr = qtc.KDirOperator_new() };
     }
 
-    /// New2 constructs a new KDirOperator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KDirOperator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` urlName: QUrl `
     ///
-    pub fn New2(urlName: anytype) KDirOperator {
+    pub fn new2(urlName: anytype) KDirOperator {
         comptime _ = @TypeOf(urlName)._is_QUrl;
         return .{ .ptr = qtc.KDirOperator_new2(@ptrCast(urlName.ptr)) };
     }
 
-    /// New3 constructs a new KDirOperator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KDirOperator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` urlName: QUrl `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New3(urlName: anytype, parent: anytype) KDirOperator {
+    pub fn new3(urlName: anytype, _parent: anytype) KDirOperator {
         comptime _ = @TypeOf(urlName)._is_QUrl;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_new3(@ptrCast(urlName.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_new3(@ptrCast(urlName.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,9 +149,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MetaObject(self: KDirOperator) QMetaObject {
+    pub fn metaObject(self: KDirOperator) QMetaObject {
         return .{ .ptr = qtc.KDirOperator_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -147,13 +167,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KDirOperator, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KDirOperator, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KDirOperator_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -163,9 +183,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperMetaObject(self: KDirOperator) QMetaObject {
+    pub fn superMetaObject(self: KDirOperator) QMetaObject {
         return .{ .ptr = qtc.KDirOperator_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -173,10 +197,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KDirOperator, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KDirOperator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDirOperator_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -186,13 +214,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KDirOperator_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -202,10 +230,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KDirOperator, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KDirOperator, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KDirOperator_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -217,9 +249,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KDirOperator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KDirOperator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDirOperator_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -229,13 +265,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KDirOperator_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -249,9 +285,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KDirOperator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KDirOperator, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KDirOperator_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -261,14 +301,18 @@ pub const KDirOperator = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setShowHiddenFiles` instead
+    ///
+    pub const SetShowHiddenFiles = setShowHiddenFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setShowHiddenFiles)
     ///
@@ -278,9 +322,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` s: bool `
     ///
-    pub fn SetShowHiddenFiles(self: KDirOperator, s: bool) void {
+    pub fn setShowHiddenFiles(self: KDirOperator, s: bool) void {
         qtc.KDirOperator_SetShowHiddenFiles(@ptrCast(self.ptr), s);
     }
+
+    /// ### DEPRECATED: Use `onSetShowHiddenFiles` instead
+    ///
+    pub const OnSetShowHiddenFiles = onSetShowHiddenFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setShowHiddenFiles)
     ///
@@ -292,13 +340,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, s: bool) callconv(.c) void `
     ///
-    pub fn OnSetShowHiddenFiles(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
+    pub fn onSetShowHiddenFiles(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
         qtc.KDirOperator_OnSetShowHiddenFiles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetShowHiddenFiles` instead
+    /// ### DEPRECATED: Use `superSetShowHiddenFiles` instead
     ///
-    pub const QBaseSetShowHiddenFiles = SuperSetShowHiddenFiles;
+    pub const SuperSetShowHiddenFiles = superSetShowHiddenFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setShowHiddenFiles)
     ///
@@ -310,9 +358,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` s: bool `
     ///
-    pub fn SuperSetShowHiddenFiles(self: KDirOperator, s: bool) void {
+    pub fn superSetShowHiddenFiles(self: KDirOperator, s: bool) void {
         qtc.KDirOperator_SuperSetShowHiddenFiles(@ptrCast(self.ptr), s);
     }
+
+    /// ### DEPRECATED: Use `showHiddenFiles` instead
+    ///
+    pub const ShowHiddenFiles = showHiddenFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#showHiddenFiles)
     ///
@@ -320,9 +372,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ShowHiddenFiles(self: KDirOperator) bool {
+    pub fn showHiddenFiles(self: KDirOperator) bool {
         return qtc.KDirOperator_ShowHiddenFiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#close)
     ///
@@ -330,9 +386,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Close(self: KDirOperator) void {
+    pub fn close(self: KDirOperator) void {
         qtc.KDirOperator_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameFilter` instead
+    ///
+    pub const SetNameFilter = setNameFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setNameFilter)
     ///
@@ -342,13 +402,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn SetNameFilter(self: KDirOperator, filter: []const u8) void {
+    pub fn setNameFilter(self: KDirOperator, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
         qtc.KDirOperator_SetNameFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `nameFilter` instead
+    ///
+    pub const NameFilter = nameFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#nameFilter)
     ///
@@ -358,13 +422,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameFilter(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn nameFilter(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KDirOperator_NameFilter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.NameFilter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.nameFilter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMimeFilter` instead
+    ///
+    pub const SetMimeFilter = setMimeFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setMimeFilter)
     ///
@@ -376,13 +444,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` mimetypes: []const []const u8 `
     ///
-    pub fn SetMimeFilter(self: KDirOperator, allocator: std.mem.Allocator, mimetypes: []const []const u8) void {
-        const mimetypes_arr = allocator.alloc(qtc.libqt_string, mimetypes.len) catch @panic("KDirOperator.SetMimeFilter: Memory allocation failed");
+    pub fn setMimeFilter(self: KDirOperator, allocator: std.mem.Allocator, mimetypes: []const []const u8) void {
+        const mimetypes_arr = allocator.alloc(qtc.libqt_string, mimetypes.len) catch @panic("KDirOperator.setMimeFilter: Memory allocation failed");
         defer allocator.free(mimetypes_arr);
-        for (mimetypes, 0..mimetypes.len) |item, i|
+        for (mimetypes, 0..mimetypes.len) |str_item, i|
             mimetypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const mimetypes_list = qtc.libqt_list{
             .len = mimetypes.len,
@@ -390,6 +458,10 @@ pub const KDirOperator = extern struct {
         };
         qtc.KDirOperator_SetMimeFilter(@ptrCast(self.ptr), mimetypes_list);
     }
+
+    /// ### DEPRECATED: Use `mimeFilter` instead
+    ///
+    pub const MimeFilter = mimeFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#mimeFilter)
     ///
@@ -399,7 +471,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeFilter(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeFilter(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_MimeFilter(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -407,15 +479,19 @@ pub const KDirOperator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.MimeFilter: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.mimeFilter: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirOperator.MimeFilter: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDirOperator.mimeFilter: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNewFileMenuSupportedMimeTypes` instead
+    ///
+    pub const SetNewFileMenuSupportedMimeTypes = setNewFileMenuSupportedMimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setNewFileMenuSupportedMimeTypes)
     ///
@@ -427,13 +503,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` mime: []const []const u8 `
     ///
-    pub fn SetNewFileMenuSupportedMimeTypes(self: KDirOperator, allocator: std.mem.Allocator, mime: []const []const u8) void {
-        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("KDirOperator.SetNewFileMenuSupportedMimeTypes: Memory allocation failed");
+    pub fn setNewFileMenuSupportedMimeTypes(self: KDirOperator, allocator: std.mem.Allocator, mime: []const []const u8) void {
+        const mime_arr = allocator.alloc(qtc.libqt_string, mime.len) catch @panic("KDirOperator.setNewFileMenuSupportedMimeTypes: Memory allocation failed");
         defer allocator.free(mime_arr);
-        for (mime, 0..mime.len) |item, i|
+        for (mime, 0..mime.len) |str_item, i|
             mime_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const mime_list = qtc.libqt_list{
             .len = mime.len,
@@ -441,6 +517,10 @@ pub const KDirOperator = extern struct {
         };
         qtc.KDirOperator_SetNewFileMenuSupportedMimeTypes(@ptrCast(self.ptr), mime_list);
     }
+
+    /// ### DEPRECATED: Use `newFileMenuSupportedMimeTypes` instead
+    ///
+    pub const NewFileMenuSupportedMimeTypes = newFileMenuSupportedMimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#newFileMenuSupportedMimeTypes)
     ///
@@ -450,7 +530,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NewFileMenuSupportedMimeTypes(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn newFileMenuSupportedMimeTypes(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_NewFileMenuSupportedMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -458,15 +538,19 @@ pub const KDirOperator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.NewFileMenuSupportedMimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.newFileMenuSupportedMimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirOperator.NewFileMenuSupportedMimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDirOperator.newFileMenuSupportedMimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNewFileMenuSelectDirWhenAlreadyExist` instead
+    ///
+    pub const SetNewFileMenuSelectDirWhenAlreadyExist = setNewFileMenuSelectDirWhenAlreadyExist;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setNewFileMenuSelectDirWhenAlreadyExist)
     ///
@@ -476,9 +560,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` selectOnDirExists: bool `
     ///
-    pub fn SetNewFileMenuSelectDirWhenAlreadyExist(self: KDirOperator, selectOnDirExists: bool) void {
+    pub fn setNewFileMenuSelectDirWhenAlreadyExist(self: KDirOperator, selectOnDirExists: bool) void {
         qtc.KDirOperator_SetNewFileMenuSelectDirWhenAlreadyExist(@ptrCast(self.ptr), selectOnDirExists);
     }
+
+    /// ### DEPRECATED: Use `clearFilter` instead
+    ///
+    pub const ClearFilter = clearFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#clearFilter)
     ///
@@ -486,9 +574,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ClearFilter(self: KDirOperator) void {
+    pub fn clearFilter(self: KDirOperator) void {
         qtc.KDirOperator_ClearFilter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#url)
     ///
@@ -496,9 +588,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Url(self: KDirOperator) QUrl {
+    pub fn url(self: KDirOperator) QUrl {
         return .{ .ptr = qtc.KDirOperator_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setUrl)
     ///
@@ -506,14 +602,18 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
     /// ` clearforward: bool `
     ///
-    pub fn SetUrl(self: KDirOperator, url: anytype, clearforward: bool) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KDirOperator_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr), clearforward);
+    pub fn setUrl(self: KDirOperator, _url: anytype, clearforward: bool) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KDirOperator_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr), clearforward);
     }
+
+    /// ### DEPRECATED: Use `onSetUrl` instead
+    ///
+    pub const OnSetUrl = onSetUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setUrl)
     ///
@@ -525,13 +625,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, url: QUrl, clearforward: bool) callconv(.c) void `
     ///
-    pub fn OnSetUrl(self: KDirOperator, callback: *const fn (KDirOperator, QUrl, bool) callconv(.c) void) void {
+    pub fn onSetUrl(self: KDirOperator, callback: *const fn (KDirOperator, QUrl, bool) callconv(.c) void) void {
         qtc.KDirOperator_OnSetUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetUrl` instead
+    /// ### DEPRECATED: Use `superSetUrl` instead
     ///
-    pub const QBaseSetUrl = SuperSetUrl;
+    pub const SuperSetUrl = superSetUrl;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setUrl)
     ///
@@ -541,14 +641,18 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
     /// ` clearforward: bool `
     ///
-    pub fn SuperSetUrl(self: KDirOperator, url: anytype, clearforward: bool) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KDirOperator_SuperSetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr), clearforward);
+    pub fn superSetUrl(self: KDirOperator, _url: anytype, clearforward: bool) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KDirOperator_SuperSetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr), clearforward);
     }
+
+    /// ### DEPRECATED: Use `setCurrentItem` instead
+    ///
+    pub const SetCurrentItem = setCurrentItem;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setCurrentItem)
     ///
@@ -556,12 +660,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetCurrentItem(self: KDirOperator, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.KDirOperator_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setCurrentItem(self: KDirOperator, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.KDirOperator_SetCurrentItem(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentItem2` instead
+    ///
+    pub const SetCurrentItem2 = setCurrentItem2;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setCurrentItem)
     ///
@@ -571,10 +679,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SetCurrentItem2(self: KDirOperator, item: anytype) void {
+    pub fn setCurrentItem2(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SetCurrentItem2(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentItems` instead
+    ///
+    pub const SetCurrentItems = setCurrentItems;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setCurrentItems)
     ///
@@ -584,13 +696,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    pub fn SetCurrentItems(self: KDirOperator, urls: []QUrl) void {
+    pub fn setCurrentItems(self: KDirOperator, urls: []QUrl) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
         qtc.KDirOperator_SetCurrentItems(@ptrCast(self.ptr), urls_list);
     }
+
+    /// ### DEPRECATED: Use `setCurrentItems2` instead
+    ///
+    pub const SetCurrentItems2 = setCurrentItems2;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setCurrentItems)
     ///
@@ -600,10 +716,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    pub fn SetCurrentItems2(self: KDirOperator, items: anytype) void {
+    pub fn setCurrentItems2(self: KDirOperator, items: anytype) void {
         comptime _ = @TypeOf(items)._is_KFileItemList;
         qtc.KDirOperator_SetCurrentItems2(@ptrCast(self.ptr), @ptrCast(items.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#view)
     ///
@@ -611,9 +731,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn View(self: KDirOperator) QAbstractItemView {
+    pub fn view(self: KDirOperator) QAbstractItemView {
         return .{ .ptr = qtc.KDirOperator_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewMode` instead
+    ///
+    pub const SetViewMode = setViewMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setViewMode)
     ///
@@ -623,9 +747,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` viewKind: kfile_enums.FileView `
     ///
-    pub fn SetViewMode(self: KDirOperator, viewKind: i32) void {
+    pub fn setViewMode(self: KDirOperator, viewKind: i32) void {
         qtc.KDirOperator_SetViewMode(@ptrCast(self.ptr), @bitCast(viewKind));
     }
+
+    /// ### DEPRECATED: Use `viewMode` instead
+    ///
+    pub const ViewMode = viewMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#viewMode)
     ///
@@ -637,9 +765,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` kfile_enums.FileView `
     ///
-    pub fn ViewMode(self: KDirOperator) i32 {
+    pub fn viewMode(self: KDirOperator) i32 {
         return qtc.KDirOperator_ViewMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSorting` instead
+    ///
+    pub const SetSorting = setSorting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setSorting)
     ///
@@ -647,11 +779,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` sorting: flag of qdir_enums.SortFlag `
+    /// ` _sorting: flag of qdir_enums.SortFlag `
     ///
-    pub fn SetSorting(self: KDirOperator, sorting: i32) void {
-        qtc.KDirOperator_SetSorting(@ptrCast(self.ptr), @bitCast(sorting));
+    pub fn setSorting(self: KDirOperator, _sorting: i32) void {
+        qtc.KDirOperator_SetSorting(@ptrCast(self.ptr), @bitCast(_sorting));
     }
+
+    /// ### DEPRECATED: Use `sorting` instead
+    ///
+    pub const Sorting = sorting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sorting)
     ///
@@ -663,9 +799,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flag of qdir_enums.SortFlag `
     ///
-    pub fn Sorting(self: KDirOperator) i32 {
+    pub fn sorting(self: KDirOperator) i32 {
         return qtc.KDirOperator_Sorting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRoot` instead
+    ///
+    pub const IsRoot = isRoot;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#isRoot)
     ///
@@ -673,9 +813,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsRoot(self: KDirOperator) bool {
+    pub fn isRoot(self: KDirOperator) bool {
         return qtc.KDirOperator_IsRoot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dirLister` instead
+    ///
+    pub const DirLister = dirLister;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirLister)
     ///
@@ -683,9 +827,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DirLister(self: KDirOperator) KDirLister {
+    pub fn dirLister(self: KDirOperator) KDirLister {
         return .{ .ptr = qtc.KDirOperator_DirLister(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `progressBar` instead
+    ///
+    pub const ProgressBar = progressBar;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#progressBar)
     ///
@@ -693,9 +841,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ProgressBar(self: KDirOperator) QProgressBar {
+    pub fn progressBar(self: KDirOperator) QProgressBar {
         return .{ .ptr = qtc.KDirOperator_ProgressBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMode` instead
+    ///
+    pub const SetMode = setMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setMode)
     ///
@@ -705,9 +857,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` m: flag of kfile_enums.Mode `
     ///
-    pub fn SetMode(self: KDirOperator, m: i32) void {
+    pub fn setMode(self: KDirOperator, m: i32) void {
         qtc.KDirOperator_SetMode(@ptrCast(self.ptr), @bitCast(m));
     }
+
+    /// ### DEPRECATED: Use `onSetMode` instead
+    ///
+    pub const OnSetMode = onSetMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setMode)
     ///
@@ -719,13 +875,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, m: flag of kfile_enums.Mode) callconv(.c) void `
     ///
-    pub fn OnSetMode(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
+    pub fn onSetMode(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
         qtc.KDirOperator_OnSetMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMode` instead
+    /// ### DEPRECATED: Use `superSetMode` instead
     ///
-    pub const QBaseSetMode = SuperSetMode;
+    pub const SuperSetMode = superSetMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setMode)
     ///
@@ -737,9 +893,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` m: flag of kfile_enums.Mode `
     ///
-    pub fn SuperSetMode(self: KDirOperator, m: i32) void {
+    pub fn superSetMode(self: KDirOperator, m: i32) void {
         qtc.KDirOperator_SuperSetMode(@ptrCast(self.ptr), @bitCast(m));
     }
+
+    /// ### DEPRECATED: Use `mode` instead
+    ///
+    pub const Mode = mode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#mode)
     ///
@@ -751,9 +911,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flag of kfile_enums.Mode `
     ///
-    pub fn Mode(self: KDirOperator) i32 {
+    pub fn mode(self: KDirOperator) i32 {
         return qtc.KDirOperator_Mode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPreviewWidget` instead
+    ///
+    pub const SetPreviewWidget = setPreviewWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setPreviewWidget)
     ///
@@ -763,10 +927,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` w: KPreviewWidgetBase `
     ///
-    pub fn SetPreviewWidget(self: KDirOperator, w: anytype) void {
+    pub fn setPreviewWidget(self: KDirOperator, w: anytype) void {
         comptime _ = @TypeOf(w)._is_KPreviewWidgetBase;
         qtc.KDirOperator_SetPreviewWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPreviewWidget` instead
+    ///
+    pub const OnSetPreviewWidget = onSetPreviewWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setPreviewWidget)
     ///
@@ -778,13 +946,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, w: KPreviewWidgetBase) callconv(.c) void `
     ///
-    pub fn OnSetPreviewWidget(self: KDirOperator, callback: *const fn (KDirOperator, KPreviewWidgetBase) callconv(.c) void) void {
+    pub fn onSetPreviewWidget(self: KDirOperator, callback: *const fn (KDirOperator, KPreviewWidgetBase) callconv(.c) void) void {
         qtc.KDirOperator_OnSetPreviewWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPreviewWidget` instead
+    /// ### DEPRECATED: Use `superSetPreviewWidget` instead
     ///
-    pub const QBaseSetPreviewWidget = SuperSetPreviewWidget;
+    pub const SuperSetPreviewWidget = superSetPreviewWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setPreviewWidget)
     ///
@@ -796,10 +964,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` w: KPreviewWidgetBase `
     ///
-    pub fn SuperSetPreviewWidget(self: KDirOperator, w: anytype) void {
+    pub fn superSetPreviewWidget(self: KDirOperator, w: anytype) void {
         comptime _ = @TypeOf(w)._is_KPreviewWidgetBase;
         qtc.KDirOperator_SuperSetPreviewWidget(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedItems` instead
+    ///
+    pub const SelectedItems = selectedItems;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectedItems)
     ///
@@ -807,9 +979,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SelectedItems(self: KDirOperator) KFileItemList {
+    pub fn selectedItems(self: KDirOperator) KFileItemList {
         return .{ .ptr = qtc.KDirOperator_SelectedItems(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isSelected` instead
+    ///
+    pub const IsSelected = isSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#isSelected)
     ///
@@ -819,10 +995,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn IsSelected(self: KDirOperator, item: anytype) bool {
+    pub fn isSelected(self: KDirOperator, item: anytype) bool {
         comptime _ = @TypeOf(item)._is_KFileItem;
         return qtc.KDirOperator_IsSelected(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `numDirs` instead
+    ///
+    pub const NumDirs = numDirs;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#numDirs)
     ///
@@ -830,9 +1010,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn NumDirs(self: KDirOperator) i32 {
+    pub fn numDirs(self: KDirOperator) i32 {
         return qtc.KDirOperator_NumDirs(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `numFiles` instead
+    ///
+    pub const NumFiles = numFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#numFiles)
     ///
@@ -840,9 +1024,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn NumFiles(self: KDirOperator) i32 {
+    pub fn numFiles(self: KDirOperator) i32 {
         return qtc.KDirOperator_NumFiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#completionObject)
     ///
@@ -850,9 +1038,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn CompletionObject(self: KDirOperator) KCompletion {
+    pub fn completionObject(self: KDirOperator) KCompletion {
         return .{ .ptr = qtc.KDirOperator_CompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `dirCompletionObject` instead
+    ///
+    pub const DirCompletionObject = dirCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirCompletionObject)
     ///
@@ -860,9 +1052,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DirCompletionObject(self: KDirOperator) KCompletion {
+    pub fn dirCompletionObject(self: KDirOperator) KCompletion {
         return .{ .ptr = qtc.KDirOperator_DirCompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `action` instead
+    ///
+    pub const Action = action;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#action)
     ///
@@ -870,11 +1066,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` action: kdiroperator_enums.Action `
+    /// ` _action: kdiroperator_enums.Action `
     ///
-    pub fn Action(self: KDirOperator, action: i32) QAction {
-        return .{ .ptr = qtc.KDirOperator_Action(@ptrCast(self.ptr), @bitCast(action)) };
+    pub fn action(self: KDirOperator, _action: i32) QAction {
+        return .{ .ptr = qtc.KDirOperator_Action(@ptrCast(self.ptr), @bitCast(_action)) };
     }
+
+    /// ### DEPRECATED: Use `allActions` instead
+    ///
+    pub const AllActions = allActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#allActions)
     ///
@@ -884,15 +1084,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllActions(self: KDirOperator, allocator: std.mem.Allocator) []QAction {
+    pub fn allActions(self: KDirOperator, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.KDirOperator_AllActions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDirOperator.AllActions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDirOperator.allActions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setViewConfig` instead
+    ///
+    pub const SetViewConfig = setViewConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setViewConfig)
     ///
@@ -902,10 +1106,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn SetViewConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn setViewConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_SetViewConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetViewConfig` instead
+    ///
+    pub const OnSetViewConfig = onSetViewConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setViewConfig)
     ///
@@ -917,13 +1125,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, configGroup: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnSetViewConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
+    pub fn onSetViewConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
         qtc.KDirOperator_OnSetViewConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewConfig` instead
+    /// ### DEPRECATED: Use `superSetViewConfig` instead
     ///
-    pub const QBaseSetViewConfig = SuperSetViewConfig;
+    pub const SuperSetViewConfig = superSetViewConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setViewConfig)
     ///
@@ -935,10 +1143,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn SuperSetViewConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn superSetViewConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_SuperSetViewConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
+
+    /// ### DEPRECATED: Use `viewConfigGroup` instead
+    ///
+    pub const ViewConfigGroup = viewConfigGroup;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#viewConfigGroup)
     ///
@@ -946,9 +1158,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ViewConfigGroup(self: KDirOperator) KConfigGroup {
+    pub fn viewConfigGroup(self: KDirOperator) KConfigGroup {
         return .{ .ptr = qtc.KDirOperator_ViewConfigGroup(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `readConfig` instead
+    ///
+    pub const ReadConfig = readConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#readConfig)
     ///
@@ -958,11 +1174,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn ReadConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn readConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_ReadConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReadConfig` instead
+    ///
+    pub const OnReadConfig = onReadConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#readConfig)
     ///
     /// Allows for overriding the related default method
@@ -973,13 +1193,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, configGroup: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnReadConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
+    pub fn onReadConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
         qtc.KDirOperator_OnReadConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReadConfig` instead
+    /// ### DEPRECATED: Use `superReadConfig` instead
     ///
-    pub const QBaseReadConfig = SuperReadConfig;
+    pub const SuperReadConfig = superReadConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#readConfig)
     ///
@@ -991,11 +1211,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn SuperReadConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn superReadConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_SuperReadConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
 
+    /// ### DEPRECATED: Use `writeConfig` instead
+    ///
+    pub const WriteConfig = writeConfig;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#writeConfig)
     ///
     /// ## Parameter(s):
@@ -1004,10 +1228,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn WriteConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn writeConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_WriteConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWriteConfig` instead
+    ///
+    pub const OnWriteConfig = onWriteConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#writeConfig)
     ///
@@ -1019,13 +1247,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, configGroup: KConfigGroup) callconv(.c) void `
     ///
-    pub fn OnWriteConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
+    pub fn onWriteConfig(self: KDirOperator, callback: *const fn (KDirOperator, KConfigGroup) callconv(.c) void) void {
         qtc.KDirOperator_OnWriteConfig(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteConfig` instead
+    /// ### DEPRECATED: Use `superWriteConfig` instead
     ///
-    pub const QBaseWriteConfig = SuperWriteConfig;
+    pub const SuperWriteConfig = superWriteConfig;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#writeConfig)
     ///
@@ -1037,10 +1265,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` configGroup: KConfigGroup `
     ///
-    pub fn SuperWriteConfig(self: KDirOperator, configGroup: anytype) void {
+    pub fn superWriteConfig(self: KDirOperator, configGroup: anytype) void {
         comptime _ = @TypeOf(configGroup)._is_KConfigGroup;
         qtc.KDirOperator_SuperWriteConfig(@ptrCast(self.ptr), @ptrCast(configGroup.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOnlyDoubleClickSelectsFiles` instead
+    ///
+    pub const SetOnlyDoubleClickSelectsFiles = setOnlyDoubleClickSelectsFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setOnlyDoubleClickSelectsFiles)
     ///
@@ -1050,9 +1282,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetOnlyDoubleClickSelectsFiles(self: KDirOperator, enable: bool) void {
+    pub fn setOnlyDoubleClickSelectsFiles(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_SetOnlyDoubleClickSelectsFiles(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `onlyDoubleClickSelectsFiles` instead
+    ///
+    pub const OnlyDoubleClickSelectsFiles = onlyDoubleClickSelectsFiles;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#onlyDoubleClickSelectsFiles)
     ///
@@ -1060,9 +1296,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn OnlyDoubleClickSelectsFiles(self: KDirOperator) bool {
+    pub fn onlyDoubleClickSelectsFiles(self: KDirOperator) bool {
         return qtc.KDirOperator_OnlyDoubleClickSelectsFiles(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFollowNewDirectories` instead
+    ///
+    pub const SetFollowNewDirectories = setFollowNewDirectories;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setFollowNewDirectories)
     ///
@@ -1072,9 +1312,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFollowNewDirectories(self: KDirOperator, enable: bool) void {
+    pub fn setFollowNewDirectories(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_SetFollowNewDirectories(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `followNewDirectories` instead
+    ///
+    pub const FollowNewDirectories = followNewDirectories;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#followNewDirectories)
     ///
@@ -1082,9 +1326,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FollowNewDirectories(self: KDirOperator) bool {
+    pub fn followNewDirectories(self: KDirOperator) bool {
         return qtc.KDirOperator_FollowNewDirectories(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFollowSelectedDirectories` instead
+    ///
+    pub const SetFollowSelectedDirectories = setFollowSelectedDirectories;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setFollowSelectedDirectories)
     ///
@@ -1094,9 +1342,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetFollowSelectedDirectories(self: KDirOperator, enable: bool) void {
+    pub fn setFollowSelectedDirectories(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_SetFollowSelectedDirectories(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `followSelectedDirectories` instead
+    ///
+    pub const FollowSelectedDirectories = followSelectedDirectories;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#followSelectedDirectories)
     ///
@@ -1104,9 +1356,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FollowSelectedDirectories(self: KDirOperator) bool {
+    pub fn followSelectedDirectories(self: KDirOperator) bool {
         return qtc.KDirOperator_FollowSelectedDirectories(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `del` instead
+    ///
+    pub const Del = del;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#del)
     ///
@@ -1116,17 +1372,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` ask: bool `
     ///
     /// ` showProgress: bool `
     ///
-    pub fn Del(self: KDirOperator, items: anytype, parent: anytype, ask: bool, showProgress: bool) KIO__DeleteJob {
+    pub fn del(self: KDirOperator, items: anytype, _parent: anytype, ask: bool, showProgress: bool) KIO__DeleteJob {
         comptime _ = @TypeOf(items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_Del(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(parent.ptr), ask, showProgress) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_Del(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(_parent.ptr), ask, showProgress) };
     }
+
+    /// ### DEPRECATED: Use `onDel` instead
+    ///
+    pub const OnDel = onDel;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#del)
     ///
@@ -1138,13 +1398,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, items: KFileItemList, parent: QWidget, ask: bool, showProgress: bool) callconv(.c) KIO__DeleteJob `
     ///
-    pub fn OnDel(self: KDirOperator, callback: *const fn (KDirOperator, KFileItemList, QWidget, bool, bool) callconv(.c) KIO__DeleteJob) void {
+    pub fn onDel(self: KDirOperator, callback: *const fn (KDirOperator, KFileItemList, QWidget, bool, bool) callconv(.c) KIO__DeleteJob) void {
         qtc.KDirOperator_OnDel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDel` instead
+    /// ### DEPRECATED: Use `superDel` instead
     ///
-    pub const QBaseDel = SuperDel;
+    pub const SuperDel = superDel;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#del)
     ///
@@ -1156,17 +1416,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` ask: bool `
     ///
     /// ` showProgress: bool `
     ///
-    pub fn SuperDel(self: KDirOperator, items: anytype, parent: anytype, ask: bool, showProgress: bool) KIO__DeleteJob {
+    pub fn superDel(self: KDirOperator, items: anytype, _parent: anytype, ask: bool, showProgress: bool) KIO__DeleteJob {
         comptime _ = @TypeOf(items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_SuperDel(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(parent.ptr), ask, showProgress) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_SuperDel(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(_parent.ptr), ask, showProgress) };
     }
+
+    /// ### DEPRECATED: Use `clearHistory` instead
+    ///
+    pub const ClearHistory = clearHistory;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#clearHistory)
     ///
@@ -1174,9 +1438,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ClearHistory(self: KDirOperator) void {
+    pub fn clearHistory(self: KDirOperator) void {
         qtc.KDirOperator_ClearHistory(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnableDirHighlighting` instead
+    ///
+    pub const SetEnableDirHighlighting = setEnableDirHighlighting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setEnableDirHighlighting)
     ///
@@ -1186,9 +1454,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnableDirHighlighting(self: KDirOperator, enable: bool) void {
+    pub fn setEnableDirHighlighting(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_SetEnableDirHighlighting(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `onSetEnableDirHighlighting` instead
+    ///
+    pub const OnSetEnableDirHighlighting = onSetEnableDirHighlighting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setEnableDirHighlighting)
     ///
@@ -1200,13 +1472,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, enable: bool) callconv(.c) void `
     ///
-    pub fn OnSetEnableDirHighlighting(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
+    pub fn onSetEnableDirHighlighting(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
         qtc.KDirOperator_OnSetEnableDirHighlighting(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEnableDirHighlighting` instead
+    /// ### DEPRECATED: Use `superSetEnableDirHighlighting` instead
     ///
-    pub const QBaseSetEnableDirHighlighting = SuperSetEnableDirHighlighting;
+    pub const SuperSetEnableDirHighlighting = superSetEnableDirHighlighting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setEnableDirHighlighting)
     ///
@@ -1218,9 +1490,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SuperSetEnableDirHighlighting(self: KDirOperator, enable: bool) void {
+    pub fn superSetEnableDirHighlighting(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_SuperSetEnableDirHighlighting(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dirHighlighting` instead
+    ///
+    pub const DirHighlighting = dirHighlighting;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirHighlighting)
     ///
@@ -1228,9 +1504,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DirHighlighting(self: KDirOperator) bool {
+    pub fn dirHighlighting(self: KDirOperator) bool {
         return qtc.KDirOperator_DirHighlighting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dirOnlyMode` instead
+    ///
+    pub const DirOnlyMode = dirOnlyMode;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirOnlyMode)
     ///
@@ -1238,19 +1518,27 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DirOnlyMode(self: KDirOperator) bool {
+    pub fn dirOnlyMode(self: KDirOperator) bool {
         return qtc.KDirOperator_DirOnlyMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dirOnlyMode2` instead
+    ///
+    pub const DirOnlyMode2 = dirOnlyMode2;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirOnlyMode)
     ///
     /// ## Parameter(s):
     ///
-    /// ` mode: u32 `
+    /// ` _mode: u32 `
     ///
-    pub fn DirOnlyMode2(mode: u32) bool {
-        return qtc.KDirOperator_DirOnlyMode2(@bitCast(mode));
+    pub fn dirOnlyMode2(_mode: u32) bool {
+        return qtc.KDirOperator_DirOnlyMode2(@bitCast(_mode));
     }
+
+    /// ### DEPRECATED: Use `setupMenu` instead
+    ///
+    pub const SetupMenu = setupMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
     ///
@@ -1260,9 +1548,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` whichActions: i32 `
     ///
-    pub fn SetupMenu(self: KDirOperator, whichActions: i32) void {
+    pub fn setupMenu(self: KDirOperator, whichActions: i32) void {
         qtc.KDirOperator_SetupMenu(@ptrCast(self.ptr), @bitCast(whichActions));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setAcceptDrops)
     ///
@@ -1272,9 +1564,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAcceptDrops(self: KDirOperator, b: bool) void {
+    pub fn setAcceptDrops(self: KDirOperator, b: bool) void {
         qtc.KDirOperator_SetAcceptDrops(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onSetAcceptDrops` instead
+    ///
+    pub const OnSetAcceptDrops = onSetAcceptDrops;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setAcceptDrops)
     ///
@@ -1286,13 +1582,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, b: bool) callconv(.c) void `
     ///
-    pub fn OnSetAcceptDrops(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
+    pub fn onSetAcceptDrops(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
         qtc.KDirOperator_OnSetAcceptDrops(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAcceptDrops` instead
+    /// ### DEPRECATED: Use `superSetAcceptDrops` instead
     ///
-    pub const QBaseSetAcceptDrops = SuperSetAcceptDrops;
+    pub const SuperSetAcceptDrops = superSetAcceptDrops;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setAcceptDrops)
     ///
@@ -1304,9 +1600,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperSetAcceptDrops(self: KDirOperator, b: bool) void {
+    pub fn superSetAcceptDrops(self: KDirOperator, b: bool) void {
         qtc.KDirOperator_SuperSetAcceptDrops(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setDropOptions` instead
+    ///
+    pub const SetDropOptions = setDropOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDropOptions)
     ///
@@ -1316,9 +1616,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` options: i32 `
     ///
-    pub fn SetDropOptions(self: KDirOperator, options: i32) void {
+    pub fn setDropOptions(self: KDirOperator, options: i32) void {
         qtc.KDirOperator_SetDropOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `onSetDropOptions` instead
+    ///
+    pub const OnSetDropOptions = onSetDropOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDropOptions)
     ///
@@ -1330,13 +1634,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, options: i32) callconv(.c) void `
     ///
-    pub fn OnSetDropOptions(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
+    pub fn onSetDropOptions(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
         qtc.KDirOperator_OnSetDropOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDropOptions` instead
+    /// ### DEPRECATED: Use `superSetDropOptions` instead
     ///
-    pub const QBaseSetDropOptions = SuperSetDropOptions;
+    pub const SuperSetDropOptions = superSetDropOptions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDropOptions)
     ///
@@ -1348,9 +1652,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` options: i32 `
     ///
-    pub fn SuperSetDropOptions(self: KDirOperator, options: i32) void {
+    pub fn superSetDropOptions(self: KDirOperator, options: i32) void {
         qtc.KDirOperator_SuperSetDropOptions(@ptrCast(self.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `trash` instead
+    ///
+    pub const Trash = trash;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trash)
     ///
@@ -1360,17 +1668,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` ask: bool `
     ///
     /// ` showProgress: bool `
     ///
-    pub fn Trash(self: KDirOperator, items: anytype, parent: anytype, ask: bool, showProgress: bool) KIO__CopyJob {
+    pub fn trash(self: KDirOperator, items: anytype, _parent: anytype, ask: bool, showProgress: bool) KIO__CopyJob {
         comptime _ = @TypeOf(items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_Trash(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(parent.ptr), ask, showProgress) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_Trash(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(_parent.ptr), ask, showProgress) };
     }
+
+    /// ### DEPRECATED: Use `onTrash` instead
+    ///
+    pub const OnTrash = onTrash;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trash)
     ///
@@ -1382,13 +1694,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, items: KFileItemList, parent: QWidget, ask: bool, showProgress: bool) callconv(.c) KIO__CopyJob `
     ///
-    pub fn OnTrash(self: KDirOperator, callback: *const fn (KDirOperator, KFileItemList, QWidget, bool, bool) callconv(.c) KIO__CopyJob) void {
+    pub fn onTrash(self: KDirOperator, callback: *const fn (KDirOperator, KFileItemList, QWidget, bool, bool) callconv(.c) KIO__CopyJob) void {
         qtc.KDirOperator_OnTrash(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTrash` instead
+    /// ### DEPRECATED: Use `superTrash` instead
     ///
-    pub const QBaseTrash = SuperTrash;
+    pub const SuperTrash = superTrash;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trash)
     ///
@@ -1400,17 +1712,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` items: KFileItemList `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` ask: bool `
     ///
     /// ` showProgress: bool `
     ///
-    pub fn SuperTrash(self: KDirOperator, items: anytype, parent: anytype, ask: bool, showProgress: bool) KIO__CopyJob {
+    pub fn superTrash(self: KDirOperator, items: anytype, _parent: anytype, ask: bool, showProgress: bool) KIO__CopyJob {
         comptime _ = @TypeOf(items)._is_KFileItemList;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_SuperTrash(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(parent.ptr), ask, showProgress) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_SuperTrash(@ptrCast(self.ptr), @ptrCast(items.ptr), @ptrCast(_parent.ptr), ask, showProgress) };
     }
+
+    /// ### DEPRECATED: Use `previewGenerator` instead
+    ///
+    pub const PreviewGenerator = previewGenerator;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#previewGenerator)
     ///
@@ -1418,9 +1734,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PreviewGenerator(self: KDirOperator) KFilePreviewGenerator {
+    pub fn previewGenerator(self: KDirOperator) KFilePreviewGenerator {
         return .{ .ptr = qtc.KDirOperator_PreviewGenerator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setInlinePreviewShown` instead
+    ///
+    pub const SetInlinePreviewShown = setInlinePreviewShown;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setInlinePreviewShown)
     ///
@@ -1428,11 +1748,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetInlinePreviewShown(self: KDirOperator, show: bool) void {
-        qtc.KDirOperator_SetInlinePreviewShown(@ptrCast(self.ptr), show);
+    pub fn setInlinePreviewShown(self: KDirOperator, _show: bool) void {
+        qtc.KDirOperator_SetInlinePreviewShown(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `decorationPosition` instead
+    ///
+    pub const DecorationPosition = decorationPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#decorationPosition)
     ///
@@ -1444,9 +1768,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qstyleoption_enums.Position `
     ///
-    pub fn DecorationPosition(self: KDirOperator) i32 {
+    pub fn decorationPosition(self: KDirOperator) i32 {
         return qtc.KDirOperator_DecorationPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDecorationPosition` instead
+    ///
+    pub const SetDecorationPosition = setDecorationPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDecorationPosition)
     ///
@@ -1456,9 +1784,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` position: qstyleoption_enums.Position `
     ///
-    pub fn SetDecorationPosition(self: KDirOperator, position: i32) void {
+    pub fn setDecorationPosition(self: KDirOperator, position: i32) void {
         qtc.KDirOperator_SetDecorationPosition(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `isInlinePreviewShown` instead
+    ///
+    pub const IsInlinePreviewShown = isInlinePreviewShown;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#isInlinePreviewShown)
     ///
@@ -1466,9 +1798,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsInlinePreviewShown(self: KDirOperator) bool {
+    pub fn isInlinePreviewShown(self: KDirOperator) bool {
         return qtc.KDirOperator_IsInlinePreviewShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#iconSize)
     ///
@@ -1476,9 +1812,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IconSize(self: KDirOperator) i32 {
+    pub fn iconSize(self: KDirOperator) i32 {
         return qtc.KDirOperator_IconSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIsSaving` instead
+    ///
+    pub const SetIsSaving = setIsSaving;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setIsSaving)
     ///
@@ -1486,11 +1826,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` isSaving: bool `
+    /// ` _isSaving: bool `
     ///
-    pub fn SetIsSaving(self: KDirOperator, isSaving: bool) void {
-        qtc.KDirOperator_SetIsSaving(@ptrCast(self.ptr), isSaving);
+    pub fn setIsSaving(self: KDirOperator, _isSaving: bool) void {
+        qtc.KDirOperator_SetIsSaving(@ptrCast(self.ptr), _isSaving);
     }
+
+    /// ### DEPRECATED: Use `isSaving` instead
+    ///
+    pub const IsSaving = isSaving;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#isSaving)
     ///
@@ -1498,9 +1842,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsSaving(self: KDirOperator) bool {
+    pub fn isSaving(self: KDirOperator) bool {
         return qtc.KDirOperator_IsSaving(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedSchemes` instead
+    ///
+    pub const SupportedSchemes = supportedSchemes;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#supportedSchemes)
     ///
@@ -1510,7 +1858,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SupportedSchemes(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn supportedSchemes(self: KDirOperator, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KDirOperator_SupportedSchemes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1518,15 +1866,19 @@ pub const KDirOperator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.SupportedSchemes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KDirOperator.supportedSchemes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirOperator.SupportedSchemes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDirOperator.supportedSchemes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `showOpenWithActions` instead
+    ///
+    pub const ShowOpenWithActions = showOpenWithActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#showOpenWithActions)
     ///
@@ -1536,9 +1888,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn ShowOpenWithActions(self: KDirOperator, enable: bool) void {
+    pub fn showOpenWithActions(self: KDirOperator, enable: bool) void {
         qtc.KDirOperator_ShowOpenWithActions(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `usingKeyNavigation` instead
+    ///
+    pub const UsingKeyNavigation = usingKeyNavigation;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#usingKeyNavigation)
     ///
@@ -1546,9 +1902,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UsingKeyNavigation(self: KDirOperator) bool {
+    pub fn usingKeyNavigation(self: KDirOperator) bool {
         return qtc.KDirOperator_UsingKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createView` instead
+    ///
+    pub const CreateView = createView;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#createView)
     ///
@@ -1556,14 +1916,18 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` viewKind: kfile_enums.FileView `
     ///
-    pub fn CreateView(self: KDirOperator, parent: anytype, viewKind: i32) QAbstractItemView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_CreateView(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(viewKind)) };
+    pub fn createView(self: KDirOperator, _parent: anytype, viewKind: i32) QAbstractItemView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_CreateView(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(viewKind)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateView` instead
+    ///
+    pub const OnCreateView = onCreateView;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#createView)
     ///
@@ -1575,13 +1939,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, parent: QWidget, viewKind: kfile_enums.FileView) callconv(.c) QAbstractItemView `
     ///
-    pub fn OnCreateView(self: KDirOperator, callback: *const fn (KDirOperator, QWidget, i32) callconv(.c) QAbstractItemView) void {
+    pub fn onCreateView(self: KDirOperator, callback: *const fn (KDirOperator, QWidget, i32) callconv(.c) QAbstractItemView) void {
         qtc.KDirOperator_OnCreateView(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateView` instead
+    /// ### DEPRECATED: Use `superCreateView` instead
     ///
-    pub const QBaseCreateView = SuperCreateView;
+    pub const SuperCreateView = superCreateView;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#createView)
     ///
@@ -1591,14 +1955,18 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` viewKind: kfile_enums.FileView `
     ///
-    pub fn SuperCreateView(self: KDirOperator, parent: anytype, viewKind: i32) QAbstractItemView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KDirOperator_SuperCreateView(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(viewKind)) };
+    pub fn superCreateView(self: KDirOperator, _parent: anytype, viewKind: i32) QAbstractItemView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KDirOperator_SuperCreateView(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(viewKind)) };
     }
+
+    /// ### DEPRECATED: Use `setDirLister` instead
+    ///
+    pub const SetDirLister = setDirLister;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDirLister)
     ///
@@ -1608,10 +1976,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` lister: KDirLister `
     ///
-    pub fn SetDirLister(self: KDirOperator, lister: anytype) void {
+    pub fn setDirLister(self: KDirOperator, lister: anytype) void {
         comptime _ = @TypeOf(lister)._is_KDirLister;
         qtc.KDirOperator_SetDirLister(@ptrCast(self.ptr), @ptrCast(lister.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirLister` instead
+    ///
+    pub const OnSetDirLister = onSetDirLister;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDirLister)
     ///
@@ -1623,13 +1995,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, lister: KDirLister) callconv(.c) void `
     ///
-    pub fn OnSetDirLister(self: KDirOperator, callback: *const fn (KDirOperator, KDirLister) callconv(.c) void) void {
+    pub fn onSetDirLister(self: KDirOperator, callback: *const fn (KDirOperator, KDirLister) callconv(.c) void) void {
         qtc.KDirOperator_OnSetDirLister(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirLister` instead
+    /// ### DEPRECATED: Use `superSetDirLister` instead
     ///
-    pub const QBaseSetDirLister = SuperSetDirLister;
+    pub const SuperSetDirLister = superSetDirLister;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setDirLister)
     ///
@@ -1641,10 +2013,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` lister: KDirLister `
     ///
-    pub fn SuperSetDirLister(self: KDirOperator, lister: anytype) void {
+    pub fn superSetDirLister(self: KDirOperator, lister: anytype) void {
         comptime _ = @TypeOf(lister)._is_KDirLister;
         qtc.KDirOperator_SuperSetDirLister(@ptrCast(self.ptr), @ptrCast(lister.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resizeEvent)
     ///
@@ -1652,12 +2028,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KDirOperator_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KDirOperator_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resizeEvent)
     ///
@@ -1669,13 +2049,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KDirOperator, callback: *const fn (KDirOperator, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KDirOperator, callback: *const fn (KDirOperator, QResizeEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resizeEvent)
     ///
@@ -1685,12 +2065,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KDirOperator_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KDirOperator_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `setupActions` instead
+    ///
+    pub const SetupActions = setupActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupActions)
     ///
@@ -1698,10 +2082,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SetupActions(self: KDirOperator) void {
+    pub fn setupActions(self: KDirOperator) void {
         qtc.KDirOperator_SetupActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSetupActions` instead
+    ///
+    pub const OnSetupActions = onSetupActions;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupActions)
     ///
     /// Allows for overriding the related default method
@@ -1712,13 +2100,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetupActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetupActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSetupActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupActions` instead
+    /// ### DEPRECATED: Use `superSetupActions` instead
     ///
-    pub const QBaseSetupActions = SuperSetupActions;
+    pub const SuperSetupActions = superSetupActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupActions)
     ///
@@ -1728,20 +2116,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSetupActions(self: KDirOperator) void {
+    pub fn superSetupActions(self: KDirOperator) void {
         qtc.KDirOperator_SuperSetupActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `updateSortActions` instead
+    ///
+    pub const UpdateSortActions = updateSortActions;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSortActions)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateSortActions(self: KDirOperator) void {
+    pub fn updateSortActions(self: KDirOperator) void {
         qtc.KDirOperator_UpdateSortActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateSortActions` instead
+    ///
+    pub const OnUpdateSortActions = onUpdateSortActions;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSortActions)
     ///
     /// Allows for overriding the related default method
@@ -1752,13 +2148,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateSortActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateSortActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnUpdateSortActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateSortActions` instead
+    /// ### DEPRECATED: Use `superUpdateSortActions` instead
     ///
-    pub const QBaseUpdateSortActions = SuperUpdateSortActions;
+    pub const SuperUpdateSortActions = superUpdateSortActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSortActions)
     ///
@@ -1768,20 +2164,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperUpdateSortActions(self: KDirOperator) void {
+    pub fn superUpdateSortActions(self: KDirOperator) void {
         qtc.KDirOperator_SuperUpdateSortActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `updateViewActions` instead
+    ///
+    pub const UpdateViewActions = updateViewActions;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateViewActions)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateViewActions(self: KDirOperator) void {
+    pub fn updateViewActions(self: KDirOperator) void {
         qtc.KDirOperator_UpdateViewActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateViewActions` instead
+    ///
+    pub const OnUpdateViewActions = onUpdateViewActions;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateViewActions)
     ///
     /// Allows for overriding the related default method
@@ -1792,13 +2196,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateViewActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateViewActions(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnUpdateViewActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateViewActions` instead
+    /// ### DEPRECATED: Use `superUpdateViewActions` instead
     ///
-    pub const QBaseUpdateViewActions = SuperUpdateViewActions;
+    pub const SuperUpdateViewActions = superUpdateViewActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateViewActions)
     ///
@@ -1808,20 +2212,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperUpdateViewActions(self: KDirOperator) void {
+    pub fn superUpdateViewActions(self: KDirOperator) void {
         qtc.KDirOperator_SuperUpdateViewActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setupMenu2` instead
+    ///
+    pub const SetupMenu2 = setupMenu2;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SetupMenu2(self: KDirOperator) void {
+    pub fn setupMenu2(self: KDirOperator) void {
         qtc.KDirOperator_SetupMenu2(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSetupMenu2` instead
+    ///
+    pub const OnSetupMenu2 = onSetupMenu2;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
     ///
     /// Allows for overriding the related default method
@@ -1832,13 +2244,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetupMenu2(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetupMenu2(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSetupMenu2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupMenu2` instead
+    /// ### DEPRECATED: Use `superSetupMenu2` instead
     ///
-    pub const QBaseSetupMenu2 = SuperSetupMenu2;
+    pub const SuperSetupMenu2 = superSetupMenu2;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setupMenu)
     ///
@@ -1848,9 +2260,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSetupMenu2(self: KDirOperator) void {
+    pub fn superSetupMenu2(self: KDirOperator) void {
         qtc.KDirOperator_SuperSetupMenu2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepareCompletionObjects` instead
+    ///
+    pub const PrepareCompletionObjects = prepareCompletionObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
     ///
@@ -1858,9 +2274,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PrepareCompletionObjects(self: KDirOperator) void {
+    pub fn prepareCompletionObjects(self: KDirOperator) void {
         qtc.KDirOperator_PrepareCompletionObjects(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrepareCompletionObjects` instead
+    ///
+    pub const OnPrepareCompletionObjects = onPrepareCompletionObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
     ///
@@ -1872,13 +2292,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPrepareCompletionObjects(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onPrepareCompletionObjects(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnPrepareCompletionObjects(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPrepareCompletionObjects` instead
+    /// ### DEPRECATED: Use `superPrepareCompletionObjects` instead
     ///
-    pub const QBasePrepareCompletionObjects = SuperPrepareCompletionObjects;
+    pub const SuperPrepareCompletionObjects = superPrepareCompletionObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#prepareCompletionObjects)
     ///
@@ -1888,9 +2308,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperPrepareCompletionObjects(self: KDirOperator) void {
+    pub fn superPrepareCompletionObjects(self: KDirOperator) void {
         qtc.KDirOperator_SuperPrepareCompletionObjects(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkPreviewSupport` instead
+    ///
+    pub const CheckPreviewSupport = checkPreviewSupport;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
     ///
@@ -1898,9 +2322,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn CheckPreviewSupport(self: KDirOperator) bool {
+    pub fn checkPreviewSupport(self: KDirOperator) bool {
         return qtc.KDirOperator_CheckPreviewSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCheckPreviewSupport` instead
+    ///
+    pub const OnCheckPreviewSupport = onCheckPreviewSupport;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
     ///
@@ -1912,13 +2340,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCheckPreviewSupport(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCheckPreviewSupport(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
         qtc.KDirOperator_OnCheckPreviewSupport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckPreviewSupport` instead
+    /// ### DEPRECATED: Use `superCheckPreviewSupport` instead
     ///
-    pub const QBaseCheckPreviewSupport = SuperCheckPreviewSupport;
+    pub const SuperCheckPreviewSupport = superCheckPreviewSupport;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#checkPreviewSupport)
     ///
@@ -1928,9 +2356,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperCheckPreviewSupport(self: KDirOperator) bool {
+    pub fn superCheckPreviewSupport(self: KDirOperator) bool {
         return qtc.KDirOperator_SuperCheckPreviewSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activatedMenu` instead
+    ///
+    pub const ActivatedMenu = activatedMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#activatedMenu)
     ///
@@ -1940,13 +2372,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn ActivatedMenu(self: KDirOperator, item: anytype, pos: anytype) void {
+    pub fn activatedMenu(self: KDirOperator, item: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KDirOperator_ActivatedMenu(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KDirOperator_ActivatedMenu(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActivatedMenu` instead
+    ///
+    pub const OnActivatedMenu = onActivatedMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#activatedMenu)
     ///
@@ -1958,13 +2394,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnActivatedMenu(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QPoint) callconv(.c) void) void {
+    pub fn onActivatedMenu(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QPoint) callconv(.c) void) void {
         qtc.KDirOperator_OnActivatedMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperActivatedMenu` instead
+    /// ### DEPRECATED: Use `superActivatedMenu` instead
     ///
-    pub const QBaseActivatedMenu = SuperActivatedMenu;
+    pub const SuperActivatedMenu = superActivatedMenu;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#activatedMenu)
     ///
@@ -1976,13 +2412,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperActivatedMenu(self: KDirOperator, item: anytype, pos: anytype) void {
+    pub fn superActivatedMenu(self: KDirOperator, item: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.KDirOperator_SuperActivatedMenu(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.KDirOperator_SuperActivatedMenu(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#changeEvent)
     ///
@@ -1990,12 +2430,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#changeEvent)
     ///
@@ -2007,13 +2451,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#changeEvent)
     ///
@@ -2023,12 +2467,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#eventFilter)
     ///
@@ -2038,13 +2486,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KDirOperator, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KDirOperator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirOperator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirOperator_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#eventFilter)
     ///
@@ -2056,13 +2508,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KDirOperator, callback: *const fn (KDirOperator, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KDirOperator, callback: *const fn (KDirOperator, QObject, QEvent) callconv(.c) bool) void {
         qtc.KDirOperator_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#eventFilter)
     ///
@@ -2074,13 +2526,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KDirOperator, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KDirOperator, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirOperator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirOperator_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `back` instead
+    ///
+    pub const Back = back;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#back)
     ///
@@ -2088,10 +2544,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Back(self: KDirOperator) void {
+    pub fn back(self: KDirOperator) void {
         qtc.KDirOperator_Back(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBack` instead
+    ///
+    pub const OnBack = onBack;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#back)
     ///
     /// Allows for overriding the related default method
@@ -2102,13 +2562,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBack(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onBack(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnBack(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBack` instead
+    /// ### DEPRECATED: Use `superBack` instead
     ///
-    pub const QBaseBack = SuperBack;
+    pub const SuperBack = superBack;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#back)
     ///
@@ -2118,20 +2578,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperBack(self: KDirOperator) void {
+    pub fn superBack(self: KDirOperator) void {
         qtc.KDirOperator_SuperBack(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `forward` instead
+    ///
+    pub const Forward = forward;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#forward)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Forward(self: KDirOperator) void {
+    pub fn forward(self: KDirOperator) void {
         qtc.KDirOperator_Forward(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onForward` instead
+    ///
+    pub const OnForward = onForward;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#forward)
     ///
     /// Allows for overriding the related default method
@@ -2142,13 +2610,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnForward(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onForward(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnForward(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperForward` instead
+    /// ### DEPRECATED: Use `superForward` instead
     ///
-    pub const QBaseForward = SuperForward;
+    pub const SuperForward = superForward;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#forward)
     ///
@@ -2158,20 +2626,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperForward(self: KDirOperator) void {
+    pub fn superForward(self: KDirOperator) void {
         qtc.KDirOperator_SuperForward(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#home)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Home(self: KDirOperator) void {
+    pub fn home(self: KDirOperator) void {
         qtc.KDirOperator_Home(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHome` instead
+    ///
+    pub const OnHome = onHome;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#home)
     ///
     /// Allows for overriding the related default method
@@ -2182,13 +2658,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHome(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onHome(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnHome(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHome` instead
+    /// ### DEPRECATED: Use `superHome` instead
     ///
-    pub const QBaseHome = SuperHome;
+    pub const SuperHome = superHome;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#home)
     ///
@@ -2198,9 +2674,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperHome(self: KDirOperator) void {
+    pub fn superHome(self: KDirOperator) void {
         qtc.KDirOperator_SuperHome(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cdUp` instead
+    ///
+    pub const CdUp = cdUp;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#cdUp)
     ///
@@ -2208,9 +2688,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn CdUp(self: KDirOperator) void {
+    pub fn cdUp(self: KDirOperator) void {
         qtc.KDirOperator_CdUp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCdUp` instead
+    ///
+    pub const OnCdUp = onCdUp;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#cdUp)
     ///
@@ -2222,13 +2706,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCdUp(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onCdUp(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnCdUp(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCdUp` instead
+    /// ### DEPRECATED: Use `superCdUp` instead
     ///
-    pub const QBaseCdUp = SuperCdUp;
+    pub const SuperCdUp = superCdUp;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#cdUp)
     ///
@@ -2238,9 +2722,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperCdUp(self: KDirOperator) void {
+    pub fn superCdUp(self: KDirOperator) void {
         qtc.KDirOperator_SuperCdUp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateDir` instead
+    ///
+    pub const UpdateDir = updateDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateDir)
     ///
@@ -2248,20 +2736,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateDir(self: KDirOperator) void {
+    pub fn updateDir(self: KDirOperator) void {
         qtc.KDirOperator_UpdateDir(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `rereadDir` instead
+    ///
+    pub const RereadDir = rereadDir;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#rereadDir)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn RereadDir(self: KDirOperator) void {
+    pub fn rereadDir(self: KDirOperator) void {
         qtc.KDirOperator_RereadDir(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRereadDir` instead
+    ///
+    pub const OnRereadDir = onRereadDir;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#rereadDir)
     ///
     /// Allows for overriding the related default method
@@ -2272,13 +2768,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRereadDir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onRereadDir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnRereadDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRereadDir` instead
+    /// ### DEPRECATED: Use `superRereadDir` instead
     ///
-    pub const QBaseRereadDir = SuperRereadDir;
+    pub const SuperRereadDir = superRereadDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#rereadDir)
     ///
@@ -2288,20 +2784,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperRereadDir(self: KDirOperator) void {
+    pub fn superRereadDir(self: KDirOperator) void {
         qtc.KDirOperator_SuperRereadDir(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `mkdir` instead
+    ///
+    pub const Mkdir = mkdir;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#mkdir)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Mkdir(self: KDirOperator) void {
+    pub fn mkdir(self: KDirOperator) void {
         qtc.KDirOperator_Mkdir(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMkdir` instead
+    ///
+    pub const OnMkdir = onMkdir;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#mkdir)
     ///
     /// Allows for overriding the related default method
@@ -2312,13 +2816,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnMkdir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onMkdir(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnMkdir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMkdir` instead
+    /// ### DEPRECATED: Use `superMkdir` instead
     ///
-    pub const QBaseMkdir = SuperMkdir;
+    pub const SuperMkdir = superMkdir;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#mkdir)
     ///
@@ -2328,9 +2832,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperMkdir(self: KDirOperator) void {
+    pub fn superMkdir(self: KDirOperator) void {
         qtc.KDirOperator_SuperMkdir(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deleteSelected` instead
+    ///
+    pub const DeleteSelected = deleteSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#deleteSelected)
     ///
@@ -2338,9 +2846,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DeleteSelected(self: KDirOperator) void {
+    pub fn deleteSelected(self: KDirOperator) void {
         qtc.KDirOperator_DeleteSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDeleteSelected` instead
+    ///
+    pub const OnDeleteSelected = onDeleteSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#deleteSelected)
     ///
@@ -2352,13 +2864,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDeleteSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onDeleteSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnDeleteSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDeleteSelected` instead
+    /// ### DEPRECATED: Use `superDeleteSelected` instead
     ///
-    pub const QBaseDeleteSelected = SuperDeleteSelected;
+    pub const SuperDeleteSelected = superDeleteSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#deleteSelected)
     ///
@@ -2368,9 +2880,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperDeleteSelected(self: KDirOperator) void {
+    pub fn superDeleteSelected(self: KDirOperator) void {
         qtc.KDirOperator_SuperDeleteSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateSelectionDependentActions` instead
+    ///
+    pub const UpdateSelectionDependentActions = updateSelectionDependentActions;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateSelectionDependentActions)
     ///
@@ -2378,9 +2894,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateSelectionDependentActions(self: KDirOperator) void {
+    pub fn updateSelectionDependentActions(self: KDirOperator) void {
         qtc.KDirOperator_UpdateSelectionDependentActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `makeCompletion` instead
+    ///
+    pub const MakeCompletion = makeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#makeCompletion)
     ///
@@ -2392,17 +2912,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn MakeCompletion(self: KDirOperator, allocator: std.mem.Allocator, param1: []const u8) []const u8 {
+    pub fn makeCompletion(self: KDirOperator, allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         var _str = qtc.KDirOperator_MakeCompletion(@ptrCast(self.ptr), param1_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.MakeCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.makeCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `makeDirCompletion` instead
+    ///
+    pub const MakeDirCompletion = makeDirCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#makeDirCompletion)
     ///
@@ -2414,17 +2938,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn MakeDirCompletion(self: KDirOperator, allocator: std.mem.Allocator, param1: []const u8) []const u8 {
+    pub fn makeDirCompletion(self: KDirOperator, allocator: std.mem.Allocator, param1: []const u8) []const u8 {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         var _str = qtc.KDirOperator_MakeDirCompletion(@ptrCast(self.ptr), param1_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.MakeDirCompletion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.makeDirCompletion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `renameSelected` instead
+    ///
+    pub const RenameSelected = renameSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#renameSelected)
     ///
@@ -2432,9 +2960,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn RenameSelected(self: KDirOperator) void {
+    pub fn renameSelected(self: KDirOperator) void {
         qtc.KDirOperator_RenameSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `trashSelected` instead
+    ///
+    pub const TrashSelected = trashSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trashSelected)
     ///
@@ -2442,9 +2974,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn TrashSelected(self: KDirOperator) void {
+    pub fn trashSelected(self: KDirOperator) void {
         qtc.KDirOperator_TrashSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTrashSelected` instead
+    ///
+    pub const OnTrashSelected = onTrashSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trashSelected)
     ///
@@ -2456,13 +2992,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnTrashSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onTrashSelected(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnTrashSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTrashSelected` instead
+    /// ### DEPRECATED: Use `superTrashSelected` instead
     ///
-    pub const QBaseTrashSelected = SuperTrashSelected;
+    pub const SuperTrashSelected = superTrashSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#trashSelected)
     ///
@@ -2472,9 +3008,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperTrashSelected(self: KDirOperator) void {
+    pub fn superTrashSelected(self: KDirOperator) void {
         qtc.KDirOperator_SuperTrashSelected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setIconSize)
     ///
@@ -2484,9 +3024,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SetIconSize(self: KDirOperator, value: i32) void {
+    pub fn setIconSize(self: KDirOperator, value: i32) void {
         qtc.KDirOperator_SetIconSize(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setSupportedSchemes` instead
+    ///
+    pub const SetSupportedSchemes = setSupportedSchemes;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#setSupportedSchemes)
     ///
@@ -2498,13 +3042,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` schemes: []const []const u8 `
     ///
-    pub fn SetSupportedSchemes(self: KDirOperator, allocator: std.mem.Allocator, schemes: []const []const u8) void {
-        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("KDirOperator.SetSupportedSchemes: Memory allocation failed");
+    pub fn setSupportedSchemes(self: KDirOperator, allocator: std.mem.Allocator, schemes: []const []const u8) void {
+        const schemes_arr = allocator.alloc(qtc.libqt_string, schemes.len) catch @panic("KDirOperator.setSupportedSchemes: Memory allocation failed");
         defer allocator.free(schemes_arr);
-        for (schemes, 0..schemes.len) |item, i|
+        for (schemes, 0..schemes.len) |str_item, i|
             schemes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const schemes_list = qtc.libqt_list{
             .len = schemes.len,
@@ -2513,16 +3057,24 @@ pub const KDirOperator = extern struct {
         qtc.KDirOperator_SetSupportedSchemes(@ptrCast(self.ptr), schemes_list);
     }
 
+    /// ### DEPRECATED: Use `resetCursor` instead
+    ///
+    pub const ResetCursor = resetCursor;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resetCursor)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ResetCursor(self: KDirOperator) void {
+    pub fn resetCursor(self: KDirOperator) void {
         qtc.KDirOperator_ResetCursor(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onResetCursor` instead
+    ///
+    pub const OnResetCursor = onResetCursor;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resetCursor)
     ///
     /// Allows for overriding the related default method
@@ -2533,13 +3085,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetCursor(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetCursor(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnResetCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResetCursor` instead
+    /// ### DEPRECATED: Use `superResetCursor` instead
     ///
-    pub const QBaseResetCursor = SuperResetCursor;
+    pub const SuperResetCursor = superResetCursor;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#resetCursor)
     ///
@@ -2549,9 +3101,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperResetCursor(self: KDirOperator) void {
+    pub fn superResetCursor(self: KDirOperator) void {
         qtc.KDirOperator_SuperResetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pathChanged` instead
+    ///
+    pub const PathChanged = pathChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#pathChanged)
     ///
@@ -2559,9 +3115,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PathChanged(self: KDirOperator) void {
+    pub fn pathChanged(self: KDirOperator) void {
         qtc.KDirOperator_PathChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPathChanged` instead
+    ///
+    pub const OnPathChanged = onPathChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#pathChanged)
     ///
@@ -2573,13 +3133,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnPathChanged(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onPathChanged(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnPathChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPathChanged` instead
+    /// ### DEPRECATED: Use `superPathChanged` instead
     ///
-    pub const QBasePathChanged = SuperPathChanged;
+    pub const SuperPathChanged = superPathChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#pathChanged)
     ///
@@ -2589,9 +3149,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperPathChanged(self: KDirOperator) void {
+    pub fn superPathChanged(self: KDirOperator) void {
         qtc.KDirOperator_SuperPathChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectDir` instead
+    ///
+    pub const SelectDir = selectDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectDir)
     ///
@@ -2601,11 +3165,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SelectDir(self: KDirOperator, item: anytype) void {
+    pub fn selectDir(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SelectDir(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectDir` instead
+    ///
+    pub const OnSelectDir = onSelectDir;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectDir)
     ///
     /// Allows for overriding the related default method
@@ -2616,13 +3184,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnSelectDir(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onSelectDir(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_OnSelectDir(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectDir` instead
+    /// ### DEPRECATED: Use `superSelectDir` instead
     ///
-    pub const QBaseSelectDir = SuperSelectDir;
+    pub const SuperSelectDir = superSelectDir;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectDir)
     ///
@@ -2634,11 +3202,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SuperSelectDir(self: KDirOperator, item: anytype) void {
+    pub fn superSelectDir(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SuperSelectDir(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `selectFile` instead
+    ///
+    pub const SelectFile = selectFile;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectFile)
     ///
     /// ## Parameter(s):
@@ -2647,11 +3219,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SelectFile(self: KDirOperator, item: anytype) void {
+    pub fn selectFile(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SelectFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectFile` instead
+    ///
+    pub const OnSelectFile = onSelectFile;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectFile)
     ///
     /// Allows for overriding the related default method
@@ -2662,13 +3238,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnSelectFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onSelectFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_OnSelectFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectFile` instead
+    /// ### DEPRECATED: Use `superSelectFile` instead
     ///
-    pub const QBaseSelectFile = SuperSelectFile;
+    pub const SuperSelectFile = superSelectFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#selectFile)
     ///
@@ -2680,11 +3256,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SuperSelectFile(self: KDirOperator, item: anytype) void {
+    pub fn superSelectFile(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SuperSelectFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `highlightFile` instead
+    ///
+    pub const HighlightFile = highlightFile;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#highlightFile)
     ///
     /// ## Parameter(s):
@@ -2693,10 +3273,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn HighlightFile(self: KDirOperator, item: anytype) void {
+    pub fn highlightFile(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_HighlightFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHighlightFile` instead
+    ///
+    pub const OnHighlightFile = onHighlightFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#highlightFile)
     ///
@@ -2708,13 +3292,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnHighlightFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onHighlightFile(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_OnHighlightFile(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHighlightFile` instead
+    /// ### DEPRECATED: Use `superHighlightFile` instead
     ///
-    pub const QBaseHighlightFile = SuperHighlightFile;
+    pub const SuperHighlightFile = superHighlightFile;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#highlightFile)
     ///
@@ -2726,21 +3310,29 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn SuperHighlightFile(self: KDirOperator, item: anytype) void {
+    pub fn superHighlightFile(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_SuperHighlightFile(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `sortByName` instead
+    ///
+    pub const SortByName = sortByName;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByName)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SortByName(self: KDirOperator) void {
+    pub fn sortByName(self: KDirOperator) void {
         qtc.KDirOperator_SortByName(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSortByName` instead
+    ///
+    pub const OnSortByName = onSortByName;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByName)
     ///
     /// Allows for overriding the related default method
@@ -2751,13 +3343,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSortByName(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSortByName(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSortByName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSortByName` instead
+    /// ### DEPRECATED: Use `superSortByName` instead
     ///
-    pub const QBaseSortByName = SuperSortByName;
+    pub const SuperSortByName = superSortByName;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByName)
     ///
@@ -2767,20 +3359,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSortByName(self: KDirOperator) void {
+    pub fn superSortByName(self: KDirOperator) void {
         qtc.KDirOperator_SuperSortByName(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sortBySize` instead
+    ///
+    pub const SortBySize = sortBySize;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortBySize)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SortBySize(self: KDirOperator) void {
+    pub fn sortBySize(self: KDirOperator) void {
         qtc.KDirOperator_SortBySize(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSortBySize` instead
+    ///
+    pub const OnSortBySize = onSortBySize;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortBySize)
     ///
     /// Allows for overriding the related default method
@@ -2791,13 +3391,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSortBySize(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSortBySize(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSortBySize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSortBySize` instead
+    /// ### DEPRECATED: Use `superSortBySize` instead
     ///
-    pub const QBaseSortBySize = SuperSortBySize;
+    pub const SuperSortBySize = superSortBySize;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortBySize)
     ///
@@ -2807,20 +3407,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSortBySize(self: KDirOperator) void {
+    pub fn superSortBySize(self: KDirOperator) void {
         qtc.KDirOperator_SuperSortBySize(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sortByDate` instead
+    ///
+    pub const SortByDate = sortByDate;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByDate)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SortByDate(self: KDirOperator) void {
+    pub fn sortByDate(self: KDirOperator) void {
         qtc.KDirOperator_SortByDate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSortByDate` instead
+    ///
+    pub const OnSortByDate = onSortByDate;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByDate)
     ///
     /// Allows for overriding the related default method
@@ -2831,13 +3439,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSortByDate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSortByDate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSortByDate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSortByDate` instead
+    /// ### DEPRECATED: Use `superSortByDate` instead
     ///
-    pub const QBaseSortByDate = SuperSortByDate;
+    pub const SuperSortByDate = superSortByDate;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByDate)
     ///
@@ -2847,20 +3455,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSortByDate(self: KDirOperator) void {
+    pub fn superSortByDate(self: KDirOperator) void {
         qtc.KDirOperator_SuperSortByDate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sortByType` instead
+    ///
+    pub const SortByType = sortByType;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByType)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SortByType(self: KDirOperator) void {
+    pub fn sortByType(self: KDirOperator) void {
         qtc.KDirOperator_SortByType(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSortByType` instead
+    ///
+    pub const OnSortByType = onSortByType;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByType)
     ///
     /// Allows for overriding the related default method
@@ -2871,13 +3487,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSortByType(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSortByType(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSortByType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSortByType` instead
+    /// ### DEPRECATED: Use `superSortByType` instead
     ///
-    pub const QBaseSortByType = SuperSortByType;
+    pub const SuperSortByType = superSortByType;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortByType)
     ///
@@ -2887,20 +3503,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSortByType(self: KDirOperator) void {
+    pub fn superSortByType(self: KDirOperator) void {
         qtc.KDirOperator_SuperSortByType(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sortReversed` instead
+    ///
+    pub const SortReversed = sortReversed;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortReversed)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SortReversed(self: KDirOperator) void {
+    pub fn sortReversed(self: KDirOperator) void {
         qtc.KDirOperator_SortReversed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSortReversed` instead
+    ///
+    pub const OnSortReversed = onSortReversed;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortReversed)
     ///
     /// Allows for overriding the related default method
@@ -2911,13 +3535,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSortReversed(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onSortReversed(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnSortReversed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSortReversed` instead
+    /// ### DEPRECATED: Use `superSortReversed` instead
     ///
-    pub const QBaseSortReversed = SuperSortReversed;
+    pub const SuperSortReversed = superSortReversed;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#sortReversed)
     ///
@@ -2927,20 +3551,28 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSortReversed(self: KDirOperator) void {
+    pub fn superSortReversed(self: KDirOperator) void {
         qtc.KDirOperator_SuperSortReversed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `toggleDirsFirst` instead
+    ///
+    pub const ToggleDirsFirst = toggleDirsFirst;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ToggleDirsFirst(self: KDirOperator) void {
+    pub fn toggleDirsFirst(self: KDirOperator) void {
         qtc.KDirOperator_ToggleDirsFirst(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onToggleDirsFirst` instead
+    ///
+    pub const OnToggleDirsFirst = onToggleDirsFirst;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
     ///
     /// Allows for overriding the related default method
@@ -2951,13 +3583,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnToggleDirsFirst(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onToggleDirsFirst(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnToggleDirsFirst(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperToggleDirsFirst` instead
+    /// ### DEPRECATED: Use `superToggleDirsFirst` instead
     ///
-    pub const QBaseToggleDirsFirst = SuperToggleDirsFirst;
+    pub const SuperToggleDirsFirst = superToggleDirsFirst;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleDirsFirst)
     ///
@@ -2967,9 +3599,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperToggleDirsFirst(self: KDirOperator) void {
+    pub fn superToggleDirsFirst(self: KDirOperator) void {
         qtc.KDirOperator_SuperToggleDirsFirst(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggleIgnoreCase` instead
+    ///
+    pub const ToggleIgnoreCase = toggleIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
     ///
@@ -2977,9 +3613,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ToggleIgnoreCase(self: KDirOperator) void {
+    pub fn toggleIgnoreCase(self: KDirOperator) void {
         qtc.KDirOperator_ToggleIgnoreCase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onToggleIgnoreCase` instead
+    ///
+    pub const OnToggleIgnoreCase = onToggleIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
     ///
@@ -2991,13 +3631,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnToggleIgnoreCase(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onToggleIgnoreCase(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnToggleIgnoreCase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperToggleIgnoreCase` instead
+    /// ### DEPRECATED: Use `superToggleIgnoreCase` instead
     ///
-    pub const QBaseToggleIgnoreCase = SuperToggleIgnoreCase;
+    pub const SuperToggleIgnoreCase = superToggleIgnoreCase;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#toggleIgnoreCase)
     ///
@@ -3007,9 +3647,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperToggleIgnoreCase(self: KDirOperator) void {
+    pub fn superToggleIgnoreCase(self: KDirOperator) void {
         qtc.KDirOperator_SuperToggleIgnoreCase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `slotCompletionMatch` instead
+    ///
+    pub const SlotCompletionMatch = slotCompletionMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
     ///
@@ -3019,13 +3663,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` match: []const u8 `
     ///
-    pub fn SlotCompletionMatch(self: KDirOperator, match: []const u8) void {
+    pub fn slotCompletionMatch(self: KDirOperator, match: []const u8) void {
         const match_str = qtc.libqt_string{
             .len = match.len,
             .data = match.ptr,
         };
         qtc.KDirOperator_SlotCompletionMatch(@ptrCast(self.ptr), match_str);
     }
+
+    /// ### DEPRECATED: Use `onSlotCompletionMatch` instead
+    ///
+    pub const OnSlotCompletionMatch = onSlotCompletionMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
     ///
@@ -3037,13 +3685,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, match: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSlotCompletionMatch(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSlotCompletionMatch(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirOperator_OnSlotCompletionMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSlotCompletionMatch` instead
+    /// ### DEPRECATED: Use `superSlotCompletionMatch` instead
     ///
-    pub const QBaseSlotCompletionMatch = SuperSlotCompletionMatch;
+    pub const SuperSlotCompletionMatch = superSlotCompletionMatch;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#slotCompletionMatch)
     ///
@@ -3055,13 +3703,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` match: []const u8 `
     ///
-    pub fn SuperSlotCompletionMatch(self: KDirOperator, match: []const u8) void {
+    pub fn superSlotCompletionMatch(self: KDirOperator, match: []const u8) void {
         const match_str = qtc.libqt_string{
             .len = match.len,
             .data = match.ptr,
         };
         qtc.KDirOperator_SuperSlotCompletionMatch(@ptrCast(self.ptr), match_str);
     }
+
+    /// ### DEPRECATED: Use `urlEntered` instead
+    ///
+    pub const UrlEntered = urlEntered;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#urlEntered)
     ///
@@ -3071,10 +3723,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QUrl `
     ///
-    pub fn UrlEntered(self: KDirOperator, param1: anytype) void {
+    pub fn urlEntered(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.KDirOperator_UrlEntered(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUrlEntered` instead
+    ///
+    pub const OnUrlEntered = onUrlEntered;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#urlEntered)
     ///
@@ -3084,9 +3740,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlEntered(self: KDirOperator, callback: *const fn (KDirOperator, QUrl) callconv(.c) void) void {
+    pub fn onUrlEntered(self: KDirOperator, callback: *const fn (KDirOperator, QUrl) callconv(.c) void) void {
         qtc.KDirOperator_Connect_UrlEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateInformation` instead
+    ///
+    pub const UpdateInformation = updateInformation;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateInformation)
     ///
@@ -3098,9 +3758,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` dirs: i32 `
     ///
-    pub fn UpdateInformation(self: KDirOperator, files: i32, dirs: i32) void {
+    pub fn updateInformation(self: KDirOperator, files: i32, dirs: i32) void {
         qtc.KDirOperator_UpdateInformation(@ptrCast(self.ptr), @bitCast(files), @bitCast(dirs));
     }
+
+    /// ### DEPRECATED: Use `onUpdateInformation` instead
+    ///
+    pub const OnUpdateInformation = onUpdateInformation;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#updateInformation)
     ///
@@ -3110,9 +3774,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, files: i32, dirs: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateInformation(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32) callconv(.c) void) void {
+    pub fn onUpdateInformation(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32) callconv(.c) void) void {
         qtc.KDirOperator_Connect_UpdateInformation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completion` instead
+    ///
+    pub const Completion = completion;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#completion)
     ///
@@ -3122,13 +3790,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Completion(self: KDirOperator, param1: []const u8) void {
+    pub fn completion(self: KDirOperator, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KDirOperator_Completion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCompletion` instead
+    ///
+    pub const OnCompletion = onCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#completion)
     ///
@@ -3138,9 +3810,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCompletion(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCompletion(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
         qtc.KDirOperator_Connect_Completion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `finishedLoading` instead
+    ///
+    pub const FinishedLoading = finishedLoading;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#finishedLoading)
     ///
@@ -3148,9 +3824,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FinishedLoading(self: KDirOperator) void {
+    pub fn finishedLoading(self: KDirOperator) void {
         qtc.KDirOperator_FinishedLoading(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinishedLoading` instead
+    ///
+    pub const OnFinishedLoading = onFinishedLoading;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#finishedLoading)
     ///
@@ -3160,9 +3840,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn OnFinishedLoading(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
+    pub fn onFinishedLoading(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_Connect_FinishedLoading(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewChanged` instead
+    ///
+    pub const ViewChanged = viewChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#viewChanged)
     ///
@@ -3172,10 +3856,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` newView: QAbstractItemView `
     ///
-    pub fn ViewChanged(self: KDirOperator, newView: anytype) void {
+    pub fn viewChanged(self: KDirOperator, newView: anytype) void {
         comptime _ = @TypeOf(newView)._is_QAbstractItemView;
         qtc.KDirOperator_ViewChanged(@ptrCast(self.ptr), @ptrCast(newView.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewChanged` instead
+    ///
+    pub const OnViewChanged = onViewChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#viewChanged)
     ///
@@ -3185,9 +3873,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, newView: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn OnViewChanged(self: KDirOperator, callback: *const fn (KDirOperator, QAbstractItemView) callconv(.c) void) void {
+    pub fn onViewChanged(self: KDirOperator, callback: *const fn (KDirOperator, QAbstractItemView) callconv(.c) void) void {
         qtc.KDirOperator_Connect_ViewChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fileHighlighted` instead
+    ///
+    pub const FileHighlighted = fileHighlighted;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#fileHighlighted)
     ///
@@ -3197,11 +3889,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn FileHighlighted(self: KDirOperator, item: anytype) void {
+    pub fn fileHighlighted(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_FileHighlighted(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFileHighlighted` instead
+    ///
+    pub const OnFileHighlighted = onFileHighlighted;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#fileHighlighted)
     ///
     /// ## Parameters:
@@ -3210,9 +3906,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnFileHighlighted(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onFileHighlighted(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_Connect_FileHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirActivated` instead
+    ///
+    pub const DirActivated = dirActivated;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirActivated)
     ///
@@ -3222,11 +3922,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn DirActivated(self: KDirOperator, item: anytype) void {
+    pub fn dirActivated(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_DirActivated(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDirActivated` instead
+    ///
+    pub const OnDirActivated = onDirActivated;
+
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dirActivated)
     ///
     /// ## Parameters:
@@ -3235,9 +3939,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnDirActivated(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onDirActivated(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_Connect_DirActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fileSelected` instead
+    ///
+    pub const FileSelected = fileSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#fileSelected)
     ///
@@ -3247,10 +3955,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    pub fn FileSelected(self: KDirOperator, item: anytype) void {
+    pub fn fileSelected(self: KDirOperator, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         qtc.KDirOperator_FileSelected(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFileSelected` instead
+    ///
+    pub const OnFileSelected = onFileSelected;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#fileSelected)
     ///
@@ -3260,9 +3972,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem) callconv(.c) void `
     ///
-    pub fn OnFileSelected(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
+    pub fn onFileSelected(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem) callconv(.c) void) void {
         qtc.KDirOperator_Connect_FileSelected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropped` instead
+    ///
+    pub const Dropped = dropped;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dropped)
     ///
@@ -3272,19 +3988,23 @@ pub const KDirOperator = extern struct {
     ///
     /// ` item: KFileItem `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
     /// ` urls: []QUrl `
     ///
-    pub fn Dropped(self: KDirOperator, item: anytype, event: anytype, urls: []QUrl) void {
+    pub fn dropped(self: KDirOperator, item: anytype, _event: anytype, urls: []QUrl) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
-        comptime _ = @TypeOf(event)._is_QDropEvent;
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
-        qtc.KDirOperator_Dropped(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(event.ptr), urls_list);
+        qtc.KDirOperator_Dropped(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(_event.ptr), urls_list);
     }
+
+    /// ### DEPRECATED: Use `onDropped` instead
+    ///
+    pub const OnDropped = onDropped;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dropped)
     ///
@@ -3294,9 +4014,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem, event: QDropEvent, urls: qtc.libqt_list ([]QUrl)) callconv(.c) void `
     ///
-    pub fn OnDropped(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QDropEvent, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDropped(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QDropEvent, qtc.libqt_list) callconv(.c) void) void {
         qtc.KDirOperator_Connect_Dropped(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuAboutToShow` instead
+    ///
+    pub const ContextMenuAboutToShow = contextMenuAboutToShow;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#contextMenuAboutToShow)
     ///
@@ -3308,11 +4032,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    pub fn ContextMenuAboutToShow(self: KDirOperator, item: anytype, menu: anytype) void {
+    pub fn contextMenuAboutToShow(self: KDirOperator, item: anytype, menu: anytype) void {
         comptime _ = @TypeOf(item)._is_KFileItem;
         comptime _ = @TypeOf(menu)._is_QMenu;
         qtc.KDirOperator_ContextMenuAboutToShow(@ptrCast(self.ptr), @ptrCast(item.ptr), @ptrCast(menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuAboutToShow` instead
+    ///
+    pub const OnContextMenuAboutToShow = onContextMenuAboutToShow;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#contextMenuAboutToShow)
     ///
@@ -3322,9 +4050,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, item: KFileItem, menu: QMenu) callconv(.c) void `
     ///
-    pub fn OnContextMenuAboutToShow(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QMenu) callconv(.c) void) void {
+    pub fn onContextMenuAboutToShow(self: KDirOperator, callback: *const fn (KDirOperator, KFileItem, QMenu) callconv(.c) void) void {
         qtc.KDirOperator_Connect_ContextMenuAboutToShow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIconSizeChanged` instead
+    ///
+    pub const CurrentIconSizeChanged = currentIconSizeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#currentIconSizeChanged)
     ///
@@ -3332,11 +4064,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` size: i32 `
+    /// ` _size: i32 `
     ///
-    pub fn CurrentIconSizeChanged(self: KDirOperator, size: i32) void {
-        qtc.KDirOperator_CurrentIconSizeChanged(@ptrCast(self.ptr), @bitCast(size));
+    pub fn currentIconSizeChanged(self: KDirOperator, _size: i32) void {
+        qtc.KDirOperator_CurrentIconSizeChanged(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIconSizeChanged` instead
+    ///
+    pub const OnCurrentIconSizeChanged = onCurrentIconSizeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#currentIconSizeChanged)
     ///
@@ -3346,9 +4082,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, size: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIconSizeChanged(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
+    pub fn onCurrentIconSizeChanged(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) void) void {
         qtc.KDirOperator_Connect_CurrentIconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyEnterReturnPressed` instead
+    ///
+    pub const KeyEnterReturnPressed = keyEnterReturnPressed;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#keyEnterReturnPressed)
     ///
@@ -3356,9 +4096,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn KeyEnterReturnPressed(self: KDirOperator) void {
+    pub fn keyEnterReturnPressed(self: KDirOperator) void {
         qtc.KDirOperator_KeyEnterReturnPressed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyEnterReturnPressed` instead
+    ///
+    pub const OnKeyEnterReturnPressed = onKeyEnterReturnPressed;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#keyEnterReturnPressed)
     ///
@@ -3368,9 +4112,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn OnKeyEnterReturnPressed(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
+    pub fn onKeyEnterReturnPressed(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.KDirOperator_Connect_KeyEnterReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `renamingFinished` instead
+    ///
+    pub const RenamingFinished = renamingFinished;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#renamingFinished)
     ///
@@ -3380,13 +4128,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` urls: []QUrl `
     ///
-    pub fn RenamingFinished(self: KDirOperator, urls: []QUrl) void {
+    pub fn renamingFinished(self: KDirOperator, urls: []QUrl) void {
         const urls_list = qtc.libqt_list{
             .len = urls.len,
             .data = @ptrCast(urls.ptr),
         };
         qtc.KDirOperator_RenamingFinished(@ptrCast(self.ptr), urls_list);
     }
+
+    /// ### DEPRECATED: Use `onRenamingFinished` instead
+    ///
+    pub const OnRenamingFinished = onRenamingFinished;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#renamingFinished)
     ///
@@ -3396,9 +4148,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, urls: qtc.libqt_list ([]QUrl)) callconv(.c) void `
     ///
-    pub fn OnRenamingFinished(self: KDirOperator, callback: *const fn (KDirOperator, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onRenamingFinished(self: KDirOperator, callback: *const fn (KDirOperator, qtc.libqt_list) callconv(.c) void) void {
         qtc.KDirOperator_Connect_RenamingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3410,15 +4166,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3432,15 +4192,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3450,9 +4214,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn WinId(self: KDirOperator) usize {
+    pub fn winId(self: KDirOperator) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3462,9 +4230,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn CreateWinId(self: KDirOperator) void {
+    pub fn createWinId(self: KDirOperator) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3474,9 +4246,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn InternalWinId(self: KDirOperator) usize {
+    pub fn internalWinId(self: KDirOperator) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3486,9 +4262,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn EffectiveWinId(self: KDirOperator) usize {
+    pub fn effectiveWinId(self: KDirOperator) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4278,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Style(self: KDirOperator) QStyle {
+    pub fn style(self: KDirOperator) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3510,12 +4294,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KDirOperator, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KDirOperator, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -3525,9 +4313,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsTopLevel(self: KDirOperator) bool {
+    pub fn isTopLevel(self: KDirOperator) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -3537,9 +4329,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsWindow(self: KDirOperator) bool {
+    pub fn isWindow(self: KDirOperator) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -3549,9 +4345,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsModal(self: KDirOperator) bool {
+    pub fn isModal(self: KDirOperator) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -3565,9 +4365,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KDirOperator) i32 {
+    pub fn windowModality(self: KDirOperator) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3577,11 +4381,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KDirOperator, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KDirOperator, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3591,9 +4399,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsEnabled(self: KDirOperator) bool {
+    pub fn isEnabled(self: KDirOperator) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3605,10 +4417,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KDirOperator, param1: anytype) bool {
+    pub fn isEnabledTo(self: KDirOperator, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3620,9 +4436,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KDirOperator, enabled: bool) void {
+    pub fn setEnabled(self: KDirOperator, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3634,9 +4454,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KDirOperator, disabled: bool) void {
+    pub fn setDisabled(self: KDirOperator, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3648,9 +4472,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KDirOperator, windowModified: bool) void {
+    pub fn setWindowModified(self: KDirOperator, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3660,9 +4488,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FrameGeometry(self: KDirOperator) QRect {
+    pub fn frameGeometry(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3672,9 +4504,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Geometry(self: KDirOperator) QRect {
+    pub fn geometry(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3684,9 +4520,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn NormalGeometry(self: KDirOperator) QRect {
+    pub fn normalGeometry(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3696,9 +4536,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn X(self: KDirOperator) i32 {
+    pub fn x(self: KDirOperator) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3708,9 +4552,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Y(self: KDirOperator) i32 {
+    pub fn y(self: KDirOperator) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3720,9 +4568,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Pos(self: KDirOperator) QPoint {
+    pub fn pos(self: KDirOperator) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3732,9 +4584,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FrameSize(self: KDirOperator) QSize {
+    pub fn frameSize(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3744,9 +4600,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Size(self: KDirOperator) QSize {
+    pub fn size(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3756,9 +4616,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Width(self: KDirOperator) i32 {
+    pub fn width(self: KDirOperator) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3768,9 +4632,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Height(self: KDirOperator) i32 {
+    pub fn height(self: KDirOperator) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3780,9 +4648,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Rect(self: KDirOperator) QRect {
+    pub fn rect(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3792,9 +4664,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ChildrenRect(self: KDirOperator) QRect {
+    pub fn childrenRect(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4680,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ChildrenRegion(self: KDirOperator) QRegion {
+    pub fn childrenRegion(self: KDirOperator) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3816,9 +4696,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MinimumSize(self: KDirOperator) QSize {
+    pub fn minimumSize(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4712,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MaximumSize(self: KDirOperator) QSize {
+    pub fn maximumSize(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3840,9 +4728,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MinimumWidth(self: KDirOperator) i32 {
+    pub fn minimumWidth(self: KDirOperator) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3852,9 +4744,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MinimumHeight(self: KDirOperator) i32 {
+    pub fn minimumHeight(self: KDirOperator) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3864,9 +4760,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MaximumWidth(self: KDirOperator) i32 {
+    pub fn maximumWidth(self: KDirOperator) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3876,9 +4776,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MaximumHeight(self: KDirOperator) i32 {
+    pub fn maximumHeight(self: KDirOperator) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3888,12 +4792,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KDirOperator, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KDirOperator, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3907,9 +4815,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KDirOperator, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KDirOperator, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3919,12 +4831,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KDirOperator, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KDirOperator, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3938,9 +4854,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KDirOperator, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KDirOperator, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3952,9 +4872,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KDirOperator, minw: i32) void {
+    pub fn setMinimumWidth(self: KDirOperator, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +4890,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KDirOperator, minh: i32) void {
+    pub fn setMinimumHeight(self: KDirOperator, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3980,9 +4908,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KDirOperator, maxw: i32) void {
+    pub fn setMaximumWidth(self: KDirOperator, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3994,9 +4926,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KDirOperator, maxh: i32) void {
+    pub fn setMaximumHeight(self: KDirOperator, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4006,9 +4942,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SizeIncrement(self: KDirOperator) QSize {
+    pub fn sizeIncrement(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4018,12 +4958,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KDirOperator, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KDirOperator, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +4981,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KDirOperator, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KDirOperator, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +4997,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn BaseSize(self: KDirOperator) QSize {
+    pub fn baseSize(self: KDirOperator) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -4061,12 +5013,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KDirOperator, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KDirOperator, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -4080,9 +5036,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KDirOperator, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KDirOperator, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -4094,10 +5054,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KDirOperator, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KDirOperator, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -4111,9 +5075,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KDirOperator, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KDirOperator, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -4125,9 +5093,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KDirOperator, w: i32) void {
+    pub fn setFixedWidth(self: KDirOperator, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -4139,9 +5111,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KDirOperator, h: i32) void {
+    pub fn setFixedHeight(self: KDirOperator, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -4153,11 +5129,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KDirOperator, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KDirOperator, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -4168,11 +5148,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KDirOperator, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KDirOperator, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4183,11 +5167,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KDirOperator, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KDirOperator, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4198,11 +5186,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KDirOperator, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KDirOperator, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4213,11 +5205,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KDirOperator, param1: anytype) QPointF {
+    pub fn mapToParent(self: KDirOperator, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4228,10 +5224,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KDirOperator, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KDirOperator, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4243,10 +5243,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KDirOperator, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KDirOperator, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4258,10 +5262,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KDirOperator, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KDirOperator, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4275,12 +5283,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KDirOperator, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KDirOperator, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4293,11 +5305,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KDirOperator, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KDirOperator, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4311,11 +5327,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KDirOperator, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KDirOperator, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4329,11 +5349,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KDirOperator, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KDirOperator, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4343,9 +5367,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Window(self: KDirOperator) QWidget {
+    pub fn window(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4355,9 +5383,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn NativeParentWidget(self: KDirOperator) QWidget {
+    pub fn nativeParentWidget(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4367,9 +5399,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn TopLevelWidget(self: KDirOperator) QWidget {
+    pub fn topLevelWidget(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4379,9 +5415,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Palette(self: KDirOperator) QPalette {
+    pub fn palette(self: KDirOperator) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4391,12 +5431,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KDirOperator, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KDirOperator, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4406,11 +5450,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KDirOperator, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KDirOperator, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4424,9 +5472,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KDirOperator) i32 {
+    pub fn backgroundRole(self: KDirOperator) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4436,11 +5488,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KDirOperator, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KDirOperator, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4454,9 +5510,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KDirOperator) i32 {
+    pub fn foregroundRole(self: KDirOperator) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4466,9 +5526,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Font(self: KDirOperator) QFont {
+    pub fn font(self: KDirOperator) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4478,12 +5542,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KDirOperator, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KDirOperator, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4493,9 +5561,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FontMetrics(self: KDirOperator) QFontMetrics {
+    pub fn fontMetrics(self: KDirOperator) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4505,9 +5577,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FontInfo(self: KDirOperator) QFontInfo {
+    pub fn fontInfo(self: KDirOperator) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4517,9 +5593,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Cursor(self: KDirOperator) QCursor {
+    pub fn cursor(self: KDirOperator) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -4529,12 +5609,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KDirOperator, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KDirOperator, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -4544,9 +5628,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UnsetCursor(self: KDirOperator) void {
+    pub fn unsetCursor(self: KDirOperator) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4558,9 +5646,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KDirOperator, enable: bool) void {
+    pub fn setMouseTracking(self: KDirOperator, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4570,9 +5662,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn HasMouseTracking(self: KDirOperator) bool {
+    pub fn hasMouseTracking(self: KDirOperator) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4582,9 +5678,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UnderMouse(self: KDirOperator) bool {
+    pub fn underMouse(self: KDirOperator) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4596,9 +5696,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KDirOperator, enable: bool) void {
+    pub fn setTabletTracking(self: KDirOperator, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4608,24 +5712,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn HasTabletTracking(self: KDirOperator) bool {
+    pub fn hasTabletTracking(self: KDirOperator) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KDirOperator, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4635,12 +5728,35 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KDirOperator, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KDirOperator, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDirOperator `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KDirOperator, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4650,9 +5766,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Mask(self: KDirOperator) QRegion {
+    pub fn mask(self: KDirOperator) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4662,9 +5782,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ClearMask(self: KDirOperator) void {
+    pub fn clearMask(self: KDirOperator) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4676,10 +5800,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KDirOperator, target: anytype) void {
+    pub fn render(self: KDirOperator, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4691,10 +5819,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KDirOperator, painter: anytype) void {
+    pub fn render2(self: KDirOperator, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4704,9 +5836,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Grab(self: KDirOperator) QPixmap {
+    pub fn grab(self: KDirOperator) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4716,9 +5852,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn GraphicsEffect(self: KDirOperator) QGraphicsEffect {
+    pub fn graphicsEffect(self: KDirOperator) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4730,10 +5870,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KDirOperator, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KDirOperator, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4745,9 +5889,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KDirOperator, typeVal: i32) void {
+    pub fn grabGesture(self: KDirOperator, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4759,9 +5907,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KDirOperator, typeVal: i32) void {
+    pub fn ungrabGesture(self: KDirOperator, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4771,15 +5923,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KDirOperator, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KDirOperator, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4789,15 +5945,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KDirOperator, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KDirOperator, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4809,13 +5969,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4827,13 +5991,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4845,10 +6013,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KDirOperator, icon: anytype) void {
+    pub fn setWindowIcon(self: KDirOperator, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4858,9 +6030,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn WindowIcon(self: KDirOperator) QIcon {
+    pub fn windowIcon(self: KDirOperator) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4870,15 +6046,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KDirOperator, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KDirOperator, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4890,13 +6070,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4906,15 +6090,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KDirOperator, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KDirOperator, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4926,13 +6114,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4944,13 +6136,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KDirOperator, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KDirOperator, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4962,13 +6158,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4980,9 +6180,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KDirOperator, level: f64) void {
+    pub fn setWindowOpacity(self: KDirOperator, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4992,9 +6196,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn WindowOpacity(self: KDirOperator) f64 {
+    pub fn windowOpacity(self: KDirOperator) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -5004,9 +6212,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsWindowModified(self: KDirOperator) bool {
+    pub fn isWindowModified(self: KDirOperator) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -5016,15 +6228,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KDirOperator, toolTip: []const u8) void {
+    pub fn setToolTip(self: KDirOperator, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -5036,13 +6252,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5054,9 +6274,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KDirOperator, msec: i32) void {
+    pub fn setToolTipDuration(self: KDirOperator, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5066,9 +6290,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ToolTipDuration(self: KDirOperator) i32 {
+    pub fn toolTipDuration(self: KDirOperator) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -5078,15 +6306,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KDirOperator, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KDirOperator, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -5098,13 +6330,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5114,15 +6350,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KDirOperator, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KDirOperator, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5134,13 +6374,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5152,13 +6396,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5170,13 +6418,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KDirOperator, name: []const u8) void {
+    pub fn setAccessibleName(self: KDirOperator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5188,13 +6440,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5206,13 +6462,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KDirOperator, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KDirOperator, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5224,9 +6484,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KDirOperator, direction: i32) void {
+    pub fn setLayoutDirection(self: KDirOperator, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5240,9 +6504,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KDirOperator) i32 {
+    pub fn layoutDirection(self: KDirOperator) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5252,9 +6520,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UnsetLayoutDirection(self: KDirOperator) void {
+    pub fn unsetLayoutDirection(self: KDirOperator) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5264,12 +6536,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KDirOperator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KDirOperator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5279,9 +6555,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Locale(self: KDirOperator) QLocale {
+    pub fn locale(self: KDirOperator) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5291,9 +6571,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UnsetLocale(self: KDirOperator) void {
+    pub fn unsetLocale(self: KDirOperator) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5303,9 +6587,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsRightToLeft(self: KDirOperator) bool {
+    pub fn isRightToLeft(self: KDirOperator) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5315,9 +6603,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsLeftToRight(self: KDirOperator) bool {
+    pub fn isLeftToRight(self: KDirOperator) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5327,9 +6619,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SetFocus(self: KDirOperator) void {
+    pub fn setFocus(self: KDirOperator) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5339,9 +6635,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsActiveWindow(self: KDirOperator) bool {
+    pub fn isActiveWindow(self: KDirOperator) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5351,9 +6651,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ActivateWindow(self: KDirOperator) void {
+    pub fn activateWindow(self: KDirOperator) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5363,9 +6667,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ClearFocus(self: KDirOperator) void {
+    pub fn clearFocus(self: KDirOperator) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5377,9 +6685,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KDirOperator, reason: i32) void {
+    pub fn setFocus2(self: KDirOperator, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5393,9 +6705,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KDirOperator) i32 {
+    pub fn focusPolicy(self: KDirOperator) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5407,9 +6723,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KDirOperator, policy: i32) void {
+    pub fn setFocusPolicy(self: KDirOperator, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5419,9 +6739,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn HasFocus(self: KDirOperator) bool {
+    pub fn hasFocus(self: KDirOperator) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5433,11 +6757,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5447,12 +6775,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KDirOperator, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KDirOperator, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5462,9 +6794,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FocusProxy(self: KDirOperator) QWidget {
+    pub fn focusProxy(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5478,9 +6814,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KDirOperator) i32 {
+    pub fn contextMenuPolicy(self: KDirOperator) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5492,9 +6832,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KDirOperator, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KDirOperator, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5504,9 +6848,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn GrabMouse(self: KDirOperator) void {
+    pub fn grabMouse(self: KDirOperator) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5518,10 +6866,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KDirOperator, param1: anytype) void {
+    pub fn grabMouse2(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -5531,9 +6883,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ReleaseMouse(self: KDirOperator) void {
+    pub fn releaseMouse(self: KDirOperator) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5543,9 +6899,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn GrabKeyboard(self: KDirOperator) void {
+    pub fn grabKeyboard(self: KDirOperator) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5555,9 +6915,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ReleaseKeyboard(self: KDirOperator) void {
+    pub fn releaseKeyboard(self: KDirOperator) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5569,10 +6933,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KDirOperator, key: anytype) i32 {
+    pub fn grabShortcut(self: KDirOperator, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5584,9 +6952,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KDirOperator, id: i32) void {
+    pub fn releaseShortcut(self: KDirOperator, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5598,9 +6970,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KDirOperator, id: i32) void {
+    pub fn setShortcutEnabled(self: KDirOperator, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5612,25 +6988,37 @@ pub const KDirOperator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KDirOperator, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KDirOperator, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5640,9 +7028,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdatesEnabled(self: KDirOperator) bool {
+    pub fn updatesEnabled(self: KDirOperator) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5654,9 +7046,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KDirOperator, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KDirOperator, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5666,9 +7062,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn GraphicsProxyWidget(self: KDirOperator) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KDirOperator) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -5678,9 +7078,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Update(self: KDirOperator) void {
+    pub fn update(self: KDirOperator) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5690,9 +7094,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Repaint(self: KDirOperator) void {
+    pub fn repaint(self: KDirOperator) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5702,17 +7110,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KDirOperator, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KDirOperator, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5724,11 +7136,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KDirOperator, param1: anytype) void {
+    pub fn update3(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5739,10 +7155,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KDirOperator, param1: anytype) void {
+    pub fn update4(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5752,17 +7172,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KDirOperator, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KDirOperator, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5774,10 +7198,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KDirOperator, param1: anytype) void {
+    pub fn repaint3(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5789,10 +7217,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KDirOperator, param1: anytype) void {
+    pub fn repaint4(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5804,9 +7236,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KDirOperator, hidden: bool) void {
+    pub fn setHidden(self: KDirOperator, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5816,9 +7252,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Show(self: KDirOperator) void {
+    pub fn show(self: KDirOperator) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5828,9 +7268,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Hide(self: KDirOperator) void {
+    pub fn hide(self: KDirOperator) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5840,9 +7284,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ShowMinimized(self: KDirOperator) void {
+    pub fn showMinimized(self: KDirOperator) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5852,9 +7300,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ShowMaximized(self: KDirOperator) void {
+    pub fn showMaximized(self: KDirOperator) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5864,9 +7316,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ShowFullScreen(self: KDirOperator) void {
+    pub fn showFullScreen(self: KDirOperator) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5876,9 +7332,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ShowNormal(self: KDirOperator) void {
+    pub fn showNormal(self: KDirOperator) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5888,9 +7348,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Raise(self: KDirOperator) void {
+    pub fn raise(self: KDirOperator) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5900,9 +7364,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Lower(self: KDirOperator) void {
+    pub fn lower(self: KDirOperator) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5914,10 +7382,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KDirOperator, param1: anytype) void {
+    pub fn stackUnder(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5927,13 +7399,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KDirOperator, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KDirOperator, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5945,10 +7421,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KDirOperator, param1: anytype) void {
+    pub fn move2(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5962,9 +7442,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KDirOperator, w: i32, h: i32) void {
+    pub fn resize(self: KDirOperator, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5976,10 +7460,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KDirOperator, param1: anytype) void {
+    pub fn resize2(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5989,17 +7477,21 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KDirOperator, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KDirOperator, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -6009,12 +7501,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KDirOperator, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KDirOperator, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6026,13 +7522,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KDirOperator, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KDirOperator, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KDirOperator.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KDirOperator.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6042,15 +7542,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KDirOperator, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KDirOperator, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -6060,9 +7564,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn AdjustSize(self: KDirOperator) void {
+    pub fn adjustSize(self: KDirOperator) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -6072,9 +7580,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsVisible(self: KDirOperator) bool {
+    pub fn isVisible(self: KDirOperator) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -6086,10 +7598,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KDirOperator, param1: anytype) bool {
+    pub fn isVisibleTo(self: KDirOperator, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -6099,9 +7615,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsHidden(self: KDirOperator) bool {
+    pub fn isHidden(self: KDirOperator) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6111,9 +7631,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsMinimized(self: KDirOperator) bool {
+    pub fn isMinimized(self: KDirOperator) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6123,9 +7647,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsMaximized(self: KDirOperator) bool {
+    pub fn isMaximized(self: KDirOperator) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6135,9 +7663,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsFullScreen(self: KDirOperator) bool {
+    pub fn isFullScreen(self: KDirOperator) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -6151,9 +7683,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KDirOperator) i32 {
+    pub fn windowState(self: KDirOperator) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6165,9 +7701,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KDirOperator, state: i32) void {
+    pub fn setWindowState(self: KDirOperator, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6179,9 +7719,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KDirOperator, state: i32) void {
+    pub fn overrideWindowState(self: KDirOperator, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6191,9 +7735,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SizePolicy(self: KDirOperator) QSizePolicy {
+    pub fn sizePolicy(self: KDirOperator) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6203,12 +7751,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KDirOperator, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KDirOperator, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6222,9 +7774,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KDirOperator, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KDirOperator, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6234,9 +7790,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn VisibleRegion(self: KDirOperator) QRegion {
+    pub fn visibleRegion(self: KDirOperator) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6254,9 +7814,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KDirOperator, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KDirOperator, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6268,10 +7832,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KDirOperator, margins: anytype) void {
+    pub fn setContentsMargins2(self: KDirOperator, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6281,9 +7849,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ContentsMargins(self: KDirOperator) QMargins {
+    pub fn contentsMargins(self: KDirOperator) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6293,9 +7865,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ContentsRect(self: KDirOperator) QRect {
+    pub fn contentsRect(self: KDirOperator) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6305,9 +7881,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Layout(self: KDirOperator) QLayout {
+    pub fn layout(self: KDirOperator) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6317,12 +7897,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KDirOperator, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KDirOperator, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6332,24 +7916,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateGeometry(self: KDirOperator) void {
+    pub fn updateGeometry(self: KDirOperator) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KDirOperator, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6359,14 +7932,37 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KDirOperator, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDirOperator `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KDirOperator, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KDirOperator, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6380,9 +7976,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KDirOperator, dx: i32, dy: i32) void {
+    pub fn scroll(self: KDirOperator, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6398,10 +7998,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KDirOperator, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KDirOperator, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6411,9 +8015,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FocusWidget(self: KDirOperator) QWidget {
+    pub fn focusWidget(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6423,9 +8031,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn NextInFocusChain(self: KDirOperator) QWidget {
+    pub fn nextInFocusChain(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6435,9 +8047,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PreviousInFocusChain(self: KDirOperator) QWidget {
+    pub fn previousInFocusChain(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6447,9 +8063,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn AcceptDrops(self: KDirOperator) bool {
+    pub fn acceptDrops(self: KDirOperator) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6459,12 +8079,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn AddAction(self: KDirOperator, action: anytype) void {
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
+    pub fn addAction(self: KDirOperator, _action: anytype) void {
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6474,15 +8098,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KDirOperator, actions: []QAction) void {
+    pub fn addActions(self: KDirOperator, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6494,16 +8122,20 @@ pub const KDirOperator = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KDirOperator, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KDirOperator, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -6515,13 +8147,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn InsertAction(self: KDirOperator, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KDirOperator, before: anytype, _action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -6531,12 +8167,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` action: QAction `
+    /// ` _action: QAction `
     ///
-    pub fn RemoveAction(self: KDirOperator, action: anytype) void {
-        comptime _ = @TypeOf(action)._is_QAction;
-        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
+    pub fn removeAction(self: KDirOperator, _action: anytype) void {
+        comptime _ = @TypeOf(_action)._is_QAction;
+        qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(_action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -6548,15 +8188,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KDirOperator, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KDirOperator, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDirOperator.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KDirOperator.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -6568,13 +8212,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KDirOperator, text: []const u8) QAction {
+    pub fn addAction2(self: KDirOperator, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6588,7 +8236,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KDirOperator, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KDirOperator, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6597,6 +8245,10 @@ pub const KDirOperator = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6609,7 +8261,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KDirOperator, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KDirOperator, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -6617,6 +8269,10 @@ pub const KDirOperator = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -6632,7 +8288,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KDirOperator, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KDirOperator, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6642,6 +8298,10 @@ pub const KDirOperator = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -6650,9 +8310,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ParentWidget(self: KDirOperator) QWidget {
+    pub fn parentWidget(self: KDirOperator) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6664,9 +8328,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KDirOperator, typeVal: i32) void {
+    pub fn setWindowFlags(self: KDirOperator, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6680,9 +8348,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KDirOperator) i32 {
+    pub fn windowFlags(self: KDirOperator) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6694,9 +8366,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KDirOperator, param1: i32) void {
+    pub fn setWindowFlag(self: KDirOperator, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6708,9 +8384,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KDirOperator, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KDirOperator, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6724,9 +8404,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KDirOperator) i32 {
+    pub fn windowType(self: KDirOperator) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -6736,9 +8420,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6748,13 +8436,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KDirOperator, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KDirOperator, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6766,10 +8458,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KDirOperator, p: anytype) QWidget {
+    pub fn childAt2(self: KDirOperator, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6781,10 +8477,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KDirOperator, p: anytype) QWidget {
+    pub fn childAt3(self: KDirOperator, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6796,9 +8496,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KDirOperator, param1: i32) void {
+    pub fn setAttribute(self: KDirOperator, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6810,9 +8514,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KDirOperator, param1: i32) bool {
+    pub fn testAttribute(self: KDirOperator, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6822,9 +8530,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn EnsurePolished(self: KDirOperator) void {
+    pub fn ensurePolished(self: KDirOperator) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6836,10 +8548,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KDirOperator, child: anytype) bool {
+    pub fn isAncestorOf(self: KDirOperator, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6849,9 +8565,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn AutoFillBackground(self: KDirOperator) bool {
+    pub fn autoFillBackground(self: KDirOperator) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6863,9 +8583,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KDirOperator, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KDirOperator, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6875,9 +8599,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn BackingStore(self: KDirOperator) QBackingStore {
+    pub fn backingStore(self: KDirOperator) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6887,9 +8615,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn WindowHandle(self: KDirOperator) QWindow {
+    pub fn windowHandle(self: KDirOperator) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6899,9 +8631,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Screen(self: KDirOperator) QScreen {
+    pub fn screen(self: KDirOperator) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6911,12 +8647,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KDirOperator, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KDirOperator, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6924,12 +8664,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6941,13 +8685,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KDirOperator, title: []const u8) void {
+    pub fn windowTitleChanged(self: KDirOperator, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6959,9 +8707,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6973,10 +8725,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KDirOperator, icon: anytype) void {
+    pub fn windowIconChanged(self: KDirOperator, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6988,9 +8744,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KDirOperator, callback: *const fn (KDirOperator, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KDirOperator, callback: *const fn (KDirOperator, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7002,13 +8762,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KDirOperator, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KDirOperator, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7020,9 +8784,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7032,12 +8800,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KDirOperator, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KDirOperator, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7049,9 +8821,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KDirOperator, callback: *const fn (KDirOperator, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KDirOperator, callback: *const fn (KDirOperator, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7065,9 +8841,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KDirOperator) i32 {
+    pub fn inputMethodHints(self: KDirOperator) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7079,9 +8859,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KDirOperator, hints: i32) void {
+    pub fn setInputMethodHints(self: KDirOperator, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -7095,11 +8879,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KDirOperator, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KDirOperator, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -7115,13 +8903,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KDirOperator, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KDirOperator, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -7138,12 +8930,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KDirOperator, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KDirOperator, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -7157,11 +8953,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KDirOperator, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KDirOperator, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7177,12 +8977,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KDirOperator, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KDirOperator, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7200,12 +9004,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KDirOperator, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KDirOperator, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7217,10 +9025,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KDirOperator, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KDirOperator, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7234,9 +9046,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KDirOperator, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KDirOperator, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7250,10 +9066,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KDirOperator, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KDirOperator, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7267,9 +9087,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KDirOperator, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KDirOperator, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7283,9 +9107,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KDirOperator, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KDirOperator, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7299,9 +9127,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KDirOperator, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KDirOperator, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7315,25 +9147,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KDirOperator, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KDirOperator, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7341,17 +9161,41 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7363,13 +9207,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KDirOperator, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KDirOperator.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7381,13 +9229,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KDirOperator, name: []const u8) void {
+    pub fn setObjectName(self: KDirOperator, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7397,9 +9249,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsWidgetType(self: KDirOperator) bool {
+    pub fn isWidgetType(self: KDirOperator) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7409,9 +9265,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsWindowType(self: KDirOperator) bool {
+    pub fn isWindowType(self: KDirOperator) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7421,9 +9281,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn IsQuickItemType(self: KDirOperator) bool {
+    pub fn isQuickItemType(self: KDirOperator) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7433,9 +9297,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SignalsBlocked(self: KDirOperator) bool {
+    pub fn signalsBlocked(self: KDirOperator) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7447,9 +9315,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KDirOperator, b: bool) bool {
+    pub fn blockSignals(self: KDirOperator, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7459,9 +9331,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Thread(self: KDirOperator) QThread {
+    pub fn thread(self: KDirOperator) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7471,12 +9347,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KDirOperator, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KDirOperator, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7488,9 +9368,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KDirOperator, interval: i32) i32 {
+    pub fn startTimer(self: KDirOperator, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7502,9 +9386,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KDirOperator, time: i64) i32 {
+    pub fn startTimer2(self: KDirOperator, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7516,9 +9404,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KDirOperator, id: i32) void {
+    pub fn killTimer(self: KDirOperator, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7530,9 +9422,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KDirOperator, id: i32) void {
+    pub fn killTimer2(self: KDirOperator, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7544,15 +9440,19 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KDirOperator, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KDirOperator, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDirOperator.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KDirOperator.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7564,10 +9464,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KDirOperator, filterObj: anytype) void {
+    pub fn installEventFilter(self: KDirOperator, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7579,10 +9483,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KDirOperator, obj: anytype) void {
+    pub fn removeEventFilter(self: KDirOperator, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7590,7 +9498,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7598,13 +9506,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7612,7 +9524,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7620,13 +9532,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7636,18 +9552,22 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KDirOperator, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KDirOperator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7655,7 +9575,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7663,13 +9583,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7677,7 +9601,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7685,13 +9609,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7701,9 +9629,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Disconnect3(self: KDirOperator) bool {
+    pub fn disconnect3(self: KDirOperator) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7715,10 +9647,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KDirOperator, receiver: anytype) bool {
+    pub fn disconnect4(self: KDirOperator, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7728,10 +9664,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7741,9 +9681,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DumpObjectTree(self: KDirOperator) void {
+    pub fn dumpObjectTree(self: KDirOperator) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7753,9 +9697,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DumpObjectInfo(self: KDirOperator) void {
+    pub fn dumpObjectInfo(self: KDirOperator) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7769,11 +9717,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KDirOperator, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KDirOperator, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7785,10 +9737,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KDirOperator, name: [:0]const u8) QVariant {
+    pub fn property(self: KDirOperator, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7800,7 +9756,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KDirOperator, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KDirOperator, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7808,27 +9764,19 @@ pub const KDirOperator = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDirOperator.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KDirOperator.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KDirOperator.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KDirOperator.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KDirOperator `
-    ///
-    pub fn BindingStorage(self: KDirOperator) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7838,9 +9786,29 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn BindingStorage2(self: KDirOperator) QBindingStorage {
+    pub fn bindingStorage(self: KDirOperator) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KDirOperator `
+    ///
+    pub fn bindingStorage2(self: KDirOperator) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7850,9 +9818,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Destroyed(self: KDirOperator) void {
+    pub fn destroyed(self: KDirOperator) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7864,9 +9836,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
+    pub fn onDestroyed(self: KDirOperator, callback: *const fn (KDirOperator) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7876,9 +9852,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Parent(self: KDirOperator) QObject {
+    pub fn parent(self: KDirOperator) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7890,10 +9870,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KDirOperator, classname: [:0]const u8) bool {
+    pub fn inherits(self: KDirOperator, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7903,9 +9887,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DeleteLater(self: KDirOperator) void {
+    pub fn deleteLater(self: KDirOperator) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7919,9 +9907,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KDirOperator, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KDirOperator, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7935,9 +9927,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KDirOperator, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KDirOperator, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7945,7 +9941,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7955,13 +9951,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7969,7 +9969,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7979,13 +9979,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7995,7 +9999,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8003,12 +10007,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KDirOperator, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KDirOperator, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8020,10 +10028,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KDirOperator, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KDirOperator, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8037,11 +10049,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KDirOperator, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KDirOperator, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8057,13 +10073,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KDirOperator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KDirOperator, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8076,11 +10096,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KDirOperator, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KDirOperator, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8092,10 +10116,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KDirOperator, param1: anytype) void {
+    pub fn destroyed1(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8107,9 +10135,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KDirOperator, callback: *const fn (KDirOperator, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KDirOperator, callback: *const fn (KDirOperator, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -8119,9 +10151,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PaintingActive(self: KDirOperator) bool {
+    pub fn paintingActive(self: KDirOperator) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8131,9 +10167,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn WidthMM(self: KDirOperator) i32 {
+    pub fn widthMM(self: KDirOperator) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8143,9 +10183,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn HeightMM(self: KDirOperator) i32 {
+    pub fn heightMM(self: KDirOperator) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8155,9 +10199,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn LogicalDpiX(self: KDirOperator) i32 {
+    pub fn logicalDpiX(self: KDirOperator) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8167,9 +10215,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn LogicalDpiY(self: KDirOperator) i32 {
+    pub fn logicalDpiY(self: KDirOperator) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8179,9 +10231,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PhysicalDpiX(self: KDirOperator) i32 {
+    pub fn physicalDpiX(self: KDirOperator) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8191,9 +10247,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PhysicalDpiY(self: KDirOperator) i32 {
+    pub fn physicalDpiY(self: KDirOperator) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8203,9 +10263,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DevicePixelRatio(self: KDirOperator) f64 {
+    pub fn devicePixelRatio(self: KDirOperator) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8215,9 +10279,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DevicePixelRatioF(self: KDirOperator) f64 {
+    pub fn devicePixelRatioF(self: KDirOperator) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8227,9 +10295,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn ColorCount(self: KDirOperator) i32 {
+    pub fn colorCount(self: KDirOperator) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8239,17 +10311,25 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Depth(self: KDirOperator) i32 {
+    pub fn depth(self: KDirOperator) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8257,13 +10337,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8275,13 +10359,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn DevType(self: KDirOperator) i32 {
+    pub fn devType(self: KDirOperator) i32 {
         return qtc.KDirOperator_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8293,9 +10377,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperDevType(self: KDirOperator) i32 {
+    pub fn superDevType(self: KDirOperator) i32 {
         return qtc.KDirOperator_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8309,9 +10397,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
         qtc.KDirOperator_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8325,13 +10417,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KDirOperator, visible: bool) void {
+    pub fn setVisible(self: KDirOperator, visible: bool) void {
         qtc.KDirOperator_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8345,9 +10437,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KDirOperator, visible: bool) void {
+    pub fn superSetVisible(self: KDirOperator, visible: bool) void {
         qtc.KDirOperator_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8361,10 +10457,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) void) void {
         qtc.KDirOperator_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -8375,13 +10475,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SizeHint(self: KDirOperator) QSize {
+    pub fn sizeHint(self: KDirOperator) QSize {
         return .{ .ptr = qtc.KDirOperator_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8393,10 +10493,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSizeHint(self: KDirOperator) QSize {
+    pub fn superSizeHint(self: KDirOperator) QSize {
         return .{ .ptr = qtc.KDirOperator_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -8411,9 +10515,13 @@ pub const KDirOperator = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDirOperator_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8425,13 +10533,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn MinimumSizeHint(self: KDirOperator) QSize {
+    pub fn minimumSizeHint(self: KDirOperator) QSize {
         return .{ .ptr = qtc.KDirOperator_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8443,9 +10551,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperMinimumSizeHint(self: KDirOperator) QSize {
+    pub fn superMinimumSizeHint(self: KDirOperator) QSize {
         return .{ .ptr = qtc.KDirOperator_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -8461,9 +10573,13 @@ pub const KDirOperator = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KDirOperator, callback: *const fn () callconv(.c) QSize) void {
         qtc.KDirOperator_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8477,13 +10593,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KDirOperator, param1: i32) i32 {
+    pub fn heightForWidth(self: KDirOperator, param1: i32) i32 {
         return qtc.KDirOperator_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8497,9 +10613,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KDirOperator, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KDirOperator, param1: i32) i32 {
         return qtc.KDirOperator_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8513,9 +10633,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) i32) void {
         qtc.KDirOperator_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8527,13 +10651,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn HasHeightForWidth(self: KDirOperator) bool {
+    pub fn hasHeightForWidth(self: KDirOperator) bool {
         return qtc.KDirOperator_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8545,9 +10669,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperHasHeightForWidth(self: KDirOperator) bool {
+    pub fn superHasHeightForWidth(self: KDirOperator) bool {
         return qtc.KDirOperator_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8561,9 +10689,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
         qtc.KDirOperator_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8575,13 +10707,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn PaintEngine(self: KDirOperator) QPaintEngine {
+    pub fn paintEngine(self: KDirOperator) QPaintEngine {
         return .{ .ptr = qtc.KDirOperator_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8593,9 +10725,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperPaintEngine(self: KDirOperator) QPaintEngine {
+    pub fn superPaintEngine(self: KDirOperator) QPaintEngine {
         return .{ .ptr = qtc.KDirOperator_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8609,9 +10745,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KDirOperator, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KDirOperator, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KDirOperator_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -8623,16 +10763,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KDirOperator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirOperator_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KDirOperator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirOperator_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -8644,12 +10784,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KDirOperator, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KDirOperator_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KDirOperator, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KDirOperator_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -8663,10 +10807,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) bool) void {
         qtc.KDirOperator_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -8677,16 +10825,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8698,12 +10846,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8717,10 +10869,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -8731,16 +10887,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8752,12 +10908,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8771,10 +10931,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8785,16 +10949,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8806,12 +10970,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8825,10 +10993,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8839,16 +11011,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8860,12 +11032,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KDirOperator_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KDirOperator_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8879,9 +11055,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMouseEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8893,16 +11073,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KDirOperator_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KDirOperator_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8914,12 +11094,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KDirOperator_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KDirOperator_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8933,10 +11117,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KDirOperator, callback: *const fn (KDirOperator, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KDirOperator, callback: *const fn (KDirOperator, QWheelEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -8947,16 +11135,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDirOperator_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDirOperator_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8968,12 +11156,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDirOperator_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDirOperator_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -8987,10 +11179,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KDirOperator, callback: *const fn (KDirOperator, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KDirOperator, callback: *const fn (KDirOperator, QKeyEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -9001,16 +11197,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDirOperator_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDirOperator_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9022,12 +11218,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KDirOperator_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KDirOperator_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9041,10 +11241,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QKeyEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -9055,16 +11259,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDirOperator_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDirOperator_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -9076,12 +11280,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDirOperator_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDirOperator_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -9095,10 +11303,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KDirOperator, callback: *const fn (KDirOperator, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KDirOperator, callback: *const fn (KDirOperator, QFocusEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -9109,16 +11321,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDirOperator_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDirOperator_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -9130,12 +11342,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KDirOperator_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KDirOperator_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -9149,9 +11365,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KDirOperator, callback: *const fn (KDirOperator, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KDirOperator, callback: *const fn (KDirOperator, QFocusEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9163,16 +11383,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KDirOperator_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KDirOperator_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9184,12 +11404,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KDirOperator_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KDirOperator_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9203,9 +11427,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEnterEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9217,16 +11445,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9238,12 +11466,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9257,9 +11489,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9271,16 +11507,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KDirOperator_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KDirOperator_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9292,12 +11528,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KDirOperator_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KDirOperator_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -9311,9 +11551,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KDirOperator, callback: *const fn (KDirOperator, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KDirOperator, callback: *const fn (KDirOperator, QPaintEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9325,16 +11569,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KDirOperator_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KDirOperator_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9346,12 +11590,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KDirOperator_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KDirOperator_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9365,9 +11613,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QMoveEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9379,16 +11631,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KDirOperator_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KDirOperator_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9400,12 +11652,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KDirOperator_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KDirOperator_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9419,9 +11675,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KDirOperator, callback: *const fn (KDirOperator, QCloseEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9433,16 +11693,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KDirOperator_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KDirOperator_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9454,12 +11714,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KDirOperator_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KDirOperator_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -9473,9 +11737,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KDirOperator, callback: *const fn (KDirOperator, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KDirOperator, callback: *const fn (KDirOperator, QContextMenuEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9487,16 +11755,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KDirOperator_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KDirOperator_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9508,12 +11776,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KDirOperator_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KDirOperator_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9527,9 +11799,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KDirOperator, callback: *const fn (KDirOperator, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KDirOperator, callback: *const fn (KDirOperator, QTabletEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9541,16 +11817,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KDirOperator_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KDirOperator_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9562,12 +11838,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KDirOperator_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KDirOperator_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9581,9 +11861,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KDirOperator, callback: *const fn (KDirOperator, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KDirOperator, callback: *const fn (KDirOperator, QActionEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9595,16 +11879,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KDirOperator_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KDirOperator_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9616,12 +11900,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KDirOperator_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KDirOperator_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9635,9 +11923,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragEnterEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9649,16 +11941,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KDirOperator_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KDirOperator_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9670,12 +11962,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KDirOperator_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KDirOperator_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9689,9 +11985,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragMoveEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9703,16 +12003,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KDirOperator_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KDirOperator_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9724,12 +12024,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KDirOperator_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KDirOperator_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9743,9 +12047,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9757,16 +12065,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KDirOperator_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KDirOperator_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9778,12 +12086,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KDirOperator_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KDirOperator_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -9797,9 +12109,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KDirOperator, callback: *const fn (KDirOperator, QDropEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -9811,16 +12127,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KDirOperator_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KDirOperator_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9832,12 +12148,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KDirOperator_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KDirOperator_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9851,9 +12171,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KDirOperator, callback: *const fn (KDirOperator, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KDirOperator, callback: *const fn (KDirOperator, QShowEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9865,16 +12189,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KDirOperator_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KDirOperator_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9886,12 +12210,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KDirOperator_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KDirOperator_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9905,9 +12233,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KDirOperator, callback: *const fn (KDirOperator, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KDirOperator, callback: *const fn (KDirOperator, QHideEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9925,7 +12257,7 @@ pub const KDirOperator = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KDirOperator, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KDirOperator, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9933,9 +12265,9 @@ pub const KDirOperator = extern struct {
         return qtc.KDirOperator_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9953,13 +12285,17 @@ pub const KDirOperator = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KDirOperator, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KDirOperator, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KDirOperator_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9973,9 +12309,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KDirOperator, callback: *const fn (KDirOperator, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KDirOperator, callback: *const fn (KDirOperator, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KDirOperator_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9989,13 +12329,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KDirOperator, param1: i32) i32 {
+    pub fn metric(self: KDirOperator, param1: i32) i32 {
         return qtc.KDirOperator_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -10009,9 +12349,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KDirOperator, param1: i32) i32 {
+    pub fn superMetric(self: KDirOperator, param1: i32) i32 {
         return qtc.KDirOperator_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -10025,9 +12369,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) i32) void {
         qtc.KDirOperator_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -10041,14 +12389,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KDirOperator, painter: anytype) void {
+    pub fn initPainter(self: KDirOperator, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KDirOperator_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10062,10 +12410,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KDirOperator, painter: anytype) void {
+    pub fn superInitPainter(self: KDirOperator, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KDirOperator_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10079,9 +12431,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KDirOperator, callback: *const fn (KDirOperator, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KDirOperator, callback: *const fn (KDirOperator, QPainter) callconv(.c) void) void {
         qtc.KDirOperator_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -10095,14 +12451,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KDirOperator, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KDirOperator, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KDirOperator_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10116,10 +12472,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KDirOperator, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KDirOperator, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KDirOperator_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10133,9 +12493,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KDirOperator, callback: *const fn (KDirOperator, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KDirOperator, callback: *const fn (KDirOperator, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KDirOperator_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10147,13 +12511,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SharedPainter(self: KDirOperator) QPainter {
+    pub fn sharedPainter(self: KDirOperator) QPainter {
         return .{ .ptr = qtc.KDirOperator_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10165,9 +12529,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSharedPainter(self: KDirOperator) QPainter {
+    pub fn superSharedPainter(self: KDirOperator) QPainter {
         return .{ .ptr = qtc.KDirOperator_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10181,9 +12549,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KDirOperator, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KDirOperator, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KDirOperator_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10197,14 +12569,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KDirOperator, param1: anytype) void {
+    pub fn inputMethodEvent(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KDirOperator_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10218,10 +12590,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KDirOperator, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KDirOperator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KDirOperator_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -10235,9 +12611,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KDirOperator, callback: *const fn (KDirOperator, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KDirOperator, callback: *const fn (KDirOperator, QInputMethodEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10251,13 +12631,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KDirOperator, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KDirOperator, param1: i32) QVariant {
         return .{ .ptr = qtc.KDirOperator_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10271,9 +12651,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KDirOperator, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KDirOperator, param1: i32) QVariant {
         return .{ .ptr = qtc.KDirOperator_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -10289,9 +12673,13 @@ pub const KDirOperator = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KDirOperator, callback: *const fn (KDirOperator, i32) callconv(.c) QVariant) void {
         qtc.KDirOperator_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10305,13 +12693,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KDirOperator, next: bool) bool {
+    pub fn focusNextPrevChild(self: KDirOperator, next: bool) bool {
         return qtc.KDirOperator_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10325,9 +12713,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KDirOperator, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KDirOperator, next: bool) bool {
         return qtc.KDirOperator_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -10341,9 +12733,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KDirOperator, callback: *const fn (KDirOperator, bool) callconv(.c) bool) void {
         qtc.KDirOperator_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -10355,16 +12751,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDirOperator_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDirOperator_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10376,12 +12772,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KDirOperator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KDirOperator_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -10395,9 +12795,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KDirOperator, callback: *const fn (KDirOperator, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KDirOperator, callback: *const fn (KDirOperator, QTimerEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10409,16 +12813,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDirOperator_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDirOperator_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10430,12 +12834,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KDirOperator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KDirOperator_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10449,9 +12857,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KDirOperator, callback: *const fn (KDirOperator, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KDirOperator, callback: *const fn (KDirOperator, QChildEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10463,16 +12875,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10484,12 +12896,16 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KDirOperator, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KDirOperator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KDirOperator, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KDirOperator_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -10503,9 +12919,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KDirOperator, callback: *const fn (KDirOperator, QEvent) callconv(.c) void) void {
         qtc.KDirOperator_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -10519,14 +12939,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KDirOperator, signal: anytype) void {
+    pub fn connectNotify(self: KDirOperator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirOperator_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10540,11 +12960,15 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KDirOperator, signal: anytype) void {
+    pub fn superConnectNotify(self: KDirOperator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirOperator_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -10557,9 +12981,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) void) void {
         qtc.KDirOperator_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10573,14 +13001,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KDirOperator, signal: anytype) void {
+    pub fn disconnectNotify(self: KDirOperator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirOperator_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10594,10 +13022,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KDirOperator, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KDirOperator, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KDirOperator_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10611,10 +13043,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) void) void {
         qtc.KDirOperator_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10625,13 +13061,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn UpdateMicroFocus(self: KDirOperator) void {
+    pub fn updateMicroFocus(self: KDirOperator) void {
         qtc.KDirOperator_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10643,10 +13079,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperUpdateMicroFocus(self: KDirOperator) void {
+    pub fn superUpdateMicroFocus(self: KDirOperator) void {
         qtc.KDirOperator_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10659,10 +13099,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10673,13 +13117,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Create(self: KDirOperator) void {
+    pub fn create(self: KDirOperator) void {
         qtc.KDirOperator_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10691,10 +13135,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperCreate(self: KDirOperator) void {
+    pub fn superCreate(self: KDirOperator) void {
         qtc.KDirOperator_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10707,9 +13155,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10721,13 +13173,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Destroy(self: KDirOperator) void {
+    pub fn destroy(self: KDirOperator) void {
         qtc.KDirOperator_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10739,9 +13191,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperDestroy(self: KDirOperator) void {
+    pub fn superDestroy(self: KDirOperator) void {
         qtc.KDirOperator_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10755,10 +13211,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KDirOperator, callback: *const fn () callconv(.c) void) void {
         qtc.KDirOperator_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10769,13 +13229,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FocusNextChild(self: KDirOperator) bool {
+    pub fn focusNextChild(self: KDirOperator) bool {
         return qtc.KDirOperator_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10787,10 +13247,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperFocusNextChild(self: KDirOperator) bool {
+    pub fn superFocusNextChild(self: KDirOperator) bool {
         return qtc.KDirOperator_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10803,9 +13267,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
         qtc.KDirOperator_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10817,13 +13285,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn FocusPreviousChild(self: KDirOperator) bool {
+    pub fn focusPreviousChild(self: KDirOperator) bool {
         return qtc.KDirOperator_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10835,9 +13303,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperFocusPreviousChild(self: KDirOperator) bool {
+    pub fn superFocusPreviousChild(self: KDirOperator) bool {
         return qtc.KDirOperator_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10851,9 +13323,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KDirOperator, callback: *const fn () callconv(.c) bool) void {
         qtc.KDirOperator_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10865,13 +13341,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Sender(self: KDirOperator) QObject {
+    pub fn sender(self: KDirOperator) QObject {
         return .{ .ptr = qtc.KDirOperator_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10883,9 +13359,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSender(self: KDirOperator) QObject {
+    pub fn superSender(self: KDirOperator) QObject {
         return .{ .ptr = qtc.KDirOperator_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10899,9 +13379,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KDirOperator, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KDirOperator, callback: *const fn () callconv(.c) QObject) void {
         qtc.KDirOperator_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10913,13 +13397,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SenderSignalIndex(self: KDirOperator) i32 {
+    pub fn senderSignalIndex(self: KDirOperator) i32 {
         return qtc.KDirOperator_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10931,9 +13415,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn SuperSenderSignalIndex(self: KDirOperator) i32 {
+    pub fn superSenderSignalIndex(self: KDirOperator) i32 {
         return qtc.KDirOperator_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10947,9 +13435,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KDirOperator, callback: *const fn () callconv(.c) i32) void {
         qtc.KDirOperator_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10963,14 +13455,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KDirOperator, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KDirOperator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirOperator_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10984,10 +13476,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KDirOperator, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KDirOperator, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KDirOperator_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -11001,9 +13497,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) i32) void {
         qtc.KDirOperator_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11017,14 +13517,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KDirOperator, signal: anytype) bool {
+    pub fn isSignalConnected(self: KDirOperator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDirOperator_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11038,10 +13538,14 @@ pub const KDirOperator = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KDirOperator, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KDirOperator, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KDirOperator_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11055,9 +13559,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KDirOperator, callback: *const fn (KDirOperator, QMetaMethod) callconv(.c) bool) void {
         qtc.KDirOperator_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11073,13 +13581,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
         return qtc.KDirOperator_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11095,9 +13603,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KDirOperator, metricA: i32, metricB: i32) f64 {
         return qtc.KDirOperator_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11111,9 +13623,13 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KDirOperator, callback: *const fn (KDirOperator, i32, i32) callconv(.c) f64) void {
         qtc.KDirOperator_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -11127,23 +13643,23 @@ pub const KDirOperator = extern struct {
     ///
     /// ` callback: *const fn (self: KDirOperator, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KDirOperator, callback: *const fn (KDirOperator, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kdiroperator.html#dtor.KDirOperator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KDirOperator `
     ///
-    pub fn Delete(self: KDirOperator) void {
+    pub fn delete(self: KDirOperator) void {
         qtc.KDirOperator_Delete(@ptrCast(self.ptr));
     }
 };

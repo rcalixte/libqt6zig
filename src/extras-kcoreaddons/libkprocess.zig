@@ -35,22 +35,34 @@ pub const KProcess = extern struct {
     pub const _is_QObject = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new KProcess object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KProcess {
+    pub const New = new;
+
+    /// Allocate a new KProcess object in C++ memory
+    ///
+    pub fn new() KProcess {
         return .{ .ptr = qtc.KProcess_new() };
     }
 
-    /// New2 constructs a new KProcess object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KProcess object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KProcess {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KProcess_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KProcess {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KProcess_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -58,9 +70,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn MetaObject(self: KProcess) QMetaObject {
+    pub fn metaObject(self: KProcess) QMetaObject {
         return .{ .ptr = qtc.KProcess_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -72,13 +88,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KProcess, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KProcess, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KProcess_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -88,9 +104,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperMetaObject(self: KProcess) QMetaObject {
+    pub fn superMetaObject(self: KProcess) QMetaObject {
         return .{ .ptr = qtc.KProcess_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -98,10 +118,14 @@ pub const KProcess = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KProcess, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KProcess, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KProcess_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -111,13 +135,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KProcess_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -127,10 +151,14 @@ pub const KProcess = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KProcess, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KProcess, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KProcess_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -142,9 +170,13 @@ pub const KProcess = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KProcess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KProcess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KProcess_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -154,13 +186,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KProcess, callback: *const fn (KProcess, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KProcess, callback: *const fn (KProcess, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KProcess_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -174,9 +206,13 @@ pub const KProcess = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KProcess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KProcess, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KProcess_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -186,14 +222,18 @@ pub const KProcess = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOutputChannelMode` instead
+    ///
+    pub const SetOutputChannelMode = setOutputChannelMode;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setOutputChannelMode)
     ///
@@ -203,9 +243,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: kprocess_enums.OutputChannelMode `
     ///
-    pub fn SetOutputChannelMode(self: KProcess, mode: i32) void {
+    pub fn setOutputChannelMode(self: KProcess, mode: i32) void {
         qtc.KProcess_SetOutputChannelMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `outputChannelMode` instead
+    ///
+    pub const OutputChannelMode = outputChannelMode;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#outputChannelMode)
     ///
@@ -217,9 +261,13 @@ pub const KProcess = extern struct {
     ///
     /// ` kprocess_enums.OutputChannelMode `
     ///
-    pub fn OutputChannelMode(self: KProcess) i32 {
+    pub fn outputChannelMode(self: KProcess) i32 {
         return qtc.KProcess_OutputChannelMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNextOpenMode` instead
+    ///
+    pub const SetNextOpenMode = setNextOpenMode;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setNextOpenMode)
     ///
@@ -229,9 +277,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetNextOpenMode(self: KProcess, mode: i32) void {
+    pub fn setNextOpenMode(self: KProcess, mode: i32) void {
         qtc.KProcess_SetNextOpenMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setEnv` instead
+    ///
+    pub const SetEnv = setEnv;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setEnv)
     ///
@@ -243,7 +295,7 @@ pub const KProcess = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetEnv(self: KProcess, name: []const u8, value: []const u8) void {
+    pub fn setEnv(self: KProcess, name: []const u8, value: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -255,6 +307,10 @@ pub const KProcess = extern struct {
         qtc.KProcess_SetEnv(@ptrCast(self.ptr), name_str, value_str);
     }
 
+    /// ### DEPRECATED: Use `unsetEnv` instead
+    ///
+    pub const UnsetEnv = unsetEnv;
+
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#unsetEnv)
     ///
     /// ## Parameter(s):
@@ -263,7 +319,7 @@ pub const KProcess = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UnsetEnv(self: KProcess, name: []const u8) void {
+    pub fn unsetEnv(self: KProcess, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -271,15 +327,23 @@ pub const KProcess = extern struct {
         qtc.KProcess_UnsetEnv(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `clearEnvironment` instead
+    ///
+    pub const ClearEnvironment = clearEnvironment;
+
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#clearEnvironment)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KProcess `
     ///
-    pub fn ClearEnvironment(self: KProcess) void {
+    pub fn clearEnvironment(self: KProcess) void {
         qtc.KProcess_ClearEnvironment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProgram` instead
+    ///
+    pub const SetProgram = setProgram;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setProgram)
     ///
@@ -289,13 +353,17 @@ pub const KProcess = extern struct {
     ///
     /// ` exe: []const u8 `
     ///
-    pub fn SetProgram(self: KProcess, exe: []const u8) void {
+    pub fn setProgram(self: KProcess, exe: []const u8) void {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
         qtc.KProcess_SetProgram(@ptrCast(self.ptr), exe_str);
     }
+
+    /// ### DEPRECATED: Use `setProgram2` instead
+    ///
+    pub const SetProgram2 = setProgram2;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setProgram)
     ///
@@ -307,13 +375,13 @@ pub const KProcess = extern struct {
     ///
     /// ` argv: []const []const u8 `
     ///
-    pub fn SetProgram2(self: KProcess, allocator: std.mem.Allocator, argv: []const []const u8) void {
-        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.SetProgram2: Memory allocation failed");
+    pub fn setProgram2(self: KProcess, allocator: std.mem.Allocator, argv: []const []const u8) void {
+        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.setProgram2: Memory allocation failed");
         defer allocator.free(argv_arr);
-        for (argv, 0..argv.len) |item, i|
+        for (argv, 0..argv.len) |str_item, i|
             argv_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const argv_list = qtc.libqt_list{
             .len = argv.len,
@@ -321,6 +389,10 @@ pub const KProcess = extern struct {
         };
         qtc.KProcess_SetProgram2(@ptrCast(self.ptr), argv_list);
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#operator-lt-lt)
     ///
@@ -330,13 +402,17 @@ pub const KProcess = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn OperatorShiftLeft(self: KProcess, arg: []const u8) KProcess {
+    pub fn operatorShiftLeft(self: KProcess, arg: []const u8) KProcess {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         return .{ .ptr = qtc.KProcess_OperatorShiftLeft(@ptrCast(self.ptr), arg_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft2` instead
+    ///
+    pub const OperatorShiftLeft2 = operatorShiftLeft2;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#operator-lt-lt)
     ///
@@ -348,13 +424,13 @@ pub const KProcess = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn OperatorShiftLeft2(self: KProcess, allocator: std.mem.Allocator, args: []const []const u8) KProcess {
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.OperatorShiftLeft2: Memory allocation failed");
+    pub fn operatorShiftLeft2(self: KProcess, allocator: std.mem.Allocator, args: []const []const u8) KProcess {
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.operatorShiftLeft2: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -363,15 +439,23 @@ pub const KProcess = extern struct {
         return .{ .ptr = qtc.KProcess_OperatorShiftLeft2(@ptrCast(self.ptr), args_list) };
     }
 
+    /// ### DEPRECATED: Use `clearProgram` instead
+    ///
+    pub const ClearProgram = clearProgram;
+
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#clearProgram)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KProcess `
     ///
-    pub fn ClearProgram(self: KProcess) void {
+    pub fn clearProgram(self: KProcess) void {
         qtc.KProcess_ClearProgram(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShellCommand` instead
+    ///
+    pub const SetShellCommand = setShellCommand;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setShellCommand)
     ///
@@ -381,13 +465,17 @@ pub const KProcess = extern struct {
     ///
     /// ` cmd: []const u8 `
     ///
-    pub fn SetShellCommand(self: KProcess, cmd: []const u8) void {
+    pub fn setShellCommand(self: KProcess, cmd: []const u8) void {
         const cmd_str = qtc.libqt_string{
             .len = cmd.len,
             .data = cmd.ptr,
         };
         qtc.KProcess_SetShellCommand(@ptrCast(self.ptr), cmd_str);
     }
+
+    /// ### DEPRECATED: Use `program` instead
+    ///
+    pub const Program = program;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#program)
     ///
@@ -397,7 +485,7 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Program(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn program(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KProcess_Program(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -405,15 +493,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.Program: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.program: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.Program: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.program: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#start)
     ///
@@ -421,9 +513,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Start(self: KProcess) void {
+    pub fn start(self: KProcess) void {
         qtc.KProcess_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `execute` instead
+    ///
+    pub const Execute = execute;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -431,9 +527,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Execute(self: KProcess) i32 {
+    pub fn execute(self: KProcess) i32 {
         return qtc.KProcess_Execute(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `execute2` instead
+    ///
+    pub const Execute2 = execute2;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -441,13 +541,17 @@ pub const KProcess = extern struct {
     ///
     /// ` exe: []const u8 `
     ///
-    pub fn Execute2(exe: []const u8) i32 {
+    pub fn execute2(exe: []const u8) i32 {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
         return qtc.KProcess_Execute2(exe_str);
     }
+
+    /// ### DEPRECATED: Use `execute3` instead
+    ///
+    pub const Execute3 = execute3;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -457,13 +561,13 @@ pub const KProcess = extern struct {
     ///
     /// ` argv: []const []const u8 `
     ///
-    pub fn Execute3(allocator: std.mem.Allocator, argv: []const []const u8) i32 {
-        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.Execute3: Memory allocation failed");
+    pub fn execute3(allocator: std.mem.Allocator, argv: []const []const u8) i32 {
+        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.execute3: Memory allocation failed");
         defer allocator.free(argv_arr);
-        for (argv, 0..argv.len) |item, i|
+        for (argv, 0..argv.len) |str_item, i|
             argv_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const argv_list = qtc.libqt_list{
             .len = argv.len,
@@ -472,15 +576,23 @@ pub const KProcess = extern struct {
         return qtc.KProcess_Execute3(argv_list);
     }
 
+    /// ### DEPRECATED: Use `startDetached` instead
+    ///
+    pub const StartDetached = startDetached;
+
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#startDetached)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KProcess `
     ///
-    pub fn StartDetached(self: KProcess) i32 {
+    pub fn startDetached(self: KProcess) i32 {
         return qtc.KProcess_StartDetached(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startDetached2` instead
+    ///
+    pub const StartDetached2 = startDetached2;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#startDetached)
     ///
@@ -488,13 +600,17 @@ pub const KProcess = extern struct {
     ///
     /// ` exe: []const u8 `
     ///
-    pub fn StartDetached2(exe: []const u8) i32 {
+    pub fn startDetached2(exe: []const u8) i32 {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
         return qtc.KProcess_StartDetached2(exe_str);
     }
+
+    /// ### DEPRECATED: Use `startDetached3` instead
+    ///
+    pub const StartDetached3 = startDetached3;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#startDetached)
     ///
@@ -504,13 +620,13 @@ pub const KProcess = extern struct {
     ///
     /// ` argv: []const []const u8 `
     ///
-    pub fn StartDetached3(allocator: std.mem.Allocator, argv: []const []const u8) i32 {
-        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.StartDetached3: Memory allocation failed");
+    pub fn startDetached3(allocator: std.mem.Allocator, argv: []const []const u8) i32 {
+        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.startDetached3: Memory allocation failed");
         defer allocator.free(argv_arr);
-        for (argv, 0..argv.len) |item, i|
+        for (argv, 0..argv.len) |str_item, i|
             argv_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const argv_list = qtc.libqt_list{
             .len = argv.len,
@@ -518,6 +634,10 @@ pub const KProcess = extern struct {
         };
         return qtc.KProcess_StartDetached3(argv_list);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -529,15 +649,19 @@ pub const KProcess = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -551,15 +675,19 @@ pub const KProcess = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setEnv3` instead
+    ///
+    pub const SetEnv3 = setEnv3;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setEnv)
     ///
@@ -573,7 +701,7 @@ pub const KProcess = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetEnv3(self: KProcess, name: []const u8, value: []const u8, overwrite: bool) void {
+    pub fn setEnv3(self: KProcess, name: []const u8, value: []const u8, overwrite: bool) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -584,6 +712,10 @@ pub const KProcess = extern struct {
         };
         qtc.KProcess_SetEnv3(@ptrCast(self.ptr), name_str, value_str, overwrite);
     }
+
+    /// ### DEPRECATED: Use `setProgram22` instead
+    ///
+    pub const SetProgram22 = setProgram22;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#setProgram)
     ///
@@ -597,17 +729,17 @@ pub const KProcess = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn SetProgram22(self: KProcess, allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) void {
+    pub fn setProgram22(self: KProcess, allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) void {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.SetProgram22: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.setProgram22: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -615,6 +747,10 @@ pub const KProcess = extern struct {
         };
         qtc.KProcess_SetProgram22(@ptrCast(self.ptr), exe_str, args_list);
     }
+
+    /// ### DEPRECATED: Use `execute1` instead
+    ///
+    pub const Execute1 = execute1;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -624,9 +760,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn Execute1(self: KProcess, msecs: i32) i32 {
+    pub fn execute1(self: KProcess, msecs: i32) i32 {
         return qtc.KProcess_Execute1(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `execute22` instead
+    ///
+    pub const Execute22 = execute22;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -638,17 +778,17 @@ pub const KProcess = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn Execute22(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) i32 {
+    pub fn execute22(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) i32 {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.Execute22: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.execute22: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -656,6 +796,10 @@ pub const KProcess = extern struct {
         };
         return qtc.KProcess_Execute22(exe_str, args_list);
     }
+
+    /// ### DEPRECATED: Use `execute32` instead
+    ///
+    pub const Execute32 = execute32;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -669,17 +813,17 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn Execute32(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8, msecs: i32) i32 {
+    pub fn execute32(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8, msecs: i32) i32 {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.Execute32: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.execute32: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -687,6 +831,10 @@ pub const KProcess = extern struct {
         };
         return qtc.KProcess_Execute32(exe_str, args_list, @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `execute23` instead
+    ///
+    pub const Execute23 = execute23;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#execute)
     ///
@@ -698,13 +846,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn Execute23(allocator: std.mem.Allocator, argv: []const []const u8, msecs: i32) i32 {
-        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.Execute23: Memory allocation failed");
+    pub fn execute23(allocator: std.mem.Allocator, argv: []const []const u8, msecs: i32) i32 {
+        const argv_arr = allocator.alloc(qtc.libqt_string, argv.len) catch @panic("KProcess.execute23: Memory allocation failed");
         defer allocator.free(argv_arr);
-        for (argv, 0..argv.len) |item, i|
+        for (argv, 0..argv.len) |str_item, i|
             argv_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const argv_list = qtc.libqt_list{
             .len = argv.len,
@@ -712,6 +860,10 @@ pub const KProcess = extern struct {
         };
         return qtc.KProcess_Execute23(argv_list, @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `startDetached22` instead
+    ///
+    pub const StartDetached22 = startDetached22;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#startDetached)
     ///
@@ -723,17 +875,17 @@ pub const KProcess = extern struct {
     ///
     /// ` args: []const []const u8 `
     ///
-    pub fn StartDetached22(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) i32 {
+    pub fn startDetached22(allocator: std.mem.Allocator, exe: []const u8, args: []const []const u8) i32 {
         const exe_str = qtc.libqt_string{
             .len = exe.len,
             .data = exe.ptr,
         };
-        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.StartDetached22: Memory allocation failed");
+        const args_arr = allocator.alloc(qtc.libqt_string, args.len) catch @panic("KProcess.startDetached22: Memory allocation failed");
         defer allocator.free(args_arr);
-        for (args, 0..args.len) |item, i|
+        for (args, 0..args.len) |str_item, i|
             args_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const args_list = qtc.libqt_list{
             .len = args.len,
@@ -741,6 +893,10 @@ pub const KProcess = extern struct {
         };
         return qtc.KProcess_StartDetached22(exe_str, args_list);
     }
+
+    /// ### DEPRECATED: Use `start2` instead
+    ///
+    pub const Start2 = start2;
 
     /// Inherited from QProcess
     ///
@@ -750,9 +906,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Start2(self: KProcess) void {
+    pub fn start2(self: KProcess) void {
         qtc.QProcess_Start2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startCommand` instead
+    ///
+    pub const StartCommand = startCommand;
 
     /// Inherited from QProcess
     ///
@@ -764,13 +924,17 @@ pub const KProcess = extern struct {
     ///
     /// ` command: []const u8 `
     ///
-    pub fn StartCommand(self: KProcess, command: []const u8) void {
+    pub fn startCommand(self: KProcess, command: []const u8) void {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
         };
         qtc.QProcess_StartCommand(@ptrCast(self.ptr), command_str);
     }
+
+    /// ### DEPRECATED: Use `arguments` instead
+    ///
+    pub const Arguments = arguments;
 
     /// Inherited from QProcess
     ///
@@ -782,7 +946,7 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arguments(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn arguments(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_Arguments(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -790,15 +954,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.Arguments: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.arguments: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.Arguments: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.arguments: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setArguments` instead
+    ///
+    pub const SetArguments = setArguments;
 
     /// Inherited from QProcess
     ///
@@ -810,22 +978,26 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` arguments: []const []const u8 `
+    /// ` _arguments: []const []const u8 `
     ///
-    pub fn SetArguments(self: KProcess, allocator: std.mem.Allocator, arguments: []const []const u8) void {
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("KProcess.SetArguments: Memory allocation failed");
+    pub fn setArguments(self: KProcess, allocator: std.mem.Allocator, _arguments: []const []const u8) void {
+        const arguments_arr = allocator.alloc(qtc.libqt_string, _arguments.len) catch @panic("KProcess.setArguments: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i|
+        for (_arguments, 0.._arguments.len) |str_item, i|
             arguments_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const arguments_list = qtc.libqt_list{
-            .len = arguments.len,
+            .len = _arguments.len,
             .data = arguments_arr.ptr,
         };
         qtc.QProcess_SetArguments(@ptrCast(self.ptr), arguments_list);
     }
+
+    /// ### DEPRECATED: Use `processChannelMode` instead
+    ///
+    pub const ProcessChannelMode = processChannelMode;
 
     /// Inherited from QProcess
     ///
@@ -839,9 +1011,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.ProcessChannelMode `
     ///
-    pub fn ProcessChannelMode(self: KProcess) i32 {
+    pub fn processChannelMode(self: KProcess) i32 {
         return qtc.QProcess_ProcessChannelMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProcessChannelMode` instead
+    ///
+    pub const SetProcessChannelMode = setProcessChannelMode;
 
     /// Inherited from QProcess
     ///
@@ -853,9 +1029,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: qprocess_enums.ProcessChannelMode `
     ///
-    pub fn SetProcessChannelMode(self: KProcess, mode: i32) void {
+    pub fn setProcessChannelMode(self: KProcess, mode: i32) void {
         qtc.QProcess_SetProcessChannelMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `inputChannelMode` instead
+    ///
+    pub const InputChannelMode = inputChannelMode;
 
     /// Inherited from QProcess
     ///
@@ -869,9 +1049,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.InputChannelMode `
     ///
-    pub fn InputChannelMode(self: KProcess) i32 {
+    pub fn inputChannelMode(self: KProcess) i32 {
         return qtc.QProcess_InputChannelMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputChannelMode` instead
+    ///
+    pub const SetInputChannelMode = setInputChannelMode;
 
     /// Inherited from QProcess
     ///
@@ -883,9 +1067,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: qprocess_enums.InputChannelMode `
     ///
-    pub fn SetInputChannelMode(self: KProcess, mode: i32) void {
+    pub fn setInputChannelMode(self: KProcess, mode: i32) void {
         qtc.QProcess_SetInputChannelMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `readChannel` instead
+    ///
+    pub const ReadChannel = readChannel;
 
     /// Inherited from QProcess
     ///
@@ -899,9 +1087,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.ProcessChannel `
     ///
-    pub fn ReadChannel(self: KProcess) i32 {
+    pub fn readChannel(self: KProcess) i32 {
         return qtc.QProcess_ReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadChannel` instead
+    ///
+    pub const SetReadChannel = setReadChannel;
 
     /// Inherited from QProcess
     ///
@@ -913,9 +1105,13 @@ pub const KProcess = extern struct {
     ///
     /// ` channel: qprocess_enums.ProcessChannel `
     ///
-    pub fn SetReadChannel(self: KProcess, channel: i32) void {
+    pub fn setReadChannel(self: KProcess, channel: i32) void {
         qtc.QProcess_SetReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `closeReadChannel` instead
+    ///
+    pub const CloseReadChannel = closeReadChannel;
 
     /// Inherited from QProcess
     ///
@@ -927,9 +1123,13 @@ pub const KProcess = extern struct {
     ///
     /// ` channel: qprocess_enums.ProcessChannel `
     ///
-    pub fn CloseReadChannel(self: KProcess, channel: i32) void {
+    pub fn closeReadChannel(self: KProcess, channel: i32) void {
         qtc.QProcess_CloseReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `closeWriteChannel` instead
+    ///
+    pub const CloseWriteChannel = closeWriteChannel;
 
     /// Inherited from QProcess
     ///
@@ -939,9 +1139,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn CloseWriteChannel(self: KProcess) void {
+    pub fn closeWriteChannel(self: KProcess) void {
         qtc.QProcess_CloseWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStandardInputFile` instead
+    ///
+    pub const SetStandardInputFile = setStandardInputFile;
 
     /// Inherited from QProcess
     ///
@@ -953,13 +1157,17 @@ pub const KProcess = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetStandardInputFile(self: KProcess, fileName: []const u8) void {
+    pub fn setStandardInputFile(self: KProcess, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardInputFile(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `setStandardOutputFile` instead
+    ///
+    pub const SetStandardOutputFile = setStandardOutputFile;
 
     /// Inherited from QProcess
     ///
@@ -971,13 +1179,17 @@ pub const KProcess = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetStandardOutputFile(self: KProcess, fileName: []const u8) void {
+    pub fn setStandardOutputFile(self: KProcess, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardOutputFile(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `setStandardErrorFile` instead
+    ///
+    pub const SetStandardErrorFile = setStandardErrorFile;
 
     /// Inherited from QProcess
     ///
@@ -989,13 +1201,17 @@ pub const KProcess = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn SetStandardErrorFile(self: KProcess, fileName: []const u8) void {
+    pub fn setStandardErrorFile(self: KProcess, fileName: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardErrorFile(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `setStandardOutputProcess` instead
+    ///
+    pub const SetStandardOutputProcess = setStandardOutputProcess;
 
     /// Inherited from QProcess
     ///
@@ -1007,10 +1223,14 @@ pub const KProcess = extern struct {
     ///
     /// ` destination: QProcess `
     ///
-    pub fn SetStandardOutputProcess(self: KProcess, destination: anytype) void {
+    pub fn setStandardOutputProcess(self: KProcess, destination: anytype) void {
         comptime _ = @TypeOf(destination)._is_QProcess;
         qtc.QProcess_SetStandardOutputProcess(@ptrCast(self.ptr), @ptrCast(destination.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChildProcessModifier` instead
+    ///
+    pub const SetChildProcessModifier = setChildProcessModifier;
 
     /// Inherited from QProcess
     ///
@@ -1022,10 +1242,14 @@ pub const KProcess = extern struct {
     ///
     /// ` modifier: *const fn () callconv(.c) void `
     ///
-    pub fn SetChildProcessModifier(self: KProcess, modifier: *const fn () callconv(.c) void) void {
+    pub fn setChildProcessModifier(self: KProcess, modifier: *const fn () callconv(.c) void) void {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         qtc.QProcess_SetChildProcessModifier(@ptrCast(self.ptr), @bitCast(@intFromPtr(modifier)));
     }
+
+    /// ### DEPRECATED: Use `failChildProcessModifier` instead
+    ///
+    pub const FailChildProcessModifier = failChildProcessModifier;
 
     /// Inherited from QProcess
     ///
@@ -1037,11 +1261,15 @@ pub const KProcess = extern struct {
     ///
     /// ` description: [:0]const u8 `
     ///
-    pub fn FailChildProcessModifier(self: KProcess, description: [:0]const u8) void {
+    pub fn failChildProcessModifier(self: KProcess, description: [:0]const u8) void {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         const description_Cstring = description.ptr;
         qtc.QProcess_FailChildProcessModifier(@ptrCast(self.ptr), description_Cstring);
     }
+
+    /// ### DEPRECATED: Use `unixProcessParameters` instead
+    ///
+    pub const UnixProcessParameters = unixProcessParameters;
 
     /// Inherited from QProcess
     ///
@@ -1051,10 +1279,14 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn UnixProcessParameters(self: KProcess) QProcess__UnixProcessParameters {
+    pub fn unixProcessParameters(self: KProcess) QProcess__UnixProcessParameters {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         return .{ .ptr = qtc.QProcess_UnixProcessParameters(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUnixProcessParameters` instead
+    ///
+    pub const SetUnixProcessParameters = setUnixProcessParameters;
 
     /// Inherited from QProcess
     ///
@@ -1066,11 +1298,15 @@ pub const KProcess = extern struct {
     ///
     /// ` params: QProcess__UnixProcessParameters `
     ///
-    pub fn SetUnixProcessParameters(self: KProcess, params: anytype) void {
+    pub fn setUnixProcessParameters(self: KProcess, params: anytype) void {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         comptime _ = @TypeOf(params)._is_QProcess__UnixProcessParameters;
         qtc.QProcess_SetUnixProcessParameters(@ptrCast(self.ptr), @ptrCast(params.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUnixProcessParameters2` instead
+    ///
+    pub const SetUnixProcessParameters2 = setUnixProcessParameters2;
 
     /// Inherited from QProcess
     ///
@@ -1082,10 +1318,14 @@ pub const KProcess = extern struct {
     ///
     /// ` flagsOnly: flag of qprocess_enums.UnixProcessFlag `
     ///
-    pub fn SetUnixProcessParameters2(self: KProcess, flagsOnly: u32) void {
+    pub fn setUnixProcessParameters2(self: KProcess, flagsOnly: u32) void {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         qtc.QProcess_SetUnixProcessParameters2(@ptrCast(self.ptr), @bitCast(flagsOnly));
     }
+
+    /// ### DEPRECATED: Use `workingDirectory` instead
+    ///
+    pub const WorkingDirectory = workingDirectory;
 
     /// Inherited from QProcess
     ///
@@ -1097,13 +1337,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WorkingDirectory(self: KProcess, allocator: std.mem.Allocator) []const u8 {
+    pub fn workingDirectory(self: KProcess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QProcess_WorkingDirectory(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.WorkingDirectory: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.workingDirectory: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWorkingDirectory` instead
+    ///
+    pub const SetWorkingDirectory = setWorkingDirectory;
 
     /// Inherited from QProcess
     ///
@@ -1115,13 +1359,17 @@ pub const KProcess = extern struct {
     ///
     /// ` dir: []const u8 `
     ///
-    pub fn SetWorkingDirectory(self: KProcess, dir: []const u8) void {
+    pub fn setWorkingDirectory(self: KProcess, dir: []const u8) void {
         const dir_str = qtc.libqt_string{
             .len = dir.len,
             .data = dir.ptr,
         };
         qtc.QProcess_SetWorkingDirectory(@ptrCast(self.ptr), dir_str);
     }
+
+    /// ### DEPRECATED: Use `setEnvironment` instead
+    ///
+    pub const SetEnvironment = setEnvironment;
 
     /// Inherited from QProcess
     ///
@@ -1133,22 +1381,26 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` environment: []const []const u8 `
+    /// ` _environment: []const []const u8 `
     ///
-    pub fn SetEnvironment(self: KProcess, allocator: std.mem.Allocator, environment: []const []const u8) void {
-        const environment_arr = allocator.alloc(qtc.libqt_string, environment.len) catch @panic("KProcess.SetEnvironment: Memory allocation failed");
+    pub fn setEnvironment(self: KProcess, allocator: std.mem.Allocator, _environment: []const []const u8) void {
+        const environment_arr = allocator.alloc(qtc.libqt_string, _environment.len) catch @panic("KProcess.setEnvironment: Memory allocation failed");
         defer allocator.free(environment_arr);
-        for (environment, 0..environment.len) |item, i|
+        for (_environment, 0.._environment.len) |str_item, i|
             environment_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const environment_list = qtc.libqt_list{
-            .len = environment.len,
+            .len = _environment.len,
             .data = environment_arr.ptr,
         };
         qtc.QProcess_SetEnvironment(@ptrCast(self.ptr), environment_list);
     }
+
+    /// ### DEPRECATED: Use `environment` instead
+    ///
+    pub const Environment = environment;
 
     /// Inherited from QProcess
     ///
@@ -1160,7 +1412,7 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Environment(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn environment(self: KProcess, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_Environment(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1168,15 +1420,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.Environment: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.environment: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.Environment: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.environment: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setProcessEnvironment` instead
+    ///
+    pub const SetProcessEnvironment = setProcessEnvironment;
 
     /// Inherited from QProcess
     ///
@@ -1186,12 +1442,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` environment: QProcessEnvironment `
+    /// ` _environment: QProcessEnvironment `
     ///
-    pub fn SetProcessEnvironment(self: KProcess, environment: anytype) void {
-        comptime _ = @TypeOf(environment)._is_QProcessEnvironment;
-        qtc.QProcess_SetProcessEnvironment(@ptrCast(self.ptr), @ptrCast(environment.ptr));
+    pub fn setProcessEnvironment(self: KProcess, _environment: anytype) void {
+        comptime _ = @TypeOf(_environment)._is_QProcessEnvironment;
+        qtc.QProcess_SetProcessEnvironment(@ptrCast(self.ptr), @ptrCast(_environment.ptr));
     }
+
+    /// ### DEPRECATED: Use `processEnvironment` instead
+    ///
+    pub const ProcessEnvironment = processEnvironment;
 
     /// Inherited from QProcess
     ///
@@ -1201,9 +1461,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ProcessEnvironment(self: KProcess) QProcessEnvironment {
+    pub fn processEnvironment(self: KProcess) QProcessEnvironment {
         return .{ .ptr = qtc.QProcess_ProcessEnvironment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// Inherited from QProcess
     ///
@@ -1217,9 +1483,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.ProcessError `
     ///
-    pub fn Error(self: KProcess) i32 {
+    pub fn error0(self: KProcess) i32 {
         return qtc.QProcess_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QProcess
     ///
@@ -1233,9 +1503,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.ProcessState `
     ///
-    pub fn State(self: KProcess) i32 {
+    pub fn state(self: KProcess) i32 {
         return qtc.QProcess_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `processId` instead
+    ///
+    pub const ProcessId = processId;
 
     /// Inherited from QProcess
     ///
@@ -1245,9 +1519,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ProcessId(self: KProcess) i64 {
+    pub fn processId(self: KProcess) i64 {
         return qtc.QProcess_ProcessId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForStarted` instead
+    ///
+    pub const WaitForStarted = waitForStarted;
 
     /// Inherited from QProcess
     ///
@@ -1257,9 +1535,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn WaitForStarted(self: KProcess) bool {
+    pub fn waitForStarted(self: KProcess) bool {
         return qtc.QProcess_WaitForStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `waitForFinished` instead
+    ///
+    pub const WaitForFinished = waitForFinished;
 
     /// Inherited from QProcess
     ///
@@ -1269,9 +1551,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn WaitForFinished(self: KProcess) bool {
+    pub fn waitForFinished(self: KProcess) bool {
         return qtc.QProcess_WaitForFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readAllStandardOutput` instead
+    ///
+    pub const ReadAllStandardOutput = readAllStandardOutput;
 
     /// Inherited from QProcess
     ///
@@ -1283,13 +1569,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAllStandardOutput(self: KProcess, allocator: std.mem.Allocator) []u8 {
+    pub fn readAllStandardOutput(self: KProcess, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QProcess_ReadAllStandardOutput(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.ReadAllStandardOutput: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.readAllStandardOutput: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAllStandardError` instead
+    ///
+    pub const ReadAllStandardError = readAllStandardError;
 
     /// Inherited from QProcess
     ///
@@ -1301,13 +1591,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAllStandardError(self: KProcess, allocator: std.mem.Allocator) []u8 {
+    pub fn readAllStandardError(self: KProcess, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QProcess_ReadAllStandardError(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.ReadAllStandardError: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.readAllStandardError: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `exitCode` instead
+    ///
+    pub const ExitCode = exitCode;
 
     /// Inherited from QProcess
     ///
@@ -1317,9 +1611,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ExitCode(self: KProcess) i32 {
+    pub fn exitCode(self: KProcess) i32 {
         return qtc.QProcess_ExitCode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exitStatus` instead
+    ///
+    pub const ExitStatus = exitStatus;
 
     /// Inherited from QProcess
     ///
@@ -1333,9 +1631,13 @@ pub const KProcess = extern struct {
     ///
     /// ` qprocess_enums.ExitStatus `
     ///
-    pub fn ExitStatus(self: KProcess) i32 {
+    pub fn exitStatus(self: KProcess) i32 {
         return qtc.QProcess_ExitStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `systemEnvironment` instead
+    ///
+    pub const SystemEnvironment = systemEnvironment;
 
     /// Inherited from QProcess
     ///
@@ -1345,7 +1647,7 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemEnvironment(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn systemEnvironment(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QProcess_SystemEnvironment();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1353,15 +1655,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.SystemEnvironment: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.systemEnvironment: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.SystemEnvironment: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.systemEnvironment: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nullDevice` instead
+    ///
+    pub const NullDevice = nullDevice;
 
     /// Inherited from QProcess
     ///
@@ -1371,13 +1677,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NullDevice(allocator: std.mem.Allocator) []const u8 {
+    pub fn nullDevice(allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QProcess_NullDevice();
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.NullDevice: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.nullDevice: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `splitCommand` instead
+    ///
+    pub const SplitCommand = splitCommand;
 
     /// Inherited from QProcess
     ///
@@ -1389,7 +1699,7 @@ pub const KProcess = extern struct {
     ///
     /// ` command: []const u8 `
     ///
-    pub fn SplitCommand(allocator: std.mem.Allocator, command: []const u8) []const []const u8 {
+    pub fn splitCommand(allocator: std.mem.Allocator, command: []const u8) []const []const u8 {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
@@ -1401,15 +1711,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.SplitCommand: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KProcess.splitCommand: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.SplitCommand: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.splitCommand: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `terminate` instead
+    ///
+    pub const Terminate = terminate;
 
     /// Inherited from QProcess
     ///
@@ -1419,9 +1733,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Terminate(self: KProcess) void {
+    pub fn terminate(self: KProcess) void {
         qtc.QProcess_Terminate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `kill` instead
+    ///
+    pub const Kill = kill;
 
     /// Inherited from QProcess
     ///
@@ -1431,9 +1749,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Kill(self: KProcess) void {
+    pub fn kill(self: KProcess) void {
         qtc.QProcess_Kill(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QProcess
     ///
@@ -1443,11 +1765,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` exitCode: i32 `
+    /// ` _exitCode: i32 `
     ///
-    pub fn Finished(self: KProcess, exitCode: i32) void {
-        qtc.QProcess_Finished(@ptrCast(self.ptr), @bitCast(exitCode));
+    pub fn finished(self: KProcess, _exitCode: i32) void {
+        qtc.QProcess_Finished(@ptrCast(self.ptr), @bitCast(_exitCode));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QProcess
     ///
@@ -1459,9 +1785,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, exitCode: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// Inherited from QProcess
     ///
@@ -1473,9 +1803,13 @@ pub const KProcess = extern struct {
     ///
     /// ` errorVal: qprocess_enums.ProcessError `
     ///
-    pub fn ErrorOccurred(self: KProcess, errorVal: i32) void {
+    pub fn errorOccurred(self: KProcess, errorVal: i32) void {
         qtc.QProcess_ErrorOccurred(@ptrCast(self.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// Inherited from QProcess
     ///
@@ -1487,9 +1821,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, errorVal: qprocess_enums.ProcessError) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `start22` instead
+    ///
+    pub const Start22 = start22;
 
     /// Inherited from QProcess
     ///
@@ -1501,29 +1839,33 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` program: []const u8 `
+    /// ` _program: []const u8 `
     ///
-    /// ` arguments: []const []const u8 `
+    /// ` _arguments: []const []const u8 `
     ///
-    pub fn Start22(self: KProcess, allocator: std.mem.Allocator, program: []const u8, arguments: []const []const u8) void {
+    pub fn start22(self: KProcess, allocator: std.mem.Allocator, _program: []const u8, _arguments: []const []const u8) void {
         const program_str = qtc.libqt_string{
-            .len = program.len,
-            .data = program.ptr,
+            .len = _program.len,
+            .data = _program.ptr,
         };
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("KProcess.Start22: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, _arguments.len) catch @panic("KProcess.start22: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i|
+        for (_arguments, 0.._arguments.len) |str_item, i|
             arguments_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const arguments_list = qtc.libqt_list{
-            .len = arguments.len,
+            .len = _arguments.len,
             .data = arguments_arr.ptr,
         };
         qtc.QProcess_Start22(@ptrCast(self.ptr), program_str, arguments_list);
     }
 
+    /// ### DEPRECATED: Use `start3` instead
+    ///
+    pub const Start3 = start3;
+
     /// Inherited from QProcess
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#start)
@@ -1534,30 +1876,34 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` program: []const u8 `
+    /// ` _program: []const u8 `
     ///
-    /// ` arguments: []const []const u8 `
+    /// ` _arguments: []const []const u8 `
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Start3(self: KProcess, allocator: std.mem.Allocator, program: []const u8, arguments: []const []const u8, mode: i32) void {
+    pub fn start3(self: KProcess, allocator: std.mem.Allocator, _program: []const u8, _arguments: []const []const u8, mode: i32) void {
         const program_str = qtc.libqt_string{
-            .len = program.len,
-            .data = program.ptr,
+            .len = _program.len,
+            .data = _program.ptr,
         };
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("KProcess.Start3: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, _arguments.len) catch @panic("KProcess.start3: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i|
+        for (_arguments, 0.._arguments.len) |str_item, i|
             arguments_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const arguments_list = qtc.libqt_list{
-            .len = arguments.len,
+            .len = _arguments.len,
             .data = arguments_arr.ptr,
         };
         qtc.QProcess_Start3(@ptrCast(self.ptr), program_str, arguments_list, @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `start1` instead
+    ///
+    pub const Start1 = start1;
 
     /// Inherited from QProcess
     ///
@@ -1569,9 +1915,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Start1(self: KProcess, mode: i32) void {
+    pub fn start1(self: KProcess, mode: i32) void {
         qtc.QProcess_Start1(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `startCommand2` instead
+    ///
+    pub const StartCommand2 = startCommand2;
 
     /// Inherited from QProcess
     ///
@@ -1585,13 +1935,17 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn StartCommand2(self: KProcess, command: []const u8, mode: i32) void {
+    pub fn startCommand2(self: KProcess, command: []const u8, mode: i32) void {
         const command_str = qtc.libqt_string{
             .len = command.len,
             .data = command.ptr,
         };
         qtc.QProcess_StartCommand2(@ptrCast(self.ptr), command_str, @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `startDetached1` instead
+    ///
+    pub const StartDetached1 = startDetached1;
 
     /// Inherited from QProcess
     ///
@@ -1603,9 +1957,13 @@ pub const KProcess = extern struct {
     ///
     /// ` pid: *i64 `
     ///
-    pub fn StartDetached1(self: KProcess, pid: *i64) bool {
+    pub fn startDetached1(self: KProcess, pid: *i64) bool {
         return qtc.QProcess_StartDetached1(@ptrCast(self.ptr), @ptrCast(pid));
     }
+
+    /// ### DEPRECATED: Use `setStandardOutputFile2` instead
+    ///
+    pub const SetStandardOutputFile2 = setStandardOutputFile2;
 
     /// Inherited from QProcess
     ///
@@ -1619,13 +1977,17 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetStandardOutputFile2(self: KProcess, fileName: []const u8, mode: i32) void {
+    pub fn setStandardOutputFile2(self: KProcess, fileName: []const u8, mode: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardOutputFile2(@ptrCast(self.ptr), fileName_str, @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setStandardErrorFile2` instead
+    ///
+    pub const SetStandardErrorFile2 = setStandardErrorFile2;
 
     /// Inherited from QProcess
     ///
@@ -1639,13 +2001,17 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetStandardErrorFile2(self: KProcess, fileName: []const u8, mode: i32) void {
+    pub fn setStandardErrorFile2(self: KProcess, fileName: []const u8, mode: i32) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         qtc.QProcess_SetStandardErrorFile2(@ptrCast(self.ptr), fileName_str, @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `failChildProcessModifier2` instead
+    ///
+    pub const FailChildProcessModifier2 = failChildProcessModifier2;
 
     /// Inherited from QProcess
     ///
@@ -1659,11 +2025,15 @@ pub const KProcess = extern struct {
     ///
     /// ` errorVal: i32 `
     ///
-    pub fn FailChildProcessModifier2(self: KProcess, description: [:0]const u8, errorVal: i32) void {
+    pub fn failChildProcessModifier2(self: KProcess, description: [:0]const u8, errorVal: i32) void {
         if (builtin.target.os.tag == .windows) @compileError("Unsupported operating system");
         const description_Cstring = description.ptr;
         qtc.QProcess_FailChildProcessModifier2(@ptrCast(self.ptr), description_Cstring, @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `waitForStarted1` instead
+    ///
+    pub const WaitForStarted1 = waitForStarted1;
 
     /// Inherited from QProcess
     ///
@@ -1675,9 +2045,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForStarted1(self: KProcess, msecs: i32) bool {
+    pub fn waitForStarted1(self: KProcess, msecs: i32) bool {
         return qtc.QProcess_WaitForStarted1(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `waitForFinished1` instead
+    ///
+    pub const WaitForFinished1 = waitForFinished1;
 
     /// Inherited from QProcess
     ///
@@ -1689,9 +2063,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForFinished1(self: KProcess, msecs: i32) bool {
+    pub fn waitForFinished1(self: KProcess, msecs: i32) bool {
         return qtc.QProcess_WaitForFinished1(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `startDetached4` instead
+    ///
+    pub const StartDetached4 = startDetached4;
 
     /// Inherited from QProcess
     ///
@@ -1701,36 +2079,40 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` program: []const u8 `
+    /// ` _program: []const u8 `
     ///
-    /// ` arguments: []const []const u8 `
+    /// ` _arguments: []const []const u8 `
     ///
-    /// ` workingDirectory: []const u8 `
+    /// ` _workingDirectory: []const u8 `
     ///
     /// ` pid: *i64 `
     ///
-    pub fn StartDetached4(allocator: std.mem.Allocator, program: []const u8, arguments: []const []const u8, workingDirectory: []const u8, pid: *i64) bool {
+    pub fn startDetached4(allocator: std.mem.Allocator, _program: []const u8, _arguments: []const []const u8, _workingDirectory: []const u8, pid: *i64) bool {
         const program_str = qtc.libqt_string{
-            .len = program.len,
-            .data = program.ptr,
+            .len = _program.len,
+            .data = _program.ptr,
         };
-        const arguments_arr = allocator.alloc(qtc.libqt_string, arguments.len) catch @panic("KProcess.StartDetached4: Memory allocation failed");
+        const arguments_arr = allocator.alloc(qtc.libqt_string, _arguments.len) catch @panic("KProcess.startDetached4: Memory allocation failed");
         defer allocator.free(arguments_arr);
-        for (arguments, 0..arguments.len) |item, i|
+        for (_arguments, 0.._arguments.len) |str_item, i|
             arguments_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const arguments_list = qtc.libqt_list{
-            .len = arguments.len,
+            .len = _arguments.len,
             .data = arguments_arr.ptr,
         };
         const workingDirectory_str = qtc.libqt_string{
-            .len = workingDirectory.len,
-            .data = workingDirectory.ptr,
+            .len = _workingDirectory.len,
+            .data = _workingDirectory.ptr,
         };
         return qtc.QProcess_StartDetached4(program_str, arguments_list, workingDirectory_str, @ptrCast(pid));
     }
+
+    /// ### DEPRECATED: Use `finished2` instead
+    ///
+    pub const Finished2 = finished2;
 
     /// Inherited from QProcess
     ///
@@ -1740,13 +2122,17 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` exitCode: i32 `
+    /// ` _exitCode: i32 `
     ///
-    /// ` exitStatus: qprocess_enums.ExitStatus `
+    /// ` _exitStatus: qprocess_enums.ExitStatus `
     ///
-    pub fn Finished2(self: KProcess, exitCode: i32, exitStatus: i32) void {
-        qtc.QProcess_Finished2(@ptrCast(self.ptr), @bitCast(exitCode), @bitCast(exitStatus));
+    pub fn finished2(self: KProcess, _exitCode: i32, _exitStatus: i32) void {
+        qtc.QProcess_Finished2(@ptrCast(self.ptr), @bitCast(_exitCode), @bitCast(_exitStatus));
     }
+
+    /// ### DEPRECATED: Use `onFinished2` instead
+    ///
+    pub const OnFinished2 = onFinished2;
 
     /// Inherited from QProcess
     ///
@@ -1758,9 +2144,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, exitCode: i32, exitStatus: qprocess_enums.ExitStatus) callconv(.c) void `
     ///
-    pub fn OnFinished2(self: KProcess, callback: *const fn (KProcess, i32, i32) callconv(.c) void) void {
+    pub fn onFinished2(self: KProcess, callback: *const fn (KProcess, i32, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_Finished2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `openMode` instead
+    ///
+    pub const OpenMode = openMode;
 
     /// Inherited from QIODevice
     ///
@@ -1774,9 +2164,13 @@ pub const KProcess = extern struct {
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: KProcess) i32 {
+    pub fn openMode(self: KProcess) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextModeEnabled` instead
+    ///
+    pub const SetTextModeEnabled = setTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -1788,9 +2182,13 @@ pub const KProcess = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: KProcess, enabled: bool) void {
+    pub fn setTextModeEnabled(self: KProcess, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isTextModeEnabled` instead
+    ///
+    pub const IsTextModeEnabled = isTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -1800,9 +2198,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsTextModeEnabled(self: KProcess) bool {
+    pub fn isTextModeEnabled(self: KProcess) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOpen` instead
+    ///
+    pub const IsOpen = isOpen;
 
     /// Inherited from QIODevice
     ///
@@ -1812,9 +2214,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsOpen(self: KProcess) bool {
+    pub fn isOpen(self: KProcess) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// Inherited from QIODevice
     ///
@@ -1824,9 +2230,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsReadable(self: KProcess) bool {
+    pub fn isReadable(self: KProcess) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// Inherited from QIODevice
     ///
@@ -1836,9 +2246,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsWritable(self: KProcess) bool {
+    pub fn isWritable(self: KProcess) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readChannelCount` instead
+    ///
+    pub const ReadChannelCount = readChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -1848,9 +2262,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ReadChannelCount(self: KProcess) i32 {
+    pub fn readChannelCount(self: KProcess) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeChannelCount` instead
+    ///
+    pub const WriteChannelCount = writeChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -1860,9 +2278,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn WriteChannelCount(self: KProcess) i32 {
+    pub fn writeChannelCount(self: KProcess) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentReadChannel` instead
+    ///
+    pub const CurrentReadChannel = currentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1872,9 +2294,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn CurrentReadChannel(self: KProcess) i32 {
+    pub fn currentReadChannel(self: KProcess) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentReadChannel` instead
+    ///
+    pub const SetCurrentReadChannel = setCurrentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1886,9 +2312,13 @@ pub const KProcess = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: KProcess, channel: i32) void {
+    pub fn setCurrentReadChannel(self: KProcess, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `currentWriteChannel` instead
+    ///
+    pub const CurrentWriteChannel = currentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1898,9 +2328,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn CurrentWriteChannel(self: KProcess) i32 {
+    pub fn currentWriteChannel(self: KProcess) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentWriteChannel` instead
+    ///
+    pub const SetCurrentWriteChannel = setCurrentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -1912,9 +2346,13 @@ pub const KProcess = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: KProcess, channel: i32) void {
+    pub fn setCurrentWriteChannel(self: KProcess, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from QIODevice
     ///
@@ -1928,10 +2366,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn read(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `read2` instead
+    ///
+    pub const Read2 = read2;
 
     /// Inherited from QIODevice
     ///
@@ -1945,13 +2387,17 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read2(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn read2(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// Inherited from QIODevice
     ///
@@ -1963,13 +2409,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: KProcess, allocator: std.mem.Allocator) []u8 {
+    pub fn readAll(self: KProcess, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.readAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// Inherited from QIODevice
     ///
@@ -1983,10 +2433,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLine(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `readLine2` instead
+    ///
+    pub const ReadLine2 = readLine2;
 
     /// Inherited from QIODevice
     ///
@@ -1998,13 +2452,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: KProcess, allocator: std.mem.Allocator) []u8 {
+    pub fn readLine2(self: KProcess, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.readLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTransaction` instead
+    ///
+    pub const StartTransaction = startTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -2014,9 +2472,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn StartTransaction(self: KProcess) void {
+    pub fn startTransaction(self: KProcess) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commitTransaction` instead
+    ///
+    pub const CommitTransaction = commitTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -2026,9 +2488,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn CommitTransaction(self: KProcess) void {
+    pub fn commitTransaction(self: KProcess) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rollbackTransaction` instead
+    ///
+    pub const RollbackTransaction = rollbackTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -2038,9 +2504,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn RollbackTransaction(self: KProcess) void {
+    pub fn rollbackTransaction(self: KProcess) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTransactionStarted` instead
+    ///
+    pub const IsTransactionStarted = isTransactionStarted;
 
     /// Inherited from QIODevice
     ///
@@ -2050,9 +2520,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsTransactionStarted(self: KProcess) bool {
+    pub fn isTransactionStarted(self: KProcess) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
 
     /// Inherited from QIODevice
     ///
@@ -2066,10 +2540,14 @@ pub const KProcess = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn Write(self: KProcess, data: [:0]const u8, len: i64) i64 {
+    pub fn write(self: KProcess, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `write2` instead
+    ///
+    pub const Write2 = write2;
 
     /// Inherited from QIODevice
     ///
@@ -2081,10 +2559,14 @@ pub const KProcess = extern struct {
     ///
     /// ` data: [:0]const u8 `
     ///
-    pub fn Write2(self: KProcess, data: [:0]const u8) i64 {
+    pub fn write2(self: KProcess, data: [:0]const u8) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
     }
+
+    /// ### DEPRECATED: Use `write3` instead
+    ///
+    pub const Write3 = write3;
 
     /// Inherited from QIODevice
     ///
@@ -2096,13 +2578,17 @@ pub const KProcess = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn Write3(self: KProcess, data: []u8) i64 {
+    pub fn write3(self: KProcess, data: []u8) i64 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `peek` instead
+    ///
+    pub const Peek = peek;
 
     /// Inherited from QIODevice
     ///
@@ -2116,10 +2602,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn peek(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `peek2` instead
+    ///
+    pub const Peek2 = peek2;
 
     /// Inherited from QIODevice
     ///
@@ -2133,13 +2623,17 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek2(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn peek2(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `skip` instead
+    ///
+    pub const Skip = skip;
 
     /// Inherited from QIODevice
     ///
@@ -2151,9 +2645,13 @@ pub const KProcess = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: KProcess, maxSize: i64) i64 {
+    pub fn skip(self: KProcess, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `ungetChar` instead
+    ///
+    pub const UngetChar = ungetChar;
 
     /// Inherited from QIODevice
     ///
@@ -2165,9 +2663,13 @@ pub const KProcess = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: KProcess, c: u8) void {
+    pub fn ungetChar(self: KProcess, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `putChar` instead
+    ///
+    pub const PutChar = putChar;
 
     /// Inherited from QIODevice
     ///
@@ -2179,9 +2681,13 @@ pub const KProcess = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: KProcess, c: u8) bool {
+    pub fn putChar(self: KProcess, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `getChar` instead
+    ///
+    pub const GetChar = getChar;
 
     /// Inherited from QIODevice
     ///
@@ -2193,10 +2699,14 @@ pub const KProcess = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: KProcess, c: [:0]u8) bool {
+    pub fn getChar(self: KProcess, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from QIODevice
     ///
@@ -2208,13 +2718,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: KProcess, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: KProcess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readyRead` instead
+    ///
+    pub const ReadyRead = readyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2224,9 +2738,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ReadyRead(self: KProcess) void {
+    pub fn readyRead(self: KProcess) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadyRead` instead
+    ///
+    pub const OnReadyRead = onReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2238,9 +2756,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onReadyRead(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelReadyRead` instead
+    ///
+    pub const ChannelReadyRead = channelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2252,9 +2774,13 @@ pub const KProcess = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: KProcess, channel: i32) void {
+    pub fn channelReadyRead(self: KProcess, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `onChannelReadyRead` instead
+    ///
+    pub const OnChannelReadyRead = onChannelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2266,9 +2792,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onChannelReadyRead(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesWritten` instead
+    ///
+    pub const BytesWritten = bytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2280,9 +2810,13 @@ pub const KProcess = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: KProcess, bytes: i64) void {
+    pub fn bytesWritten(self: KProcess, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onBytesWritten` instead
+    ///
+    pub const OnBytesWritten = onBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2294,9 +2828,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) void) void {
+    pub fn onBytesWritten(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelBytesWritten` instead
+    ///
+    pub const ChannelBytesWritten = channelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2310,9 +2848,13 @@ pub const KProcess = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: KProcess, channel: i32, bytes: i64) void {
+    pub fn channelBytesWritten(self: KProcess, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onChannelBytesWritten` instead
+    ///
+    pub const OnChannelBytesWritten = onChannelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2324,10 +2866,14 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: KProcess, callback: *const fn (KProcess, i32, i64) callconv(.c) void) void {
+    pub fn onChannelBytesWritten(self: KProcess, callback: *const fn (KProcess, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -2336,10 +2882,14 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn AboutToClose(self: KProcess) void {
+    pub fn aboutToClose(self: KProcess) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -2350,9 +2900,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onAboutToClose(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readChannelFinished` instead
+    ///
+    pub const ReadChannelFinished = readChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -2362,9 +2916,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn ReadChannelFinished(self: KProcess) void {
+    pub fn readChannelFinished(self: KProcess) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadChannelFinished` instead
+    ///
+    pub const OnReadChannelFinished = onReadChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -2376,9 +2934,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onReadChannelFinished(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// Inherited from QIODevice
     ///
@@ -2392,13 +2954,17 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn readLine1(self: KProcess, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KProcess.readLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2410,13 +2976,17 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KProcess, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KProcess, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KProcess.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2428,13 +2998,17 @@ pub const KProcess = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KProcess, name: []const u8) void {
+    pub fn setObjectName(self: KProcess, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2444,9 +3018,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsWidgetType(self: KProcess) bool {
+    pub fn isWidgetType(self: KProcess) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2456,9 +3034,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsWindowType(self: KProcess) bool {
+    pub fn isWindowType(self: KProcess) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2468,9 +3050,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsQuickItemType(self: KProcess) bool {
+    pub fn isQuickItemType(self: KProcess) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2480,9 +3066,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SignalsBlocked(self: KProcess) bool {
+    pub fn signalsBlocked(self: KProcess) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2494,9 +3084,13 @@ pub const KProcess = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KProcess, b: bool) bool {
+    pub fn blockSignals(self: KProcess, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2506,9 +3100,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Thread(self: KProcess) QThread {
+    pub fn thread(self: KProcess) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2518,12 +3116,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KProcess, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KProcess, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2535,9 +3137,13 @@ pub const KProcess = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KProcess, interval: i32) i32 {
+    pub fn startTimer(self: KProcess, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2549,9 +3155,13 @@ pub const KProcess = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KProcess, time: i64) i32 {
+    pub fn startTimer2(self: KProcess, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2563,9 +3173,13 @@ pub const KProcess = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KProcess, id: i32) void {
+    pub fn killTimer(self: KProcess, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2577,9 +3191,13 @@ pub const KProcess = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KProcess, id: i32) void {
+    pub fn killTimer2(self: KProcess, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2591,15 +3209,19 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KProcess, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KProcess, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KProcess.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KProcess.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2609,12 +3231,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KProcess, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KProcess, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2626,10 +3252,14 @@ pub const KProcess = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KProcess, filterObj: anytype) void {
+    pub fn installEventFilter(self: KProcess, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2641,10 +3271,14 @@ pub const KProcess = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KProcess, obj: anytype) void {
+    pub fn removeEventFilter(self: KProcess, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2652,7 +3286,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2660,13 +3294,17 @@ pub const KProcess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2674,7 +3312,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2682,13 +3320,17 @@ pub const KProcess = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2698,18 +3340,22 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KProcess, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KProcess, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2717,7 +3363,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2725,13 +3371,17 @@ pub const KProcess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2739,7 +3389,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2747,13 +3397,17 @@ pub const KProcess = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2763,9 +3417,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Disconnect3(self: KProcess) bool {
+    pub fn disconnect3(self: KProcess) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2777,10 +3435,14 @@ pub const KProcess = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KProcess, receiver: anytype) bool {
+    pub fn disconnect4(self: KProcess, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2790,10 +3452,14 @@ pub const KProcess = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2803,9 +3469,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn DumpObjectTree(self: KProcess) void {
+    pub fn dumpObjectTree(self: KProcess) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2815,9 +3485,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn DumpObjectInfo(self: KProcess) void {
+    pub fn dumpObjectInfo(self: KProcess) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2831,11 +3505,15 @@ pub const KProcess = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KProcess, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KProcess, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2847,10 +3525,14 @@ pub const KProcess = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KProcess, name: [:0]const u8) QVariant {
+    pub fn property(self: KProcess, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2862,7 +3544,7 @@ pub const KProcess = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KProcess, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KProcess, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2870,27 +3552,19 @@ pub const KProcess = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KProcess.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KProcess.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KProcess.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KProcess.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KProcess `
-    ///
-    pub fn BindingStorage(self: KProcess) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2900,9 +3574,29 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn BindingStorage2(self: KProcess) QBindingStorage {
+    pub fn bindingStorage(self: KProcess) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KProcess `
+    ///
+    pub fn bindingStorage2(self: KProcess) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2912,9 +3606,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Destroyed(self: KProcess) void {
+    pub fn destroyed(self: KProcess) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2926,9 +3624,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onDestroyed(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2938,9 +3640,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Parent(self: KProcess) QObject {
+    pub fn parent(self: KProcess) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2952,10 +3658,14 @@ pub const KProcess = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KProcess, classname: [:0]const u8) bool {
+    pub fn inherits(self: KProcess, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2965,9 +3675,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn DeleteLater(self: KProcess) void {
+    pub fn deleteLater(self: KProcess) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2981,9 +3695,13 @@ pub const KProcess = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KProcess, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KProcess, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2997,9 +3715,13 @@ pub const KProcess = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KProcess, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KProcess, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3007,7 +3729,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3017,13 +3739,17 @@ pub const KProcess = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3031,7 +3757,7 @@ pub const KProcess = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3041,13 +3767,17 @@ pub const KProcess = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3057,7 +3787,7 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3065,12 +3795,16 @@ pub const KProcess = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KProcess, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KProcess, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3082,10 +3816,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KProcess, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KProcess, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3099,11 +3837,15 @@ pub const KProcess = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KProcess, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KProcess, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3119,13 +3861,17 @@ pub const KProcess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KProcess, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KProcess, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3138,11 +3884,15 @@ pub const KProcess = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KProcess, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KProcess, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3154,10 +3904,14 @@ pub const KProcess = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KProcess, param1: anytype) void {
+    pub fn destroyed1(self: KProcess, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3169,9 +3923,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KProcess, callback: *const fn (KProcess, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KProcess, callback: *const fn (KProcess, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QProcess
     ///
@@ -3185,13 +3943,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: KProcess, mode: i32) bool {
+    pub fn open(self: KProcess, mode: i32) bool {
         return qtc.KProcess_Open(@ptrCast(self.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QProcess
     ///
@@ -3205,9 +3963,13 @@ pub const KProcess = extern struct {
     ///
     /// ` mode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: KProcess, mode: i32) bool {
+    pub fn superOpen(self: KProcess, mode: i32) bool {
         return qtc.KProcess_SuperOpen(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QProcess
     ///
@@ -3221,10 +3983,14 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, mode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
+    pub fn onOpen(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
         qtc.KProcess_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `waitForReadyRead` instead
+    ///
+    pub const WaitForReadyRead = waitForReadyRead;
+
     /// Inherited from QProcess
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
@@ -3237,13 +4003,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: KProcess, msecs: i32) bool {
+    pub fn waitForReadyRead(self: KProcess, msecs: i32) bool {
         return qtc.KProcess_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    /// ### DEPRECATED: Use `superWaitForReadyRead` instead
     ///
-    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+    pub const SuperWaitForReadyRead = superWaitForReadyRead;
 
     /// Inherited from QProcess
     ///
@@ -3257,10 +4023,14 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: KProcess, msecs: i32) bool {
+    pub fn superWaitForReadyRead(self: KProcess, msecs: i32) bool {
         return qtc.KProcess_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `onWaitForReadyRead` instead
+    ///
+    pub const OnWaitForReadyRead = onWaitForReadyRead;
+
     /// Inherited from QProcess
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qprocess.html#waitForReadyRead)
@@ -3273,9 +4043,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
+    pub fn onWaitForReadyRead(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
         qtc.KProcess_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `waitForBytesWritten` instead
+    ///
+    pub const WaitForBytesWritten = waitForBytesWritten;
 
     /// Inherited from QProcess
     ///
@@ -3289,13 +4063,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: KProcess, msecs: i32) bool {
+    pub fn waitForBytesWritten(self: KProcess, msecs: i32) bool {
         return qtc.KProcess_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    /// ### DEPRECATED: Use `superWaitForBytesWritten` instead
     ///
-    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+    pub const SuperWaitForBytesWritten = superWaitForBytesWritten;
 
     /// Inherited from QProcess
     ///
@@ -3309,9 +4083,13 @@ pub const KProcess = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: KProcess, msecs: i32) bool {
+    pub fn superWaitForBytesWritten(self: KProcess, msecs: i32) bool {
         return qtc.KProcess_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForBytesWritten` instead
+    ///
+    pub const OnWaitForBytesWritten = onWaitForBytesWritten;
 
     /// Inherited from QProcess
     ///
@@ -3325,9 +4103,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
+    pub fn onWaitForBytesWritten(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) bool) void {
         qtc.KProcess_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesToWrite` instead
+    ///
+    pub const BytesToWrite = bytesToWrite;
 
     /// Inherited from QProcess
     ///
@@ -3339,13 +4121,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn BytesToWrite(self: KProcess) i64 {
+    pub fn bytesToWrite(self: KProcess) i64 {
         return qtc.KProcess_BytesToWrite(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    /// ### DEPRECATED: Use `superBytesToWrite` instead
     ///
-    pub const QBaseBytesToWrite = SuperBytesToWrite;
+    pub const SuperBytesToWrite = superBytesToWrite;
 
     /// Inherited from QProcess
     ///
@@ -3357,9 +4139,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperBytesToWrite(self: KProcess) i64 {
+    pub fn superBytesToWrite(self: KProcess) i64 {
         return qtc.KProcess_SuperBytesToWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesToWrite` instead
+    ///
+    pub const OnBytesToWrite = onBytesToWrite;
 
     /// Inherited from QProcess
     ///
@@ -3373,9 +4159,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: KProcess, callback: *const fn () callconv(.c) i64) void {
         qtc.KProcess_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSequential` instead
+    ///
+    pub const IsSequential = isSequential;
 
     /// Inherited from QProcess
     ///
@@ -3387,13 +4177,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn IsSequential(self: KProcess) bool {
+    pub fn isSequential(self: KProcess) bool {
         return qtc.KProcess_IsSequential(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    /// ### DEPRECATED: Use `superIsSequential` instead
     ///
-    pub const QBaseIsSequential = SuperIsSequential;
+    pub const SuperIsSequential = superIsSequential;
 
     /// Inherited from QProcess
     ///
@@ -3405,9 +4195,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperIsSequential(self: KProcess) bool {
+    pub fn superIsSequential(self: KProcess) bool {
         return qtc.KProcess_SuperIsSequential(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSequential` instead
+    ///
+    pub const OnIsSequential = onIsSequential;
 
     /// Inherited from QProcess
     ///
@@ -3421,9 +4215,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: KProcess, callback: *const fn () callconv(.c) bool) void {
         qtc.KProcess_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QProcess
     ///
@@ -3435,13 +4233,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Close(self: KProcess) void {
+    pub fn close(self: KProcess) void {
         qtc.KProcess_Close(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// Inherited from QProcess
     ///
@@ -3453,9 +4251,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperClose(self: KProcess) void {
+    pub fn superClose(self: KProcess) void {
         qtc.KProcess_SuperClose(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// Inherited from QProcess
     ///
@@ -3469,9 +4271,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: KProcess, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: KProcess, callback: *const fn () callconv(.c) void) void {
         qtc.KProcess_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// Inherited from QProcess
     ///
@@ -3487,14 +4293,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadData` instead
+    /// ### DEPRECATED: Use `superReadData` instead
     ///
-    pub const QBaseReadData = SuperReadData;
+    pub const SuperReadData = superReadData;
 
     /// Inherited from QProcess
     ///
@@ -3510,10 +4316,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadData` instead
+    ///
+    pub const OnReadData = onReadData;
 
     /// Inherited from QProcess
     ///
@@ -3527,9 +4337,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: KProcess, callback: *const fn (KProcess, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadData(self: KProcess, callback: *const fn (KProcess, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.KProcess_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `writeData` instead
+    ///
+    pub const WriteData = writeData;
 
     /// Inherited from QProcess
     ///
@@ -3545,14 +4359,14 @@ pub const KProcess = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn WriteData(self: KProcess, data: [:0]const u8, len: i64) i64 {
+    pub fn writeData(self: KProcess, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteData` instead
+    /// ### DEPRECATED: Use `superWriteData` instead
     ///
-    pub const QBaseWriteData = SuperWriteData;
+    pub const SuperWriteData = superWriteData;
 
     /// Inherited from QProcess
     ///
@@ -3568,10 +4382,14 @@ pub const KProcess = extern struct {
     ///
     /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: KProcess, data: [:0]const u8, len: i64) i64 {
+    pub fn superWriteData(self: KProcess, data: [:0]const u8, len: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `onWriteData` instead
+    ///
+    pub const OnWriteData = onWriteData;
 
     /// Inherited from QProcess
     ///
@@ -3585,10 +4403,14 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: KProcess, callback: *const fn (KProcess, [*:0]const u8, i64) callconv(.c) i64) void {
+    pub fn onWriteData(self: KProcess, callback: *const fn (KProcess, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.KProcess_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -3599,13 +4421,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Pos(self: KProcess) i64 {
+    pub fn pos(self: KProcess) i64 {
         return qtc.KProcess_Pos(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPos` instead
+    /// ### DEPRECATED: Use `superPos` instead
     ///
-    pub const QBasePos = SuperPos;
+    pub const SuperPos = superPos;
 
     /// Inherited from QIODevice
     ///
@@ -3617,10 +4439,14 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperPos(self: KProcess) i64 {
+    pub fn superPos(self: KProcess) i64 {
         return qtc.KProcess_SuperPos(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPos` instead
+    ///
+    pub const OnPos = onPos;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#pos)
@@ -3633,9 +4459,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: KProcess, callback: *const fn () callconv(.c) i64) void {
         qtc.KProcess_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QIODevice
     ///
@@ -3647,13 +4477,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Size(self: KProcess) i64 {
+    pub fn size(self: KProcess) i64 {
         return qtc.KProcess_Size(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// Inherited from QIODevice
     ///
@@ -3665,9 +4495,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperSize(self: KProcess) i64 {
+    pub fn superSize(self: KProcess) i64 {
         return qtc.KProcess_SuperSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
 
     /// Inherited from QIODevice
     ///
@@ -3681,9 +4515,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: KProcess, callback: *const fn () callconv(.c) i64) void {
         qtc.KProcess_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// Inherited from QIODevice
     ///
@@ -3695,15 +4533,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` pos: i64 `
+    /// ` _pos: i64 `
     ///
-    pub fn Seek(self: KProcess, pos: i64) bool {
-        return qtc.KProcess_Seek(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn seek(self: KProcess, _pos: i64) bool {
+        return qtc.KProcess_Seek(@ptrCast(self.ptr), @bitCast(_pos));
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// Inherited from QIODevice
     ///
@@ -3715,11 +4553,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` pos: i64 `
+    /// ` _pos: i64 `
     ///
-    pub fn SuperSeek(self: KProcess, pos: i64) bool {
-        return qtc.KProcess_SuperSeek(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn superSeek(self: KProcess, _pos: i64) bool {
+        return qtc.KProcess_SuperSeek(@ptrCast(self.ptr), @bitCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// Inherited from QIODevice
     ///
@@ -3733,10 +4575,14 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, pos: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) bool) void {
+    pub fn onSeek(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) bool) void {
         qtc.KProcess_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
@@ -3747,13 +4593,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn AtEnd(self: KProcess) bool {
+    pub fn atEnd(self: KProcess) bool {
         return qtc.KProcess_AtEnd(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    /// ### DEPRECATED: Use `superAtEnd` instead
     ///
-    pub const QBaseAtEnd = SuperAtEnd;
+    pub const SuperAtEnd = superAtEnd;
 
     /// Inherited from QIODevice
     ///
@@ -3765,10 +4611,14 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperAtEnd(self: KProcess) bool {
+    pub fn superAtEnd(self: KProcess) bool {
         return qtc.KProcess_SuperAtEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAtEnd` instead
+    ///
+    pub const OnAtEnd = onAtEnd;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#atEnd)
@@ -3781,9 +4631,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: KProcess, callback: *const fn () callconv(.c) bool) void {
         qtc.KProcess_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// Inherited from QIODevice
     ///
@@ -3795,13 +4649,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Reset(self: KProcess) bool {
+    pub fn reset(self: KProcess) bool {
         return qtc.KProcess_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QIODevice
     ///
@@ -3813,9 +4667,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperReset(self: KProcess) bool {
+    pub fn superReset(self: KProcess) bool {
         return qtc.KProcess_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QIODevice
     ///
@@ -3829,9 +4687,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: KProcess, callback: *const fn () callconv(.c) bool) void {
         qtc.KProcess_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesAvailable` instead
+    ///
+    pub const BytesAvailable = bytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -3843,13 +4705,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn BytesAvailable(self: KProcess) i64 {
+    pub fn bytesAvailable(self: KProcess) i64 {
         return qtc.KProcess_BytesAvailable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    /// ### DEPRECATED: Use `superBytesAvailable` instead
     ///
-    pub const QBaseBytesAvailable = SuperBytesAvailable;
+    pub const SuperBytesAvailable = superBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -3861,9 +4723,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperBytesAvailable(self: KProcess) i64 {
+    pub fn superBytesAvailable(self: KProcess) i64 {
         return qtc.KProcess_SuperBytesAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesAvailable` instead
+    ///
+    pub const OnBytesAvailable = onBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -3877,9 +4743,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: KProcess, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: KProcess, callback: *const fn () callconv(.c) i64) void {
         qtc.KProcess_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canReadLine` instead
+    ///
+    pub const CanReadLine = canReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3891,13 +4761,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn CanReadLine(self: KProcess) bool {
+    pub fn canReadLine(self: KProcess) bool {
         return qtc.KProcess_CanReadLine(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    /// ### DEPRECATED: Use `superCanReadLine` instead
     ///
-    pub const QBaseCanReadLine = SuperCanReadLine;
+    pub const SuperCanReadLine = superCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3909,9 +4779,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperCanReadLine(self: KProcess) bool {
+    pub fn superCanReadLine(self: KProcess) bool {
         return qtc.KProcess_SuperCanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanReadLine` instead
+    ///
+    pub const OnCanReadLine = onCanReadLine;
 
     /// Inherited from QIODevice
     ///
@@ -3925,9 +4799,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: KProcess, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: KProcess, callback: *const fn () callconv(.c) bool) void {
         qtc.KProcess_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLineData` instead
+    ///
+    pub const ReadLineData = readLineData;
 
     /// Inherited from QIODevice
     ///
@@ -3943,14 +4821,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn readLineData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    /// ### DEPRECATED: Use `superReadLineData` instead
     ///
-    pub const QBaseReadLineData = SuperReadLineData;
+    pub const SuperReadLineData = superReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -3966,10 +4844,14 @@ pub const KProcess = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
+    pub fn superReadLineData(self: KProcess, data: [:0]u8, maxlen: i64) i64 {
         const data_Cstring = data.ptr;
         return qtc.KProcess_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadLineData` instead
+    ///
+    pub const OnReadLineData = onReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -3983,9 +4865,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: KProcess, callback: *const fn (KProcess, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadLineData(self: KProcess, callback: *const fn (KProcess, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.KProcess_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `skipData` instead
+    ///
+    pub const SkipData = skipData;
 
     /// Inherited from QIODevice
     ///
@@ -3999,13 +4885,13 @@ pub const KProcess = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: KProcess, maxSize: i64) i64 {
+    pub fn skipData(self: KProcess, maxSize: i64) i64 {
         return qtc.KProcess_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
-    /// ### DEPRECATED: Use `SuperSkipData` instead
+    /// ### DEPRECATED: Use `superSkipData` instead
     ///
-    pub const QBaseSkipData = SuperSkipData;
+    pub const SuperSkipData = superSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -4019,9 +4905,13 @@ pub const KProcess = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: KProcess, maxSize: i64) i64 {
+    pub fn superSkipData(self: KProcess, maxSize: i64) i64 {
         return qtc.KProcess_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `onSkipData` instead
+    ///
+    pub const OnSkipData = onSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -4035,9 +4925,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) i64) void {
+    pub fn onSkipData(self: KProcess, callback: *const fn (KProcess, i64) callconv(.c) i64) void {
         qtc.KProcess_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4049,16 +4943,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KProcess, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KProcess_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KProcess, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KProcess_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4070,12 +4964,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KProcess, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KProcess_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KProcess, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KProcess_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -4089,9 +4987,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KProcess, callback: *const fn (KProcess, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KProcess, callback: *const fn (KProcess, QEvent) callconv(.c) bool) void {
         qtc.KProcess_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4105,17 +5007,17 @@ pub const KProcess = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KProcess, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KProcess, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KProcess_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KProcess_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4129,13 +5031,17 @@ pub const KProcess = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KProcess, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KProcess, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KProcess_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KProcess_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4149,9 +5055,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KProcess, callback: *const fn (KProcess, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KProcess, callback: *const fn (KProcess, QObject, QEvent) callconv(.c) bool) void {
         qtc.KProcess_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4163,16 +5073,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KProcess_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KProcess_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4184,12 +5094,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KProcess_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KProcess_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4203,9 +5117,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KProcess, callback: *const fn (KProcess, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KProcess, callback: *const fn (KProcess, QTimerEvent) callconv(.c) void) void {
         qtc.KProcess_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4217,16 +5135,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KProcess_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KProcess_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4238,12 +5156,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KProcess_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KProcess_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4257,9 +5179,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KProcess, callback: *const fn (KProcess, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KProcess, callback: *const fn (KProcess, QChildEvent) callconv(.c) void) void {
         qtc.KProcess_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -4271,16 +5197,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KProcess_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KProcess_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4292,12 +5218,16 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KProcess, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KProcess_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KProcess, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KProcess_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4311,9 +5241,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KProcess, callback: *const fn (KProcess, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KProcess, callback: *const fn (KProcess, QEvent) callconv(.c) void) void {
         qtc.KProcess_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -4327,14 +5261,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KProcess, signal: anytype) void {
+    pub fn connectNotify(self: KProcess, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KProcess_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4348,11 +5282,15 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KProcess, signal: anytype) void {
+    pub fn superConnectNotify(self: KProcess, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KProcess_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4365,9 +5303,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) void) void {
         qtc.KProcess_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4381,14 +5323,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KProcess, signal: anytype) void {
+    pub fn disconnectNotify(self: KProcess, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KProcess_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4402,10 +5344,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KProcess, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KProcess, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KProcess_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4419,9 +5365,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) void) void {
         qtc.KProcess_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setProcessState` instead
+    ///
+    pub const SetProcessState = setProcessState;
 
     /// Inherited from QProcess
     ///
@@ -4433,15 +5383,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` state: qprocess_enums.ProcessState `
+    /// ` _state: qprocess_enums.ProcessState `
     ///
-    pub fn SetProcessState(self: KProcess, state: i32) void {
-        qtc.KProcess_SetProcessState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setProcessState(self: KProcess, _state: i32) void {
+        qtc.KProcess_SetProcessState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProcessState` instead
+    /// ### DEPRECATED: Use `superSetProcessState` instead
     ///
-    pub const QBaseSetProcessState = SuperSetProcessState;
+    pub const SuperSetProcessState = superSetProcessState;
 
     /// Inherited from QProcess
     ///
@@ -4453,11 +5403,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` state: qprocess_enums.ProcessState `
+    /// ` _state: qprocess_enums.ProcessState `
     ///
-    pub fn SuperSetProcessState(self: KProcess, state: i32) void {
-        qtc.KProcess_SuperSetProcessState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetProcessState(self: KProcess, _state: i32) void {
+        qtc.KProcess_SuperSetProcessState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetProcessState` instead
+    ///
+    pub const OnSetProcessState = onSetProcessState;
 
     /// Inherited from QProcess
     ///
@@ -4471,9 +5425,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
     ///
-    pub fn OnSetProcessState(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onSetProcessState(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.KProcess_OnSetProcessState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpenMode` instead
+    ///
+    pub const SetOpenMode = setOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -4485,15 +5443,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: KProcess, openMode: i32) void {
-        qtc.KProcess_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn setOpenMode(self: KProcess, _openMode: i32) void {
+        qtc.KProcess_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    /// ### DEPRECATED: Use `superSetOpenMode` instead
     ///
-    pub const QBaseSetOpenMode = SuperSetOpenMode;
+    pub const SuperSetOpenMode = superSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -4505,11 +5463,15 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: KProcess, openMode: i32) void {
-        qtc.KProcess_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superSetOpenMode(self: KProcess, _openMode: i32) void {
+        qtc.KProcess_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onSetOpenMode` instead
+    ///
+    pub const OnSetOpenMode = onSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -4523,9 +5485,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onSetOpenMode(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.KProcess_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorString` instead
+    ///
+    pub const SetErrorString = setErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -4537,19 +5503,19 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: KProcess, errorString: []const u8) void {
+    pub fn setErrorString(self: KProcess, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.KProcess_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    /// ### DEPRECATED: Use `superSetErrorString` instead
     ///
-    pub const QBaseSetErrorString = SuperSetErrorString;
+    pub const SuperSetErrorString = superSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -4561,15 +5527,19 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: KProcess, errorString: []const u8) void {
+    pub fn superSetErrorString(self: KProcess, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.KProcess_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorString` instead
+    ///
+    pub const OnSetErrorString = onSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -4583,9 +5553,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorString(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) void) void {
         qtc.KProcess_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -4597,13 +5571,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn Sender(self: KProcess) QObject {
+    pub fn sender(self: KProcess) QObject {
         return .{ .ptr = qtc.KProcess_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -4615,9 +5589,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperSender(self: KProcess) QObject {
+    pub fn superSender(self: KProcess) QObject {
         return .{ .ptr = qtc.KProcess_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -4631,9 +5609,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KProcess, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KProcess, callback: *const fn () callconv(.c) QObject) void {
         qtc.KProcess_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4645,13 +5627,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SenderSignalIndex(self: KProcess) i32 {
+    pub fn senderSignalIndex(self: KProcess) i32 {
         return qtc.KProcess_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4663,9 +5645,13 @@ pub const KProcess = extern struct {
     ///
     /// ` self: KProcess `
     ///
-    pub fn SuperSenderSignalIndex(self: KProcess) i32 {
+    pub fn superSenderSignalIndex(self: KProcess) i32 {
         return qtc.KProcess_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4679,9 +5665,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KProcess, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KProcess, callback: *const fn () callconv(.c) i32) void {
         qtc.KProcess_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -4695,14 +5685,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KProcess, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KProcess, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KProcess_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -4716,10 +5706,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KProcess, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KProcess, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KProcess_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -4733,9 +5727,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) i32) void {
         qtc.KProcess_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4749,14 +5747,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KProcess, signal: anytype) bool {
+    pub fn isSignalConnected(self: KProcess, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KProcess_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4770,10 +5768,14 @@ pub const KProcess = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KProcess, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KProcess, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KProcess_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4787,9 +5789,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KProcess, callback: *const fn (KProcess, QMetaMethod) callconv(.c) bool) void {
         qtc.KProcess_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStarted` instead
+    ///
+    pub const OnStarted = onStarted;
 
     /// Inherited from QProcess
     ///
@@ -4803,9 +5809,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnStarted(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onStarted(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QProcess_Connect_Started(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// Inherited from QProcess
     ///
@@ -4819,9 +5829,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, state: qprocess_enums.ProcessState) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: KProcess, callback: *const fn (KProcess, i32) callconv(.c) void) void {
         qtc.QProcess_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onReadyReadStandardOutput` instead
+    ///
+    pub const OnReadyReadStandardOutput = onReadyReadStandardOutput;
 
     /// Inherited from QProcess
     ///
@@ -4835,9 +5849,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnReadyReadStandardOutput(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onReadyReadStandardOutput(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QProcess_Connect_ReadyReadStandardOutput(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onReadyReadStandardError` instead
+    ///
+    pub const OnReadyReadStandardError = onReadyReadStandardError;
 
     /// Inherited from QProcess
     ///
@@ -4851,9 +5869,13 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess) callconv(.c) void `
     ///
-    pub fn OnReadyReadStandardError(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
+    pub fn onReadyReadStandardError(self: KProcess, callback: *const fn (KProcess) callconv(.c) void) void {
         qtc.QProcess_Connect_ReadyReadStandardError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4867,23 +5889,23 @@ pub const KProcess = extern struct {
     ///
     /// ` callback: *const fn (self: KProcess, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KProcess, callback: *const fn (KProcess, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kprocess.html#dtor.KProcess)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KProcess `
     ///
-    pub fn Delete(self: KProcess) void {
+    pub fn delete(self: KProcess) void {
         qtc.KProcess_Delete(@ptrCast(self.ptr));
     }
 };

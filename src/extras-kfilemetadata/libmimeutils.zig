@@ -5,6 +5,10 @@ const QMimeType = @import("libqt6").QMimeType;
 
 /// ### [Upstream resources](https://api.kde.org/kfilemetadata-mimeutils.html)
 pub const KFileMetaData__MimeUtils = extern struct {
+    /// ### DEPRECATED: Use `strictMimeType` instead
+    ///
+    pub const StrictMimeType = strictMimeType;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-mimeutils.html#strictMimeType)
     ///
     /// ## Parameter(s):
@@ -13,7 +17,7 @@ pub const KFileMetaData__MimeUtils = extern struct {
     ///
     /// ` db: QMimeDatabase `
     ///
-    pub fn StrictMimeType(filePath: []const u8, db: anytype) QMimeType {
+    pub fn strictMimeType(filePath: []const u8, db: anytype) QMimeType {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,

@@ -11,11 +11,19 @@ pub const QGeoServiceProviderFactory = extern struct {
 
     pub const _is_QGeoServiceProviderFactory = {};
 
-    /// New constructs a new QGeoServiceProviderFactory object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoServiceProviderFactory {
+    pub const New = new;
+
+    /// Allocate a new QGeoServiceProviderFactory object in C++ memory
+    ///
+    pub fn new() QGeoServiceProviderFactory {
         return .{ .ptr = qtc.QGeoServiceProviderFactory_new() };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceproviderfactory.html#operator-eq)
     ///
@@ -25,24 +33,24 @@ pub const QGeoServiceProviderFactory = extern struct {
     ///
     /// ` param1: QGeoServiceProviderFactory `
     ///
-    pub fn OperatorAssign(self: QGeoServiceProviderFactory, param1: anytype) void {
+    pub fn operatorAssign(self: QGeoServiceProviderFactory, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QGeoServiceProviderFactory;
         qtc.QGeoServiceProviderFactory_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoserviceproviderfactory.html#dtor.QGeoServiceProviderFactory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoServiceProviderFactory `
     ///
-    pub fn Delete(self: QGeoServiceProviderFactory) void {
+    pub fn delete(self: QGeoServiceProviderFactory) void {
         qtc.QGeoServiceProviderFactory_Delete(@ptrCast(self.ptr));
     }
 };

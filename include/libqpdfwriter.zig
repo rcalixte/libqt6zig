@@ -42,13 +42,17 @@ pub const QPdfWriter = extern struct {
     pub const _is_QPagedPaintDevice = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QPdfWriter object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPdfWriter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn New(filename: []const u8) QPdfWriter {
+    pub fn new(filename: []const u8) QPdfWriter {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
@@ -56,16 +60,24 @@ pub const QPdfWriter = extern struct {
         return .{ .ptr = qtc.QPdfWriter_new(filename_str) };
     }
 
-    /// New2 constructs a new QPdfWriter object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPdfWriter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` device: QIODevice `
     ///
-    pub fn New2(device: anytype) QPdfWriter {
+    pub fn new2(device: anytype) QPdfWriter {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return .{ .ptr = qtc.QPdfWriter_new2(@ptrCast(device.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,9 +85,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn MetaObject(self: QPdfWriter) QMetaObject {
+    pub fn metaObject(self: QPdfWriter) QMetaObject {
         return .{ .ptr = qtc.QPdfWriter_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -87,13 +103,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPdfWriter, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPdfWriter, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPdfWriter_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +119,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperMetaObject(self: QPdfWriter) QMetaObject {
+    pub fn superMetaObject(self: QPdfWriter) QMetaObject {
         return .{ .ptr = qtc.QPdfWriter_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -113,10 +133,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPdfWriter, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPdfWriter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPdfWriter_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -126,13 +150,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPdfWriter_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -142,10 +166,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPdfWriter, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPdfWriter, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPdfWriter_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -157,9 +185,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPdfWriter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPdfWriter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPdfWriter_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -169,13 +201,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPdfWriter, callback: *const fn (QPdfWriter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPdfWriter, callback: *const fn (QPdfWriter, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPdfWriter_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -189,9 +221,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPdfWriter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPdfWriter, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPdfWriter_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -201,14 +237,18 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPdfVersion` instead
+    ///
+    pub const SetPdfVersion = setPdfVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setPdfVersion)
     ///
@@ -218,9 +258,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` version: qpagedpaintdevice_enums.PdfVersion `
     ///
-    pub fn SetPdfVersion(self: QPdfWriter, version: i32) void {
+    pub fn setPdfVersion(self: QPdfWriter, version: i32) void {
         qtc.QPdfWriter_SetPdfVersion(@ptrCast(self.ptr), @bitCast(version));
     }
+
+    /// ### DEPRECATED: Use `pdfVersion` instead
+    ///
+    pub const PdfVersion = pdfVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#pdfVersion)
     ///
@@ -232,9 +276,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` qpagedpaintdevice_enums.PdfVersion `
     ///
-    pub fn PdfVersion(self: QPdfWriter) i32 {
+    pub fn pdfVersion(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_PdfVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#title)
     ///
@@ -244,13 +292,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfWriter_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setTitle)
     ///
@@ -258,15 +310,19 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: QPdfWriter, title: []const u8) void {
+    pub fn setTitle(self: QPdfWriter, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QPdfWriter_SetTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `creator` instead
+    ///
+    pub const Creator = creator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#creator)
     ///
@@ -276,13 +332,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Creator(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
+    pub fn creator(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfWriter_Creator(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.Creator: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.creator: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCreator` instead
+    ///
+    pub const SetCreator = setCreator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setCreator)
     ///
@@ -290,15 +350,19 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` creator: []const u8 `
+    /// ` _creator: []const u8 `
     ///
-    pub fn SetCreator(self: QPdfWriter, creator: []const u8) void {
+    pub fn setCreator(self: QPdfWriter, _creator: []const u8) void {
         const creator_str = qtc.libqt_string{
-            .len = creator.len,
-            .data = creator.ptr,
+            .len = _creator.len,
+            .data = _creator.ptr,
         };
         qtc.QPdfWriter_SetCreator(@ptrCast(self.ptr), creator_str);
     }
+
+    /// ### DEPRECATED: Use `documentId` instead
+    ///
+    pub const DocumentId = documentId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#documentId)
     ///
@@ -306,9 +370,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DocumentId(self: QPdfWriter) QUuid {
+    pub fn documentId(self: QPdfWriter) QUuid {
         return .{ .ptr = qtc.QPdfWriter_DocumentId(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDocumentId` instead
+    ///
+    pub const SetDocumentId = setDocumentId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setDocumentId)
     ///
@@ -316,12 +384,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` documentId: QUuid `
+    /// ` _documentId: QUuid `
     ///
-    pub fn SetDocumentId(self: QPdfWriter, documentId: anytype) void {
-        comptime _ = @TypeOf(documentId)._is_QUuid;
-        qtc.QPdfWriter_SetDocumentId(@ptrCast(self.ptr), @ptrCast(documentId.ptr));
+    pub fn setDocumentId(self: QPdfWriter, _documentId: anytype) void {
+        comptime _ = @TypeOf(_documentId)._is_QUuid;
+        qtc.QPdfWriter_SetDocumentId(@ptrCast(self.ptr), @ptrCast(_documentId.ptr));
     }
+
+    /// ### DEPRECATED: Use `newPage` instead
+    ///
+    pub const NewPage = newPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
     ///
@@ -329,9 +401,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn NewPage(self: QPdfWriter) bool {
+    pub fn newPage(self: QPdfWriter) bool {
         return qtc.QPdfWriter_NewPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNewPage` instead
+    ///
+    pub const OnNewPage = onNewPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
     ///
@@ -343,13 +419,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnNewPage(self: QPdfWriter, callback: *const fn () callconv(.c) bool) void {
+    pub fn onNewPage(self: QPdfWriter, callback: *const fn () callconv(.c) bool) void {
         qtc.QPdfWriter_OnNewPage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperNewPage` instead
+    /// ### DEPRECATED: Use `superNewPage` instead
     ///
-    pub const QBaseNewPage = SuperNewPage;
+    pub const SuperNewPage = superNewPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#newPage)
     ///
@@ -359,9 +435,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperNewPage(self: QPdfWriter) bool {
+    pub fn superNewPage(self: QPdfWriter) bool {
         return qtc.QPdfWriter_SuperNewPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResolution` instead
+    ///
+    pub const SetResolution = setResolution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setResolution)
     ///
@@ -369,11 +449,15 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` resolution: i32 `
+    /// ` _resolution: i32 `
     ///
-    pub fn SetResolution(self: QPdfWriter, resolution: i32) void {
-        qtc.QPdfWriter_SetResolution(@ptrCast(self.ptr), @bitCast(resolution));
+    pub fn setResolution(self: QPdfWriter, _resolution: i32) void {
+        qtc.QPdfWriter_SetResolution(@ptrCast(self.ptr), @bitCast(_resolution));
     }
+
+    /// ### DEPRECATED: Use `resolution` instead
+    ///
+    pub const Resolution = resolution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#resolution)
     ///
@@ -381,9 +465,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Resolution(self: QPdfWriter) i32 {
+    pub fn resolution(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_Resolution(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDocumentXmpMetadata` instead
+    ///
+    pub const SetDocumentXmpMetadata = setDocumentXmpMetadata;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setDocumentXmpMetadata)
     ///
@@ -393,13 +481,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` xmpMetadata: []u8 `
     ///
-    pub fn SetDocumentXmpMetadata(self: QPdfWriter, xmpMetadata: []u8) void {
+    pub fn setDocumentXmpMetadata(self: QPdfWriter, xmpMetadata: []u8) void {
         const xmpMetadata_str = qtc.libqt_string{
             .len = xmpMetadata.len,
             .data = xmpMetadata.ptr,
         };
         qtc.QPdfWriter_SetDocumentXmpMetadata(@ptrCast(self.ptr), xmpMetadata_str);
     }
+
+    /// ### DEPRECATED: Use `documentXmpMetadata` instead
+    ///
+    pub const DocumentXmpMetadata = documentXmpMetadata;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#documentXmpMetadata)
     ///
@@ -409,13 +501,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentXmpMetadata(self: QPdfWriter, allocator: std.mem.Allocator) []u8 {
+    pub fn documentXmpMetadata(self: QPdfWriter, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QPdfWriter_DocumentXmpMetadata(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPdfWriter.DocumentXmpMetadata: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPdfWriter.documentXmpMetadata: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addFileAttachment` instead
+    ///
+    pub const AddFileAttachment = addFileAttachment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#addFileAttachment)
     ///
@@ -427,7 +523,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn AddFileAttachment(self: QPdfWriter, fileName: []const u8, data: []u8) void {
+    pub fn addFileAttachment(self: QPdfWriter, fileName: []const u8, data: []u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -439,6 +535,10 @@ pub const QPdfWriter = extern struct {
         qtc.QPdfWriter_AddFileAttachment(@ptrCast(self.ptr), fileName_str, data_str);
     }
 
+    /// ### DEPRECATED: Use `colorModel` instead
+    ///
+    pub const ColorModel = colorModel;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#colorModel)
     ///
     /// ## Parameter(s):
@@ -449,9 +549,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` qpdfwriter_enums.ColorModel `
     ///
-    pub fn ColorModel(self: QPdfWriter) i32 {
+    pub fn colorModel(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_ColorModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColorModel` instead
+    ///
+    pub const SetColorModel = setColorModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setColorModel)
     ///
@@ -461,9 +565,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` model: qpdfwriter_enums.ColorModel `
     ///
-    pub fn SetColorModel(self: QPdfWriter, model: i32) void {
+    pub fn setColorModel(self: QPdfWriter, model: i32) void {
         qtc.QPdfWriter_SetColorModel(@ptrCast(self.ptr), @bitCast(model));
     }
+
+    /// ### DEPRECATED: Use `outputIntent` instead
+    ///
+    pub const OutputIntent = outputIntent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#outputIntent)
     ///
@@ -471,9 +579,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn OutputIntent(self: QPdfWriter) QPdfOutputIntent {
+    pub fn outputIntent(self: QPdfWriter) QPdfOutputIntent {
         return .{ .ptr = qtc.QPdfWriter_OutputIntent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOutputIntent` instead
+    ///
+    pub const SetOutputIntent = setOutputIntent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#setOutputIntent)
     ///
@@ -483,10 +595,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` intent: QPdfOutputIntent `
     ///
-    pub fn SetOutputIntent(self: QPdfWriter, intent: anytype) void {
+    pub fn setOutputIntent(self: QPdfWriter, intent: anytype) void {
         comptime _ = @TypeOf(intent)._is_QPdfOutputIntent;
         qtc.QPdfWriter_SetOutputIntent(@ptrCast(self.ptr), @ptrCast(intent.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
     ///
@@ -494,9 +610,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PaintEngine(self: QPdfWriter) QPaintEngine {
+    pub fn paintEngine(self: QPdfWriter) QPaintEngine {
         return .{ .ptr = qtc.QPdfWriter_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
     ///
@@ -508,13 +628,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QPdfWriter, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPdfWriter, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QPdfWriter_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#paintEngine)
     ///
@@ -524,9 +644,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperPaintEngine(self: QPdfWriter) QPaintEngine {
+    pub fn superPaintEngine(self: QPdfWriter) QPaintEngine {
         return .{ .ptr = qtc.QPdfWriter_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
     ///
@@ -536,9 +660,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` id: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QPdfWriter, id: i32) i32 {
+    pub fn metric(self: QPdfWriter, id: i32) i32 {
         return qtc.QPdfWriter_Metric(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
     ///
@@ -550,13 +678,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, id: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QPdfWriter, callback: *const fn (QPdfWriter, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QPdfWriter, callback: *const fn (QPdfWriter, i32) callconv(.c) i32) void {
         qtc.QPdfWriter_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#metric)
     ///
@@ -568,9 +696,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` id: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QPdfWriter, id: i32) i32 {
+    pub fn superMetric(self: QPdfWriter, id: i32) i32 {
         return qtc.QPdfWriter_SuperMetric(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -582,15 +714,19 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -604,15 +740,19 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addFileAttachment3` instead
+    ///
+    pub const AddFileAttachment3 = addFileAttachment3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#addFileAttachment)
     ///
@@ -626,7 +766,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn AddFileAttachment3(self: QPdfWriter, fileName: []const u8, data: []u8, mimeType: []const u8) void {
+    pub fn addFileAttachment3(self: QPdfWriter, fileName: []const u8, data: []u8, mimeType: []const u8) void {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -642,6 +782,10 @@ pub const QPdfWriter = extern struct {
         qtc.QPdfWriter_AddFileAttachment3(@ptrCast(self.ptr), fileName_str, data_str, mimeType_str);
     }
 
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
@@ -652,13 +796,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPdfWriter, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfWriter.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -670,13 +818,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPdfWriter, name: []const u8) void {
+    pub fn setObjectName(self: QPdfWriter, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -686,9 +838,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn IsWidgetType(self: QPdfWriter) bool {
+    pub fn isWidgetType(self: QPdfWriter) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -698,9 +854,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn IsWindowType(self: QPdfWriter) bool {
+    pub fn isWindowType(self: QPdfWriter) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -710,9 +870,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn IsQuickItemType(self: QPdfWriter) bool {
+    pub fn isQuickItemType(self: QPdfWriter) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -722,9 +886,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SignalsBlocked(self: QPdfWriter) bool {
+    pub fn signalsBlocked(self: QPdfWriter) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -736,9 +904,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPdfWriter, b: bool) bool {
+    pub fn blockSignals(self: QPdfWriter, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -748,9 +920,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Thread(self: QPdfWriter) QThread {
+    pub fn thread(self: QPdfWriter) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -760,12 +936,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPdfWriter, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPdfWriter, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -777,9 +957,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPdfWriter, interval: i32) i32 {
+    pub fn startTimer(self: QPdfWriter, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -791,9 +975,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPdfWriter, time: i64) i32 {
+    pub fn startTimer2(self: QPdfWriter, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -805,9 +993,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPdfWriter, id: i32) void {
+    pub fn killTimer(self: QPdfWriter, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -819,9 +1011,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPdfWriter, id: i32) void {
+    pub fn killTimer2(self: QPdfWriter, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -833,15 +1029,19 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPdfWriter, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPdfWriter, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPdfWriter.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPdfWriter.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -851,12 +1051,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPdfWriter, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPdfWriter, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -868,10 +1072,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPdfWriter, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPdfWriter, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -883,10 +1091,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPdfWriter, obj: anytype) void {
+    pub fn removeEventFilter(self: QPdfWriter, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -894,7 +1106,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -902,13 +1114,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -916,7 +1132,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -924,13 +1140,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -940,18 +1160,22 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPdfWriter, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPdfWriter, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -959,7 +1183,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -967,13 +1191,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -981,7 +1209,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -989,13 +1217,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1005,9 +1237,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Disconnect3(self: QPdfWriter) bool {
+    pub fn disconnect3(self: QPdfWriter) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1019,10 +1255,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPdfWriter, receiver: anytype) bool {
+    pub fn disconnect4(self: QPdfWriter, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1032,10 +1272,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1045,9 +1289,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DumpObjectTree(self: QPdfWriter) void {
+    pub fn dumpObjectTree(self: QPdfWriter) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1057,9 +1305,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DumpObjectInfo(self: QPdfWriter) void {
+    pub fn dumpObjectInfo(self: QPdfWriter) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1073,11 +1325,15 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPdfWriter, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPdfWriter, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1089,10 +1345,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPdfWriter, name: [:0]const u8) QVariant {
+    pub fn property(self: QPdfWriter, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1104,7 +1364,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPdfWriter, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPdfWriter, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1112,27 +1372,19 @@ pub const QPdfWriter = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPdfWriter.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPdfWriter.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPdfWriter.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPdfWriter.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfWriter `
-    ///
-    pub fn BindingStorage(self: QPdfWriter) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1142,9 +1394,29 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn BindingStorage2(self: QPdfWriter) QBindingStorage {
+    pub fn bindingStorage(self: QPdfWriter) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfWriter `
+    ///
+    pub fn bindingStorage2(self: QPdfWriter) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1154,9 +1426,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Destroyed(self: QPdfWriter) void {
+    pub fn destroyed(self: QPdfWriter) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1168,9 +1444,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPdfWriter, callback: *const fn (QPdfWriter) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1180,9 +1460,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Parent(self: QPdfWriter) QObject {
+    pub fn parent(self: QPdfWriter) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1194,10 +1478,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPdfWriter, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPdfWriter, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1207,9 +1495,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DeleteLater(self: QPdfWriter) void {
+    pub fn deleteLater(self: QPdfWriter) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1223,9 +1515,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPdfWriter, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPdfWriter, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1239,9 +1535,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPdfWriter, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPdfWriter, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1249,7 +1549,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1259,13 +1559,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1273,7 +1577,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1283,13 +1587,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1299,7 +1607,7 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1307,12 +1615,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPdfWriter, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPdfWriter, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1324,10 +1636,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPdfWriter, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPdfWriter, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1341,11 +1657,15 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPdfWriter, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPdfWriter, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1361,13 +1681,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPdfWriter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPdfWriter, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1380,11 +1704,15 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPdfWriter, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPdfWriter, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1396,10 +1724,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPdfWriter, param1: anytype) void {
+    pub fn destroyed1(self: QPdfWriter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1411,9 +1743,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPdfWriter, callback: *const fn (QPdfWriter, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPdfWriter, callback: *const fn (QPdfWriter, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pageLayout` instead
+    ///
+    pub const PageLayout = pageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1423,9 +1759,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PageLayout(self: QPdfWriter) QPageLayout {
+    pub fn pageLayout(self: QPdfWriter) QPageLayout {
         return .{ .ptr = qtc.QPagedPaintDevice_PageLayout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pageRanges` instead
+    ///
+    pub const PageRanges = pageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -1435,9 +1775,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PageRanges(self: QPdfWriter) QPageRanges {
+    pub fn pageRanges(self: QPdfWriter) QPageRanges {
         return .{ .ptr = qtc.QPagedPaintDevice_PageRanges(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -1447,9 +1791,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PaintingActive(self: QPdfWriter) bool {
+    pub fn paintingActive(self: QPdfWriter) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QPaintDevice
     ///
@@ -1459,9 +1807,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Width(self: QPdfWriter) i32 {
+    pub fn width(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QPaintDevice
     ///
@@ -1471,9 +1823,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Height(self: QPdfWriter) i32 {
+    pub fn height(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1483,9 +1839,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn WidthMM(self: QPdfWriter) i32 {
+    pub fn widthMM(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -1495,9 +1855,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn HeightMM(self: QPdfWriter) i32 {
+    pub fn heightMM(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1507,9 +1871,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn LogicalDpiX(self: QPdfWriter) i32 {
+    pub fn logicalDpiX(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1519,9 +1887,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn LogicalDpiY(self: QPdfWriter) i32 {
+    pub fn logicalDpiY(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -1531,9 +1903,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PhysicalDpiX(self: QPdfWriter) i32 {
+    pub fn physicalDpiX(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -1543,9 +1919,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn PhysicalDpiY(self: QPdfWriter) i32 {
+    pub fn physicalDpiY(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -1555,9 +1935,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DevicePixelRatio(self: QPdfWriter) f64 {
+    pub fn devicePixelRatio(self: QPdfWriter) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1567,9 +1951,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DevicePixelRatioF(self: QPdfWriter) f64 {
+    pub fn devicePixelRatioF(self: QPdfWriter) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -1579,9 +1967,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn ColorCount(self: QPdfWriter) i32 {
+    pub fn colorCount(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -1591,17 +1983,25 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Depth(self: QPdfWriter) i32 {
+    pub fn depth(self: QPdfWriter) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -1609,13 +2009,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1627,16 +2031,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPdfWriter, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfWriter_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPdfWriter, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfWriter_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1648,12 +2052,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPdfWriter, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfWriter_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPdfWriter, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfWriter_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1667,9 +2075,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QEvent) callconv(.c) bool) void {
         qtc.QPdfWriter_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1683,17 +2095,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPdfWriter, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPdfWriter, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfWriter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfWriter_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1707,13 +2119,17 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPdfWriter, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPdfWriter, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfWriter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfWriter_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1727,9 +2143,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPdfWriter, callback: *const fn (QPdfWriter, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPdfWriter, callback: *const fn (QPdfWriter, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPdfWriter_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1741,16 +2161,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPdfWriter_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPdfWriter_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1762,12 +2182,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPdfWriter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPdfWriter_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1781,9 +2205,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QTimerEvent) callconv(.c) void) void {
         qtc.QPdfWriter_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1795,16 +2223,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPdfWriter_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPdfWriter_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1816,12 +2244,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPdfWriter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPdfWriter_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1835,9 +2267,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QChildEvent) callconv(.c) void) void {
         qtc.QPdfWriter_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1849,16 +2285,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfWriter_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfWriter_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1870,12 +2306,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPdfWriter, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfWriter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPdfWriter, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfWriter_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1889,9 +2329,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPdfWriter, callback: *const fn (QPdfWriter, QEvent) callconv(.c) void) void {
         qtc.QPdfWriter_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1905,14 +2349,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPdfWriter, signal: anytype) void {
+    pub fn connectNotify(self: QPdfWriter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfWriter_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1926,11 +2370,15 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPdfWriter, signal: anytype) void {
+    pub fn superConnectNotify(self: QPdfWriter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfWriter_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1943,9 +2391,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) void) void {
         qtc.QPdfWriter_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1959,14 +2411,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPdfWriter, signal: anytype) void {
+    pub fn disconnectNotify(self: QPdfWriter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfWriter_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1980,10 +2432,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPdfWriter, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPdfWriter, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfWriter_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1997,9 +2453,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) void) void {
         qtc.QPdfWriter_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageLayout` instead
+    ///
+    pub const SetPageLayout = setPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2011,16 +2471,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` pageLayout: QPageLayout `
+    /// ` _pageLayout: QPageLayout `
     ///
-    pub fn SetPageLayout(self: QPdfWriter, pageLayout: anytype) bool {
-        comptime _ = @TypeOf(pageLayout)._is_QPageLayout;
-        return qtc.QPdfWriter_SetPageLayout(@ptrCast(self.ptr), @ptrCast(pageLayout.ptr));
+    pub fn setPageLayout(self: QPdfWriter, _pageLayout: anytype) bool {
+        comptime _ = @TypeOf(_pageLayout)._is_QPageLayout;
+        return qtc.QPdfWriter_SetPageLayout(@ptrCast(self.ptr), @ptrCast(_pageLayout.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageLayout` instead
+    /// ### DEPRECATED: Use `superSetPageLayout` instead
     ///
-    pub const QBaseSetPageLayout = SuperSetPageLayout;
+    pub const SuperSetPageLayout = superSetPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2032,12 +2492,16 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    /// ` pageLayout: QPageLayout `
+    /// ` _pageLayout: QPageLayout `
     ///
-    pub fn SuperSetPageLayout(self: QPdfWriter, pageLayout: anytype) bool {
-        comptime _ = @TypeOf(pageLayout)._is_QPageLayout;
-        return qtc.QPdfWriter_SuperSetPageLayout(@ptrCast(self.ptr), @ptrCast(pageLayout.ptr));
+    pub fn superSetPageLayout(self: QPdfWriter, _pageLayout: anytype) bool {
+        comptime _ = @TypeOf(_pageLayout)._is_QPageLayout;
+        return qtc.QPdfWriter_SuperSetPageLayout(@ptrCast(self.ptr), @ptrCast(_pageLayout.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageLayout` instead
+    ///
+    pub const OnSetPageLayout = onSetPageLayout;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2051,9 +2515,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, pageLayout: QPageLayout) callconv(.c) bool `
     ///
-    pub fn OnSetPageLayout(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageLayout) callconv(.c) bool) void {
+    pub fn onSetPageLayout(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageLayout) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageSize` instead
+    ///
+    pub const SetPageSize = setPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2067,14 +2535,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` pageSize: QPageSize `
     ///
-    pub fn SetPageSize(self: QPdfWriter, pageSize: anytype) bool {
+    pub fn setPageSize(self: QPdfWriter, pageSize: anytype) bool {
         comptime _ = @TypeOf(pageSize)._is_QPageSize;
         return qtc.QPdfWriter_SetPageSize(@ptrCast(self.ptr), @ptrCast(pageSize.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageSize` instead
+    /// ### DEPRECATED: Use `superSetPageSize` instead
     ///
-    pub const QBaseSetPageSize = SuperSetPageSize;
+    pub const SuperSetPageSize = superSetPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2088,10 +2556,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` pageSize: QPageSize `
     ///
-    pub fn SuperSetPageSize(self: QPdfWriter, pageSize: anytype) bool {
+    pub fn superSetPageSize(self: QPdfWriter, pageSize: anytype) bool {
         comptime _ = @TypeOf(pageSize)._is_QPageSize;
         return qtc.QPdfWriter_SuperSetPageSize(@ptrCast(self.ptr), @ptrCast(pageSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageSize` instead
+    ///
+    pub const OnSetPageSize = onSetPageSize;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2105,9 +2577,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, pageSize: QPageSize) callconv(.c) bool `
     ///
-    pub fn OnSetPageSize(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageSize) callconv(.c) bool) void {
+    pub fn onSetPageSize(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageSize) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageOrientation` instead
+    ///
+    pub const SetPageOrientation = setPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2121,13 +2597,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
-    pub fn SetPageOrientation(self: QPdfWriter, orientation: i32) bool {
+    pub fn setPageOrientation(self: QPdfWriter, orientation: i32) bool {
         return qtc.QPdfWriter_SetPageOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageOrientation` instead
+    /// ### DEPRECATED: Use `superSetPageOrientation` instead
     ///
-    pub const QBaseSetPageOrientation = SuperSetPageOrientation;
+    pub const SuperSetPageOrientation = superSetPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2141,9 +2617,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` orientation: qpagelayout_enums.Orientation `
     ///
-    pub fn SuperSetPageOrientation(self: QPdfWriter, orientation: i32) bool {
+    pub fn superSetPageOrientation(self: QPdfWriter, orientation: i32) bool {
         return qtc.QPdfWriter_SuperSetPageOrientation(@ptrCast(self.ptr), @bitCast(orientation));
     }
+
+    /// ### DEPRECATED: Use `onSetPageOrientation` instead
+    ///
+    pub const OnSetPageOrientation = onSetPageOrientation;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2157,9 +2637,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, orientation: qpagelayout_enums.Orientation) callconv(.c) bool `
     ///
-    pub fn OnSetPageOrientation(self: QPdfWriter, callback: *const fn (QPdfWriter, i32) callconv(.c) bool) void {
+    pub fn onSetPageOrientation(self: QPdfWriter, callback: *const fn (QPdfWriter, i32) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageOrientation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageMargins` instead
+    ///
+    pub const SetPageMargins = setPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2175,14 +2659,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` units: qpagelayout_enums.Unit `
     ///
-    pub fn SetPageMargins(self: QPdfWriter, margins: anytype, units: i32) bool {
+    pub fn setPageMargins(self: QPdfWriter, margins: anytype, units: i32) bool {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return qtc.QPdfWriter_SetPageMargins(@ptrCast(self.ptr), @ptrCast(margins.ptr), @bitCast(units));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageMargins` instead
+    /// ### DEPRECATED: Use `superSetPageMargins` instead
     ///
-    pub const QBaseSetPageMargins = SuperSetPageMargins;
+    pub const SuperSetPageMargins = superSetPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2198,10 +2682,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` units: qpagelayout_enums.Unit `
     ///
-    pub fn SuperSetPageMargins(self: QPdfWriter, margins: anytype, units: i32) bool {
+    pub fn superSetPageMargins(self: QPdfWriter, margins: anytype, units: i32) bool {
         comptime _ = @TypeOf(margins)._is_QMarginsF;
         return qtc.QPdfWriter_SuperSetPageMargins(@ptrCast(self.ptr), @ptrCast(margins.ptr), @bitCast(units));
     }
+
+    /// ### DEPRECATED: Use `onSetPageMargins` instead
+    ///
+    pub const OnSetPageMargins = onSetPageMargins;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2215,9 +2703,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, margins: QMarginsF, units: qpagelayout_enums.Unit) callconv(.c) bool `
     ///
-    pub fn OnSetPageMargins(self: QPdfWriter, callback: *const fn (QPdfWriter, QMarginsF, i32) callconv(.c) bool) void {
+    pub fn onSetPageMargins(self: QPdfWriter, callback: *const fn (QPdfWriter, QMarginsF, i32) callconv(.c) bool) void {
         qtc.QPdfWriter_OnSetPageMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPageRanges` instead
+    ///
+    pub const SetPageRanges = setPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2231,14 +2723,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn SetPageRanges(self: QPdfWriter, ranges: anytype) void {
+    pub fn setPageRanges(self: QPdfWriter, ranges: anytype) void {
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QPdfWriter_SetPageRanges(@ptrCast(self.ptr), @ptrCast(ranges.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPageRanges` instead
+    /// ### DEPRECATED: Use `superSetPageRanges` instead
     ///
-    pub const QBaseSetPageRanges = SuperSetPageRanges;
+    pub const SuperSetPageRanges = superSetPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2252,10 +2744,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn SuperSetPageRanges(self: QPdfWriter, ranges: anytype) void {
+    pub fn superSetPageRanges(self: QPdfWriter, ranges: anytype) void {
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
         qtc.QPdfWriter_SuperSetPageRanges(@ptrCast(self.ptr), @ptrCast(ranges.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPageRanges` instead
+    ///
+    pub const OnSetPageRanges = onSetPageRanges;
 
     /// Inherited from QPagedPaintDevice
     ///
@@ -2269,9 +2765,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, ranges: QPageRanges) callconv(.c) void `
     ///
-    pub fn OnSetPageRanges(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageRanges) callconv(.c) void) void {
+    pub fn onSetPageRanges(self: QPdfWriter, callback: *const fn (QPdfWriter, QPageRanges) callconv(.c) void) void {
         qtc.QPdfWriter_OnSetPageRanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QPaintDevice
     ///
@@ -2283,13 +2783,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn DevType(self: QPdfWriter) i32 {
+    pub fn devType(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QPaintDevice
     ///
@@ -2301,9 +2801,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperDevType(self: QPdfWriter) i32 {
+    pub fn superDevType(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QPaintDevice
     ///
@@ -2317,9 +2821,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
         qtc.QPdfWriter_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2333,14 +2841,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QPdfWriter, painter: anytype) void {
+    pub fn initPainter(self: QPdfWriter, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPdfWriter_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2354,10 +2862,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QPdfWriter, painter: anytype) void {
+    pub fn superInitPainter(self: QPdfWriter, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPdfWriter_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2371,9 +2883,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QPdfWriter, callback: *const fn (QPdfWriter, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QPdfWriter, callback: *const fn (QPdfWriter, QPainter) callconv(.c) void) void {
         qtc.QPdfWriter_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -2387,14 +2903,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QPdfWriter, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QPdfWriter, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPdfWriter_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -2408,10 +2924,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QPdfWriter, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QPdfWriter, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPdfWriter_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QPaintDevice
     ///
@@ -2425,9 +2945,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QPdfWriter, callback: *const fn (QPdfWriter, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QPdfWriter, callback: *const fn (QPdfWriter, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QPdfWriter_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2439,13 +2963,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SharedPainter(self: QPdfWriter) QPainter {
+    pub fn sharedPainter(self: QPdfWriter) QPainter {
         return .{ .ptr = qtc.QPdfWriter_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2457,9 +2981,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperSharedPainter(self: QPdfWriter) QPainter {
+    pub fn superSharedPainter(self: QPdfWriter) QPainter {
         return .{ .ptr = qtc.QPdfWriter_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QPaintDevice
     ///
@@ -2473,9 +3001,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QPdfWriter, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPdfWriter, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QPdfWriter_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2487,13 +3019,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Sender(self: QPdfWriter) QObject {
+    pub fn sender(self: QPdfWriter) QObject {
         return .{ .ptr = qtc.QPdfWriter_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2505,9 +3037,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperSender(self: QPdfWriter) QObject {
+    pub fn superSender(self: QPdfWriter) QObject {
         return .{ .ptr = qtc.QPdfWriter_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2521,9 +3057,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPdfWriter, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPdfWriter, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPdfWriter_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2535,13 +3075,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SenderSignalIndex(self: QPdfWriter) i32 {
+    pub fn senderSignalIndex(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2553,9 +3093,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn SuperSenderSignalIndex(self: QPdfWriter) i32 {
+    pub fn superSenderSignalIndex(self: QPdfWriter) i32 {
         return qtc.QPdfWriter_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2569,9 +3113,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPdfWriter, callback: *const fn () callconv(.c) i32) void {
         qtc.QPdfWriter_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2585,14 +3133,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPdfWriter, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPdfWriter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPdfWriter_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2606,10 +3154,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPdfWriter, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPdfWriter, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPdfWriter_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2623,9 +3175,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPdfWriter_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2639,14 +3195,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPdfWriter, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPdfWriter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfWriter_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2660,10 +3216,14 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPdfWriter, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPdfWriter, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfWriter_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2677,9 +3237,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPdfWriter, callback: *const fn (QPdfWriter, QMetaMethod) callconv(.c) bool) void {
         qtc.QPdfWriter_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -2695,13 +3259,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfWriter_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -2717,9 +3281,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QPdfWriter, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfWriter_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -2733,9 +3301,13 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QPdfWriter, callback: *const fn (QPdfWriter, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QPdfWriter, callback: *const fn (QPdfWriter, i32, i32) callconv(.c) f64) void {
         qtc.QPdfWriter_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2749,23 +3321,23 @@ pub const QPdfWriter = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfWriter, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPdfWriter, callback: *const fn (QPdfWriter, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfwriter.html#dtor.QPdfWriter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPdfWriter `
     ///
-    pub fn Delete(self: QPdfWriter) void {
+    pub fn delete(self: QPdfWriter) void {
         qtc.QPdfWriter_Delete(@ptrCast(self.ptr));
     }
 };

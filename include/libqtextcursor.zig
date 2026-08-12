@@ -28,55 +28,79 @@ pub const QTextCursor = extern struct {
 
     pub const _is_QTextCursor = {};
 
-    /// New constructs a new QTextCursor object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QTextCursor {
+    pub const New = new;
+
+    /// Allocate a new QTextCursor object in C++ memory
+    ///
+    pub fn new() QTextCursor {
         return .{ .ptr = qtc.QTextCursor_new() };
     }
 
-    /// New2 constructs a new QTextCursor object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTextCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn New2(document: anytype) QTextCursor {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        return .{ .ptr = qtc.QTextCursor_new2(@ptrCast(document.ptr)) };
+    pub fn new2(_document: anytype) QTextCursor {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        return .{ .ptr = qtc.QTextCursor_new2(@ptrCast(_document.ptr)) };
     }
 
-    /// New3 constructs a new QTextCursor object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTextCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` frame: QTextFrame `
     ///
-    pub fn New3(frame: anytype) QTextCursor {
+    pub fn new3(frame: anytype) QTextCursor {
         comptime _ = @TypeOf(frame)._is_QTextFrame;
         return .{ .ptr = qtc.QTextCursor_new3(@ptrCast(frame.ptr)) };
     }
 
-    /// New4 constructs a new QTextCursor object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTextCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` block: QTextBlock `
+    /// ` _block: QTextBlock `
     ///
-    pub fn New4(block: anytype) QTextCursor {
-        comptime _ = @TypeOf(block)._is_QTextBlock;
-        return .{ .ptr = qtc.QTextCursor_new4(@ptrCast(block.ptr)) };
+    pub fn new4(_block: anytype) QTextCursor {
+        comptime _ = @TypeOf(_block)._is_QTextBlock;
+        return .{ .ptr = qtc.QTextCursor_new4(@ptrCast(_block.ptr)) };
     }
 
-    /// New5 constructs a new QTextCursor object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTextCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` cursor: QTextCursor `
     ///
-    pub fn New5(cursor: anytype) QTextCursor {
+    pub fn new5(cursor: anytype) QTextCursor {
         comptime _ = @TypeOf(cursor)._is_QTextCursor;
         return .{ .ptr = qtc.QTextCursor_new5(@ptrCast(cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq)
     ///
@@ -86,10 +110,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` other: QTextCursor `
     ///
-    pub fn OperatorAssign(self: QTextCursor, other: anytype) void {
+    pub fn operatorAssign(self: QTextCursor, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextCursor;
         qtc.QTextCursor_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#swap)
     ///
@@ -99,10 +127,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` other: QTextCursor `
     ///
-    pub fn Swap(self: QTextCursor, other: anytype) void {
+    pub fn swap(self: QTextCursor, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QTextCursor;
         qtc.QTextCursor_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#isNull)
     ///
@@ -110,9 +142,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn IsNull(self: QTextCursor) bool {
+    pub fn isNull(self: QTextCursor) bool {
         return qtc.QTextCursor_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setPosition)
     ///
@@ -122,9 +158,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` pos: i32 `
     ///
-    pub fn SetPosition(self: QTextCursor, pos: i32) void {
+    pub fn setPosition(self: QTextCursor, pos: i32) void {
         qtc.QTextCursor_SetPosition(@ptrCast(self.ptr), @bitCast(pos));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#position)
     ///
@@ -132,9 +172,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Position(self: QTextCursor) i32 {
+    pub fn position(self: QTextCursor) i32 {
         return qtc.QTextCursor_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `positionInBlock` instead
+    ///
+    pub const PositionInBlock = positionInBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#positionInBlock)
     ///
@@ -142,9 +186,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn PositionInBlock(self: QTextCursor) i32 {
+    pub fn positionInBlock(self: QTextCursor) i32 {
         return qtc.QTextCursor_PositionInBlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `anchor` instead
+    ///
+    pub const Anchor = anchor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#anchor)
     ///
@@ -152,9 +200,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Anchor(self: QTextCursor) i32 {
+    pub fn anchor(self: QTextCursor) i32 {
         return qtc.QTextCursor_Anchor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertText` instead
+    ///
+    pub const InsertText = insertText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertText)
     ///
@@ -164,13 +216,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertText(self: QTextCursor, text: []const u8) void {
+    pub fn insertText(self: QTextCursor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextCursor_InsertText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertText2` instead
+    ///
+    pub const InsertText2 = insertText2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertText)
     ///
@@ -182,7 +238,7 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn InsertText2(self: QTextCursor, text: []const u8, format: anytype) void {
+    pub fn insertText2(self: QTextCursor, text: []const u8, format: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -190,6 +246,10 @@ pub const QTextCursor = extern struct {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextCursor_InsertText2(@ptrCast(self.ptr), text_str, @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `movePosition` instead
+    ///
+    pub const MovePosition = movePosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
@@ -199,9 +259,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` op: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MovePosition(self: QTextCursor, op: i32) bool {
+    pub fn movePosition(self: QTextCursor, op: i32) bool {
         return qtc.QTextCursor_MovePosition(@ptrCast(self.ptr), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `visualNavigation` instead
+    ///
+    pub const VisualNavigation = visualNavigation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#visualNavigation)
     ///
@@ -209,9 +273,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn VisualNavigation(self: QTextCursor) bool {
+    pub fn visualNavigation(self: QTextCursor) bool {
         return qtc.QTextCursor_VisualNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisualNavigation` instead
+    ///
+    pub const SetVisualNavigation = setVisualNavigation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setVisualNavigation)
     ///
@@ -221,9 +289,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetVisualNavigation(self: QTextCursor, b: bool) void {
+    pub fn setVisualNavigation(self: QTextCursor, b: bool) void {
         qtc.QTextCursor_SetVisualNavigation(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setVerticalMovementX` instead
+    ///
+    pub const SetVerticalMovementX = setVerticalMovementX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setVerticalMovementX)
     ///
@@ -233,9 +305,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` x: i32 `
     ///
-    pub fn SetVerticalMovementX(self: QTextCursor, x: i32) void {
+    pub fn setVerticalMovementX(self: QTextCursor, x: i32) void {
         qtc.QTextCursor_SetVerticalMovementX(@ptrCast(self.ptr), @bitCast(x));
     }
+
+    /// ### DEPRECATED: Use `verticalMovementX` instead
+    ///
+    pub const VerticalMovementX = verticalMovementX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#verticalMovementX)
     ///
@@ -243,9 +319,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn VerticalMovementX(self: QTextCursor) i32 {
+    pub fn verticalMovementX(self: QTextCursor) i32 {
         return qtc.QTextCursor_VerticalMovementX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeepPositionOnInsert` instead
+    ///
+    pub const SetKeepPositionOnInsert = setKeepPositionOnInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setKeepPositionOnInsert)
     ///
@@ -255,9 +335,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetKeepPositionOnInsert(self: QTextCursor, b: bool) void {
+    pub fn setKeepPositionOnInsert(self: QTextCursor, b: bool) void {
         qtc.QTextCursor_SetKeepPositionOnInsert(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `keepPositionOnInsert` instead
+    ///
+    pub const KeepPositionOnInsert = keepPositionOnInsert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#keepPositionOnInsert)
     ///
@@ -265,9 +349,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn KeepPositionOnInsert(self: QTextCursor) bool {
+    pub fn keepPositionOnInsert(self: QTextCursor) bool {
         return qtc.QTextCursor_KeepPositionOnInsert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deleteChar` instead
+    ///
+    pub const DeleteChar = deleteChar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#deleteChar)
     ///
@@ -275,9 +363,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn DeleteChar(self: QTextCursor) void {
+    pub fn deleteChar(self: QTextCursor) void {
         qtc.QTextCursor_DeleteChar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deletePreviousChar` instead
+    ///
+    pub const DeletePreviousChar = deletePreviousChar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#deletePreviousChar)
     ///
@@ -285,9 +377,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn DeletePreviousChar(self: QTextCursor) void {
+    pub fn deletePreviousChar(self: QTextCursor) void {
         qtc.QTextCursor_DeletePreviousChar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `select` instead
+    ///
+    pub const Select = select;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#select)
     ///
@@ -295,11 +391,15 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    /// ` selection: qtextcursor_enums.SelectionType `
+    /// ` _selection: qtextcursor_enums.SelectionType `
     ///
-    pub fn Select(self: QTextCursor, selection: i32) void {
-        qtc.QTextCursor_Select(@ptrCast(self.ptr), @bitCast(selection));
+    pub fn select(self: QTextCursor, _selection: i32) void {
+        qtc.QTextCursor_Select(@ptrCast(self.ptr), @bitCast(_selection));
     }
+
+    /// ### DEPRECATED: Use `hasSelection` instead
+    ///
+    pub const HasSelection = hasSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#hasSelection)
     ///
@@ -307,9 +407,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn HasSelection(self: QTextCursor) bool {
+    pub fn hasSelection(self: QTextCursor) bool {
         return qtc.QTextCursor_HasSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasComplexSelection` instead
+    ///
+    pub const HasComplexSelection = hasComplexSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#hasComplexSelection)
     ///
@@ -317,9 +421,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn HasComplexSelection(self: QTextCursor) bool {
+    pub fn hasComplexSelection(self: QTextCursor) bool {
         return qtc.QTextCursor_HasComplexSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeSelectedText` instead
+    ///
+    pub const RemoveSelectedText = removeSelectedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#removeSelectedText)
     ///
@@ -327,9 +435,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn RemoveSelectedText(self: QTextCursor) void {
+    pub fn removeSelectedText(self: QTextCursor) void {
         qtc.QTextCursor_RemoveSelectedText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#clearSelection)
     ///
@@ -337,9 +449,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn ClearSelection(self: QTextCursor) void {
+    pub fn clearSelection(self: QTextCursor) void {
         qtc.QTextCursor_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionStart` instead
+    ///
+    pub const SelectionStart = selectionStart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectionStart)
     ///
@@ -347,9 +463,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn SelectionStart(self: QTextCursor) i32 {
+    pub fn selectionStart(self: QTextCursor) i32 {
         return qtc.QTextCursor_SelectionStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionEnd` instead
+    ///
+    pub const SelectionEnd = selectionEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectionEnd)
     ///
@@ -357,9 +477,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn SelectionEnd(self: QTextCursor) i32 {
+    pub fn selectionEnd(self: QTextCursor) i32 {
         return qtc.QTextCursor_SelectionEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectedText)
     ///
@@ -369,13 +493,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: QTextCursor, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: QTextCursor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextCursor_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCursor.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QTextCursor.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selection` instead
+    ///
+    pub const Selection = selection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selection)
     ///
@@ -383,9 +511,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Selection(self: QTextCursor) QTextDocumentFragment {
+    pub fn selection(self: QTextCursor) QTextDocumentFragment {
         return .{ .ptr = qtc.QTextCursor_Selection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectedTableCells` instead
+    ///
+    pub const SelectedTableCells = selectedTableCells;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#selectedTableCells)
     ///
@@ -401,9 +533,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` numColumns: *i32 `
     ///
-    pub fn SelectedTableCells(self: QTextCursor, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32) void {
+    pub fn selectedTableCells(self: QTextCursor, firstRow: *i32, numRows: *i32, firstColumn: *i32, numColumns: *i32) void {
         qtc.QTextCursor_SelectedTableCells(@ptrCast(self.ptr), @ptrCast(firstRow), @ptrCast(numRows), @ptrCast(firstColumn), @ptrCast(numColumns));
     }
+
+    /// ### DEPRECATED: Use `block` instead
+    ///
+    pub const Block = block;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#block)
     ///
@@ -411,9 +547,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Block(self: QTextCursor) QTextBlock {
+    pub fn block(self: QTextCursor) QTextBlock {
         return .{ .ptr = qtc.QTextCursor_Block(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `charFormat` instead
+    ///
+    pub const CharFormat = charFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#charFormat)
     ///
@@ -421,9 +561,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn CharFormat(self: QTextCursor) QTextCharFormat {
+    pub fn charFormat(self: QTextCursor) QTextCharFormat {
         return .{ .ptr = qtc.QTextCursor_CharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCharFormat` instead
+    ///
+    pub const SetCharFormat = setCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setCharFormat)
     ///
@@ -433,10 +577,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetCharFormat(self: QTextCursor, format: anytype) void {
+    pub fn setCharFormat(self: QTextCursor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextCursor_SetCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeCharFormat` instead
+    ///
+    pub const MergeCharFormat = mergeCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeCharFormat)
     ///
@@ -446,10 +594,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCharFormat(self: QTextCursor, modifier: anytype) void {
+    pub fn mergeCharFormat(self: QTextCursor, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QTextCursor_MergeCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockFormat` instead
+    ///
+    pub const BlockFormat = blockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockFormat)
     ///
@@ -457,9 +609,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn BlockFormat(self: QTextCursor) QTextBlockFormat {
+    pub fn blockFormat(self: QTextCursor) QTextBlockFormat {
         return .{ .ptr = qtc.QTextCursor_BlockFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBlockFormat` instead
+    ///
+    pub const SetBlockFormat = setBlockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setBlockFormat)
     ///
@@ -469,10 +625,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextBlockFormat `
     ///
-    pub fn SetBlockFormat(self: QTextCursor, format: anytype) void {
+    pub fn setBlockFormat(self: QTextCursor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextBlockFormat;
         qtc.QTextCursor_SetBlockFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeBlockFormat` instead
+    ///
+    pub const MergeBlockFormat = mergeBlockFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeBlockFormat)
     ///
@@ -482,10 +642,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` modifier: QTextBlockFormat `
     ///
-    pub fn MergeBlockFormat(self: QTextCursor, modifier: anytype) void {
+    pub fn mergeBlockFormat(self: QTextCursor, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextBlockFormat;
         qtc.QTextCursor_MergeBlockFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockCharFormat` instead
+    ///
+    pub const BlockCharFormat = blockCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockCharFormat)
     ///
@@ -493,9 +657,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn BlockCharFormat(self: QTextCursor) QTextCharFormat {
+    pub fn blockCharFormat(self: QTextCursor) QTextCharFormat {
         return .{ .ptr = qtc.QTextCursor_BlockCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBlockCharFormat` instead
+    ///
+    pub const SetBlockCharFormat = setBlockCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setBlockCharFormat)
     ///
@@ -505,10 +673,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetBlockCharFormat(self: QTextCursor, format: anytype) void {
+    pub fn setBlockCharFormat(self: QTextCursor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextCursor_SetBlockCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeBlockCharFormat` instead
+    ///
+    pub const MergeBlockCharFormat = mergeBlockCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#mergeBlockCharFormat)
     ///
@@ -518,10 +690,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeBlockCharFormat(self: QTextCursor, modifier: anytype) void {
+    pub fn mergeBlockCharFormat(self: QTextCursor, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QTextCursor_MergeBlockCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `atBlockStart` instead
+    ///
+    pub const AtBlockStart = atBlockStart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atBlockStart)
     ///
@@ -529,9 +705,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn AtBlockStart(self: QTextCursor) bool {
+    pub fn atBlockStart(self: QTextCursor) bool {
         return qtc.QTextCursor_AtBlockStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `atBlockEnd` instead
+    ///
+    pub const AtBlockEnd = atBlockEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atBlockEnd)
     ///
@@ -539,9 +719,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn AtBlockEnd(self: QTextCursor) bool {
+    pub fn atBlockEnd(self: QTextCursor) bool {
         return qtc.QTextCursor_AtBlockEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `atStart` instead
+    ///
+    pub const AtStart = atStart;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atStart)
     ///
@@ -549,9 +733,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn AtStart(self: QTextCursor) bool {
+    pub fn atStart(self: QTextCursor) bool {
         return qtc.QTextCursor_AtStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#atEnd)
     ///
@@ -559,9 +747,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn AtEnd(self: QTextCursor) bool {
+    pub fn atEnd(self: QTextCursor) bool {
         return qtc.QTextCursor_AtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBlock` instead
+    ///
+    pub const InsertBlock = insertBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
@@ -569,9 +761,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn InsertBlock(self: QTextCursor) void {
+    pub fn insertBlock(self: QTextCursor) void {
         qtc.QTextCursor_InsertBlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBlock2` instead
+    ///
+    pub const InsertBlock2 = insertBlock2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
@@ -581,11 +777,15 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextBlockFormat `
     ///
-    pub fn InsertBlock2(self: QTextCursor, format: anytype) void {
+    pub fn insertBlock2(self: QTextCursor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextBlockFormat;
         qtc.QTextCursor_InsertBlock2(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertBlock3` instead
+    ///
+    pub const InsertBlock3 = insertBlock3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertBlock)
     ///
     /// ## Parameter(s):
@@ -594,13 +794,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextBlockFormat `
     ///
-    /// ` charFormat: QTextCharFormat `
+    /// ` _charFormat: QTextCharFormat `
     ///
-    pub fn InsertBlock3(self: QTextCursor, format: anytype, charFormat: anytype) void {
+    pub fn insertBlock3(self: QTextCursor, format: anytype, _charFormat: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextBlockFormat;
-        comptime _ = @TypeOf(charFormat)._is_QTextCharFormat;
-        qtc.QTextCursor_InsertBlock3(@ptrCast(self.ptr), @ptrCast(format.ptr), @ptrCast(charFormat.ptr));
+        comptime _ = @TypeOf(_charFormat)._is_QTextCharFormat;
+        qtc.QTextCursor_InsertBlock3(@ptrCast(self.ptr), @ptrCast(format.ptr), @ptrCast(_charFormat.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertList` instead
+    ///
+    pub const InsertList = insertList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
@@ -610,11 +814,15 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextListFormat `
     ///
-    pub fn InsertList(self: QTextCursor, format: anytype) QTextList {
+    pub fn insertList(self: QTextCursor, format: anytype) QTextList {
         comptime _ = @TypeOf(format)._is_QTextListFormat;
         return .{ .ptr = qtc.QTextCursor_InsertList(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `insertList2` instead
+    ///
+    pub const InsertList2 = insertList2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertList)
     ///
     /// ## Parameter(s):
@@ -623,9 +831,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` style: qtextformat_enums.Style `
     ///
-    pub fn InsertList2(self: QTextCursor, style: i32) QTextList {
+    pub fn insertList2(self: QTextCursor, style: i32) QTextList {
         return .{ .ptr = qtc.QTextCursor_InsertList2(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `createList` instead
+    ///
+    pub const CreateList = createList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
@@ -635,10 +847,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextListFormat `
     ///
-    pub fn CreateList(self: QTextCursor, format: anytype) QTextList {
+    pub fn createList(self: QTextCursor, format: anytype) QTextList {
         comptime _ = @TypeOf(format)._is_QTextListFormat;
         return .{ .ptr = qtc.QTextCursor_CreateList(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createList2` instead
+    ///
+    pub const CreateList2 = createList2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#createList)
     ///
@@ -648,9 +864,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` style: qtextformat_enums.Style `
     ///
-    pub fn CreateList2(self: QTextCursor, style: i32) QTextList {
+    pub fn createList2(self: QTextCursor, style: i32) QTextList {
         return .{ .ptr = qtc.QTextCursor_CreateList2(@ptrCast(self.ptr), @bitCast(style)) };
     }
+
+    /// ### DEPRECATED: Use `currentList` instead
+    ///
+    pub const CurrentList = currentList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentList)
     ///
@@ -658,9 +878,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn CurrentList(self: QTextCursor) QTextList {
+    pub fn currentList(self: QTextCursor) QTextList {
         return .{ .ptr = qtc.QTextCursor_CurrentList(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertTable` instead
+    ///
+    pub const InsertTable = insertTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertTable)
     ///
@@ -674,10 +898,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextTableFormat `
     ///
-    pub fn InsertTable(self: QTextCursor, rows: i32, cols: i32, format: anytype) QTextTable {
+    pub fn insertTable(self: QTextCursor, rows: i32, cols: i32, format: anytype) QTextTable {
         comptime _ = @TypeOf(format)._is_QTextTableFormat;
         return .{ .ptr = qtc.QTextCursor_InsertTable(@ptrCast(self.ptr), @bitCast(rows), @bitCast(cols), @ptrCast(format.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertTable2` instead
+    ///
+    pub const InsertTable2 = insertTable2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertTable)
     ///
@@ -689,9 +917,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` cols: i32 `
     ///
-    pub fn InsertTable2(self: QTextCursor, rows: i32, cols: i32) QTextTable {
+    pub fn insertTable2(self: QTextCursor, rows: i32, cols: i32) QTextTable {
         return .{ .ptr = qtc.QTextCursor_InsertTable2(@ptrCast(self.ptr), @bitCast(rows), @bitCast(cols)) };
     }
+
+    /// ### DEPRECATED: Use `currentTable` instead
+    ///
+    pub const CurrentTable = currentTable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentTable)
     ///
@@ -699,9 +931,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn CurrentTable(self: QTextCursor) QTextTable {
+    pub fn currentTable(self: QTextCursor) QTextTable {
         return .{ .ptr = qtc.QTextCursor_CurrentTable(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertFrame` instead
+    ///
+    pub const InsertFrame = insertFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertFrame)
     ///
@@ -711,10 +947,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextFrameFormat `
     ///
-    pub fn InsertFrame(self: QTextCursor, format: anytype) QTextFrame {
+    pub fn insertFrame(self: QTextCursor, format: anytype) QTextFrame {
         comptime _ = @TypeOf(format)._is_QTextFrameFormat;
         return .{ .ptr = qtc.QTextCursor_InsertFrame(@ptrCast(self.ptr), @ptrCast(format.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentFrame` instead
+    ///
+    pub const CurrentFrame = currentFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#currentFrame)
     ///
@@ -722,9 +962,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn CurrentFrame(self: QTextCursor) QTextFrame {
+    pub fn currentFrame(self: QTextCursor) QTextFrame {
         return .{ .ptr = qtc.QTextCursor_CurrentFrame(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertFragment` instead
+    ///
+    pub const InsertFragment = insertFragment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertFragment)
     ///
@@ -734,10 +978,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` fragment: QTextDocumentFragment `
     ///
-    pub fn InsertFragment(self: QTextCursor, fragment: anytype) void {
+    pub fn insertFragment(self: QTextCursor, fragment: anytype) void {
         comptime _ = @TypeOf(fragment)._is_QTextDocumentFragment;
         qtc.QTextCursor_InsertFragment(@ptrCast(self.ptr), @ptrCast(fragment.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertHtml` instead
+    ///
+    pub const InsertHtml = insertHtml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertHtml)
     ///
@@ -747,13 +995,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` html: []const u8 `
     ///
-    pub fn InsertHtml(self: QTextCursor, html: []const u8) void {
+    pub fn insertHtml(self: QTextCursor, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
         qtc.QTextCursor_InsertHtml(@ptrCast(self.ptr), html_str);
     }
+
+    /// ### DEPRECATED: Use `insertMarkdown` instead
+    ///
+    pub const InsertMarkdown = insertMarkdown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
@@ -763,13 +1015,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn InsertMarkdown(self: QTextCursor, markdown: []const u8) void {
+    pub fn insertMarkdown(self: QTextCursor, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
         qtc.QTextCursor_InsertMarkdown(@ptrCast(self.ptr), markdown_str);
     }
+
+    /// ### DEPRECATED: Use `insertImage` instead
+    ///
+    pub const InsertImage = insertImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
@@ -781,10 +1037,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` alignment: qtextformat_enums.Position `
     ///
-    pub fn InsertImage(self: QTextCursor, format: anytype, alignment: i32) void {
+    pub fn insertImage(self: QTextCursor, format: anytype, alignment: i32) void {
         comptime _ = @TypeOf(format)._is_QTextImageFormat;
         qtc.QTextCursor_InsertImage(@ptrCast(self.ptr), @ptrCast(format.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `insertImage2` instead
+    ///
+    pub const InsertImage2 = insertImage2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
@@ -794,10 +1054,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` format: QTextImageFormat `
     ///
-    pub fn InsertImage2(self: QTextCursor, format: anytype) void {
+    pub fn insertImage2(self: QTextCursor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextImageFormat;
         qtc.QTextCursor_InsertImage2(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertImage3` instead
+    ///
+    pub const InsertImage3 = insertImage3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
@@ -807,13 +1071,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertImage3(self: QTextCursor, name: []const u8) void {
+    pub fn insertImage3(self: QTextCursor, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTextCursor_InsertImage3(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `insertImage4` instead
+    ///
+    pub const InsertImage4 = insertImage4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
@@ -823,10 +1091,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn InsertImage4(self: QTextCursor, image: anytype) void {
+    pub fn insertImage4(self: QTextCursor, image: anytype) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QTextCursor_InsertImage4(@ptrCast(self.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `beginEditBlock` instead
+    ///
+    pub const BeginEditBlock = beginEditBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#beginEditBlock)
     ///
@@ -834,9 +1106,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn BeginEditBlock(self: QTextCursor) void {
+    pub fn beginEditBlock(self: QTextCursor) void {
         qtc.QTextCursor_BeginEditBlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `joinPreviousEditBlock` instead
+    ///
+    pub const JoinPreviousEditBlock = joinPreviousEditBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#joinPreviousEditBlock)
     ///
@@ -844,9 +1120,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn JoinPreviousEditBlock(self: QTextCursor) void {
+    pub fn joinPreviousEditBlock(self: QTextCursor) void {
         qtc.QTextCursor_JoinPreviousEditBlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `endEditBlock` instead
+    ///
+    pub const EndEditBlock = endEditBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#endEditBlock)
     ///
@@ -854,9 +1134,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn EndEditBlock(self: QTextCursor) void {
+    pub fn endEditBlock(self: QTextCursor) void {
         qtc.QTextCursor_EndEditBlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-not-eq)
     ///
@@ -866,10 +1150,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorNotEqual(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorNotEqual(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesser` instead
+    ///
+    pub const OperatorLesser = operatorLesser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt)
     ///
@@ -879,10 +1167,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorLesser(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorLesser(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorLesser(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorLesserOrEqual` instead
+    ///
+    pub const OperatorLesserOrEqual = operatorLesserOrEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-lt-eq)
     ///
@@ -892,10 +1184,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorLesserOrEqual(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorLesserOrEqual(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorLesserOrEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-eq-eq)
     ///
@@ -905,10 +1201,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorEqual(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorEqual(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorGreaterOrEqual` instead
+    ///
+    pub const OperatorGreaterOrEqual = operatorGreaterOrEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt-eq)
     ///
@@ -918,10 +1218,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorGreaterOrEqual(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorGreaterOrEqual(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorGreaterOrEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorGreater` instead
+    ///
+    pub const OperatorGreater = operatorGreater;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#operator-gt)
     ///
@@ -931,10 +1235,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` rhs: QTextCursor `
     ///
-    pub fn OperatorGreater(self: QTextCursor, rhs: anytype) bool {
+    pub fn operatorGreater(self: QTextCursor, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_QTextCursor;
         return qtc.QTextCursor_OperatorGreater(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCopyOf` instead
+    ///
+    pub const IsCopyOf = isCopyOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#isCopyOf)
     ///
@@ -944,10 +1252,14 @@ pub const QTextCursor = extern struct {
     ///
     /// ` other: QTextCursor `
     ///
-    pub fn IsCopyOf(self: QTextCursor, other: anytype) bool {
+    pub fn isCopyOf(self: QTextCursor, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QTextCursor;
         return qtc.QTextCursor_IsCopyOf(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockNumber` instead
+    ///
+    pub const BlockNumber = blockNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#blockNumber)
     ///
@@ -955,9 +1267,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn BlockNumber(self: QTextCursor) i32 {
+    pub fn blockNumber(self: QTextCursor) i32 {
         return qtc.QTextCursor_BlockNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#columnNumber)
     ///
@@ -965,9 +1281,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn ColumnNumber(self: QTextCursor) i32 {
+    pub fn columnNumber(self: QTextCursor) i32 {
         return qtc.QTextCursor_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#document)
     ///
@@ -975,9 +1295,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Document(self: QTextCursor) QTextDocument {
+    pub fn document(self: QTextCursor) QTextDocument {
         return .{ .ptr = qtc.QTextCursor_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition2` instead
+    ///
+    pub const SetPosition2 = setPosition2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#setPosition)
     ///
@@ -989,9 +1313,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn SetPosition2(self: QTextCursor, pos: i32, mode: i32) void {
+    pub fn setPosition2(self: QTextCursor, pos: i32, mode: i32) void {
         qtc.QTextCursor_SetPosition2(@ptrCast(self.ptr), @bitCast(pos), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `movePosition2` instead
+    ///
+    pub const MovePosition2 = movePosition2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
@@ -1003,9 +1331,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` param2: qtextcursor_enums.MoveMode `
     ///
-    pub fn MovePosition2(self: QTextCursor, op: i32, param2: i32) bool {
+    pub fn movePosition2(self: QTextCursor, op: i32, param2: i32) bool {
         return qtc.QTextCursor_MovePosition2(@ptrCast(self.ptr), @bitCast(op), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `movePosition3` instead
+    ///
+    pub const MovePosition3 = movePosition3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#movePosition)
     ///
@@ -1019,9 +1351,13 @@ pub const QTextCursor = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn MovePosition3(self: QTextCursor, op: i32, param2: i32, n: i32) bool {
+    pub fn movePosition3(self: QTextCursor, op: i32, param2: i32, n: i32) bool {
         return qtc.QTextCursor_MovePosition3(@ptrCast(self.ptr), @bitCast(op), @bitCast(param2), @bitCast(n));
     }
+
+    /// ### DEPRECATED: Use `insertMarkdown2` instead
+    ///
+    pub const InsertMarkdown2 = insertMarkdown2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertMarkdown)
     ///
@@ -1033,13 +1369,17 @@ pub const QTextCursor = extern struct {
     ///
     /// ` features: flag of qtextdocument_enums.MarkdownFeature `
     ///
-    pub fn InsertMarkdown2(self: QTextCursor, markdown: []const u8, features: i32) void {
+    pub fn insertMarkdown2(self: QTextCursor, markdown: []const u8, features: i32) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
         qtc.QTextCursor_InsertMarkdown2(@ptrCast(self.ptr), markdown_str, @bitCast(features));
     }
+
+    /// ### DEPRECATED: Use `insertImage22` instead
+    ///
+    pub const InsertImage22 = insertImage22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#insertImage)
     ///
@@ -1051,7 +1391,7 @@ pub const QTextCursor = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn InsertImage22(self: QTextCursor, image: anytype, name: []const u8) void {
+    pub fn insertImage22(self: QTextCursor, image: anytype, name: []const u8) void {
         comptime _ = @TypeOf(image)._is_QImage;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1060,19 +1400,19 @@ pub const QTextCursor = extern struct {
         qtc.QTextCursor_InsertImage22(@ptrCast(self.ptr), @ptrCast(image.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextcursor.html#dtor.QTextCursor)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTextCursor `
     ///
-    pub fn Delete(self: QTextCursor) void {
+    pub fn delete(self: QTextCursor) void {
         qtc.QTextCursor_Delete(@ptrCast(self.ptr));
     }
 };

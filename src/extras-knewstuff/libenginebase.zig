@@ -37,22 +37,34 @@ pub const KNSCore__EngineBase = extern struct {
     pub const _is_KNSCore__EngineBase = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KNSCore::EngineBase object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KNSCore__EngineBase {
+    pub const New = new;
+
+    /// Allocate a new KNSCore::EngineBase object in C++ memory
+    ///
+    pub fn new() KNSCore__EngineBase {
         return .{ .ptr = qtc.KNSCore__EngineBase_new() };
     }
 
-    /// New2 constructs a new KNSCore::EngineBase object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KNSCore::EngineBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KNSCore__EngineBase {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KNSCore__EngineBase_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KNSCore__EngineBase {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KNSCore__EngineBase_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -60,9 +72,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn MetaObject(self: KNSCore__EngineBase) QMetaObject {
+    pub fn metaObject(self: KNSCore__EngineBase) QMetaObject {
         return .{ .ptr = qtc.KNSCore__EngineBase_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -74,13 +90,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KNSCore__EngineBase_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -90,9 +106,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SuperMetaObject(self: KNSCore__EngineBase) QMetaObject {
+    pub fn superMetaObject(self: KNSCore__EngineBase) QMetaObject {
         return .{ .ptr = qtc.KNSCore__EngineBase_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -100,10 +120,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KNSCore__EngineBase, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KNSCore__EngineBase, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNSCore__EngineBase_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -113,13 +137,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KNSCore__EngineBase_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -129,10 +153,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KNSCore__EngineBase, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KNSCore__EngineBase, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNSCore__EngineBase_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -144,9 +172,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KNSCore__EngineBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KNSCore__EngineBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KNSCore__EngineBase_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -156,13 +188,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KNSCore__EngineBase_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -176,9 +208,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KNSCore__EngineBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KNSCore__EngineBase, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KNSCore__EngineBase_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -188,14 +224,18 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `availableConfigFiles` instead
+    ///
+    pub const AvailableConfigFiles = availableConfigFiles;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#availableConfigFiles)
     ///
@@ -203,7 +243,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableConfigFiles(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableConfigFiles(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_AvailableConfigFiles();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -211,15 +251,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.AvailableConfigFiles: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.availableConfigFiles: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.AvailableConfigFiles: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.availableConfigFiles: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `init` instead
+    ///
+    pub const Init = init;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
@@ -229,13 +273,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` configfile: []const u8 `
     ///
-    pub fn Init(self: KNSCore__EngineBase, configfile: []const u8) bool {
+    pub fn init(self: KNSCore__EngineBase, configfile: []const u8) bool {
         const configfile_str = qtc.libqt_string{
             .len = configfile.len,
             .data = configfile.ptr,
         };
         return qtc.KNSCore__EngineBase_Init(@ptrCast(self.ptr), configfile_str);
     }
+
+    /// ### DEPRECATED: Use `onInit` instead
+    ///
+    pub const OnInit = onInit;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
@@ -247,13 +295,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, configfile: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnInit(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onInit(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) bool) void {
         qtc.KNSCore__EngineBase_OnInit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInit` instead
+    /// ### DEPRECATED: Use `superInit` instead
     ///
-    pub const QBaseInit = SuperInit;
+    pub const SuperInit = superInit;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#init)
     ///
@@ -265,13 +313,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` configfile: []const u8 `
     ///
-    pub fn SuperInit(self: KNSCore__EngineBase, configfile: []const u8) bool {
+    pub fn superInit(self: KNSCore__EngineBase, configfile: []const u8) bool {
         const configfile_str = qtc.libqt_string{
             .len = configfile.len,
             .data = configfile.ptr,
         };
         return qtc.KNSCore__EngineBase_SuperInit(@ptrCast(self.ptr), configfile_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#name)
     ///
@@ -281,13 +333,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__EngineBase_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `useLabel` instead
+    ///
+    pub const UseLabel = useLabel;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#useLabel)
     ///
@@ -297,13 +353,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UseLabel(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn useLabel(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNSCore__EngineBase_UseLabel(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.UseLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.useLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `useLabelChanged` instead
+    ///
+    pub const UseLabelChanged = useLabelChanged;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#useLabelChanged)
     ///
@@ -311,9 +371,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn UseLabelChanged(self: KNSCore__EngineBase) void {
+    pub fn useLabelChanged(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_UseLabelChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `uploadEnabled` instead
+    ///
+    pub const UploadEnabled = uploadEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#uploadEnabled)
     ///
@@ -321,9 +385,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn UploadEnabled(self: KNSCore__EngineBase) bool {
+    pub fn uploadEnabled(self: KNSCore__EngineBase) bool {
         return qtc.KNSCore__EngineBase_UploadEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `uploadEnabledChanged` instead
+    ///
+    pub const UploadEnabledChanged = uploadEnabledChanged;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#uploadEnabledChanged)
     ///
@@ -331,9 +399,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn UploadEnabledChanged(self: KNSCore__EngineBase) void {
+    pub fn uploadEnabledChanged(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_UploadEnabledChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `categories` instead
+    ///
+    pub const Categories = categories;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#categories)
     ///
@@ -343,7 +415,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Categories(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn categories(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_Categories(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -351,15 +423,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.Categories: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.categories: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.Categories: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.categories: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `categoriesMetadata` instead
+    ///
+    pub const CategoriesMetadata = categoriesMetadata;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#categoriesMetadata)
     ///
@@ -369,15 +445,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CategoriesMetadata(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__Provider__CategoryMetadata {
+    pub fn categoriesMetadata(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__Provider__CategoryMetadata {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_CategoriesMetadata(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__Provider__CategoryMetadata, _arr.len) catch @panic("KNSCore__EngineBase.CategoriesMetadata: Memory allocation failed");
-        const _data: [*]QtC.KNSCore__Provider__CategoryMetadata = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KNSCore__Provider__CategoryMetadata, _arr.len) catch @panic("KNSCore__EngineBase.categoriesMetadata: Memory allocation failed");
+        const _data_val: [*]QtC.KNSCore__Provider__CategoryMetadata = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `categoriesMetadata2` instead
+    ///
+    pub const CategoriesMetadata2 = categoriesMetadata2;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#categoriesMetadata2)
     ///
@@ -387,15 +467,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CategoriesMetadata2(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__CategoryMetadata {
+    pub fn categoriesMetadata2(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__CategoryMetadata {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_CategoriesMetadata2(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__CategoryMetadata, _arr.len) catch @panic("KNSCore__EngineBase.CategoriesMetadata2: Memory allocation failed");
-        const _data: [*]QtC.KNSCore__CategoryMetadata = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KNSCore__CategoryMetadata, _arr.len) catch @panic("KNSCore__EngineBase.categoriesMetadata2: Memory allocation failed");
+        const _data_val: [*]QtC.KNSCore__CategoryMetadata = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchPresets` instead
+    ///
+    pub const SearchPresets = searchPresets;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#searchPresets)
     ///
@@ -405,15 +489,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchPresets(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__Provider__SearchPreset {
+    pub fn searchPresets(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__Provider__SearchPreset {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_SearchPresets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__Provider__SearchPreset, _arr.len) catch @panic("KNSCore__EngineBase.SearchPresets: Memory allocation failed");
-        const _data: [*]QtC.KNSCore__Provider__SearchPreset = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KNSCore__Provider__SearchPreset, _arr.len) catch @panic("KNSCore__EngineBase.searchPresets: Memory allocation failed");
+        const _data_val: [*]QtC.KNSCore__Provider__SearchPreset = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `searchPresets2` instead
+    ///
+    pub const SearchPresets2 = searchPresets2;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#searchPresets2)
     ///
@@ -423,15 +511,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SearchPresets2(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__SearchPreset {
+    pub fn searchPresets2(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []KNSCore__SearchPreset {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_SearchPresets2(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KNSCore__SearchPreset, _arr.len) catch @panic("KNSCore__EngineBase.SearchPresets2: Memory allocation failed");
-        const _data: [*]QtC.KNSCore__SearchPreset = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KNSCore__SearchPreset, _arr.len) catch @panic("KNSCore__EngineBase.searchPresets2: Memory allocation failed");
+        const _data_val: [*]QtC.KNSCore__SearchPreset = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `atticaProviders` instead
+    ///
+    pub const AtticaProviders = atticaProviders;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#atticaProviders)
     ///
@@ -441,15 +533,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AtticaProviders(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []Attica__Provider {
+    pub fn atticaProviders(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []Attica__Provider {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_AtticaProviders(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Attica__Provider, _arr.len) catch @panic("KNSCore__EngineBase.AtticaProviders: Memory allocation failed");
-        const _data: [*]QtC.Attica__Provider = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Attica__Provider, _arr.len) catch @panic("KNSCore__EngineBase.atticaProviders: Memory allocation failed");
+        const _data_val: [*]QtC.Attica__Provider = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTagFilter` instead
+    ///
+    pub const SetTagFilter = setTagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#setTagFilter)
     ///
@@ -461,13 +557,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` filter: []const []const u8 `
     ///
-    pub fn SetTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator, filter: []const []const u8) void {
-        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("KNSCore__EngineBase.SetTagFilter: Memory allocation failed");
+    pub fn setTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator, filter: []const []const u8) void {
+        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("KNSCore__EngineBase.setTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
-        for (filter, 0..filter.len) |item, i|
+        for (filter, 0..filter.len) |str_item, i|
             filter_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filter_list = qtc.libqt_list{
             .len = filter.len,
@@ -475,6 +571,10 @@ pub const KNSCore__EngineBase = extern struct {
         };
         qtc.KNSCore__EngineBase_SetTagFilter(@ptrCast(self.ptr), filter_list);
     }
+
+    /// ### DEPRECATED: Use `tagFilter` instead
+    ///
+    pub const TagFilter = tagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#tagFilter)
     ///
@@ -484,7 +584,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn tagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_TagFilter(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -492,15 +592,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.TagFilter: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.tagFilter: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.TagFilter: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.tagFilter: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addTagFilter` instead
+    ///
+    pub const AddTagFilter = addTagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#addTagFilter)
     ///
@@ -510,13 +614,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn AddTagFilter(self: KNSCore__EngineBase, filter: []const u8) void {
+    pub fn addTagFilter(self: KNSCore__EngineBase, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
         qtc.KNSCore__EngineBase_AddTagFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `setDownloadTagFilter` instead
+    ///
+    pub const SetDownloadTagFilter = setDownloadTagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#setDownloadTagFilter)
     ///
@@ -528,13 +636,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` filter: []const []const u8 `
     ///
-    pub fn SetDownloadTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator, filter: []const []const u8) void {
-        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("KNSCore__EngineBase.SetDownloadTagFilter: Memory allocation failed");
+    pub fn setDownloadTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator, filter: []const []const u8) void {
+        const filter_arr = allocator.alloc(qtc.libqt_string, filter.len) catch @panic("KNSCore__EngineBase.setDownloadTagFilter: Memory allocation failed");
         defer allocator.free(filter_arr);
-        for (filter, 0..filter.len) |item, i|
+        for (filter, 0..filter.len) |str_item, i|
             filter_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const filter_list = qtc.libqt_list{
             .len = filter.len,
@@ -542,6 +650,10 @@ pub const KNSCore__EngineBase = extern struct {
         };
         qtc.KNSCore__EngineBase_SetDownloadTagFilter(@ptrCast(self.ptr), filter_list);
     }
+
+    /// ### DEPRECATED: Use `downloadTagFilter` instead
+    ///
+    pub const DownloadTagFilter = downloadTagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#downloadTagFilter)
     ///
@@ -551,7 +663,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DownloadTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn downloadTagFilter(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_DownloadTagFilter(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -559,15 +671,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.DownloadTagFilter: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.downloadTagFilter: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.DownloadTagFilter: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.downloadTagFilter: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addDownloadTagFilter` instead
+    ///
+    pub const AddDownloadTagFilter = addDownloadTagFilter;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#addDownloadTagFilter)
     ///
@@ -577,13 +693,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn AddDownloadTagFilter(self: KNSCore__EngineBase, filter: []const u8) void {
+    pub fn addDownloadTagFilter(self: KNSCore__EngineBase, filter: []const u8) void {
         const filter_str = qtc.libqt_string{
             .len = filter.len,
             .data = filter.ptr,
         };
         qtc.KNSCore__EngineBase_AddDownloadTagFilter(@ptrCast(self.ptr), filter_str);
     }
+
+    /// ### DEPRECATED: Use `userCanVote` instead
+    ///
+    pub const UserCanVote = userCanVote;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#userCanVote)
     ///
@@ -593,10 +713,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` entry: KNSCore__Entry `
     ///
-    pub fn UserCanVote(self: KNSCore__EngineBase, entry: anytype) bool {
+    pub fn userCanVote(self: KNSCore__EngineBase, entry: anytype) bool {
         comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
         return qtc.KNSCore__EngineBase_UserCanVote(@ptrCast(self.ptr), @ptrCast(entry.ptr));
     }
+
+    /// ### DEPRECATED: Use `vote` instead
+    ///
+    pub const Vote = vote;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#vote)
     ///
@@ -608,10 +732,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` rating: u32 `
     ///
-    pub fn Vote(self: KNSCore__EngineBase, entry: anytype, rating: u32) void {
+    pub fn vote(self: KNSCore__EngineBase, entry: anytype, rating: u32) void {
         comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
         qtc.KNSCore__EngineBase_Vote(@ptrCast(self.ptr), @ptrCast(entry.ptr), @bitCast(rating));
     }
+
+    /// ### DEPRECATED: Use `userCanBecomeFan` instead
+    ///
+    pub const UserCanBecomeFan = userCanBecomeFan;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#userCanBecomeFan)
     ///
@@ -621,10 +749,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` entry: KNSCore__Entry `
     ///
-    pub fn UserCanBecomeFan(self: KNSCore__EngineBase, entry: anytype) bool {
+    pub fn userCanBecomeFan(self: KNSCore__EngineBase, entry: anytype) bool {
         comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
         return qtc.KNSCore__EngineBase_UserCanBecomeFan(@ptrCast(self.ptr), @ptrCast(entry.ptr));
     }
+
+    /// ### DEPRECATED: Use `becomeFan` instead
+    ///
+    pub const BecomeFan = becomeFan;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#becomeFan)
     ///
@@ -634,10 +766,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` entry: KNSCore__Entry `
     ///
-    pub fn BecomeFan(self: KNSCore__EngineBase, entry: anytype) void {
+    pub fn becomeFan(self: KNSCore__EngineBase, entry: anytype) void {
         comptime _ = @TypeOf(entry)._is_KNSCore__Entry;
         qtc.KNSCore__EngineBase_BecomeFan(@ptrCast(self.ptr), @ptrCast(entry.ptr));
     }
+
+    /// ### DEPRECATED: Use `providerIDs` instead
+    ///
+    pub const ProviderIDs = providerIDs;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#providerIDs)
     ///
@@ -647,7 +783,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProviderIDs(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn providerIDs(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KNSCore__EngineBase_ProviderIDs(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -655,15 +791,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.ProviderIDs: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KNSCore__EngineBase.providerIDs: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.ProviderIDs: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.providerIDs: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAdoptionCommand` instead
+    ///
+    pub const HasAdoptionCommand = hasAdoptionCommand;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#hasAdoptionCommand)
     ///
@@ -671,9 +811,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn HasAdoptionCommand(self: KNSCore__EngineBase) bool {
+    pub fn hasAdoptionCommand(self: KNSCore__EngineBase) bool {
         return qtc.KNSCore__EngineBase_HasAdoptionCommand(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `search` instead
+    ///
+    pub const Search = search;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#search)
     ///
@@ -683,10 +827,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` request: KNSCore__Provider__SearchRequest `
     ///
-    pub fn Search(self: KNSCore__EngineBase, request: anytype) KNSCore__ResultsStream {
+    pub fn search(self: KNSCore__EngineBase, request: anytype) KNSCore__ResultsStream {
         comptime _ = @TypeOf(request)._is_KNSCore__Provider__SearchRequest;
         return .{ .ptr = qtc.KNSCore__EngineBase_Search(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `search2` instead
+    ///
+    pub const Search2 = search2;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#search)
     ///
@@ -696,10 +844,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` request: KNSCore__SearchRequest `
     ///
-    pub fn Search2(self: KNSCore__EngineBase, request: anytype) KNSCore__ResultsStream {
+    pub fn search2(self: KNSCore__EngineBase, request: anytype) KNSCore__ResultsStream {
         comptime _ = @TypeOf(request)._is_KNSCore__SearchRequest;
         return .{ .ptr = qtc.KNSCore__EngineBase_Search2(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentWarningType` instead
+    ///
+    pub const ContentWarningType = contentWarningType;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#contentWarningType)
     ///
@@ -711,9 +863,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` enginebase_enums.ContentWarningType `
     ///
-    pub fn ContentWarningType(self: KNSCore__EngineBase) i32 {
+    pub fn contentWarningType(self: KNSCore__EngineBase) i32 {
         return qtc.KNSCore__EngineBase_ContentWarningType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentWarningTypeChanged` instead
+    ///
+    pub const ContentWarningTypeChanged = contentWarningTypeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#contentWarningTypeChanged)
     ///
@@ -721,9 +877,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn ContentWarningTypeChanged(self: KNSCore__EngineBase) void {
+    pub fn contentWarningTypeChanged(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_ContentWarningTypeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalMessage` instead
+    ///
+    pub const SignalMessage = signalMessage;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalMessage)
     ///
@@ -733,7 +893,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SignalMessage(self: KNSCore__EngineBase, message: []const u8) void {
+    pub fn signalMessage(self: KNSCore__EngineBase, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -741,15 +901,23 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalMessage(@ptrCast(self.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `signalProvidersLoaded` instead
+    ///
+    pub const SignalProvidersLoaded = signalProvidersLoaded;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalProvidersLoaded)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SignalProvidersLoaded(self: KNSCore__EngineBase) void {
+    pub fn signalProvidersLoaded(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_SignalProvidersLoaded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalErrorCode` instead
+    ///
+    pub const SignalErrorCode = signalErrorCode;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalErrorCode)
     ///
@@ -763,7 +931,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` metadata: QVariant `
     ///
-    pub fn SignalErrorCode(self: KNSCore__EngineBase, errorCode: i32, message: []const u8, metadata: anytype) void {
+    pub fn signalErrorCode(self: KNSCore__EngineBase, errorCode: i32, message: []const u8, metadata: anytype) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -772,21 +940,29 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalErrorCode(@ptrCast(self.ptr), @bitCast(errorCode), message_str, @ptrCast(metadata.ptr));
     }
 
+    /// ### DEPRECATED: Use `signalCategoriesMetadataLoded` instead
+    ///
+    pub const SignalCategoriesMetadataLoded = signalCategoriesMetadataLoded;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoded)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` categories: []KNSCore__Provider__CategoryMetadata `
+    /// ` _categories: []KNSCore__Provider__CategoryMetadata `
     ///
-    pub fn SignalCategoriesMetadataLoded(self: KNSCore__EngineBase, categories: []KNSCore__Provider__CategoryMetadata) void {
+    pub fn signalCategoriesMetadataLoded(self: KNSCore__EngineBase, _categories: []KNSCore__Provider__CategoryMetadata) void {
         const categories_list = qtc.libqt_list{
-            .len = categories.len,
-            .data = @ptrCast(categories.ptr),
+            .len = _categories.len,
+            .data = @ptrCast(_categories.ptr),
         };
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoded(@ptrCast(self.ptr), categories_list);
     }
+
+    /// ### DEPRECATED: Use `signalCategoriesMetadataLoaded` instead
+    ///
+    pub const SignalCategoriesMetadataLoaded = signalCategoriesMetadataLoaded;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalCategoriesMetadataLoaded)
     ///
@@ -794,15 +970,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` categories: []KNSCore__CategoryMetadata `
+    /// ` _categories: []KNSCore__CategoryMetadata `
     ///
-    pub fn SignalCategoriesMetadataLoaded(self: KNSCore__EngineBase, categories: []KNSCore__CategoryMetadata) void {
+    pub fn signalCategoriesMetadataLoaded(self: KNSCore__EngineBase, _categories: []KNSCore__CategoryMetadata) void {
         const categories_list = qtc.libqt_list{
-            .len = categories.len,
-            .data = @ptrCast(categories.ptr),
+            .len = _categories.len,
+            .data = @ptrCast(_categories.ptr),
         };
         qtc.KNSCore__EngineBase_SignalCategoriesMetadataLoaded(@ptrCast(self.ptr), categories_list);
     }
+
+    /// ### DEPRECATED: Use `signalSearchPresetsLoaded` instead
+    ///
+    pub const SignalSearchPresetsLoaded = signalSearchPresetsLoaded;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
     ///
@@ -812,13 +992,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` presets: []KNSCore__Provider__SearchPreset `
     ///
-    pub fn SignalSearchPresetsLoaded(self: KNSCore__EngineBase, presets: []KNSCore__Provider__SearchPreset) void {
+    pub fn signalSearchPresetsLoaded(self: KNSCore__EngineBase, presets: []KNSCore__Provider__SearchPreset) void {
         const presets_list = qtc.libqt_list{
             .len = presets.len,
             .data = @ptrCast(presets.ptr),
         };
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded(@ptrCast(self.ptr), presets_list);
     }
+
+    /// ### DEPRECATED: Use `signalSearchPresetsLoaded2` instead
+    ///
+    pub const SignalSearchPresetsLoaded2 = signalSearchPresetsLoaded2;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#signalSearchPresetsLoaded)
     ///
@@ -828,7 +1012,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` presets: []KNSCore__SearchPreset `
     ///
-    pub fn SignalSearchPresetsLoaded2(self: KNSCore__EngineBase, presets: []KNSCore__SearchPreset) void {
+    pub fn signalSearchPresetsLoaded2(self: KNSCore__EngineBase, presets: []KNSCore__SearchPreset) void {
         const presets_list = qtc.libqt_list{
             .len = presets.len,
             .data = @ptrCast(presets.ptr),
@@ -836,15 +1020,23 @@ pub const KNSCore__EngineBase = extern struct {
         qtc.KNSCore__EngineBase_SignalSearchPresetsLoaded2(@ptrCast(self.ptr), presets_list);
     }
 
+    /// ### DEPRECATED: Use `providersChanged` instead
+    ///
+    pub const ProvidersChanged = providersChanged;
+
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#providersChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn ProvidersChanged(self: KNSCore__EngineBase) void {
+    pub fn providersChanged(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_ProvidersChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadingProvider` instead
+    ///
+    pub const LoadingProvider = loadingProvider;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#loadingProvider)
     ///
@@ -852,9 +1044,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn LoadingProvider(self: KNSCore__EngineBase) void {
+    pub fn loadingProvider(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_LoadingProvider(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `providerAdded` instead
+    ///
+    pub const ProviderAdded = providerAdded;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#providerAdded)
     ///
@@ -864,10 +1060,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` provider: KNSCore__ProviderCore `
     ///
-    pub fn ProviderAdded(self: KNSCore__EngineBase, provider: anytype) void {
+    pub fn providerAdded(self: KNSCore__EngineBase, provider: anytype) void {
         comptime _ = @TypeOf(provider)._is_KNSCore__ProviderCore;
         qtc.KNSCore__EngineBase_ProviderAdded(@ptrCast(self.ptr), @ptrCast(provider.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateStatus` instead
+    ///
+    pub const UpdateStatus = updateStatus;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
@@ -875,9 +1075,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn UpdateStatus(self: KNSCore__EngineBase) void {
+    pub fn updateStatus(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_UpdateStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateStatus` instead
+    ///
+    pub const OnUpdateStatus = onUpdateStatus;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
@@ -889,13 +1093,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateStatus(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateStatus(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnUpdateStatus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateStatus` instead
+    /// ### DEPRECATED: Use `superUpdateStatus` instead
     ///
-    pub const QBaseUpdateStatus = SuperUpdateStatus;
+    pub const SuperUpdateStatus = superUpdateStatus;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-enginebase.html#updateStatus)
     ///
@@ -905,9 +1109,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SuperUpdateStatus(self: KNSCore__EngineBase) void {
+    pub fn superUpdateStatus(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_SuperUpdateStatus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -919,15 +1127,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -941,15 +1153,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -961,13 +1177,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNSCore__EngineBase.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -977,15 +1197,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: KNSCore__EngineBase, name: []const u8) void {
+    pub fn setObjectName(self: KNSCore__EngineBase, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -995,9 +1219,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn IsWidgetType(self: KNSCore__EngineBase) bool {
+    pub fn isWidgetType(self: KNSCore__EngineBase) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1007,9 +1235,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn IsWindowType(self: KNSCore__EngineBase) bool {
+    pub fn isWindowType(self: KNSCore__EngineBase) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1019,9 +1251,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn IsQuickItemType(self: KNSCore__EngineBase) bool {
+    pub fn isQuickItemType(self: KNSCore__EngineBase) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1031,9 +1267,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SignalsBlocked(self: KNSCore__EngineBase) bool {
+    pub fn signalsBlocked(self: KNSCore__EngineBase) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1045,9 +1285,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KNSCore__EngineBase, b: bool) bool {
+    pub fn blockSignals(self: KNSCore__EngineBase, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1057,9 +1301,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Thread(self: KNSCore__EngineBase) QThread {
+    pub fn thread(self: KNSCore__EngineBase) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1069,12 +1317,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KNSCore__EngineBase, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KNSCore__EngineBase, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1086,9 +1338,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KNSCore__EngineBase, interval: i32) i32 {
+    pub fn startTimer(self: KNSCore__EngineBase, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1356,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KNSCore__EngineBase, time: i64) i32 {
+    pub fn startTimer2(self: KNSCore__EngineBase, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1114,9 +1374,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KNSCore__EngineBase, id: i32) void {
+    pub fn killTimer(self: KNSCore__EngineBase, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1128,9 +1392,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KNSCore__EngineBase, id: i32) void {
+    pub fn killTimer2(self: KNSCore__EngineBase, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1142,15 +1410,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KNSCore__EngineBase, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNSCore__EngineBase.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNSCore__EngineBase.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1160,12 +1432,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KNSCore__EngineBase, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KNSCore__EngineBase, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1177,10 +1453,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KNSCore__EngineBase, filterObj: anytype) void {
+    pub fn installEventFilter(self: KNSCore__EngineBase, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1192,10 +1472,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KNSCore__EngineBase, obj: anytype) void {
+    pub fn removeEventFilter(self: KNSCore__EngineBase, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1203,7 +1487,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1211,13 +1495,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1225,7 +1513,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1233,13 +1521,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1249,18 +1541,22 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KNSCore__EngineBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KNSCore__EngineBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1268,7 +1564,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1276,13 +1572,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1290,7 +1590,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1298,13 +1598,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1314,9 +1618,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Disconnect3(self: KNSCore__EngineBase) bool {
+    pub fn disconnect3(self: KNSCore__EngineBase) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1328,10 +1636,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KNSCore__EngineBase, receiver: anytype) bool {
+    pub fn disconnect4(self: KNSCore__EngineBase, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1341,10 +1653,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1354,9 +1670,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn DumpObjectTree(self: KNSCore__EngineBase) void {
+    pub fn dumpObjectTree(self: KNSCore__EngineBase) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1366,9 +1686,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn DumpObjectInfo(self: KNSCore__EngineBase) void {
+    pub fn dumpObjectInfo(self: KNSCore__EngineBase) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1378,15 +1702,19 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KNSCore__EngineBase, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: KNSCore__EngineBase, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1396,12 +1724,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: KNSCore__EngineBase, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: KNSCore__EngineBase, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1413,7 +1745,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KNSCore__EngineBase, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KNSCore__EngineBase, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1421,27 +1753,19 @@ pub const KNSCore__EngineBase = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNSCore__EngineBase.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNSCore__EngineBase.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNSCore__EngineBase.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNSCore__EngineBase.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNSCore__EngineBase `
-    ///
-    pub fn BindingStorage(self: KNSCore__EngineBase) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1451,9 +1775,29 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn BindingStorage2(self: KNSCore__EngineBase) QBindingStorage {
+    pub fn bindingStorage(self: KNSCore__EngineBase) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNSCore__EngineBase `
+    ///
+    pub fn bindingStorage2(self: KNSCore__EngineBase) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1463,9 +1807,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Destroyed(self: KNSCore__EngineBase) void {
+    pub fn destroyed(self: KNSCore__EngineBase) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1477,9 +1825,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase) callconv(.c) void) void {
+    pub fn onDestroyed(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1489,9 +1841,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Parent(self: KNSCore__EngineBase) QObject {
+    pub fn parent(self: KNSCore__EngineBase) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1503,10 +1859,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KNSCore__EngineBase, classname: [:0]const u8) bool {
+    pub fn inherits(self: KNSCore__EngineBase, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1516,9 +1876,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn DeleteLater(self: KNSCore__EngineBase) void {
+    pub fn deleteLater(self: KNSCore__EngineBase) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1532,9 +1896,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KNSCore__EngineBase, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KNSCore__EngineBase, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1548,9 +1916,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KNSCore__EngineBase, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KNSCore__EngineBase, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1558,7 +1930,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1568,13 +1940,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1582,7 +1958,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1592,13 +1968,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1608,7 +1988,7 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1616,12 +1996,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KNSCore__EngineBase, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KNSCore__EngineBase, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1633,10 +2017,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KNSCore__EngineBase, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KNSCore__EngineBase, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1650,11 +2038,15 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KNSCore__EngineBase, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KNSCore__EngineBase, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1670,13 +2062,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KNSCore__EngineBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KNSCore__EngineBase, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1689,11 +2085,15 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KNSCore__EngineBase, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KNSCore__EngineBase, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1705,10 +2105,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KNSCore__EngineBase, param1: anytype) void {
+    pub fn destroyed1(self: KNSCore__EngineBase, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1720,9 +2124,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1734,16 +2142,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KNSCore__EngineBase, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNSCore__EngineBase_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KNSCore__EngineBase, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNSCore__EngineBase_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1755,12 +2163,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KNSCore__EngineBase, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNSCore__EngineBase_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KNSCore__EngineBase, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNSCore__EngineBase_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1774,9 +2186,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QEvent) callconv(.c) bool) void {
         qtc.KNSCore__EngineBase_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1790,17 +2206,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KNSCore__EngineBase, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KNSCore__EngineBase, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNSCore__EngineBase_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNSCore__EngineBase_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1814,13 +2230,17 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KNSCore__EngineBase, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KNSCore__EngineBase, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNSCore__EngineBase_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNSCore__EngineBase_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1834,9 +2254,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QObject, QEvent) callconv(.c) bool) void {
         qtc.KNSCore__EngineBase_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1848,16 +2272,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KNSCore__EngineBase_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KNSCore__EngineBase_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1869,12 +2293,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KNSCore__EngineBase_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KNSCore__EngineBase_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1888,9 +2316,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QTimerEvent) callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1902,16 +2334,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KNSCore__EngineBase_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KNSCore__EngineBase_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1923,12 +2355,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KNSCore__EngineBase_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KNSCore__EngineBase_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1942,9 +2378,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QChildEvent) callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1956,16 +2396,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNSCore__EngineBase_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNSCore__EngineBase_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1977,12 +2417,16 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KNSCore__EngineBase, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNSCore__EngineBase_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KNSCore__EngineBase, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNSCore__EngineBase_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1996,9 +2440,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QEvent) callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2012,14 +2460,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
+    pub fn connectNotify(self: KNSCore__EngineBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNSCore__EngineBase_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2033,11 +2481,15 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
+    pub fn superConnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNSCore__EngineBase_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2050,9 +2502,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2066,14 +2522,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
+    pub fn disconnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNSCore__EngineBase_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2087,10 +2543,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KNSCore__EngineBase, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNSCore__EngineBase_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2104,9 +2564,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) void) void {
         qtc.KNSCore__EngineBase_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2118,13 +2582,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Sender(self: KNSCore__EngineBase) QObject {
+    pub fn sender(self: KNSCore__EngineBase) QObject {
         return .{ .ptr = qtc.KNSCore__EngineBase_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2136,9 +2600,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SuperSender(self: KNSCore__EngineBase) QObject {
+    pub fn superSender(self: KNSCore__EngineBase) QObject {
         return .{ .ptr = qtc.KNSCore__EngineBase_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2152,9 +2620,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) QObject) void {
         qtc.KNSCore__EngineBase_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2166,13 +2638,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SenderSignalIndex(self: KNSCore__EngineBase) i32 {
+    pub fn senderSignalIndex(self: KNSCore__EngineBase) i32 {
         return qtc.KNSCore__EngineBase_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2184,9 +2656,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn SuperSenderSignalIndex(self: KNSCore__EngineBase) i32 {
+    pub fn superSenderSignalIndex(self: KNSCore__EngineBase) i32 {
         return qtc.KNSCore__EngineBase_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2200,9 +2676,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KNSCore__EngineBase, callback: *const fn () callconv(.c) i32) void {
         qtc.KNSCore__EngineBase_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2216,14 +2696,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KNSCore__EngineBase, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KNSCore__EngineBase, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNSCore__EngineBase_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2237,10 +2717,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KNSCore__EngineBase, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KNSCore__EngineBase, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNSCore__EngineBase_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2254,9 +2738,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) i32) void {
         qtc.KNSCore__EngineBase_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2270,14 +2758,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KNSCore__EngineBase, signal: anytype) bool {
+    pub fn isSignalConnected(self: KNSCore__EngineBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNSCore__EngineBase_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2291,10 +2779,14 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KNSCore__EngineBase, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KNSCore__EngineBase, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNSCore__EngineBase_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2308,9 +2800,13 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, QMetaMethod) callconv(.c) bool) void {
         qtc.KNSCore__EngineBase_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2324,21 +2820,21 @@ pub const KNSCore__EngineBase = extern struct {
     ///
     /// ` callback: *const fn (self: KNSCore__EngineBase, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KNSCore__EngineBase, callback: *const fn (KNSCore__EngineBase, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KNSCore__EngineBase `
     ///
-    pub fn Delete(self: KNSCore__EngineBase) void {
+    pub fn delete(self: KNSCore__EngineBase) void {
         qtc.KNSCore__EngineBase_Delete(@ptrCast(self.ptr));
     }
 };

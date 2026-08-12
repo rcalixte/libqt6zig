@@ -29,16 +29,24 @@ pub const QAudioRoom = extern struct {
     pub const _is_QAudioRoom = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QAudioRoom object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAudioRoom object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` engine: QAudioEngine `
     ///
-    pub fn New(engine: anytype) QAudioRoom {
+    pub fn new(engine: anytype) QAudioRoom {
         comptime _ = @TypeOf(engine)._is_QAudioEngine;
         return .{ .ptr = qtc.QAudioRoom_new(@ptrCast(engine.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -46,9 +54,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn MetaObject(self: QAudioRoom) QMetaObject {
+    pub fn metaObject(self: QAudioRoom) QMetaObject {
         return .{ .ptr = qtc.QAudioRoom_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -60,13 +72,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QAudioRoom, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAudioRoom, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QAudioRoom_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,9 +88,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn SuperMetaObject(self: QAudioRoom) QMetaObject {
+    pub fn superMetaObject(self: QAudioRoom) QMetaObject {
         return .{ .ptr = qtc.QAudioRoom_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -86,10 +102,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAudioRoom, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAudioRoom, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAudioRoom_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -99,13 +119,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QAudioRoom_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -115,10 +135,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QAudioRoom, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QAudioRoom, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAudioRoom_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -130,9 +154,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAudioRoom, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAudioRoom, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAudioRoom_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -142,13 +170,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QAudioRoom, callback: *const fn (QAudioRoom, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QAudioRoom, callback: *const fn (QAudioRoom, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QAudioRoom_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -162,9 +190,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QAudioRoom, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QAudioRoom, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAudioRoom_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -174,14 +206,18 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setPosition)
     ///
@@ -191,10 +227,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` pos: QVector3D `
     ///
-    pub fn SetPosition(self: QAudioRoom, pos: anytype) void {
+    pub fn setPosition(self: QAudioRoom, pos: anytype) void {
         comptime _ = @TypeOf(pos)._is_QVector3D;
         qtc.QAudioRoom_SetPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#position)
     ///
@@ -202,9 +242,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Position(self: QAudioRoom) QVector3D {
+    pub fn position(self: QAudioRoom) QVector3D {
         return .{ .ptr = qtc.QAudioRoom_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDimensions` instead
+    ///
+    pub const SetDimensions = setDimensions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setDimensions)
     ///
@@ -214,10 +258,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` dim: QVector3D `
     ///
-    pub fn SetDimensions(self: QAudioRoom, dim: anytype) void {
+    pub fn setDimensions(self: QAudioRoom, dim: anytype) void {
         comptime _ = @TypeOf(dim)._is_QVector3D;
         qtc.QAudioRoom_SetDimensions(@ptrCast(self.ptr), @ptrCast(dim.ptr));
     }
+
+    /// ### DEPRECATED: Use `dimensions` instead
+    ///
+    pub const Dimensions = dimensions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensions)
     ///
@@ -225,9 +273,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Dimensions(self: QAudioRoom) QVector3D {
+    pub fn dimensions(self: QAudioRoom) QVector3D {
         return .{ .ptr = qtc.QAudioRoom_Dimensions(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRotation` instead
+    ///
+    pub const SetRotation = setRotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setRotation)
     ///
@@ -237,10 +289,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` q: QQuaternion `
     ///
-    pub fn SetRotation(self: QAudioRoom, q: anytype) void {
+    pub fn setRotation(self: QAudioRoom, q: anytype) void {
         comptime _ = @TypeOf(q)._is_QQuaternion;
         qtc.QAudioRoom_SetRotation(@ptrCast(self.ptr), @ptrCast(q.ptr));
     }
+
+    /// ### DEPRECATED: Use `rotation` instead
+    ///
+    pub const Rotation = rotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotation)
     ///
@@ -248,9 +304,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Rotation(self: QAudioRoom) QQuaternion {
+    pub fn rotation(self: QAudioRoom) QQuaternion {
         return .{ .ptr = qtc.QAudioRoom_Rotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWallMaterial` instead
+    ///
+    pub const SetWallMaterial = setWallMaterial;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setWallMaterial)
     ///
@@ -262,9 +322,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` material: qaudioroom_enums.Material `
     ///
-    pub fn SetWallMaterial(self: QAudioRoom, wall: i32, material: i32) void {
+    pub fn setWallMaterial(self: QAudioRoom, wall: i32, material: i32) void {
         qtc.QAudioRoom_SetWallMaterial(@ptrCast(self.ptr), @bitCast(wall), @bitCast(material));
     }
+
+    /// ### DEPRECATED: Use `wallMaterial` instead
+    ///
+    pub const WallMaterial = wallMaterial;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallMaterial)
     ///
@@ -278,9 +342,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` qaudioroom_enums.Material `
     ///
-    pub fn WallMaterial(self: QAudioRoom, wall: i32) i32 {
+    pub fn wallMaterial(self: QAudioRoom, wall: i32) i32 {
         return qtc.QAudioRoom_WallMaterial(@ptrCast(self.ptr), @bitCast(wall));
     }
+
+    /// ### DEPRECATED: Use `setReflectionGain` instead
+    ///
+    pub const SetReflectionGain = setReflectionGain;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReflectionGain)
     ///
@@ -290,9 +358,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetReflectionGain(self: QAudioRoom, factor: f32) void {
+    pub fn setReflectionGain(self: QAudioRoom, factor: f32) void {
         qtc.QAudioRoom_SetReflectionGain(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `reflectionGain` instead
+    ///
+    pub const ReflectionGain = reflectionGain;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGain)
     ///
@@ -300,9 +372,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReflectionGain(self: QAudioRoom) f32 {
+    pub fn reflectionGain(self: QAudioRoom) f32 {
         return qtc.QAudioRoom_ReflectionGain(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReverbGain` instead
+    ///
+    pub const SetReverbGain = setReverbGain;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbGain)
     ///
@@ -312,9 +388,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetReverbGain(self: QAudioRoom, factor: f32) void {
+    pub fn setReverbGain(self: QAudioRoom, factor: f32) void {
         qtc.QAudioRoom_SetReverbGain(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `reverbGain` instead
+    ///
+    pub const ReverbGain = reverbGain;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGain)
     ///
@@ -322,9 +402,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbGain(self: QAudioRoom) f32 {
+    pub fn reverbGain(self: QAudioRoom) f32 {
         return qtc.QAudioRoom_ReverbGain(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReverbTime` instead
+    ///
+    pub const SetReverbTime = setReverbTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbTime)
     ///
@@ -334,9 +418,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetReverbTime(self: QAudioRoom, factor: f32) void {
+    pub fn setReverbTime(self: QAudioRoom, factor: f32) void {
         qtc.QAudioRoom_SetReverbTime(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `reverbTime` instead
+    ///
+    pub const ReverbTime = reverbTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTime)
     ///
@@ -344,9 +432,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbTime(self: QAudioRoom) f32 {
+    pub fn reverbTime(self: QAudioRoom) f32 {
         return qtc.QAudioRoom_ReverbTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReverbBrightness` instead
+    ///
+    pub const SetReverbBrightness = setReverbBrightness;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#setReverbBrightness)
     ///
@@ -356,9 +448,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` factor: f32 `
     ///
-    pub fn SetReverbBrightness(self: QAudioRoom, factor: f32) void {
+    pub fn setReverbBrightness(self: QAudioRoom, factor: f32) void {
         qtc.QAudioRoom_SetReverbBrightness(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `reverbBrightness` instead
+    ///
+    pub const ReverbBrightness = reverbBrightness;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightness)
     ///
@@ -366,20 +462,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbBrightness(self: QAudioRoom) f32 {
+    pub fn reverbBrightness(self: QAudioRoom) f32 {
         return qtc.QAudioRoom_ReverbBrightness(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `positionChanged` instead
+    ///
+    pub const PositionChanged = positionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn PositionChanged(self: QAudioRoom) void {
+    pub fn positionChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_PositionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPositionChanged` instead
+    ///
+    pub const OnPositionChanged = onPositionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#positionChanged)
     ///
     /// ## Parameters:
@@ -388,20 +492,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnPositionChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onPositionChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_PositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `dimensionsChanged` instead
+    ///
+    pub const DimensionsChanged = dimensionsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn DimensionsChanged(self: QAudioRoom) void {
+    pub fn dimensionsChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_DimensionsChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDimensionsChanged` instead
+    ///
+    pub const OnDimensionsChanged = onDimensionsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dimensionsChanged)
     ///
     /// ## Parameters:
@@ -410,20 +522,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnDimensionsChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onDimensionsChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_DimensionsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `rotationChanged` instead
+    ///
+    pub const RotationChanged = rotationChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn RotationChanged(self: QAudioRoom) void {
+    pub fn rotationChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_RotationChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRotationChanged` instead
+    ///
+    pub const OnRotationChanged = onRotationChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#rotationChanged)
     ///
     /// ## Parameters:
@@ -432,20 +552,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnRotationChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onRotationChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_RotationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `wallsChanged` instead
+    ///
+    pub const WallsChanged = wallsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn WallsChanged(self: QAudioRoom) void {
+    pub fn wallsChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_WallsChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onWallsChanged` instead
+    ///
+    pub const OnWallsChanged = onWallsChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#wallsChanged)
     ///
     /// ## Parameters:
@@ -454,20 +582,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnWallsChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onWallsChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_WallsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reflectionGainChanged` instead
+    ///
+    pub const ReflectionGainChanged = reflectionGainChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReflectionGainChanged(self: QAudioRoom) void {
+    pub fn reflectionGainChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_ReflectionGainChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReflectionGainChanged` instead
+    ///
+    pub const OnReflectionGainChanged = onReflectionGainChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reflectionGainChanged)
     ///
     /// ## Parameters:
@@ -476,20 +612,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnReflectionGainChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onReflectionGainChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReflectionGainChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reverbGainChanged` instead
+    ///
+    pub const ReverbGainChanged = reverbGainChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbGainChanged(self: QAudioRoom) void {
+    pub fn reverbGainChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_ReverbGainChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReverbGainChanged` instead
+    ///
+    pub const OnReverbGainChanged = onReverbGainChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbGainChanged)
     ///
     /// ## Parameters:
@@ -498,20 +642,28 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnReverbGainChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onReverbGainChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbGainChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reverbTimeChanged` instead
+    ///
+    pub const ReverbTimeChanged = reverbTimeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbTimeChanged(self: QAudioRoom) void {
+    pub fn reverbTimeChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_ReverbTimeChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReverbTimeChanged` instead
+    ///
+    pub const OnReverbTimeChanged = onReverbTimeChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbTimeChanged)
     ///
     /// ## Parameters:
@@ -520,9 +672,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnReverbTimeChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onReverbTimeChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbTimeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reverbBrightnessChanged` instead
+    ///
+    pub const ReverbBrightnessChanged = reverbBrightnessChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
     ///
@@ -530,9 +686,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn ReverbBrightnessChanged(self: QAudioRoom) void {
+    pub fn reverbBrightnessChanged(self: QAudioRoom) void {
         qtc.QAudioRoom_ReverbBrightnessChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReverbBrightnessChanged` instead
+    ///
+    pub const OnReverbBrightnessChanged = onReverbBrightnessChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#reverbBrightnessChanged)
     ///
@@ -542,9 +702,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnReverbBrightnessChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onReverbBrightnessChanged(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QAudioRoom_Connect_ReverbBrightnessChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -556,15 +720,19 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -578,15 +746,19 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -598,13 +770,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAudioRoom, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAudioRoom, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAudioRoom.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -616,13 +792,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAudioRoom, name: []const u8) void {
+    pub fn setObjectName(self: QAudioRoom, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -632,9 +812,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn IsWidgetType(self: QAudioRoom) bool {
+    pub fn isWidgetType(self: QAudioRoom) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -644,9 +828,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn IsWindowType(self: QAudioRoom) bool {
+    pub fn isWindowType(self: QAudioRoom) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -656,9 +844,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn IsQuickItemType(self: QAudioRoom) bool {
+    pub fn isQuickItemType(self: QAudioRoom) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -668,9 +860,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn SignalsBlocked(self: QAudioRoom) bool {
+    pub fn signalsBlocked(self: QAudioRoom) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -682,9 +878,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAudioRoom, b: bool) bool {
+    pub fn blockSignals(self: QAudioRoom, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -694,9 +894,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Thread(self: QAudioRoom) QThread {
+    pub fn thread(self: QAudioRoom) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -706,12 +910,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAudioRoom, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAudioRoom, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -723,9 +931,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAudioRoom, interval: i32) i32 {
+    pub fn startTimer(self: QAudioRoom, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -737,9 +949,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAudioRoom, time: i64) i32 {
+    pub fn startTimer2(self: QAudioRoom, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -751,9 +967,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAudioRoom, id: i32) void {
+    pub fn killTimer(self: QAudioRoom, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -765,9 +985,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAudioRoom, id: i32) void {
+    pub fn killTimer2(self: QAudioRoom, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -779,15 +1003,19 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAudioRoom, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAudioRoom, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAudioRoom.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAudioRoom.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -797,12 +1025,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QAudioRoom, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QAudioRoom, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -814,10 +1046,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAudioRoom, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAudioRoom, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -829,10 +1065,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAudioRoom, obj: anytype) void {
+    pub fn removeEventFilter(self: QAudioRoom, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -840,7 +1080,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -848,13 +1088,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -862,7 +1106,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -870,13 +1114,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -886,18 +1134,22 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAudioRoom, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAudioRoom, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -905,7 +1157,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -913,13 +1165,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -927,7 +1183,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -935,13 +1191,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -951,9 +1211,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Disconnect3(self: QAudioRoom) bool {
+    pub fn disconnect3(self: QAudioRoom) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -965,10 +1229,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAudioRoom, receiver: anytype) bool {
+    pub fn disconnect4(self: QAudioRoom, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -978,10 +1246,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -991,9 +1263,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn DumpObjectTree(self: QAudioRoom) void {
+    pub fn dumpObjectTree(self: QAudioRoom) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1003,9 +1279,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn DumpObjectInfo(self: QAudioRoom) void {
+    pub fn dumpObjectInfo(self: QAudioRoom) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1019,11 +1299,15 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAudioRoom, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAudioRoom, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1035,10 +1319,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAudioRoom, name: [:0]const u8) QVariant {
+    pub fn property(self: QAudioRoom, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1050,7 +1338,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAudioRoom, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAudioRoom, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1058,27 +1346,19 @@ pub const QAudioRoom = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAudioRoom.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAudioRoom.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAudioRoom.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAudioRoom.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAudioRoom `
-    ///
-    pub fn BindingStorage(self: QAudioRoom) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1088,9 +1368,29 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn BindingStorage2(self: QAudioRoom) QBindingStorage {
+    pub fn bindingStorage(self: QAudioRoom) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAudioRoom `
+    ///
+    pub fn bindingStorage2(self: QAudioRoom) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1400,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Destroyed(self: QAudioRoom) void {
+    pub fn destroyed(self: QAudioRoom) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1114,9 +1418,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAudioRoom, callback: *const fn (QAudioRoom) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1126,9 +1434,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Parent(self: QAudioRoom) QObject {
+    pub fn parent(self: QAudioRoom) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1140,10 +1452,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAudioRoom, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAudioRoom, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1153,9 +1469,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn DeleteLater(self: QAudioRoom) void {
+    pub fn deleteLater(self: QAudioRoom) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1169,9 +1489,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAudioRoom, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAudioRoom, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1185,9 +1509,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAudioRoom, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAudioRoom, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1195,7 +1523,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1205,13 +1533,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1219,7 +1551,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1229,13 +1561,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1245,7 +1581,7 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1253,12 +1589,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAudioRoom, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAudioRoom, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1270,10 +1610,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAudioRoom, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAudioRoom, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1287,11 +1631,15 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAudioRoom, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAudioRoom, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1307,13 +1655,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAudioRoom, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAudioRoom, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1326,11 +1678,15 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAudioRoom, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAudioRoom, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1342,10 +1698,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAudioRoom, param1: anytype) void {
+    pub fn destroyed1(self: QAudioRoom, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1357,9 +1717,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAudioRoom, callback: *const fn (QAudioRoom, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAudioRoom, callback: *const fn (QAudioRoom, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1371,16 +1735,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAudioRoom, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAudioRoom_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAudioRoom, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAudioRoom_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1392,12 +1756,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QAudioRoom, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAudioRoom_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QAudioRoom, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAudioRoom_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1411,9 +1779,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QEvent) callconv(.c) bool) void {
         qtc.QAudioRoom_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1427,17 +1799,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAudioRoom, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAudioRoom, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAudioRoom_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAudioRoom_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1451,13 +1823,17 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QAudioRoom, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QAudioRoom, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAudioRoom_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAudioRoom_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1471,9 +1847,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QAudioRoom, callback: *const fn (QAudioRoom, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QAudioRoom, callback: *const fn (QAudioRoom, QObject, QEvent) callconv(.c) bool) void {
         qtc.QAudioRoom_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1485,16 +1865,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAudioRoom_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAudioRoom_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1506,12 +1886,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAudioRoom_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAudioRoom_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1525,9 +1909,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QTimerEvent) callconv(.c) void) void {
         qtc.QAudioRoom_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1539,16 +1927,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAudioRoom_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAudioRoom_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1560,12 +1948,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAudioRoom_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAudioRoom_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1579,9 +1971,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QChildEvent) callconv(.c) void) void {
         qtc.QAudioRoom_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1593,16 +1989,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAudioRoom_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAudioRoom_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1614,12 +2010,16 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QAudioRoom, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAudioRoom_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QAudioRoom, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAudioRoom_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1633,9 +2033,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QAudioRoom, callback: *const fn (QAudioRoom, QEvent) callconv(.c) void) void {
         qtc.QAudioRoom_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1649,14 +2053,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QAudioRoom, signal: anytype) void {
+    pub fn connectNotify(self: QAudioRoom, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAudioRoom_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1670,11 +2074,15 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QAudioRoom, signal: anytype) void {
+    pub fn superConnectNotify(self: QAudioRoom, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAudioRoom_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1687,9 +2095,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) void) void {
         qtc.QAudioRoom_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1703,14 +2115,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QAudioRoom, signal: anytype) void {
+    pub fn disconnectNotify(self: QAudioRoom, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAudioRoom_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1724,10 +2136,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QAudioRoom, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QAudioRoom, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAudioRoom_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1741,9 +2157,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) void) void {
         qtc.QAudioRoom_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1755,13 +2175,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Sender(self: QAudioRoom) QObject {
+    pub fn sender(self: QAudioRoom) QObject {
         return .{ .ptr = qtc.QAudioRoom_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1773,9 +2193,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn SuperSender(self: QAudioRoom) QObject {
+    pub fn superSender(self: QAudioRoom) QObject {
         return .{ .ptr = qtc.QAudioRoom_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1789,9 +2213,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QAudioRoom, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QAudioRoom, callback: *const fn () callconv(.c) QObject) void {
         qtc.QAudioRoom_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1803,13 +2231,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn SenderSignalIndex(self: QAudioRoom) i32 {
+    pub fn senderSignalIndex(self: QAudioRoom) i32 {
         return qtc.QAudioRoom_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1821,9 +2249,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn SuperSenderSignalIndex(self: QAudioRoom) i32 {
+    pub fn superSenderSignalIndex(self: QAudioRoom) i32 {
         return qtc.QAudioRoom_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1837,9 +2269,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QAudioRoom, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QAudioRoom, callback: *const fn () callconv(.c) i32) void {
         qtc.QAudioRoom_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1853,14 +2289,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QAudioRoom, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QAudioRoom, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAudioRoom_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1874,10 +2310,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QAudioRoom, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QAudioRoom, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAudioRoom_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1891,9 +2331,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAudioRoom_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1907,14 +2351,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QAudioRoom, signal: anytype) bool {
+    pub fn isSignalConnected(self: QAudioRoom, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAudioRoom_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1928,10 +2372,14 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QAudioRoom, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QAudioRoom, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAudioRoom_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1945,9 +2393,13 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QAudioRoom, callback: *const fn (QAudioRoom, QMetaMethod) callconv(.c) bool) void {
         qtc.QAudioRoom_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1961,23 +2413,23 @@ pub const QAudioRoom = extern struct {
     ///
     /// ` callback: *const fn (self: QAudioRoom, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAudioRoom, callback: *const fn (QAudioRoom, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudioroom.html#dtor.QAudioRoom)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAudioRoom `
     ///
-    pub fn Delete(self: QAudioRoom) void {
+    pub fn delete(self: QAudioRoom) void {
         qtc.QAudioRoom_Delete(@ptrCast(self.ptr));
     }
 };

@@ -15,15 +15,25 @@ pub const QEvent = extern struct {
 
     pub const _is_QEvent = {};
 
-    /// New constructs a new QEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New(typeVal: i32) QEvent {
+    pub fn new(typeVal: i32) QEvent {
         return .{ .ptr = qtc.QEvent_new(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#type)
     ///
@@ -35,9 +45,13 @@ pub const QEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QEvent) i32 {
+    pub fn type0(self: QEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#spontaneous)
     ///
@@ -45,9 +59,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn Spontaneous(self: QEvent) bool {
+    pub fn spontaneous(self: QEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
@@ -57,9 +75,13 @@ pub const QEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QEvent, accepted: bool) void {
+    pub fn setAccepted(self: QEvent, accepted: bool) void {
         qtc.QEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
@@ -71,13 +93,13 @@ pub const QEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QEvent, callback: *const fn (QEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QEvent, callback: *const fn (QEvent, bool) callconv(.c) void) void {
         qtc.QEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#setAccepted)
     ///
@@ -89,9 +111,13 @@ pub const QEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QEvent, accepted: bool) void {
         qtc.QEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isAccepted)
     ///
@@ -99,9 +125,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn IsAccepted(self: QEvent) bool {
+    pub fn isAccepted(self: QEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#accept)
     ///
@@ -109,9 +139,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn Accept(self: QEvent) void {
+    pub fn accept(self: QEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#ignore)
     ///
@@ -119,9 +153,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn Ignore(self: QEvent) void {
+    pub fn ignore(self: QEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isInputEvent)
     ///
@@ -129,9 +167,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn IsInputEvent(self: QEvent) bool {
+    pub fn isInputEvent(self: QEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isPointerEvent)
     ///
@@ -139,9 +181,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn IsPointerEvent(self: QEvent) bool {
+    pub fn isPointerEvent(self: QEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#isSinglePointEvent)
     ///
@@ -149,15 +195,23 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn IsSinglePointEvent(self: QEvent) bool {
+    pub fn isSinglePointEvent(self: QEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
@@ -165,9 +219,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn Clone(self: QEvent) QEvent {
+    pub fn clone(self: QEvent) QEvent {
         return .{ .ptr = qtc.QEvent_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
@@ -179,13 +237,13 @@ pub const QEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#clone)
     ///
@@ -195,9 +253,13 @@ pub const QEvent = extern struct {
     ///
     /// ` self: QEvent `
     ///
-    pub fn SuperClone(self: QEvent) QEvent {
+    pub fn superClone(self: QEvent) QEvent {
         return .{ .ptr = qtc.QEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
@@ -205,23 +267,23 @@ pub const QEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#dtor.QEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QEvent `
     ///
-    pub fn Delete(self: QEvent) void {
+    pub fn delete(self: QEvent) void {
         qtc.QEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -237,25 +299,37 @@ pub const QTimerEvent = extern struct {
     pub const _is_QTimerEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QTimerEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTimerEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` timerId: i32 `
+    /// ` _timerId: i32 `
     ///
-    pub fn New(timerId: i32) QTimerEvent {
-        return .{ .ptr = qtc.QTimerEvent_new(@bitCast(timerId)) };
+    pub fn new(_timerId: i32) QTimerEvent {
+        return .{ .ptr = qtc.QTimerEvent_new(@bitCast(_timerId)) };
     }
 
-    /// New2 constructs a new QTimerEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTimerEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` timerId: qnamespace_enums.TimerId `
+    /// ` _timerId: qnamespace_enums.TimerId `
     ///
-    pub fn New2(timerId: i32) QTimerEvent {
-        return .{ .ptr = qtc.QTimerEvent_new2(@bitCast(timerId)) };
+    pub fn new2(_timerId: i32) QTimerEvent {
+        return .{ .ptr = qtc.QTimerEvent_new2(@bitCast(_timerId)) };
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#clone)
     ///
@@ -263,9 +337,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn Clone(self: QTimerEvent) QTimerEvent {
+    pub fn clone(self: QTimerEvent) QTimerEvent {
         return .{ .ptr = qtc.QTimerEvent_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#clone)
     ///
@@ -277,13 +355,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QTimerEvent `
     ///
-    pub fn OnClone(self: QTimerEvent, callback: *const fn () callconv(.c) QTimerEvent) void {
+    pub fn onClone(self: QTimerEvent, callback: *const fn () callconv(.c) QTimerEvent) void {
         qtc.QTimerEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#clone)
     ///
@@ -293,9 +371,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn SuperClone(self: QTimerEvent) QTimerEvent {
+    pub fn superClone(self: QTimerEvent) QTimerEvent {
         return .{ .ptr = qtc.QTimerEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `timerId` instead
+    ///
+    pub const TimerId = timerId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#timerId)
     ///
@@ -303,9 +385,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn TimerId(self: QTimerEvent) i32 {
+    pub fn timerId(self: QTimerEvent) i32 {
         return qtc.QTimerEvent_TimerId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#id)
     ///
@@ -317,9 +403,15 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` qnamespace_enums.TimerId `
     ///
-    pub fn Id(self: QTimerEvent) i32 {
+    pub fn id(self: QTimerEvent) i32 {
         return qtc.QTimerEvent_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -333,9 +425,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QTimerEvent) i32 {
+    pub fn type0(self: QTimerEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -345,9 +441,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn Spontaneous(self: QTimerEvent) bool {
+    pub fn spontaneous(self: QTimerEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -357,9 +457,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn IsAccepted(self: QTimerEvent) bool {
+    pub fn isAccepted(self: QTimerEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -369,9 +473,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn Accept(self: QTimerEvent) void {
+    pub fn accept(self: QTimerEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -381,9 +489,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn Ignore(self: QTimerEvent) void {
+    pub fn ignore(self: QTimerEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -393,9 +505,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn IsInputEvent(self: QTimerEvent) bool {
+    pub fn isInputEvent(self: QTimerEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -405,9 +521,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn IsPointerEvent(self: QTimerEvent) bool {
+    pub fn isPointerEvent(self: QTimerEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -417,17 +537,25 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn IsSinglePointEvent(self: QTimerEvent) bool {
+    pub fn isSinglePointEvent(self: QTimerEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -437,9 +565,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -453,13 +585,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QTimerEvent, accepted: bool) void {
+    pub fn setAccepted(self: QTimerEvent, accepted: bool) void {
         qtc.QTimerEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -473,9 +605,13 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QTimerEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QTimerEvent, accepted: bool) void {
         qtc.QTimerEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -489,23 +625,23 @@ pub const QTimerEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QTimerEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QTimerEvent, callback: *const fn (QTimerEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QTimerEvent, callback: *const fn (QTimerEvent, bool) callconv(.c) void) void {
         qtc.QTimerEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtimerevent.html#dtor.QTimerEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTimerEvent `
     ///
-    pub fn Delete(self: QTimerEvent) void {
+    pub fn delete(self: QTimerEvent) void {
         qtc.QTimerEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -521,18 +657,26 @@ pub const QChildEvent = extern struct {
     pub const _is_QChildEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QChildEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QChildEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    /// ` child: QObject `
+    /// ` _child: QObject `
     ///
-    pub fn New(typeVal: i32, child: anytype) QChildEvent {
-        comptime _ = @TypeOf(child)._is_QObject;
-        return .{ .ptr = qtc.QChildEvent_new(@bitCast(typeVal), @ptrCast(child.ptr)) };
+    pub fn new(typeVal: i32, _child: anytype) QChildEvent {
+        comptime _ = @TypeOf(_child)._is_QObject;
+        return .{ .ptr = qtc.QChildEvent_new(@bitCast(typeVal), @ptrCast(_child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#clone)
     ///
@@ -540,9 +684,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Clone(self: QChildEvent) QChildEvent {
+    pub fn clone(self: QChildEvent) QChildEvent {
         return .{ .ptr = qtc.QChildEvent_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#clone)
     ///
@@ -554,13 +702,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QChildEvent `
     ///
-    pub fn OnClone(self: QChildEvent, callback: *const fn () callconv(.c) QChildEvent) void {
+    pub fn onClone(self: QChildEvent, callback: *const fn () callconv(.c) QChildEvent) void {
         qtc.QChildEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#clone)
     ///
@@ -570,9 +718,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn SuperClone(self: QChildEvent) QChildEvent {
+    pub fn superClone(self: QChildEvent) QChildEvent {
         return .{ .ptr = qtc.QChildEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `child` instead
+    ///
+    pub const Child = child;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#child)
     ///
@@ -580,9 +732,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Child(self: QChildEvent) QObject {
+    pub fn child(self: QChildEvent) QObject {
         return .{ .ptr = qtc.QChildEvent_Child(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `added` instead
+    ///
+    pub const Added = added;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#added)
     ///
@@ -590,9 +746,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Added(self: QChildEvent) bool {
+    pub fn added(self: QChildEvent) bool {
         return qtc.QChildEvent_Added(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `polished` instead
+    ///
+    pub const Polished = polished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#polished)
     ///
@@ -600,9 +760,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Polished(self: QChildEvent) bool {
+    pub fn polished(self: QChildEvent) bool {
         return qtc.QChildEvent_Polished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removed` instead
+    ///
+    pub const Removed = removed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#removed)
     ///
@@ -610,9 +774,15 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Removed(self: QChildEvent) bool {
+    pub fn removed(self: QChildEvent) bool {
         return qtc.QChildEvent_Removed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -626,9 +796,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QChildEvent) i32 {
+    pub fn type0(self: QChildEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -638,9 +812,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Spontaneous(self: QChildEvent) bool {
+    pub fn spontaneous(self: QChildEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -650,9 +828,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn IsAccepted(self: QChildEvent) bool {
+    pub fn isAccepted(self: QChildEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -662,9 +844,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Accept(self: QChildEvent) void {
+    pub fn accept(self: QChildEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -674,9 +860,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Ignore(self: QChildEvent) void {
+    pub fn ignore(self: QChildEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -686,9 +876,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn IsInputEvent(self: QChildEvent) bool {
+    pub fn isInputEvent(self: QChildEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -698,9 +892,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn IsPointerEvent(self: QChildEvent) bool {
+    pub fn isPointerEvent(self: QChildEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -710,17 +908,25 @@ pub const QChildEvent = extern struct {
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn IsSinglePointEvent(self: QChildEvent) bool {
+    pub fn isSinglePointEvent(self: QChildEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -730,9 +936,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -746,13 +956,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QChildEvent, accepted: bool) void {
+    pub fn setAccepted(self: QChildEvent, accepted: bool) void {
         qtc.QChildEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -766,9 +976,13 @@ pub const QChildEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QChildEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QChildEvent, accepted: bool) void {
         qtc.QChildEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -782,23 +996,23 @@ pub const QChildEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QChildEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QChildEvent, callback: *const fn (QChildEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QChildEvent, callback: *const fn (QChildEvent, bool) callconv(.c) void) void {
         qtc.QChildEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qchildevent.html#dtor.QChildEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QChildEvent `
     ///
-    pub fn Delete(self: QChildEvent) void {
+    pub fn delete(self: QChildEvent) void {
         qtc.QChildEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -814,13 +1028,17 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     pub const _is_QDynamicPropertyChangeEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QDynamicPropertyChangeEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDynamicPropertyChangeEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []u8 `
     ///
-    pub fn New(name: []u8) QDynamicPropertyChangeEvent {
+    pub fn new(name: []u8) QDynamicPropertyChangeEvent {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -828,15 +1046,23 @@ pub const QDynamicPropertyChangeEvent = extern struct {
         return .{ .ptr = qtc.QDynamicPropertyChangeEvent_new(name_str) };
     }
 
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn Clone(self: QDynamicPropertyChangeEvent) QDynamicPropertyChangeEvent {
+    pub fn clone(self: QDynamicPropertyChangeEvent) QDynamicPropertyChangeEvent {
         return .{ .ptr = qtc.QDynamicPropertyChangeEvent_Clone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
     ///
@@ -848,13 +1074,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDynamicPropertyChangeEvent `
     ///
-    pub fn OnClone(self: QDynamicPropertyChangeEvent, callback: *const fn () callconv(.c) QDynamicPropertyChangeEvent) void {
+    pub fn onClone(self: QDynamicPropertyChangeEvent, callback: *const fn () callconv(.c) QDynamicPropertyChangeEvent) void {
         qtc.QDynamicPropertyChangeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#clone)
     ///
@@ -864,9 +1090,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn SuperClone(self: QDynamicPropertyChangeEvent) QDynamicPropertyChangeEvent {
+    pub fn superClone(self: QDynamicPropertyChangeEvent) QDynamicPropertyChangeEvent {
         return .{ .ptr = qtc.QDynamicPropertyChangeEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `propertyName` instead
+    ///
+    pub const PropertyName = propertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#propertyName)
     ///
@@ -876,13 +1106,19 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyName(self: QDynamicPropertyChangeEvent, allocator: std.mem.Allocator) []u8 {
+    pub fn propertyName(self: QDynamicPropertyChangeEvent, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDynamicPropertyChangeEvent_PropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDynamicPropertyChangeEvent.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDynamicPropertyChangeEvent.propertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -896,9 +1132,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QDynamicPropertyChangeEvent) i32 {
+    pub fn type0(self: QDynamicPropertyChangeEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -908,9 +1148,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn Spontaneous(self: QDynamicPropertyChangeEvent) bool {
+    pub fn spontaneous(self: QDynamicPropertyChangeEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -920,9 +1164,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn IsAccepted(self: QDynamicPropertyChangeEvent) bool {
+    pub fn isAccepted(self: QDynamicPropertyChangeEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -932,9 +1180,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn Accept(self: QDynamicPropertyChangeEvent) void {
+    pub fn accept(self: QDynamicPropertyChangeEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -944,9 +1196,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn Ignore(self: QDynamicPropertyChangeEvent) void {
+    pub fn ignore(self: QDynamicPropertyChangeEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -956,9 +1212,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn IsInputEvent(self: QDynamicPropertyChangeEvent) bool {
+    pub fn isInputEvent(self: QDynamicPropertyChangeEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -968,9 +1228,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn IsPointerEvent(self: QDynamicPropertyChangeEvent) bool {
+    pub fn isPointerEvent(self: QDynamicPropertyChangeEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -980,17 +1244,25 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn IsSinglePointEvent(self: QDynamicPropertyChangeEvent) bool {
+    pub fn isSinglePointEvent(self: QDynamicPropertyChangeEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -1000,9 +1272,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1016,13 +1292,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QDynamicPropertyChangeEvent, accepted: bool) void {
+    pub fn setAccepted(self: QDynamicPropertyChangeEvent, accepted: bool) void {
         qtc.QDynamicPropertyChangeEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1036,9 +1312,13 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QDynamicPropertyChangeEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QDynamicPropertyChangeEvent, accepted: bool) void {
         qtc.QDynamicPropertyChangeEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1052,23 +1332,23 @@ pub const QDynamicPropertyChangeEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QDynamicPropertyChangeEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QDynamicPropertyChangeEvent, callback: *const fn (QDynamicPropertyChangeEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QDynamicPropertyChangeEvent, callback: *const fn (QDynamicPropertyChangeEvent, bool) callconv(.c) void) void {
         qtc.QDynamicPropertyChangeEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdynamicpropertychangeevent.html#dtor.QDynamicPropertyChangeEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDynamicPropertyChangeEvent `
     ///
-    pub fn Delete(self: QDynamicPropertyChangeEvent) void {
+    pub fn delete(self: QDynamicPropertyChangeEvent) void {
         qtc.QDynamicPropertyChangeEvent_Delete(@ptrCast(self.ptr));
     }
 };

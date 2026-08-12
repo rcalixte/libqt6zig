@@ -16,16 +16,24 @@ pub const QBackingStore = extern struct {
 
     pub const _is_QBackingStore = {};
 
-    /// New constructs a new QBackingStore object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QBackingStore object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn New(window: anytype) QBackingStore {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QBackingStore_new(@ptrCast(window.ptr)) };
+    pub fn new(_window: anytype) QBackingStore {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QBackingStore_new(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#window)
     ///
@@ -33,9 +41,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn Window(self: QBackingStore) QWindow {
+    pub fn window(self: QBackingStore) QWindow {
         return .{ .ptr = qtc.QBackingStore_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `paintDevice` instead
+    ///
+    pub const PaintDevice = paintDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#paintDevice)
     ///
@@ -43,9 +55,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn PaintDevice(self: QBackingStore) QPaintDevice {
+    pub fn paintDevice(self: QBackingStore) QPaintDevice {
         return .{ .ptr = qtc.QBackingStore_PaintDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `flush` instead
+    ///
+    pub const Flush = flush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#flush)
     ///
@@ -55,10 +71,14 @@ pub const QBackingStore = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn Flush(self: QBackingStore, region: anytype) void {
+    pub fn flush(self: QBackingStore, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QBackingStore_Flush(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#resize)
     ///
@@ -66,12 +86,16 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn Resize(self: QBackingStore, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QBackingStore_Resize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn resize(self: QBackingStore, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QBackingStore_Resize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#size)
     ///
@@ -79,9 +103,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn Size(self: QBackingStore) QSize {
+    pub fn size(self: QBackingStore) QSize {
         return .{ .ptr = qtc.QBackingStore_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#scroll)
     ///
@@ -95,10 +123,14 @@ pub const QBackingStore = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QBackingStore, area: anytype, dx: i32, dy: i32) bool {
+    pub fn scroll(self: QBackingStore, area: anytype, dx: i32, dy: i32) bool {
         comptime _ = @TypeOf(area)._is_QRegion;
         return qtc.QBackingStore_Scroll(@ptrCast(self.ptr), @ptrCast(area.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `beginPaint` instead
+    ///
+    pub const BeginPaint = beginPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#beginPaint)
     ///
@@ -108,10 +140,14 @@ pub const QBackingStore = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn BeginPaint(self: QBackingStore, param1: anytype) void {
+    pub fn beginPaint(self: QBackingStore, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QBackingStore_BeginPaint(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `endPaint` instead
+    ///
+    pub const EndPaint = endPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#endPaint)
     ///
@@ -119,9 +155,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn EndPaint(self: QBackingStore) void {
+    pub fn endPaint(self: QBackingStore) void {
         qtc.QBackingStore_EndPaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStaticContents` instead
+    ///
+    pub const SetStaticContents = setStaticContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#setStaticContents)
     ///
@@ -131,10 +171,14 @@ pub const QBackingStore = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetStaticContents(self: QBackingStore, region: anytype) void {
+    pub fn setStaticContents(self: QBackingStore, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QBackingStore_SetStaticContents(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `staticContents` instead
+    ///
+    pub const StaticContents = staticContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#staticContents)
     ///
@@ -142,9 +186,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn StaticContents(self: QBackingStore) QRegion {
+    pub fn staticContents(self: QBackingStore) QRegion {
         return .{ .ptr = qtc.QBackingStore_StaticContents(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasStaticContents` instead
+    ///
+    pub const HasStaticContents = hasStaticContents;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#hasStaticContents)
     ///
@@ -152,25 +200,13 @@ pub const QBackingStore = extern struct {
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn HasStaticContents(self: QBackingStore) bool {
+    pub fn hasStaticContents(self: QBackingStore) bool {
         return qtc.QBackingStore_HasStaticContents(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#flush)
+    /// ### DEPRECATED: Use `flush2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBackingStore `
-    ///
-    /// ` region: QRegion `
-    ///
-    /// ` window: QWindow `
-    ///
-    pub fn Flush2(self: QBackingStore, region: anytype, window: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        comptime _ = @TypeOf(window)._is_QWindow;
-        qtc.QBackingStore_Flush2(@ptrCast(self.ptr), @ptrCast(region.ptr), @ptrCast(window.ptr));
-    }
+    pub const Flush2 = flush2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#flush)
     ///
@@ -180,30 +216,50 @@ pub const QBackingStore = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
+    ///
+    pub fn flush2(self: QBackingStore, region: anytype, _window: anytype) void {
+        comptime _ = @TypeOf(region)._is_QRegion;
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        qtc.QBackingStore_Flush2(@ptrCast(self.ptr), @ptrCast(region.ptr), @ptrCast(_window.ptr));
+    }
+
+    /// ### DEPRECATED: Use `flush3` instead
+    ///
+    pub const Flush3 = flush3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#flush)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBackingStore `
+    ///
+    /// ` region: QRegion `
+    ///
+    /// ` _window: QWindow `
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Flush3(self: QBackingStore, region: anytype, window: anytype, offset: anytype) void {
+    pub fn flush3(self: QBackingStore, region: anytype, _window: anytype, offset: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
-        comptime _ = @TypeOf(window)._is_QWindow;
+        comptime _ = @TypeOf(_window)._is_QWindow;
         comptime _ = @TypeOf(offset)._is_QPoint;
-        qtc.QBackingStore_Flush3(@ptrCast(self.ptr), @ptrCast(region.ptr), @ptrCast(window.ptr), @ptrCast(offset.ptr));
+        qtc.QBackingStore_Flush3(@ptrCast(self.ptr), @ptrCast(region.ptr), @ptrCast(_window.ptr), @ptrCast(offset.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbackingstore.html#dtor.QBackingStore)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBackingStore `
     ///
-    pub fn Delete(self: QBackingStore) void {
+    pub fn delete(self: QBackingStore) void {
         qtc.QBackingStore_Delete(@ptrCast(self.ptr));
     }
 };

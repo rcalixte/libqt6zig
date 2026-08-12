@@ -82,7 +82,11 @@ pub const KAboutApplicationDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KAboutApplicationDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KAboutApplicationDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -90,23 +94,31 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` opts: flag of kaboutapplicationdialog_enums.Option `
     ///
-    pub fn New(aboutData: anytype, opts: i32) KAboutApplicationDialog {
+    pub fn new(aboutData: anytype, opts: i32) KAboutApplicationDialog {
         comptime _ = @TypeOf(aboutData)._is_KAboutData;
         return .{ .ptr = qtc.KAboutApplicationDialog_new(@ptrCast(aboutData.ptr), @bitCast(opts)) };
     }
 
-    /// New2 constructs a new KAboutApplicationDialog object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KAboutApplicationDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aboutData: KAboutData `
     ///
-    pub fn New2(aboutData: anytype) KAboutApplicationDialog {
+    pub fn new2(aboutData: anytype) KAboutApplicationDialog {
         comptime _ = @TypeOf(aboutData)._is_KAboutData;
         return .{ .ptr = qtc.KAboutApplicationDialog_new2(@ptrCast(aboutData.ptr)) };
     }
 
-    /// New3 constructs a new KAboutApplicationDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KAboutApplicationDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -114,27 +126,35 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` opts: flag of kaboutapplicationdialog_enums.Option `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New3(aboutData: anytype, opts: i32, parent: anytype) KAboutApplicationDialog {
+    pub fn new3(aboutData: anytype, opts: i32, _parent: anytype) KAboutApplicationDialog {
         comptime _ = @TypeOf(aboutData)._is_KAboutData;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KAboutApplicationDialog_new3(@ptrCast(aboutData.ptr), @bitCast(opts), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KAboutApplicationDialog_new3(@ptrCast(aboutData.ptr), @bitCast(opts), @ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new KAboutApplicationDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KAboutApplicationDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aboutData: KAboutData `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(aboutData: anytype, parent: anytype) KAboutApplicationDialog {
+    pub fn new4(aboutData: anytype, _parent: anytype) KAboutApplicationDialog {
         comptime _ = @TypeOf(aboutData)._is_KAboutData;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KAboutApplicationDialog_new4(@ptrCast(aboutData.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KAboutApplicationDialog_new4(@ptrCast(aboutData.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -142,9 +162,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MetaObject(self: KAboutApplicationDialog) QMetaObject {
+    pub fn metaObject(self: KAboutApplicationDialog) QMetaObject {
         return .{ .ptr = qtc.KAboutApplicationDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -156,13 +180,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KAboutApplicationDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -172,9 +196,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperMetaObject(self: KAboutApplicationDialog) QMetaObject {
+    pub fn superMetaObject(self: KAboutApplicationDialog) QMetaObject {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -182,10 +210,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KAboutApplicationDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KAboutApplicationDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAboutApplicationDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -195,13 +227,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KAboutApplicationDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -211,10 +243,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KAboutApplicationDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KAboutApplicationDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KAboutApplicationDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -226,9 +262,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KAboutApplicationDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KAboutApplicationDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KAboutApplicationDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -238,13 +278,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -258,9 +298,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KAboutApplicationDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KAboutApplicationDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KAboutApplicationDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -270,14 +314,18 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -289,15 +337,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -311,15 +363,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -329,9 +385,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Result(self: KAboutApplicationDialog) i32 {
+    pub fn result(self: KAboutApplicationDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -343,9 +403,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KAboutApplicationDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KAboutApplicationDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -355,9 +419,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KAboutApplicationDialog) bool {
+    pub fn isSizeGripEnabled(self: KAboutApplicationDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -369,9 +437,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KAboutApplicationDialog, modal: bool) void {
+    pub fn setModal(self: KAboutApplicationDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -383,9 +455,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KAboutApplicationDialog, r: i32) void {
+    pub fn setResult(self: KAboutApplicationDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -395,11 +471,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KAboutApplicationDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KAboutApplicationDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -411,10 +491,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -423,10 +507,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Accepted(self: KAboutApplicationDialog) void {
+    pub fn accepted(self: KAboutApplicationDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -437,9 +525,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -449,9 +541,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Rejected(self: KAboutApplicationDialog) void {
+    pub fn rejected(self: KAboutApplicationDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -463,9 +559,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -475,9 +575,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn WinId(self: KAboutApplicationDialog) usize {
+    pub fn winId(self: KAboutApplicationDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -487,9 +591,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn CreateWinId(self: KAboutApplicationDialog) void {
+    pub fn createWinId(self: KAboutApplicationDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -499,9 +607,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn InternalWinId(self: KAboutApplicationDialog) usize {
+    pub fn internalWinId(self: KAboutApplicationDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -511,9 +623,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn EffectiveWinId(self: KAboutApplicationDialog) usize {
+    pub fn effectiveWinId(self: KAboutApplicationDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -523,9 +639,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Style(self: KAboutApplicationDialog) QStyle {
+    pub fn style(self: KAboutApplicationDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -535,12 +655,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KAboutApplicationDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KAboutApplicationDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -550,9 +674,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsTopLevel(self: KAboutApplicationDialog) bool {
+    pub fn isTopLevel(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -562,9 +690,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsWindow(self: KAboutApplicationDialog) bool {
+    pub fn isWindow(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -574,9 +706,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsModal(self: KAboutApplicationDialog) bool {
+    pub fn isModal(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -590,9 +726,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KAboutApplicationDialog) i32 {
+    pub fn windowModality(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -602,11 +742,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KAboutApplicationDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KAboutApplicationDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -616,9 +760,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsEnabled(self: KAboutApplicationDialog) bool {
+    pub fn isEnabled(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -630,10 +778,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KAboutApplicationDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KAboutApplicationDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -645,9 +797,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KAboutApplicationDialog, enabled: bool) void {
+    pub fn setEnabled(self: KAboutApplicationDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -659,9 +815,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KAboutApplicationDialog, disabled: bool) void {
+    pub fn setDisabled(self: KAboutApplicationDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -673,9 +833,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KAboutApplicationDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KAboutApplicationDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -685,9 +849,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FrameGeometry(self: KAboutApplicationDialog) QRect {
+    pub fn frameGeometry(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -697,9 +865,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Geometry(self: KAboutApplicationDialog) QRect {
+    pub fn geometry(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -709,9 +881,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn NormalGeometry(self: KAboutApplicationDialog) QRect {
+    pub fn normalGeometry(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -721,9 +897,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn X(self: KAboutApplicationDialog) i32 {
+    pub fn x(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -733,9 +913,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Y(self: KAboutApplicationDialog) i32 {
+    pub fn y(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -745,9 +929,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Pos(self: KAboutApplicationDialog) QPoint {
+    pub fn pos(self: KAboutApplicationDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -757,9 +945,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FrameSize(self: KAboutApplicationDialog) QSize {
+    pub fn frameSize(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -769,9 +961,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Size(self: KAboutApplicationDialog) QSize {
+    pub fn size(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -781,9 +977,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Width(self: KAboutApplicationDialog) i32 {
+    pub fn width(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -793,9 +993,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Height(self: KAboutApplicationDialog) i32 {
+    pub fn height(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -805,9 +1009,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Rect(self: KAboutApplicationDialog) QRect {
+    pub fn rect(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -817,9 +1025,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ChildrenRect(self: KAboutApplicationDialog) QRect {
+    pub fn childrenRect(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +1041,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ChildrenRegion(self: KAboutApplicationDialog) QRegion {
+    pub fn childrenRegion(self: KAboutApplicationDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1057,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MinimumSize(self: KAboutApplicationDialog) QSize {
+    pub fn minimumSize(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1073,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MaximumSize(self: KAboutApplicationDialog) QSize {
+    pub fn maximumSize(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -865,9 +1089,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MinimumWidth(self: KAboutApplicationDialog) i32 {
+    pub fn minimumWidth(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -877,9 +1105,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MinimumHeight(self: KAboutApplicationDialog) i32 {
+    pub fn minimumHeight(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -889,9 +1121,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MaximumWidth(self: KAboutApplicationDialog) i32 {
+    pub fn maximumWidth(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -901,9 +1137,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MaximumHeight(self: KAboutApplicationDialog) i32 {
+    pub fn maximumHeight(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -913,12 +1153,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KAboutApplicationDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KAboutApplicationDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -932,9 +1176,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KAboutApplicationDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KAboutApplicationDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -944,12 +1192,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KAboutApplicationDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KAboutApplicationDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -963,9 +1215,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KAboutApplicationDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KAboutApplicationDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -977,9 +1233,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KAboutApplicationDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KAboutApplicationDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -991,9 +1251,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KAboutApplicationDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KAboutApplicationDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1005,9 +1269,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KAboutApplicationDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KAboutApplicationDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1019,9 +1287,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KAboutApplicationDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KAboutApplicationDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1031,9 +1303,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SizeIncrement(self: KAboutApplicationDialog) QSize {
+    pub fn sizeIncrement(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1043,12 +1319,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KAboutApplicationDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KAboutApplicationDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1062,9 +1342,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KAboutApplicationDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KAboutApplicationDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1074,9 +1358,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn BaseSize(self: KAboutApplicationDialog) QSize {
+    pub fn baseSize(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1086,12 +1374,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KAboutApplicationDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KAboutApplicationDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1105,9 +1397,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KAboutApplicationDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KAboutApplicationDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1119,10 +1415,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KAboutApplicationDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KAboutApplicationDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1136,9 +1436,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KAboutApplicationDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KAboutApplicationDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1150,9 +1454,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KAboutApplicationDialog, w: i32) void {
+    pub fn setFixedWidth(self: KAboutApplicationDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1164,9 +1472,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KAboutApplicationDialog, h: i32) void {
+    pub fn setFixedHeight(self: KAboutApplicationDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1178,11 +1490,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KAboutApplicationDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KAboutApplicationDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1193,11 +1509,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KAboutApplicationDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KAboutApplicationDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1208,11 +1528,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KAboutApplicationDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KAboutApplicationDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1223,11 +1547,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KAboutApplicationDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KAboutApplicationDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1238,11 +1566,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KAboutApplicationDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KAboutApplicationDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1253,10 +1585,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KAboutApplicationDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KAboutApplicationDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1268,10 +1604,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KAboutApplicationDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KAboutApplicationDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1283,10 +1623,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KAboutApplicationDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KAboutApplicationDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1300,12 +1644,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1318,11 +1666,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1336,11 +1688,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1354,11 +1710,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KAboutApplicationDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1368,9 +1728,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Window(self: KAboutApplicationDialog) QWidget {
+    pub fn window(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1380,9 +1744,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn NativeParentWidget(self: KAboutApplicationDialog) QWidget {
+    pub fn nativeParentWidget(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1392,9 +1760,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn TopLevelWidget(self: KAboutApplicationDialog) QWidget {
+    pub fn topLevelWidget(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1404,9 +1776,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Palette(self: KAboutApplicationDialog) QPalette {
+    pub fn palette(self: KAboutApplicationDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1416,12 +1792,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KAboutApplicationDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KAboutApplicationDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1431,11 +1811,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KAboutApplicationDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KAboutApplicationDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1449,9 +1833,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KAboutApplicationDialog) i32 {
+    pub fn backgroundRole(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1461,11 +1849,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KAboutApplicationDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KAboutApplicationDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1479,9 +1871,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KAboutApplicationDialog) i32 {
+    pub fn foregroundRole(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1491,9 +1887,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Font(self: KAboutApplicationDialog) QFont {
+    pub fn font(self: KAboutApplicationDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1503,12 +1903,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KAboutApplicationDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KAboutApplicationDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1518,9 +1922,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FontMetrics(self: KAboutApplicationDialog) QFontMetrics {
+    pub fn fontMetrics(self: KAboutApplicationDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1530,9 +1938,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FontInfo(self: KAboutApplicationDialog) QFontInfo {
+    pub fn fontInfo(self: KAboutApplicationDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1542,9 +1954,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Cursor(self: KAboutApplicationDialog) QCursor {
+    pub fn cursor(self: KAboutApplicationDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1554,12 +1970,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KAboutApplicationDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KAboutApplicationDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1569,9 +1989,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UnsetCursor(self: KAboutApplicationDialog) void {
+    pub fn unsetCursor(self: KAboutApplicationDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1583,9 +2007,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KAboutApplicationDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KAboutApplicationDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1595,9 +2023,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn HasMouseTracking(self: KAboutApplicationDialog) bool {
+    pub fn hasMouseTracking(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1607,9 +2039,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UnderMouse(self: KAboutApplicationDialog) bool {
+    pub fn underMouse(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1621,9 +2057,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KAboutApplicationDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KAboutApplicationDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1633,24 +2073,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn HasTabletTracking(self: KAboutApplicationDialog) bool {
+    pub fn hasTabletTracking(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAboutApplicationDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KAboutApplicationDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1660,12 +2089,35 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KAboutApplicationDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KAboutApplicationDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KAboutApplicationDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KAboutApplicationDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1675,9 +2127,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Mask(self: KAboutApplicationDialog) QRegion {
+    pub fn mask(self: KAboutApplicationDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1687,9 +2143,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ClearMask(self: KAboutApplicationDialog) void {
+    pub fn clearMask(self: KAboutApplicationDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1701,10 +2161,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KAboutApplicationDialog, target: anytype) void {
+    pub fn render(self: KAboutApplicationDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1716,10 +2180,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KAboutApplicationDialog, painter: anytype) void {
+    pub fn render2(self: KAboutApplicationDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1729,9 +2197,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Grab(self: KAboutApplicationDialog) QPixmap {
+    pub fn grab(self: KAboutApplicationDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1741,9 +2213,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn GraphicsEffect(self: KAboutApplicationDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KAboutApplicationDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1755,10 +2231,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KAboutApplicationDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KAboutApplicationDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1770,9 +2250,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KAboutApplicationDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KAboutApplicationDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1784,9 +2268,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KAboutApplicationDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KAboutApplicationDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1796,15 +2284,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KAboutApplicationDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KAboutApplicationDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1814,15 +2306,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KAboutApplicationDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KAboutApplicationDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1834,13 +2330,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1852,13 +2352,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1870,10 +2374,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KAboutApplicationDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KAboutApplicationDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1883,9 +2391,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn WindowIcon(self: KAboutApplicationDialog) QIcon {
+    pub fn windowIcon(self: KAboutApplicationDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1895,15 +2407,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KAboutApplicationDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KAboutApplicationDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1915,13 +2431,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1931,15 +2451,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KAboutApplicationDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KAboutApplicationDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1951,13 +2475,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1969,13 +2497,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KAboutApplicationDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KAboutApplicationDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1987,13 +2519,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2005,9 +2541,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KAboutApplicationDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KAboutApplicationDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2017,9 +2557,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn WindowOpacity(self: KAboutApplicationDialog) f64 {
+    pub fn windowOpacity(self: KAboutApplicationDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2029,9 +2573,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsWindowModified(self: KAboutApplicationDialog) bool {
+    pub fn isWindowModified(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2041,15 +2589,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KAboutApplicationDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KAboutApplicationDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2061,13 +2613,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2079,9 +2635,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KAboutApplicationDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KAboutApplicationDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2091,9 +2651,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ToolTipDuration(self: KAboutApplicationDialog) i32 {
+    pub fn toolTipDuration(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2103,15 +2667,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KAboutApplicationDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KAboutApplicationDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2123,13 +2691,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2139,15 +2711,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KAboutApplicationDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KAboutApplicationDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2159,13 +2735,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2177,13 +2757,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2195,13 +2779,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KAboutApplicationDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KAboutApplicationDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2213,13 +2801,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2231,13 +2823,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KAboutApplicationDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KAboutApplicationDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2249,9 +2845,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KAboutApplicationDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KAboutApplicationDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2265,9 +2865,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KAboutApplicationDialog) i32 {
+    pub fn layoutDirection(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2277,9 +2881,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KAboutApplicationDialog) void {
+    pub fn unsetLayoutDirection(self: KAboutApplicationDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2289,12 +2897,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KAboutApplicationDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KAboutApplicationDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2304,9 +2916,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Locale(self: KAboutApplicationDialog) QLocale {
+    pub fn locale(self: KAboutApplicationDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2316,9 +2932,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UnsetLocale(self: KAboutApplicationDialog) void {
+    pub fn unsetLocale(self: KAboutApplicationDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2328,9 +2948,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsRightToLeft(self: KAboutApplicationDialog) bool {
+    pub fn isRightToLeft(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2340,9 +2964,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsLeftToRight(self: KAboutApplicationDialog) bool {
+    pub fn isLeftToRight(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2352,9 +2980,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SetFocus(self: KAboutApplicationDialog) void {
+    pub fn setFocus(self: KAboutApplicationDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2364,9 +2996,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsActiveWindow(self: KAboutApplicationDialog) bool {
+    pub fn isActiveWindow(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2376,9 +3012,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ActivateWindow(self: KAboutApplicationDialog) void {
+    pub fn activateWindow(self: KAboutApplicationDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2388,9 +3028,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ClearFocus(self: KAboutApplicationDialog) void {
+    pub fn clearFocus(self: KAboutApplicationDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2402,9 +3046,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KAboutApplicationDialog, reason: i32) void {
+    pub fn setFocus2(self: KAboutApplicationDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2418,9 +3066,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KAboutApplicationDialog) i32 {
+    pub fn focusPolicy(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2432,9 +3084,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KAboutApplicationDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KAboutApplicationDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2444,9 +3100,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn HasFocus(self: KAboutApplicationDialog) bool {
+    pub fn hasFocus(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2458,11 +3118,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2472,12 +3136,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KAboutApplicationDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KAboutApplicationDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2487,9 +3155,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FocusProxy(self: KAboutApplicationDialog) QWidget {
+    pub fn focusProxy(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2503,9 +3175,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KAboutApplicationDialog) i32 {
+    pub fn contextMenuPolicy(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2517,9 +3193,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KAboutApplicationDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KAboutApplicationDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2529,9 +3209,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn GrabMouse(self: KAboutApplicationDialog) void {
+    pub fn grabMouse(self: KAboutApplicationDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2543,10 +3227,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2556,9 +3244,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ReleaseMouse(self: KAboutApplicationDialog) void {
+    pub fn releaseMouse(self: KAboutApplicationDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2568,9 +3260,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn GrabKeyboard(self: KAboutApplicationDialog) void {
+    pub fn grabKeyboard(self: KAboutApplicationDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2580,9 +3276,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ReleaseKeyboard(self: KAboutApplicationDialog) void {
+    pub fn releaseKeyboard(self: KAboutApplicationDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2594,10 +3294,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KAboutApplicationDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KAboutApplicationDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2609,9 +3313,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KAboutApplicationDialog, id: i32) void {
+    pub fn releaseShortcut(self: KAboutApplicationDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2623,9 +3331,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KAboutApplicationDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KAboutApplicationDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2637,25 +3349,37 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KAboutApplicationDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KAboutApplicationDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2665,9 +3389,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UpdatesEnabled(self: KAboutApplicationDialog) bool {
+    pub fn updatesEnabled(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2679,9 +3407,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KAboutApplicationDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KAboutApplicationDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2691,9 +3423,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KAboutApplicationDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KAboutApplicationDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2703,9 +3439,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Update(self: KAboutApplicationDialog) void {
+    pub fn update(self: KAboutApplicationDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2715,9 +3455,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Repaint(self: KAboutApplicationDialog) void {
+    pub fn repaint(self: KAboutApplicationDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2727,17 +3471,21 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KAboutApplicationDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KAboutApplicationDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2749,11 +3497,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn update3(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2764,10 +3516,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn update4(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2777,17 +3533,21 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KAboutApplicationDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KAboutApplicationDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2799,10 +3559,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn repaint3(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2814,10 +3578,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn repaint4(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2829,9 +3597,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KAboutApplicationDialog, hidden: bool) void {
+    pub fn setHidden(self: KAboutApplicationDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3613,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Show(self: KAboutApplicationDialog) void {
+    pub fn show(self: KAboutApplicationDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3629,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Hide(self: KAboutApplicationDialog) void {
+    pub fn hide(self: KAboutApplicationDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2865,9 +3645,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ShowMinimized(self: KAboutApplicationDialog) void {
+    pub fn showMinimized(self: KAboutApplicationDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2877,9 +3661,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ShowMaximized(self: KAboutApplicationDialog) void {
+    pub fn showMaximized(self: KAboutApplicationDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2889,9 +3677,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ShowFullScreen(self: KAboutApplicationDialog) void {
+    pub fn showFullScreen(self: KAboutApplicationDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2901,9 +3693,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ShowNormal(self: KAboutApplicationDialog) void {
+    pub fn showNormal(self: KAboutApplicationDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2913,9 +3709,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Close(self: KAboutApplicationDialog) bool {
+    pub fn close(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2925,9 +3725,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Raise(self: KAboutApplicationDialog) void {
+    pub fn raise(self: KAboutApplicationDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2937,9 +3741,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Lower(self: KAboutApplicationDialog) void {
+    pub fn lower(self: KAboutApplicationDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2951,10 +3759,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn stackUnder(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2964,13 +3776,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KAboutApplicationDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KAboutApplicationDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2982,10 +3798,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn move2(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2999,9 +3819,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KAboutApplicationDialog, w: i32, h: i32) void {
+    pub fn resize(self: KAboutApplicationDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3013,10 +3837,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn resize2(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3026,17 +3854,21 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KAboutApplicationDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KAboutApplicationDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3046,12 +3878,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KAboutApplicationDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KAboutApplicationDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3063,13 +3899,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KAboutApplicationDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KAboutApplicationDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3079,15 +3919,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KAboutApplicationDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KAboutApplicationDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3097,9 +3941,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn AdjustSize(self: KAboutApplicationDialog) void {
+    pub fn adjustSize(self: KAboutApplicationDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3109,9 +3957,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsVisible(self: KAboutApplicationDialog) bool {
+    pub fn isVisible(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3123,10 +3975,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KAboutApplicationDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KAboutApplicationDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3136,9 +3992,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsHidden(self: KAboutApplicationDialog) bool {
+    pub fn isHidden(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3148,9 +4008,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsMinimized(self: KAboutApplicationDialog) bool {
+    pub fn isMinimized(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3160,9 +4024,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsMaximized(self: KAboutApplicationDialog) bool {
+    pub fn isMaximized(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3172,9 +4040,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsFullScreen(self: KAboutApplicationDialog) bool {
+    pub fn isFullScreen(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4060,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KAboutApplicationDialog) i32 {
+    pub fn windowState(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3202,9 +4078,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KAboutApplicationDialog, state: i32) void {
+    pub fn setWindowState(self: KAboutApplicationDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3216,9 +4096,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KAboutApplicationDialog, state: i32) void {
+    pub fn overrideWindowState(self: KAboutApplicationDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3228,9 +4112,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SizePolicy(self: KAboutApplicationDialog) QSizePolicy {
+    pub fn sizePolicy(self: KAboutApplicationDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3240,12 +4128,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KAboutApplicationDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KAboutApplicationDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3259,9 +4151,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KAboutApplicationDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KAboutApplicationDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4167,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn VisibleRegion(self: KAboutApplicationDialog) QRegion {
+    pub fn visibleRegion(self: KAboutApplicationDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3291,9 +4191,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KAboutApplicationDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KAboutApplicationDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3305,10 +4209,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KAboutApplicationDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KAboutApplicationDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3318,9 +4226,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ContentsMargins(self: KAboutApplicationDialog) QMargins {
+    pub fn contentsMargins(self: KAboutApplicationDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3330,9 +4242,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ContentsRect(self: KAboutApplicationDialog) QRect {
+    pub fn contentsRect(self: KAboutApplicationDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3342,9 +4258,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Layout(self: KAboutApplicationDialog) QLayout {
+    pub fn layout(self: KAboutApplicationDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3354,12 +4274,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KAboutApplicationDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KAboutApplicationDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3369,24 +4293,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UpdateGeometry(self: KAboutApplicationDialog) void {
+    pub fn updateGeometry(self: KAboutApplicationDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAboutApplicationDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KAboutApplicationDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3396,14 +4309,37 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KAboutApplicationDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KAboutApplicationDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KAboutApplicationDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KAboutApplicationDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3417,9 +4353,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KAboutApplicationDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KAboutApplicationDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3435,10 +4375,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KAboutApplicationDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KAboutApplicationDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3448,9 +4392,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FocusWidget(self: KAboutApplicationDialog) QWidget {
+    pub fn focusWidget(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3460,9 +4408,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn NextInFocusChain(self: KAboutApplicationDialog) QWidget {
+    pub fn nextInFocusChain(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3472,9 +4424,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn PreviousInFocusChain(self: KAboutApplicationDialog) QWidget {
+    pub fn previousInFocusChain(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3484,9 +4440,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn AcceptDrops(self: KAboutApplicationDialog) bool {
+    pub fn acceptDrops(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4458,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KAboutApplicationDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KAboutApplicationDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3512,10 +4476,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KAboutApplicationDialog, action: anytype) void {
+    pub fn addAction(self: KAboutApplicationDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3525,15 +4493,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KAboutApplicationDialog, actions: []QAction) void {
+    pub fn addActions(self: KAboutApplicationDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3545,16 +4517,20 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KAboutApplicationDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KAboutApplicationDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3568,11 +4544,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KAboutApplicationDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KAboutApplicationDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3584,10 +4564,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KAboutApplicationDialog, action: anytype) void {
+    pub fn removeAction(self: KAboutApplicationDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3599,15 +4583,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAboutApplicationDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KAboutApplicationDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3619,13 +4607,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KAboutApplicationDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KAboutApplicationDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3639,7 +4631,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KAboutApplicationDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KAboutApplicationDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3648,6 +4640,10 @@ pub const KAboutApplicationDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3660,7 +4656,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KAboutApplicationDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KAboutApplicationDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3668,6 +4664,10 @@ pub const KAboutApplicationDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3683,7 +4683,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KAboutApplicationDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KAboutApplicationDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3693,6 +4693,10 @@ pub const KAboutApplicationDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3701,9 +4705,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ParentWidget(self: KAboutApplicationDialog) QWidget {
+    pub fn parentWidget(self: KAboutApplicationDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3715,9 +4723,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KAboutApplicationDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KAboutApplicationDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3731,9 +4743,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KAboutApplicationDialog) i32 {
+    pub fn windowFlags(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3745,9 +4761,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KAboutApplicationDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KAboutApplicationDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3759,9 +4779,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KAboutApplicationDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KAboutApplicationDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3775,9 +4799,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KAboutApplicationDialog) i32 {
+    pub fn windowType(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3787,9 +4815,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3799,13 +4831,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KAboutApplicationDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KAboutApplicationDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3817,10 +4853,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KAboutApplicationDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KAboutApplicationDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3832,10 +4872,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KAboutApplicationDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KAboutApplicationDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3847,9 +4891,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KAboutApplicationDialog, param1: i32) void {
+    pub fn setAttribute(self: KAboutApplicationDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3861,9 +4909,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KAboutApplicationDialog, param1: i32) bool {
+    pub fn testAttribute(self: KAboutApplicationDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3873,9 +4925,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn EnsurePolished(self: KAboutApplicationDialog) void {
+    pub fn ensurePolished(self: KAboutApplicationDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3887,10 +4943,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KAboutApplicationDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KAboutApplicationDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3900,9 +4960,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn AutoFillBackground(self: KAboutApplicationDialog) bool {
+    pub fn autoFillBackground(self: KAboutApplicationDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3914,9 +4978,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KAboutApplicationDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KAboutApplicationDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3926,9 +4994,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn BackingStore(self: KAboutApplicationDialog) QBackingStore {
+    pub fn backingStore(self: KAboutApplicationDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3938,9 +5010,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn WindowHandle(self: KAboutApplicationDialog) QWindow {
+    pub fn windowHandle(self: KAboutApplicationDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3950,9 +5026,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Screen(self: KAboutApplicationDialog) QScreen {
+    pub fn screen(self: KAboutApplicationDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3962,12 +5042,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KAboutApplicationDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KAboutApplicationDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3975,12 +5059,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3992,13 +5080,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KAboutApplicationDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KAboutApplicationDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5102,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4024,10 +5120,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KAboutApplicationDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KAboutApplicationDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4039,9 +5139,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4053,13 +5157,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KAboutApplicationDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KAboutApplicationDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4071,9 +5179,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4083,12 +5195,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KAboutApplicationDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KAboutApplicationDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4100,9 +5216,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4116,9 +5236,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KAboutApplicationDialog) i32 {
+    pub fn inputMethodHints(self: KAboutApplicationDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4130,9 +5254,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KAboutApplicationDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KAboutApplicationDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4146,11 +5274,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4166,13 +5298,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4189,12 +5325,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KAboutApplicationDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4208,11 +5348,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4228,12 +5372,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4251,12 +5399,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KAboutApplicationDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4268,10 +5420,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KAboutApplicationDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KAboutApplicationDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4285,9 +5441,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KAboutApplicationDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KAboutApplicationDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4301,10 +5461,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KAboutApplicationDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KAboutApplicationDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4318,9 +5482,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KAboutApplicationDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KAboutApplicationDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4334,9 +5502,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KAboutApplicationDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KAboutApplicationDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4350,9 +5522,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KAboutApplicationDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KAboutApplicationDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4366,25 +5542,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KAboutApplicationDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KAboutApplicationDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4392,17 +5556,41 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4414,13 +5602,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KAboutApplicationDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4432,13 +5624,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KAboutApplicationDialog, name: []const u8) void {
+    pub fn setObjectName(self: KAboutApplicationDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4448,9 +5644,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsWidgetType(self: KAboutApplicationDialog) bool {
+    pub fn isWidgetType(self: KAboutApplicationDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4460,9 +5660,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsWindowType(self: KAboutApplicationDialog) bool {
+    pub fn isWindowType(self: KAboutApplicationDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4472,9 +5676,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn IsQuickItemType(self: KAboutApplicationDialog) bool {
+    pub fn isQuickItemType(self: KAboutApplicationDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4484,9 +5692,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SignalsBlocked(self: KAboutApplicationDialog) bool {
+    pub fn signalsBlocked(self: KAboutApplicationDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4498,9 +5710,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KAboutApplicationDialog, b: bool) bool {
+    pub fn blockSignals(self: KAboutApplicationDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4510,9 +5726,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Thread(self: KAboutApplicationDialog) QThread {
+    pub fn thread(self: KAboutApplicationDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4522,12 +5742,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KAboutApplicationDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KAboutApplicationDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4539,9 +5763,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KAboutApplicationDialog, interval: i32) i32 {
+    pub fn startTimer(self: KAboutApplicationDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4553,9 +5781,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KAboutApplicationDialog, time: i64) i32 {
+    pub fn startTimer2(self: KAboutApplicationDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4567,9 +5799,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KAboutApplicationDialog, id: i32) void {
+    pub fn killTimer(self: KAboutApplicationDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4581,9 +5817,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KAboutApplicationDialog, id: i32) void {
+    pub fn killTimer2(self: KAboutApplicationDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4595,15 +5835,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KAboutApplicationDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KAboutApplicationDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KAboutApplicationDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4615,10 +5859,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KAboutApplicationDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KAboutApplicationDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4630,10 +5878,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KAboutApplicationDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KAboutApplicationDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4641,7 +5893,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4649,13 +5901,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4663,7 +5919,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4671,13 +5927,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4687,18 +5947,22 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KAboutApplicationDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KAboutApplicationDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4706,7 +5970,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4714,13 +5978,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4728,7 +5996,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4736,13 +6004,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4752,9 +6024,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Disconnect3(self: KAboutApplicationDialog) bool {
+    pub fn disconnect3(self: KAboutApplicationDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4766,10 +6042,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KAboutApplicationDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KAboutApplicationDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4779,10 +6059,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4792,9 +6076,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DumpObjectTree(self: KAboutApplicationDialog) void {
+    pub fn dumpObjectTree(self: KAboutApplicationDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4804,9 +6092,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DumpObjectInfo(self: KAboutApplicationDialog) void {
+    pub fn dumpObjectInfo(self: KAboutApplicationDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4820,11 +6112,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KAboutApplicationDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KAboutApplicationDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4836,10 +6132,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KAboutApplicationDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KAboutApplicationDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4851,7 +6151,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KAboutApplicationDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KAboutApplicationDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4859,27 +6159,19 @@ pub const KAboutApplicationDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KAboutApplicationDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KAboutApplicationDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KAboutApplicationDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KAboutApplicationDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KAboutApplicationDialog `
-    ///
-    pub fn BindingStorage(self: KAboutApplicationDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4889,9 +6181,29 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn BindingStorage2(self: KAboutApplicationDialog) QBindingStorage {
+    pub fn bindingStorage(self: KAboutApplicationDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KAboutApplicationDialog `
+    ///
+    pub fn bindingStorage2(self: KAboutApplicationDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4901,9 +6213,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Destroyed(self: KAboutApplicationDialog) void {
+    pub fn destroyed(self: KAboutApplicationDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4915,9 +6231,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4927,9 +6247,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Parent(self: KAboutApplicationDialog) QObject {
+    pub fn parent(self: KAboutApplicationDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4941,10 +6265,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KAboutApplicationDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KAboutApplicationDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4954,9 +6282,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DeleteLater(self: KAboutApplicationDialog) void {
+    pub fn deleteLater(self: KAboutApplicationDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4970,9 +6302,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KAboutApplicationDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KAboutApplicationDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4986,9 +6322,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KAboutApplicationDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KAboutApplicationDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4996,7 +6336,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5006,13 +6346,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5020,7 +6364,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5030,13 +6374,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5046,7 +6394,7 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5054,12 +6402,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KAboutApplicationDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KAboutApplicationDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5071,10 +6423,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KAboutApplicationDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KAboutApplicationDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5088,11 +6444,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KAboutApplicationDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KAboutApplicationDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5108,13 +6468,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KAboutApplicationDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KAboutApplicationDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5127,11 +6491,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KAboutApplicationDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KAboutApplicationDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5143,10 +6511,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn destroyed1(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5158,9 +6530,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5170,9 +6546,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn PaintingActive(self: KAboutApplicationDialog) bool {
+    pub fn paintingActive(self: KAboutApplicationDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5182,9 +6562,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn WidthMM(self: KAboutApplicationDialog) i32 {
+    pub fn widthMM(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5194,9 +6578,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn HeightMM(self: KAboutApplicationDialog) i32 {
+    pub fn heightMM(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5206,9 +6594,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn LogicalDpiX(self: KAboutApplicationDialog) i32 {
+    pub fn logicalDpiX(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5218,9 +6610,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn LogicalDpiY(self: KAboutApplicationDialog) i32 {
+    pub fn logicalDpiY(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5230,9 +6626,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn PhysicalDpiX(self: KAboutApplicationDialog) i32 {
+    pub fn physicalDpiX(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5242,9 +6642,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn PhysicalDpiY(self: KAboutApplicationDialog) i32 {
+    pub fn physicalDpiY(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5254,9 +6658,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DevicePixelRatio(self: KAboutApplicationDialog) f64 {
+    pub fn devicePixelRatio(self: KAboutApplicationDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5266,9 +6674,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DevicePixelRatioF(self: KAboutApplicationDialog) f64 {
+    pub fn devicePixelRatioF(self: KAboutApplicationDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5278,9 +6690,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn ColorCount(self: KAboutApplicationDialog) i32 {
+    pub fn colorCount(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5290,17 +6706,25 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Depth(self: KAboutApplicationDialog) i32 {
+    pub fn depth(self: KAboutApplicationDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5308,13 +6732,17 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5328,13 +6756,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KAboutApplicationDialog, visible: bool) void {
+    pub fn setVisible(self: KAboutApplicationDialog, visible: bool) void {
         qtc.KAboutApplicationDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5348,9 +6776,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KAboutApplicationDialog, visible: bool) void {
+    pub fn superSetVisible(self: KAboutApplicationDialog, visible: bool) void {
         qtc.KAboutApplicationDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5364,10 +6796,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, bool) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5378,13 +6814,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SizeHint(self: KAboutApplicationDialog) QSize {
+    pub fn sizeHint(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.KAboutApplicationDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5396,10 +6832,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperSizeHint(self: KAboutApplicationDialog) QSize {
+    pub fn superSizeHint(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5414,9 +6854,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAboutApplicationDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5428,13 +6872,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn MinimumSizeHint(self: KAboutApplicationDialog) QSize {
+    pub fn minimumSizeHint(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.KAboutApplicationDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5446,9 +6890,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KAboutApplicationDialog) QSize {
+    pub fn superMinimumSizeHint(self: KAboutApplicationDialog) QSize {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5464,9 +6912,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KAboutApplicationDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5478,13 +6930,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Open(self: KAboutApplicationDialog) void {
+    pub fn open(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5496,9 +6948,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperOpen(self: KAboutApplicationDialog) void {
+    pub fn superOpen(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -5512,9 +6968,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -5526,13 +6986,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Exec(self: KAboutApplicationDialog) i32 {
+    pub fn exec(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -5544,9 +7004,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperExec(self: KAboutApplicationDialog) i32 {
+    pub fn superExec(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -5560,9 +7024,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -5576,13 +7044,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KAboutApplicationDialog, param1: i32) void {
+    pub fn done(self: KAboutApplicationDialog, param1: i32) void {
         qtc.KAboutApplicationDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -5596,9 +7064,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KAboutApplicationDialog, param1: i32) void {
+    pub fn superDone(self: KAboutApplicationDialog, param1: i32) void {
         qtc.KAboutApplicationDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -5612,10 +7084,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -5626,13 +7102,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Accept(self: KAboutApplicationDialog) void {
+    pub fn accept(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -5644,9 +7120,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperAccept(self: KAboutApplicationDialog) void {
+    pub fn superAccept(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -5660,9 +7140,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -5674,13 +7158,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Reject(self: KAboutApplicationDialog) void {
+    pub fn reject(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -5692,9 +7176,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperReject(self: KAboutApplicationDialog) void {
+    pub fn superReject(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -5708,9 +7196,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5724,14 +7216,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KAboutApplicationDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5745,10 +7237,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KAboutApplicationDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5762,9 +7258,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5778,14 +7278,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn closeEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KAboutApplicationDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5799,10 +7299,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KAboutApplicationDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5816,9 +7320,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -5832,14 +7340,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn showEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KAboutApplicationDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5853,10 +7361,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KAboutApplicationDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5870,9 +7382,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QShowEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5886,14 +7402,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KAboutApplicationDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5907,10 +7423,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KAboutApplicationDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5924,9 +7444,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -5940,14 +7464,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KAboutApplicationDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -5961,10 +7485,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KAboutApplicationDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -5978,9 +7506,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -5996,15 +7528,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KAboutApplicationDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KAboutApplicationDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KAboutApplicationDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6020,11 +7552,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KAboutApplicationDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KAboutApplicationDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KAboutApplicationDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6038,9 +7574,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6052,13 +7592,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn DevType(self: KAboutApplicationDialog) i32 {
+    pub fn devType(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6070,9 +7610,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperDevType(self: KAboutApplicationDialog) i32 {
+    pub fn superDevType(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6086,9 +7630,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6102,13 +7650,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KAboutApplicationDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KAboutApplicationDialog, param1: i32) i32 {
         return qtc.KAboutApplicationDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6122,9 +7670,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KAboutApplicationDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KAboutApplicationDialog, param1: i32) i32 {
         return qtc.KAboutApplicationDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6138,9 +7690,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6152,13 +7708,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn HasHeightForWidth(self: KAboutApplicationDialog) bool {
+    pub fn hasHeightForWidth(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6170,9 +7726,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KAboutApplicationDialog) bool {
+    pub fn superHasHeightForWidth(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6186,9 +7746,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6200,13 +7764,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn PaintEngine(self: KAboutApplicationDialog) QPaintEngine {
+    pub fn paintEngine(self: KAboutApplicationDialog) QPaintEngine {
         return .{ .ptr = qtc.KAboutApplicationDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6218,9 +7782,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperPaintEngine(self: KAboutApplicationDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KAboutApplicationDialog) QPaintEngine {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6234,9 +7802,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KAboutApplicationDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6248,16 +7820,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KAboutApplicationDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAboutApplicationDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KAboutApplicationDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAboutApplicationDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6269,12 +7841,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KAboutApplicationDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KAboutApplicationDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KAboutApplicationDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KAboutApplicationDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6288,10 +7864,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6302,16 +7882,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6323,12 +7903,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6342,10 +7926,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6356,16 +7944,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6377,12 +7965,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6396,10 +7988,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6410,16 +8006,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6431,12 +8027,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6450,10 +8050,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6464,16 +8068,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6485,12 +8089,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KAboutApplicationDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KAboutApplicationDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6504,9 +8112,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6518,16 +8130,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KAboutApplicationDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KAboutApplicationDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6539,12 +8151,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KAboutApplicationDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KAboutApplicationDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6558,9 +8174,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6572,16 +8192,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KAboutApplicationDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KAboutApplicationDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6593,12 +8213,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KAboutApplicationDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KAboutApplicationDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6612,10 +8236,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6626,16 +8254,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KAboutApplicationDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KAboutApplicationDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6647,12 +8275,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KAboutApplicationDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KAboutApplicationDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6666,10 +8298,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6680,16 +8316,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KAboutApplicationDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KAboutApplicationDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6701,12 +8337,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KAboutApplicationDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KAboutApplicationDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6720,9 +8360,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6734,16 +8378,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KAboutApplicationDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KAboutApplicationDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6755,12 +8399,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KAboutApplicationDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KAboutApplicationDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6774,9 +8422,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6788,16 +8440,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAboutApplicationDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAboutApplicationDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6809,12 +8461,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAboutApplicationDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAboutApplicationDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6828,9 +8484,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6842,16 +8502,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KAboutApplicationDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KAboutApplicationDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6863,12 +8523,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KAboutApplicationDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KAboutApplicationDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6882,9 +8546,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6896,16 +8564,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KAboutApplicationDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KAboutApplicationDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6917,12 +8585,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KAboutApplicationDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KAboutApplicationDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6936,9 +8608,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6950,16 +8626,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KAboutApplicationDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KAboutApplicationDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6971,12 +8647,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KAboutApplicationDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KAboutApplicationDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6990,9 +8670,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7004,16 +8688,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KAboutApplicationDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KAboutApplicationDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7025,12 +8709,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KAboutApplicationDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KAboutApplicationDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7044,9 +8732,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QActionEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7058,16 +8750,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KAboutApplicationDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KAboutApplicationDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7079,12 +8771,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KAboutApplicationDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KAboutApplicationDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7098,9 +8794,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7112,16 +8812,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KAboutApplicationDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KAboutApplicationDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7133,12 +8833,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KAboutApplicationDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KAboutApplicationDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7152,9 +8856,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7166,16 +8874,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KAboutApplicationDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KAboutApplicationDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7187,12 +8895,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KAboutApplicationDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KAboutApplicationDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7206,9 +8918,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7220,16 +8936,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KAboutApplicationDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KAboutApplicationDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7241,12 +8957,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KAboutApplicationDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KAboutApplicationDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7260,9 +8980,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QDropEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7274,16 +8998,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KAboutApplicationDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KAboutApplicationDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7295,12 +9019,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KAboutApplicationDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KAboutApplicationDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7314,9 +9042,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QHideEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7332,19 +9064,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KAboutApplicationDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KAboutApplicationDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KAboutApplicationDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KAboutApplicationDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7360,15 +9092,19 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KAboutApplicationDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KAboutApplicationDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KAboutApplicationDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KAboutApplicationDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7382,9 +9118,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7398,14 +9138,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn changeEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KAboutApplicationDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7419,10 +9159,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KAboutApplicationDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7436,9 +9180,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7452,13 +9200,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KAboutApplicationDialog, param1: i32) i32 {
+    pub fn metric(self: KAboutApplicationDialog, param1: i32) i32 {
         return qtc.KAboutApplicationDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7472,9 +9220,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KAboutApplicationDialog, param1: i32) i32 {
+    pub fn superMetric(self: KAboutApplicationDialog, param1: i32) i32 {
         return qtc.KAboutApplicationDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7488,9 +9240,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7504,14 +9260,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KAboutApplicationDialog, painter: anytype) void {
+    pub fn initPainter(self: KAboutApplicationDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KAboutApplicationDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7525,10 +9281,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KAboutApplicationDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KAboutApplicationDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KAboutApplicationDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7542,9 +9302,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPainter) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7558,14 +9322,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KAboutApplicationDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KAboutApplicationDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KAboutApplicationDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7579,10 +9343,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KAboutApplicationDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KAboutApplicationDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7596,9 +9364,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KAboutApplicationDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7610,13 +9382,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SharedPainter(self: KAboutApplicationDialog) QPainter {
+    pub fn sharedPainter(self: KAboutApplicationDialog) QPainter {
         return .{ .ptr = qtc.KAboutApplicationDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7628,9 +9400,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperSharedPainter(self: KAboutApplicationDialog) QPainter {
+    pub fn superSharedPainter(self: KAboutApplicationDialog) QPainter {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7644,9 +9420,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KAboutApplicationDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7660,14 +9440,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KAboutApplicationDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7681,10 +9461,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KAboutApplicationDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7698,9 +9482,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7714,13 +9502,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KAboutApplicationDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KAboutApplicationDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KAboutApplicationDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7734,9 +9522,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KAboutApplicationDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KAboutApplicationDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7752,9 +9544,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32) callconv(.c) QVariant) void {
         qtc.KAboutApplicationDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7768,13 +9564,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KAboutApplicationDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KAboutApplicationDialog, next: bool) bool {
         return qtc.KAboutApplicationDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7788,9 +9584,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KAboutApplicationDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KAboutApplicationDialog, next: bool) bool {
         return qtc.KAboutApplicationDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7804,9 +9604,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, bool) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7818,16 +9622,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KAboutApplicationDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KAboutApplicationDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7839,12 +9643,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KAboutApplicationDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KAboutApplicationDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7858,9 +9666,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7872,16 +9684,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KAboutApplicationDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KAboutApplicationDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7893,12 +9705,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KAboutApplicationDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KAboutApplicationDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7912,9 +9728,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QChildEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7926,16 +9746,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAboutApplicationDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAboutApplicationDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7947,12 +9767,16 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KAboutApplicationDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KAboutApplicationDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KAboutApplicationDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KAboutApplicationDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7966,9 +9790,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QEvent) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7982,14 +9810,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
+    pub fn connectNotify(self: KAboutApplicationDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAboutApplicationDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8003,11 +9831,15 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAboutApplicationDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8020,9 +9852,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8036,14 +9872,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAboutApplicationDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8057,10 +9893,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KAboutApplicationDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KAboutApplicationDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8074,9 +9914,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8090,14 +9934,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KAboutApplicationDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8111,10 +9955,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KAboutApplicationDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KAboutApplicationDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KAboutApplicationDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8128,10 +9976,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QWidget) callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8142,13 +9994,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn UpdateMicroFocus(self: KAboutApplicationDialog) void {
+    pub fn updateMicroFocus(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8160,10 +10012,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KAboutApplicationDialog) void {
+    pub fn superUpdateMicroFocus(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8176,10 +10032,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8190,13 +10050,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Create(self: KAboutApplicationDialog) void {
+    pub fn create(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8208,10 +10068,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperCreate(self: KAboutApplicationDialog) void {
+    pub fn superCreate(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8224,9 +10088,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8238,13 +10106,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Destroy(self: KAboutApplicationDialog) void {
+    pub fn destroy(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8256,9 +10124,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperDestroy(self: KAboutApplicationDialog) void {
+    pub fn superDestroy(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8272,10 +10144,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KAboutApplicationDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8286,13 +10162,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FocusNextChild(self: KAboutApplicationDialog) bool {
+    pub fn focusNextChild(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8304,10 +10180,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperFocusNextChild(self: KAboutApplicationDialog) bool {
+    pub fn superFocusNextChild(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8320,9 +10200,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8334,13 +10218,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn FocusPreviousChild(self: KAboutApplicationDialog) bool {
+    pub fn focusPreviousChild(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8352,9 +10236,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KAboutApplicationDialog) bool {
+    pub fn superFocusPreviousChild(self: KAboutApplicationDialog) bool {
         return qtc.KAboutApplicationDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8368,9 +10256,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8382,13 +10274,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Sender(self: KAboutApplicationDialog) QObject {
+    pub fn sender(self: KAboutApplicationDialog) QObject {
         return .{ .ptr = qtc.KAboutApplicationDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8400,9 +10292,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperSender(self: KAboutApplicationDialog) QObject {
+    pub fn superSender(self: KAboutApplicationDialog) QObject {
         return .{ .ptr = qtc.KAboutApplicationDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8416,9 +10312,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KAboutApplicationDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8430,13 +10330,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SenderSignalIndex(self: KAboutApplicationDialog) i32 {
+    pub fn senderSignalIndex(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8448,9 +10348,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KAboutApplicationDialog) i32 {
+    pub fn superSenderSignalIndex(self: KAboutApplicationDialog) i32 {
         return qtc.KAboutApplicationDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8464,9 +10368,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KAboutApplicationDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8480,14 +10388,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KAboutApplicationDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KAboutApplicationDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAboutApplicationDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8501,10 +10409,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KAboutApplicationDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KAboutApplicationDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KAboutApplicationDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8518,9 +10430,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KAboutApplicationDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8534,14 +10450,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KAboutApplicationDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KAboutApplicationDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAboutApplicationDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8555,10 +10471,14 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KAboutApplicationDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KAboutApplicationDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KAboutApplicationDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8572,9 +10492,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KAboutApplicationDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8590,13 +10514,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KAboutApplicationDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KAboutApplicationDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KAboutApplicationDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8612,9 +10536,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KAboutApplicationDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KAboutApplicationDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KAboutApplicationDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8628,9 +10556,13 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, i32, i32) callconv(.c) f64) void {
         qtc.KAboutApplicationDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8644,23 +10576,23 @@ pub const KAboutApplicationDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KAboutApplicationDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KAboutApplicationDialog, callback: *const fn (KAboutApplicationDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kaboutapplicationdialog.html#dtor.KAboutApplicationDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KAboutApplicationDialog `
     ///
-    pub fn Delete(self: KAboutApplicationDialog) void {
+    pub fn delete(self: KAboutApplicationDialog) void {
         qtc.KAboutApplicationDialog_Delete(@ptrCast(self.ptr));
     }
 };

@@ -12,6 +12,10 @@ pub const QAudio = extern struct {
 
     pub const _is_QAudio = {};
 
+    /// ### DEPRECATED: Use `convertVolume` instead
+    ///
+    pub const ConvertVolume = convertVolume;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qaudio.html#convertVolume)
     ///
     /// ## Parameter(s):
@@ -22,7 +26,7 @@ pub const QAudio = extern struct {
     ///
     /// ` to: qaudio_enums.VolumeScale `
     ///
-    pub fn ConvertVolume(volume: f32, from: i32, to: i32) f32 {
+    pub fn convertVolume(volume: f32, from: i32, to: i32) f32 {
         return qtc.QAudio_ConvertVolume(@bitCast(volume), @bitCast(from), @bitCast(to));
     }
 };

@@ -27,80 +27,104 @@ pub const QDBusServiceWatcher = extern struct {
     pub const _is_QDBusServiceWatcher = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDBusServiceWatcher object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDBusServiceWatcher {
+    pub const New = new;
+
+    /// Allocate a new QDBusServiceWatcher object in C++ memory
+    ///
+    pub fn new() QDBusServiceWatcher {
         return .{ .ptr = qtc.QDBusServiceWatcher_new() };
     }
 
-    /// New2 constructs a new QDBusServiceWatcher object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDBusServiceWatcher object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` service: []const u8 `
     ///
-    /// ` connection: QDBusConnection `
+    /// ` _connection: QDBusConnection `
     ///
-    pub fn New2(service: []const u8, connection: anytype) QDBusServiceWatcher {
+    pub fn new2(service: []const u8, _connection: anytype) QDBusServiceWatcher {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
-        comptime _ = @TypeOf(connection)._is_QDBusConnection;
-        return .{ .ptr = qtc.QDBusServiceWatcher_new2(service_str, @ptrCast(connection.ptr)) };
+        comptime _ = @TypeOf(_connection)._is_QDBusConnection;
+        return .{ .ptr = qtc.QDBusServiceWatcher_new2(service_str, @ptrCast(_connection.ptr)) };
     }
 
-    /// New3 constructs a new QDBusServiceWatcher object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDBusServiceWatcher object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QDBusServiceWatcher {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDBusServiceWatcher_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QDBusServiceWatcher {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDBusServiceWatcher_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QDBusServiceWatcher object.
+    /// ### DEPRECATED: Use `new4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` service: []const u8 `
-    ///
-    /// ` connection: QDBusConnection `
-    ///
-    /// ` watchMode: flag of qdbusservicewatcher_enums.WatchModeFlag `
-    ///
-    pub fn New4(service: []const u8, connection: anytype, watchMode: i32) QDBusServiceWatcher {
-        const service_str = qtc.libqt_string{
-            .len = service.len,
-            .data = service.ptr,
-        };
-        comptime _ = @TypeOf(connection)._is_QDBusConnection;
-        return .{ .ptr = qtc.QDBusServiceWatcher_new4(service_str, @ptrCast(connection.ptr), @bitCast(watchMode)) };
-    }
+    pub const New4 = new4;
 
-    /// New5 constructs a new QDBusServiceWatcher object.
+    /// Allocate a new QDBusServiceWatcher object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` service: []const u8 `
     ///
-    /// ` connection: QDBusConnection `
+    /// ` _connection: QDBusConnection `
     ///
-    /// ` watchMode: flag of qdbusservicewatcher_enums.WatchModeFlag `
+    /// ` _watchMode: flag of qdbusservicewatcher_enums.WatchModeFlag `
     ///
-    /// ` parent: QObject `
-    ///
-    pub fn New5(service: []const u8, connection: anytype, watchMode: i32, parent: anytype) QDBusServiceWatcher {
+    pub fn new4(service: []const u8, _connection: anytype, _watchMode: i32) QDBusServiceWatcher {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
-        comptime _ = @TypeOf(connection)._is_QDBusConnection;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDBusServiceWatcher_new5(service_str, @ptrCast(connection.ptr), @bitCast(watchMode), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_connection)._is_QDBusConnection;
+        return .{ .ptr = qtc.QDBusServiceWatcher_new4(service_str, @ptrCast(_connection.ptr), @bitCast(_watchMode)) };
     }
+
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDBusServiceWatcher object in C++ memory
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` service: []const u8 `
+    ///
+    /// ` _connection: QDBusConnection `
+    ///
+    /// ` _watchMode: flag of qdbusservicewatcher_enums.WatchModeFlag `
+    ///
+    /// ` _parent: QObject `
+    ///
+    pub fn new5(service: []const u8, _connection: anytype, _watchMode: i32, _parent: anytype) QDBusServiceWatcher {
+        const service_str = qtc.libqt_string{
+            .len = service.len,
+            .data = service.ptr,
+        };
+        comptime _ = @TypeOf(_connection)._is_QDBusConnection;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDBusServiceWatcher_new5(service_str, @ptrCast(_connection.ptr), @bitCast(_watchMode), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -108,9 +132,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn MetaObject(self: QDBusServiceWatcher) QMetaObject {
+    pub fn metaObject(self: QDBusServiceWatcher) QMetaObject {
         return .{ .ptr = qtc.QDBusServiceWatcher_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -122,13 +150,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDBusServiceWatcher_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -138,9 +166,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn SuperMetaObject(self: QDBusServiceWatcher) QMetaObject {
+    pub fn superMetaObject(self: QDBusServiceWatcher) QMetaObject {
         return .{ .ptr = qtc.QDBusServiceWatcher_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -148,10 +180,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDBusServiceWatcher, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDBusServiceWatcher, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDBusServiceWatcher_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -161,13 +197,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDBusServiceWatcher_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -177,10 +213,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDBusServiceWatcher, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDBusServiceWatcher, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDBusServiceWatcher_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -192,9 +232,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDBusServiceWatcher, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDBusServiceWatcher, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDBusServiceWatcher_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -204,13 +248,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDBusServiceWatcher_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -224,9 +268,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDBusServiceWatcher, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDBusServiceWatcher, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDBusServiceWatcher_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -236,14 +284,18 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `watchedServices` instead
+    ///
+    pub const WatchedServices = watchedServices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#watchedServices)
     ///
@@ -253,7 +305,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WatchedServices(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn watchedServices(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QDBusServiceWatcher_WatchedServices(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -261,15 +313,19 @@ pub const QDBusServiceWatcher = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDBusServiceWatcher.WatchedServices: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QDBusServiceWatcher.watchedServices: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDBusServiceWatcher.WatchedServices: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDBusServiceWatcher.watchedServices: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWatchedServices` instead
+    ///
+    pub const SetWatchedServices = setWatchedServices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#setWatchedServices)
     ///
@@ -281,13 +337,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` services: []const []const u8 `
     ///
-    pub fn SetWatchedServices(self: QDBusServiceWatcher, allocator: std.mem.Allocator, services: []const []const u8) void {
-        const services_arr = allocator.alloc(qtc.libqt_string, services.len) catch @panic("QDBusServiceWatcher.SetWatchedServices: Memory allocation failed");
+    pub fn setWatchedServices(self: QDBusServiceWatcher, allocator: std.mem.Allocator, services: []const []const u8) void {
+        const services_arr = allocator.alloc(qtc.libqt_string, services.len) catch @panic("QDBusServiceWatcher.setWatchedServices: Memory allocation failed");
         defer allocator.free(services_arr);
-        for (services, 0..services.len) |item, i|
+        for (services, 0..services.len) |str_item, i|
             services_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const services_list = qtc.libqt_list{
             .len = services.len,
@@ -295,6 +351,10 @@ pub const QDBusServiceWatcher = extern struct {
         };
         qtc.QDBusServiceWatcher_SetWatchedServices(@ptrCast(self.ptr), services_list);
     }
+
+    /// ### DEPRECATED: Use `addWatchedService` instead
+    ///
+    pub const AddWatchedService = addWatchedService;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#addWatchedService)
     ///
@@ -304,13 +364,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` newService: []const u8 `
     ///
-    pub fn AddWatchedService(self: QDBusServiceWatcher, newService: []const u8) void {
+    pub fn addWatchedService(self: QDBusServiceWatcher, newService: []const u8) void {
         const newService_str = qtc.libqt_string{
             .len = newService.len,
             .data = newService.ptr,
         };
         qtc.QDBusServiceWatcher_AddWatchedService(@ptrCast(self.ptr), newService_str);
     }
+
+    /// ### DEPRECATED: Use `removeWatchedService` instead
+    ///
+    pub const RemoveWatchedService = removeWatchedService;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#removeWatchedService)
     ///
@@ -320,13 +384,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` service: []const u8 `
     ///
-    pub fn RemoveWatchedService(self: QDBusServiceWatcher, service: []const u8) bool {
+    pub fn removeWatchedService(self: QDBusServiceWatcher, service: []const u8) bool {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
         return qtc.QDBusServiceWatcher_RemoveWatchedService(@ptrCast(self.ptr), service_str);
     }
+
+    /// ### DEPRECATED: Use `watchMode` instead
+    ///
+    pub const WatchMode = watchMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#watchMode)
     ///
@@ -338,9 +406,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` flag of qdbusservicewatcher_enums.WatchModeFlag `
     ///
-    pub fn WatchMode(self: QDBusServiceWatcher) i32 {
+    pub fn watchMode(self: QDBusServiceWatcher) i32 {
         return qtc.QDBusServiceWatcher_WatchMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWatchMode` instead
+    ///
+    pub const SetWatchMode = setWatchMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#setWatchMode)
     ///
@@ -350,9 +422,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` mode: flag of qdbusservicewatcher_enums.WatchModeFlag `
     ///
-    pub fn SetWatchMode(self: QDBusServiceWatcher, mode: i32) void {
+    pub fn setWatchMode(self: QDBusServiceWatcher, mode: i32) void {
         qtc.QDBusServiceWatcher_SetWatchMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `connection` instead
+    ///
+    pub const Connection = connection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#connection)
     ///
@@ -360,9 +436,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Connection(self: QDBusServiceWatcher) QDBusConnection {
+    pub fn connection(self: QDBusServiceWatcher) QDBusConnection {
         return .{ .ptr = qtc.QDBusServiceWatcher_Connection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setConnection` instead
+    ///
+    pub const SetConnection = setConnection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#setConnection)
     ///
@@ -370,12 +450,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` connection: QDBusConnection `
+    /// ` _connection: QDBusConnection `
     ///
-    pub fn SetConnection(self: QDBusServiceWatcher, connection: anytype) void {
-        comptime _ = @TypeOf(connection)._is_QDBusConnection;
-        qtc.QDBusServiceWatcher_SetConnection(@ptrCast(self.ptr), @ptrCast(connection.ptr));
+    pub fn setConnection(self: QDBusServiceWatcher, _connection: anytype) void {
+        comptime _ = @TypeOf(_connection)._is_QDBusConnection;
+        qtc.QDBusServiceWatcher_SetConnection(@ptrCast(self.ptr), @ptrCast(_connection.ptr));
     }
+
+    /// ### DEPRECATED: Use `serviceRegistered` instead
+    ///
+    pub const ServiceRegistered = serviceRegistered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceRegistered)
     ///
@@ -385,7 +469,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` service: []const u8 `
     ///
-    pub fn ServiceRegistered(self: QDBusServiceWatcher, service: []const u8) void {
+    pub fn serviceRegistered(self: QDBusServiceWatcher, service: []const u8) void {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -393,6 +477,10 @@ pub const QDBusServiceWatcher = extern struct {
         qtc.QDBusServiceWatcher_ServiceRegistered(@ptrCast(self.ptr), service_str);
     }
 
+    /// ### DEPRECATED: Use `onServiceRegistered` instead
+    ///
+    pub const OnServiceRegistered = onServiceRegistered;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceRegistered)
     ///
     /// ## Parameters:
@@ -401,9 +489,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, service: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceRegistered(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
+    pub fn onServiceRegistered(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_Connect_ServiceRegistered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `serviceUnregistered` instead
+    ///
+    pub const ServiceUnregistered = serviceUnregistered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceUnregistered)
     ///
@@ -413,13 +505,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` service: []const u8 `
     ///
-    pub fn ServiceUnregistered(self: QDBusServiceWatcher, service: []const u8) void {
+    pub fn serviceUnregistered(self: QDBusServiceWatcher, service: []const u8) void {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
         };
         qtc.QDBusServiceWatcher_ServiceUnregistered(@ptrCast(self.ptr), service_str);
     }
+
+    /// ### DEPRECATED: Use `onServiceUnregistered` instead
+    ///
+    pub const OnServiceUnregistered = onServiceUnregistered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceUnregistered)
     ///
@@ -429,9 +525,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, service: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceUnregistered(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
+    pub fn onServiceUnregistered(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_Connect_ServiceUnregistered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `serviceOwnerChanged` instead
+    ///
+    pub const ServiceOwnerChanged = serviceOwnerChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceOwnerChanged)
     ///
@@ -445,7 +545,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` newOwner: []const u8 `
     ///
-    pub fn ServiceOwnerChanged(self: QDBusServiceWatcher, service: []const u8, oldOwner: []const u8, newOwner: []const u8) void {
+    pub fn serviceOwnerChanged(self: QDBusServiceWatcher, service: []const u8, oldOwner: []const u8, newOwner: []const u8) void {
         const service_str = qtc.libqt_string{
             .len = service.len,
             .data = service.ptr,
@@ -461,6 +561,10 @@ pub const QDBusServiceWatcher = extern struct {
         qtc.QDBusServiceWatcher_ServiceOwnerChanged(@ptrCast(self.ptr), service_str, oldOwner_str, newOwner_str);
     }
 
+    /// ### DEPRECATED: Use `onServiceOwnerChanged` instead
+    ///
+    pub const OnServiceOwnerChanged = onServiceOwnerChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#serviceOwnerChanged)
     ///
     /// ## Parameters:
@@ -469,9 +573,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, service: [*:0]const u8, oldOwner: [*:0]const u8, newOwner: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnServiceOwnerChanged(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onServiceOwnerChanged(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_Connect_ServiceOwnerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -483,15 +591,19 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -505,15 +617,19 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -525,13 +641,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusServiceWatcher.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -543,13 +663,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDBusServiceWatcher, name: []const u8) void {
+    pub fn setObjectName(self: QDBusServiceWatcher, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -559,9 +683,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn IsWidgetType(self: QDBusServiceWatcher) bool {
+    pub fn isWidgetType(self: QDBusServiceWatcher) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -571,9 +699,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn IsWindowType(self: QDBusServiceWatcher) bool {
+    pub fn isWindowType(self: QDBusServiceWatcher) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -583,9 +715,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn IsQuickItemType(self: QDBusServiceWatcher) bool {
+    pub fn isQuickItemType(self: QDBusServiceWatcher) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -595,9 +731,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn SignalsBlocked(self: QDBusServiceWatcher) bool {
+    pub fn signalsBlocked(self: QDBusServiceWatcher) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -609,9 +749,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDBusServiceWatcher, b: bool) bool {
+    pub fn blockSignals(self: QDBusServiceWatcher, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -621,9 +765,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Thread(self: QDBusServiceWatcher) QThread {
+    pub fn thread(self: QDBusServiceWatcher) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -633,12 +781,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDBusServiceWatcher, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDBusServiceWatcher, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -650,9 +802,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDBusServiceWatcher, interval: i32) i32 {
+    pub fn startTimer(self: QDBusServiceWatcher, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -664,9 +820,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDBusServiceWatcher, time: i64) i32 {
+    pub fn startTimer2(self: QDBusServiceWatcher, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -678,9 +838,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDBusServiceWatcher, id: i32) void {
+    pub fn killTimer(self: QDBusServiceWatcher, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -692,9 +856,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDBusServiceWatcher, id: i32) void {
+    pub fn killTimer2(self: QDBusServiceWatcher, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -706,15 +874,19 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDBusServiceWatcher, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDBusServiceWatcher.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDBusServiceWatcher.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -724,12 +896,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDBusServiceWatcher, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDBusServiceWatcher, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -741,10 +917,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDBusServiceWatcher, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDBusServiceWatcher, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -756,10 +936,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDBusServiceWatcher, obj: anytype) void {
+    pub fn removeEventFilter(self: QDBusServiceWatcher, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -767,7 +951,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -775,13 +959,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -789,7 +977,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -797,13 +985,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -813,18 +1005,22 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDBusServiceWatcher, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDBusServiceWatcher, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -832,7 +1028,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -840,13 +1036,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -854,7 +1054,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -862,13 +1062,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -878,9 +1082,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Disconnect3(self: QDBusServiceWatcher) bool {
+    pub fn disconnect3(self: QDBusServiceWatcher) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -892,10 +1100,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDBusServiceWatcher, receiver: anytype) bool {
+    pub fn disconnect4(self: QDBusServiceWatcher, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -905,10 +1117,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -918,9 +1134,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn DumpObjectTree(self: QDBusServiceWatcher) void {
+    pub fn dumpObjectTree(self: QDBusServiceWatcher) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -930,9 +1150,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn DumpObjectInfo(self: QDBusServiceWatcher) void {
+    pub fn dumpObjectInfo(self: QDBusServiceWatcher) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -946,11 +1170,15 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDBusServiceWatcher, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDBusServiceWatcher, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -962,10 +1190,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDBusServiceWatcher, name: [:0]const u8) QVariant {
+    pub fn property(self: QDBusServiceWatcher, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -977,7 +1209,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDBusServiceWatcher, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDBusServiceWatcher, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -985,27 +1217,19 @@ pub const QDBusServiceWatcher = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDBusServiceWatcher.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDBusServiceWatcher.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDBusServiceWatcher.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDBusServiceWatcher.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDBusServiceWatcher `
-    ///
-    pub fn BindingStorage(self: QDBusServiceWatcher) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1015,9 +1239,29 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn BindingStorage2(self: QDBusServiceWatcher) QBindingStorage {
+    pub fn bindingStorage(self: QDBusServiceWatcher) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDBusServiceWatcher `
+    ///
+    pub fn bindingStorage2(self: QDBusServiceWatcher) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1027,9 +1271,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Destroyed(self: QDBusServiceWatcher) void {
+    pub fn destroyed(self: QDBusServiceWatcher) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1041,9 +1289,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1053,9 +1305,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Parent(self: QDBusServiceWatcher) QObject {
+    pub fn parent(self: QDBusServiceWatcher) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1067,10 +1323,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDBusServiceWatcher, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDBusServiceWatcher, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1080,9 +1340,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn DeleteLater(self: QDBusServiceWatcher) void {
+    pub fn deleteLater(self: QDBusServiceWatcher) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1096,9 +1360,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDBusServiceWatcher, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDBusServiceWatcher, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1112,9 +1380,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDBusServiceWatcher, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDBusServiceWatcher, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1122,7 +1394,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1132,13 +1404,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1146,7 +1422,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1156,13 +1432,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1172,7 +1452,7 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1180,12 +1460,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDBusServiceWatcher, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDBusServiceWatcher, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1197,10 +1481,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDBusServiceWatcher, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDBusServiceWatcher, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1214,11 +1502,15 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDBusServiceWatcher, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDBusServiceWatcher, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1234,13 +1526,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDBusServiceWatcher, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDBusServiceWatcher, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1253,11 +1549,15 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDBusServiceWatcher, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDBusServiceWatcher, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1269,10 +1569,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDBusServiceWatcher, param1: anytype) void {
+    pub fn destroyed1(self: QDBusServiceWatcher, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1284,9 +1588,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1298,16 +1606,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDBusServiceWatcher, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDBusServiceWatcher_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDBusServiceWatcher, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDBusServiceWatcher_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1319,12 +1627,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDBusServiceWatcher, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDBusServiceWatcher_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDBusServiceWatcher, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDBusServiceWatcher_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1338,9 +1650,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QEvent) callconv(.c) bool) void {
         qtc.QDBusServiceWatcher_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1354,17 +1670,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDBusServiceWatcher, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDBusServiceWatcher, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDBusServiceWatcher_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDBusServiceWatcher_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1378,13 +1694,17 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDBusServiceWatcher, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDBusServiceWatcher, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDBusServiceWatcher_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDBusServiceWatcher_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1398,9 +1718,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDBusServiceWatcher_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1412,16 +1736,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDBusServiceWatcher_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDBusServiceWatcher_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1433,12 +1757,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDBusServiceWatcher_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDBusServiceWatcher_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1452,9 +1780,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QTimerEvent) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1466,16 +1798,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDBusServiceWatcher_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDBusServiceWatcher_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1487,12 +1819,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDBusServiceWatcher_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDBusServiceWatcher_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1506,9 +1842,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QChildEvent) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1520,16 +1860,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDBusServiceWatcher_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDBusServiceWatcher_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1541,12 +1881,16 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDBusServiceWatcher, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDBusServiceWatcher_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDBusServiceWatcher, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDBusServiceWatcher_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1560,9 +1904,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QEvent) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1576,14 +1924,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
+    pub fn connectNotify(self: QDBusServiceWatcher, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDBusServiceWatcher_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1597,11 +1945,15 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
+    pub fn superConnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDBusServiceWatcher_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1614,9 +1966,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1630,14 +1986,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
+    pub fn disconnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDBusServiceWatcher_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1651,10 +2007,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDBusServiceWatcher, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDBusServiceWatcher_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1668,9 +2028,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) void) void {
         qtc.QDBusServiceWatcher_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1682,13 +2046,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Sender(self: QDBusServiceWatcher) QObject {
+    pub fn sender(self: QDBusServiceWatcher) QObject {
         return .{ .ptr = qtc.QDBusServiceWatcher_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1700,9 +2064,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn SuperSender(self: QDBusServiceWatcher) QObject {
+    pub fn superSender(self: QDBusServiceWatcher) QObject {
         return .{ .ptr = qtc.QDBusServiceWatcher_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1716,9 +2084,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDBusServiceWatcher_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1730,13 +2102,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn SenderSignalIndex(self: QDBusServiceWatcher) i32 {
+    pub fn senderSignalIndex(self: QDBusServiceWatcher) i32 {
         return qtc.QDBusServiceWatcher_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1748,9 +2120,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn SuperSenderSignalIndex(self: QDBusServiceWatcher) i32 {
+    pub fn superSenderSignalIndex(self: QDBusServiceWatcher) i32 {
         return qtc.QDBusServiceWatcher_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1764,9 +2140,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDBusServiceWatcher, callback: *const fn () callconv(.c) i32) void {
         qtc.QDBusServiceWatcher_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1780,14 +2160,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDBusServiceWatcher, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDBusServiceWatcher, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDBusServiceWatcher_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1801,10 +2181,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDBusServiceWatcher, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDBusServiceWatcher, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDBusServiceWatcher_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1818,9 +2202,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDBusServiceWatcher_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1834,14 +2222,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDBusServiceWatcher, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDBusServiceWatcher, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDBusServiceWatcher_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1855,10 +2243,14 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDBusServiceWatcher, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDBusServiceWatcher, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDBusServiceWatcher_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1872,9 +2264,13 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, QMetaMethod) callconv(.c) bool) void {
         qtc.QDBusServiceWatcher_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1888,23 +2284,23 @@ pub const QDBusServiceWatcher = extern struct {
     ///
     /// ` callback: *const fn (self: QDBusServiceWatcher, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDBusServiceWatcher, callback: *const fn (QDBusServiceWatcher, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbusservicewatcher.html#dtor.QDBusServiceWatcher)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDBusServiceWatcher `
     ///
-    pub fn Delete(self: QDBusServiceWatcher) void {
+    pub fn delete(self: QDBusServiceWatcher) void {
         qtc.QDBusServiceWatcher_Delete(@ptrCast(self.ptr));
     }
 };

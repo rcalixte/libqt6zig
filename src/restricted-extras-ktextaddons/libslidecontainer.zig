@@ -82,22 +82,34 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextAddonsWidgets::SlideContainer object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextAddonsWidgets::SlideContainer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextAddonsWidgets__SlideContainer {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextAddonsWidgets__SlideContainer {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextAddonsWidgets::SlideContainer object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextAddonsWidgets__SlideContainer {
+    pub const New2 = new2;
+
+    /// Allocate a new TextAddonsWidgets::SlideContainer object in C++ memory
+    ///
+    pub fn new2() TextAddonsWidgets__SlideContainer {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -105,9 +117,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MetaObject(self: TextAddonsWidgets__SlideContainer) QMetaObject {
+    pub fn metaObject(self: TextAddonsWidgets__SlideContainer) QMetaObject {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -119,13 +135,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -135,9 +151,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperMetaObject(self: TextAddonsWidgets__SlideContainer) QMetaObject {
+    pub fn superMetaObject(self: TextAddonsWidgets__SlideContainer) QMetaObject {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -145,10 +165,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextAddonsWidgets__SlideContainer, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextAddonsWidgets__SlideContainer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextAddonsWidgets__SlideContainer_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +182,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -174,10 +198,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextAddonsWidgets__SlideContainer, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextAddonsWidgets__SlideContainer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextAddonsWidgets__SlideContainer_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -189,9 +217,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextAddonsWidgets__SlideContainer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextAddonsWidgets__SlideContainer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -201,13 +233,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -221,9 +253,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextAddonsWidgets__SlideContainer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextAddonsWidgets__SlideContainer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -233,37 +269,32 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `content` instead
+    ///
+    pub const Content = content;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Content(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn content(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_Content(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
+    /// ### DEPRECATED: Use `setContent` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` content: QWidget `
-    ///
-    pub fn SetContent(self: TextAddonsWidgets__SlideContainer, content: anytype) void {
-        comptime _ = @TypeOf(content)._is_QWidget;
-        qtc.TextAddonsWidgets__SlideContainer_SetContent(@ptrCast(self.ptr), @ptrCast(content.ptr));
-    }
+    pub const SetContent = setContent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -271,10 +302,31 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
+    /// ` _content: QWidget `
+    ///
+    pub fn setContent(self: TextAddonsWidgets__SlideContainer, _content: anytype) void {
+        comptime _ = @TypeOf(_content)._is_QWidget;
+        qtc.TextAddonsWidgets__SlideContainer_SetContent(@ptrCast(self.ptr), @ptrCast(_content.ptr));
+    }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    pub fn sizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// Allows for overriding the related default method
@@ -287,13 +339,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -303,9 +355,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn superSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -313,9 +369,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MinimumSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn minimumSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -329,13 +389,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -345,31 +405,27 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperMinimumSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn superMinimumSizeHint(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `slideHeight` instead
+    ///
+    pub const SlideHeight = slideHeight;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SlideHeight(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn slideHeight(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SlideHeight(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
+    /// ### DEPRECATED: Use `setSlideHeight` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` height: i32 `
-    ///
-    pub fn SetSlideHeight(self: TextAddonsWidgets__SlideContainer, height: i32) void {
-        qtc.TextAddonsWidgets__SlideContainer_SetSlideHeight(@ptrCast(self.ptr), @bitCast(height));
-    }
+    pub const SetSlideHeight = setSlideHeight;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -377,30 +433,58 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SlideIn(self: TextAddonsWidgets__SlideContainer) void {
+    /// ` _height: i32 `
+    ///
+    pub fn setSlideHeight(self: TextAddonsWidgets__SlideContainer, _height: i32) void {
+        qtc.TextAddonsWidgets__SlideContainer_SetSlideHeight(@ptrCast(self.ptr), @bitCast(_height));
+    }
+
+    /// ### DEPRECATED: Use `slideIn` instead
+    ///
+    pub const SlideIn = slideIn;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    pub fn slideIn(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SlideIn(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `slideOut` instead
+    ///
+    pub const SlideOut = slideOut;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SlideOut(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn slideOut(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SlideOut(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `slidedIn` instead
+    ///
+    pub const SlidedIn = slidedIn;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SlidedIn(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn slidedIn(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SlidedIn(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSlidedIn` instead
+    ///
+    pub const OnSlidedIn = onSlidedIn;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
     /// ## Parameters:
@@ -409,9 +493,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) void `
     ///
-    pub fn OnSlidedIn(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
+    pub fn onSlidedIn(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_Connect_SlidedIn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `slidedOut` instead
+    ///
+    pub const SlidedOut = slidedOut;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -419,9 +507,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SlidedOut(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn slidedOut(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SlidedOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSlidedOut` instead
+    ///
+    pub const OnSlidedOut = onSlidedOut;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -431,9 +523,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) void `
     ///
-    pub fn OnSlidedOut(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
+    pub fn onSlidedOut(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_Connect_SlidedOut(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -443,10 +539,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn resizeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.TextAddonsWidgets__SlideContainer_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -458,13 +558,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QResizeEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -476,10 +576,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn superResizeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.TextAddonsWidgets__SlideContainer_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -489,13 +593,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextAddonsWidgets__SlideContainer, param1: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextAddonsWidgets__SlideContainer, param1: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextAddonsWidgets__SlideContainer_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextAddonsWidgets__SlideContainer_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -507,13 +615,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
@@ -525,13 +633,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextAddonsWidgets__SlideContainer, param1: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextAddonsWidgets__SlideContainer, param1: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextAddonsWidgets__SlideContainer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextAddonsWidgets__SlideContainer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -543,15 +655,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -565,15 +681,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -583,9 +703,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FrameStyle(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn frameStyle(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -595,11 +719,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: TextAddonsWidgets__SlideContainer, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: TextAddonsWidgets__SlideContainer, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -609,9 +737,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FrameWidth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn frameWidth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -625,9 +757,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn frameShape(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -637,11 +773,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: TextAddonsWidgets__SlideContainer, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: TextAddonsWidgets__SlideContainer, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -655,9 +795,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn frameShadow(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -667,11 +811,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: TextAddonsWidgets__SlideContainer, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: TextAddonsWidgets__SlideContainer, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -681,9 +829,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn LineWidth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn lineWidth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -693,11 +845,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: TextAddonsWidgets__SlideContainer, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: TextAddonsWidgets__SlideContainer, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -707,9 +863,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MidLineWidth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn midLineWidth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -719,11 +879,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: TextAddonsWidgets__SlideContainer, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: TextAddonsWidgets__SlideContainer, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -733,9 +897,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FrameRect(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn frameRect(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -745,12 +913,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: TextAddonsWidgets__SlideContainer, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: TextAddonsWidgets__SlideContainer, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -760,9 +932,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn WinId(self: TextAddonsWidgets__SlideContainer) usize {
+    pub fn winId(self: TextAddonsWidgets__SlideContainer) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -772,9 +948,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn CreateWinId(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn createWinId(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -784,9 +964,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn InternalWinId(self: TextAddonsWidgets__SlideContainer) usize {
+    pub fn internalWinId(self: TextAddonsWidgets__SlideContainer) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -796,9 +980,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn EffectiveWinId(self: TextAddonsWidgets__SlideContainer) usize {
+    pub fn effectiveWinId(self: TextAddonsWidgets__SlideContainer) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -808,9 +996,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Style(self: TextAddonsWidgets__SlideContainer) QStyle {
+    pub fn style(self: TextAddonsWidgets__SlideContainer) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -820,12 +1012,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextAddonsWidgets__SlideContainer, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextAddonsWidgets__SlideContainer, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -835,9 +1031,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsTopLevel(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isTopLevel(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -847,9 +1047,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsWindow(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isWindow(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -859,9 +1063,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsModal(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isModal(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -875,9 +1083,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn windowModality(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -887,11 +1099,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextAddonsWidgets__SlideContainer, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextAddonsWidgets__SlideContainer, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -901,9 +1117,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsEnabled(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isEnabled(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -915,10 +1135,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextAddonsWidgets__SlideContainer, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextAddonsWidgets__SlideContainer, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -930,9 +1154,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextAddonsWidgets__SlideContainer, enabled: bool) void {
+    pub fn setEnabled(self: TextAddonsWidgets__SlideContainer, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -944,9 +1172,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextAddonsWidgets__SlideContainer, disabled: bool) void {
+    pub fn setDisabled(self: TextAddonsWidgets__SlideContainer, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -958,9 +1190,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextAddonsWidgets__SlideContainer, windowModified: bool) void {
+    pub fn setWindowModified(self: TextAddonsWidgets__SlideContainer, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -970,9 +1206,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FrameGeometry(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn frameGeometry(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -982,9 +1222,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Geometry(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn geometry(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -994,9 +1238,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn NormalGeometry(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn normalGeometry(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1006,9 +1254,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn X(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn x(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1018,9 +1270,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Y(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn y(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1030,9 +1286,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Pos(self: TextAddonsWidgets__SlideContainer) QPoint {
+    pub fn pos(self: TextAddonsWidgets__SlideContainer) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1042,9 +1302,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FrameSize(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn frameSize(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1054,9 +1318,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Size(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn size(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1066,9 +1334,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Width(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn width(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1078,9 +1350,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Height(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn height(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1090,9 +1366,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Rect(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn rect(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1102,9 +1382,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ChildrenRect(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn childrenRect(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1114,9 +1398,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ChildrenRegion(self: TextAddonsWidgets__SlideContainer) QRegion {
+    pub fn childrenRegion(self: TextAddonsWidgets__SlideContainer) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1126,9 +1414,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MinimumSize(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn minimumSize(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1138,9 +1430,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MaximumSize(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn maximumSize(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1150,9 +1446,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MinimumWidth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn minimumWidth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1162,9 +1462,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MinimumHeight(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn minimumHeight(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1174,9 +1478,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MaximumWidth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn maximumWidth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1186,9 +1494,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn MaximumHeight(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn maximumHeight(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1198,12 +1510,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextAddonsWidgets__SlideContainer, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextAddonsWidgets__SlideContainer, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1217,9 +1533,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextAddonsWidgets__SlideContainer, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextAddonsWidgets__SlideContainer, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1229,12 +1549,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextAddonsWidgets__SlideContainer, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextAddonsWidgets__SlideContainer, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1248,9 +1572,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextAddonsWidgets__SlideContainer, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextAddonsWidgets__SlideContainer, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1262,9 +1590,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextAddonsWidgets__SlideContainer, minw: i32) void {
+    pub fn setMinimumWidth(self: TextAddonsWidgets__SlideContainer, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1276,9 +1608,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextAddonsWidgets__SlideContainer, minh: i32) void {
+    pub fn setMinimumHeight(self: TextAddonsWidgets__SlideContainer, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1290,9 +1626,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextAddonsWidgets__SlideContainer, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextAddonsWidgets__SlideContainer, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1304,9 +1644,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextAddonsWidgets__SlideContainer, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextAddonsWidgets__SlideContainer, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1316,9 +1660,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SizeIncrement(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn sizeIncrement(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1328,12 +1676,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextAddonsWidgets__SlideContainer, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextAddonsWidgets__SlideContainer, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1347,9 +1699,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1359,9 +1715,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn BaseSize(self: TextAddonsWidgets__SlideContainer) QSize {
+    pub fn baseSize(self: TextAddonsWidgets__SlideContainer) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1371,12 +1731,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextAddonsWidgets__SlideContainer, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextAddonsWidgets__SlideContainer, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1390,9 +1754,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextAddonsWidgets__SlideContainer, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextAddonsWidgets__SlideContainer, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1404,10 +1772,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextAddonsWidgets__SlideContainer, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextAddonsWidgets__SlideContainer, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1421,9 +1793,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1435,9 +1811,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextAddonsWidgets__SlideContainer, w: i32) void {
+    pub fn setFixedWidth(self: TextAddonsWidgets__SlideContainer, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1449,9 +1829,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextAddonsWidgets__SlideContainer, h: i32) void {
+    pub fn setFixedHeight(self: TextAddonsWidgets__SlideContainer, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1463,11 +1847,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1478,11 +1866,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1493,11 +1885,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1508,11 +1904,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1523,11 +1923,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1538,10 +1942,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1553,10 +1961,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1568,10 +1980,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextAddonsWidgets__SlideContainer, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1585,12 +2001,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1603,11 +2023,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1621,11 +2045,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1639,11 +2067,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextAddonsWidgets__SlideContainer, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1653,9 +2085,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Window(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn window(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1665,9 +2101,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn NativeParentWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn nativeParentWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1677,9 +2117,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn TopLevelWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn topLevelWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1689,9 +2133,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Palette(self: TextAddonsWidgets__SlideContainer) QPalette {
+    pub fn palette(self: TextAddonsWidgets__SlideContainer) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1701,12 +2149,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextAddonsWidgets__SlideContainer, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextAddonsWidgets__SlideContainer, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1716,11 +2168,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextAddonsWidgets__SlideContainer, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextAddonsWidgets__SlideContainer, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1734,9 +2190,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn backgroundRole(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1746,11 +2206,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextAddonsWidgets__SlideContainer, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextAddonsWidgets__SlideContainer, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1764,9 +2228,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn foregroundRole(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1776,9 +2244,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Font(self: TextAddonsWidgets__SlideContainer) QFont {
+    pub fn font(self: TextAddonsWidgets__SlideContainer) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1788,12 +2260,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextAddonsWidgets__SlideContainer, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextAddonsWidgets__SlideContainer, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1803,9 +2279,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FontMetrics(self: TextAddonsWidgets__SlideContainer) QFontMetrics {
+    pub fn fontMetrics(self: TextAddonsWidgets__SlideContainer) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1815,9 +2295,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FontInfo(self: TextAddonsWidgets__SlideContainer) QFontInfo {
+    pub fn fontInfo(self: TextAddonsWidgets__SlideContainer) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1827,9 +2311,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Cursor(self: TextAddonsWidgets__SlideContainer) QCursor {
+    pub fn cursor(self: TextAddonsWidgets__SlideContainer) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1839,12 +2327,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextAddonsWidgets__SlideContainer, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextAddonsWidgets__SlideContainer, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1854,9 +2346,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UnsetCursor(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn unsetCursor(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1868,9 +2364,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
+    pub fn setMouseTracking(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1880,9 +2380,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn HasMouseTracking(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn hasMouseTracking(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1892,9 +2396,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UnderMouse(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn underMouse(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1906,9 +2414,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
+    pub fn setTabletTracking(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1918,24 +2430,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn HasTabletTracking(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn hasTabletTracking(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextAddonsWidgets__SlideContainer, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1945,12 +2446,35 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextAddonsWidgets__SlideContainer, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextAddonsWidgets__SlideContainer, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextAddonsWidgets__SlideContainer, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1960,9 +2484,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Mask(self: TextAddonsWidgets__SlideContainer) QRegion {
+    pub fn mask(self: TextAddonsWidgets__SlideContainer) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1972,9 +2500,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ClearMask(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn clearMask(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1986,10 +2518,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextAddonsWidgets__SlideContainer, target: anytype) void {
+    pub fn render(self: TextAddonsWidgets__SlideContainer, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2001,10 +2537,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
+    pub fn render2(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2014,9 +2554,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Grab(self: TextAddonsWidgets__SlideContainer) QPixmap {
+    pub fn grab(self: TextAddonsWidgets__SlideContainer) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2026,9 +2570,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn GraphicsEffect(self: TextAddonsWidgets__SlideContainer) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextAddonsWidgets__SlideContainer) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2040,10 +2588,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextAddonsWidgets__SlideContainer, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextAddonsWidgets__SlideContainer, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2055,9 +2607,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
+    pub fn grabGesture(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2625,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2081,15 +2641,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextAddonsWidgets__SlideContainer, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextAddonsWidgets__SlideContainer, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2099,15 +2663,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextAddonsWidgets__SlideContainer, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextAddonsWidgets__SlideContainer, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2119,13 +2687,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2137,13 +2709,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2155,10 +2731,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextAddonsWidgets__SlideContainer, icon: anytype) void {
+    pub fn setWindowIcon(self: TextAddonsWidgets__SlideContainer, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2168,9 +2748,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn WindowIcon(self: TextAddonsWidgets__SlideContainer) QIcon {
+    pub fn windowIcon(self: TextAddonsWidgets__SlideContainer) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2180,15 +2764,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextAddonsWidgets__SlideContainer, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextAddonsWidgets__SlideContainer, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2200,13 +2788,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2216,15 +2808,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextAddonsWidgets__SlideContainer, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextAddonsWidgets__SlideContainer, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2236,13 +2832,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2254,13 +2854,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextAddonsWidgets__SlideContainer, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextAddonsWidgets__SlideContainer, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2272,13 +2876,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2290,9 +2898,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextAddonsWidgets__SlideContainer, level: f64) void {
+    pub fn setWindowOpacity(self: TextAddonsWidgets__SlideContainer, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2302,9 +2914,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn WindowOpacity(self: TextAddonsWidgets__SlideContainer) f64 {
+    pub fn windowOpacity(self: TextAddonsWidgets__SlideContainer) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2314,9 +2930,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsWindowModified(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isWindowModified(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2326,15 +2946,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextAddonsWidgets__SlideContainer, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextAddonsWidgets__SlideContainer, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2346,13 +2970,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2364,9 +2992,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextAddonsWidgets__SlideContainer, msec: i32) void {
+    pub fn setToolTipDuration(self: TextAddonsWidgets__SlideContainer, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2376,9 +3008,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ToolTipDuration(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn toolTipDuration(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2388,15 +3024,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextAddonsWidgets__SlideContainer, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextAddonsWidgets__SlideContainer, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2408,13 +3048,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2424,15 +3068,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextAddonsWidgets__SlideContainer, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextAddonsWidgets__SlideContainer, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2444,13 +3092,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2462,13 +3114,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2480,13 +3136,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextAddonsWidgets__SlideContainer, name: []const u8) void {
+    pub fn setAccessibleName(self: TextAddonsWidgets__SlideContainer, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2498,13 +3158,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2516,13 +3180,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextAddonsWidgets__SlideContainer, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextAddonsWidgets__SlideContainer, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2534,9 +3202,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextAddonsWidgets__SlideContainer, direction: i32) void {
+    pub fn setLayoutDirection(self: TextAddonsWidgets__SlideContainer, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2550,9 +3222,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn layoutDirection(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2562,9 +3238,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UnsetLayoutDirection(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn unsetLayoutDirection(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2574,12 +3254,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextAddonsWidgets__SlideContainer, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextAddonsWidgets__SlideContainer, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2589,9 +3273,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Locale(self: TextAddonsWidgets__SlideContainer) QLocale {
+    pub fn locale(self: TextAddonsWidgets__SlideContainer) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2601,9 +3289,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UnsetLocale(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn unsetLocale(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2613,9 +3305,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsRightToLeft(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isRightToLeft(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2625,9 +3321,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsLeftToRight(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isLeftToRight(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2637,9 +3337,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SetFocus(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn setFocus(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2649,9 +3353,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsActiveWindow(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isActiveWindow(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2661,9 +3369,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ActivateWindow(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn activateWindow(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2673,9 +3385,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ClearFocus(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn clearFocus(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2687,9 +3403,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextAddonsWidgets__SlideContainer, reason: i32) void {
+    pub fn setFocus2(self: TextAddonsWidgets__SlideContainer, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2703,9 +3423,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn focusPolicy(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2717,9 +3441,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextAddonsWidgets__SlideContainer, policy: i32) void {
+    pub fn setFocusPolicy(self: TextAddonsWidgets__SlideContainer, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2729,9 +3457,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn HasFocus(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn hasFocus(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2743,11 +3475,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2757,12 +3493,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextAddonsWidgets__SlideContainer, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextAddonsWidgets__SlideContainer, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2772,9 +3512,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FocusProxy(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn focusProxy(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2788,9 +3532,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn contextMenuPolicy(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2802,9 +3550,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextAddonsWidgets__SlideContainer, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextAddonsWidgets__SlideContainer, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2814,9 +3566,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn GrabMouse(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn grabMouse(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2828,10 +3584,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn grabMouse2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3601,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ReleaseMouse(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn releaseMouse(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3617,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn GrabKeyboard(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn grabKeyboard(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2865,9 +3633,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ReleaseKeyboard(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn releaseKeyboard(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2879,10 +3651,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextAddonsWidgets__SlideContainer, key: anytype) i32 {
+    pub fn grabShortcut(self: TextAddonsWidgets__SlideContainer, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2894,9 +3670,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextAddonsWidgets__SlideContainer, id: i32) void {
+    pub fn releaseShortcut(self: TextAddonsWidgets__SlideContainer, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2908,9 +3688,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextAddonsWidgets__SlideContainer, id: i32) void {
+    pub fn setShortcutEnabled(self: TextAddonsWidgets__SlideContainer, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2922,25 +3706,37 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextAddonsWidgets__SlideContainer, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextAddonsWidgets__SlideContainer, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2950,9 +3746,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UpdatesEnabled(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn updatesEnabled(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2964,9 +3764,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextAddonsWidgets__SlideContainer, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2976,9 +3780,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn GraphicsProxyWidget(self: TextAddonsWidgets__SlideContainer) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextAddonsWidgets__SlideContainer) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2988,9 +3796,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Update(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn update(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3000,9 +3812,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Repaint(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn repaint(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3012,17 +3828,21 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextAddonsWidgets__SlideContainer, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextAddonsWidgets__SlideContainer, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3034,11 +3854,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn update3(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3049,10 +3873,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn update4(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3062,17 +3890,21 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextAddonsWidgets__SlideContainer, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextAddonsWidgets__SlideContainer, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3084,10 +3916,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn repaint3(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3099,10 +3935,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn repaint4(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3114,9 +3954,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextAddonsWidgets__SlideContainer, hidden: bool) void {
+    pub fn setHidden(self: TextAddonsWidgets__SlideContainer, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3126,9 +3970,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Show(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn show(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3138,9 +3986,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Hide(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn hide(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3150,9 +4002,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ShowMinimized(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn showMinimized(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3162,9 +4018,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ShowMaximized(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn showMaximized(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3174,9 +4034,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ShowFullScreen(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn showFullScreen(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3186,9 +4050,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ShowNormal(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn showNormal(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3198,9 +4066,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Close(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn close(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3210,9 +4082,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Raise(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn raise(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3222,9 +4098,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Lower(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn lower(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3236,10 +4116,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn stackUnder(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3249,13 +4133,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextAddonsWidgets__SlideContainer, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextAddonsWidgets__SlideContainer, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3267,10 +4155,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn move2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3284,9 +4176,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
+    pub fn resize(self: TextAddonsWidgets__SlideContainer, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3298,10 +4194,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn resize2(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3311,17 +4211,21 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextAddonsWidgets__SlideContainer, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextAddonsWidgets__SlideContainer, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3331,12 +4235,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextAddonsWidgets__SlideContainer, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextAddonsWidgets__SlideContainer, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3348,13 +4256,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAddonsWidgets__SlideContainer.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextAddonsWidgets__SlideContainer.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3364,15 +4276,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextAddonsWidgets__SlideContainer, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextAddonsWidgets__SlideContainer, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3382,9 +4298,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn AdjustSize(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn adjustSize(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3394,9 +4314,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsVisible(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isVisible(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3408,10 +4332,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextAddonsWidgets__SlideContainer, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextAddonsWidgets__SlideContainer, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3421,9 +4349,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsHidden(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isHidden(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3433,9 +4365,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsMinimized(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isMinimized(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3445,9 +4381,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsMaximized(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isMaximized(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3457,9 +4397,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsFullScreen(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isFullScreen(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3473,9 +4417,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn windowState(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3487,9 +4435,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextAddonsWidgets__SlideContainer, state: i32) void {
+    pub fn setWindowState(self: TextAddonsWidgets__SlideContainer, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3501,9 +4453,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextAddonsWidgets__SlideContainer, state: i32) void {
+    pub fn overrideWindowState(self: TextAddonsWidgets__SlideContainer, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3513,9 +4469,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SizePolicy(self: TextAddonsWidgets__SlideContainer) QSizePolicy {
+    pub fn sizePolicy(self: TextAddonsWidgets__SlideContainer) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3525,12 +4485,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextAddonsWidgets__SlideContainer, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextAddonsWidgets__SlideContainer, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4508,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextAddonsWidgets__SlideContainer, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextAddonsWidgets__SlideContainer, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4524,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn VisibleRegion(self: TextAddonsWidgets__SlideContainer) QRegion {
+    pub fn visibleRegion(self: TextAddonsWidgets__SlideContainer) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3576,9 +4548,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextAddonsWidgets__SlideContainer, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextAddonsWidgets__SlideContainer, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3590,10 +4566,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextAddonsWidgets__SlideContainer, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextAddonsWidgets__SlideContainer, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3603,9 +4583,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ContentsMargins(self: TextAddonsWidgets__SlideContainer) QMargins {
+    pub fn contentsMargins(self: TextAddonsWidgets__SlideContainer) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3615,9 +4599,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ContentsRect(self: TextAddonsWidgets__SlideContainer) QRect {
+    pub fn contentsRect(self: TextAddonsWidgets__SlideContainer) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3627,9 +4615,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Layout(self: TextAddonsWidgets__SlideContainer) QLayout {
+    pub fn layout(self: TextAddonsWidgets__SlideContainer) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3639,12 +4631,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextAddonsWidgets__SlideContainer, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextAddonsWidgets__SlideContainer, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3654,24 +4650,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UpdateGeometry(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn updateGeometry(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextAddonsWidgets__SlideContainer, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3681,14 +4666,37 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextAddonsWidgets__SlideContainer, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextAddonsWidgets__SlideContainer, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextAddonsWidgets__SlideContainer, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3702,9 +4710,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextAddonsWidgets__SlideContainer, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextAddonsWidgets__SlideContainer, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3720,10 +4732,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextAddonsWidgets__SlideContainer, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextAddonsWidgets__SlideContainer, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3733,9 +4749,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FocusWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn focusWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3745,9 +4765,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn NextInFocusChain(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn nextInFocusChain(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3757,9 +4781,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn PreviousInFocusChain(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn previousInFocusChain(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3769,9 +4797,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn AcceptDrops(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn acceptDrops(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3783,9 +4815,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextAddonsWidgets__SlideContainer, on: bool) void {
+    pub fn setAcceptDrops(self: TextAddonsWidgets__SlideContainer, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3797,10 +4833,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextAddonsWidgets__SlideContainer, action: anytype) void {
+    pub fn addAction(self: TextAddonsWidgets__SlideContainer, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3810,15 +4850,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextAddonsWidgets__SlideContainer, actions: []QAction) void {
+    pub fn addActions(self: TextAddonsWidgets__SlideContainer, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3830,16 +4874,20 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextAddonsWidgets__SlideContainer, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextAddonsWidgets__SlideContainer, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3853,11 +4901,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextAddonsWidgets__SlideContainer, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextAddonsWidgets__SlideContainer, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3869,10 +4921,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextAddonsWidgets__SlideContainer, action: anytype) void {
+    pub fn removeAction(self: TextAddonsWidgets__SlideContainer, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3884,15 +4940,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3904,13 +4964,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextAddonsWidgets__SlideContainer, text: []const u8) QAction {
+    pub fn addAction2(self: TextAddonsWidgets__SlideContainer, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3924,7 +4988,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextAddonsWidgets__SlideContainer, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextAddonsWidgets__SlideContainer, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3933,6 +4997,10 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3945,7 +5013,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextAddonsWidgets__SlideContainer, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextAddonsWidgets__SlideContainer, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3953,6 +5021,10 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3968,7 +5040,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextAddonsWidgets__SlideContainer, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextAddonsWidgets__SlideContainer, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3978,6 +5050,10 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3986,9 +5062,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ParentWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
+    pub fn parentWidget(self: TextAddonsWidgets__SlideContainer) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4000,9 +5080,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4016,9 +5100,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn windowFlags(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4030,9 +5118,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextAddonsWidgets__SlideContainer, param1: i32) void {
+    pub fn setWindowFlag(self: TextAddonsWidgets__SlideContainer, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4044,9 +5136,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextAddonsWidgets__SlideContainer, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4060,9 +5156,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn windowType(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4072,9 +5172,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4084,13 +5188,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextAddonsWidgets__SlideContainer, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextAddonsWidgets__SlideContainer, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4102,10 +5210,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextAddonsWidgets__SlideContainer, p: anytype) QWidget {
+    pub fn childAt2(self: TextAddonsWidgets__SlideContainer, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4117,10 +5229,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextAddonsWidgets__SlideContainer, p: anytype) QWidget {
+    pub fn childAt3(self: TextAddonsWidgets__SlideContainer, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4132,9 +5248,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextAddonsWidgets__SlideContainer, param1: i32) void {
+    pub fn setAttribute(self: TextAddonsWidgets__SlideContainer, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4146,9 +5266,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextAddonsWidgets__SlideContainer, param1: i32) bool {
+    pub fn testAttribute(self: TextAddonsWidgets__SlideContainer, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4158,9 +5282,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn EnsurePolished(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn ensurePolished(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4172,10 +5300,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextAddonsWidgets__SlideContainer, child: anytype) bool {
+    pub fn isAncestorOf(self: TextAddonsWidgets__SlideContainer, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4185,9 +5317,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn AutoFillBackground(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn autoFillBackground(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4199,9 +5335,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextAddonsWidgets__SlideContainer, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextAddonsWidgets__SlideContainer, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4211,9 +5351,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn BackingStore(self: TextAddonsWidgets__SlideContainer) QBackingStore {
+    pub fn backingStore(self: TextAddonsWidgets__SlideContainer) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4223,9 +5367,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn WindowHandle(self: TextAddonsWidgets__SlideContainer) QWindow {
+    pub fn windowHandle(self: TextAddonsWidgets__SlideContainer) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4235,9 +5383,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Screen(self: TextAddonsWidgets__SlideContainer) QScreen {
+    pub fn screen(self: TextAddonsWidgets__SlideContainer) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4247,12 +5399,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextAddonsWidgets__SlideContainer, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextAddonsWidgets__SlideContainer, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4260,12 +5416,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4277,13 +5437,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextAddonsWidgets__SlideContainer, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextAddonsWidgets__SlideContainer, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4295,9 +5459,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4309,10 +5477,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextAddonsWidgets__SlideContainer, icon: anytype) void {
+    pub fn windowIconChanged(self: TextAddonsWidgets__SlideContainer, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4324,9 +5496,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4338,13 +5514,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextAddonsWidgets__SlideContainer, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextAddonsWidgets__SlideContainer, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4356,9 +5536,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4368,12 +5552,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextAddonsWidgets__SlideContainer, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextAddonsWidgets__SlideContainer, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4385,9 +5573,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4401,9 +5593,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn inputMethodHints(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4415,9 +5611,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextAddonsWidgets__SlideContainer, hints: i32) void {
+    pub fn setInputMethodHints(self: TextAddonsWidgets__SlideContainer, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4431,11 +5631,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4451,13 +5655,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4474,12 +5682,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextAddonsWidgets__SlideContainer, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4493,11 +5705,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4513,12 +5729,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4536,12 +5756,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextAddonsWidgets__SlideContainer, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4553,10 +5777,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextAddonsWidgets__SlideContainer, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextAddonsWidgets__SlideContainer, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4570,9 +5798,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextAddonsWidgets__SlideContainer, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextAddonsWidgets__SlideContainer, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4586,10 +5818,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextAddonsWidgets__SlideContainer, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextAddonsWidgets__SlideContainer, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4603,9 +5839,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextAddonsWidgets__SlideContainer, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextAddonsWidgets__SlideContainer, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4619,9 +5859,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextAddonsWidgets__SlideContainer, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextAddonsWidgets__SlideContainer, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4635,9 +5879,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextAddonsWidgets__SlideContainer, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextAddonsWidgets__SlideContainer, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4651,25 +5899,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextAddonsWidgets__SlideContainer, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextAddonsWidgets__SlideContainer, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4677,17 +5913,41 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4699,13 +5959,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAddonsWidgets__SlideContainer.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4717,13 +5981,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextAddonsWidgets__SlideContainer, name: []const u8) void {
+    pub fn setObjectName(self: TextAddonsWidgets__SlideContainer, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4733,9 +6001,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsWidgetType(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isWidgetType(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4745,9 +6017,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsWindowType(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isWindowType(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4757,9 +6033,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn IsQuickItemType(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn isQuickItemType(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4769,9 +6049,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SignalsBlocked(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn signalsBlocked(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4783,9 +6067,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextAddonsWidgets__SlideContainer, b: bool) bool {
+    pub fn blockSignals(self: TextAddonsWidgets__SlideContainer, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4795,9 +6083,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Thread(self: TextAddonsWidgets__SlideContainer) QThread {
+    pub fn thread(self: TextAddonsWidgets__SlideContainer) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4807,12 +6099,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextAddonsWidgets__SlideContainer, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextAddonsWidgets__SlideContainer, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4824,9 +6120,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextAddonsWidgets__SlideContainer, interval: i32) i32 {
+    pub fn startTimer(self: TextAddonsWidgets__SlideContainer, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4838,9 +6138,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextAddonsWidgets__SlideContainer, time: i64) i32 {
+    pub fn startTimer2(self: TextAddonsWidgets__SlideContainer, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4852,9 +6156,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextAddonsWidgets__SlideContainer, id: i32) void {
+    pub fn killTimer(self: TextAddonsWidgets__SlideContainer, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4866,9 +6174,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextAddonsWidgets__SlideContainer, id: i32) void {
+    pub fn killTimer2(self: TextAddonsWidgets__SlideContainer, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4880,15 +6192,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4900,10 +6216,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextAddonsWidgets__SlideContainer, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextAddonsWidgets__SlideContainer, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4915,10 +6235,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextAddonsWidgets__SlideContainer, obj: anytype) void {
+    pub fn removeEventFilter(self: TextAddonsWidgets__SlideContainer, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4926,7 +6250,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4934,13 +6258,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4948,7 +6276,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4956,13 +6284,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4972,18 +6304,22 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextAddonsWidgets__SlideContainer, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextAddonsWidgets__SlideContainer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4991,7 +6327,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4999,13 +6335,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5013,7 +6353,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5021,13 +6361,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5037,9 +6381,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Disconnect3(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn disconnect3(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5051,10 +6399,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextAddonsWidgets__SlideContainer, receiver: anytype) bool {
+    pub fn disconnect4(self: TextAddonsWidgets__SlideContainer, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5064,10 +6416,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5077,9 +6433,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DumpObjectTree(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn dumpObjectTree(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5089,9 +6449,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DumpObjectInfo(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn dumpObjectInfo(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5105,11 +6469,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextAddonsWidgets__SlideContainer, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextAddonsWidgets__SlideContainer, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5121,10 +6489,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextAddonsWidgets__SlideContainer, name: [:0]const u8) QVariant {
+    pub fn property(self: TextAddonsWidgets__SlideContainer, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5136,7 +6508,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextAddonsWidgets__SlideContainer, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5144,27 +6516,19 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextAddonsWidgets__SlideContainer.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextAddonsWidgets__SlideContainer.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextAddonsWidgets__SlideContainer.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAddonsWidgets__SlideContainer `
-    ///
-    pub fn BindingStorage(self: TextAddonsWidgets__SlideContainer) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5174,9 +6538,29 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn BindingStorage2(self: TextAddonsWidgets__SlideContainer) QBindingStorage {
+    pub fn bindingStorage(self: TextAddonsWidgets__SlideContainer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAddonsWidgets__SlideContainer `
+    ///
+    pub fn bindingStorage2(self: TextAddonsWidgets__SlideContainer) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5186,9 +6570,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Destroyed(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn destroyed(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5200,9 +6588,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5212,9 +6604,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Parent(self: TextAddonsWidgets__SlideContainer) QObject {
+    pub fn parent(self: TextAddonsWidgets__SlideContainer) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5226,10 +6622,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextAddonsWidgets__SlideContainer, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextAddonsWidgets__SlideContainer, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5239,9 +6639,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DeleteLater(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn deleteLater(self: TextAddonsWidgets__SlideContainer) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5255,9 +6659,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextAddonsWidgets__SlideContainer, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextAddonsWidgets__SlideContainer, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5271,9 +6679,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextAddonsWidgets__SlideContainer, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextAddonsWidgets__SlideContainer, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5281,7 +6693,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5291,13 +6703,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5305,7 +6721,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5315,13 +6731,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5331,7 +6751,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5339,12 +6759,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextAddonsWidgets__SlideContainer, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextAddonsWidgets__SlideContainer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5356,10 +6780,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5373,11 +6801,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5393,13 +6825,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5412,11 +6848,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextAddonsWidgets__SlideContainer, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextAddonsWidgets__SlideContainer, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5428,10 +6868,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn destroyed1(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5443,9 +6887,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5455,9 +6903,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn PaintingActive(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn paintingActive(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5467,9 +6919,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn WidthMM(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn widthMM(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5479,9 +6935,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn HeightMM(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn heightMM(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5491,9 +6951,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn LogicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn logicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5503,9 +6967,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn LogicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn logicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5515,9 +6983,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn PhysicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn physicalDpiX(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5527,9 +6999,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn PhysicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn physicalDpiY(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5539,9 +7015,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DevicePixelRatio(self: TextAddonsWidgets__SlideContainer) f64 {
+    pub fn devicePixelRatio(self: TextAddonsWidgets__SlideContainer) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5551,9 +7031,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DevicePixelRatioF(self: TextAddonsWidgets__SlideContainer) f64 {
+    pub fn devicePixelRatioF(self: TextAddonsWidgets__SlideContainer) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5563,9 +7047,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn ColorCount(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn colorCount(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5575,17 +7063,25 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Depth(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn depth(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5593,13 +7089,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QFrame
     ///
@@ -5613,14 +7113,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: TextAddonsWidgets__SlideContainer, e: anytype) bool {
+    pub fn event(self: TextAddonsWidgets__SlideContainer, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextAddonsWidgets__SlideContainer_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QFrame
     ///
@@ -5634,10 +7134,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: TextAddonsWidgets__SlideContainer, e: anytype) bool {
+    pub fn superEvent(self: TextAddonsWidgets__SlideContainer, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.TextAddonsWidgets__SlideContainer_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QFrame
     ///
@@ -5651,9 +7155,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5667,14 +7175,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn paintEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.TextAddonsWidgets__SlideContainer_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5688,10 +7196,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn superPaintEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.TextAddonsWidgets__SlideContainer_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QFrame
     ///
@@ -5705,9 +7217,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPaintEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5721,14 +7237,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn changeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextAddonsWidgets__SlideContainer_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5742,10 +7258,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn superChangeEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextAddonsWidgets__SlideContainer_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -5759,9 +7279,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5775,14 +7299,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: TextAddonsWidgets__SlideContainer, option: anytype) void {
+    pub fn initStyleOption(self: TextAddonsWidgets__SlideContainer, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextAddonsWidgets__SlideContainer_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5796,10 +7320,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: TextAddonsWidgets__SlideContainer, option: anytype) void {
+    pub fn superInitStyleOption(self: TextAddonsWidgets__SlideContainer, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextAddonsWidgets__SlideContainer_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -5813,9 +7341,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QStyleOptionFrame) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5827,13 +7359,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn DevType(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn devType(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5845,9 +7377,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperDevType(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn superDevType(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5861,9 +7397,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5877,13 +7417,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextAddonsWidgets__SlideContainer, visible: bool) void {
+    pub fn setVisible(self: TextAddonsWidgets__SlideContainer, visible: bool) void {
         qtc.TextAddonsWidgets__SlideContainer_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5897,9 +7437,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextAddonsWidgets__SlideContainer, visible: bool) void {
+    pub fn superSetVisible(self: TextAddonsWidgets__SlideContainer, visible: bool) void {
         qtc.TextAddonsWidgets__SlideContainer_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5913,9 +7457,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, bool) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5929,13 +7477,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
+    pub fn heightForWidth(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5949,9 +7497,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5965,9 +7517,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5979,13 +7535,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn HasHeightForWidth(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn hasHeightForWidth(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5997,9 +7553,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperHasHeightForWidth(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn superHasHeightForWidth(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6013,9 +7573,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6027,13 +7591,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn PaintEngine(self: TextAddonsWidgets__SlideContainer) QPaintEngine {
+    pub fn paintEngine(self: TextAddonsWidgets__SlideContainer) QPaintEngine {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6045,9 +7609,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperPaintEngine(self: TextAddonsWidgets__SlideContainer) QPaintEngine {
+    pub fn superPaintEngine(self: TextAddonsWidgets__SlideContainer) QPaintEngine {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6061,10 +7629,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextAddonsWidgets__SlideContainer_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6075,16 +7647,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6096,12 +7668,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6115,10 +7691,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6129,16 +7709,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6150,12 +7730,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6169,10 +7753,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6183,16 +7771,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6204,12 +7792,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6223,10 +7815,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6237,16 +7833,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6258,12 +7854,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6277,9 +7877,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMouseEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6291,16 +7895,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextAddonsWidgets__SlideContainer_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextAddonsWidgets__SlideContainer_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6312,12 +7916,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6331,10 +7939,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QWheelEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6345,16 +7957,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextAddonsWidgets__SlideContainer_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextAddonsWidgets__SlideContainer_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6366,12 +7978,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6385,10 +8001,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QKeyEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6399,16 +8019,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextAddonsWidgets__SlideContainer_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextAddonsWidgets__SlideContainer_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6420,12 +8040,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6439,10 +8063,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QKeyEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6453,16 +8081,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextAddonsWidgets__SlideContainer_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextAddonsWidgets__SlideContainer_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6474,12 +8102,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6493,10 +8125,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QFocusEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6507,16 +8143,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextAddonsWidgets__SlideContainer_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextAddonsWidgets__SlideContainer_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6528,12 +8164,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6547,9 +8187,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QFocusEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6561,16 +8205,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextAddonsWidgets__SlideContainer_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextAddonsWidgets__SlideContainer_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6582,12 +8226,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6601,9 +8249,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEnterEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6615,16 +8267,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAddonsWidgets__SlideContainer_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAddonsWidgets__SlideContainer_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6636,12 +8288,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6655,9 +8311,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6669,16 +8329,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6690,12 +8350,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6709,9 +8373,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMoveEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6723,16 +8391,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6744,12 +8412,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6763,9 +8435,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QCloseEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6777,16 +8453,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextAddonsWidgets__SlideContainer_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextAddonsWidgets__SlideContainer_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6798,12 +8474,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6817,9 +8497,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6831,16 +8515,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextAddonsWidgets__SlideContainer_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextAddonsWidgets__SlideContainer_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6852,12 +8536,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6871,9 +8559,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QTabletEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6885,16 +8577,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextAddonsWidgets__SlideContainer_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextAddonsWidgets__SlideContainer_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6906,12 +8598,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6925,9 +8621,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QActionEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6939,16 +8639,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextAddonsWidgets__SlideContainer_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextAddonsWidgets__SlideContainer_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6960,12 +8660,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6979,9 +8683,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6993,16 +8701,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7014,12 +8722,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7033,9 +8745,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7047,16 +8763,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7068,12 +8784,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7087,9 +8807,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7101,16 +8825,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextAddonsWidgets__SlideContainer_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextAddonsWidgets__SlideContainer_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7122,12 +8846,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7141,9 +8869,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QDropEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7155,16 +8887,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextAddonsWidgets__SlideContainer_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextAddonsWidgets__SlideContainer_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7176,12 +8908,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7195,9 +8931,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QShowEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7209,16 +8949,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextAddonsWidgets__SlideContainer_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextAddonsWidgets__SlideContainer_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7230,12 +8970,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7249,9 +8993,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QHideEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7269,7 +9017,7 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextAddonsWidgets__SlideContainer, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextAddonsWidgets__SlideContainer, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7277,9 +9025,9 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
         return qtc.TextAddonsWidgets__SlideContainer_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7297,13 +9045,17 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextAddonsWidgets__SlideContainer, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextAddonsWidgets__SlideContainer, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextAddonsWidgets__SlideContainer_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7317,9 +9069,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7333,13 +9089,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
+    pub fn metric(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7353,9 +9109,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
+    pub fn superMetric(self: TextAddonsWidgets__SlideContainer, param1: i32) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7369,9 +9129,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7385,14 +9149,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
+    pub fn initPainter(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextAddonsWidgets__SlideContainer_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7406,10 +9170,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
+    pub fn superInitPainter(self: TextAddonsWidgets__SlideContainer, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextAddonsWidgets__SlideContainer_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7423,9 +9191,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPainter) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7439,14 +9211,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextAddonsWidgets__SlideContainer, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextAddonsWidgets__SlideContainer, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7460,10 +9232,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextAddonsWidgets__SlideContainer, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextAddonsWidgets__SlideContainer, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7477,9 +9253,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextAddonsWidgets__SlideContainer_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7491,13 +9271,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SharedPainter(self: TextAddonsWidgets__SlideContainer) QPainter {
+    pub fn sharedPainter(self: TextAddonsWidgets__SlideContainer) QPainter {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7509,9 +9289,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperSharedPainter(self: TextAddonsWidgets__SlideContainer) QPainter {
+    pub fn superSharedPainter(self: TextAddonsWidgets__SlideContainer) QPainter {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7525,9 +9309,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7541,14 +9329,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextAddonsWidgets__SlideContainer_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7562,10 +9350,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextAddonsWidgets__SlideContainer_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7579,9 +9371,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7595,13 +9391,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextAddonsWidgets__SlideContainer, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextAddonsWidgets__SlideContainer, param1: i32) QVariant {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7615,9 +9411,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextAddonsWidgets__SlideContainer, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextAddonsWidgets__SlideContainer, param1: i32) QVariant {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7633,9 +9433,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32) callconv(.c) QVariant) void {
         qtc.TextAddonsWidgets__SlideContainer_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7649,13 +9453,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextAddonsWidgets__SlideContainer, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextAddonsWidgets__SlideContainer, next: bool) bool {
         return qtc.TextAddonsWidgets__SlideContainer_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7669,9 +9473,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextAddonsWidgets__SlideContainer, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextAddonsWidgets__SlideContainer, next: bool) bool {
         return qtc.TextAddonsWidgets__SlideContainer_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7685,9 +9493,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, bool) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7699,16 +9511,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextAddonsWidgets__SlideContainer_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextAddonsWidgets__SlideContainer_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7720,12 +9532,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7739,9 +9555,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QTimerEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7753,16 +9573,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextAddonsWidgets__SlideContainer_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextAddonsWidgets__SlideContainer_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7774,12 +9594,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7793,9 +9617,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QChildEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7807,16 +9635,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAddonsWidgets__SlideContainer_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAddonsWidgets__SlideContainer_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7828,12 +9656,16 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextAddonsWidgets__SlideContainer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextAddonsWidgets__SlideContainer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextAddonsWidgets__SlideContainer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextAddonsWidgets__SlideContainer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7847,9 +9679,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QEvent) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7863,14 +9699,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
+    pub fn connectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAddonsWidgets__SlideContainer_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7884,11 +9720,15 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
+    pub fn superConnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAddonsWidgets__SlideContainer_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7901,9 +9741,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7917,14 +9761,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
+    pub fn disconnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAddonsWidgets__SlideContainer_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7938,10 +9782,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextAddonsWidgets__SlideContainer, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextAddonsWidgets__SlideContainer_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7955,9 +9803,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -7971,14 +9823,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn drawFrame(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextAddonsWidgets__SlideContainer_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -7992,10 +9844,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
+    pub fn superDrawFrame(self: TextAddonsWidgets__SlideContainer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextAddonsWidgets__SlideContainer_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8009,10 +9865,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QPainter) callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8023,13 +9883,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn UpdateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn updateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8041,10 +9901,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn superUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8057,10 +9921,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8071,13 +9939,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Create(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn create(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8089,10 +9957,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperCreate(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn superCreate(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8105,9 +9977,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8119,13 +9995,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Destroy(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn destroy(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8137,9 +10013,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperDestroy(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn superDestroy(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8153,10 +10033,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) void) void {
         qtc.TextAddonsWidgets__SlideContainer_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8167,13 +10051,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FocusNextChild(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn focusNextChild(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8185,10 +10069,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperFocusNextChild(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn superFocusNextChild(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8201,9 +10089,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8215,13 +10107,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn FocusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn focusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8233,9 +10125,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperFocusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
+    pub fn superFocusPreviousChild(self: TextAddonsWidgets__SlideContainer) bool {
         return qtc.TextAddonsWidgets__SlideContainer_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8249,9 +10145,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8263,13 +10163,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Sender(self: TextAddonsWidgets__SlideContainer) QObject {
+    pub fn sender(self: TextAddonsWidgets__SlideContainer) QObject {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8281,9 +10181,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperSender(self: TextAddonsWidgets__SlideContainer) QObject {
+    pub fn superSender(self: TextAddonsWidgets__SlideContainer) QObject {
         return .{ .ptr = qtc.TextAddonsWidgets__SlideContainer_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8297,9 +10201,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8311,13 +10219,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SenderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn senderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8329,9 +10237,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn SuperSenderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
+    pub fn superSenderSignalIndex(self: TextAddonsWidgets__SlideContainer) i32 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8345,9 +10257,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextAddonsWidgets__SlideContainer, callback: *const fn () callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8361,14 +10277,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextAddonsWidgets__SlideContainer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8382,10 +10298,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextAddonsWidgets__SlideContainer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextAddonsWidgets__SlideContainer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8399,9 +10319,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextAddonsWidgets__SlideContainer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8415,14 +10339,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAddonsWidgets__SlideContainer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8436,10 +10360,14 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextAddonsWidgets__SlideContainer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextAddonsWidgets__SlideContainer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8453,9 +10381,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, QMetaMethod) callconv(.c) bool) void {
         qtc.TextAddonsWidgets__SlideContainer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8471,13 +10403,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
         return qtc.TextAddonsWidgets__SlideContainer_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8493,9 +10425,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, metricA: i32, metricB: i32) f64 {
         return qtc.TextAddonsWidgets__SlideContainer_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8509,9 +10445,13 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, i32, i32) callconv(.c) f64) void {
         qtc.TextAddonsWidgets__SlideContainer_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8525,23 +10465,23 @@ pub const TextAddonsWidgets__SlideContainer = extern struct {
     ///
     /// ` callback: *const fn (self: TextAddonsWidgets__SlideContainer, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextAddonsWidgets__SlideContainer, callback: *const fn (TextAddonsWidgets__SlideContainer, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAddonsWidgets_1_1SlideContainer.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextAddonsWidgets__SlideContainer `
     ///
-    pub fn Delete(self: TextAddonsWidgets__SlideContainer) void {
+    pub fn delete(self: TextAddonsWidgets__SlideContainer) void {
         qtc.TextAddonsWidgets__SlideContainer_Delete(@ptrCast(self.ptr));
     }
 };

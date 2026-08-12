@@ -39,22 +39,34 @@ pub const KExtraColumnsProxyModel = extern struct {
     pub const _is_QAbstractItemModel = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KExtraColumnsProxyModel object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KExtraColumnsProxyModel {
+    pub const New = new;
+
+    /// Allocate a new KExtraColumnsProxyModel object in C++ memory
+    ///
+    pub fn new() KExtraColumnsProxyModel {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_new() };
     }
 
-    /// New2 constructs a new KExtraColumnsProxyModel object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KExtraColumnsProxyModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) KExtraColumnsProxyModel {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) KExtraColumnsProxyModel {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -62,9 +74,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn MetaObject(self: KExtraColumnsProxyModel) QMetaObject {
+    pub fn metaObject(self: KExtraColumnsProxyModel) QMetaObject {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,13 +92,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KExtraColumnsProxyModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,9 +108,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperMetaObject(self: KExtraColumnsProxyModel) QMetaObject {
+    pub fn superMetaObject(self: KExtraColumnsProxyModel) QMetaObject {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -102,10 +122,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KExtraColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KExtraColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KExtraColumnsProxyModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -115,13 +139,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KExtraColumnsProxyModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -131,10 +155,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KExtraColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KExtraColumnsProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KExtraColumnsProxyModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -146,9 +174,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KExtraColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KExtraColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KExtraColumnsProxyModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +190,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -178,9 +210,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KExtraColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KExtraColumnsProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KExtraColumnsProxyModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -190,14 +226,18 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendColumn` instead
+    ///
+    pub const AppendColumn = appendColumn;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#appendColumn)
     ///
@@ -205,9 +245,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn AppendColumn(self: KExtraColumnsProxyModel) void {
+    pub fn appendColumn(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_AppendColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeExtraColumn` instead
+    ///
+    pub const RemoveExtraColumn = removeExtraColumn;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#removeExtraColumn)
     ///
@@ -217,9 +261,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` idx: i32 `
     ///
-    pub fn RemoveExtraColumn(self: KExtraColumnsProxyModel, idx: i32) void {
+    pub fn removeExtraColumn(self: KExtraColumnsProxyModel, idx: i32) void {
         qtc.KExtraColumnsProxyModel_RemoveExtraColumn(@ptrCast(self.ptr), @bitCast(idx));
     }
+
+    /// ### DEPRECATED: Use `extraColumnData` instead
+    ///
+    pub const ExtraColumnData = extraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#extraColumnData)
     ///
@@ -227,7 +275,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` row: i32 `
     ///
@@ -235,10 +283,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ExtraColumnData(self: KExtraColumnsProxyModel, parent: anytype, row: i32, extraColumn: i32, role: i32) QVariant {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_ExtraColumnData(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(row), @bitCast(extraColumn), @bitCast(role)) };
+    pub fn extraColumnData(self: KExtraColumnsProxyModel, _parent: anytype, row: i32, extraColumn: i32, role: i32) QVariant {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_ExtraColumnData(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(row), @bitCast(extraColumn), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onExtraColumnData` instead
+    ///
+    pub const OnExtraColumnData = onExtraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#extraColumnData)
     ///
@@ -252,13 +304,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnExtraColumnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, i32) callconv(.c) QVariant) void {
+    pub fn onExtraColumnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnExtraColumnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperExtraColumnData` instead
+    /// ### DEPRECATED: Use `superExtraColumnData` instead
     ///
-    pub const QBaseExtraColumnData = SuperExtraColumnData;
+    pub const SuperExtraColumnData = superExtraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#extraColumnData)
     ///
@@ -268,7 +320,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` row: i32 `
     ///
@@ -276,10 +328,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperExtraColumnData(self: KExtraColumnsProxyModel, parent: anytype, row: i32, extraColumn: i32, role: i32) QVariant {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperExtraColumnData(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(row), @bitCast(extraColumn), @bitCast(role)) };
+    pub fn superExtraColumnData(self: KExtraColumnsProxyModel, _parent: anytype, row: i32, extraColumn: i32, role: i32) QVariant {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperExtraColumnData(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(row), @bitCast(extraColumn), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setExtraColumnData` instead
+    ///
+    pub const SetExtraColumnData = setExtraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setExtraColumnData)
     ///
@@ -287,21 +343,25 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` row: i32 `
     ///
     /// ` extraColumn: i32 `
     ///
-    /// ` data: QVariant `
+    /// ` _data: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetExtraColumnData(self: KExtraColumnsProxyModel, parent: anytype, row: i32, extraColumn: i32, data: anytype, role: i32) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        comptime _ = @TypeOf(data)._is_QVariant;
-        return qtc.KExtraColumnsProxyModel_SetExtraColumnData(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(row), @bitCast(extraColumn), @ptrCast(data.ptr), @bitCast(role));
+    pub fn setExtraColumnData(self: KExtraColumnsProxyModel, _parent: anytype, row: i32, extraColumn: i32, _data: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        comptime _ = @TypeOf(_data)._is_QVariant;
+        return qtc.KExtraColumnsProxyModel_SetExtraColumnData(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(row), @bitCast(extraColumn), @ptrCast(_data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetExtraColumnData` instead
+    ///
+    pub const OnSetExtraColumnData = onSetExtraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setExtraColumnData)
     ///
@@ -313,13 +373,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, row: i32, extraColumn: i32, data: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetExtraColumnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetExtraColumnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QVariant, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnSetExtraColumnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetExtraColumnData` instead
+    /// ### DEPRECATED: Use `superSetExtraColumnData` instead
     ///
-    pub const QBaseSetExtraColumnData = SuperSetExtraColumnData;
+    pub const SuperSetExtraColumnData = superSetExtraColumnData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setExtraColumnData)
     ///
@@ -329,21 +389,25 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` row: i32 `
     ///
     /// ` extraColumn: i32 `
     ///
-    /// ` data: QVariant `
+    /// ` _data: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetExtraColumnData(self: KExtraColumnsProxyModel, parent: anytype, row: i32, extraColumn: i32, data: anytype, role: i32) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        comptime _ = @TypeOf(data)._is_QVariant;
-        return qtc.KExtraColumnsProxyModel_SuperSetExtraColumnData(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(row), @bitCast(extraColumn), @ptrCast(data.ptr), @bitCast(role));
+    pub fn superSetExtraColumnData(self: KExtraColumnsProxyModel, _parent: anytype, row: i32, extraColumn: i32, _data: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        comptime _ = @TypeOf(_data)._is_QVariant;
+        return qtc.KExtraColumnsProxyModel_SuperSetExtraColumnData(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(row), @bitCast(extraColumn), @ptrCast(_data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `extraColumnDataChanged` instead
+    ///
+    pub const ExtraColumnDataChanged = extraColumnDataChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#extraColumnDataChanged)
     ///
@@ -351,7 +415,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` row: i32 `
     ///
@@ -359,14 +423,18 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn ExtraColumnDataChanged(self: KExtraColumnsProxyModel, parent: anytype, row: i32, extraColumn: i32, roles: []i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn extraColumnDataChanged(self: KExtraColumnsProxyModel, _parent: anytype, row: i32, extraColumn: i32, roles: []i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
             .len = roles.len,
             .data = roles.ptr,
         };
-        qtc.KExtraColumnsProxyModel_ExtraColumnDataChanged(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(row), @bitCast(extraColumn), roles_list);
+        qtc.KExtraColumnsProxyModel_ExtraColumnDataChanged(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(row), @bitCast(extraColumn), roles_list);
     }
+
+    /// ### DEPRECATED: Use `extraColumnForProxyColumn` instead
+    ///
+    pub const ExtraColumnForProxyColumn = extraColumnForProxyColumn;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#extraColumnForProxyColumn)
     ///
@@ -376,9 +444,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` proxyColumn: i32 `
     ///
-    pub fn ExtraColumnForProxyColumn(self: KExtraColumnsProxyModel, proxyColumn: i32) i32 {
+    pub fn extraColumnForProxyColumn(self: KExtraColumnsProxyModel, proxyColumn: i32) i32 {
         return qtc.KExtraColumnsProxyModel_ExtraColumnForProxyColumn(@ptrCast(self.ptr), @bitCast(proxyColumn));
     }
+
+    /// ### DEPRECATED: Use `proxyColumnForExtraColumn` instead
+    ///
+    pub const ProxyColumnForExtraColumn = proxyColumnForExtraColumn;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#proxyColumnForExtraColumn)
     ///
@@ -388,9 +460,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` extraColumn: i32 `
     ///
-    pub fn ProxyColumnForExtraColumn(self: KExtraColumnsProxyModel, extraColumn: i32) i32 {
+    pub fn proxyColumnForExtraColumn(self: KExtraColumnsProxyModel, extraColumn: i32) i32 {
         return qtc.KExtraColumnsProxyModel_ProxyColumnForExtraColumn(@ptrCast(self.ptr), @bitCast(extraColumn));
     }
+
+    /// ### DEPRECATED: Use `setSourceModel` instead
+    ///
+    pub const SetSourceModel = setSourceModel;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setSourceModel)
     ///
@@ -400,10 +476,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` model: QAbstractItemModel `
     ///
-    pub fn SetSourceModel(self: KExtraColumnsProxyModel, model: anytype) void {
+    pub fn setSourceModel(self: KExtraColumnsProxyModel, model: anytype) void {
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         qtc.KExtraColumnsProxyModel_SetSourceModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSourceModel` instead
+    ///
+    pub const OnSetSourceModel = onSetSourceModel;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setSourceModel)
     ///
@@ -415,13 +495,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetSourceModel(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetSourceModel(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QAbstractItemModel) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnSetSourceModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSourceModel` instead
+    /// ### DEPRECATED: Use `superSetSourceModel` instead
     ///
-    pub const QBaseSetSourceModel = SuperSetSourceModel;
+    pub const SuperSetSourceModel = superSetSourceModel;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setSourceModel)
     ///
@@ -433,10 +513,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` model: QAbstractItemModel `
     ///
-    pub fn SuperSetSourceModel(self: KExtraColumnsProxyModel, model: anytype) void {
+    pub fn superSetSourceModel(self: KExtraColumnsProxyModel, model: anytype) void {
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         qtc.KExtraColumnsProxyModel_SuperSetSourceModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
     }
+
+    /// ### DEPRECATED: Use `mapToSource` instead
+    ///
+    pub const MapToSource = mapToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapToSource)
     ///
@@ -446,10 +530,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn MapToSource(self: KExtraColumnsProxyModel, proxyIndex: anytype) QModelIndex {
+    pub fn mapToSource(self: KExtraColumnsProxyModel, proxyIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapToSource` instead
+    ///
+    pub const OnMapToSource = onMapToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapToSource)
     ///
@@ -463,13 +551,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onMapToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnMapToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMapToSource` instead
+    /// ### DEPRECATED: Use `superMapToSource` instead
     ///
-    pub const QBaseMapToSource = SuperMapToSource;
+    pub const SuperMapToSource = superMapToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapToSource)
     ///
@@ -481,10 +569,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn SuperMapToSource(self: KExtraColumnsProxyModel, proxyIndex: anytype) QModelIndex {
+    pub fn superMapToSource(self: KExtraColumnsProxyModel, proxyIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapSelectionToSource` instead
+    ///
+    pub const MapSelectionToSource = mapSelectionToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapSelectionToSource)
     ///
@@ -494,10 +586,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn MapSelectionToSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
+    pub fn mapSelectionToSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MapSelectionToSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapSelectionToSource` instead
+    ///
+    pub const OnMapSelectionToSource = onMapSelectionToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapSelectionToSource)
     ///
@@ -511,13 +607,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapSelectionToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+    pub fn onMapSelectionToSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KExtraColumnsProxyModel_OnMapSelectionToSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMapSelectionToSource` instead
+    /// ### DEPRECATED: Use `superMapSelectionToSource` instead
     ///
-    pub const QBaseMapSelectionToSource = SuperMapSelectionToSource;
+    pub const SuperMapSelectionToSource = superMapSelectionToSource;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#mapSelectionToSource)
     ///
@@ -529,10 +625,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperMapSelectionToSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
+    pub fn superMapSelectionToSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMapSelectionToSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#columnCount)
     ///
@@ -540,12 +640,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: KExtraColumnsProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn columnCount(self: KExtraColumnsProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCount` instead
+    ///
+    pub const OnColumnCount = onColumnCount;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#columnCount)
     ///
@@ -557,13 +661,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onColumnCount(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    /// ### DEPRECATED: Use `superColumnCount` instead
     ///
-    pub const QBaseColumnCount = SuperColumnCount;
+    pub const SuperColumnCount = superColumnCount;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#columnCount)
     ///
@@ -573,12 +677,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: KExtraColumnsProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superColumnCount(self: KExtraColumnsProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#data)
     ///
@@ -586,14 +694,18 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: KExtraColumnsProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn data(self: KExtraColumnsProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#data)
     ///
@@ -607,13 +719,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
+    pub fn onData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#data)
     ///
@@ -623,14 +735,18 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: KExtraColumnsProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn superData(self: KExtraColumnsProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setData)
     ///
@@ -638,17 +754,21 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: KExtraColumnsProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setData(self: KExtraColumnsProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.KExtraColumnsProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.KExtraColumnsProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetData` instead
+    ///
+    pub const OnSetData = onSetData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setData)
     ///
@@ -660,13 +780,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetData` instead
+    /// ### DEPRECATED: Use `superSetData` instead
     ///
-    pub const QBaseSetData = SuperSetData;
+    pub const SuperSetData = superSetData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#setData)
     ///
@@ -676,17 +796,21 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: KExtraColumnsProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetData(self: KExtraColumnsProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.KExtraColumnsProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.KExtraColumnsProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `sibling` instead
+    ///
+    pub const Sibling = sibling;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#sibling)
     ///
@@ -700,10 +824,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: KExtraColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn sibling(self: KExtraColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSibling` instead
+    ///
+    pub const OnSibling = onSibling;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#sibling)
     ///
@@ -717,13 +845,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSibling(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onSibling(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSibling` instead
+    /// ### DEPRECATED: Use `superSibling` instead
     ///
-    pub const QBaseSibling = SuperSibling;
+    pub const SuperSibling = superSibling;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#sibling)
     ///
@@ -739,10 +867,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: KExtraColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn superSibling(self: KExtraColumnsProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#buddy)
     ///
@@ -750,12 +882,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Buddy(self: KExtraColumnsProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn buddy(self: KExtraColumnsProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBuddy` instead
+    ///
+    pub const OnBuddy = onBuddy;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#buddy)
     ///
@@ -769,13 +905,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBuddy(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onBuddy(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBuddy` instead
+    /// ### DEPRECATED: Use `superBuddy` instead
     ///
-    pub const QBaseBuddy = SuperBuddy;
+    pub const SuperBuddy = superBuddy;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#buddy)
     ///
@@ -785,12 +921,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: KExtraColumnsProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superBuddy(self: KExtraColumnsProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#flags)
     ///
@@ -798,16 +938,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: KExtraColumnsProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn flags(self: KExtraColumnsProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFlags` instead
+    ///
+    pub const OnFlags = onFlags;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#flags)
     ///
@@ -819,13 +963,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onFlags(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFlags` instead
+    /// ### DEPRECATED: Use `superFlags` instead
     ///
-    pub const QBaseFlags = SuperFlags;
+    pub const SuperFlags = superFlags;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#flags)
     ///
@@ -835,16 +979,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: KExtraColumnsProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superFlags(self: KExtraColumnsProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasChildren` instead
+    ///
+    pub const HasChildren = hasChildren;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#hasChildren)
     ///
@@ -852,12 +1000,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn HasChildren(self: KExtraColumnsProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn hasChildren(self: KExtraColumnsProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasChildren` instead
+    ///
+    pub const OnHasChildren = onHasChildren;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#hasChildren)
     ///
@@ -869,13 +1021,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onHasChildren(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    /// ### DEPRECATED: Use `superHasChildren` instead
     ///
-    pub const QBaseHasChildren = SuperHasChildren;
+    pub const SuperHasChildren = superHasChildren;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#hasChildren)
     ///
@@ -885,12 +1037,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: KExtraColumnsProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superHasChildren(self: KExtraColumnsProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `headerData` instead
+    ///
+    pub const HeaderData = headerData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#headerData)
     ///
@@ -904,9 +1060,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn headerData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onHeaderData` instead
+    ///
+    pub const OnHeaderData = onHeaderData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#headerData)
     ///
@@ -920,13 +1080,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnHeaderData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
+    pub fn onHeaderData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.KExtraColumnsProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    /// ### DEPRECATED: Use `superHeaderData` instead
     ///
-    pub const QBaseHeaderData = SuperHeaderData;
+    pub const SuperHeaderData = superHeaderData;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#headerData)
     ///
@@ -942,9 +1102,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn superHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#index)
     ///
@@ -956,12 +1120,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn Index(self: KExtraColumnsProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn index(self: KExtraColumnsProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndex` instead
+    ///
+    pub const OnIndex = onIndex;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#index)
     ///
@@ -975,13 +1143,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndex` instead
+    /// ### DEPRECATED: Use `superIndex` instead
     ///
-    pub const QBaseIndex = SuperIndex;
+    pub const SuperIndex = superIndex;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#index)
     ///
@@ -995,12 +1163,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: KExtraColumnsProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn superIndex(self: KExtraColumnsProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#parent)
     ///
@@ -1010,10 +1182,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn Parent(self: KExtraColumnsProxyModel, child: anytype) QModelIndex {
+    pub fn parent(self: KExtraColumnsProxyModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_Parent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onParent` instead
+    ///
+    pub const OnParent = onParent;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#parent)
     ///
@@ -1027,13 +1203,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnParent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onParent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParent` instead
+    /// ### DEPRECATED: Use `superParent` instead
     ///
-    pub const QBaseParent = SuperParent;
+    pub const SuperParent = superParent;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#parent)
     ///
@@ -1045,10 +1221,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` child: QModelIndex `
     ///
-    pub fn SuperParent(self: KExtraColumnsProxyModel, child: anytype) QModelIndex {
+    pub fn superParent(self: KExtraColumnsProxyModel, child: anytype) QModelIndex {
         comptime _ = @TypeOf(child)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperParent(@ptrCast(self.ptr), @ptrCast(child.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1060,15 +1240,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1082,15 +1266,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendColumn1` instead
+    ///
+    pub const AppendColumn1 = appendColumn1;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#appendColumn)
     ///
@@ -1100,13 +1288,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` header: []const u8 `
     ///
-    pub fn AppendColumn1(self: KExtraColumnsProxyModel, header: []const u8) void {
+    pub fn appendColumn1(self: KExtraColumnsProxyModel, header: []const u8) void {
         const header_str = qtc.libqt_string{
             .len = header.len,
             .data = header.ptr,
         };
         qtc.KExtraColumnsProxyModel_AppendColumn1(@ptrCast(self.ptr), header_str);
     }
+
+    /// ### DEPRECATED: Use `handleSourceLayoutChanges` instead
+    ///
+    pub const HandleSourceLayoutChanges = handleSourceLayoutChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -1116,9 +1308,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn HandleSourceLayoutChanges(self: KExtraColumnsProxyModel) bool {
+    pub fn handleSourceLayoutChanges(self: KExtraColumnsProxyModel) bool {
         return qtc.QIdentityProxyModel_HandleSourceLayoutChanges(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `handleSourceDataChanges` instead
+    ///
+    pub const HandleSourceDataChanges = handleSourceDataChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -1128,9 +1324,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn HandleSourceDataChanges(self: KExtraColumnsProxyModel) bool {
+    pub fn handleSourceDataChanges(self: KExtraColumnsProxyModel) bool {
         return qtc.QIdentityProxyModel_HandleSourceDataChanges(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sourceModel` instead
+    ///
+    pub const SourceModel = sourceModel;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -1140,9 +1340,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SourceModel(self: KExtraColumnsProxyModel) QAbstractItemModel {
+    pub fn sourceModel(self: KExtraColumnsProxyModel) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractProxyModel_SourceModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasIndex` instead
+    ///
+    pub const HasIndex = hasIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1156,9 +1360,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) bool {
+    pub fn hasIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1170,9 +1378,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: KExtraColumnsProxyModel, row: i32) bool {
+    pub fn insertRow(self: KExtraColumnsProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1184,9 +1396,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: KExtraColumnsProxyModel, column: i32) bool {
+    pub fn insertColumn(self: KExtraColumnsProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1198,9 +1414,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: KExtraColumnsProxyModel, row: i32) bool {
+    pub fn removeRow(self: KExtraColumnsProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1212,9 +1432,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: KExtraColumnsProxyModel, column: i32) bool {
+    pub fn removeColumn(self: KExtraColumnsProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `moveRow` instead
+    ///
+    pub const MoveRow = moveRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1232,11 +1456,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRow(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumn` instead
+    ///
+    pub const MoveColumn = moveColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1254,11 +1482,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumn(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `checkIndex` instead
+    ///
+    pub const CheckIndex = checkIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1268,12 +1500,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn CheckIndex(self: KExtraColumnsProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn checkIndex(self: KExtraColumnsProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1287,11 +1523,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: KExtraColumnsProxyModel, topLeft: anytype, bottomRight: anytype) void {
+    pub fn dataChanged(self: KExtraColumnsProxyModel, topLeft: anytype, bottomRight: anytype) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1303,9 +1543,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onDataChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1321,9 +1565,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: KExtraColumnsProxyModel, orientation: i32, first: i32, last: i32) void {
+    pub fn headerDataChanged(self: KExtraColumnsProxyModel, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onHeaderDataChanged` instead
+    ///
+    pub const OnHeaderDataChanged = onHeaderDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1335,10 +1583,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, i32) callconv(.c) void) void {
+    pub fn onHeaderDataChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `layoutChanged` instead
+    ///
+    pub const LayoutChanged = layoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1347,10 +1599,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn LayoutChanged(self: KExtraColumnsProxyModel) void {
+    pub fn layoutChanged(self: KExtraColumnsProxyModel) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged` instead
+    ///
+    pub const OnLayoutChanged = onLayoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1361,9 +1617,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onLayoutChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged` instead
+    ///
+    pub const LayoutAboutToBeChanged = layoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1373,9 +1633,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: KExtraColumnsProxyModel) void {
+    pub fn layoutAboutToBeChanged(self: KExtraColumnsProxyModel) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged` instead
+    ///
+    pub const OnLayoutAboutToBeChanged = onLayoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1387,9 +1651,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasIndex3` instead
+    ///
+    pub const HasIndex3 = hasIndex3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1403,12 +1671,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: KExtraColumnsProxyModel, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn hasIndex3(self: KExtraColumnsProxyModel, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1420,12 +1692,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: KExtraColumnsProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn insertRow2(self: KExtraColumnsProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumn2` instead
+    ///
+    pub const InsertColumn2 = insertColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1437,12 +1713,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: KExtraColumnsProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn insertColumn2(self: KExtraColumnsProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow2` instead
+    ///
+    pub const RemoveRow2 = removeRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1454,12 +1734,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: KExtraColumnsProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn removeRow2(self: KExtraColumnsProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumn2` instead
+    ///
+    pub const RemoveColumn2 = removeColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1471,12 +1755,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: KExtraColumnsProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn removeColumn2(self: KExtraColumnsProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkIndex2` instead
+    ///
+    pub const CheckIndex2 = checkIndex2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1486,14 +1774,18 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: KExtraColumnsProxyModel, index: anytype, options: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
+    pub fn checkIndex2(self: KExtraColumnsProxyModel, _index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dataChanged3` instead
+    ///
+    pub const DataChanged3 = dataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1509,7 +1801,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: KExtraColumnsProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged3(self: KExtraColumnsProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1518,6 +1810,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         };
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged3` instead
+    ///
+    pub const OnDataChanged3 = onDataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1529,9 +1825,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged3(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged1` instead
+    ///
+    pub const LayoutChanged1 = layoutChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1543,7 +1843,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutChanged1(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1551,6 +1851,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged1` instead
+    ///
+    pub const OnLayoutChanged1 = onLayoutChanged1;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1561,9 +1865,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutChanged1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged2` instead
+    ///
+    pub const LayoutChanged2 = layoutChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1577,7 +1885,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutChanged2(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1585,6 +1893,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged2` instead
+    ///
+    pub const OnLayoutChanged2 = onLayoutChanged2;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1595,9 +1907,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutChanged2(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged1` instead
+    ///
+    pub const LayoutAboutToBeChanged1 = layoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1609,13 +1925,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutAboutToBeChanged1(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged1` instead
+    ///
+    pub const OnLayoutAboutToBeChanged1 = onLayoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1627,9 +1947,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged2` instead
+    ///
+    pub const LayoutAboutToBeChanged2 = layoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1643,13 +1967,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutAboutToBeChanged2(self: KExtraColumnsProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged2` instead
+    ///
+    pub const OnLayoutAboutToBeChanged2 = onLayoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1661,9 +1989,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged2(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1675,13 +2007,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KExtraColumnsProxyModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1693,13 +2029,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KExtraColumnsProxyModel, name: []const u8) void {
+    pub fn setObjectName(self: KExtraColumnsProxyModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1709,9 +2049,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn IsWidgetType(self: KExtraColumnsProxyModel) bool {
+    pub fn isWidgetType(self: KExtraColumnsProxyModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1721,9 +2065,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn IsWindowType(self: KExtraColumnsProxyModel) bool {
+    pub fn isWindowType(self: KExtraColumnsProxyModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1733,9 +2081,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn IsQuickItemType(self: KExtraColumnsProxyModel) bool {
+    pub fn isQuickItemType(self: KExtraColumnsProxyModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1745,9 +2097,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SignalsBlocked(self: KExtraColumnsProxyModel) bool {
+    pub fn signalsBlocked(self: KExtraColumnsProxyModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1759,9 +2115,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KExtraColumnsProxyModel, b: bool) bool {
+    pub fn blockSignals(self: KExtraColumnsProxyModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1771,9 +2131,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Thread(self: KExtraColumnsProxyModel) QThread {
+    pub fn thread(self: KExtraColumnsProxyModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1783,12 +2147,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KExtraColumnsProxyModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KExtraColumnsProxyModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1800,9 +2168,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KExtraColumnsProxyModel, interval: i32) i32 {
+    pub fn startTimer(self: KExtraColumnsProxyModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1814,9 +2186,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KExtraColumnsProxyModel, time: i64) i32 {
+    pub fn startTimer2(self: KExtraColumnsProxyModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1828,9 +2204,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KExtraColumnsProxyModel, id: i32) void {
+    pub fn killTimer(self: KExtraColumnsProxyModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1842,9 +2222,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KExtraColumnsProxyModel, id: i32) void {
+    pub fn killTimer2(self: KExtraColumnsProxyModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1856,15 +2240,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KExtraColumnsProxyModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KExtraColumnsProxyModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1874,12 +2262,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KExtraColumnsProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KExtraColumnsProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1891,10 +2283,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KExtraColumnsProxyModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: KExtraColumnsProxyModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1906,10 +2302,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KExtraColumnsProxyModel, obj: anytype) void {
+    pub fn removeEventFilter(self: KExtraColumnsProxyModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1917,7 +2317,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1925,13 +2325,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1939,7 +2343,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1947,13 +2351,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1963,18 +2371,22 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KExtraColumnsProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KExtraColumnsProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1982,7 +2394,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1990,13 +2402,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2004,7 +2420,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2012,13 +2428,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2028,9 +2448,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Disconnect3(self: KExtraColumnsProxyModel) bool {
+    pub fn disconnect3(self: KExtraColumnsProxyModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2042,10 +2466,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KExtraColumnsProxyModel, receiver: anytype) bool {
+    pub fn disconnect4(self: KExtraColumnsProxyModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2055,10 +2483,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2068,9 +2500,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn DumpObjectTree(self: KExtraColumnsProxyModel) void {
+    pub fn dumpObjectTree(self: KExtraColumnsProxyModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2080,9 +2516,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn DumpObjectInfo(self: KExtraColumnsProxyModel) void {
+    pub fn dumpObjectInfo(self: KExtraColumnsProxyModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2096,11 +2536,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KExtraColumnsProxyModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KExtraColumnsProxyModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2112,10 +2556,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KExtraColumnsProxyModel, name: [:0]const u8) QVariant {
+    pub fn property(self: KExtraColumnsProxyModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2127,7 +2575,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2135,27 +2583,19 @@ pub const KExtraColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KExtraColumnsProxyModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KExtraColumnsProxyModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KExtraColumnsProxyModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KExtraColumnsProxyModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KExtraColumnsProxyModel `
-    ///
-    pub fn BindingStorage(self: KExtraColumnsProxyModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2165,9 +2605,29 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn BindingStorage2(self: KExtraColumnsProxyModel) QBindingStorage {
+    pub fn bindingStorage(self: KExtraColumnsProxyModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KExtraColumnsProxyModel `
+    ///
+    pub fn bindingStorage2(self: KExtraColumnsProxyModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2177,9 +2637,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Destroyed(self: KExtraColumnsProxyModel) void {
+    pub fn destroyed(self: KExtraColumnsProxyModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2191,9 +2655,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2205,10 +2673,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KExtraColumnsProxyModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: KExtraColumnsProxyModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2218,9 +2690,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn DeleteLater(self: KExtraColumnsProxyModel) void {
+    pub fn deleteLater(self: KExtraColumnsProxyModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2234,9 +2710,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KExtraColumnsProxyModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KExtraColumnsProxyModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2250,9 +2730,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KExtraColumnsProxyModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KExtraColumnsProxyModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2260,7 +2744,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2270,13 +2754,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2284,7 +2772,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2294,13 +2782,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2310,7 +2802,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2318,12 +2810,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KExtraColumnsProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KExtraColumnsProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2335,10 +2831,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KExtraColumnsProxyModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KExtraColumnsProxyModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2352,11 +2852,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KExtraColumnsProxyModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KExtraColumnsProxyModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2372,13 +2876,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KExtraColumnsProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KExtraColumnsProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2391,11 +2899,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KExtraColumnsProxyModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KExtraColumnsProxyModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2407,10 +2919,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KExtraColumnsProxyModel, param1: anytype) void {
+    pub fn destroyed1(self: KExtraColumnsProxyModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2422,9 +2938,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapFromSource` instead
+    ///
+    pub const MapFromSource = mapFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2438,14 +2958,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` sourceIndex: QModelIndex `
     ///
-    pub fn MapFromSource(self: KExtraColumnsProxyModel, sourceIndex: anytype) QModelIndex {
+    pub fn mapFromSource(self: KExtraColumnsProxyModel, sourceIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapFromSource` instead
+    /// ### DEPRECATED: Use `superMapFromSource` instead
     ///
-    pub const QBaseMapFromSource = SuperMapFromSource;
+    pub const SuperMapFromSource = superMapFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2459,10 +2979,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` sourceIndex: QModelIndex `
     ///
-    pub fn SuperMapFromSource(self: KExtraColumnsProxyModel, sourceIndex: anytype) QModelIndex {
+    pub fn superMapFromSource(self: KExtraColumnsProxyModel, sourceIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapFromSource` instead
+    ///
+    pub const OnMapFromSource = onMapFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2478,9 +3002,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onMapFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnMapFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2492,16 +3020,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RowCount(self: KExtraColumnsProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn rowCount(self: KExtraColumnsProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRowCount` instead
+    /// ### DEPRECATED: Use `superRowCount` instead
     ///
-    pub const QBaseRowCount = SuperRowCount;
+    pub const SuperRowCount = superRowCount;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2513,12 +3041,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: KExtraColumnsProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superRowCount(self: KExtraColumnsProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRowCount` instead
+    ///
+    pub const OnRowCount = onRowCount;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2532,9 +3064,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onRowCount(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2546,7 +3082,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2554,17 +3090,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: KExtraColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn dropMimeData(self: KExtraColumnsProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2576,7 +3112,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -2584,13 +3120,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: KExtraColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superDropMimeData(self: KExtraColumnsProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2604,9 +3144,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mapSelectionFromSource` instead
+    ///
+    pub const MapSelectionFromSource = mapSelectionFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2620,14 +3164,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn MapSelectionFromSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
+    pub fn mapSelectionFromSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMapSelectionFromSource` instead
+    /// ### DEPRECATED: Use `superMapSelectionFromSource` instead
     ///
-    pub const QBaseMapSelectionFromSource = SuperMapSelectionFromSource;
+    pub const SuperMapSelectionFromSource = superMapSelectionFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2641,10 +3185,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperMapSelectionFromSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
+    pub fn superMapSelectionFromSource(self: KExtraColumnsProxyModel, selection: anytype) QItemSelection {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMapSelectionFromSource(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMapSelectionFromSource` instead
+    ///
+    pub const OnMapSelectionFromSource = onMapSelectionFromSource;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2660,9 +3208,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMapSelectionFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
+    pub fn onMapSelectionFromSource(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QItemSelection) callconv(.c) QItemSelection) void {
         qtc.KExtraColumnsProxyModel_OnMapSelectionFromSource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2684,23 +3236,23 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn Match(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn match(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMatch` instead
+    /// ### DEPRECATED: Use `superMatch` instead
     ///
-    pub const QBaseMatch = SuperMatch;
+    pub const SuperMatch = superMatch;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2722,19 +3274,23 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn SuperMatch(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn superMatch(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2754,10 +3310,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+    pub fn onMatch(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.KExtraColumnsProxyModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertColumns` instead
+    ///
+    pub const InsertColumns = insertColumns;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#insertColumns)
@@ -2772,16 +3332,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    /// ### DEPRECATED: Use `superInsertColumns` instead
     ///
-    pub const QBaseInsertColumns = SuperInsertColumns;
+    pub const SuperInsertColumns = superInsertColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2797,12 +3357,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertColumns` instead
+    ///
+    pub const OnInsertColumns = onInsertColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2816,10 +3380,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertRows` instead
+    ///
+    pub const InsertRows = insertRows;
+
     /// Inherited from QIdentityProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qidentityproxymodel.html#insertRows)
@@ -2834,16 +3402,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRows(self: KExtraColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertRows(self: KExtraColumnsProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    /// ### DEPRECATED: Use `superInsertRows` instead
     ///
-    pub const QBaseInsertRows = SuperInsertRows;
+    pub const SuperInsertRows = superInsertRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2859,12 +3427,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: KExtraColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertRows(self: KExtraColumnsProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertRows` instead
+    ///
+    pub const OnInsertRows = onInsertRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2878,9 +3450,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeColumns` instead
+    ///
+    pub const RemoveColumns = removeColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2896,16 +3472,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    /// ### DEPRECATED: Use `superRemoveColumns` instead
     ///
-    pub const QBaseRemoveColumns = SuperRemoveColumns;
+    pub const SuperRemoveColumns = superRemoveColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2921,12 +3497,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveColumns(self: KExtraColumnsProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveColumns` instead
+    ///
+    pub const OnRemoveColumns = onRemoveColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2940,9 +3520,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeRows` instead
+    ///
+    pub const RemoveRows = removeRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2958,16 +3542,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: KExtraColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeRows(self: KExtraColumnsProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    /// ### DEPRECATED: Use `superRemoveRows` instead
     ///
-    pub const QBaseRemoveRows = SuperRemoveRows;
+    pub const SuperRemoveRows = superRemoveRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -2983,12 +3567,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: KExtraColumnsProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveRows(self: KExtraColumnsProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveRows` instead
+    ///
+    pub const OnRemoveRows = onRemoveRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3002,9 +3590,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveRows` instead
+    ///
+    pub const MoveRows = moveRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3026,15 +3618,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    /// ### DEPRECATED: Use `superMoveRows` instead
     ///
-    pub const QBaseMoveRows = SuperMoveRows;
+    pub const SuperMoveRows = superMoveRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3056,11 +3648,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveRows` instead
+    ///
+    pub const OnMoveRows = onMoveRows;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3074,9 +3670,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveColumns` instead
+    ///
+    pub const MoveColumns = moveColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3098,15 +3698,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    /// ### DEPRECATED: Use `superMoveColumns` instead
     ///
-    pub const QBaseMoveColumns = SuperMoveColumns;
+    pub const SuperMoveColumns = superMoveColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3128,11 +3728,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveColumns` instead
+    ///
+    pub const OnMoveColumns = onMoveColumns;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -3146,9 +3750,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3160,13 +3768,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Submit(self: KExtraColumnsProxyModel) bool {
+    pub fn submit(self: KExtraColumnsProxyModel) bool {
         return qtc.KExtraColumnsProxyModel_Submit(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSubmit` instead
+    /// ### DEPRECATED: Use `superSubmit` instead
     ///
-    pub const QBaseSubmit = SuperSubmit;
+    pub const SuperSubmit = superSubmit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3178,9 +3786,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperSubmit(self: KExtraColumnsProxyModel) bool {
+    pub fn superSubmit(self: KExtraColumnsProxyModel) bool {
         return qtc.KExtraColumnsProxyModel_SuperSubmit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubmit` instead
+    ///
+    pub const OnSubmit = onSubmit;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3194,9 +3806,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3208,13 +3824,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Revert(self: KExtraColumnsProxyModel) void {
+    pub fn revert(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_Revert(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRevert` instead
+    /// ### DEPRECATED: Use `superRevert` instead
     ///
-    pub const QBaseRevert = SuperRevert;
+    pub const SuperRevert = superRevert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3226,9 +3842,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperRevert(self: KExtraColumnsProxyModel) void {
+    pub fn superRevert(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperRevert(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRevert` instead
+    ///
+    pub const OnRevert = onRevert;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3242,9 +3862,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3258,13 +3882,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn itemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3280,9 +3904,9 @@ pub const KExtraColumnsProxyModel = extern struct {
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperItemData` instead
+    /// ### DEPRECATED: Use `superItemData` instead
     ///
-    pub const QBaseItemData = SuperItemData;
+    pub const SuperItemData = superItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3296,13 +3920,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, index: anytype) ArrayMap_i32_QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, _index: anytype) ArrayMap_i32_QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -3317,6 +3941,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onItemData` instead
+    ///
+    pub const OnItemData = onItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3334,9 +3962,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+    pub fn onItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
         qtc.KExtraColumnsProxyModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3350,16 +3982,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SetItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KExtraColumnsProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KExtraColumnsProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KExtraColumnsProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KExtraColumnsProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -3373,12 +4005,12 @@ pub const KExtraColumnsProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KExtraColumnsProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.KExtraColumnsProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
 
-    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    /// ### DEPRECATED: Use `superSetItemData` instead
     ///
-    pub const QBaseSetItemData = SuperSetItemData;
+    pub const SuperSetItemData = superSetItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3392,16 +4024,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SuperSetItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetItemData(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KExtraColumnsProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("KExtraColumnsProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KExtraColumnsProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("KExtraColumnsProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -3415,8 +4047,12 @@ pub const KExtraColumnsProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.KExtraColumnsProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.KExtraColumnsProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `onSetItemData` instead
+    ///
+    pub const OnSetItemData = onSetItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3430,9 +4066,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+    pub fn onSetItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHeaderData` instead
+    ///
+    pub const SetHeaderData = setHeaderData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3452,14 +4092,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn setHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.KExtraColumnsProxyModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    /// ### DEPRECATED: Use `superSetHeaderData` instead
     ///
-    pub const QBaseSetHeaderData = SuperSetHeaderData;
+    pub const SuperSetHeaderData = superSetHeaderData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3479,10 +4119,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn superSetHeaderData(self: KExtraColumnsProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.KExtraColumnsProxyModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetHeaderData` instead
+    ///
+    pub const OnSetHeaderData = onSetHeaderData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3496,9 +4140,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetHeaderData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearItemData` instead
+    ///
+    pub const ClearItemData = clearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3510,16 +4158,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ClearItemData(self: KExtraColumnsProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn clearItemData(self: KExtraColumnsProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    /// ### DEPRECATED: Use `superClearItemData` instead
     ///
-    pub const QBaseClearItemData = SuperClearItemData;
+    pub const SuperClearItemData = superClearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3531,12 +4179,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: KExtraColumnsProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superClearItemData(self: KExtraColumnsProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearItemData` instead
+    ///
+    pub const OnClearItemData = onClearItemData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3550,9 +4202,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onClearItemData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canFetchMore` instead
+    ///
+    pub const CanFetchMore = canFetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3564,16 +4220,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: KExtraColumnsProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn canFetchMore(self: KExtraColumnsProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    /// ### DEPRECATED: Use `superCanFetchMore` instead
     ///
-    pub const QBaseCanFetchMore = SuperCanFetchMore;
+    pub const SuperCanFetchMore = superCanFetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3585,12 +4241,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: KExtraColumnsProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superCanFetchMore(self: KExtraColumnsProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanFetchMore` instead
+    ///
+    pub const OnCanFetchMore = onCanFetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3604,9 +4264,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanFetchMore(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fetchMore` instead
+    ///
+    pub const FetchMore = fetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3618,16 +4282,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn FetchMore(self: KExtraColumnsProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn fetchMore(self: KExtraColumnsProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    /// ### DEPRECATED: Use `superFetchMore` instead
     ///
-    pub const QBaseFetchMore = SuperFetchMore;
+    pub const SuperFetchMore = superFetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3639,12 +4303,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: KExtraColumnsProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superFetchMore(self: KExtraColumnsProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFetchMore` instead
+    ///
+    pub const OnFetchMore = onFetchMore;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3658,9 +4326,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) void) void {
+    pub fn onFetchMore(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sort` instead
+    ///
+    pub const Sort = sort;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3676,13 +4348,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: KExtraColumnsProxyModel, column: i32, order: i32) void {
+    pub fn sort(self: KExtraColumnsProxyModel, column: i32, order: i32) void {
         qtc.KExtraColumnsProxyModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
-    /// ### DEPRECATED: Use `SuperSort` instead
+    /// ### DEPRECATED: Use `superSort` instead
     ///
-    pub const QBaseSort = SuperSort;
+    pub const SuperSort = superSort;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3698,9 +4370,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: KExtraColumnsProxyModel, column: i32, order: i32) void {
+    pub fn superSort(self: KExtraColumnsProxyModel, column: i32, order: i32) void {
         qtc.KExtraColumnsProxyModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `onSort` instead
+    ///
+    pub const OnSort = onSort;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3714,9 +4390,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32) callconv(.c) void) void {
+    pub fn onSort(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `span` instead
+    ///
+    pub const Span = span;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3728,16 +4408,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Span(self: KExtraColumnsProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn span(self: KExtraColumnsProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_Span(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSpan` instead
+    /// ### DEPRECATED: Use `superSpan` instead
     ///
-    pub const QBaseSpan = SuperSpan;
+    pub const SuperSpan = superSpan;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3749,12 +4429,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperSpan(self: KExtraColumnsProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superSpan(self: KExtraColumnsProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpan` instead
+    ///
+    pub const OnSpan = onSpan;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3770,9 +4454,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSpan(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSpan(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.KExtraColumnsProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3786,7 +4474,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn mimeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -3794,9 +4482,9 @@ pub const KExtraColumnsProxyModel = extern struct {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3810,13 +4498,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn superMimeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3830,9 +4522,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.KExtraColumnsProxyModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canDropMimeData` instead
+    ///
+    pub const CanDropMimeData = canDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3844,7 +4540,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3852,17 +4548,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: KExtraColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn canDropMimeData(self: KExtraColumnsProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    /// ### DEPRECATED: Use `superCanDropMimeData` instead
     ///
-    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+    pub const SuperCanDropMimeData = superCanDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3874,7 +4570,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -3882,13 +4578,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: KExtraColumnsProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.KExtraColumnsProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superCanDropMimeData(self: KExtraColumnsProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.KExtraColumnsProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanDropMimeData` instead
+    ///
+    pub const OnCanDropMimeData = onCanDropMimeData;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3902,9 +4602,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanDropMimeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3918,7 +4622,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3926,19 +4630,19 @@ pub const KExtraColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KExtraColumnsProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KExtraColumnsProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KExtraColumnsProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KExtraColumnsProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3952,7 +4656,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3960,15 +4664,19 @@ pub const KExtraColumnsProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KExtraColumnsProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KExtraColumnsProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KExtraColumnsProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KExtraColumnsProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -3984,10 +4692,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.KExtraColumnsProxyModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `supportedDragActions` instead
+    ///
+    pub const SupportedDragActions = supportedDragActions;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#supportedDragActions)
@@ -4002,13 +4714,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: KExtraColumnsProxyModel) i32 {
+    pub fn supportedDragActions(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    /// ### DEPRECATED: Use `superSupportedDragActions` instead
     ///
-    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+    pub const SuperSupportedDragActions = superSupportedDragActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4024,10 +4736,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: KExtraColumnsProxyModel) i32 {
+    pub fn superSupportedDragActions(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSupportedDragActions` instead
+    ///
+    pub const OnSupportedDragActions = onSupportedDragActions;
+
     /// Inherited from QAbstractProxyModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractproxymodel.html#supportedDragActions)
@@ -4040,9 +4756,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4058,13 +4778,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: KExtraColumnsProxyModel) i32 {
+    pub fn supportedDropActions(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4080,9 +4800,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: KExtraColumnsProxyModel) i32 {
+    pub fn superSupportedDropActions(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4096,9 +4820,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `roleNames` instead
+    ///
+    pub const RoleNames = roleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4112,10 +4840,10 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4130,16 +4858,16 @@ pub const KExtraColumnsProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KExtraColumnsProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KExtraColumnsProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    /// ### DEPRECATED: Use `superRoleNames` instead
     ///
-    pub const QBaseRoleNames = SuperRoleNames;
+    pub const SuperRoleNames = superRoleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4153,10 +4881,10 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.KExtraColumnsProxyModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KExtraColumnsProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -4171,12 +4899,16 @@ pub const KExtraColumnsProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KExtraColumnsProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KExtraColumnsProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onRoleNames` instead
+    ///
+    pub const OnRoleNames = onRoleNames;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4194,9 +4926,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.KExtraColumnsProxyModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multiData` instead
+    ///
+    pub const MultiData = multiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4208,19 +4944,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: KExtraColumnsProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn multiData(self: KExtraColumnsProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.KExtraColumnsProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.KExtraColumnsProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMultiData` instead
+    /// ### DEPRECATED: Use `superMultiData` instead
     ///
-    pub const QBaseMultiData = SuperMultiData;
+    pub const SuperMultiData = superMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4232,15 +4968,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: KExtraColumnsProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superMultiData(self: KExtraColumnsProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.KExtraColumnsProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.KExtraColumnsProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultiData` instead
+    ///
+    pub const OnMultiData = onMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4254,9 +4994,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+    pub fn onMultiData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resetInternalData` instead
+    ///
+    pub const ResetInternalData = resetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4268,13 +5012,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn ResetInternalData(self: KExtraColumnsProxyModel) void {
+    pub fn resetInternalData(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    /// ### DEPRECATED: Use `superResetInternalData` instead
     ///
-    pub const QBaseResetInternalData = SuperResetInternalData;
+    pub const SuperResetInternalData = superResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4286,9 +5030,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperResetInternalData(self: KExtraColumnsProxyModel) void {
+    pub fn superResetInternalData(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResetInternalData` instead
+    ///
+    pub const OnResetInternalData = onResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4302,9 +5050,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4316,16 +5068,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KExtraColumnsProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KExtraColumnsProxyModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KExtraColumnsProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KExtraColumnsProxyModel_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4337,12 +5089,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KExtraColumnsProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KExtraColumnsProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KExtraColumnsProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KExtraColumnsProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -4356,9 +5112,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QEvent) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4372,17 +5132,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KExtraColumnsProxyModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KExtraColumnsProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KExtraColumnsProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KExtraColumnsProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4396,13 +5156,17 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KExtraColumnsProxyModel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KExtraColumnsProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KExtraColumnsProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KExtraColumnsProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4416,9 +5180,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QObject, QEvent) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4430,16 +5198,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KExtraColumnsProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KExtraColumnsProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4451,12 +5219,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KExtraColumnsProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KExtraColumnsProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -4470,9 +5242,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QTimerEvent) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4484,16 +5260,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KExtraColumnsProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KExtraColumnsProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4505,12 +5281,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KExtraColumnsProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KExtraColumnsProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4524,9 +5304,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QChildEvent) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -4538,16 +5322,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KExtraColumnsProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KExtraColumnsProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4559,12 +5343,16 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KExtraColumnsProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KExtraColumnsProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KExtraColumnsProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KExtraColumnsProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4578,9 +5366,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QEvent) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -4594,14 +5386,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
+    pub fn connectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KExtraColumnsProxyModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4615,11 +5407,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
+    pub fn superConnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KExtraColumnsProxyModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4632,9 +5428,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4648,14 +5448,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
+    pub fn disconnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KExtraColumnsProxyModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4669,10 +5469,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KExtraColumnsProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KExtraColumnsProxyModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4686,9 +5490,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHandleSourceLayoutChanges` instead
+    ///
+    pub const SetHandleSourceLayoutChanges = setHandleSourceLayoutChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4700,15 +5508,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` handleSourceLayoutChanges: bool `
+    /// ` _handleSourceLayoutChanges: bool `
     ///
-    pub fn SetHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, handleSourceLayoutChanges: bool) void {
-        qtc.KExtraColumnsProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self.ptr), handleSourceLayoutChanges);
+    pub fn setHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, _handleSourceLayoutChanges: bool) void {
+        qtc.KExtraColumnsProxyModel_SetHandleSourceLayoutChanges(@ptrCast(self.ptr), _handleSourceLayoutChanges);
     }
 
-    /// ### DEPRECATED: Use `SuperSetHandleSourceLayoutChanges` instead
+    /// ### DEPRECATED: Use `superSetHandleSourceLayoutChanges` instead
     ///
-    pub const QBaseSetHandleSourceLayoutChanges = SuperSetHandleSourceLayoutChanges;
+    pub const SuperSetHandleSourceLayoutChanges = superSetHandleSourceLayoutChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4720,11 +5528,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` handleSourceLayoutChanges: bool `
+    /// ` _handleSourceLayoutChanges: bool `
     ///
-    pub fn SuperSetHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, handleSourceLayoutChanges: bool) void {
-        qtc.KExtraColumnsProxyModel_SuperSetHandleSourceLayoutChanges(@ptrCast(self.ptr), handleSourceLayoutChanges);
+    pub fn superSetHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, _handleSourceLayoutChanges: bool) void {
+        qtc.KExtraColumnsProxyModel_SuperSetHandleSourceLayoutChanges(@ptrCast(self.ptr), _handleSourceLayoutChanges);
     }
+
+    /// ### DEPRECATED: Use `onSetHandleSourceLayoutChanges` instead
+    ///
+    pub const OnSetHandleSourceLayoutChanges = onSetHandleSourceLayoutChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4738,9 +5550,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, handleSourceLayoutChanges: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, bool) callconv(.c) void) void {
+    pub fn onSetHandleSourceLayoutChanges(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, bool) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnSetHandleSourceLayoutChanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHandleSourceDataChanges` instead
+    ///
+    pub const SetHandleSourceDataChanges = setHandleSourceDataChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4752,15 +5568,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` handleSourceDataChanges: bool `
+    /// ` _handleSourceDataChanges: bool `
     ///
-    pub fn SetHandleSourceDataChanges(self: KExtraColumnsProxyModel, handleSourceDataChanges: bool) void {
-        qtc.KExtraColumnsProxyModel_SetHandleSourceDataChanges(@ptrCast(self.ptr), handleSourceDataChanges);
+    pub fn setHandleSourceDataChanges(self: KExtraColumnsProxyModel, _handleSourceDataChanges: bool) void {
+        qtc.KExtraColumnsProxyModel_SetHandleSourceDataChanges(@ptrCast(self.ptr), _handleSourceDataChanges);
     }
 
-    /// ### DEPRECATED: Use `SuperSetHandleSourceDataChanges` instead
+    /// ### DEPRECATED: Use `superSetHandleSourceDataChanges` instead
     ///
-    pub const QBaseSetHandleSourceDataChanges = SuperSetHandleSourceDataChanges;
+    pub const SuperSetHandleSourceDataChanges = superSetHandleSourceDataChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4772,11 +5588,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` handleSourceDataChanges: bool `
+    /// ` _handleSourceDataChanges: bool `
     ///
-    pub fn SuperSetHandleSourceDataChanges(self: KExtraColumnsProxyModel, handleSourceDataChanges: bool) void {
-        qtc.KExtraColumnsProxyModel_SuperSetHandleSourceDataChanges(@ptrCast(self.ptr), handleSourceDataChanges);
+    pub fn superSetHandleSourceDataChanges(self: KExtraColumnsProxyModel, _handleSourceDataChanges: bool) void {
+        qtc.KExtraColumnsProxyModel_SuperSetHandleSourceDataChanges(@ptrCast(self.ptr), _handleSourceDataChanges);
     }
+
+    /// ### DEPRECATED: Use `onSetHandleSourceDataChanges` instead
+    ///
+    pub const OnSetHandleSourceDataChanges = onSetHandleSourceDataChanges;
 
     /// Inherited from QIdentityProxyModel
     ///
@@ -4790,9 +5610,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, handleSourceDataChanges: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSourceDataChanges(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, bool) callconv(.c) void) void {
+    pub fn onSetHandleSourceDataChanges(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, bool) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnSetHandleSourceDataChanges(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createSourceIndex` instead
+    ///
+    pub const CreateSourceIndex = createSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4810,13 +5634,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn CreateSourceIndex(self: KExtraColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+    pub fn createSourceIndex(self: KExtraColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_CreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateSourceIndex` instead
+    /// ### DEPRECATED: Use `superCreateSourceIndex` instead
     ///
-    pub const QBaseCreateSourceIndex = SuperCreateSourceIndex;
+    pub const SuperCreateSourceIndex = superCreateSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4834,9 +5658,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` internalPtr: ?*anyopaque `
     ///
-    pub fn SuperCreateSourceIndex(self: KExtraColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
+    pub fn superCreateSourceIndex(self: KExtraColumnsProxyModel, row: i32, col: i32, internalPtr: ?*anyopaque) QModelIndex {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperCreateSourceIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(col), @ptrCast(internalPtr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateSourceIndex` instead
+    ///
+    pub const OnCreateSourceIndex = onCreateSourceIndex;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -4852,9 +5680,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateSourceIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
+    pub fn onCreateSourceIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, ?*anyopaque) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnCreateSourceIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createIndex` instead
+    ///
+    pub const CreateIndex = createIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4870,13 +5702,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn createIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    /// ### DEPRECATED: Use `superCreateIndex` instead
     ///
-    pub const QBaseCreateIndex = SuperCreateIndex;
+    pub const SuperCreateIndex = superCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4892,9 +5724,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn superCreateIndex(self: KExtraColumnsProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateIndex` instead
+    ///
+    pub const OnCreateIndex = onCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4910,9 +5746,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onCreateIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.KExtraColumnsProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encodeData` instead
+    ///
+    pub const EncodeData = encodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4928,7 +5768,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn encodeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -4937,9 +5777,9 @@ pub const KExtraColumnsProxyModel = extern struct {
         qtc.KExtraColumnsProxyModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    /// ### DEPRECATED: Use `superEncodeData` instead
     ///
-    pub const QBaseEncodeData = SuperEncodeData;
+    pub const SuperEncodeData = superEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4955,7 +5795,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn superEncodeData(self: KExtraColumnsProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -4963,6 +5803,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.KExtraColumnsProxyModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncodeData` instead
+    ///
+    pub const OnEncodeData = onEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4976,9 +5820,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+    pub fn onEncodeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `decodeData` instead
+    ///
+    pub const DecodeData = decodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4994,19 +5842,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: KExtraColumnsProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn decodeData(self: KExtraColumnsProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.KExtraColumnsProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.KExtraColumnsProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    /// ### DEPRECATED: Use `superDecodeData` instead
     ///
-    pub const QBaseDecodeData = SuperDecodeData;
+    pub const SuperDecodeData = superDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5022,15 +5870,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: KExtraColumnsProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn superDecodeData(self: KExtraColumnsProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.KExtraColumnsProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.KExtraColumnsProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDecodeData` instead
+    ///
+    pub const OnDecodeData = onDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5044,10 +5896,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+    pub fn onDecodeData(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertRows` instead
+    ///
+    pub const BeginInsertRows = beginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -5058,20 +5914,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertRows(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    /// ### DEPRECATED: Use `superBeginInsertRows` instead
     ///
-    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+    pub const SuperBeginInsertRows = superBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5083,16 +5939,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertRows(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertRows` instead
+    ///
+    pub const OnBeginInsertRows = onBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5106,10 +5966,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertRows` instead
+    ///
+    pub const EndInsertRows = endInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -5120,13 +5984,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndInsertRows(self: KExtraColumnsProxyModel) void {
+    pub fn endInsertRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    /// ### DEPRECATED: Use `superEndInsertRows` instead
     ///
-    pub const QBaseEndInsertRows = SuperEndInsertRows;
+    pub const SuperEndInsertRows = superEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5138,9 +6002,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndInsertRows(self: KExtraColumnsProxyModel) void {
+    pub fn superEndInsertRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertRows` instead
+    ///
+    pub const OnEndInsertRows = onEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5154,9 +6022,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveRows` instead
+    ///
+    pub const BeginRemoveRows = beginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5168,20 +6040,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveRows(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
     ///
-    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+    pub const SuperBeginRemoveRows = superBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5193,16 +6065,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveRows(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
+    ///
+    pub const OnBeginRemoveRows = onBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5216,9 +6092,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveRows` instead
+    ///
+    pub const EndRemoveRows = endRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5230,13 +6110,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndRemoveRows(self: KExtraColumnsProxyModel) void {
+    pub fn endRemoveRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    /// ### DEPRECATED: Use `superEndRemoveRows` instead
     ///
-    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+    pub const SuperEndRemoveRows = superEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5248,9 +6128,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndRemoveRows(self: KExtraColumnsProxyModel) void {
+    pub fn superEndRemoveRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveRows` instead
+    ///
+    pub const OnEndRemoveRows = onEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5264,9 +6148,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveRows` instead
+    ///
+    pub const BeginMoveRows = beginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5288,15 +6176,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn beginMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    /// ### DEPRECATED: Use `superBeginMoveRows` instead
     ///
-    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+    pub const SuperBeginMoveRows = superBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5318,11 +6206,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn superBeginMoveRows(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveRows` instead
+    ///
+    pub const OnBeginMoveRows = onBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5336,10 +6228,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveRows(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveRows` instead
+    ///
+    pub const EndMoveRows = endMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -5350,13 +6246,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndMoveRows(self: KExtraColumnsProxyModel) void {
+    pub fn endMoveRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    /// ### DEPRECATED: Use `superEndMoveRows` instead
     ///
-    pub const QBaseEndMoveRows = SuperEndMoveRows;
+    pub const SuperEndMoveRows = superEndMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5368,10 +6264,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndMoveRows(self: KExtraColumnsProxyModel) void {
+    pub fn superEndMoveRows(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveRows` instead
+    ///
+    pub const OnEndMoveRows = onEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -5384,10 +6284,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveRows(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertColumns` instead
+    ///
+    pub const BeginInsertColumns = beginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -5398,20 +6302,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertColumns(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
     ///
-    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+    pub const SuperBeginInsertColumns = superBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5423,16 +6327,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertColumns(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
+    ///
+    pub const OnBeginInsertColumns = onBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5446,10 +6354,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertColumns` instead
+    ///
+    pub const EndInsertColumns = endInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -5460,13 +6372,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndInsertColumns(self: KExtraColumnsProxyModel) void {
+    pub fn endInsertColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    /// ### DEPRECATED: Use `superEndInsertColumns` instead
     ///
-    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+    pub const SuperEndInsertColumns = superEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5478,9 +6390,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndInsertColumns(self: KExtraColumnsProxyModel) void {
+    pub fn superEndInsertColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertColumns` instead
+    ///
+    pub const OnEndInsertColumns = onEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5494,9 +6410,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveColumns` instead
+    ///
+    pub const BeginRemoveColumns = beginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5508,20 +6428,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveColumns(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
     ///
-    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5533,16 +6453,20 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: KExtraColumnsProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.KExtraColumnsProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveColumns(self: KExtraColumnsProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.KExtraColumnsProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
+    ///
+    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5556,9 +6480,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveColumns` instead
+    ///
+    pub const EndRemoveColumns = endRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5570,13 +6498,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndRemoveColumns(self: KExtraColumnsProxyModel) void {
+    pub fn endRemoveColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
     ///
-    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+    pub const SuperEndRemoveColumns = superEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5588,9 +6516,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndRemoveColumns(self: KExtraColumnsProxyModel) void {
+    pub fn superEndRemoveColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
+    ///
+    pub const OnEndRemoveColumns = onEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5604,9 +6536,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveColumns` instead
+    ///
+    pub const BeginMoveColumns = beginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5628,15 +6564,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn beginMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
     ///
-    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+    pub const SuperBeginMoveColumns = superBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5658,11 +6594,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn superBeginMoveColumns(self: KExtraColumnsProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.KExtraColumnsProxyModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
+    ///
+    pub const OnBeginMoveColumns = onBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5676,10 +6616,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveColumns` instead
+    ///
+    pub const EndMoveColumns = endMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5690,13 +6634,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndMoveColumns(self: KExtraColumnsProxyModel) void {
+    pub fn endMoveColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    /// ### DEPRECATED: Use `superEndMoveColumns` instead
     ///
-    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+    pub const SuperEndMoveColumns = superEndMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5708,10 +6652,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndMoveColumns(self: KExtraColumnsProxyModel) void {
+    pub fn superEndMoveColumns(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveColumns` instead
+    ///
+    pub const OnEndMoveColumns = onEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5724,10 +6672,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveColumns(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginResetModel` instead
+    ///
+    pub const BeginResetModel = beginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -5738,13 +6690,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn BeginResetModel(self: KExtraColumnsProxyModel) void {
+    pub fn beginResetModel(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    /// ### DEPRECATED: Use `superBeginResetModel` instead
     ///
-    pub const QBaseBeginResetModel = SuperBeginResetModel;
+    pub const SuperBeginResetModel = superBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5756,9 +6708,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperBeginResetModel(self: KExtraColumnsProxyModel) void {
+    pub fn superBeginResetModel(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginResetModel` instead
+    ///
+    pub const OnBeginResetModel = onBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5772,9 +6728,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onBeginResetModel(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endResetModel` instead
+    ///
+    pub const EndResetModel = endResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5786,13 +6746,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn EndResetModel(self: KExtraColumnsProxyModel) void {
+    pub fn endResetModel(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_EndResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    /// ### DEPRECATED: Use `superEndResetModel` instead
     ///
-    pub const QBaseEndResetModel = SuperEndResetModel;
+    pub const SuperEndResetModel = superEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5804,9 +6764,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperEndResetModel(self: KExtraColumnsProxyModel) void {
+    pub fn superEndResetModel(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndResetModel` instead
+    ///
+    pub const OnEndResetModel = onEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5820,9 +6784,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndResetModel(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndex` instead
+    ///
+    pub const ChangePersistentIndex = changePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5838,15 +6806,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: KExtraColumnsProxyModel, from: anytype, to: anytype) void {
+    pub fn changePersistentIndex(self: KExtraColumnsProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.KExtraColumnsProxyModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
     ///
-    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+    pub const SuperChangePersistentIndex = superChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5862,11 +6830,15 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: KExtraColumnsProxyModel, from: anytype, to: anytype) void {
+    pub fn superChangePersistentIndex(self: KExtraColumnsProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.KExtraColumnsProxyModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
+    ///
+    pub const OnChangePersistentIndex = onChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5880,9 +6852,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onChangePersistentIndex(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndexList` instead
+    ///
+    pub const ChangePersistentIndexList = changePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5898,7 +6874,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: KExtraColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn changePersistentIndexList(self: KExtraColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5910,9 +6886,9 @@ pub const KExtraColumnsProxyModel = extern struct {
         qtc.KExtraColumnsProxyModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
     ///
-    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5928,7 +6904,7 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: KExtraColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn superChangePersistentIndexList(self: KExtraColumnsProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5939,6 +6915,10 @@ pub const KExtraColumnsProxyModel = extern struct {
         };
         qtc.KExtraColumnsProxyModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
+    ///
+    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5952,9 +6932,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onChangePersistentIndexList(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.KExtraColumnsProxyModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `persistentIndexList` instead
+    ///
+    pub const PersistentIndexList = persistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5968,19 +6952,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn persistentIndexList(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    /// ### DEPRECATED: Use `superPersistentIndexList` instead
     ///
-    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+    pub const SuperPersistentIndexList = superPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5994,15 +6978,19 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superPersistentIndexList(self: KExtraColumnsProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.KExtraColumnsProxyModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KExtraColumnsProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPersistentIndexList` instead
+    ///
+    pub const OnPersistentIndexList = onPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6022,9 +7010,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPersistentIndexList(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.KExtraColumnsProxyModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -6036,13 +7028,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Sender(self: KExtraColumnsProxyModel) QObject {
+    pub fn sender(self: KExtraColumnsProxyModel) QObject {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -6054,9 +7046,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperSender(self: KExtraColumnsProxyModel) QObject {
+    pub fn superSender(self: KExtraColumnsProxyModel) QObject {
         return .{ .ptr = qtc.KExtraColumnsProxyModel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -6070,9 +7066,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) QObject) void {
         qtc.KExtraColumnsProxyModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6084,13 +7084,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SenderSignalIndex(self: KExtraColumnsProxyModel) i32 {
+    pub fn senderSignalIndex(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6102,9 +7102,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn SuperSenderSignalIndex(self: KExtraColumnsProxyModel) i32 {
+    pub fn superSenderSignalIndex(self: KExtraColumnsProxyModel) i32 {
         return qtc.KExtraColumnsProxyModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -6118,9 +7122,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KExtraColumnsProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -6134,14 +7142,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KExtraColumnsProxyModel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KExtraColumnsProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KExtraColumnsProxyModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -6155,10 +7163,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KExtraColumnsProxyModel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KExtraColumnsProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KExtraColumnsProxyModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -6172,9 +7184,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) i32) void {
         qtc.KExtraColumnsProxyModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6188,14 +7204,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KExtraColumnsProxyModel, signal: anytype) bool {
+    pub fn isSignalConnected(self: KExtraColumnsProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KExtraColumnsProxyModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6209,10 +7225,14 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KExtraColumnsProxyModel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KExtraColumnsProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KExtraColumnsProxyModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -6226,9 +7246,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QMetaMethod) callconv(.c) bool) void {
         qtc.KExtraColumnsProxyModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onSourceModelChanged` instead
+    ///
+    pub const OnSourceModelChanged = onSourceModelChanged;
 
     /// Inherited from QAbstractProxyModel
     ///
@@ -6242,9 +7266,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnSourceModelChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onSourceModelChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QAbstractProxyModel_Connect_SourceModelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
+    ///
+    pub const OnRowsAboutToBeInserted = onRowsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6258,9 +7286,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6274,9 +7306,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6290,9 +7326,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsRemoved` instead
+    ///
+    pub const OnRowsRemoved = onRowsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6306,9 +7346,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeInserted` instead
+    ///
+    pub const OnColumnsAboutToBeInserted = onColumnsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6322,9 +7366,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsInserted` instead
+    ///
+    pub const OnColumnsInserted = onColumnsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6338,9 +7386,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsInserted(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeRemoved` instead
+    ///
+    pub const OnColumnsAboutToBeRemoved = onColumnsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6354,9 +7406,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsRemoved` instead
+    ///
+    pub const OnColumnsRemoved = onColumnsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6370,9 +7426,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsRemoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelAboutToBeReset` instead
+    ///
+    pub const OnModelAboutToBeReset = onModelAboutToBeReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6386,9 +7446,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onModelAboutToBeReset(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelReset` instead
+    ///
+    pub const OnModelReset = onModelReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6402,9 +7466,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
+    pub fn onModelReset(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeMoved` instead
+    ///
+    pub const OnRowsAboutToBeMoved = onRowsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6418,9 +7486,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsMoved` instead
+    ///
+    pub const OnRowsMoved = onRowsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6434,9 +7506,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeMoved` instead
+    ///
+    pub const OnColumnsAboutToBeMoved = onColumnsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6450,9 +7526,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsMoved` instead
+    ///
+    pub const OnColumnsMoved = onColumnsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -6466,9 +7546,13 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsMoved(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -6482,23 +7566,23 @@ pub const KExtraColumnsProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: KExtraColumnsProxyModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KExtraColumnsProxyModel, callback: *const fn (KExtraColumnsProxyModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kextracolumnsproxymodel.html#dtor.KExtraColumnsProxyModel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KExtraColumnsProxyModel `
     ///
-    pub fn Delete(self: KExtraColumnsProxyModel) void {
+    pub fn delete(self: KExtraColumnsProxyModel) void {
         qtc.KExtraColumnsProxyModel_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,19 +13,27 @@ pub const QLockFile = extern struct {
 
     pub const _is_QLockFile = {};
 
-    /// New constructs a new QLockFile object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QLockFile object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` fileName: []const u8 `
+    /// ` _fileName: []const u8 `
     ///
-    pub fn New(fileName: []const u8) QLockFile {
+    pub fn new(_fileName: []const u8) QLockFile {
         const fileName_str = qtc.libqt_string{
-            .len = fileName.len,
-            .data = fileName.ptr,
+            .len = _fileName.len,
+            .data = _fileName.ptr,
         };
         return .{ .ptr = qtc.QLockFile_new(fileName_str) };
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#fileName)
     ///
@@ -35,13 +43,17 @@ pub const QLockFile = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QLockFile, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QLockFile, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLockFile_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLockFile.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QLockFile.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `lock` instead
+    ///
+    pub const Lock = lock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#lock)
     ///
@@ -49,9 +61,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn Lock(self: QLockFile) bool {
+    pub fn lock(self: QLockFile) bool {
         return qtc.QLockFile_Lock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLock` instead
+    ///
+    pub const TryLock = tryLock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#tryLock)
     ///
@@ -61,9 +77,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn TryLock(self: QLockFile, timeout: i32) bool {
+    pub fn tryLock(self: QLockFile, timeout: i32) bool {
         return qtc.QLockFile_TryLock(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `unlock` instead
+    ///
+    pub const Unlock = unlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#unlock)
     ///
@@ -71,9 +91,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn Unlock(self: QLockFile) void {
+    pub fn unlock(self: QLockFile) void {
         qtc.QLockFile_Unlock(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStaleLockTime` instead
+    ///
+    pub const SetStaleLockTime = setStaleLockTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#setStaleLockTime)
     ///
@@ -81,11 +105,15 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    /// ` staleLockTime: i32 `
+    /// ` _staleLockTime: i32 `
     ///
-    pub fn SetStaleLockTime(self: QLockFile, staleLockTime: i32) void {
-        qtc.QLockFile_SetStaleLockTime(@ptrCast(self.ptr), @bitCast(staleLockTime));
+    pub fn setStaleLockTime(self: QLockFile, _staleLockTime: i32) void {
+        qtc.QLockFile_SetStaleLockTime(@ptrCast(self.ptr), @bitCast(_staleLockTime));
     }
+
+    /// ### DEPRECATED: Use `staleLockTime` instead
+    ///
+    pub const StaleLockTime = staleLockTime;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#staleLockTime)
     ///
@@ -93,9 +121,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn StaleLockTime(self: QLockFile) i32 {
+    pub fn staleLockTime(self: QLockFile) i32 {
         return qtc.QLockFile_StaleLockTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLock2` instead
+    ///
+    pub const TryLock2 = tryLock2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#tryLock)
     ///
@@ -103,9 +135,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn TryLock2(self: QLockFile) bool {
+    pub fn tryLock2(self: QLockFile) bool {
         return qtc.QLockFile_TryLock2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStaleLockTime2` instead
+    ///
+    pub const SetStaleLockTime2 = setStaleLockTime2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#setStaleLockTime)
     ///
@@ -115,9 +151,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` value: i64 of milliseconds `
     ///
-    pub fn SetStaleLockTime2(self: QLockFile, value: i64) void {
+    pub fn setStaleLockTime2(self: QLockFile, value: i64) void {
         qtc.QLockFile_SetStaleLockTime2(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `staleLockTimeAsDuration` instead
+    ///
+    pub const StaleLockTimeAsDuration = staleLockTimeAsDuration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#staleLockTimeAsDuration)
     ///
@@ -129,9 +169,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` i64 of milliseconds `
     ///
-    pub fn StaleLockTimeAsDuration(self: QLockFile) i64 {
+    pub fn staleLockTimeAsDuration(self: QLockFile) i64 {
         return qtc.QLockFile_StaleLockTimeAsDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLocked` instead
+    ///
+    pub const IsLocked = isLocked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#isLocked)
     ///
@@ -139,9 +183,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn IsLocked(self: QLockFile) bool {
+    pub fn isLocked(self: QLockFile) bool {
         return qtc.QLockFile_IsLocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeStaleLockFile` instead
+    ///
+    pub const RemoveStaleLockFile = removeStaleLockFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#removeStaleLockFile)
     ///
@@ -149,9 +197,15 @@ pub const QLockFile = extern struct {
     ///
     /// ` self: QLockFile `
     ///
-    pub fn RemoveStaleLockFile(self: QLockFile) bool {
+    pub fn removeStaleLockFile(self: QLockFile) bool {
         return qtc.QLockFile_RemoveStaleLockFile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#error)
     ///
@@ -163,9 +217,13 @@ pub const QLockFile = extern struct {
     ///
     /// ` qlockfile_enums.LockError `
     ///
-    pub fn Error(self: QLockFile) i32 {
+    pub fn error0(self: QLockFile) i32 {
         return qtc.QLockFile_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tryLock1` instead
+    ///
+    pub const TryLock1 = tryLock1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#tryLock)
     ///
@@ -175,23 +233,23 @@ pub const QLockFile = extern struct {
     ///
     /// ` timeout: i64 of milliseconds `
     ///
-    pub fn TryLock1(self: QLockFile, timeout: i64) bool {
+    pub fn tryLock1(self: QLockFile, timeout: i64) bool {
         return qtc.QLockFile_TryLock1(@ptrCast(self.ptr), @bitCast(timeout));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlockfile.html#dtor.QLockFile)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLockFile `
     ///
-    pub fn Delete(self: QLockFile) void {
+    pub fn delete(self: QLockFile) void {
         qtc.QLockFile_Delete(@ptrCast(self.ptr));
     }
 };

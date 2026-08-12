@@ -36,22 +36,34 @@ pub const QConcatenateTablesProxyModel = extern struct {
     pub const _is_QAbstractItemModel = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QConcatenateTablesProxyModel object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QConcatenateTablesProxyModel {
+    pub const New = new;
+
+    /// Allocate a new QConcatenateTablesProxyModel object in C++ memory
+    ///
+    pub fn new() QConcatenateTablesProxyModel {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_new() };
     }
 
-    /// New2 constructs a new QConcatenateTablesProxyModel object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QConcatenateTablesProxyModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QConcatenateTablesProxyModel {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QConcatenateTablesProxyModel {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -59,9 +71,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn MetaObject(self: QConcatenateTablesProxyModel) QMetaObject {
+    pub fn metaObject(self: QConcatenateTablesProxyModel) QMetaObject {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -73,13 +89,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QConcatenateTablesProxyModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -89,9 +105,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperMetaObject(self: QConcatenateTablesProxyModel) QMetaObject {
+    pub fn superMetaObject(self: QConcatenateTablesProxyModel) QMetaObject {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -99,10 +119,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QConcatenateTablesProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QConcatenateTablesProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QConcatenateTablesProxyModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -112,13 +136,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QConcatenateTablesProxyModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -128,10 +152,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QConcatenateTablesProxyModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QConcatenateTablesProxyModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QConcatenateTablesProxyModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -143,9 +171,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QConcatenateTablesProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QConcatenateTablesProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QConcatenateTablesProxyModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -155,13 +187,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -175,9 +207,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QConcatenateTablesProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QConcatenateTablesProxyModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QConcatenateTablesProxyModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -187,14 +223,18 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sourceModels` instead
+    ///
+    pub const SourceModels = sourceModels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#sourceModels)
     ///
@@ -204,15 +244,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SourceModels(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QAbstractItemModel {
+    pub fn sourceModels(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QAbstractItemModel {
         const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_SourceModels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractItemModel, _arr.len) catch @panic("QConcatenateTablesProxyModel.SourceModels: Memory allocation failed");
-        const _data: [*]QtC.QAbstractItemModel = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractItemModel, _arr.len) catch @panic("QConcatenateTablesProxyModel.sourceModels: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractItemModel = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addSourceModel` instead
+    ///
+    pub const AddSourceModel = addSourceModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#addSourceModel)
     ///
@@ -222,10 +266,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` sourceModel: QAbstractItemModel `
     ///
-    pub fn AddSourceModel(self: QConcatenateTablesProxyModel, sourceModel: anytype) void {
+    pub fn addSourceModel(self: QConcatenateTablesProxyModel, sourceModel: anytype) void {
         comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
         qtc.QConcatenateTablesProxyModel_AddSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeSourceModel` instead
+    ///
+    pub const RemoveSourceModel = removeSourceModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#removeSourceModel)
     ///
@@ -235,10 +283,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` sourceModel: QAbstractItemModel `
     ///
-    pub fn RemoveSourceModel(self: QConcatenateTablesProxyModel, sourceModel: anytype) void {
+    pub fn removeSourceModel(self: QConcatenateTablesProxyModel, sourceModel: anytype) void {
         comptime _ = @TypeOf(sourceModel)._is_QAbstractItemModel;
         qtc.QConcatenateTablesProxyModel_RemoveSourceModel(@ptrCast(self.ptr), @ptrCast(sourceModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `mapFromSource` instead
+    ///
+    pub const MapFromSource = mapFromSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mapFromSource)
     ///
@@ -248,10 +300,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` sourceIndex: QModelIndex `
     ///
-    pub fn MapFromSource(self: QConcatenateTablesProxyModel, sourceIndex: anytype) QModelIndex {
+    pub fn mapFromSource(self: QConcatenateTablesProxyModel, sourceIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(sourceIndex)._is_QModelIndex;
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_MapFromSource(@ptrCast(self.ptr), @ptrCast(sourceIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapToSource` instead
+    ///
+    pub const MapToSource = mapToSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mapToSource)
     ///
@@ -261,10 +317,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn MapToSource(self: QConcatenateTablesProxyModel, proxyIndex: anytype) QModelIndex {
+    pub fn mapToSource(self: QConcatenateTablesProxyModel, proxyIndex: anytype) QModelIndex {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_MapToSource(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#data)
     ///
@@ -272,14 +332,18 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn Data(self: QConcatenateTablesProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Data(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn data(self: QConcatenateTablesProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Data(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onData` instead
+    ///
+    pub const OnData = onData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#data)
     ///
@@ -293,13 +357,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
+    pub fn onData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32) callconv(.c) QVariant) void {
         qtc.QConcatenateTablesProxyModel_OnData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperData` instead
+    /// ### DEPRECATED: Use `superData` instead
     ///
-    pub const QBaseData = SuperData;
+    pub const SuperData = superData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#data)
     ///
@@ -309,14 +373,18 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperData(self: QConcatenateTablesProxyModel, index: anytype, role: i32) QVariant {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(role)) };
+    pub fn superData(self: QConcatenateTablesProxyModel, _index: anytype, role: i32) QVariant {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setData)
     ///
@@ -324,17 +392,21 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SetData(self: QConcatenateTablesProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setData(self: QConcatenateTablesProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QConcatenateTablesProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.QConcatenateTablesProxyModel_SetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetData` instead
+    ///
+    pub const OnSetData = onSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setData)
     ///
@@ -346,13 +418,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QVariant, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnSetData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetData` instead
+    /// ### DEPRECATED: Use `superSetData` instead
     ///
-    pub const QBaseSetData = SuperSetData;
+    pub const SuperSetData = superSetData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setData)
     ///
@@ -362,17 +434,21 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` value: QVariant `
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetData(self: QConcatenateTablesProxyModel, index: anytype, value: anytype, role: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetData(self: QConcatenateTablesProxyModel, _index: anytype, value: anytype, role: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QConcatenateTablesProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(value.ptr), @bitCast(role));
+        return qtc.QConcatenateTablesProxyModel_SuperSetData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#itemData)
     ///
@@ -384,11 +460,11 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn ItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, proxyIndex: anytype) ArrayMap_i32_QVariant {
+    pub fn itemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, proxyIndex: anytype) ArrayMap_i32_QVariant {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QConcatenateTablesProxyModel_ItemData(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -403,6 +479,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onItemData` instead
+    ///
+    pub const OnItemData = onItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#itemData)
     ///
@@ -418,13 +498,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_QVariant `
     ///
-    pub fn OnItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
+    pub fn onItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) qtc.libqt_map) void {
         qtc.QConcatenateTablesProxyModel_OnItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperItemData` instead
+    /// ### DEPRECATED: Use `superItemData` instead
     ///
-    pub const QBaseItemData = SuperItemData;
+    pub const SuperItemData = superItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#itemData)
     ///
@@ -438,11 +518,11 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` proxyIndex: QModelIndex `
     ///
-    pub fn SuperItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, proxyIndex: anytype) ArrayMap_i32_QVariant {
+    pub fn superItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, proxyIndex: anytype) ArrayMap_i32_QVariant {
         comptime _ = @TypeOf(proxyIndex)._is_QModelIndex;
         const _map: qtc.libqt_map = qtc.QConcatenateTablesProxyModel_SuperItemData(@ptrCast(self.ptr), @ptrCast(proxyIndex.ptr));
         var _ret: ArrayMap_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.ItemData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.itemData: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -458,6 +538,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setItemData)
     ///
     /// ## Parameter(s):
@@ -466,16 +550,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SetItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn setItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QConcatenateTablesProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QConcatenateTablesProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QConcatenateTablesProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QConcatenateTablesProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -489,8 +573,12 @@ pub const QConcatenateTablesProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QConcatenateTablesProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.QConcatenateTablesProxyModel_SetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `onSetItemData` instead
+    ///
+    pub const OnSetItemData = onSetItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setItemData)
     ///
@@ -502,13 +590,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex, roles: qtc.libqt_map (ArrayMap_i32_QVariant)) callconv(.c) bool `
     ///
-    pub fn OnSetItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
+    pub fn onSetItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, qtc.libqt_map) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnSetItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetItemData` instead
+    /// ### DEPRECATED: Use `superSetItemData` instead
     ///
-    pub const QBaseSetItemData = SuperSetItemData;
+    pub const SuperSetItemData = superSetItemData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#setItemData)
     ///
@@ -520,16 +608,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roles: ArrayMap_i32_QVariant `
     ///
-    pub fn SuperSetItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, index: anytype, roles: ArrayMap_i32_QVariant) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superSetItemData(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, _index: anytype, roles: ArrayMap_i32_QVariant) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         const roles_count = roles.count();
-        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QConcatenateTablesProxyModel.SetItemData: Memory allocation failed");
+        const roles_keys = allocator.alloc(i32, roles_count) catch @panic("QConcatenateTablesProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_keys);
-        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QConcatenateTablesProxyModel.SetItemData: Memory allocation failed");
+        const roles_values = allocator.alloc(QtC.QVariant, roles_count) catch @panic("QConcatenateTablesProxyModel.setItemData: Memory allocation failed");
         defer allocator.free(roles_values);
         var i: usize = 0;
         var roles_it = roles.iterator();
@@ -543,8 +631,12 @@ pub const QConcatenateTablesProxyModel = extern struct {
             .keys = @ptrCast(roles_keys.ptr),
             .values = @ptrCast(roles_values.ptr),
         };
-        return qtc.QConcatenateTablesProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(index.ptr), roles_map);
+        return qtc.QConcatenateTablesProxyModel_SuperSetItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr), roles_map);
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#flags)
     ///
@@ -552,16 +644,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn Flags(self: QConcatenateTablesProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn flags(self: QConcatenateTablesProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_Flags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFlags` instead
+    ///
+    pub const OnFlags = onFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#flags)
     ///
@@ -573,13 +669,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnFlags(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onFlags(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnFlags(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFlags` instead
+    /// ### DEPRECATED: Use `superFlags` instead
     ///
-    pub const QBaseFlags = SuperFlags;
+    pub const SuperFlags = superFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#flags)
     ///
@@ -589,16 +685,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ## Returns:
     ///
     /// ` flag of qnamespace_enums.ItemFlag `
     ///
-    pub fn SuperFlags(self: QConcatenateTablesProxyModel, index: anytype) i32 {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superFlags(self: QConcatenateTablesProxyModel, _index: anytype) i32 {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperFlags(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#index)
     ///
@@ -610,12 +710,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn Index(self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn index(self: QConcatenateTablesProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Index(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndex` instead
+    ///
+    pub const OnIndex = onIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#index)
     ///
@@ -629,13 +733,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndex` instead
+    /// ### DEPRECATED: Use `superIndex` instead
     ///
-    pub const QBaseIndex = SuperIndex;
+    pub const SuperIndex = superIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#index)
     ///
@@ -649,12 +753,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: anytype) QModelIndex {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr)) };
+    pub fn superIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32, _parent: anytype) QModelIndex {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#parent)
     ///
@@ -662,12 +770,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Parent(self: QConcatenateTablesProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Parent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn parent(self: QConcatenateTablesProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Parent(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onParent` instead
+    ///
+    pub const OnParent = onParent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#parent)
     ///
@@ -681,13 +793,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnParent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onParent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnParent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParent` instead
+    /// ### DEPRECATED: Use `superParent` instead
     ///
-    pub const QBaseParent = SuperParent;
+    pub const SuperParent = superParent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#parent)
     ///
@@ -697,12 +809,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperParent(self: QConcatenateTablesProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperParent(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superParent(self: QConcatenateTablesProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperParent(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rowCount` instead
+    ///
+    pub const RowCount = rowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#rowCount)
     ///
@@ -710,12 +826,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RowCount(self: QConcatenateTablesProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn rowCount(self: QConcatenateTablesProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_RowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRowCount` instead
+    ///
+    pub const OnRowCount = onRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#rowCount)
     ///
@@ -727,13 +847,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnRowCount(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onRowCount(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnRowCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRowCount` instead
+    /// ### DEPRECATED: Use `superRowCount` instead
     ///
-    pub const QBaseRowCount = SuperRowCount;
+    pub const SuperRowCount = superRowCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#rowCount)
     ///
@@ -743,12 +863,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRowCount(self: QConcatenateTablesProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superRowCount(self: QConcatenateTablesProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperRowCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `headerData` instead
+    ///
+    pub const HeaderData = headerData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#headerData)
     ///
@@ -762,9 +886,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn HeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn headerData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_HeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onHeaderData` instead
+    ///
+    pub const OnHeaderData = onHeaderData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#headerData)
     ///
@@ -778,13 +906,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnHeaderData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
+    pub fn onHeaderData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, i32) callconv(.c) QVariant) void {
         qtc.QConcatenateTablesProxyModel_OnHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHeaderData` instead
+    /// ### DEPRECATED: Use `superHeaderData` instead
     ///
-    pub const QBaseHeaderData = SuperHeaderData;
+    pub const SuperHeaderData = superHeaderData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#headerData)
     ///
@@ -800,9 +928,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, role: i32) QVariant {
+    pub fn superHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `columnCount` instead
+    ///
+    pub const ColumnCount = columnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#columnCount)
     ///
@@ -810,12 +942,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnCount(self: QConcatenateTablesProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn columnCount(self: QConcatenateTablesProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_ColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColumnCount` instead
+    ///
+    pub const OnColumnCount = onColumnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#columnCount)
     ///
@@ -827,13 +963,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex) callconv(.c) i32 `
     ///
-    pub fn OnColumnCount(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
+    pub fn onColumnCount(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnColumnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperColumnCount` instead
+    /// ### DEPRECATED: Use `superColumnCount` instead
     ///
-    pub const QBaseColumnCount = SuperColumnCount;
+    pub const SuperColumnCount = superColumnCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#columnCount)
     ///
@@ -843,12 +979,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperColumnCount(self: QConcatenateTablesProxyModel, parent: anytype) i32 {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superColumnCount(self: QConcatenateTablesProxyModel, _parent: anytype) i32 {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperColumnCount(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeTypes)
     ///
@@ -858,7 +998,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -866,15 +1006,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QConcatenateTablesProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QConcatenateTablesProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMimeTypes` instead
+    ///
+    pub const OnMimeTypes = onMimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeTypes)
     ///
@@ -888,13 +1032,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnMimeTypes(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onMimeTypes(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QConcatenateTablesProxyModel_OnMimeTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMimeTypes` instead
+    /// ### DEPRECATED: Use `superMimeTypes` instead
     ///
-    pub const QBaseMimeTypes = SuperMimeTypes;
+    pub const SuperMimeTypes = superMimeTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeTypes)
     ///
@@ -906,7 +1050,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperMimeTypes(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn superMimeTypes(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_SuperMimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -914,15 +1058,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QConcatenateTablesProxyModel.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QConcatenateTablesProxyModel.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeData)
     ///
@@ -932,13 +1080,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn MimeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn mimeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
         };
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_MimeData(@ptrCast(self.ptr), indexes_list) };
     }
+
+    /// ### DEPRECATED: Use `onMimeData` instead
+    ///
+    pub const OnMimeData = onMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeData)
     ///
@@ -950,13 +1102,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, indexes: qtc.libqt_list ([]QModelIndex)) callconv(.c) QMimeData `
     ///
-    pub fn OnMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
+    pub fn onMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) QMimeData) void {
         qtc.QConcatenateTablesProxyModel_OnMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMimeData` instead
+    /// ### DEPRECATED: Use `superMimeData` instead
     ///
-    pub const QBaseMimeData = SuperMimeData;
+    pub const SuperMimeData = superMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#mimeData)
     ///
@@ -968,7 +1120,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` indexes: []QModelIndex `
     ///
-    pub fn SuperMimeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex) QMimeData {
+    pub fn superMimeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex) QMimeData {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -976,13 +1128,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperMimeData(@ptrCast(self.ptr), indexes_list) };
     }
 
+    /// ### DEPRECATED: Use `canDropMimeData` instead
+    ///
+    pub const CanDropMimeData = canDropMimeData;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#canDropMimeData)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -990,13 +1146,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanDropMimeData(self: QConcatenateTablesProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn canDropMimeData(self: QConcatenateTablesProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_CanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanDropMimeData` instead
+    ///
+    pub const OnCanDropMimeData = onCanDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#canDropMimeData)
     ///
@@ -1008,13 +1168,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanDropMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanDropMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnCanDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCanDropMimeData` instead
+    /// ### DEPRECATED: Use `superCanDropMimeData` instead
     ///
-    pub const QBaseCanDropMimeData = SuperCanDropMimeData;
+    pub const SuperCanDropMimeData = superCanDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#canDropMimeData)
     ///
@@ -1024,7 +1184,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1032,13 +1192,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanDropMimeData(self: QConcatenateTablesProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superCanDropMimeData(self: QConcatenateTablesProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperCanDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropMimeData` instead
+    ///
+    pub const DropMimeData = dropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#dropMimeData)
     ///
@@ -1046,7 +1210,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1054,13 +1218,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn DropMimeData(self: QConcatenateTablesProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn dropMimeData(self: QConcatenateTablesProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_DropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropMimeData` instead
+    ///
+    pub const OnDropMimeData = onDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#dropMimeData)
     ///
@@ -1072,13 +1240,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, data: QMimeData, action: qnamespace_enums.DropAction, row: i32, column: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnDropMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onDropMimeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMimeData, i32, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnDropMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropMimeData` instead
+    /// ### DEPRECATED: Use `superDropMimeData` instead
     ///
-    pub const QBaseDropMimeData = SuperDropMimeData;
+    pub const SuperDropMimeData = superDropMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#dropMimeData)
     ///
@@ -1088,7 +1256,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` data: QMimeData `
+    /// ` _data: QMimeData `
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
@@ -1096,13 +1264,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperDropMimeData(self: QConcatenateTablesProxyModel, data: anytype, action: i32, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(data)._is_QMimeData;
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn superDropMimeData(self: QConcatenateTablesProxyModel, _data: anytype, action: i32, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_data)._is_QMimeData;
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperDropMimeData(@ptrCast(self.ptr), @ptrCast(_data.ptr), @bitCast(action), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `span` instead
+    ///
+    pub const Span = span;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#span)
     ///
@@ -1110,12 +1282,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Span(self: QConcatenateTablesProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Span(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn span(self: QConcatenateTablesProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Span(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSpan` instead
+    ///
+    pub const OnSpan = onSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#span)
     ///
@@ -1129,13 +1305,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSpan(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSpan(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QSize) void {
         qtc.QConcatenateTablesProxyModel_OnSpan(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSpan` instead
+    /// ### DEPRECATED: Use `superSpan` instead
     ///
-    pub const QBaseSpan = SuperSpan;
+    pub const SuperSpan = superSpan;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#span)
     ///
@@ -1145,12 +1321,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperSpan(self: QConcatenateTablesProxyModel, index: anytype) QSize {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superSpan(self: QConcatenateTablesProxyModel, _index: anytype) QSize {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperSpan(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1162,15 +1342,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1184,15 +1368,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasIndex` instead
+    ///
+    pub const HasIndex = hasIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1206,9 +1394,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn HasIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) bool {
+    pub fn hasIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) bool {
         return qtc.QAbstractItemModel_HasIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `insertRow` instead
+    ///
+    pub const InsertRow = insertRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1220,9 +1412,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn InsertRow(self: QConcatenateTablesProxyModel, row: i32) bool {
+    pub fn insertRow(self: QConcatenateTablesProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_InsertRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `insertColumn` instead
+    ///
+    pub const InsertColumn = insertColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1234,9 +1430,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn InsertColumn(self: QConcatenateTablesProxyModel, column: i32) bool {
+    pub fn insertColumn(self: QConcatenateTablesProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_InsertColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `removeRow` instead
+    ///
+    pub const RemoveRow = removeRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1248,9 +1448,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RemoveRow(self: QConcatenateTablesProxyModel, row: i32) bool {
+    pub fn removeRow(self: QConcatenateTablesProxyModel, row: i32) bool {
         return qtc.QAbstractItemModel_RemoveRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `removeColumn` instead
+    ///
+    pub const RemoveColumn = removeColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1262,9 +1466,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn RemoveColumn(self: QConcatenateTablesProxyModel, column: i32) bool {
+    pub fn removeColumn(self: QConcatenateTablesProxyModel, column: i32) bool {
         return qtc.QAbstractItemModel_RemoveColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `moveRow` instead
+    ///
+    pub const MoveRow = moveRow;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1282,11 +1490,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRow(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRow(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveRow(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `moveColumn` instead
+    ///
+    pub const MoveColumn = moveColumn;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1304,11 +1516,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumn(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumn(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QAbstractItemModel_MoveColumn(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `checkIndex` instead
+    ///
+    pub const CheckIndex = checkIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1318,12 +1534,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn CheckIndex(self: QConcatenateTablesProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn checkIndex(self: QConcatenateTablesProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1337,11 +1557,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` bottomRight: QModelIndex `
     ///
-    pub fn DataChanged(self: QConcatenateTablesProxyModel, topLeft: anytype, bottomRight: anytype) void {
+    pub fn dataChanged(self: QConcatenateTablesProxyModel, topLeft: anytype, bottomRight: anytype) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         qtc.QAbstractItemModel_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1353,9 +1577,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onDataChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `headerDataChanged` instead
+    ///
+    pub const HeaderDataChanged = headerDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1371,9 +1599,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` last: i32 `
     ///
-    pub fn HeaderDataChanged(self: QConcatenateTablesProxyModel, orientation: i32, first: i32, last: i32) void {
+    pub fn headerDataChanged(self: QConcatenateTablesProxyModel, orientation: i32, first: i32, last: i32) void {
         qtc.QAbstractItemModel_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(orientation), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onHeaderDataChanged` instead
+    ///
+    pub const OnHeaderDataChanged = onHeaderDataChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1385,10 +1617,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, orientation: qnamespace_enums.Orientation, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnHeaderDataChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, i32) callconv(.c) void) void {
+    pub fn onHeaderDataChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_HeaderDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `layoutChanged` instead
+    ///
+    pub const LayoutChanged = layoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1397,10 +1633,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn LayoutChanged(self: QConcatenateTablesProxyModel) void {
+    pub fn layoutChanged(self: QConcatenateTablesProxyModel) void {
         qtc.QAbstractItemModel_LayoutChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged` instead
+    ///
+    pub const OnLayoutChanged = onLayoutChanged;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1411,9 +1651,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
+    pub fn onLayoutChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged` instead
+    ///
+    pub const LayoutAboutToBeChanged = layoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1423,9 +1667,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn LayoutAboutToBeChanged(self: QConcatenateTablesProxyModel) void {
+    pub fn layoutAboutToBeChanged(self: QConcatenateTablesProxyModel) void {
         qtc.QAbstractItemModel_LayoutAboutToBeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged` instead
+    ///
+    pub const OnLayoutAboutToBeChanged = onLayoutAboutToBeChanged;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1437,9 +1685,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasIndex3` instead
+    ///
+    pub const HasIndex3 = hasIndex3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1453,12 +1705,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasIndex3(self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn hasIndex3(self: QConcatenateTablesProxyModel, row: i32, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_HasIndex3(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertRow2` instead
+    ///
+    pub const InsertRow2 = insertRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1470,12 +1726,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRow2(self: QConcatenateTablesProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn insertRow2(self: QConcatenateTablesProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertColumn2` instead
+    ///
+    pub const InsertColumn2 = insertColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1487,12 +1747,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumn2(self: QConcatenateTablesProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn insertColumn2(self: QConcatenateTablesProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_InsertColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeRow2` instead
+    ///
+    pub const RemoveRow2 = removeRow2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1504,12 +1768,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRow2(self: QConcatenateTablesProxyModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn removeRow2(self: QConcatenateTablesProxyModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveRow2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeColumn2` instead
+    ///
+    pub const RemoveColumn2 = removeColumn2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1521,12 +1789,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumn2(self: QConcatenateTablesProxyModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn removeColumn2(self: QConcatenateTablesProxyModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QAbstractItemModel_RemoveColumn2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkIndex2` instead
+    ///
+    pub const CheckIndex2 = checkIndex2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1536,14 +1808,18 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` options: flag of qabstractitemmodel_enums.CheckIndexOption `
     ///
-    pub fn CheckIndex2(self: QConcatenateTablesProxyModel, index: anytype, options: i32) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(options));
+    pub fn checkIndex2(self: QConcatenateTablesProxyModel, _index: anytype, options: i32) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QAbstractItemModel_CheckIndex2(@ptrCast(self.ptr), @ptrCast(_index.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `dataChanged3` instead
+    ///
+    pub const DataChanged3 = dataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1559,7 +1835,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged3(self: QConcatenateTablesProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged3(self: QConcatenateTablesProxyModel, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -1568,6 +1844,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         };
         qtc.QAbstractItemModel_DataChanged3(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged3` instead
+    ///
+    pub const OnDataChanged3 = onDataChanged3;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1579,9 +1859,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged3(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged3(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_DataChanged3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged1` instead
+    ///
+    pub const LayoutChanged1 = layoutChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1593,7 +1877,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutChanged1(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutChanged1(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1601,6 +1885,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged1(@ptrCast(self.ptr), parents_list);
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged1` instead
+    ///
+    pub const OnLayoutChanged1 = onLayoutChanged1;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1611,9 +1899,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutChanged1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutChanged2` instead
+    ///
+    pub const LayoutChanged2 = layoutChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1627,7 +1919,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutChanged2(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutChanged2(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
@@ -1635,6 +1927,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         qtc.QAbstractItemModel_LayoutChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
 
+    /// ### DEPRECATED: Use `onLayoutChanged2` instead
+    ///
+    pub const OnLayoutChanged2 = onLayoutChanged2;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#layoutChanged)
@@ -1645,9 +1941,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutChanged2(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutChanged2(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged1` instead
+    ///
+    pub const LayoutAboutToBeChanged1 = layoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1659,13 +1959,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` parents: []QPersistentModelIndex `
     ///
-    pub fn LayoutAboutToBeChanged1(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex) void {
+    pub fn layoutAboutToBeChanged1(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged1(@ptrCast(self.ptr), parents_list);
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged1` instead
+    ///
+    pub const OnLayoutAboutToBeChanged1 = onLayoutAboutToBeChanged1;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1677,9 +1981,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex)) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `layoutAboutToBeChanged2` instead
+    ///
+    pub const LayoutAboutToBeChanged2 = layoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1693,13 +2001,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` hint: qabstractitemmodel_enums.LayoutChangeHint `
     ///
-    pub fn LayoutAboutToBeChanged2(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
+    pub fn layoutAboutToBeChanged2(self: QConcatenateTablesProxyModel, parents: []QPersistentModelIndex, hint: i32) void {
         const parents_list = qtc.libqt_list{
             .len = parents.len,
             .data = @ptrCast(parents.ptr),
         };
         qtc.QAbstractItemModel_LayoutAboutToBeChanged2(@ptrCast(self.ptr), parents_list, @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onLayoutAboutToBeChanged2` instead
+    ///
+    pub const OnLayoutAboutToBeChanged2 = onLayoutAboutToBeChanged2;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -1711,9 +2023,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parents: qtc.libqt_list ([]QPersistentModelIndex), hint: qabstractitemmodel_enums.LayoutChangeHint) callconv(.c) void `
     ///
-    pub fn OnLayoutAboutToBeChanged2(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
+    pub fn onLayoutAboutToBeChanged2(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_LayoutAboutToBeChanged2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1725,13 +2041,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QConcatenateTablesProxyModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1743,13 +2063,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QConcatenateTablesProxyModel, name: []const u8) void {
+    pub fn setObjectName(self: QConcatenateTablesProxyModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1759,9 +2083,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn IsWidgetType(self: QConcatenateTablesProxyModel) bool {
+    pub fn isWidgetType(self: QConcatenateTablesProxyModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1771,9 +2099,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn IsWindowType(self: QConcatenateTablesProxyModel) bool {
+    pub fn isWindowType(self: QConcatenateTablesProxyModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1783,9 +2115,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn IsQuickItemType(self: QConcatenateTablesProxyModel) bool {
+    pub fn isQuickItemType(self: QConcatenateTablesProxyModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1795,9 +2131,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SignalsBlocked(self: QConcatenateTablesProxyModel) bool {
+    pub fn signalsBlocked(self: QConcatenateTablesProxyModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1809,9 +2149,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QConcatenateTablesProxyModel, b: bool) bool {
+    pub fn blockSignals(self: QConcatenateTablesProxyModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1821,9 +2165,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Thread(self: QConcatenateTablesProxyModel) QThread {
+    pub fn thread(self: QConcatenateTablesProxyModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1833,12 +2181,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QConcatenateTablesProxyModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QConcatenateTablesProxyModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1850,9 +2202,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QConcatenateTablesProxyModel, interval: i32) i32 {
+    pub fn startTimer(self: QConcatenateTablesProxyModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1864,9 +2220,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QConcatenateTablesProxyModel, time: i64) i32 {
+    pub fn startTimer2(self: QConcatenateTablesProxyModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1878,9 +2238,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QConcatenateTablesProxyModel, id: i32) void {
+    pub fn killTimer(self: QConcatenateTablesProxyModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1892,9 +2256,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QConcatenateTablesProxyModel, id: i32) void {
+    pub fn killTimer2(self: QConcatenateTablesProxyModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1906,15 +2274,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QConcatenateTablesProxyModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QConcatenateTablesProxyModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1924,12 +2296,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QConcatenateTablesProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QConcatenateTablesProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1941,10 +2317,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QConcatenateTablesProxyModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: QConcatenateTablesProxyModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1956,10 +2336,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QConcatenateTablesProxyModel, obj: anytype) void {
+    pub fn removeEventFilter(self: QConcatenateTablesProxyModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1967,7 +2351,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1975,13 +2359,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1989,7 +2377,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1997,13 +2385,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2013,18 +2405,22 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QConcatenateTablesProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QConcatenateTablesProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2032,7 +2428,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2040,13 +2436,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2054,7 +2454,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2062,13 +2462,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2078,9 +2482,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Disconnect3(self: QConcatenateTablesProxyModel) bool {
+    pub fn disconnect3(self: QConcatenateTablesProxyModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2092,10 +2500,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QConcatenateTablesProxyModel, receiver: anytype) bool {
+    pub fn disconnect4(self: QConcatenateTablesProxyModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2105,10 +2517,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2118,9 +2534,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn DumpObjectTree(self: QConcatenateTablesProxyModel) void {
+    pub fn dumpObjectTree(self: QConcatenateTablesProxyModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2130,9 +2550,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn DumpObjectInfo(self: QConcatenateTablesProxyModel) void {
+    pub fn dumpObjectInfo(self: QConcatenateTablesProxyModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2146,11 +2570,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QConcatenateTablesProxyModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QConcatenateTablesProxyModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2162,10 +2590,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QConcatenateTablesProxyModel, name: [:0]const u8) QVariant {
+    pub fn property(self: QConcatenateTablesProxyModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2177,7 +2609,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2185,27 +2617,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QConcatenateTablesProxyModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QConcatenateTablesProxyModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QConcatenateTablesProxyModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QConcatenateTablesProxyModel `
-    ///
-    pub fn BindingStorage(self: QConcatenateTablesProxyModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2215,9 +2639,29 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn BindingStorage2(self: QConcatenateTablesProxyModel) QBindingStorage {
+    pub fn bindingStorage(self: QConcatenateTablesProxyModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QConcatenateTablesProxyModel `
+    ///
+    pub fn bindingStorage2(self: QConcatenateTablesProxyModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2227,9 +2671,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Destroyed(self: QConcatenateTablesProxyModel) void {
+    pub fn destroyed(self: QConcatenateTablesProxyModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2241,9 +2689,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2255,10 +2707,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QConcatenateTablesProxyModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: QConcatenateTablesProxyModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2268,9 +2724,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn DeleteLater(self: QConcatenateTablesProxyModel) void {
+    pub fn deleteLater(self: QConcatenateTablesProxyModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2284,9 +2744,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QConcatenateTablesProxyModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QConcatenateTablesProxyModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2300,9 +2764,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QConcatenateTablesProxyModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QConcatenateTablesProxyModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2310,7 +2778,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2320,13 +2788,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2334,7 +2806,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2344,13 +2816,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2360,7 +2836,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2368,12 +2844,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QConcatenateTablesProxyModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QConcatenateTablesProxyModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2385,10 +2865,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QConcatenateTablesProxyModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QConcatenateTablesProxyModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2402,11 +2886,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QConcatenateTablesProxyModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QConcatenateTablesProxyModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2422,13 +2910,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QConcatenateTablesProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QConcatenateTablesProxyModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2441,11 +2933,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QConcatenateTablesProxyModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QConcatenateTablesProxyModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2457,10 +2953,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QConcatenateTablesProxyModel, param1: anytype) void {
+    pub fn destroyed1(self: QConcatenateTablesProxyModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2472,9 +2972,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sibling` instead
+    ///
+    pub const Sibling = sibling;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2492,14 +2996,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn Sibling(self: QConcatenateTablesProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn sibling(self: QConcatenateTablesProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_Sibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSibling` instead
+    /// ### DEPRECATED: Use `superSibling` instead
     ///
-    pub const QBaseSibling = SuperSibling;
+    pub const SuperSibling = superSibling;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2517,10 +3021,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn SuperSibling(self: QConcatenateTablesProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
+    pub fn superSibling(self: QConcatenateTablesProxyModel, row: i32, column: i32, idx: anytype) QModelIndex {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperSibling(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(idx.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSibling` instead
+    ///
+    pub const OnSibling = onSibling;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2536,9 +3044,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSibling(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onSibling(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnSibling(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasChildren` instead
+    ///
+    pub const HasChildren = hasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2550,16 +3062,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn HasChildren(self: QConcatenateTablesProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn hasChildren(self: QConcatenateTablesProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_HasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasChildren` instead
+    /// ### DEPRECATED: Use `superHasChildren` instead
     ///
-    pub const QBaseHasChildren = SuperHasChildren;
+    pub const SuperHasChildren = superHasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2571,12 +3083,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperHasChildren(self: QConcatenateTablesProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superHasChildren(self: QConcatenateTablesProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperHasChildren(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasChildren` instead
+    ///
+    pub const OnHasChildren = onHasChildren;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2590,9 +3106,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHasChildren(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onHasChildren(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnHasChildren(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHeaderData` instead
+    ///
+    pub const SetHeaderData = setHeaderData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2612,14 +3132,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn setHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QConcatenateTablesProxyModel_SetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHeaderData` instead
+    /// ### DEPRECATED: Use `superSetHeaderData` instead
     ///
-    pub const QBaseSetHeaderData = SuperSetHeaderData;
+    pub const SuperSetHeaderData = superSetHeaderData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2639,10 +3159,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperSetHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
+    pub fn superSetHeaderData(self: QConcatenateTablesProxyModel, section: i32, orientation: i32, value: anytype, role: i32) bool {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QConcatenateTablesProxyModel_SuperSetHeaderData(@ptrCast(self.ptr), @bitCast(section), @bitCast(orientation), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `onSetHeaderData` instead
+    ///
+    pub const OnSetHeaderData = onSetHeaderData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2656,9 +3180,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, section: i32, orientation: qnamespace_enums.Orientation, value: QVariant, role: i32) callconv(.c) bool `
     ///
-    pub fn OnSetHeaderData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
+    pub fn onSetHeaderData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QVariant, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnSetHeaderData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearItemData` instead
+    ///
+    pub const ClearItemData = clearItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2670,16 +3198,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn ClearItemData(self: QConcatenateTablesProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn clearItemData(self: QConcatenateTablesProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_ClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClearItemData` instead
+    /// ### DEPRECATED: Use `superClearItemData` instead
     ///
-    pub const QBaseClearItemData = SuperClearItemData;
+    pub const SuperClearItemData = superClearItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2691,12 +3219,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperClearItemData(self: QConcatenateTablesProxyModel, index: anytype) bool {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn superClearItemData(self: QConcatenateTablesProxyModel, _index: anytype) bool {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperClearItemData(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearItemData` instead
+    ///
+    pub const OnClearItemData = onClearItemData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2710,10 +3242,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnClearItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onClearItemData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnClearItemData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `supportedDropActions` instead
+    ///
+    pub const SupportedDropActions = supportedDropActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -2728,13 +3264,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDropActions(self: QConcatenateTablesProxyModel) i32 {
+    pub fn supportedDropActions(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SupportedDropActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDropActions` instead
+    /// ### DEPRECATED: Use `superSupportedDropActions` instead
     ///
-    pub const QBaseSupportedDropActions = SuperSupportedDropActions;
+    pub const SuperSupportedDropActions = superSupportedDropActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2750,10 +3286,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDropActions(self: QConcatenateTablesProxyModel) i32 {
+    pub fn superSupportedDropActions(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SuperSupportedDropActions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSupportedDropActions` instead
+    ///
+    pub const OnSupportedDropActions = onSupportedDropActions;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#supportedDropActions)
@@ -2766,9 +3306,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDropActions(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDropActions(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnSupportedDropActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `supportedDragActions` instead
+    ///
+    pub const SupportedDragActions = supportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2784,13 +3328,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SupportedDragActions(self: QConcatenateTablesProxyModel) i32 {
+    pub fn supportedDragActions(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SupportedDragActions(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedDragActions` instead
+    /// ### DEPRECATED: Use `superSupportedDragActions` instead
     ///
-    pub const QBaseSupportedDragActions = SuperSupportedDragActions;
+    pub const SuperSupportedDragActions = superSupportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2806,9 +3350,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperSupportedDragActions(self: QConcatenateTablesProxyModel) i32 {
+    pub fn superSupportedDragActions(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SuperSupportedDragActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedDragActions` instead
+    ///
+    pub const OnSupportedDragActions = onSupportedDragActions;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2822,10 +3370,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedDragActions(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedDragActions(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnSupportedDragActions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertRows` instead
+    ///
+    pub const InsertRows = insertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertRows)
@@ -2840,16 +3392,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_InsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertRows` instead
+    /// ### DEPRECATED: Use `superInsertRows` instead
     ///
-    pub const QBaseInsertRows = SuperInsertRows;
+    pub const SuperInsertRows = superInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2865,12 +3417,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperInsertRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertRows` instead
+    ///
+    pub const OnInsertRows = onInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2884,10 +3440,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `insertColumns` instead
+    ///
+    pub const InsertColumns = insertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#insertColumns)
@@ -2902,16 +3462,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn InsertColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn insertColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_InsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertColumns` instead
+    /// ### DEPRECATED: Use `superInsertColumns` instead
     ///
-    pub const QBaseInsertColumns = SuperInsertColumns;
+    pub const SuperInsertColumns = superInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2927,12 +3487,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperInsertColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superInsertColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperInsertColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertColumns` instead
+    ///
+    pub const OnInsertColumns = onInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2946,9 +3510,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeRows` instead
+    ///
+    pub const RemoveRows = removeRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2964,16 +3532,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_RemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveRows` instead
+    /// ### DEPRECATED: Use `superRemoveRows` instead
     ///
-    pub const QBaseRemoveRows = SuperRemoveRows;
+    pub const SuperRemoveRows = superRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -2989,12 +3557,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveRows(self: QConcatenateTablesProxyModel, row: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperRemoveRows(@ptrCast(self.ptr), @bitCast(row), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveRows` instead
+    ///
+    pub const OnRemoveRows = onRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3008,9 +3580,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removeColumns` instead
+    ///
+    pub const RemoveColumns = removeColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3026,16 +3602,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RemoveColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn removeColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_RemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveColumns` instead
+    /// ### DEPRECATED: Use `superRemoveColumns` instead
     ///
-    pub const QBaseRemoveColumns = SuperRemoveColumns;
+    pub const SuperRemoveColumns = superRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3051,12 +3627,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` count: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperRemoveColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(parent.ptr));
+    pub fn superRemoveColumns(self: QConcatenateTablesProxyModel, column: i32, count: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperRemoveColumns(@ptrCast(self.ptr), @bitCast(column), @bitCast(count), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemoveColumns` instead
+    ///
+    pub const OnRemoveColumns = onRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3070,9 +3650,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, column: i32, count: i32, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
+    pub fn onRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveRows` instead
+    ///
+    pub const MoveRows = moveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3094,15 +3678,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_MoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveRows` instead
+    /// ### DEPRECATED: Use `superMoveRows` instead
     ///
-    pub const QBaseMoveRows = SuperMoveRows;
+    pub const SuperMoveRows = superMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3124,11 +3708,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceRow: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_SuperMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceRow), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveRows` instead
+    ///
+    pub const OnMoveRows = onMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3142,9 +3730,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceRow: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveColumns` instead
+    ///
+    pub const MoveColumns = moveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3166,15 +3758,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn MoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn moveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_MoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveColumns` instead
+    /// ### DEPRECATED: Use `superMoveColumns` instead
     ///
-    pub const QBaseMoveColumns = SuperMoveColumns;
+    pub const SuperMoveColumns = superMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3196,11 +3788,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationChild: i32 `
     ///
-    pub fn SuperMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
+    pub fn superMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceColumn: i32, count: i32, destinationParent: anytype, destinationChild: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_SuperMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceColumn), @bitCast(count), @ptrCast(destinationParent.ptr), @bitCast(destinationChild));
     }
+
+    /// ### DEPRECATED: Use `onMoveColumns` instead
+    ///
+    pub const OnMoveColumns = onMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3214,9 +3810,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceColumn: i32, count: i32, destinationParent: QModelIndex, destinationChild: i32) callconv(.c) bool `
     ///
-    pub fn OnMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `fetchMore` instead
+    ///
+    pub const FetchMore = fetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3228,16 +3828,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn FetchMore(self: QConcatenateTablesProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn fetchMore(self: QConcatenateTablesProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_FetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFetchMore` instead
+    /// ### DEPRECATED: Use `superFetchMore` instead
     ///
-    pub const QBaseFetchMore = SuperFetchMore;
+    pub const SuperFetchMore = superFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3249,12 +3849,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperFetchMore(self: QConcatenateTablesProxyModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superFetchMore(self: QConcatenateTablesProxyModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_SuperFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFetchMore` instead
+    ///
+    pub const OnFetchMore = onFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3268,9 +3872,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnFetchMore(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) void) void {
+    pub fn onFetchMore(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canFetchMore` instead
+    ///
+    pub const CanFetchMore = canFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3282,16 +3890,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn CanFetchMore(self: QConcatenateTablesProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn canFetchMore(self: QConcatenateTablesProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_CanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanFetchMore` instead
+    /// ### DEPRECATED: Use `superCanFetchMore` instead
     ///
-    pub const QBaseCanFetchMore = SuperCanFetchMore;
+    pub const SuperCanFetchMore = superCanFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3303,12 +3911,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn SuperCanFetchMore(self: QConcatenateTablesProxyModel, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QConcatenateTablesProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn superCanFetchMore(self: QConcatenateTablesProxyModel, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QConcatenateTablesProxyModel_SuperCanFetchMore(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanFetchMore` instead
+    ///
+    pub const OnCanFetchMore = onCanFetchMore;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3322,9 +3934,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnCanFetchMore(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
+    pub fn onCanFetchMore(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnCanFetchMore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sort` instead
+    ///
+    pub const Sort = sort;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3340,13 +3956,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn Sort(self: QConcatenateTablesProxyModel, column: i32, order: i32) void {
+    pub fn sort(self: QConcatenateTablesProxyModel, column: i32, order: i32) void {
         qtc.QConcatenateTablesProxyModel_Sort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
 
-    /// ### DEPRECATED: Use `SuperSort` instead
+    /// ### DEPRECATED: Use `superSort` instead
     ///
-    pub const QBaseSort = SuperSort;
+    pub const SuperSort = superSort;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3362,9 +3978,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` order: qnamespace_enums.SortOrder `
     ///
-    pub fn SuperSort(self: QConcatenateTablesProxyModel, column: i32, order: i32) void {
+    pub fn superSort(self: QConcatenateTablesProxyModel, column: i32, order: i32) void {
         qtc.QConcatenateTablesProxyModel_SuperSort(@ptrCast(self.ptr), @bitCast(column), @bitCast(order));
     }
+
+    /// ### DEPRECATED: Use `onSort` instead
+    ///
+    pub const OnSort = onSort;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3378,9 +3998,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, column: i32, order: qnamespace_enums.SortOrder) callconv(.c) void `
     ///
-    pub fn OnSort(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32) callconv(.c) void) void {
+    pub fn onSort(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnSort(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `buddy` instead
+    ///
+    pub const Buddy = buddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3392,16 +4016,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn Buddy(self: QConcatenateTablesProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn buddy(self: QConcatenateTablesProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_Buddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperBuddy` instead
+    /// ### DEPRECATED: Use `superBuddy` instead
     ///
-    pub const QBaseBuddy = SuperBuddy;
+    pub const SuperBuddy = superBuddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3413,12 +4037,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SuperBuddy(self: QConcatenateTablesProxyModel, index: anytype) QModelIndex {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
+    pub fn superBuddy(self: QConcatenateTablesProxyModel, _index: anytype) QModelIndex {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperBuddy(@ptrCast(self.ptr), @ptrCast(_index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBuddy` instead
+    ///
+    pub const OnBuddy = onBuddy;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3434,9 +4062,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBuddy(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
+    pub fn onBuddy(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnBuddy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `match` instead
+    ///
+    pub const Match = match;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3458,23 +4090,23 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn Match(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn match(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_Match(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperMatch` instead
+    /// ### DEPRECATED: Use `superMatch` instead
     ///
-    pub const QBaseMatch = SuperMatch;
+    pub const SuperMatch = superMatch;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3496,19 +4128,23 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` hits: i32 `
     ///
-    /// ` flags: flag of qnamespace_enums.MatchFlag `
+    /// ` _flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn SuperMatch(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, flags: i32) []QModelIndex {
+    pub fn superMatch(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator, start: anytype, role: i32, value: anytype, hits: i32, _flags: i32) []QModelIndex {
         comptime _ = @TypeOf(start)._is_QModelIndex;
         comptime _ = @TypeOf(value)._is_QVariant;
-        const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(flags));
+        const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_SuperMatch(@ptrCast(self.ptr), @ptrCast(start.ptr), @bitCast(role), @ptrCast(value.ptr), @bitCast(hits), @bitCast(_flags));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.Match: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.match: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMatch` instead
+    ///
+    pub const OnMatch = onMatch;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3528,9 +4164,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnMatch(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
+    pub fn onMatch(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, QVariant, i32, i32) callconv(.c) qtc.libqt_list) void {
         qtc.QConcatenateTablesProxyModel_OnMatch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `roleNames` instead
+    ///
+    pub const RoleNames = roleNames;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3544,10 +4184,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn RoleNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn roleNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QConcatenateTablesProxyModel_RoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3562,16 +4202,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QConcatenateTablesProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QConcatenateTablesProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperRoleNames` instead
+    /// ### DEPRECATED: Use `superRoleNames` instead
     ///
-    pub const QBaseRoleNames = SuperRoleNames;
+    pub const SuperRoleNames = superRoleNames;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3585,10 +4225,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperRoleNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
+    pub fn superRoleNames(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) Map_i32_u8 {
         const _map: qtc.libqt_map = qtc.QConcatenateTablesProxyModel_SuperRoleNames(@ptrCast(self.ptr));
         var _ret: Map_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.RoleNames: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QConcatenateTablesProxyModel.roleNames: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -3603,12 +4243,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QConcatenateTablesProxyModel.RoleNames: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("QConcatenateTablesProxyModel.roleNames: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onRoleNames` instead
+    ///
+    pub const OnRoleNames = onRoleNames;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3626,9 +4270,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` C ABI representation of Map_i32_u8 `
     ///
-    pub fn OnRoleNames(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onRoleNames(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.QConcatenateTablesProxyModel_OnRoleNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `multiData` instead
+    ///
+    pub const MultiData = multiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3640,19 +4288,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn MultiData(self: QConcatenateTablesProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn multiData(self: QConcatenateTablesProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.QConcatenateTablesProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.QConcatenateTablesProxyModel_MultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMultiData` instead
+    /// ### DEPRECATED: Use `superMultiData` instead
     ///
-    pub const QBaseMultiData = SuperMultiData;
+    pub const SuperMultiData = superMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3664,15 +4312,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
     /// ` roleDataSpan: QModelRoleDataSpan `
     ///
-    pub fn SuperMultiData(self: QConcatenateTablesProxyModel, index: anytype, roleDataSpan: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
+    pub fn superMultiData(self: QConcatenateTablesProxyModel, _index: anytype, roleDataSpan: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
         comptime _ = @TypeOf(roleDataSpan)._is_QModelRoleDataSpan;
-        qtc.QConcatenateTablesProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(roleDataSpan.ptr));
+        qtc.QConcatenateTablesProxyModel_SuperMultiData(@ptrCast(self.ptr), @ptrCast(_index.ptr), @ptrCast(roleDataSpan.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMultiData` instead
+    ///
+    pub const OnMultiData = onMultiData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3686,9 +4338,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, index: QModelIndex, roleDataSpan: QModelRoleDataSpan) callconv(.c) void `
     ///
-    pub fn OnMultiData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
+    pub fn onMultiData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelRoleDataSpan) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnMultiData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `submit` instead
+    ///
+    pub const Submit = submit;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3700,13 +4356,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Submit(self: QConcatenateTablesProxyModel) bool {
+    pub fn submit(self: QConcatenateTablesProxyModel) bool {
         return qtc.QConcatenateTablesProxyModel_Submit(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSubmit` instead
+    /// ### DEPRECATED: Use `superSubmit` instead
     ///
-    pub const QBaseSubmit = SuperSubmit;
+    pub const SuperSubmit = superSubmit;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3718,9 +4374,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperSubmit(self: QConcatenateTablesProxyModel) bool {
+    pub fn superSubmit(self: QConcatenateTablesProxyModel) bool {
         return qtc.QConcatenateTablesProxyModel_SuperSubmit(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSubmit` instead
+    ///
+    pub const OnSubmit = onSubmit;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3734,10 +4394,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSubmit(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSubmit(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnSubmit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `revert` instead
+    ///
+    pub const Revert = revert;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
@@ -3748,13 +4412,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Revert(self: QConcatenateTablesProxyModel) void {
+    pub fn revert(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_Revert(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperRevert` instead
+    /// ### DEPRECATED: Use `superRevert` instead
     ///
-    pub const QBaseRevert = SuperRevert;
+    pub const SuperRevert = superRevert;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3766,10 +4430,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperRevert(self: QConcatenateTablesProxyModel) void {
+    pub fn superRevert(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperRevert(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onRevert` instead
+    ///
+    pub const OnRevert = onRevert;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#revert)
@@ -3782,9 +4450,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRevert(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onRevert(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnRevert(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resetInternalData` instead
+    ///
+    pub const ResetInternalData = resetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3796,13 +4468,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn ResetInternalData(self: QConcatenateTablesProxyModel) void {
+    pub fn resetInternalData(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_ResetInternalData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResetInternalData` instead
+    /// ### DEPRECATED: Use `superResetInternalData` instead
     ///
-    pub const QBaseResetInternalData = SuperResetInternalData;
+    pub const SuperResetInternalData = superResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3814,9 +4486,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperResetInternalData(self: QConcatenateTablesProxyModel) void {
+    pub fn superResetInternalData(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperResetInternalData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResetInternalData` instead
+    ///
+    pub const OnResetInternalData = onResetInternalData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -3830,9 +4506,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnResetInternalData(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onResetInternalData(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnResetInternalData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3844,16 +4524,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QConcatenateTablesProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QConcatenateTablesProxyModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QConcatenateTablesProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QConcatenateTablesProxyModel_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3865,12 +4545,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QConcatenateTablesProxyModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QConcatenateTablesProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QConcatenateTablesProxyModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QConcatenateTablesProxyModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3884,9 +4568,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QEvent) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3900,17 +4588,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QConcatenateTablesProxyModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QConcatenateTablesProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QConcatenateTablesProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QConcatenateTablesProxyModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3924,13 +4612,17 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QConcatenateTablesProxyModel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QConcatenateTablesProxyModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QConcatenateTablesProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QConcatenateTablesProxyModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3944,9 +4636,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QObject, QEvent) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3958,16 +4654,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QConcatenateTablesProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QConcatenateTablesProxyModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3979,12 +4675,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QConcatenateTablesProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QConcatenateTablesProxyModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3998,9 +4698,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QTimerEvent) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -4012,16 +4716,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QConcatenateTablesProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QConcatenateTablesProxyModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4033,12 +4737,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QConcatenateTablesProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QConcatenateTablesProxyModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -4052,9 +4760,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QChildEvent) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -4066,16 +4778,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QConcatenateTablesProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QConcatenateTablesProxyModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4087,12 +4799,16 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QConcatenateTablesProxyModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QConcatenateTablesProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QConcatenateTablesProxyModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QConcatenateTablesProxyModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -4106,9 +4822,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QEvent) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -4122,14 +4842,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
+    pub fn connectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QConcatenateTablesProxyModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4143,11 +4863,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
+    pub fn superConnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QConcatenateTablesProxyModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -4160,9 +4884,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4176,14 +4904,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
+    pub fn disconnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QConcatenateTablesProxyModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4197,10 +4925,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QConcatenateTablesProxyModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QConcatenateTablesProxyModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -4214,9 +4946,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createIndex` instead
+    ///
+    pub const CreateIndex = createIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4232,13 +4968,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn CreateIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn createIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_CreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateIndex` instead
+    /// ### DEPRECATED: Use `superCreateIndex` instead
     ///
-    pub const QBaseCreateIndex = SuperCreateIndex;
+    pub const SuperCreateIndex = superCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4254,9 +4990,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperCreateIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) QModelIndex {
+    pub fn superCreateIndex(self: QConcatenateTablesProxyModel, row: i32, column: i32) QModelIndex {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperCreateIndex(@ptrCast(self.ptr), @bitCast(row), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateIndex` instead
+    ///
+    pub const OnCreateIndex = onCreateIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4272,9 +5012,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCreateIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onCreateIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QConcatenateTablesProxyModel_OnCreateIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `encodeData` instead
+    ///
+    pub const EncodeData = encodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4290,7 +5034,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn EncodeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn encodeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -4299,9 +5043,9 @@ pub const QConcatenateTablesProxyModel = extern struct {
         qtc.QConcatenateTablesProxyModel_EncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEncodeData` instead
+    /// ### DEPRECATED: Use `superEncodeData` instead
     ///
-    pub const QBaseEncodeData = SuperEncodeData;
+    pub const SuperEncodeData = superEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4317,7 +5061,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperEncodeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex, stream: anytype) void {
+    pub fn superEncodeData(self: QConcatenateTablesProxyModel, indexes: []QModelIndex, stream: anytype) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = @ptrCast(indexes.ptr),
@@ -4325,6 +5069,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         comptime _ = @TypeOf(stream)._is_QDataStream;
         qtc.QConcatenateTablesProxyModel_SuperEncodeData(@ptrCast(self.ptr), indexes_list, @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEncodeData` instead
+    ///
+    pub const OnEncodeData = onEncodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4338,9 +5086,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, indexes: qtc.libqt_list ([]QModelIndex), stream: QDataStream) callconv(.c) void `
     ///
-    pub fn OnEncodeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
+    pub fn onEncodeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, QDataStream) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEncodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `decodeData` instead
+    ///
+    pub const DecodeData = decodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4356,19 +5108,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn DecodeData(self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn decodeData(self: QConcatenateTablesProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QConcatenateTablesProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.QConcatenateTablesProxyModel_DecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDecodeData` instead
+    /// ### DEPRECATED: Use `superDecodeData` instead
     ///
-    pub const QBaseDecodeData = SuperDecodeData;
+    pub const SuperDecodeData = superDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4384,15 +5136,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` stream: QDataStream `
     ///
-    pub fn SuperDecodeData(self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: anytype, stream: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
+    pub fn superDecodeData(self: QConcatenateTablesProxyModel, row: i32, column: i32, _parent: anytype, stream: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
         comptime _ = @TypeOf(stream)._is_QDataStream;
-        return qtc.QConcatenateTablesProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(parent.ptr), @ptrCast(stream.ptr));
+        return qtc.QConcatenateTablesProxyModel_SuperDecodeData(@ptrCast(self.ptr), @bitCast(row), @bitCast(column), @ptrCast(_parent.ptr), @ptrCast(stream.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDecodeData` instead
+    ///
+    pub const OnDecodeData = onDecodeData;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4406,10 +5162,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, row: i32, column: i32, parent: QModelIndex, stream: QDataStream) callconv(.c) bool `
     ///
-    pub fn OnDecodeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
+    pub fn onDecodeData(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, i32, i32, QModelIndex, QDataStream) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnDecodeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertRows` instead
+    ///
+    pub const BeginInsertRows = beginInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertRows)
@@ -4420,20 +5180,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertRows(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertRows(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_BeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertRows` instead
+    /// ### DEPRECATED: Use `superBeginInsertRows` instead
     ///
-    pub const QBaseBeginInsertRows = SuperBeginInsertRows;
+    pub const SuperBeginInsertRows = superBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4445,16 +5205,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertRows(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertRows(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_SuperBeginInsertRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertRows` instead
+    ///
+    pub const OnBeginInsertRows = onBeginInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4468,10 +5232,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnBeginInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertRows` instead
+    ///
+    pub const EndInsertRows = endInsertRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertRows)
@@ -4482,13 +5250,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndInsertRows(self: QConcatenateTablesProxyModel) void {
+    pub fn endInsertRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndInsertRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertRows` instead
+    /// ### DEPRECATED: Use `superEndInsertRows` instead
     ///
-    pub const QBaseEndInsertRows = SuperEndInsertRows;
+    pub const SuperEndInsertRows = superEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4500,9 +5268,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndInsertRows(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndInsertRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndInsertRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertRows` instead
+    ///
+    pub const OnEndInsertRows = onEndInsertRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4516,9 +5288,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndInsertRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveRows` instead
+    ///
+    pub const BeginRemoveRows = beginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4530,20 +5306,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveRows(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveRows(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_BeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveRows` instead
+    /// ### DEPRECATED: Use `superBeginRemoveRows` instead
     ///
-    pub const QBaseBeginRemoveRows = SuperBeginRemoveRows;
+    pub const SuperBeginRemoveRows = superBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4555,16 +5331,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveRows(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveRows(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_SuperBeginRemoveRows(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveRows` instead
+    ///
+    pub const OnBeginRemoveRows = onBeginRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4578,9 +5358,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnBeginRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveRows` instead
+    ///
+    pub const EndRemoveRows = endRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4592,13 +5376,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndRemoveRows(self: QConcatenateTablesProxyModel) void {
+    pub fn endRemoveRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndRemoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveRows` instead
+    /// ### DEPRECATED: Use `superEndRemoveRows` instead
     ///
-    pub const QBaseEndRemoveRows = SuperEndRemoveRows;
+    pub const SuperEndRemoveRows = superEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4610,9 +5394,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndRemoveRows(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndRemoveRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndRemoveRows(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveRows` instead
+    ///
+    pub const OnEndRemoveRows = onEndRemoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4626,9 +5414,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndRemoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveRows` instead
+    ///
+    pub const BeginMoveRows = beginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4650,15 +5442,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn BeginMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn beginMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_BeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveRows` instead
+    /// ### DEPRECATED: Use `superBeginMoveRows` instead
     ///
-    pub const QBaseBeginMoveRows = SuperBeginMoveRows;
+    pub const SuperBeginMoveRows = superBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4680,11 +5472,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationRow: i32 `
     ///
-    pub fn SuperBeginMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
+    pub fn superBeginMoveRows(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationRow: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_SuperBeginMoveRows(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationRow));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveRows` instead
+    ///
+    pub const OnBeginMoveRows = onBeginMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4698,10 +5494,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnBeginMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveRows` instead
+    ///
+    pub const EndMoveRows = endMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -4712,13 +5512,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndMoveRows(self: QConcatenateTablesProxyModel) void {
+    pub fn endMoveRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndMoveRows(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveRows` instead
+    /// ### DEPRECATED: Use `superEndMoveRows` instead
     ///
-    pub const QBaseEndMoveRows = SuperEndMoveRows;
+    pub const SuperEndMoveRows = superEndMoveRows;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4730,10 +5530,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndMoveRows(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndMoveRows(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndMoveRows(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveRows` instead
+    ///
+    pub const OnEndMoveRows = onEndMoveRows;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveRows)
@@ -4746,10 +5550,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveRows(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndMoveRows(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginInsertColumns` instead
+    ///
+    pub const BeginInsertColumns = beginInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginInsertColumns)
@@ -4760,20 +5568,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginInsertColumns(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginInsertColumns(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_BeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginInsertColumns` instead
+    /// ### DEPRECATED: Use `superBeginInsertColumns` instead
     ///
-    pub const QBaseBeginInsertColumns = SuperBeginInsertColumns;
+    pub const SuperBeginInsertColumns = superBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4785,16 +5593,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginInsertColumns(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginInsertColumns(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_SuperBeginInsertColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginInsertColumns` instead
+    ///
+    pub const OnBeginInsertColumns = onBeginInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4808,10 +5620,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnBeginInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endInsertColumns` instead
+    ///
+    pub const EndInsertColumns = endInsertColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endInsertColumns)
@@ -4822,13 +5638,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndInsertColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn endInsertColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndInsertColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndInsertColumns` instead
+    /// ### DEPRECATED: Use `superEndInsertColumns` instead
     ///
-    pub const QBaseEndInsertColumns = SuperEndInsertColumns;
+    pub const SuperEndInsertColumns = superEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4840,9 +5656,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndInsertColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndInsertColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndInsertColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndInsertColumns` instead
+    ///
+    pub const OnEndInsertColumns = onEndInsertColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4856,9 +5676,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndInsertColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndInsertColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginRemoveColumns` instead
+    ///
+    pub const BeginRemoveColumns = beginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4870,20 +5694,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn BeginRemoveColumns(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn beginRemoveColumns(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_BeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginRemoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginRemoveColumns` instead
     ///
-    pub const QBaseBeginRemoveColumns = SuperBeginRemoveColumns;
+    pub const SuperBeginRemoveColumns = superBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4895,16 +5719,20 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` first: i32 `
     ///
     /// ` last: i32 `
     ///
-    pub fn SuperBeginRemoveColumns(self: QConcatenateTablesProxyModel, parent: anytype, first: i32, last: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QConcatenateTablesProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(first), @bitCast(last));
+    pub fn superBeginRemoveColumns(self: QConcatenateTablesProxyModel, _parent: anytype, first: i32, last: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QConcatenateTablesProxyModel_SuperBeginRemoveColumns(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `onBeginRemoveColumns` instead
+    ///
+    pub const OnBeginRemoveColumns = onBeginRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4918,9 +5746,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnBeginRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onBeginRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnBeginRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endRemoveColumns` instead
+    ///
+    pub const EndRemoveColumns = endRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4932,13 +5764,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndRemoveColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn endRemoveColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndRemoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndRemoveColumns` instead
+    /// ### DEPRECATED: Use `superEndRemoveColumns` instead
     ///
-    pub const QBaseEndRemoveColumns = SuperEndRemoveColumns;
+    pub const SuperEndRemoveColumns = superEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4950,9 +5782,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndRemoveColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndRemoveColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndRemoveColumns(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndRemoveColumns` instead
+    ///
+    pub const OnEndRemoveColumns = onEndRemoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4966,9 +5802,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndRemoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndRemoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `beginMoveColumns` instead
+    ///
+    pub const BeginMoveColumns = beginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -4990,15 +5830,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn BeginMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn beginMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_BeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginMoveColumns` instead
+    /// ### DEPRECATED: Use `superBeginMoveColumns` instead
     ///
-    pub const QBaseBeginMoveColumns = SuperBeginMoveColumns;
+    pub const SuperBeginMoveColumns = superBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5020,11 +5860,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` destinationColumn: i32 `
     ///
-    pub fn SuperBeginMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
+    pub fn superBeginMoveColumns(self: QConcatenateTablesProxyModel, sourceParent: anytype, sourceFirst: i32, sourceLast: i32, destinationParent: anytype, destinationColumn: i32) bool {
         comptime _ = @TypeOf(sourceParent)._is_QModelIndex;
         comptime _ = @TypeOf(destinationParent)._is_QModelIndex;
         return qtc.QConcatenateTablesProxyModel_SuperBeginMoveColumns(@ptrCast(self.ptr), @ptrCast(sourceParent.ptr), @bitCast(sourceFirst), @bitCast(sourceLast), @ptrCast(destinationParent.ptr), @bitCast(destinationColumn));
     }
+
+    /// ### DEPRECATED: Use `onBeginMoveColumns` instead
+    ///
+    pub const OnBeginMoveColumns = onBeginMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5038,10 +5882,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceFirst: i32, sourceLast: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) bool `
     ///
-    pub fn OnBeginMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
+    pub fn onBeginMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnBeginMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `endMoveColumns` instead
+    ///
+    pub const EndMoveColumns = endMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5052,13 +5900,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndMoveColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn endMoveColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndMoveColumns(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndMoveColumns` instead
+    /// ### DEPRECATED: Use `superEndMoveColumns` instead
     ///
-    pub const QBaseEndMoveColumns = SuperEndMoveColumns;
+    pub const SuperEndMoveColumns = superEndMoveColumns;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5070,10 +5918,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndMoveColumns(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndMoveColumns(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndMoveColumns(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEndMoveColumns` instead
+    ///
+    pub const OnEndMoveColumns = onEndMoveColumns;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#endMoveColumns)
@@ -5086,10 +5938,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndMoveColumns(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndMoveColumns(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `beginResetModel` instead
+    ///
+    pub const BeginResetModel = beginResetModel;
+
     /// Inherited from QAbstractItemModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemmodel.html#beginResetModel)
@@ -5100,13 +5956,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn BeginResetModel(self: QConcatenateTablesProxyModel) void {
+    pub fn beginResetModel(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_BeginResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBeginResetModel` instead
+    /// ### DEPRECATED: Use `superBeginResetModel` instead
     ///
-    pub const QBaseBeginResetModel = SuperBeginResetModel;
+    pub const SuperBeginResetModel = superBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5118,9 +5974,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperBeginResetModel(self: QConcatenateTablesProxyModel) void {
+    pub fn superBeginResetModel(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperBeginResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBeginResetModel` instead
+    ///
+    pub const OnBeginResetModel = onBeginResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5134,9 +5994,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnBeginResetModel(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onBeginResetModel(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnBeginResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `endResetModel` instead
+    ///
+    pub const EndResetModel = endResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5148,13 +6012,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn EndResetModel(self: QConcatenateTablesProxyModel) void {
+    pub fn endResetModel(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_EndResetModel(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEndResetModel` instead
+    /// ### DEPRECATED: Use `superEndResetModel` instead
     ///
-    pub const QBaseEndResetModel = SuperEndResetModel;
+    pub const SuperEndResetModel = superEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5166,9 +6030,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperEndResetModel(self: QConcatenateTablesProxyModel) void {
+    pub fn superEndResetModel(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_SuperEndResetModel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEndResetModel` instead
+    ///
+    pub const OnEndResetModel = onEndResetModel;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5182,9 +6050,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEndResetModel(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onEndResetModel(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnEndResetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndex` instead
+    ///
+    pub const ChangePersistentIndex = changePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5200,15 +6072,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn ChangePersistentIndex(self: QConcatenateTablesProxyModel, from: anytype, to: anytype) void {
+    pub fn changePersistentIndex(self: QConcatenateTablesProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QConcatenateTablesProxyModel_ChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndex` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndex` instead
     ///
-    pub const QBaseChangePersistentIndex = SuperChangePersistentIndex;
+    pub const SuperChangePersistentIndex = superChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5224,11 +6096,15 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` to: QModelIndex `
     ///
-    pub fn SuperChangePersistentIndex(self: QConcatenateTablesProxyModel, from: anytype, to: anytype) void {
+    pub fn superChangePersistentIndex(self: QConcatenateTablesProxyModel, from: anytype, to: anytype) void {
         comptime _ = @TypeOf(from)._is_QModelIndex;
         comptime _ = @TypeOf(to)._is_QModelIndex;
         qtc.QConcatenateTablesProxyModel_SuperChangePersistentIndex(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndex` instead
+    ///
+    pub const OnChangePersistentIndex = onChangePersistentIndex;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5242,9 +6118,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, from: QModelIndex, to: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onChangePersistentIndex(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnChangePersistentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changePersistentIndexList` instead
+    ///
+    pub const ChangePersistentIndexList = changePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5260,7 +6140,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn ChangePersistentIndexList(self: QConcatenateTablesProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn changePersistentIndexList(self: QConcatenateTablesProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5272,9 +6152,9 @@ pub const QConcatenateTablesProxyModel = extern struct {
         qtc.QConcatenateTablesProxyModel_ChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
 
-    /// ### DEPRECATED: Use `SuperChangePersistentIndexList` instead
+    /// ### DEPRECATED: Use `superChangePersistentIndexList` instead
     ///
-    pub const QBaseChangePersistentIndexList = SuperChangePersistentIndexList;
+    pub const SuperChangePersistentIndexList = superChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5290,7 +6170,7 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` to: []QModelIndex `
     ///
-    pub fn SuperChangePersistentIndexList(self: QConcatenateTablesProxyModel, from: []QModelIndex, to: []QModelIndex) void {
+    pub fn superChangePersistentIndexList(self: QConcatenateTablesProxyModel, from: []QModelIndex, to: []QModelIndex) void {
         const from_list = qtc.libqt_list{
             .len = from.len,
             .data = @ptrCast(from.ptr),
@@ -5301,6 +6181,10 @@ pub const QConcatenateTablesProxyModel = extern struct {
         };
         qtc.QConcatenateTablesProxyModel_SuperChangePersistentIndexList(@ptrCast(self.ptr), from_list, to_list);
     }
+
+    /// ### DEPRECATED: Use `onChangePersistentIndexList` instead
+    ///
+    pub const OnChangePersistentIndexList = onChangePersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5314,9 +6198,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, from: qtc.libqt_list ([]QModelIndex), to: qtc.libqt_list ([]QModelIndex)) callconv(.c) void `
     ///
-    pub fn OnChangePersistentIndexList(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onChangePersistentIndexList(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, qtc.libqt_list, qtc.libqt_list) callconv(.c) void) void {
         qtc.QConcatenateTablesProxyModel_OnChangePersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `persistentIndexList` instead
+    ///
+    pub const PersistentIndexList = persistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5330,19 +6218,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersistentIndexList(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn persistentIndexList(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_PersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPersistentIndexList` instead
+    /// ### DEPRECATED: Use `superPersistentIndexList` instead
     ///
-    pub const QBasePersistentIndexList = SuperPersistentIndexList;
+    pub const SuperPersistentIndexList = superPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5356,15 +6244,19 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPersistentIndexList(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superPersistentIndexList(self: QConcatenateTablesProxyModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QConcatenateTablesProxyModel_SuperPersistentIndexList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.PersistentIndexList: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QConcatenateTablesProxyModel.persistentIndexList: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPersistentIndexList` instead
+    ///
+    pub const OnPersistentIndexList = onPersistentIndexList;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5384,9 +6276,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnPersistentIndexList(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPersistentIndexList(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QConcatenateTablesProxyModel_OnPersistentIndexList(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -5398,13 +6294,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Sender(self: QConcatenateTablesProxyModel) QObject {
+    pub fn sender(self: QConcatenateTablesProxyModel) QObject {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -5416,9 +6312,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperSender(self: QConcatenateTablesProxyModel) QObject {
+    pub fn superSender(self: QConcatenateTablesProxyModel) QObject {
         return .{ .ptr = qtc.QConcatenateTablesProxyModel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -5432,9 +6332,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) QObject) void {
         qtc.QConcatenateTablesProxyModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5446,13 +6350,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SenderSignalIndex(self: QConcatenateTablesProxyModel) i32 {
+    pub fn senderSignalIndex(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5464,9 +6368,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn SuperSenderSignalIndex(self: QConcatenateTablesProxyModel) i32 {
+    pub fn superSenderSignalIndex(self: QConcatenateTablesProxyModel) i32 {
         return qtc.QConcatenateTablesProxyModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5480,9 +6388,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QConcatenateTablesProxyModel, callback: *const fn () callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -5496,14 +6408,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QConcatenateTablesProxyModel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QConcatenateTablesProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QConcatenateTablesProxyModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -5517,10 +6429,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QConcatenateTablesProxyModel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QConcatenateTablesProxyModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QConcatenateTablesProxyModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -5534,9 +6450,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) i32) void {
         qtc.QConcatenateTablesProxyModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5550,14 +6470,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QConcatenateTablesProxyModel, signal: anytype) bool {
+    pub fn isSignalConnected(self: QConcatenateTablesProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QConcatenateTablesProxyModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5571,10 +6491,14 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QConcatenateTablesProxyModel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QConcatenateTablesProxyModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QConcatenateTablesProxyModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5588,9 +6512,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QMetaMethod) callconv(.c) bool) void {
         qtc.QConcatenateTablesProxyModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeInserted` instead
+    ///
+    pub const OnRowsAboutToBeInserted = onRowsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5604,9 +6532,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5620,9 +6552,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5636,9 +6572,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsRemoved` instead
+    ///
+    pub const OnRowsRemoved = onRowsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5652,9 +6592,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnRowsRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeInserted` instead
+    ///
+    pub const OnColumnsAboutToBeInserted = onColumnsAboutToBeInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5668,9 +6612,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsInserted` instead
+    ///
+    pub const OnColumnsInserted = onColumnsInserted;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5684,9 +6632,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsInserted(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeRemoved` instead
+    ///
+    pub const OnColumnsAboutToBeRemoved = onColumnsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5700,9 +6652,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsRemoved` instead
+    ///
+    pub const OnColumnsRemoved = onColumnsRemoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5716,9 +6672,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, parent: QModelIndex, first: i32, last: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onColumnsRemoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelAboutToBeReset` instead
+    ///
+    pub const OnModelAboutToBeReset = onModelAboutToBeReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5732,9 +6692,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelAboutToBeReset(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
+    pub fn onModelAboutToBeReset(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelAboutToBeReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onModelReset` instead
+    ///
+    pub const OnModelReset = onModelReset;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5748,9 +6712,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel) callconv(.c) void `
     ///
-    pub fn OnModelReset(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
+    pub fn onModelReset(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ModelReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeMoved` instead
+    ///
+    pub const OnRowsAboutToBeMoved = onRowsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5764,9 +6732,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onRowsMoved` instead
+    ///
+    pub const OnRowsMoved = onRowsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5780,9 +6752,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationRow: i32) callconv(.c) void `
     ///
-    pub fn OnRowsMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onRowsMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_RowsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsAboutToBeMoved` instead
+    ///
+    pub const OnColumnsAboutToBeMoved = onColumnsAboutToBeMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5796,9 +6772,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsAboutToBeMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsAboutToBeMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsAboutToBeMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onColumnsMoved` instead
+    ///
+    pub const OnColumnsMoved = onColumnsMoved;
 
     /// Inherited from QAbstractItemModel
     ///
@@ -5812,9 +6792,13 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, sourceParent: QModelIndex, sourceStart: i32, sourceEnd: i32, destinationParent: QModelIndex, destinationColumn: i32) callconv(.c) void `
     ///
-    pub fn OnColumnsMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onColumnsMoved(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, QModelIndex, i32, i32, QModelIndex, i32) callconv(.c) void) void {
         qtc.QAbstractItemModel_Connect_ColumnsMoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5828,23 +6812,23 @@ pub const QConcatenateTablesProxyModel = extern struct {
     ///
     /// ` callback: *const fn (self: QConcatenateTablesProxyModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QConcatenateTablesProxyModel, callback: *const fn (QConcatenateTablesProxyModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qconcatenatetablesproxymodel.html#dtor.QConcatenateTablesProxyModel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QConcatenateTablesProxyModel `
     ///
-    pub fn Delete(self: QConcatenateTablesProxyModel) void {
+    pub fn delete(self: QConcatenateTablesProxyModel) void {
         qtc.QConcatenateTablesProxyModel_Delete(@ptrCast(self.ptr));
     }
 };

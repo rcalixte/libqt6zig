@@ -17,11 +17,19 @@ pub const KRatingPainter = extern struct {
 
     pub const _is_KRatingPainter = {};
 
-    /// New constructs a new KRatingPainter object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KRatingPainter {
+    pub const New = new;
+
+    /// Allocate a new KRatingPainter object in C++ memory
+    ///
+    pub fn new() KRatingPainter {
         return .{ .ptr = qtc.KRatingPainter_new() };
     }
+
+    /// ### DEPRECATED: Use `maxRating` instead
+    ///
+    pub const MaxRating = maxRating;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#maxRating)
     ///
@@ -29,9 +37,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn MaxRating(self: KRatingPainter) i32 {
+    pub fn maxRating(self: KRatingPainter) i32 {
         return qtc.KRatingPainter_MaxRating(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `halfStepsEnabled` instead
+    ///
+    pub const HalfStepsEnabled = halfStepsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#halfStepsEnabled)
     ///
@@ -39,9 +51,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn HalfStepsEnabled(self: KRatingPainter) bool {
+    pub fn halfStepsEnabled(self: KRatingPainter) bool {
         return qtc.KRatingPainter_HalfStepsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#alignment)
     ///
@@ -53,9 +69,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: KRatingPainter) i32 {
+    pub fn alignment(self: KRatingPainter) i32 {
         return qtc.KRatingPainter_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#layoutDirection)
     ///
@@ -67,9 +87,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KRatingPainter) i32 {
+    pub fn layoutDirection(self: KRatingPainter) i32 {
         return qtc.KRatingPainter_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#icon)
     ///
@@ -77,9 +101,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn Icon(self: KRatingPainter) QIcon {
+    pub fn icon(self: KRatingPainter) QIcon {
         return .{ .ptr = qtc.KRatingPainter_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#isEnabled)
     ///
@@ -87,9 +115,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn IsEnabled(self: KRatingPainter) bool {
+    pub fn isEnabled(self: KRatingPainter) bool {
         return qtc.KRatingPainter_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `customPixmap` instead
+    ///
+    pub const CustomPixmap = customPixmap;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#customPixmap)
     ///
@@ -97,9 +129,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn CustomPixmap(self: KRatingPainter) QPixmap {
+    pub fn customPixmap(self: KRatingPainter) QPixmap {
         return .{ .ptr = qtc.KRatingPainter_CustomPixmap(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `spacing` instead
+    ///
+    pub const Spacing = spacing;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#spacing)
     ///
@@ -107,9 +143,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn Spacing(self: KRatingPainter) i32 {
+    pub fn spacing(self: KRatingPainter) i32 {
         return qtc.KRatingPainter_Spacing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxRating` instead
+    ///
+    pub const SetMaxRating = setMaxRating;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setMaxRating)
     ///
@@ -119,9 +159,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxRating(self: KRatingPainter, max: i32) void {
+    pub fn setMaxRating(self: KRatingPainter, max: i32) void {
         qtc.KRatingPainter_SetMaxRating(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `setHalfStepsEnabled` instead
+    ///
+    pub const SetHalfStepsEnabled = setHalfStepsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setHalfStepsEnabled)
     ///
@@ -131,9 +175,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetHalfStepsEnabled(self: KRatingPainter, enabled: bool) void {
+    pub fn setHalfStepsEnabled(self: KRatingPainter, enabled: bool) void {
         qtc.KRatingPainter_SetHalfStepsEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setAlignment)
     ///
@@ -143,9 +191,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` alignVal: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: KRatingPainter, alignVal: i32) void {
+    pub fn setAlignment(self: KRatingPainter, alignVal: i32) void {
         qtc.KRatingPainter_SetAlignment(@ptrCast(self.ptr), @bitCast(alignVal));
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setLayoutDirection)
     ///
@@ -155,9 +207,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KRatingPainter, direction: i32) void {
+    pub fn setLayoutDirection(self: KRatingPainter, direction: i32) void {
         qtc.KRatingPainter_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setIcon)
     ///
@@ -165,12 +221,16 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KRatingPainter, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.KRatingPainter_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KRatingPainter, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.KRatingPainter_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setEnabled)
     ///
@@ -180,9 +240,13 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KRatingPainter, enabled: bool) void {
+    pub fn setEnabled(self: KRatingPainter, enabled: bool) void {
         qtc.KRatingPainter_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setCustomPixmap` instead
+    ///
+    pub const SetCustomPixmap = setCustomPixmap;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setCustomPixmap)
     ///
@@ -192,10 +256,14 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn SetCustomPixmap(self: KRatingPainter, pixmap: anytype) void {
+    pub fn setCustomPixmap(self: KRatingPainter, pixmap: anytype) void {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.KRatingPainter_SetCustomPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpacing` instead
+    ///
+    pub const SetSpacing = setSpacing;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#setSpacing)
     ///
@@ -203,11 +271,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` self: KRatingPainter `
     ///
-    /// ` spacing: i32 `
+    /// ` _spacing: i32 `
     ///
-    pub fn SetSpacing(self: KRatingPainter, spacing: i32) void {
-        qtc.KRatingPainter_SetSpacing(@ptrCast(self.ptr), @bitCast(spacing));
+    pub fn setSpacing(self: KRatingPainter, _spacing: i32) void {
+        qtc.KRatingPainter_SetSpacing(@ptrCast(self.ptr), @bitCast(_spacing));
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paint)
     ///
@@ -221,11 +293,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` rating: i32 `
     ///
-    pub fn Paint(self: KRatingPainter, painter: anytype, rect: anytype, rating: i32) void {
+    pub fn paint(self: KRatingPainter, painter: anytype, rect: anytype, rating: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.KRatingPainter_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(rating));
     }
+
+    /// ### DEPRECATED: Use `ratingFromPosition` instead
+    ///
+    pub const RatingFromPosition = ratingFromPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#ratingFromPosition)
     ///
@@ -237,11 +313,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` pos: QPoint `
     ///
-    pub fn RatingFromPosition(self: KRatingPainter, rect: anytype, pos: anytype) i32 {
+    pub fn ratingFromPosition(self: KRatingPainter, rect: anytype, pos: anytype) i32 {
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pos)._is_QPoint;
         return qtc.KRatingPainter_RatingFromPosition(@ptrCast(self.ptr), @ptrCast(rect.ptr), @ptrCast(pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintRating` instead
+    ///
+    pub const PaintRating = paintRating;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paintRating)
     ///
@@ -255,11 +335,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` rating: i32 `
     ///
-    pub fn PaintRating(p: anytype, rect: anytype, alignVal: i32, rating: i32) void {
+    pub fn paintRating(p: anytype, rect: anytype, alignVal: i32, rating: i32) void {
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.KRatingPainter_PaintRating(@ptrCast(p.ptr), @ptrCast(rect.ptr), @bitCast(alignVal), @bitCast(rating));
     }
+
+    /// ### DEPRECATED: Use `getRatingFromPosition` instead
+    ///
+    pub const GetRatingFromPosition = getRatingFromPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#getRatingFromPosition)
     ///
@@ -273,11 +357,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` pos: QPoint `
     ///
-    pub fn GetRatingFromPosition(rect: anytype, alignVal: i32, direction: i32, pos: anytype) i32 {
+    pub fn getRatingFromPosition(rect: anytype, alignVal: i32, direction: i32, pos: anytype) i32 {
         comptime _ = @TypeOf(rect)._is_QRect;
         comptime _ = @TypeOf(pos)._is_QPoint;
         return qtc.KRatingPainter_GetRatingFromPosition(@ptrCast(rect.ptr), @bitCast(alignVal), @bitCast(direction), @ptrCast(pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `paint4` instead
+    ///
+    pub const Paint4 = paint4;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paint)
     ///
@@ -293,11 +381,15 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` hoverRating: i32 `
     ///
-    pub fn Paint4(self: KRatingPainter, painter: anytype, rect: anytype, rating: i32, hoverRating: i32) void {
+    pub fn paint4(self: KRatingPainter, painter: anytype, rect: anytype, rating: i32, hoverRating: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.KRatingPainter_Paint4(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @bitCast(rating), @bitCast(hoverRating));
     }
+
+    /// ### DEPRECATED: Use `paintRating5` instead
+    ///
+    pub const PaintRating5 = paintRating5;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#paintRating)
     ///
@@ -313,25 +405,25 @@ pub const KRatingPainter = extern struct {
     ///
     /// ` hoverRating: i32 `
     ///
-    pub fn PaintRating5(p: anytype, rect: anytype, alignVal: i32, rating: i32, hoverRating: i32) void {
+    pub fn paintRating5(p: anytype, rect: anytype, alignVal: i32, rating: i32, hoverRating: i32) void {
         comptime _ = @TypeOf(p)._is_QPainter;
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.KRatingPainter_PaintRating5(@ptrCast(p.ptr), @ptrCast(rect.ptr), @bitCast(alignVal), @bitCast(rating), @bitCast(hoverRating));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kratingpainter.html#dtor.KRatingPainter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KRatingPainter `
     ///
-    pub fn Delete(self: KRatingPainter) void {
+    pub fn delete(self: KRatingPainter) void {
         qtc.KRatingPainter_Delete(@ptrCast(self.ptr));
     }
 };

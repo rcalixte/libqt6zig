@@ -32,18 +32,26 @@ pub const KBreadcrumbSelectionModel = extern struct {
     pub const _is_QItemSelectionModel = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KBreadcrumbSelectionModel object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KBreadcrumbSelectionModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` selectionModel: QItemSelectionModel `
     ///
-    pub fn New(selectionModel: anytype) KBreadcrumbSelectionModel {
+    pub fn new(selectionModel: anytype) KBreadcrumbSelectionModel {
         comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_new(@ptrCast(selectionModel.ptr)) };
     }
 
-    /// New2 constructs a new KBreadcrumbSelectionModel object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KBreadcrumbSelectionModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -51,26 +59,34 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` target: kbreadcrumbselectionmodel_enums.BreadcrumbTarget `
     ///
-    pub fn New2(selectionModel: anytype, target: i32) KBreadcrumbSelectionModel {
+    pub fn new2(selectionModel: anytype, target: i32) KBreadcrumbSelectionModel {
         comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_new2(@ptrCast(selectionModel.ptr), @bitCast(target)) };
     }
 
-    /// New3 constructs a new KBreadcrumbSelectionModel object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KBreadcrumbSelectionModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` selectionModel: QItemSelectionModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(selectionModel: anytype, parent: anytype) KBreadcrumbSelectionModel {
+    pub fn new3(selectionModel: anytype, _parent: anytype) KBreadcrumbSelectionModel {
         comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KBreadcrumbSelectionModel_new3(@ptrCast(selectionModel.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KBreadcrumbSelectionModel_new3(@ptrCast(selectionModel.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new KBreadcrumbSelectionModel object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KBreadcrumbSelectionModel object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -78,13 +94,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` target: kbreadcrumbselectionmodel_enums.BreadcrumbTarget `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(selectionModel: anytype, target: i32, parent: anytype) KBreadcrumbSelectionModel {
+    pub fn new4(selectionModel: anytype, target: i32, _parent: anytype) KBreadcrumbSelectionModel {
         comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KBreadcrumbSelectionModel_new4(@ptrCast(selectionModel.ptr), @bitCast(target), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KBreadcrumbSelectionModel_new4(@ptrCast(selectionModel.ptr), @bitCast(target), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,9 +112,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn MetaObject(self: KBreadcrumbSelectionModel) QMetaObject {
+    pub fn metaObject(self: KBreadcrumbSelectionModel) QMetaObject {
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -106,13 +130,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KBreadcrumbSelectionModel_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -122,9 +146,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperMetaObject(self: KBreadcrumbSelectionModel) QMetaObject {
+    pub fn superMetaObject(self: KBreadcrumbSelectionModel) QMetaObject {
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -132,10 +160,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KBreadcrumbSelectionModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KBreadcrumbSelectionModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KBreadcrumbSelectionModel_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -145,13 +177,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KBreadcrumbSelectionModel_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -161,10 +193,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KBreadcrumbSelectionModel, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KBreadcrumbSelectionModel, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KBreadcrumbSelectionModel_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -176,9 +212,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KBreadcrumbSelectionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KBreadcrumbSelectionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KBreadcrumbSelectionModel_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -188,13 +228,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KBreadcrumbSelectionModel_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -208,9 +248,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KBreadcrumbSelectionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KBreadcrumbSelectionModel, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KBreadcrumbSelectionModel_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -220,14 +264,18 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isActualSelectionIncluded` instead
+    ///
+    pub const IsActualSelectionIncluded = isActualSelectionIncluded;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#isActualSelectionIncluded)
     ///
@@ -235,9 +283,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn IsActualSelectionIncluded(self: KBreadcrumbSelectionModel) bool {
+    pub fn isActualSelectionIncluded(self: KBreadcrumbSelectionModel) bool {
         return qtc.KBreadcrumbSelectionModel_IsActualSelectionIncluded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActualSelectionIncluded` instead
+    ///
+    pub const SetActualSelectionIncluded = setActualSelectionIncluded;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#setActualSelectionIncluded)
     ///
@@ -245,11 +297,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` isActualSelectionIncluded: bool `
+    /// ` _isActualSelectionIncluded: bool `
     ///
-    pub fn SetActualSelectionIncluded(self: KBreadcrumbSelectionModel, isActualSelectionIncluded: bool) void {
-        qtc.KBreadcrumbSelectionModel_SetActualSelectionIncluded(@ptrCast(self.ptr), isActualSelectionIncluded);
+    pub fn setActualSelectionIncluded(self: KBreadcrumbSelectionModel, _isActualSelectionIncluded: bool) void {
+        qtc.KBreadcrumbSelectionModel_SetActualSelectionIncluded(@ptrCast(self.ptr), _isActualSelectionIncluded);
     }
+
+    /// ### DEPRECATED: Use `breadcrumbLength` instead
+    ///
+    pub const BreadcrumbLength = breadcrumbLength;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#breadcrumbLength)
     ///
@@ -257,9 +313,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn BreadcrumbLength(self: KBreadcrumbSelectionModel) i32 {
+    pub fn breadcrumbLength(self: KBreadcrumbSelectionModel) i32 {
         return qtc.KBreadcrumbSelectionModel_BreadcrumbLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBreadcrumbLength` instead
+    ///
+    pub const SetBreadcrumbLength = setBreadcrumbLength;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#setBreadcrumbLength)
     ///
@@ -267,11 +327,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` breadcrumbLength: i32 `
+    /// ` _breadcrumbLength: i32 `
     ///
-    pub fn SetBreadcrumbLength(self: KBreadcrumbSelectionModel, breadcrumbLength: i32) void {
-        qtc.KBreadcrumbSelectionModel_SetBreadcrumbLength(@ptrCast(self.ptr), @bitCast(breadcrumbLength));
+    pub fn setBreadcrumbLength(self: KBreadcrumbSelectionModel, _breadcrumbLength: i32) void {
+        qtc.KBreadcrumbSelectionModel_SetBreadcrumbLength(@ptrCast(self.ptr), @bitCast(_breadcrumbLength));
     }
+
+    /// ### DEPRECATED: Use `select` instead
+    ///
+    pub const Select = select;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -283,10 +347,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn Select(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
+    pub fn select(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KBreadcrumbSelectionModel_Select(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSelect` instead
+    ///
+    pub const OnSelect = onSelect;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -298,13 +366,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, index: QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSelect(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onSelect(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, i32) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnSelect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelect` instead
+    /// ### DEPRECATED: Use `superSelect` instead
     ///
-    pub const QBaseSelect = SuperSelect;
+    pub const SuperSelect = superSelect;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -318,10 +386,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelect(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
+    pub fn superSelect(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KBreadcrumbSelectionModel_SuperSelect(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `select2` instead
+    ///
+    pub const Select2 = select2;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -329,14 +401,18 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` selection: QItemSelection `
+    /// ` _selection: QItemSelection `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn Select2(self: KBreadcrumbSelectionModel, selection: anytype, command: i32) void {
-        comptime _ = @TypeOf(selection)._is_QItemSelection;
-        qtc.KBreadcrumbSelectionModel_Select2(@ptrCast(self.ptr), @ptrCast(selection.ptr), @bitCast(command));
+    pub fn select2(self: KBreadcrumbSelectionModel, _selection: anytype, command: i32) void {
+        comptime _ = @TypeOf(_selection)._is_QItemSelection;
+        qtc.KBreadcrumbSelectionModel_Select2(@ptrCast(self.ptr), @ptrCast(_selection.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSelect2` instead
+    ///
+    pub const OnSelect2 = onSelect2;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -348,13 +424,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, selection: QItemSelection, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSelect2(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, i32) callconv(.c) void) void {
+    pub fn onSelect2(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, i32) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnSelect2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelect2` instead
+    /// ### DEPRECATED: Use `superSelect2` instead
     ///
-    pub const QBaseSelect2 = SuperSelect2;
+    pub const SuperSelect2 = superSelect2;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#select)
     ///
@@ -364,14 +440,18 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` selection: QItemSelection `
+    /// ` _selection: QItemSelection `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelect2(self: KBreadcrumbSelectionModel, selection: anytype, command: i32) void {
-        comptime _ = @TypeOf(selection)._is_QItemSelection;
-        qtc.KBreadcrumbSelectionModel_SuperSelect2(@ptrCast(self.ptr), @ptrCast(selection.ptr), @bitCast(command));
+    pub fn superSelect2(self: KBreadcrumbSelectionModel, _selection: anytype, command: i32) void {
+        comptime _ = @TypeOf(_selection)._is_QItemSelection;
+        qtc.KBreadcrumbSelectionModel_SuperSelect2(@ptrCast(self.ptr), @ptrCast(_selection.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -383,15 +463,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -405,15 +489,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -423,9 +511,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn CurrentIndex(self: KBreadcrumbSelectionModel) QModelIndex {
+    pub fn currentIndex(self: KBreadcrumbSelectionModel) QModelIndex {
         return .{ .ptr = qtc.QItemSelectionModel_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isSelected` instead
+    ///
+    pub const IsSelected = isSelected;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -437,10 +529,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsSelected(self: KBreadcrumbSelectionModel, index: anytype) bool {
+    pub fn isSelected(self: KBreadcrumbSelectionModel, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QItemSelectionModel_IsSelected(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRowSelected` instead
+    ///
+    pub const IsRowSelected = isRowSelected;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -452,9 +548,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn IsRowSelected(self: KBreadcrumbSelectionModel, row: i32) bool {
+    pub fn isRowSelected(self: KBreadcrumbSelectionModel, row: i32) bool {
         return qtc.QItemSelectionModel_IsRowSelected(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `isColumnSelected` instead
+    ///
+    pub const IsColumnSelected = isColumnSelected;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -466,9 +566,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn IsColumnSelected(self: KBreadcrumbSelectionModel, column: i32) bool {
+    pub fn isColumnSelected(self: KBreadcrumbSelectionModel, column: i32) bool {
         return qtc.QItemSelectionModel_IsColumnSelected(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `rowIntersectsSelection` instead
+    ///
+    pub const RowIntersectsSelection = rowIntersectsSelection;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -480,9 +584,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn RowIntersectsSelection(self: KBreadcrumbSelectionModel, row: i32) bool {
+    pub fn rowIntersectsSelection(self: KBreadcrumbSelectionModel, row: i32) bool {
         return qtc.QItemSelectionModel_RowIntersectsSelection(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `columnIntersectsSelection` instead
+    ///
+    pub const ColumnIntersectsSelection = columnIntersectsSelection;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -494,9 +602,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn ColumnIntersectsSelection(self: KBreadcrumbSelectionModel, column: i32) bool {
+    pub fn columnIntersectsSelection(self: KBreadcrumbSelectionModel, column: i32) bool {
         return qtc.QItemSelectionModel_ColumnIntersectsSelection(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `hasSelection` instead
+    ///
+    pub const HasSelection = hasSelection;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -506,9 +618,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn HasSelection(self: KBreadcrumbSelectionModel) bool {
+    pub fn hasSelection(self: KBreadcrumbSelectionModel) bool {
         return qtc.QItemSelectionModel_HasSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -520,15 +636,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectedRows` instead
+    ///
+    pub const SelectedRows = selectedRows;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -540,15 +660,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedRows(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedRows(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.SelectedRows: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.selectedRows: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectedColumns` instead
+    ///
+    pub const SelectedColumns = selectedColumns;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -560,15 +684,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedColumns(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedColumns(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.SelectedColumns: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.selectedColumns: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selection` instead
+    ///
+    pub const Selection = selection;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -578,21 +706,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Selection(self: KBreadcrumbSelectionModel) QItemSelection {
+    pub fn selection(self: KBreadcrumbSelectionModel) QItemSelection {
         return .{ .ptr = qtc.QItemSelectionModel_Selection(@ptrCast(self.ptr)) };
     }
 
-    /// Inherited from QItemSelectionModel
+    /// ### DEPRECATED: Use `model` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    pub fn Model(self: KBreadcrumbSelectionModel) QAbstractItemModel {
-        return .{ .ptr = qtc.QItemSelectionModel_Model(@ptrCast(self.ptr)) };
-    }
+    pub const Model = model;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -602,9 +722,29 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Model2(self: KBreadcrumbSelectionModel) QAbstractItemModel {
+    pub fn model(self: KBreadcrumbSelectionModel) QAbstractItemModel {
+        return .{ .ptr = qtc.QItemSelectionModel_Model(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `model2` instead
+    ///
+    pub const Model2 = model2;
+
+    /// Inherited from QItemSelectionModel
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#model)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBreadcrumbSelectionModel `
+    ///
+    pub fn model2(self: KBreadcrumbSelectionModel) QAbstractItemModel {
         return .{ .ptr = qtc.QItemSelectionModel_Model2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -614,12 +754,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: KBreadcrumbSelectionModel, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QItemSelectionModel_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: KBreadcrumbSelectionModel, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QItemSelectionModel_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -629,9 +773,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn ClearSelection(self: KBreadcrumbSelectionModel) void {
+    pub fn clearSelection(self: KBreadcrumbSelectionModel) void {
         qtc.QItemSelectionModel_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -645,11 +793,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: KBreadcrumbSelectionModel, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: KBreadcrumbSelectionModel, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QItemSelectionModel_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -661,9 +813,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -677,12 +833,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
+    pub fn currentChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QItemSelectionModel_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentChanged)
@@ -693,9 +853,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentRowChanged` instead
+    ///
+    pub const CurrentRowChanged = currentRowChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -709,12 +873,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentRowChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
+    pub fn currentRowChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QItemSelectionModel_CurrentRowChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCurrentRowChanged` instead
+    ///
+    pub const OnCurrentRowChanged = onCurrentRowChanged;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#currentRowChanged)
@@ -725,9 +893,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentRowChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentRowChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentRowChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentColumnChanged` instead
+    ///
+    pub const CurrentColumnChanged = currentColumnChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -741,11 +913,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentColumnChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
+    pub fn currentColumnChanged(self: KBreadcrumbSelectionModel, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QItemSelectionModel_CurrentColumnChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentColumnChanged` instead
+    ///
+    pub const OnCurrentColumnChanged = onCurrentColumnChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -757,9 +933,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentColumnChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentColumnChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_CurrentColumnChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modelChanged` instead
+    ///
+    pub const ModelChanged = modelChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -769,12 +949,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn ModelChanged(self: KBreadcrumbSelectionModel, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QItemSelectionModel_ModelChanged(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn modelChanged(self: KBreadcrumbSelectionModel, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QItemSelectionModel_ModelChanged(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onModelChanged` instead
+    ///
+    pub const OnModelChanged = onModelChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -786,9 +970,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnModelChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onModelChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QAbstractItemModel) callconv(.c) void) void {
         qtc.QItemSelectionModel_Connect_ModelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isRowSelected2` instead
+    ///
+    pub const IsRowSelected2 = isRowSelected2;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -800,12 +988,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn IsRowSelected2(self: KBreadcrumbSelectionModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QItemSelectionModel_IsRowSelected2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn isRowSelected2(self: KBreadcrumbSelectionModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QItemSelectionModel_IsRowSelected2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `isColumnSelected2` instead
+    ///
+    pub const IsColumnSelected2 = isColumnSelected2;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -817,12 +1009,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn IsColumnSelected2(self: KBreadcrumbSelectionModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QItemSelectionModel_IsColumnSelected2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn isColumnSelected2(self: KBreadcrumbSelectionModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QItemSelectionModel_IsColumnSelected2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowIntersectsSelection2` instead
+    ///
+    pub const RowIntersectsSelection2 = rowIntersectsSelection2;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -834,12 +1030,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn RowIntersectsSelection2(self: KBreadcrumbSelectionModel, row: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QItemSelectionModel_RowIntersectsSelection2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(parent.ptr));
+    pub fn rowIntersectsSelection2(self: KBreadcrumbSelectionModel, row: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QItemSelectionModel_RowIntersectsSelection2(@ptrCast(self.ptr), @bitCast(row), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnIntersectsSelection2` instead
+    ///
+    pub const ColumnIntersectsSelection2 = columnIntersectsSelection2;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -851,12 +1051,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
-    pub fn ColumnIntersectsSelection2(self: KBreadcrumbSelectionModel, column: i32, parent: anytype) bool {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        return qtc.QItemSelectionModel_ColumnIntersectsSelection2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(parent.ptr));
+    pub fn columnIntersectsSelection2(self: KBreadcrumbSelectionModel, column: i32, _parent: anytype) bool {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        return qtc.QItemSelectionModel_ColumnIntersectsSelection2(@ptrCast(self.ptr), @bitCast(column), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedRows1` instead
+    ///
+    pub const SelectedRows1 = selectedRows1;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -870,15 +1074,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SelectedRows1(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator, column: i32) []QModelIndex {
+    pub fn selectedRows1(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator, column: i32) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedRows1(@ptrCast(self.ptr), @bitCast(column));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.SelectedRows1: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.selectedRows1: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectedColumns1` instead
+    ///
+    pub const SelectedColumns1 = selectedColumns1;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -892,15 +1100,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SelectedColumns1(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator, row: i32) []QModelIndex {
+    pub fn selectedColumns1(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator, row: i32) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QItemSelectionModel_SelectedColumns1(@ptrCast(self.ptr), @bitCast(row));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.SelectedColumns1: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("KBreadcrumbSelectionModel.selectedColumns1: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -912,13 +1124,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KBreadcrumbSelectionModel.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -930,13 +1146,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KBreadcrumbSelectionModel, name: []const u8) void {
+    pub fn setObjectName(self: KBreadcrumbSelectionModel, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -946,9 +1166,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn IsWidgetType(self: KBreadcrumbSelectionModel) bool {
+    pub fn isWidgetType(self: KBreadcrumbSelectionModel) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -958,9 +1182,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn IsWindowType(self: KBreadcrumbSelectionModel) bool {
+    pub fn isWindowType(self: KBreadcrumbSelectionModel) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -970,9 +1198,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn IsQuickItemType(self: KBreadcrumbSelectionModel) bool {
+    pub fn isQuickItemType(self: KBreadcrumbSelectionModel) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -982,9 +1214,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SignalsBlocked(self: KBreadcrumbSelectionModel) bool {
+    pub fn signalsBlocked(self: KBreadcrumbSelectionModel) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1232,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KBreadcrumbSelectionModel, b: bool) bool {
+    pub fn blockSignals(self: KBreadcrumbSelectionModel, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1008,9 +1248,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Thread(self: KBreadcrumbSelectionModel) QThread {
+    pub fn thread(self: KBreadcrumbSelectionModel) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1020,12 +1264,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KBreadcrumbSelectionModel, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KBreadcrumbSelectionModel, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1037,9 +1285,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KBreadcrumbSelectionModel, interval: i32) i32 {
+    pub fn startTimer(self: KBreadcrumbSelectionModel, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1051,9 +1303,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KBreadcrumbSelectionModel, time: i64) i32 {
+    pub fn startTimer2(self: KBreadcrumbSelectionModel, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1065,9 +1321,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KBreadcrumbSelectionModel, id: i32) void {
+    pub fn killTimer(self: KBreadcrumbSelectionModel, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1079,9 +1339,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KBreadcrumbSelectionModel, id: i32) void {
+    pub fn killTimer2(self: KBreadcrumbSelectionModel, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1093,15 +1357,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KBreadcrumbSelectionModel.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KBreadcrumbSelectionModel.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1111,12 +1379,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KBreadcrumbSelectionModel, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KBreadcrumbSelectionModel, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1128,10 +1400,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KBreadcrumbSelectionModel, filterObj: anytype) void {
+    pub fn installEventFilter(self: KBreadcrumbSelectionModel, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1143,10 +1419,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KBreadcrumbSelectionModel, obj: anytype) void {
+    pub fn removeEventFilter(self: KBreadcrumbSelectionModel, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1154,7 +1434,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1162,13 +1442,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1176,7 +1460,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1184,13 +1468,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1200,18 +1488,22 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KBreadcrumbSelectionModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KBreadcrumbSelectionModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1219,7 +1511,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1227,13 +1519,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1241,7 +1537,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1249,13 +1545,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1265,9 +1565,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Disconnect3(self: KBreadcrumbSelectionModel) bool {
+    pub fn disconnect3(self: KBreadcrumbSelectionModel) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1279,10 +1583,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KBreadcrumbSelectionModel, receiver: anytype) bool {
+    pub fn disconnect4(self: KBreadcrumbSelectionModel, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1292,10 +1600,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1305,9 +1617,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn DumpObjectTree(self: KBreadcrumbSelectionModel) void {
+    pub fn dumpObjectTree(self: KBreadcrumbSelectionModel) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1317,9 +1633,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn DumpObjectInfo(self: KBreadcrumbSelectionModel) void {
+    pub fn dumpObjectInfo(self: KBreadcrumbSelectionModel) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1333,11 +1653,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KBreadcrumbSelectionModel, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KBreadcrumbSelectionModel, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1349,10 +1673,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KBreadcrumbSelectionModel, name: [:0]const u8) QVariant {
+    pub fn property(self: KBreadcrumbSelectionModel, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1364,7 +1692,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KBreadcrumbSelectionModel, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1372,27 +1700,19 @@ pub const KBreadcrumbSelectionModel = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KBreadcrumbSelectionModel.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KBreadcrumbSelectionModel.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KBreadcrumbSelectionModel.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KBreadcrumbSelectionModel.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KBreadcrumbSelectionModel `
-    ///
-    pub fn BindingStorage(self: KBreadcrumbSelectionModel) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1402,9 +1722,29 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn BindingStorage2(self: KBreadcrumbSelectionModel) QBindingStorage {
+    pub fn bindingStorage(self: KBreadcrumbSelectionModel) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KBreadcrumbSelectionModel `
+    ///
+    pub fn bindingStorage2(self: KBreadcrumbSelectionModel) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1414,9 +1754,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Destroyed(self: KBreadcrumbSelectionModel) void {
+    pub fn destroyed(self: KBreadcrumbSelectionModel) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1428,9 +1772,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) void) void {
+    pub fn onDestroyed(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1440,9 +1788,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Parent(self: KBreadcrumbSelectionModel) QObject {
+    pub fn parent(self: KBreadcrumbSelectionModel) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1454,10 +1806,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KBreadcrumbSelectionModel, classname: [:0]const u8) bool {
+    pub fn inherits(self: KBreadcrumbSelectionModel, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1467,9 +1823,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn DeleteLater(self: KBreadcrumbSelectionModel) void {
+    pub fn deleteLater(self: KBreadcrumbSelectionModel) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1843,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KBreadcrumbSelectionModel, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KBreadcrumbSelectionModel, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1499,9 +1863,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KBreadcrumbSelectionModel, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KBreadcrumbSelectionModel, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1509,7 +1877,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1519,13 +1887,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1533,7 +1905,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1543,13 +1915,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1559,7 +1935,7 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1567,12 +1943,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KBreadcrumbSelectionModel, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KBreadcrumbSelectionModel, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1584,10 +1964,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KBreadcrumbSelectionModel, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KBreadcrumbSelectionModel, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1601,11 +1985,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KBreadcrumbSelectionModel, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KBreadcrumbSelectionModel, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1621,13 +2009,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KBreadcrumbSelectionModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KBreadcrumbSelectionModel, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1640,11 +2032,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KBreadcrumbSelectionModel, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KBreadcrumbSelectionModel, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1656,10 +2052,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KBreadcrumbSelectionModel, param1: anytype) void {
+    pub fn destroyed1(self: KBreadcrumbSelectionModel, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1671,9 +2071,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1689,14 +2093,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetCurrentIndex(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
+    pub fn setCurrentIndex(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KBreadcrumbSelectionModel_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(command));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCurrentIndex` instead
+    /// ### DEPRECATED: Use `superSetCurrentIndex` instead
     ///
-    pub const QBaseSetCurrentIndex = SuperSetCurrentIndex;
+    pub const SuperSetCurrentIndex = superSetCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1712,10 +2116,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetCurrentIndex(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
+    pub fn superSetCurrentIndex(self: KBreadcrumbSelectionModel, index: anytype, command: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.KBreadcrumbSelectionModel_SuperSetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSetCurrentIndex` instead
+    ///
+    pub const OnSetCurrentIndex = onSetCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1729,10 +2137,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, index: QModelIndex, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onSetCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QModelIndex, i32) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnSetCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
@@ -1743,13 +2155,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Clear(self: KBreadcrumbSelectionModel) void {
+    pub fn clear(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1761,10 +2173,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperClear(self: KBreadcrumbSelectionModel) void {
+    pub fn superClear(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_SuperClear(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#clear)
@@ -1777,10 +2193,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
@@ -1791,13 +2211,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Reset(self: KBreadcrumbSelectionModel) void {
+    pub fn reset(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1809,10 +2229,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperReset(self: KBreadcrumbSelectionModel) void {
+    pub fn superReset(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_SuperReset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
+
     /// Inherited from QItemSelectionModel
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemselectionmodel.html#reset)
@@ -1825,9 +2249,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearCurrentIndex` instead
+    ///
+    pub const ClearCurrentIndex = clearCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1839,13 +2267,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn ClearCurrentIndex(self: KBreadcrumbSelectionModel) void {
+    pub fn clearCurrentIndex(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_ClearCurrentIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperClearCurrentIndex` instead
+    /// ### DEPRECATED: Use `superClearCurrentIndex` instead
     ///
-    pub const QBaseClearCurrentIndex = SuperClearCurrentIndex;
+    pub const SuperClearCurrentIndex = superClearCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1857,9 +2285,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperClearCurrentIndex(self: KBreadcrumbSelectionModel) void {
+    pub fn superClearCurrentIndex(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_SuperClearCurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearCurrentIndex` instead
+    ///
+    pub const OnClearCurrentIndex = onClearCurrentIndex;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -1873,9 +2305,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClearCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearCurrentIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnClearCurrentIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1887,16 +2323,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KBreadcrumbSelectionModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KBreadcrumbSelectionModel_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KBreadcrumbSelectionModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KBreadcrumbSelectionModel_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1908,12 +2344,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KBreadcrumbSelectionModel, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KBreadcrumbSelectionModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KBreadcrumbSelectionModel, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KBreadcrumbSelectionModel_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1927,9 +2367,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QEvent) callconv(.c) bool) void {
         qtc.KBreadcrumbSelectionModel_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1943,17 +2387,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KBreadcrumbSelectionModel, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KBreadcrumbSelectionModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KBreadcrumbSelectionModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KBreadcrumbSelectionModel_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1967,13 +2411,17 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KBreadcrumbSelectionModel, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KBreadcrumbSelectionModel, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KBreadcrumbSelectionModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KBreadcrumbSelectionModel_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1987,9 +2435,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QObject, QEvent) callconv(.c) bool) void {
         qtc.KBreadcrumbSelectionModel_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2001,16 +2453,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KBreadcrumbSelectionModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KBreadcrumbSelectionModel_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2022,12 +2474,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KBreadcrumbSelectionModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KBreadcrumbSelectionModel_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2041,9 +2497,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QTimerEvent) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2055,16 +2515,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KBreadcrumbSelectionModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KBreadcrumbSelectionModel_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2076,12 +2536,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KBreadcrumbSelectionModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KBreadcrumbSelectionModel_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2095,9 +2559,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QChildEvent) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2109,16 +2577,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KBreadcrumbSelectionModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KBreadcrumbSelectionModel_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2130,12 +2598,16 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KBreadcrumbSelectionModel, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KBreadcrumbSelectionModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KBreadcrumbSelectionModel, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KBreadcrumbSelectionModel_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2149,9 +2621,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QEvent) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2165,14 +2641,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
+    pub fn connectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KBreadcrumbSelectionModel_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2186,10 +2662,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
+    pub fn superConnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KBreadcrumbSelectionModel_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2203,9 +2683,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2219,14 +2703,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
+    pub fn disconnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KBreadcrumbSelectionModel_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2240,10 +2724,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KBreadcrumbSelectionModel, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KBreadcrumbSelectionModel_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2257,9 +2745,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitSelectionChanged` instead
+    ///
+    pub const EmitSelectionChanged = emitSelectionChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -2275,15 +2767,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` oldSelection: QItemSelection `
     ///
-    pub fn EmitSelectionChanged(self: KBreadcrumbSelectionModel, newSelection: anytype, oldSelection: anytype) void {
+    pub fn emitSelectionChanged(self: KBreadcrumbSelectionModel, newSelection: anytype, oldSelection: anytype) void {
         comptime _ = @TypeOf(newSelection)._is_QItemSelection;
         comptime _ = @TypeOf(oldSelection)._is_QItemSelection;
         qtc.KBreadcrumbSelectionModel_EmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitSelectionChanged` instead
+    /// ### DEPRECATED: Use `superEmitSelectionChanged` instead
     ///
-    pub const QBaseEmitSelectionChanged = SuperEmitSelectionChanged;
+    pub const SuperEmitSelectionChanged = superEmitSelectionChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -2299,11 +2791,15 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` oldSelection: QItemSelection `
     ///
-    pub fn SuperEmitSelectionChanged(self: KBreadcrumbSelectionModel, newSelection: anytype, oldSelection: anytype) void {
+    pub fn superEmitSelectionChanged(self: KBreadcrumbSelectionModel, newSelection: anytype, oldSelection: anytype) void {
         comptime _ = @TypeOf(newSelection)._is_QItemSelection;
         comptime _ = @TypeOf(oldSelection)._is_QItemSelection;
         qtc.KBreadcrumbSelectionModel_SuperEmitSelectionChanged(@ptrCast(self.ptr), @ptrCast(newSelection.ptr), @ptrCast(oldSelection.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEmitSelectionChanged` instead
+    ///
+    pub const OnEmitSelectionChanged = onEmitSelectionChanged;
 
     /// Inherited from QItemSelectionModel
     ///
@@ -2317,9 +2813,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, newSelection: QItemSelection, oldSelection: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnEmitSelectionChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onEmitSelectionChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.KBreadcrumbSelectionModel_OnEmitSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2331,13 +2831,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Sender(self: KBreadcrumbSelectionModel) QObject {
+    pub fn sender(self: KBreadcrumbSelectionModel) QObject {
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2349,9 +2849,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperSender(self: KBreadcrumbSelectionModel) QObject {
+    pub fn superSender(self: KBreadcrumbSelectionModel) QObject {
         return .{ .ptr = qtc.KBreadcrumbSelectionModel_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2365,9 +2869,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) QObject) void {
         qtc.KBreadcrumbSelectionModel_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2379,13 +2887,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SenderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
+    pub fn senderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
         return qtc.KBreadcrumbSelectionModel_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2397,9 +2905,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn SuperSenderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
+    pub fn superSenderSignalIndex(self: KBreadcrumbSelectionModel) i32 {
         return qtc.KBreadcrumbSelectionModel_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2413,9 +2925,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KBreadcrumbSelectionModel, callback: *const fn () callconv(.c) i32) void {
         qtc.KBreadcrumbSelectionModel_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2429,14 +2945,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KBreadcrumbSelectionModel, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KBreadcrumbSelectionModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KBreadcrumbSelectionModel_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2450,10 +2966,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KBreadcrumbSelectionModel, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KBreadcrumbSelectionModel, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KBreadcrumbSelectionModel_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2467,9 +2987,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) i32) void {
         qtc.KBreadcrumbSelectionModel_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2483,14 +3007,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
+    pub fn isSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBreadcrumbSelectionModel_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2504,10 +3028,14 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KBreadcrumbSelectionModel, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KBreadcrumbSelectionModel_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2521,9 +3049,13 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, QMetaMethod) callconv(.c) bool) void {
         qtc.KBreadcrumbSelectionModel_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2537,23 +3069,23 @@ pub const KBreadcrumbSelectionModel = extern struct {
     ///
     /// ` callback: *const fn (self: KBreadcrumbSelectionModel, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KBreadcrumbSelectionModel, callback: *const fn (KBreadcrumbSelectionModel, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kbreadcrumbselectionmodel.html#dtor.KBreadcrumbSelectionModel)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KBreadcrumbSelectionModel `
     ///
-    pub fn Delete(self: KBreadcrumbSelectionModel) void {
+    pub fn delete(self: KBreadcrumbSelectionModel) void {
         qtc.KBreadcrumbSelectionModel_Delete(@ptrCast(self.ptr));
     }
 };

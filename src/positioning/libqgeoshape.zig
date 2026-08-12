@@ -15,22 +15,36 @@ pub const QGeoShape = extern struct {
 
     pub const _is_QGeoShape = {};
 
-    /// New constructs a new QGeoShape object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoShape {
+    pub const New = new;
+
+    /// Allocate a new QGeoShape object in C++ memory
+    ///
+    pub fn new() QGeoShape {
         return .{ .ptr = qtc.QGeoShape_new() };
     }
 
-    /// New2 constructs a new QGeoShape object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoShape object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoShape `
     ///
-    pub fn New2(other: anytype) QGeoShape {
+    pub fn new2(other: anytype) QGeoShape {
         comptime _ = @TypeOf(other)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoShape_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#type)
     ///
@@ -42,9 +56,13 @@ pub const QGeoShape = extern struct {
     ///
     /// ` qgeoshape_enums.ShapeType `
     ///
-    pub fn Type(self: QGeoShape) i32 {
+    pub fn type0(self: QGeoShape) i32 {
         return qtc.QGeoShape_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#isValid)
     ///
@@ -52,9 +70,13 @@ pub const QGeoShape = extern struct {
     ///
     /// ` self: QGeoShape `
     ///
-    pub fn IsValid(self: QGeoShape) bool {
+    pub fn isValid(self: QGeoShape) bool {
         return qtc.QGeoShape_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#isEmpty)
     ///
@@ -62,9 +84,13 @@ pub const QGeoShape = extern struct {
     ///
     /// ` self: QGeoShape `
     ///
-    pub fn IsEmpty(self: QGeoShape) bool {
+    pub fn isEmpty(self: QGeoShape) bool {
         return qtc.QGeoShape_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#contains)
     ///
@@ -74,10 +100,14 @@ pub const QGeoShape = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn Contains(self: QGeoShape, coordinate: anytype) bool {
+    pub fn contains(self: QGeoShape, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoShape_Contains(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingGeoRectangle` instead
+    ///
+    pub const BoundingGeoRectangle = boundingGeoRectangle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#boundingGeoRectangle)
     ///
@@ -85,9 +115,13 @@ pub const QGeoShape = extern struct {
     ///
     /// ` self: QGeoShape `
     ///
-    pub fn BoundingGeoRectangle(self: QGeoShape) QGeoRectangle {
+    pub fn boundingGeoRectangle(self: QGeoShape) QGeoRectangle {
         return .{ .ptr = qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#center)
     ///
@@ -95,9 +129,13 @@ pub const QGeoShape = extern struct {
     ///
     /// ` self: QGeoShape `
     ///
-    pub fn Center(self: QGeoShape) QGeoCoordinate {
+    pub fn center(self: QGeoShape) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoShape_Center(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#operator-eq)
     ///
@@ -107,10 +145,14 @@ pub const QGeoShape = extern struct {
     ///
     /// ` other: QGeoShape `
     ///
-    pub fn OperatorAssign(self: QGeoShape, other: anytype) void {
+    pub fn operatorAssign(self: QGeoShape, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoShape;
         qtc.QGeoShape_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#toString)
     ///
@@ -120,27 +162,27 @@ pub const QGeoShape = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QGeoShape, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QGeoShape, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoShape_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoShape.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoShape.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeoshape.html#dtor.QGeoShape)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoShape `
     ///
-    pub fn Delete(self: QGeoShape) void {
+    pub fn delete(self: QGeoShape) void {
         qtc.QGeoShape_Delete(@ptrCast(self.ptr));
     }
 };

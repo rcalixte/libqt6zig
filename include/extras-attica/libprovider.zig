@@ -26,22 +26,34 @@ pub const Attica__Provider = extern struct {
 
     pub const _is_Attica__Provider = {};
 
-    /// New constructs a new Attica::Provider object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Provider {
+    pub const New = new;
+
+    /// Allocate a new Attica::Provider object in C++ memory
+    ///
+    pub fn new() Attica__Provider {
         return .{ .ptr = qtc.Attica__Provider_new() };
     }
 
-    /// New2 constructs a new Attica::Provider object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Provider object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Provider `
     ///
-    pub fn New2(other: anytype) Attica__Provider {
+    pub fn new2(other: anytype) Attica__Provider {
         comptime _ = @TypeOf(other)._is_Attica__Provider;
         return .{ .ptr = qtc.Attica__Provider_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#operator-eq)
     ///
@@ -51,10 +63,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` other: Attica__Provider `
     ///
-    pub fn OperatorAssign(self: Attica__Provider, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Provider, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Provider;
         qtc.Attica__Provider_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#isValid)
     ///
@@ -62,9 +78,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn IsValid(self: Attica__Provider) bool {
+    pub fn isValid(self: Attica__Provider) bool {
         return qtc.Attica__Provider_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#isEnabled)
     ///
@@ -72,9 +92,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn IsEnabled(self: Attica__Provider) bool {
+    pub fn isEnabled(self: Attica__Provider) bool {
         return qtc.Attica__Provider_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setEnabled)
     ///
@@ -84,9 +108,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: Attica__Provider, enabled: bool) void {
+    pub fn setEnabled(self: Attica__Provider, enabled: bool) void {
         qtc.Attica__Provider_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setAdditionalAgentInformation` instead
+    ///
+    pub const SetAdditionalAgentInformation = setAdditionalAgentInformation;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setAdditionalAgentInformation)
     ///
@@ -96,13 +124,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` additionalInformation: []const u8 `
     ///
-    pub fn SetAdditionalAgentInformation(self: Attica__Provider, additionalInformation: []const u8) void {
+    pub fn setAdditionalAgentInformation(self: Attica__Provider, additionalInformation: []const u8) void {
         const additionalInformation_str = qtc.libqt_string{
             .len = additionalInformation.len,
             .data = additionalInformation.ptr,
         };
         qtc.Attica__Provider_SetAdditionalAgentInformation(@ptrCast(self.ptr), additionalInformation_str);
     }
+
+    /// ### DEPRECATED: Use `additionalAgentInformation` instead
+    ///
+    pub const AdditionalAgentInformation = additionalAgentInformation;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#additionalAgentInformation)
     ///
@@ -112,13 +144,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AdditionalAgentInformation(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn additionalAgentInformation(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_AdditionalAgentInformation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.AdditionalAgentInformation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.additionalAgentInformation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `baseUrl` instead
+    ///
+    pub const BaseUrl = baseUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#baseUrl)
     ///
@@ -126,9 +162,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn BaseUrl(self: Attica__Provider) QUrl {
+    pub fn baseUrl(self: Attica__Provider) QUrl {
         return .{ .ptr = qtc.Attica__Provider_BaseUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#name)
     ///
@@ -138,13 +178,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#icon)
     ///
@@ -152,9 +196,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn Icon(self: Attica__Provider) QUrl {
+    pub fn icon(self: Attica__Provider) QUrl {
         return .{ .ptr = qtc.Attica__Provider_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasPersonService` instead
+    ///
+    pub const HasPersonService = hasPersonService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasPersonService)
     ///
@@ -162,9 +210,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasPersonService(self: Attica__Provider) bool {
+    pub fn hasPersonService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasPersonService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `personServiceVersion` instead
+    ///
+    pub const PersonServiceVersion = personServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#personServiceVersion)
     ///
@@ -174,13 +226,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PersonServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn personServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_PersonServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.PersonServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.personServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasFriendService` instead
+    ///
+    pub const HasFriendService = hasFriendService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasFriendService)
     ///
@@ -188,9 +244,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasFriendService(self: Attica__Provider) bool {
+    pub fn hasFriendService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasFriendService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `friendServiceVersion` instead
+    ///
+    pub const FriendServiceVersion = friendServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#friendServiceVersion)
     ///
@@ -200,13 +260,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FriendServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn friendServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_FriendServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.FriendServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.friendServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasMessageService` instead
+    ///
+    pub const HasMessageService = hasMessageService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasMessageService)
     ///
@@ -214,9 +278,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasMessageService(self: Attica__Provider) bool {
+    pub fn hasMessageService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasMessageService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `messageServiceVersion` instead
+    ///
+    pub const MessageServiceVersion = messageServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#messageServiceVersion)
     ///
@@ -226,13 +294,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MessageServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn messageServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_MessageServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.MessageServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.messageServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAchievementService` instead
+    ///
+    pub const HasAchievementService = hasAchievementService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasAchievementService)
     ///
@@ -240,9 +312,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasAchievementService(self: Attica__Provider) bool {
+    pub fn hasAchievementService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasAchievementService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `achievementServiceVersion` instead
+    ///
+    pub const AchievementServiceVersion = achievementServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#achievementServiceVersion)
     ///
@@ -252,13 +328,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AchievementServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn achievementServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_AchievementServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.AchievementServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.achievementServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasActivityService` instead
+    ///
+    pub const HasActivityService = hasActivityService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasActivityService)
     ///
@@ -266,9 +346,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasActivityService(self: Attica__Provider) bool {
+    pub fn hasActivityService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasActivityService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activityServiceVersion` instead
+    ///
+    pub const ActivityServiceVersion = activityServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#activityServiceVersion)
     ///
@@ -278,13 +362,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ActivityServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn activityServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ActivityServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ActivityServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.activityServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasContentService` instead
+    ///
+    pub const HasContentService = hasContentService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasContentService)
     ///
@@ -292,9 +380,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasContentService(self: Attica__Provider) bool {
+    pub fn hasContentService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasContentService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentServiceVersion` instead
+    ///
+    pub const ContentServiceVersion = contentServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#contentServiceVersion)
     ///
@@ -304,13 +396,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn contentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ContentServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ContentServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.contentServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasFanService` instead
+    ///
+    pub const HasFanService = hasFanService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasFanService)
     ///
@@ -318,9 +414,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasFanService(self: Attica__Provider) bool {
+    pub fn hasFanService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasFanService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fanServiceVersion` instead
+    ///
+    pub const FanServiceVersion = fanServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#fanServiceVersion)
     ///
@@ -330,13 +430,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FanServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn fanServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_FanServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.FanServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.fanServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasForumService` instead
+    ///
+    pub const HasForumService = hasForumService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasForumService)
     ///
@@ -344,9 +448,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasForumService(self: Attica__Provider) bool {
+    pub fn hasForumService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasForumService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `forumServiceVersion` instead
+    ///
+    pub const ForumServiceVersion = forumServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#forumServiceVersion)
     ///
@@ -356,13 +464,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ForumServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn forumServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_ForumServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.ForumServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.forumServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasKnowledgebaseService` instead
+    ///
+    pub const HasKnowledgebaseService = hasKnowledgebaseService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasKnowledgebaseService)
     ///
@@ -370,9 +482,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasKnowledgebaseService(self: Attica__Provider) bool {
+    pub fn hasKnowledgebaseService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasKnowledgebaseService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `knowledgebaseServiceVersion` instead
+    ///
+    pub const KnowledgebaseServiceVersion = knowledgebaseServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#knowledgebaseServiceVersion)
     ///
@@ -382,13 +498,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KnowledgebaseServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn knowledgebaseServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_KnowledgebaseServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.KnowledgebaseServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.knowledgebaseServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasCommentService` instead
+    ///
+    pub const HasCommentService = hasCommentService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasCommentService)
     ///
@@ -396,9 +516,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasCommentService(self: Attica__Provider) bool {
+    pub fn hasCommentService(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasCommentService(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commentServiceVersion` instead
+    ///
+    pub const CommentServiceVersion = commentServiceVersion;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#commentServiceVersion)
     ///
@@ -408,23 +532,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CommentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn commentServiceVersion(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_CommentServiceVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.CommentServiceVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.commentServiceVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasCredentials)
+    /// ### DEPRECATED: Use `hasCredentials` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Attica__Provider `
-    ///
-    pub fn HasCredentials(self: Attica__Provider) bool {
-        return qtc.Attica__Provider_HasCredentials(@ptrCast(self.ptr));
-    }
+    pub const HasCredentials = hasCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasCredentials)
     ///
@@ -432,9 +550,27 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn HasCredentials2(self: Attica__Provider) bool {
+    pub fn hasCredentials(self: Attica__Provider) bool {
+        return qtc.Attica__Provider_HasCredentials(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `hasCredentials2` instead
+    ///
+    pub const HasCredentials2 = hasCredentials2;
+
+    /// ### [Upstream resources](https://api.kde.org/attica-provider.html#hasCredentials)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Attica__Provider `
+    ///
+    pub fn hasCredentials2(self: Attica__Provider) bool {
         return qtc.Attica__Provider_HasCredentials2(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadCredentials` instead
+    ///
+    pub const LoadCredentials = loadCredentials;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#loadCredentials)
     ///
@@ -446,7 +582,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn LoadCredentials(self: Attica__Provider, user: []const u8, password: []const u8) bool {
+    pub fn loadCredentials(self: Attica__Provider, user: []const u8, password: []const u8) bool {
         const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
@@ -458,6 +594,10 @@ pub const Attica__Provider = extern struct {
         return qtc.Attica__Provider_LoadCredentials(@ptrCast(self.ptr), user_str, password_str);
     }
 
+    /// ### DEPRECATED: Use `saveCredentials` instead
+    ///
+    pub const SaveCredentials = saveCredentials;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#saveCredentials)
     ///
     /// ## Parameter(s):
@@ -468,7 +608,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn SaveCredentials(self: Attica__Provider, user: []const u8, password: []const u8) bool {
+    pub fn saveCredentials(self: Attica__Provider, user: []const u8, password: []const u8) bool {
         const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
@@ -480,6 +620,10 @@ pub const Attica__Provider = extern struct {
         return qtc.Attica__Provider_SaveCredentials(@ptrCast(self.ptr), user_str, password_str);
     }
 
+    /// ### DEPRECATED: Use `checkLogin` instead
+    ///
+    pub const CheckLogin = checkLogin;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#checkLogin)
     ///
     /// ## Parameter(s):
@@ -490,7 +634,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` password: []const u8 `
     ///
-    pub fn CheckLogin(self: Attica__Provider, user: []const u8, password: []const u8) Attica__PostJob {
+    pub fn checkLogin(self: Attica__Provider, user: []const u8, password: []const u8) Attica__PostJob {
         const user_str = qtc.libqt_string{
             .len = user.len,
             .data = user.ptr,
@@ -501,6 +645,10 @@ pub const Attica__Provider = extern struct {
         };
         return .{ .ptr = qtc.Attica__Provider_CheckLogin(@ptrCast(self.ptr), user_str, password_str) };
     }
+
+    /// ### DEPRECATED: Use `registerAccount` instead
+    ///
+    pub const RegisterAccount = registerAccount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#registerAccount)
     ///
@@ -518,7 +666,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` lastName: []const u8 `
     ///
-    pub fn RegisterAccount(self: Attica__Provider, id: []const u8, password: []const u8, mail: []const u8, firstName: []const u8, lastName: []const u8) Attica__PostJob {
+    pub fn registerAccount(self: Attica__Provider, id: []const u8, password: []const u8, mail: []const u8, firstName: []const u8, lastName: []const u8) Attica__PostJob {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -542,6 +690,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_RegisterAccount(@ptrCast(self.ptr), id_str, password_str, mail_str, firstName_str, lastName_str) };
     }
 
+    /// ### DEPRECATED: Use `postLocation` instead
+    ///
+    pub const PostLocation = postLocation;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postLocation)
     ///
     /// ## Parameter(s):
@@ -552,9 +704,13 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` longitude: f64 `
     ///
-    pub fn PostLocation(self: Attica__Provider, latitude: f64, longitude: f64) Attica__PostJob {
+    pub fn postLocation(self: Attica__Provider, latitude: f64, longitude: f64) Attica__PostJob {
         return .{ .ptr = qtc.Attica__Provider_PostLocation(@ptrCast(self.ptr), @bitCast(latitude), @bitCast(longitude)) };
     }
+
+    /// ### DEPRECATED: Use `setPrivateData` instead
+    ///
+    pub const SetPrivateData = setPrivateData;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setPrivateData)
     ///
@@ -568,7 +724,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetPrivateData(self: Attica__Provider, app: []const u8, key: []const u8, value: []const u8) Attica__PostJob {
+    pub fn setPrivateData(self: Attica__Provider, app: []const u8, key: []const u8, value: []const u8) Attica__PostJob {
         const app_str = qtc.libqt_string{
             .len = app.len,
             .data = app.ptr,
@@ -584,6 +740,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_SetPrivateData(@ptrCast(self.ptr), app_str, key_str, value_str) };
     }
 
+    /// ### DEPRECATED: Use `inviteFriend` instead
+    ///
+    pub const InviteFriend = inviteFriend;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#inviteFriend)
     ///
     /// ## Parameter(s):
@@ -594,7 +754,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InviteFriend(self: Attica__Provider, to: []const u8, message: []const u8) Attica__PostJob {
+    pub fn inviteFriend(self: Attica__Provider, to: []const u8, message: []const u8) Attica__PostJob {
         const to_str = qtc.libqt_string{
             .len = to.len,
             .data = to.ptr,
@@ -606,6 +766,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_InviteFriend(@ptrCast(self.ptr), to_str, message_str) };
     }
 
+    /// ### DEPRECATED: Use `approveFriendship` instead
+    ///
+    pub const ApproveFriendship = approveFriendship;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#approveFriendship)
     ///
     /// ## Parameter(s):
@@ -614,13 +778,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` to: []const u8 `
     ///
-    pub fn ApproveFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
+    pub fn approveFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
         const to_str = qtc.libqt_string{
             .len = to.len,
             .data = to.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_ApproveFriendship(@ptrCast(self.ptr), to_str) };
     }
+
+    /// ### DEPRECATED: Use `declineFriendship` instead
+    ///
+    pub const DeclineFriendship = declineFriendship;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#declineFriendship)
     ///
@@ -630,13 +798,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` to: []const u8 `
     ///
-    pub fn DeclineFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
+    pub fn declineFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
         const to_str = qtc.libqt_string{
             .len = to.len,
             .data = to.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_DeclineFriendship(@ptrCast(self.ptr), to_str) };
     }
+
+    /// ### DEPRECATED: Use `cancelFriendship` instead
+    ///
+    pub const CancelFriendship = cancelFriendship;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#cancelFriendship)
     ///
@@ -646,13 +818,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` to: []const u8 `
     ///
-    pub fn CancelFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
+    pub fn cancelFriendship(self: Attica__Provider, to: []const u8) Attica__PostJob {
         const to_str = qtc.libqt_string{
             .len = to.len,
             .data = to.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_CancelFriendship(@ptrCast(self.ptr), to_str) };
     }
+
+    /// ### DEPRECATED: Use `postMessage` instead
+    ///
+    pub const PostMessage = postMessage;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postMessage)
     ///
@@ -662,10 +838,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` message: Attica__Message `
     ///
-    pub fn PostMessage(self: Attica__Provider, message: anytype) Attica__PostJob {
+    pub fn postMessage(self: Attica__Provider, message: anytype) Attica__PostJob {
         comptime _ = @TypeOf(message)._is_Attica__Message;
         return .{ .ptr = qtc.Attica__Provider_PostMessage(@ptrCast(self.ptr), @ptrCast(message.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `editAchievement` instead
+    ///
+    pub const EditAchievement = editAchievement;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#editAchievement)
     ///
@@ -679,7 +859,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` achievement: Attica__Achievement `
     ///
-    pub fn EditAchievement(self: Attica__Provider, contentId: []const u8, achievementId: []const u8, achievement: anytype) Attica__PutJob {
+    pub fn editAchievement(self: Attica__Provider, contentId: []const u8, achievementId: []const u8, achievement: anytype) Attica__PutJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -692,6 +872,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_EditAchievement(@ptrCast(self.ptr), contentId_str, achievementId_str, @ptrCast(achievement.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `deleteAchievement` instead
+    ///
+    pub const DeleteAchievement = deleteAchievement;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteAchievement)
     ///
     /// ## Parameter(s):
@@ -702,7 +886,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` achievementId: []const u8 `
     ///
-    pub fn DeleteAchievement(self: Attica__Provider, contentId: []const u8, achievementId: []const u8) Attica__DeleteJob {
+    pub fn deleteAchievement(self: Attica__Provider, contentId: []const u8, achievementId: []const u8) Attica__DeleteJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -713,6 +897,10 @@ pub const Attica__Provider = extern struct {
         };
         return .{ .ptr = qtc.Attica__Provider_DeleteAchievement(@ptrCast(self.ptr), contentId_str, achievementId_str) };
     }
+
+    /// ### DEPRECATED: Use `setAchievementProgress` instead
+    ///
+    pub const SetAchievementProgress = setAchievementProgress;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setAchievementProgress)
     ///
@@ -726,7 +914,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` timestamp: QDateTime `
     ///
-    pub fn SetAchievementProgress(self: Attica__Provider, id: []const u8, progress: anytype, timestamp: anytype) Attica__PostJob {
+    pub fn setAchievementProgress(self: Attica__Provider, id: []const u8, progress: anytype, timestamp: anytype) Attica__PostJob {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
@@ -736,6 +924,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_SetAchievementProgress(@ptrCast(self.ptr), id_str, @ptrCast(progress.ptr), @ptrCast(timestamp.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `resetAchievementProgress` instead
+    ///
+    pub const ResetAchievementProgress = resetAchievementProgress;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#resetAchievementProgress)
     ///
     /// ## Parameter(s):
@@ -744,13 +936,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` id: []const u8 `
     ///
-    pub fn ResetAchievementProgress(self: Attica__Provider, id: []const u8) Attica__DeleteJob {
+    pub fn resetAchievementProgress(self: Attica__Provider, id: []const u8) Attica__DeleteJob {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_ResetAchievementProgress(@ptrCast(self.ptr), id_str) };
     }
+
+    /// ### DEPRECATED: Use `postActivity` instead
+    ///
+    pub const PostActivity = postActivity;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postActivity)
     ///
@@ -760,13 +956,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn PostActivity(self: Attica__Provider, message: []const u8) Attica__PostJob {
+    pub fn postActivity(self: Attica__Provider, message: []const u8) Attica__PostJob {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_PostActivity(@ptrCast(self.ptr), message_str) };
     }
+
+    /// ### DEPRECATED: Use `createProject` instead
+    ///
+    pub const CreateProject = createProject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#createProject)
     ///
@@ -776,10 +976,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` project: Attica__Project `
     ///
-    pub fn CreateProject(self: Attica__Provider, project: anytype) Attica__PostJob {
+    pub fn createProject(self: Attica__Provider, project: anytype) Attica__PostJob {
         comptime _ = @TypeOf(project)._is_Attica__Project;
         return .{ .ptr = qtc.Attica__Provider_CreateProject(@ptrCast(self.ptr), @ptrCast(project.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deleteProject` instead
+    ///
+    pub const DeleteProject = deleteProject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteProject)
     ///
@@ -789,10 +993,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` project: Attica__Project `
     ///
-    pub fn DeleteProject(self: Attica__Provider, project: anytype) Attica__PostJob {
+    pub fn deleteProject(self: Attica__Provider, project: anytype) Attica__PostJob {
         comptime _ = @TypeOf(project)._is_Attica__Project;
         return .{ .ptr = qtc.Attica__Provider_DeleteProject(@ptrCast(self.ptr), @ptrCast(project.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `editProject` instead
+    ///
+    pub const EditProject = editProject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#editProject)
     ///
@@ -802,10 +1010,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` project: Attica__Project `
     ///
-    pub fn EditProject(self: Attica__Provider, project: anytype) Attica__PostJob {
+    pub fn editProject(self: Attica__Provider, project: anytype) Attica__PostJob {
         comptime _ = @TypeOf(project)._is_Attica__Project;
         return .{ .ptr = qtc.Attica__Provider_EditProject(@ptrCast(self.ptr), @ptrCast(project.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `savePublisherField` instead
+    ///
+    pub const SavePublisherField = savePublisherField;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#savePublisherField)
     ///
@@ -817,11 +1029,15 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` field: Attica__PublisherField `
     ///
-    pub fn SavePublisherField(self: Attica__Provider, project: anytype, field: anytype) Attica__PostJob {
+    pub fn savePublisherField(self: Attica__Provider, project: anytype, field: anytype) Attica__PostJob {
         comptime _ = @TypeOf(project)._is_Attica__Project;
         comptime _ = @TypeOf(field)._is_Attica__PublisherField;
         return .{ .ptr = qtc.Attica__Provider_SavePublisherField(@ptrCast(self.ptr), @ptrCast(project.ptr), @ptrCast(field.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `publishBuildJob` instead
+    ///
+    pub const PublishBuildJob = publishBuildJob;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#publishBuildJob)
     ///
@@ -833,11 +1049,15 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` publisher: Attica__Publisher `
     ///
-    pub fn PublishBuildJob(self: Attica__Provider, buildjob: anytype, publisher: anytype) Attica__PostJob {
+    pub fn publishBuildJob(self: Attica__Provider, buildjob: anytype, publisher: anytype) Attica__PostJob {
         comptime _ = @TypeOf(buildjob)._is_Attica__BuildServiceJob;
         comptime _ = @TypeOf(publisher)._is_Attica__Publisher;
         return .{ .ptr = qtc.Attica__Provider_PublishBuildJob(@ptrCast(self.ptr), @ptrCast(buildjob.ptr), @ptrCast(publisher.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createBuildServiceJob` instead
+    ///
+    pub const CreateBuildServiceJob = createBuildServiceJob;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#createBuildServiceJob)
     ///
@@ -847,10 +1067,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` job: Attica__BuildServiceJob `
     ///
-    pub fn CreateBuildServiceJob(self: Attica__Provider, job: anytype) Attica__PostJob {
+    pub fn createBuildServiceJob(self: Attica__Provider, job: anytype) Attica__PostJob {
         comptime _ = @TypeOf(job)._is_Attica__BuildServiceJob;
         return .{ .ptr = qtc.Attica__Provider_CreateBuildServiceJob(@ptrCast(self.ptr), @ptrCast(job.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cancelBuildServiceJob` instead
+    ///
+    pub const CancelBuildServiceJob = cancelBuildServiceJob;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#cancelBuildServiceJob)
     ///
@@ -860,10 +1084,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` job: Attica__BuildServiceJob `
     ///
-    pub fn CancelBuildServiceJob(self: Attica__Provider, job: anytype) Attica__PostJob {
+    pub fn cancelBuildServiceJob(self: Attica__Provider, job: anytype) Attica__PostJob {
         comptime _ = @TypeOf(job)._is_Attica__BuildServiceJob;
         return .{ .ptr = qtc.Attica__Provider_CancelBuildServiceJob(@ptrCast(self.ptr), @ptrCast(job.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deleteRemoteAccount` instead
+    ///
+    pub const DeleteRemoteAccount = deleteRemoteAccount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteRemoteAccount)
     ///
@@ -873,13 +1101,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` id: []const u8 `
     ///
-    pub fn DeleteRemoteAccount(self: Attica__Provider, id: []const u8) Attica__PostJob {
+    pub fn deleteRemoteAccount(self: Attica__Provider, id: []const u8) Attica__PostJob {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_DeleteRemoteAccount(@ptrCast(self.ptr), id_str) };
     }
+
+    /// ### DEPRECATED: Use `createRemoteAccount` instead
+    ///
+    pub const CreateRemoteAccount = createRemoteAccount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#createRemoteAccount)
     ///
@@ -889,10 +1121,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` account: Attica__RemoteAccount `
     ///
-    pub fn CreateRemoteAccount(self: Attica__Provider, account: anytype) Attica__PostJob {
+    pub fn createRemoteAccount(self: Attica__Provider, account: anytype) Attica__PostJob {
         comptime _ = @TypeOf(account)._is_Attica__RemoteAccount;
         return .{ .ptr = qtc.Attica__Provider_CreateRemoteAccount(@ptrCast(self.ptr), @ptrCast(account.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `editRemoteAccount` instead
+    ///
+    pub const EditRemoteAccount = editRemoteAccount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#editRemoteAccount)
     ///
@@ -902,10 +1138,14 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` account: Attica__RemoteAccount `
     ///
-    pub fn EditRemoteAccount(self: Attica__Provider, account: anytype) Attica__PostJob {
+    pub fn editRemoteAccount(self: Attica__Provider, account: anytype) Attica__PostJob {
         comptime _ = @TypeOf(account)._is_Attica__RemoteAccount;
         return .{ .ptr = qtc.Attica__Provider_EditRemoteAccount(@ptrCast(self.ptr), @ptrCast(account.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `uploadTarballToBuildService` instead
+    ///
+    pub const UploadTarballToBuildService = uploadTarballToBuildService;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#uploadTarballToBuildService)
     ///
@@ -919,7 +1159,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` payload: []u8 `
     ///
-    pub fn UploadTarballToBuildService(self: Attica__Provider, projectId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
+    pub fn uploadTarballToBuildService(self: Attica__Provider, projectId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
         const projectId_str = qtc.libqt_string{
             .len = projectId.len,
             .data = projectId.ptr,
@@ -935,6 +1175,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_UploadTarballToBuildService(@ptrCast(self.ptr), projectId_str, fileName_str, payload_str) };
     }
 
+    /// ### DEPRECATED: Use `voteForContent` instead
+    ///
+    pub const VoteForContent = voteForContent;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#voteForContent)
     ///
     /// ## Parameter(s):
@@ -945,13 +1189,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` rating: u32 `
     ///
-    pub fn VoteForContent(self: Attica__Provider, contentId: []const u8, rating: u32) Attica__PostJob {
+    pub fn voteForContent(self: Attica__Provider, contentId: []const u8, rating: u32) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_VoteForContent(@ptrCast(self.ptr), contentId_str, @bitCast(rating)) };
     }
+
+    /// ### DEPRECATED: Use `deleteContent` instead
+    ///
+    pub const DeleteContent = deleteContent;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteContent)
     ///
@@ -961,13 +1209,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` contentId: []const u8 `
     ///
-    pub fn DeleteContent(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
+    pub fn deleteContent(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_DeleteContent(@ptrCast(self.ptr), contentId_str) };
     }
+
+    /// ### DEPRECATED: Use `setDownloadFile` instead
+    ///
+    pub const SetDownloadFile = setDownloadFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setDownloadFile)
     ///
@@ -981,7 +1233,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` payload: QIODevice `
     ///
-    pub fn SetDownloadFile(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: anytype) Attica__PostJob {
+    pub fn setDownloadFile(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: anytype) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -993,6 +1245,10 @@ pub const Attica__Provider = extern struct {
         comptime _ = @TypeOf(payload)._is_QIODevice;
         return .{ .ptr = qtc.Attica__Provider_SetDownloadFile(@ptrCast(self.ptr), contentId_str, fileName_str, @ptrCast(payload.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDownloadFile2` instead
+    ///
+    pub const SetDownloadFile2 = setDownloadFile2;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setDownloadFile)
     ///
@@ -1006,7 +1262,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` payload: []u8 `
     ///
-    pub fn SetDownloadFile2(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
+    pub fn setDownloadFile2(self: Attica__Provider, contentId: []const u8, fileName: []const u8, payload: []u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -1022,6 +1278,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_SetDownloadFile2(@ptrCast(self.ptr), contentId_str, fileName_str, payload_str) };
     }
 
+    /// ### DEPRECATED: Use `deleteDownloadFile` instead
+    ///
+    pub const DeleteDownloadFile = deleteDownloadFile;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deleteDownloadFile)
     ///
     /// ## Parameter(s):
@@ -1030,13 +1290,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` contentId: []const u8 `
     ///
-    pub fn DeleteDownloadFile(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
+    pub fn deleteDownloadFile(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_DeleteDownloadFile(@ptrCast(self.ptr), contentId_str) };
     }
+
+    /// ### DEPRECATED: Use `setPreviewImage` instead
+    ///
+    pub const SetPreviewImage = setPreviewImage;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#setPreviewImage)
     ///
@@ -1052,7 +1316,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` image: []u8 `
     ///
-    pub fn SetPreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8, fileName: []const u8, image: []u8) Attica__PostJob {
+    pub fn setPreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8, fileName: []const u8, image: []u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -1072,6 +1336,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_SetPreviewImage(@ptrCast(self.ptr), contentId_str, previewId_str, fileName_str, image_str) };
     }
 
+    /// ### DEPRECATED: Use `deletePreviewImage` instead
+    ///
+    pub const DeletePreviewImage = deletePreviewImage;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#deletePreviewImage)
     ///
     /// ## Parameter(s):
@@ -1082,7 +1350,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` previewId: []const u8 `
     ///
-    pub fn DeletePreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8) Attica__PostJob {
+    pub fn deletePreviewImage(self: Attica__Provider, contentId: []const u8, previewId: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
@@ -1094,6 +1362,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_DeletePreviewImage(@ptrCast(self.ptr), contentId_str, previewId_str) };
     }
 
+    /// ### DEPRECATED: Use `voteForComment` instead
+    ///
+    pub const VoteForComment = voteForComment;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#voteForComment)
     ///
     /// ## Parameter(s):
@@ -1104,13 +1376,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` rating: u32 `
     ///
-    pub fn VoteForComment(self: Attica__Provider, id: []const u8, rating: u32) Attica__PostJob {
+    pub fn voteForComment(self: Attica__Provider, id: []const u8, rating: u32) Attica__PostJob {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_VoteForComment(@ptrCast(self.ptr), id_str, @bitCast(rating)) };
     }
+
+    /// ### DEPRECATED: Use `becomeFan` instead
+    ///
+    pub const BecomeFan = becomeFan;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#becomeFan)
     ///
@@ -1120,13 +1396,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` contentId: []const u8 `
     ///
-    pub fn BecomeFan(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
+    pub fn becomeFan(self: Attica__Provider, contentId: []const u8) Attica__PostJob {
         const contentId_str = qtc.libqt_string{
             .len = contentId.len,
             .data = contentId.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_BecomeFan(@ptrCast(self.ptr), contentId_str) };
     }
+
+    /// ### DEPRECATED: Use `postTopic` instead
+    ///
+    pub const PostTopic = postTopic;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postTopic)
     ///
@@ -1140,7 +1420,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` content: []const u8 `
     ///
-    pub fn PostTopic(self: Attica__Provider, forumId: []const u8, subject: []const u8, content: []const u8) Attica__PostJob {
+    pub fn postTopic(self: Attica__Provider, forumId: []const u8, subject: []const u8, content: []const u8) Attica__PostJob {
         const forumId_str = qtc.libqt_string{
             .len = forumId.len,
             .data = forumId.ptr,
@@ -1156,6 +1436,10 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_PostTopic(@ptrCast(self.ptr), forumId_str, subject_str, content_str) };
     }
 
+    /// ### DEPRECATED: Use `getRegisterAccountUrl` instead
+    ///
+    pub const GetRegisterAccountUrl = getRegisterAccountUrl;
+
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#getRegisterAccountUrl)
     ///
     /// ## Parameter(s):
@@ -1164,13 +1448,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetRegisterAccountUrl(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
+    pub fn getRegisterAccountUrl(self: Attica__Provider, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Provider_GetRegisterAccountUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.GetRegisterAccountUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Provider.getRegisterAccountUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `postLocation3` instead
+    ///
+    pub const PostLocation3 = postLocation3;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postLocation)
     ///
@@ -1184,13 +1472,17 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` city: []const u8 `
     ///
-    pub fn PostLocation3(self: Attica__Provider, latitude: f64, longitude: f64, city: []const u8) Attica__PostJob {
+    pub fn postLocation3(self: Attica__Provider, latitude: f64, longitude: f64, city: []const u8) Attica__PostJob {
         const city_str = qtc.libqt_string{
             .len = city.len,
             .data = city.ptr,
         };
         return .{ .ptr = qtc.Attica__Provider_PostLocation3(@ptrCast(self.ptr), @bitCast(latitude), @bitCast(longitude), city_str) };
     }
+
+    /// ### DEPRECATED: Use `postLocation4` instead
+    ///
+    pub const PostLocation4 = postLocation4;
 
     /// ### [Upstream resources](https://api.kde.org/attica-provider.html#postLocation)
     ///
@@ -1206,7 +1498,7 @@ pub const Attica__Provider = extern struct {
     ///
     /// ` country: []const u8 `
     ///
-    pub fn PostLocation4(self: Attica__Provider, latitude: f64, longitude: f64, city: []const u8, country: []const u8) Attica__PostJob {
+    pub fn postLocation4(self: Attica__Provider, latitude: f64, longitude: f64, city: []const u8, country: []const u8) Attica__PostJob {
         const city_str = qtc.libqt_string{
             .len = city.len,
             .data = city.ptr,
@@ -1218,17 +1510,17 @@ pub const Attica__Provider = extern struct {
         return .{ .ptr = qtc.Attica__Provider_PostLocation4(@ptrCast(self.ptr), @bitCast(latitude), @bitCast(longitude), city_str, country_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Provider `
     ///
-    pub fn Delete(self: Attica__Provider) void {
+    pub fn delete(self: Attica__Provider) void {
         qtc.Attica__Provider_Delete(@ptrCast(self.ptr));
     }
 };

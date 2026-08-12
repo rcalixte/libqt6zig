@@ -79,13 +79,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextTranslator::TranslatorConfigureLanguageListWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextTranslator::TranslatorConfigureLanguageListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` labelText: []const u8 `
     ///
-    pub fn New(labelText: []const u8) TextTranslator__TranslatorConfigureLanguageListWidget {
+    pub fn new(labelText: []const u8) TextTranslator__TranslatorConfigureLanguageListWidget {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
@@ -93,22 +97,30 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_new(labelText_str) };
     }
 
-    /// New2 constructs a new TextTranslator::TranslatorConfigureLanguageListWidget object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new TextTranslator::TranslatorConfigureLanguageListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` labelText: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(labelText: []const u8, parent: anytype) TextTranslator__TranslatorConfigureLanguageListWidget {
+    pub fn new2(labelText: []const u8, _parent: anytype) TextTranslator__TranslatorConfigureLanguageListWidget {
         const labelText_str = qtc.libqt_string{
             .len = labelText.len,
             .data = labelText.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_new2(labelText_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_new2(labelText_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -116,9 +128,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMetaObject {
+    pub fn metaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -130,13 +146,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -146,9 +162,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMetaObject {
+    pub fn superMetaObject(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMetaObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -156,10 +176,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -169,13 +193,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -185,10 +209,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -200,9 +228,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -212,13 +244,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -232,9 +264,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -244,14 +280,18 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -259,9 +299,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Clear(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn clear(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -273,7 +317,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` languageCode: []const u8 `
     ///
-    pub fn AddItem(self: TextTranslator__TranslatorConfigureLanguageListWidget, translatedStr: []const u8, languageCode: []const u8) void {
+    pub fn addItem(self: TextTranslator__TranslatorConfigureLanguageListWidget, translatedStr: []const u8, languageCode: []const u8) void {
         const translatedStr_str = qtc.libqt_string{
             .len = translatedStr.len,
             .data = translatedStr.ptr,
@@ -285,6 +329,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_AddItem(@ptrCast(self.ptr), translatedStr_str, languageCode_str);
     }
 
+    /// ### DEPRECATED: Use `selectedLanguages` instead
+    ///
+    pub const SelectedLanguages = selectedLanguages;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
     /// ## Parameter(s):
@@ -293,7 +341,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedLanguages(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn selectedLanguages(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SelectedLanguages(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -301,15 +349,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SelectedLanguages: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.selectedLanguages: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SelectedLanguages: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.selectedLanguages: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSelectedLanguages` instead
+    ///
+    pub const SetSelectedLanguages = setSelectedLanguages;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
@@ -321,13 +373,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` list: []const []const u8 `
     ///
-    pub fn SetSelectedLanguages(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SetSelectedLanguages: Memory allocation failed");
+    pub fn setSelectedLanguages(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator, list: []const []const u8) void {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.setSelectedLanguages: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -335,6 +387,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         };
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SetSelectedLanguages(@ptrCast(self.ptr), list_list);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -346,15 +402,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -368,15 +428,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -386,9 +450,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn WinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
+    pub fn winId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -398,9 +466,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn CreateWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn createWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -410,9 +482,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn InternalWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
+    pub fn internalWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -422,9 +498,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn EffectiveWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
+    pub fn effectiveWinId(self: TextTranslator__TranslatorConfigureLanguageListWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -434,9 +514,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Style(self: TextTranslator__TranslatorConfigureLanguageListWidget) QStyle {
+    pub fn style(self: TextTranslator__TranslatorConfigureLanguageListWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -446,12 +530,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextTranslator__TranslatorConfigureLanguageListWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextTranslator__TranslatorConfigureLanguageListWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -461,9 +549,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsTopLevel(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isTopLevel(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -473,9 +565,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -485,9 +581,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsModal(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isModal(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -501,9 +601,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn windowModality(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -513,11 +617,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextTranslator__TranslatorConfigureLanguageListWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -527,9 +635,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -541,10 +653,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -556,9 +672,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, enabled: bool) void {
+    pub fn setEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -570,9 +690,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, disabled: bool) void {
+    pub fn setDisabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -584,9 +708,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -596,9 +724,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FrameGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn frameGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -608,9 +740,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Geometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn geometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -620,9 +756,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn NormalGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn normalGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -632,9 +772,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn X(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn x(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -644,9 +788,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Y(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn y(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -656,9 +804,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Pos(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPoint {
+    pub fn pos(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -668,9 +820,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FrameSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn frameSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -680,9 +836,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Size(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn size(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -692,9 +852,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Width(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn width(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -704,9 +868,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Height(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn height(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -716,9 +884,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Rect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn rect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -728,9 +900,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ChildrenRect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn childrenRect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -740,9 +916,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ChildrenRegion(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
+    pub fn childrenRegion(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -752,9 +932,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MinimumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn minimumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -764,9 +948,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MaximumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn maximumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -776,9 +964,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MinimumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn minimumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -788,9 +980,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MinimumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn minimumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -800,9 +996,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MaximumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn maximumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -812,9 +1012,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MaximumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn maximumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -824,12 +1028,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -843,9 +1051,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -855,12 +1067,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -874,9 +1090,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -888,9 +1108,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -902,9 +1126,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -916,9 +1144,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -930,9 +1162,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -942,9 +1178,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SizeIncrement(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn sizeIncrement(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -954,12 +1194,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextTranslator__TranslatorConfigureLanguageListWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextTranslator__TranslatorConfigureLanguageListWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -973,9 +1217,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -985,9 +1233,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn BaseSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn baseSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -997,12 +1249,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1016,9 +1272,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1030,10 +1290,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextTranslator__TranslatorConfigureLanguageListWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1047,9 +1311,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1061,9 +1329,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32) void {
+    pub fn setFixedWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1075,9 +1347,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, h: i32) void {
+    pub fn setFixedHeight(self: TextTranslator__TranslatorConfigureLanguageListWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1089,11 +1365,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1104,11 +1384,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1119,11 +1403,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1134,11 +1422,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1149,11 +1441,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1164,10 +1460,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1179,10 +1479,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1194,10 +1498,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1211,12 +1519,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1229,11 +1541,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1247,11 +1563,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1265,11 +1585,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1279,9 +1603,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Window(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn window(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1291,9 +1619,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn NativeParentWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn nativeParentWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1303,9 +1635,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn TopLevelWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn topLevelWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1315,9 +1651,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Palette(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPalette {
+    pub fn palette(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1327,12 +1667,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextTranslator__TranslatorConfigureLanguageListWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextTranslator__TranslatorConfigureLanguageListWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1342,11 +1686,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1360,9 +1708,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn backgroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1372,11 +1724,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1390,9 +1746,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn foregroundRole(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1402,9 +1762,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Font(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFont {
+    pub fn font(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1414,12 +1778,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextTranslator__TranslatorConfigureLanguageListWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextTranslator__TranslatorConfigureLanguageListWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1429,9 +1797,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FontMetrics(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFontMetrics {
+    pub fn fontMetrics(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1441,9 +1813,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FontInfo(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFontInfo {
+    pub fn fontInfo(self: TextTranslator__TranslatorConfigureLanguageListWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1453,9 +1829,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Cursor(self: TextTranslator__TranslatorConfigureLanguageListWidget) QCursor {
+    pub fn cursor(self: TextTranslator__TranslatorConfigureLanguageListWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1465,12 +1845,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextTranslator__TranslatorConfigureLanguageListWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextTranslator__TranslatorConfigureLanguageListWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1480,9 +1864,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UnsetCursor(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn unsetCursor(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1494,9 +1882,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
+    pub fn setMouseTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1506,9 +1898,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn HasMouseTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn hasMouseTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1518,9 +1914,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UnderMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn underMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1532,9 +1932,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
+    pub fn setTabletTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1544,24 +1948,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn HasTabletTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn hasTabletTracking(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextTranslator__TranslatorConfigureLanguageListWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1571,12 +1964,35 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextTranslator__TranslatorConfigureLanguageListWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextTranslator__TranslatorConfigureLanguageListWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextTranslator__TranslatorConfigureLanguageListWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1586,9 +2002,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Mask(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
+    pub fn mask(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1598,9 +2018,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ClearMask(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn clearMask(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1612,10 +2036,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype) void {
+    pub fn render(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1627,10 +2055,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
+    pub fn render2(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1640,9 +2072,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Grab(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPixmap {
+    pub fn grab(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1652,9 +2088,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn GraphicsEffect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1666,10 +2106,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextTranslator__TranslatorConfigureLanguageListWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextTranslator__TranslatorConfigureLanguageListWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1681,9 +2125,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
+    pub fn grabGesture(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1695,9 +2143,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1707,15 +2159,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextTranslator__TranslatorConfigureLanguageListWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1725,15 +2181,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextTranslator__TranslatorConfigureLanguageListWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextTranslator__TranslatorConfigureLanguageListWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1745,13 +2205,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1763,13 +2227,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1781,10 +2249,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1794,9 +2266,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn WindowIcon(self: TextTranslator__TranslatorConfigureLanguageListWidget) QIcon {
+    pub fn windowIcon(self: TextTranslator__TranslatorConfigureLanguageListWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1806,15 +2282,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextTranslator__TranslatorConfigureLanguageListWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1826,13 +2306,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1842,15 +2326,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1862,13 +2350,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1880,13 +2372,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextTranslator__TranslatorConfigureLanguageListWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextTranslator__TranslatorConfigureLanguageListWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1898,13 +2394,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1916,9 +2416,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextTranslator__TranslatorConfigureLanguageListWidget, level: f64) void {
+    pub fn setWindowOpacity(self: TextTranslator__TranslatorConfigureLanguageListWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1928,9 +2432,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn WindowOpacity(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
+    pub fn windowOpacity(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1940,9 +2448,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsWindowModified(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isWindowModified(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -1952,15 +2464,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -1972,13 +2488,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -1990,9 +2510,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextTranslator__TranslatorConfigureLanguageListWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: TextTranslator__TranslatorConfigureLanguageListWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2002,9 +2526,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ToolTipDuration(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn toolTipDuration(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2014,15 +2542,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2034,13 +2566,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2050,15 +2586,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextTranslator__TranslatorConfigureLanguageListWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextTranslator__TranslatorConfigureLanguageListWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2070,13 +2610,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2088,13 +2632,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2106,13 +2654,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2124,13 +2676,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2142,13 +2698,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextTranslator__TranslatorConfigureLanguageListWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextTranslator__TranslatorConfigureLanguageListWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2160,9 +2720,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2176,9 +2740,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn layoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2188,9 +2756,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UnsetLayoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn unsetLayoutDirection(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2200,12 +2772,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextTranslator__TranslatorConfigureLanguageListWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextTranslator__TranslatorConfigureLanguageListWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2215,9 +2791,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Locale(self: TextTranslator__TranslatorConfigureLanguageListWidget) QLocale {
+    pub fn locale(self: TextTranslator__TranslatorConfigureLanguageListWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2227,9 +2807,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UnsetLocale(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn unsetLocale(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2239,9 +2823,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsRightToLeft(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isRightToLeft(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2251,9 +2839,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsLeftToRight(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isLeftToRight(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2263,9 +2855,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SetFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn setFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2275,9 +2871,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsActiveWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isActiveWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2287,9 +2887,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ActivateWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn activateWindow(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2299,9 +2903,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ClearFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn clearFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2313,9 +2921,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextTranslator__TranslatorConfigureLanguageListWidget, reason: i32) void {
+    pub fn setFocus2(self: TextTranslator__TranslatorConfigureLanguageListWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2329,9 +2941,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn focusPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2343,9 +2959,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2355,9 +2975,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn HasFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn hasFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2369,11 +2993,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2383,12 +3011,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextTranslator__TranslatorConfigureLanguageListWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextTranslator__TranslatorConfigureLanguageListWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2398,9 +3030,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FocusProxy(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn focusProxy(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2414,9 +3050,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn contextMenuPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2428,9 +3068,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2440,9 +3084,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn GrabMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn grabMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2454,10 +3102,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn grabMouse2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2467,9 +3119,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ReleaseMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn releaseMouse(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2479,9 +3135,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn GrabKeyboard(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn grabKeyboard(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2491,9 +3151,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ReleaseKeyboard(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn releaseKeyboard(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2505,10 +3169,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextTranslator__TranslatorConfigureLanguageListWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: TextTranslator__TranslatorConfigureLanguageListWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2520,9 +3188,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
+    pub fn releaseShortcut(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2534,9 +3206,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2548,25 +3224,37 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3264,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UpdatesEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn updatesEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2590,9 +3282,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextTranslator__TranslatorConfigureLanguageListWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2602,9 +3298,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn GraphicsProxyWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2614,9 +3314,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Update(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn update(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2626,9 +3330,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Repaint(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn repaint(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2638,17 +3346,21 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextTranslator__TranslatorConfigureLanguageListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextTranslator__TranslatorConfigureLanguageListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2660,11 +3372,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn update3(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2675,10 +3391,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn update4(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2688,17 +3408,21 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextTranslator__TranslatorConfigureLanguageListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextTranslator__TranslatorConfigureLanguageListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2710,10 +3434,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn repaint3(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2725,10 +3453,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn repaint4(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2740,9 +3472,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextTranslator__TranslatorConfigureLanguageListWidget, hidden: bool) void {
+    pub fn setHidden(self: TextTranslator__TranslatorConfigureLanguageListWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2752,9 +3488,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Show(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn show(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2764,9 +3504,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Hide(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn hide(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2776,9 +3520,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ShowMinimized(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn showMinimized(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2788,9 +3536,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ShowMaximized(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn showMaximized(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2800,9 +3552,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ShowFullScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn showFullScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2812,9 +3568,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ShowNormal(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn showNormal(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2824,9 +3584,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Close(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn close(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2836,9 +3600,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Raise(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn raise(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2848,9 +3616,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Lower(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn lower(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2862,10 +3634,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn stackUnder(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2875,13 +3651,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextTranslator__TranslatorConfigureLanguageListWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextTranslator__TranslatorConfigureLanguageListWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2893,10 +3673,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn move2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2910,9 +3694,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
+    pub fn resize(self: TextTranslator__TranslatorConfigureLanguageListWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -2924,10 +3712,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn resize2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2937,17 +3729,21 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -2957,12 +3753,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextTranslator__TranslatorConfigureLanguageListWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextTranslator__TranslatorConfigureLanguageListWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2974,13 +3774,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2990,15 +3794,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3008,9 +3816,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn AdjustSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn adjustSize(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3020,9 +3832,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3034,10 +3850,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3047,9 +3867,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsHidden(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isHidden(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3059,9 +3883,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsMinimized(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isMinimized(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3071,9 +3899,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsMaximized(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isMaximized(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3083,9 +3915,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsFullScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isFullScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3099,9 +3935,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn windowState(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3113,9 +3953,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextTranslator__TranslatorConfigureLanguageListWidget, state: i32) void {
+    pub fn setWindowState(self: TextTranslator__TranslatorConfigureLanguageListWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3127,9 +3971,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextTranslator__TranslatorConfigureLanguageListWidget, state: i32) void {
+    pub fn overrideWindowState(self: TextTranslator__TranslatorConfigureLanguageListWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3139,9 +3987,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SizePolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSizePolicy {
+    pub fn sizePolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3151,12 +4003,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextTranslator__TranslatorConfigureLanguageListWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3170,9 +4026,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextTranslator__TranslatorConfigureLanguageListWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextTranslator__TranslatorConfigureLanguageListWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3182,9 +4042,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn VisibleRegion(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
+    pub fn visibleRegion(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3202,9 +4066,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextTranslator__TranslatorConfigureLanguageListWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextTranslator__TranslatorConfigureLanguageListWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3216,10 +4084,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextTranslator__TranslatorConfigureLanguageListWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextTranslator__TranslatorConfigureLanguageListWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3229,9 +4101,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ContentsMargins(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMargins {
+    pub fn contentsMargins(self: TextTranslator__TranslatorConfigureLanguageListWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3241,9 +4117,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ContentsRect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
+    pub fn contentsRect(self: TextTranslator__TranslatorConfigureLanguageListWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3253,9 +4133,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Layout(self: TextTranslator__TranslatorConfigureLanguageListWidget) QLayout {
+    pub fn layout(self: TextTranslator__TranslatorConfigureLanguageListWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3265,12 +4149,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextTranslator__TranslatorConfigureLanguageListWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextTranslator__TranslatorConfigureLanguageListWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3280,24 +4168,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UpdateGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn updateGeometry(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3307,14 +4184,37 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextTranslator__TranslatorConfigureLanguageListWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3328,9 +4228,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextTranslator__TranslatorConfigureLanguageListWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextTranslator__TranslatorConfigureLanguageListWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3346,10 +4250,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextTranslator__TranslatorConfigureLanguageListWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextTranslator__TranslatorConfigureLanguageListWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3359,9 +4267,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FocusWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn focusWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3371,9 +4283,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn NextInFocusChain(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn nextInFocusChain(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3383,9 +4299,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn PreviousInFocusChain(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn previousInFocusChain(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3395,9 +4315,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn AcceptDrops(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn acceptDrops(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3409,9 +4333,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextTranslator__TranslatorConfigureLanguageListWidget, on: bool) void {
+    pub fn setAcceptDrops(self: TextTranslator__TranslatorConfigureLanguageListWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3423,10 +4351,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, action: anytype) void {
+    pub fn addAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3436,15 +4368,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextTranslator__TranslatorConfigureLanguageListWidget, actions: []QAction) void {
+    pub fn addActions(self: TextTranslator__TranslatorConfigureLanguageListWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3456,16 +4392,20 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextTranslator__TranslatorConfigureLanguageListWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextTranslator__TranslatorConfigureLanguageListWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3479,11 +4419,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3495,10 +4439,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, action: anytype) void {
+    pub fn removeAction(self: TextTranslator__TranslatorConfigureLanguageListWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3510,15 +4458,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3530,13 +4482,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextTranslator__TranslatorConfigureLanguageListWidget, text: []const u8) QAction {
+    pub fn addAction2(self: TextTranslator__TranslatorConfigureLanguageListWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3550,7 +4506,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3559,6 +4515,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3571,7 +4531,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextTranslator__TranslatorConfigureLanguageListWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextTranslator__TranslatorConfigureLanguageListWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3579,6 +4539,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3594,7 +4558,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3604,6 +4568,10 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3612,9 +4580,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ParentWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
+    pub fn parentWidget(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3626,9 +4598,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3642,9 +4618,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn windowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3656,9 +4636,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) void {
+    pub fn setWindowFlag(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3670,9 +4654,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3686,9 +4674,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn windowType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3698,9 +4690,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3710,13 +4706,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextTranslator__TranslatorConfigureLanguageListWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextTranslator__TranslatorConfigureLanguageListWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3728,10 +4728,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextTranslator__TranslatorConfigureLanguageListWidget, p: anytype) QWidget {
+    pub fn childAt2(self: TextTranslator__TranslatorConfigureLanguageListWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3743,10 +4747,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextTranslator__TranslatorConfigureLanguageListWidget, p: anytype) QWidget {
+    pub fn childAt3(self: TextTranslator__TranslatorConfigureLanguageListWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3758,9 +4766,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) void {
+    pub fn setAttribute(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3772,9 +4784,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) bool {
+    pub fn testAttribute(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3784,9 +4800,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn EnsurePolished(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn ensurePolished(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3798,10 +4818,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextTranslator__TranslatorConfigureLanguageListWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: TextTranslator__TranslatorConfigureLanguageListWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3811,9 +4835,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn AutoFillBackground(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn autoFillBackground(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3825,9 +4853,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextTranslator__TranslatorConfigureLanguageListWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextTranslator__TranslatorConfigureLanguageListWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3837,9 +4869,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn BackingStore(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBackingStore {
+    pub fn backingStore(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3849,9 +4885,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn WindowHandle(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWindow {
+    pub fn windowHandle(self: TextTranslator__TranslatorConfigureLanguageListWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3861,9 +4901,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Screen(self: TextTranslator__TranslatorConfigureLanguageListWidget) QScreen {
+    pub fn screen(self: TextTranslator__TranslatorConfigureLanguageListWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3873,12 +4917,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextTranslator__TranslatorConfigureLanguageListWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3886,12 +4934,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3903,13 +4955,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3921,9 +4977,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3935,10 +4995,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3950,9 +5014,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3964,13 +5032,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -3982,9 +5054,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -3994,12 +5070,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextTranslator__TranslatorConfigureLanguageListWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextTranslator__TranslatorConfigureLanguageListWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4011,9 +5091,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4027,9 +5111,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn inputMethodHints(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4041,9 +5129,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextTranslator__TranslatorConfigureLanguageListWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: TextTranslator__TranslatorConfigureLanguageListWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4057,11 +5149,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4077,13 +5173,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4100,12 +5200,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextTranslator__TranslatorConfigureLanguageListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4119,11 +5223,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4139,12 +5247,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4162,12 +5274,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4179,10 +5295,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextTranslator__TranslatorConfigureLanguageListWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextTranslator__TranslatorConfigureLanguageListWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4196,9 +5316,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextTranslator__TranslatorConfigureLanguageListWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4212,10 +5336,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextTranslator__TranslatorConfigureLanguageListWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextTranslator__TranslatorConfigureLanguageListWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4229,9 +5357,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4245,9 +5377,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4261,9 +5397,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4277,25 +5417,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4303,17 +5431,41 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4325,13 +5477,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4343,13 +5499,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: []const u8) void {
+    pub fn setObjectName(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4359,9 +5519,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsWidgetType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isWidgetType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4371,9 +5535,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsWindowType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isWindowType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4383,9 +5551,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn IsQuickItemType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn isQuickItemType(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4395,9 +5567,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SignalsBlocked(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn signalsBlocked(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4409,9 +5585,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextTranslator__TranslatorConfigureLanguageListWidget, b: bool) bool {
+    pub fn blockSignals(self: TextTranslator__TranslatorConfigureLanguageListWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4421,9 +5601,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Thread(self: TextTranslator__TranslatorConfigureLanguageListWidget) QThread {
+    pub fn thread(self: TextTranslator__TranslatorConfigureLanguageListWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4433,12 +5617,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextTranslator__TranslatorConfigureLanguageListWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextTranslator__TranslatorConfigureLanguageListWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4450,9 +5638,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextTranslator__TranslatorConfigureLanguageListWidget, interval: i32) i32 {
+    pub fn startTimer(self: TextTranslator__TranslatorConfigureLanguageListWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4464,9 +5656,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextTranslator__TranslatorConfigureLanguageListWidget, time: i64) i32 {
+    pub fn startTimer2(self: TextTranslator__TranslatorConfigureLanguageListWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4478,9 +5674,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
+    pub fn killTimer(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4492,9 +5692,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
+    pub fn killTimer2(self: TextTranslator__TranslatorConfigureLanguageListWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4506,15 +5710,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4526,10 +5734,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4541,10 +5753,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4552,7 +5768,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4560,13 +5776,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4574,7 +5794,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4582,13 +5802,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4598,18 +5822,22 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextTranslator__TranslatorConfigureLanguageListWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextTranslator__TranslatorConfigureLanguageListWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4617,7 +5845,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4625,13 +5853,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4639,7 +5871,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4647,13 +5879,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4663,9 +5899,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Disconnect3(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn disconnect3(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4677,10 +5917,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextTranslator__TranslatorConfigureLanguageListWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: TextTranslator__TranslatorConfigureLanguageListWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4690,10 +5934,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4703,9 +5951,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DumpObjectTree(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn dumpObjectTree(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4715,9 +5967,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DumpObjectInfo(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn dumpObjectInfo(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4731,11 +5987,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4747,10 +6007,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: TextTranslator__TranslatorConfigureLanguageListWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4762,7 +6026,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextTranslator__TranslatorConfigureLanguageListWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4770,27 +6034,19 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextTranslator__TranslatorConfigureLanguageListWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
-    ///
-    pub fn BindingStorage(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4800,9 +6056,29 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn BindingStorage2(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBindingStorage {
+    pub fn bindingStorage(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
+    ///
+    pub fn bindingStorage2(self: TextTranslator__TranslatorConfigureLanguageListWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4812,9 +6088,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Destroyed(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn destroyed(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4826,9 +6106,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4838,9 +6122,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Parent(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
+    pub fn parent(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4852,10 +6140,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextTranslator__TranslatorConfigureLanguageListWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextTranslator__TranslatorConfigureLanguageListWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4865,9 +6157,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DeleteLater(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn deleteLater(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4881,9 +6177,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextTranslator__TranslatorConfigureLanguageListWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextTranslator__TranslatorConfigureLanguageListWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4897,9 +6197,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextTranslator__TranslatorConfigureLanguageListWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextTranslator__TranslatorConfigureLanguageListWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4907,7 +6211,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4917,13 +6221,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4931,7 +6239,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4941,13 +6249,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4957,7 +6269,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4965,12 +6277,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextTranslator__TranslatorConfigureLanguageListWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextTranslator__TranslatorConfigureLanguageListWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4982,10 +6298,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -4999,11 +6319,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5019,13 +6343,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5038,11 +6366,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextTranslator__TranslatorConfigureLanguageListWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextTranslator__TranslatorConfigureLanguageListWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5054,10 +6386,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn destroyed1(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5069,9 +6405,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5081,9 +6421,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn PaintingActive(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn paintingActive(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5093,9 +6437,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn WidthMM(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn widthMM(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5105,9 +6453,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn HeightMM(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn heightMM(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5117,9 +6469,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn LogicalDpiX(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn logicalDpiX(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5129,9 +6485,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn LogicalDpiY(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn logicalDpiY(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5141,9 +6501,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn PhysicalDpiX(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn physicalDpiX(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5153,9 +6517,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn PhysicalDpiY(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn physicalDpiY(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5165,9 +6533,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DevicePixelRatio(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
+    pub fn devicePixelRatio(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5177,9 +6549,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DevicePixelRatioF(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
+    pub fn devicePixelRatioF(self: TextTranslator__TranslatorConfigureLanguageListWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5189,9 +6565,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn ColorCount(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn colorCount(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5201,17 +6581,25 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Depth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn depth(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5219,13 +6607,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5237,13 +6629,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn DevType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn devType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5255,9 +6647,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn superDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5271,9 +6667,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5287,13 +6687,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, visible: bool) void {
+    pub fn setVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, visible: bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5307,9 +6707,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, visible: bool) void {
+    pub fn superSetVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, visible: bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5323,10 +6727,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, bool) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5337,13 +6745,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn sizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5355,10 +6763,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn superSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5373,9 +6785,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5387,13 +6803,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn MinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn minimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5405,9 +6821,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
+    pub fn superMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget) QSize {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5423,9 +6843,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5439,13 +6863,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5459,9 +6883,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5475,9 +6903,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5489,13 +6921,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn HasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn hasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5507,9 +6939,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn superHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5523,9 +6959,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5537,13 +6977,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn PaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPaintEngine {
+    pub fn paintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5555,9 +6995,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPaintEngine {
+    pub fn superPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPaintEngine {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5571,9 +7015,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5585,16 +7033,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5606,12 +7054,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5625,10 +7077,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5639,16 +7095,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5660,12 +7116,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5679,10 +7139,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5693,16 +7157,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5714,12 +7178,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5733,10 +7201,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5747,16 +7219,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5768,12 +7240,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5787,10 +7263,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5801,16 +7281,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5822,12 +7302,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5841,9 +7325,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5855,16 +7343,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5876,12 +7364,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5895,10 +7387,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QWheelEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5909,16 +7405,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5930,12 +7426,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5949,10 +7449,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -5963,16 +7467,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5984,12 +7488,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6003,10 +7511,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QKeyEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6017,16 +7529,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6038,12 +7550,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6057,10 +7573,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6071,16 +7591,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6092,12 +7612,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6111,9 +7635,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QFocusEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6125,16 +7653,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6146,12 +7674,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6165,9 +7697,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6179,16 +7715,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6200,12 +7736,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6219,9 +7759,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6233,16 +7777,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6254,12 +7798,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6273,9 +7821,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPaintEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6287,16 +7839,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6308,12 +7860,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6327,9 +7883,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6341,16 +7901,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6362,12 +7922,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6381,9 +7945,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QResizeEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6395,16 +7963,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6416,12 +7984,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6435,9 +8007,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QCloseEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6449,16 +8025,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6470,12 +8046,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6489,9 +8069,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6503,16 +8087,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6524,12 +8108,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6543,9 +8131,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QTabletEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6557,16 +8149,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6578,12 +8170,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6597,9 +8193,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QActionEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6611,16 +8211,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6632,12 +8232,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6651,9 +8255,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6665,16 +8273,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6686,12 +8294,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6705,9 +8317,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6719,16 +8335,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6740,12 +8356,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6759,9 +8379,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6773,16 +8397,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6794,12 +8418,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6813,9 +8441,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QDropEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6827,16 +8459,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6848,12 +8480,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6867,9 +8503,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QShowEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6881,16 +8521,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6902,12 +8542,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6921,9 +8565,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QHideEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6941,7 +8589,7 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6949,9 +8597,9 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6969,13 +8617,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6989,9 +8641,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7005,14 +8661,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn changeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7026,10 +8682,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7043,9 +8703,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7059,13 +8723,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
+    pub fn metric(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7079,9 +8743,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
+    pub fn superMetric(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7095,9 +8763,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7111,14 +8783,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
+    pub fn initPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7132,10 +8804,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
+    pub fn superInitPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7149,9 +8825,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPainter) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7165,14 +8845,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7186,10 +8866,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7203,9 +8887,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7217,13 +8905,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPainter {
+    pub fn sharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7235,9 +8923,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPainter {
+    pub fn superSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget) QPainter {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7251,9 +8943,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7267,14 +8963,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7288,10 +8984,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7305,9 +9005,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7321,13 +9025,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7341,9 +9045,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7359,9 +9067,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32) callconv(.c) QVariant) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7375,13 +9087,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, next: bool) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7395,9 +9107,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, next: bool) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7411,9 +9127,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, bool) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7427,17 +9147,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7451,13 +9171,17 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7471,9 +9195,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7485,16 +9213,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7506,12 +9234,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7525,9 +9257,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QTimerEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7539,16 +9275,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7560,12 +9296,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7579,9 +9319,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QChildEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7593,16 +9337,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7614,12 +9358,16 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7633,9 +9381,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QEvent) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7649,14 +9401,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
+    pub fn connectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7670,11 +9422,15 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7687,9 +9443,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7703,14 +9463,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7724,10 +9484,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7741,10 +9505,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7755,13 +9523,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn UpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn updateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7773,10 +9541,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn superUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7789,10 +9561,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7803,13 +9579,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Create(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn create(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7821,10 +9597,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn superCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7837,9 +9617,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7851,13 +9635,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Destroy(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn destroy(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7869,9 +9653,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn superDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7885,10 +9673,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7899,13 +9691,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn focusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7917,10 +9709,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn superFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7933,9 +9729,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7947,13 +9747,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn FocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn focusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7965,9 +9765,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
+    pub fn superFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget) bool {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7981,9 +9785,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7995,13 +9803,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Sender(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
+    pub fn sender(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8013,9 +9821,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperSender(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
+    pub fn superSender(self: TextTranslator__TranslatorConfigureLanguageListWidget) QObject {
         return .{ .ptr = qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8029,9 +9841,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8043,13 +9859,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn senderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8061,9 +9877,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
+    pub fn superSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget) i32 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8077,9 +9897,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8093,14 +9917,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8114,10 +9938,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8131,9 +9959,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8147,14 +9979,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8168,10 +10000,14 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8185,9 +10021,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8203,13 +10043,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8225,9 +10065,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.TextTranslator__TranslatorConfigureLanguageListWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8241,9 +10085,13 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, i32, i32) callconv(.c) f64) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8257,23 +10105,23 @@ pub const TextTranslator__TranslatorConfigureLanguageListWidget = extern struct 
     ///
     /// ` callback: *const fn (self: TextTranslator__TranslatorConfigureLanguageListWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextTranslator__TranslatorConfigureLanguageListWidget, callback: *const fn (TextTranslator__TranslatorConfigureLanguageListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextTranslator_1_1TranslatorConfigureLanguageListWidget.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextTranslator__TranslatorConfigureLanguageListWidget `
     ///
-    pub fn Delete(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
+    pub fn delete(self: TextTranslator__TranslatorConfigureLanguageListWidget) void {
         qtc.TextTranslator__TranslatorConfigureLanguageListWidget_Delete(@ptrCast(self.ptr));
     }
 };

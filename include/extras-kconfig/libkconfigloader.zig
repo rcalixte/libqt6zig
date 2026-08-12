@@ -61,7 +61,11 @@ pub const KConfigLoader = extern struct {
     pub const _is_KCoreConfigSkeleton = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KConfigLoader object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KConfigLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -69,7 +73,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` xml: QIODevice `
     ///
-    pub fn New(configFile: []const u8, xml: anytype) KConfigLoader {
+    pub fn new(configFile: []const u8, xml: anytype) KConfigLoader {
         const configFile_str = qtc.libqt_string{
             .len = configFile.len,
             .data = configFile.ptr,
@@ -78,21 +82,29 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KConfigLoader_new(configFile_str, @ptrCast(xml.ptr)) };
     }
 
-    /// New2 constructs a new KConfigLoader object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KConfigLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` config: KConfigGroup `
+    /// ` _config: KConfigGroup `
     ///
     /// ` xml: QIODevice `
     ///
-    pub fn New2(config: anytype, xml: anytype) KConfigLoader {
-        comptime _ = @TypeOf(config)._is_KConfigGroup;
+    pub fn new2(_config: anytype, xml: anytype) KConfigLoader {
+        comptime _ = @TypeOf(_config)._is_KConfigGroup;
         comptime _ = @TypeOf(xml)._is_QIODevice;
-        return .{ .ptr = qtc.KConfigLoader_new2(@ptrCast(config.ptr), @ptrCast(xml.ptr)) };
+        return .{ .ptr = qtc.KConfigLoader_new2(@ptrCast(_config.ptr), @ptrCast(xml.ptr)) };
     }
 
-    /// New3 constructs a new KConfigLoader object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KConfigLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -100,34 +112,42 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` xml: QIODevice `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(configFile: []const u8, xml: anytype, parent: anytype) KConfigLoader {
+    pub fn new3(configFile: []const u8, xml: anytype, _parent: anytype) KConfigLoader {
         const configFile_str = qtc.libqt_string{
             .len = configFile.len,
             .data = configFile.ptr,
         };
         comptime _ = @TypeOf(xml)._is_QIODevice;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KConfigLoader_new3(configFile_str, @ptrCast(xml.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KConfigLoader_new3(configFile_str, @ptrCast(xml.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new KConfigLoader object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KConfigLoader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` config: KConfigGroup `
+    /// ` _config: KConfigGroup `
     ///
     /// ` xml: QIODevice `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(config: anytype, xml: anytype, parent: anytype) KConfigLoader {
-        comptime _ = @TypeOf(config)._is_KConfigGroup;
+    pub fn new4(_config: anytype, xml: anytype, _parent: anytype) KConfigLoader {
+        comptime _ = @TypeOf(_config)._is_KConfigGroup;
         comptime _ = @TypeOf(xml)._is_QIODevice;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.KConfigLoader_new4(@ptrCast(config.ptr), @ptrCast(xml.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.KConfigLoader_new4(@ptrCast(_config.ptr), @ptrCast(xml.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `findItem` instead
+    ///
+    pub const FindItem = findItem;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#findItem)
     ///
@@ -139,7 +159,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn FindItem(self: KConfigLoader, group: []const u8, key: []const u8) KConfigSkeletonItem {
+    pub fn findItem(self: KConfigLoader, group: []const u8, key: []const u8) KConfigSkeletonItem {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
@@ -151,6 +171,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KConfigLoader_FindItem(@ptrCast(self.ptr), group_str, key_str) };
     }
 
+    /// ### DEPRECATED: Use `findItemByName` instead
+    ///
+    pub const FindItemByName = findItemByName;
+
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#findItemByName)
     ///
     /// ## Parameter(s):
@@ -159,13 +183,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn FindItemByName(self: KConfigLoader, name: []const u8) KConfigSkeletonItem {
+    pub fn findItemByName(self: KConfigLoader, name: []const u8) KConfigSkeletonItem {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KConfigLoader_FindItemByName(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#property)
     ///
@@ -175,13 +203,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn Property(self: KConfigLoader, name: []const u8) QVariant {
+    pub fn property(self: KConfigLoader, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KConfigLoader_Property(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `hasGroup` instead
+    ///
+    pub const HasGroup = hasGroup;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#hasGroup)
     ///
@@ -191,13 +223,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn HasGroup(self: KConfigLoader, group: []const u8) bool {
+    pub fn hasGroup(self: KConfigLoader, group: []const u8) bool {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
         return qtc.KConfigLoader_HasGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `groupList` instead
+    ///
+    pub const GroupList = groupList;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#groupList)
     ///
@@ -207,7 +243,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupList(self: KConfigLoader, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn groupList(self: KConfigLoader, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KConfigLoader_GroupList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -215,15 +251,19 @@ pub const KConfigLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfigLoader.GroupList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KConfigLoader.groupList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfigLoader.GroupList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfigLoader.groupList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `usrSave` instead
+    ///
+    pub const UsrSave = usrSave;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#usrSave)
     ///
@@ -231,9 +271,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn UsrSave(self: KConfigLoader) bool {
+    pub fn usrSave(self: KConfigLoader) bool {
         return qtc.KConfigLoader_UsrSave(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUsrSave` instead
+    ///
+    pub const OnUsrSave = onUsrSave;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#usrSave)
     ///
@@ -245,13 +289,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnUsrSave(self: KConfigLoader, callback: *const fn () callconv(.c) bool) void {
+    pub fn onUsrSave(self: KConfigLoader, callback: *const fn () callconv(.c) bool) void {
         qtc.KConfigLoader_OnUsrSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUsrSave` instead
+    /// ### DEPRECATED: Use `superUsrSave` instead
     ///
-    pub const QBaseUsrSave = SuperUsrSave;
+    pub const SuperUsrSave = superUsrSave;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#usrSave)
     ///
@@ -261,9 +305,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperUsrSave(self: KConfigLoader) bool {
+    pub fn superUsrSave(self: KConfigLoader) bool {
         return qtc.KConfigLoader_SuperUsrSave(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -275,14 +323,18 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addItemColor` instead
+    ///
+    pub const AddItemColor = addItemColor;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -296,7 +348,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QColor `
     ///
-    pub fn AddItemColor(self: KConfigLoader, name: []const u8, reference: anytype) KConfigSkeleton__ItemColor {
+    pub fn addItemColor(self: KConfigLoader, name: []const u8, reference: anytype) KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -304,6 +356,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QColor;
         return .{ .ptr = qtc.KConfigSkeleton_AddItemColor(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemFont` instead
+    ///
+    pub const AddItemFont = addItemFont;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -317,7 +373,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QFont `
     ///
-    pub fn AddItemFont(self: KConfigLoader, name: []const u8, reference: anytype) KConfigSkeleton__ItemFont {
+    pub fn addItemFont(self: KConfigLoader, name: []const u8, reference: anytype) KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -325,6 +381,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QFont;
         return .{ .ptr = qtc.KConfigSkeleton_AddItemFont(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -338,15 +398,19 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -362,15 +426,19 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addItemColor3` instead
+    ///
+    pub const AddItemColor3 = addItemColor3;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -386,7 +454,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QColor `
     ///
-    pub fn AddItemColor3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KConfigSkeleton__ItemColor {
+    pub fn addItemColor3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -395,6 +463,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QColor;
         return .{ .ptr = qtc.KConfigSkeleton_AddItemColor3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemColor4` instead
+    ///
+    pub const AddItemColor4 = addItemColor4;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -412,7 +484,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemColor4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KConfigSkeleton__ItemColor {
+    pub fn addItemColor4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KConfigSkeleton__ItemColor {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -426,6 +498,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KConfigSkeleton_AddItemColor4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemFont3` instead
+    ///
+    pub const AddItemFont3 = addItemFont3;
+
     /// Inherited from KConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kconfigskeleton.html#addItemFont)
@@ -440,7 +516,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QFont `
     ///
-    pub fn AddItemFont3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KConfigSkeleton__ItemFont {
+    pub fn addItemFont3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -449,6 +525,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QFont;
         return .{ .ptr = qtc.KConfigSkeleton_AddItemFont3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemFont4` instead
+    ///
+    pub const AddItemFont4 = addItemFont4;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -466,7 +546,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemFont4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KConfigSkeleton__ItemFont {
+    pub fn addItemFont4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KConfigSkeleton__ItemFont {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -480,6 +560,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KConfigSkeleton_AddItemFont4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#load)
@@ -488,9 +572,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Load(self: KConfigLoader) void {
+    pub fn load(self: KConfigLoader) void {
         qtc.KCoreConfigSkeleton_Load(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -500,9 +588,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Read(self: KConfigLoader) void {
+    pub fn read(self: KConfigLoader) void {
         qtc.KCoreConfigSkeleton_Read(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDefaults` instead
+    ///
+    pub const IsDefaults = isDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -512,9 +604,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn IsDefaults(self: KConfigLoader) bool {
+    pub fn isDefaults(self: KConfigLoader) bool {
         return qtc.KCoreConfigSkeleton_IsDefaults(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSaveNeeded` instead
+    ///
+    pub const IsSaveNeeded = isSaveNeeded;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -524,9 +620,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn IsSaveNeeded(self: KConfigLoader) bool {
+    pub fn isSaveNeeded(self: KConfigLoader) bool {
         return qtc.KCoreConfigSkeleton_IsSaveNeeded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentGroup` instead
+    ///
+    pub const SetCurrentGroup = setCurrentGroup;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -538,13 +638,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SetCurrentGroup(self: KConfigLoader, group: []const u8) void {
+    pub fn setCurrentGroup(self: KConfigLoader, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
         qtc.KCoreConfigSkeleton_SetCurrentGroup(@ptrCast(self.ptr), group_str);
     }
+
+    /// ### DEPRECATED: Use `currentGroup` instead
+    ///
+    pub const CurrentGroup = currentGroup;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -556,13 +660,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentGroup(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentGroup(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KCoreConfigSkeleton_CurrentGroup(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.CurrentGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.currentGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -574,10 +682,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` item: KConfigSkeletonItem `
     ///
-    pub fn AddItem(self: KConfigLoader, item: anytype) void {
+    pub fn addItem(self: KConfigLoader, item: anytype) void {
         comptime _ = @TypeOf(item)._is_KConfigSkeletonItem;
         qtc.KCoreConfigSkeleton_AddItem(@ptrCast(self.ptr), @ptrCast(item.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItemString` instead
+    ///
+    pub const AddItemString = addItemString;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -591,7 +703,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: []const u8 `
     ///
-    pub fn AddItemString(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemString {
+    pub fn addItemString(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -602,6 +714,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemString(@ptrCast(self.ptr), name_str, reference_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemPassword` instead
+    ///
+    pub const AddItemPassword = addItemPassword;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -615,7 +731,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: []const u8 `
     ///
-    pub fn AddItemPassword(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemPassword {
+    pub fn addItemPassword(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -626,6 +742,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPassword(@ptrCast(self.ptr), name_str, reference_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemPath` instead
+    ///
+    pub const AddItemPath = addItemPath;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -639,7 +759,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: []const u8 `
     ///
-    pub fn AddItemPath(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemPath {
+    pub fn addItemPath(self: KConfigLoader, name: []const u8, reference: []const u8) KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -650,6 +770,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPath(@ptrCast(self.ptr), name_str, reference_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemProperty` instead
+    ///
+    pub const AddItemProperty = addItemProperty;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -663,7 +787,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QVariant `
     ///
-    pub fn AddItemProperty(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemProperty {
+    pub fn addItemProperty(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -671,6 +795,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QVariant;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemProperty(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemBool` instead
+    ///
+    pub const AddItemBool = addItemBool;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -684,13 +812,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *bool `
     ///
-    pub fn AddItemBool(self: KConfigLoader, name: []const u8, reference: *bool) KCoreConfigSkeleton__ItemBool {
+    pub fn addItemBool(self: KConfigLoader, name: []const u8, reference: *bool) KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemBool(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemInt` instead
+    ///
+    pub const AddItemInt = addItemInt;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -704,13 +836,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *i32 `
     ///
-    pub fn AddItemInt(self: KConfigLoader, name: []const u8, reference: *i32) KCoreConfigSkeleton__ItemInt {
+    pub fn addItemInt(self: KConfigLoader, name: []const u8, reference: *i32) KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemInt(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemUInt` instead
+    ///
+    pub const AddItemUInt = addItemUInt;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -724,13 +860,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *u32 `
     ///
-    pub fn AddItemUInt(self: KConfigLoader, name: []const u8, reference: *u32) KCoreConfigSkeleton__ItemUInt {
+    pub fn addItemUInt(self: KConfigLoader, name: []const u8, reference: *u32) KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemUInt(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemLongLong` instead
+    ///
+    pub const AddItemLongLong = addItemLongLong;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -744,13 +884,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *i64 `
     ///
-    pub fn AddItemLongLong(self: KConfigLoader, name: []const u8, reference: *i64) KCoreConfigSkeleton__ItemLongLong {
+    pub fn addItemLongLong(self: KConfigLoader, name: []const u8, reference: *i64) KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemLongLong(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemULongLong` instead
+    ///
+    pub const AddItemULongLong = addItemULongLong;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -764,13 +908,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *u64 `
     ///
-    pub fn AddItemULongLong(self: KConfigLoader, name: []const u8, reference: *u64) KCoreConfigSkeleton__ItemULongLong {
+    pub fn addItemULongLong(self: KConfigLoader, name: []const u8, reference: *u64) KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemULongLong(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemDouble` instead
+    ///
+    pub const AddItemDouble = addItemDouble;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -784,13 +932,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: *f64 `
     ///
-    pub fn AddItemDouble(self: KConfigLoader, name: []const u8, reference: *f64) KCoreConfigSkeleton__ItemDouble {
+    pub fn addItemDouble(self: KConfigLoader, name: []const u8, reference: *f64) KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDouble(@ptrCast(self.ptr), name_str, @ptrCast(reference)) };
     }
+
+    /// ### DEPRECATED: Use `addItemRect` instead
+    ///
+    pub const AddItemRect = addItemRect;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -804,7 +956,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QRect `
     ///
-    pub fn AddItemRect(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemRect {
+    pub fn addItemRect(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -812,6 +964,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QRect;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRect(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemRectF` instead
+    ///
+    pub const AddItemRectF = addItemRectF;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -825,7 +981,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QRectF `
     ///
-    pub fn AddItemRectF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemRectF {
+    pub fn addItemRectF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -833,6 +989,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QRectF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRectF(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemPoint` instead
+    ///
+    pub const AddItemPoint = addItemPoint;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -846,7 +1006,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QPoint `
     ///
-    pub fn AddItemPoint(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemPoint {
+    pub fn addItemPoint(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -854,6 +1014,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QPoint;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPoint(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemPointF` instead
+    ///
+    pub const AddItemPointF = addItemPointF;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -867,7 +1031,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QPointF `
     ///
-    pub fn AddItemPointF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemPointF {
+    pub fn addItemPointF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -875,6 +1039,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QPointF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPointF(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemSize` instead
+    ///
+    pub const AddItemSize = addItemSize;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -888,7 +1056,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QSize `
     ///
-    pub fn AddItemSize(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemSize {
+    pub fn addItemSize(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -896,6 +1064,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QSize;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSize(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemSizeF` instead
+    ///
+    pub const AddItemSizeF = addItemSizeF;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -909,7 +1081,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QSizeF `
     ///
-    pub fn AddItemSizeF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemSizeF {
+    pub fn addItemSizeF(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -917,6 +1089,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QSizeF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSizeF(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemDateTime` instead
+    ///
+    pub const AddItemDateTime = addItemDateTime;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -930,7 +1106,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: QDateTime `
     ///
-    pub fn AddItemDateTime(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemDateTime {
+    pub fn addItemDateTime(self: KConfigLoader, name: []const u8, reference: anytype) KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -938,6 +1114,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(reference)._is_QDateTime;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDateTime(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemStringList` instead
+    ///
+    pub const AddItemStringList = addItemStringList;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -953,17 +1133,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: []const []const u8 `
     ///
-    pub fn AddItemStringList(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8) KCoreConfigSkeleton__ItemStringList {
+    pub fn addItemStringList(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8) KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.addItemStringList: Memory allocation failed");
         defer allocator.free(reference_arr);
-        for (reference, 0..reference.len) |item, i|
+        for (reference, 0..reference.len) |str_item, i|
             reference_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const reference_list = qtc.libqt_list{
             .len = reference.len,
@@ -971,6 +1151,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemStringList(@ptrCast(self.ptr), name_str, reference_list) };
     }
+
+    /// ### DEPRECATED: Use `addItemIntList` instead
+    ///
+    pub const AddItemIntList = addItemIntList;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -984,7 +1168,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` reference: []i32 `
     ///
-    pub fn AddItemIntList(self: KConfigLoader, name: []const u8, reference: []i32) KCoreConfigSkeleton__ItemIntList {
+    pub fn addItemIntList(self: KConfigLoader, name: []const u8, reference: []i32) KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -996,17 +1180,9 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemIntList(@ptrCast(self.ptr), name_str, reference_list) };
     }
 
-    /// Inherited from KCoreConfigSkeleton
+    /// ### DEPRECATED: Use `config` instead
     ///
-    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigLoader `
-    ///
-    pub fn Config(self: KConfigLoader) KConfig {
-        return .{ .ptr = qtc.KCoreConfigSkeleton_Config(@ptrCast(self.ptr)) };
-    }
+    pub const Config = config;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1016,9 +1192,29 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Config2(self: KConfigLoader) KConfig {
+    pub fn config(self: KConfigLoader) KConfig {
+        return .{ .ptr = qtc.KCoreConfigSkeleton_Config(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `config2` instead
+    ///
+    pub const Config2 = config2;
+
+    /// Inherited from KCoreConfigSkeleton
+    ///
+    /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#config)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KConfigLoader `
+    ///
+    pub fn config2(self: KConfigLoader) KConfig {
         return .{ .ptr = qtc.KCoreConfigSkeleton_Config2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1030,15 +1226,19 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: KConfigLoader, allocator: std.mem.Allocator) []KConfigSkeletonItem {
+    pub fn items(self: KConfigLoader, allocator: std.mem.Allocator) []KConfigSkeletonItem {
         const _arr: qtc.libqt_list = qtc.KCoreConfigSkeleton_Items(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KConfigSkeletonItem, _arr.len) catch @panic("KConfigLoader.Items: Memory allocation failed");
-        const _data: [*]QtC.KConfigSkeletonItem = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KConfigSkeletonItem, _arr.len) catch @panic("KConfigLoader.items: Memory allocation failed");
+        const _data_val: [*]QtC.KConfigSkeletonItem = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1050,13 +1250,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn RemoveItem(self: KConfigLoader, name: []const u8) void {
+    pub fn removeItem(self: KConfigLoader, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.KCoreConfigSkeleton_RemoveItem(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `clearItems` instead
+    ///
+    pub const ClearItems = clearItems;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1066,9 +1270,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn ClearItems(self: KConfigLoader) void {
+    pub fn clearItems(self: KConfigLoader) void {
         qtc.KCoreConfigSkeleton_ClearItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isImmutable` instead
+    ///
+    pub const IsImmutable = isImmutable;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1080,13 +1288,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IsImmutable(self: KConfigLoader, name: []const u8) bool {
+    pub fn isImmutable(self: KConfigLoader, name: []const u8) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.KCoreConfigSkeleton_IsImmutable(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1096,9 +1308,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Save(self: KConfigLoader) bool {
+    pub fn save(self: KConfigLoader) bool {
         return qtc.KCoreConfigSkeleton_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `configChanged` instead
+    ///
+    pub const ConfigChanged = configChanged;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1108,9 +1324,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn ConfigChanged(self: KConfigLoader) void {
+    pub fn configChanged(self: KConfigLoader) void {
         qtc.KCoreConfigSkeleton_ConfigChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onConfigChanged` instead
+    ///
+    pub const OnConfigChanged = onConfigChanged;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1122,9 +1342,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader) callconv(.c) void `
     ///
-    pub fn OnConfigChanged(self: KConfigLoader, callback: *const fn (KConfigLoader) callconv(.c) void) void {
+    pub fn onConfigChanged(self: KConfigLoader, callback: *const fn (KConfigLoader) callconv(.c) void) void {
         qtc.KCoreConfigSkeleton_Connect_ConfigChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1138,7 +1362,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AddItem2(self: KConfigLoader, item: anytype, name: []const u8) void {
+    pub fn addItem2(self: KConfigLoader, item: anytype, name: []const u8) void {
         comptime _ = @TypeOf(item)._is_KConfigSkeletonItem;
         const name_str = qtc.libqt_string{
             .len = name.len,
@@ -1146,6 +1370,10 @@ pub const KConfigLoader = extern struct {
         };
         qtc.KCoreConfigSkeleton_AddItem2(@ptrCast(self.ptr), @ptrCast(item.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `addItemString3` instead
+    ///
+    pub const AddItemString3 = addItemString3;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1161,7 +1389,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn AddItemString3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemString {
+    pub fn addItemString3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1176,6 +1404,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemString3(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemString4` instead
+    ///
+    pub const AddItemString4 = addItemString4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1193,7 +1425,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemString4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemString {
+    pub fn addItemString4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemString {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1213,6 +1445,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemString4(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str, key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemPassword3` instead
+    ///
+    pub const AddItemPassword3 = addItemPassword3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPassword)
@@ -1227,7 +1463,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn AddItemPassword3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemPassword {
+    pub fn addItemPassword3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1242,6 +1478,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPassword3(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemPassword4` instead
+    ///
+    pub const AddItemPassword4 = addItemPassword4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1259,7 +1499,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemPassword4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemPassword {
+    pub fn addItemPassword4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemPassword {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1279,6 +1519,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPassword4(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str, key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemPath3` instead
+    ///
+    pub const AddItemPath3 = addItemPath3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPath)
@@ -1293,7 +1537,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: []const u8 `
     ///
-    pub fn AddItemPath3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemPath {
+    pub fn addItemPath3(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8) KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1308,6 +1552,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPath3(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemPath4` instead
+    ///
+    pub const AddItemPath4 = addItemPath4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1325,7 +1573,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemPath4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemPath {
+    pub fn addItemPath4(self: KConfigLoader, name: []const u8, reference: []const u8, defaultValue: []const u8, key: []const u8) KCoreConfigSkeleton__ItemPath {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1345,6 +1593,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPath4(@ptrCast(self.ptr), name_str, reference_str, defaultValue_str, key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemProperty3` instead
+    ///
+    pub const AddItemProperty3 = addItemProperty3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemProperty)
@@ -1359,7 +1611,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QVariant `
     ///
-    pub fn AddItemProperty3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemProperty {
+    pub fn addItemProperty3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1368,6 +1620,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QVariant;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemProperty3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemProperty4` instead
+    ///
+    pub const AddItemProperty4 = addItemProperty4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1385,7 +1641,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemProperty4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemProperty {
+    pub fn addItemProperty4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemProperty {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1399,6 +1655,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemProperty4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemBool3` instead
+    ///
+    pub const AddItemBool3 = addItemBool3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemBool)
@@ -1413,13 +1673,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: bool `
     ///
-    pub fn AddItemBool3(self: KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool) KCoreConfigSkeleton__ItemBool {
+    pub fn addItemBool3(self: KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool) KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemBool3(@ptrCast(self.ptr), name_str, @ptrCast(reference), defaultValue) };
     }
+
+    /// ### DEPRECATED: Use `addItemBool4` instead
+    ///
+    pub const AddItemBool4 = addItemBool4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1437,7 +1701,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemBool4(self: KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8) KCoreConfigSkeleton__ItemBool {
+    pub fn addItemBool4(self: KConfigLoader, name: []const u8, reference: *bool, defaultValue: bool, key: []const u8) KCoreConfigSkeleton__ItemBool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1449,6 +1713,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemBool4(@ptrCast(self.ptr), name_str, @ptrCast(reference), defaultValue, key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemInt3` instead
+    ///
+    pub const AddItemInt3 = addItemInt3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemInt)
@@ -1463,13 +1731,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: i32 `
     ///
-    pub fn AddItemInt3(self: KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32) KCoreConfigSkeleton__ItemInt {
+    pub fn addItemInt3(self: KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32) KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemInt3(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue)) };
     }
+
+    /// ### DEPRECATED: Use `addItemInt4` instead
+    ///
+    pub const AddItemInt4 = addItemInt4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1487,7 +1759,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemInt4(self: KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8) KCoreConfigSkeleton__ItemInt {
+    pub fn addItemInt4(self: KConfigLoader, name: []const u8, reference: *i32, defaultValue: i32, key: []const u8) KCoreConfigSkeleton__ItemInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1499,6 +1771,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemInt4(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemUInt3` instead
+    ///
+    pub const AddItemUInt3 = addItemUInt3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemUInt)
@@ -1513,13 +1789,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: u32 `
     ///
-    pub fn AddItemUInt3(self: KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32) KCoreConfigSkeleton__ItemUInt {
+    pub fn addItemUInt3(self: KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32) KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemUInt3(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue)) };
     }
+
+    /// ### DEPRECATED: Use `addItemUInt4` instead
+    ///
+    pub const AddItemUInt4 = addItemUInt4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1537,7 +1817,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemUInt4(self: KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8) KCoreConfigSkeleton__ItemUInt {
+    pub fn addItemUInt4(self: KConfigLoader, name: []const u8, reference: *u32, defaultValue: u32, key: []const u8) KCoreConfigSkeleton__ItemUInt {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1549,6 +1829,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemUInt4(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemLongLong3` instead
+    ///
+    pub const AddItemLongLong3 = addItemLongLong3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemLongLong)
@@ -1563,13 +1847,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: i64 `
     ///
-    pub fn AddItemLongLong3(self: KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64) KCoreConfigSkeleton__ItemLongLong {
+    pub fn addItemLongLong3(self: KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64) KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemLongLong3(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue)) };
     }
+
+    /// ### DEPRECATED: Use `addItemLongLong4` instead
+    ///
+    pub const AddItemLongLong4 = addItemLongLong4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1587,7 +1875,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemLongLong4(self: KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8) KCoreConfigSkeleton__ItemLongLong {
+    pub fn addItemLongLong4(self: KConfigLoader, name: []const u8, reference: *i64, defaultValue: i64, key: []const u8) KCoreConfigSkeleton__ItemLongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1599,6 +1887,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemLongLong4(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemULongLong3` instead
+    ///
+    pub const AddItemULongLong3 = addItemULongLong3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemULongLong)
@@ -1613,13 +1905,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: u64 `
     ///
-    pub fn AddItemULongLong3(self: KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64) KCoreConfigSkeleton__ItemULongLong {
+    pub fn addItemULongLong3(self: KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64) KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemULongLong3(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue)) };
     }
+
+    /// ### DEPRECATED: Use `addItemULongLong4` instead
+    ///
+    pub const AddItemULongLong4 = addItemULongLong4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1637,7 +1933,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemULongLong4(self: KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8) KCoreConfigSkeleton__ItemULongLong {
+    pub fn addItemULongLong4(self: KConfigLoader, name: []const u8, reference: *u64, defaultValue: u64, key: []const u8) KCoreConfigSkeleton__ItemULongLong {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1649,6 +1945,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemULongLong4(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemDouble3` instead
+    ///
+    pub const AddItemDouble3 = addItemDouble3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDouble)
@@ -1663,13 +1963,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: f64 `
     ///
-    pub fn AddItemDouble3(self: KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64) KCoreConfigSkeleton__ItemDouble {
+    pub fn addItemDouble3(self: KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64) KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDouble3(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue)) };
     }
+
+    /// ### DEPRECATED: Use `addItemDouble4` instead
+    ///
+    pub const AddItemDouble4 = addItemDouble4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1687,7 +1991,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemDouble4(self: KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8) KCoreConfigSkeleton__ItemDouble {
+    pub fn addItemDouble4(self: KConfigLoader, name: []const u8, reference: *f64, defaultValue: f64, key: []const u8) KCoreConfigSkeleton__ItemDouble {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1699,6 +2003,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDouble4(@ptrCast(self.ptr), name_str, @ptrCast(reference), @bitCast(defaultValue), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemRect3` instead
+    ///
+    pub const AddItemRect3 = addItemRect3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRect)
@@ -1713,7 +2021,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QRect `
     ///
-    pub fn AddItemRect3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemRect {
+    pub fn addItemRect3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1722,6 +2030,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QRect;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRect3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemRect4` instead
+    ///
+    pub const AddItemRect4 = addItemRect4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1739,7 +2051,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemRect4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemRect {
+    pub fn addItemRect4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemRect {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1753,6 +2065,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRect4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemRectF3` instead
+    ///
+    pub const AddItemRectF3 = addItemRectF3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemRectF)
@@ -1767,7 +2083,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QRectF `
     ///
-    pub fn AddItemRectF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemRectF {
+    pub fn addItemRectF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1776,6 +2092,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QRectF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRectF3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemRectF4` instead
+    ///
+    pub const AddItemRectF4 = addItemRectF4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1793,7 +2113,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemRectF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemRectF {
+    pub fn addItemRectF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemRectF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1807,6 +2127,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemRectF4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemPoint3` instead
+    ///
+    pub const AddItemPoint3 = addItemPoint3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPoint)
@@ -1821,7 +2145,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QPoint `
     ///
-    pub fn AddItemPoint3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemPoint {
+    pub fn addItemPoint3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1830,6 +2154,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QPoint;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPoint3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemPoint4` instead
+    ///
+    pub const AddItemPoint4 = addItemPoint4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1847,7 +2175,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemPoint4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemPoint {
+    pub fn addItemPoint4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemPoint {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1861,6 +2189,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPoint4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemPointF3` instead
+    ///
+    pub const AddItemPointF3 = addItemPointF3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemPointF)
@@ -1875,7 +2207,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QPointF `
     ///
-    pub fn AddItemPointF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemPointF {
+    pub fn addItemPointF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1884,6 +2216,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QPointF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPointF3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemPointF4` instead
+    ///
+    pub const AddItemPointF4 = addItemPointF4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1901,7 +2237,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemPointF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemPointF {
+    pub fn addItemPointF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemPointF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1915,6 +2251,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemPointF4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemSize3` instead
+    ///
+    pub const AddItemSize3 = addItemSize3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSize)
@@ -1929,7 +2269,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QSize `
     ///
-    pub fn AddItemSize3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemSize {
+    pub fn addItemSize3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1938,6 +2278,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QSize;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSize3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemSize4` instead
+    ///
+    pub const AddItemSize4 = addItemSize4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -1955,7 +2299,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemSize4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemSize {
+    pub fn addItemSize4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemSize {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1969,6 +2313,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSize4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemSizeF3` instead
+    ///
+    pub const AddItemSizeF3 = addItemSizeF3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemSizeF)
@@ -1983,7 +2331,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QSizeF `
     ///
-    pub fn AddItemSizeF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemSizeF {
+    pub fn addItemSizeF3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -1992,6 +2340,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QSizeF;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSizeF3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemSizeF4` instead
+    ///
+    pub const AddItemSizeF4 = addItemSizeF4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -2009,7 +2361,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemSizeF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemSizeF {
+    pub fn addItemSizeF4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemSizeF {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2023,6 +2375,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemSizeF4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemDateTime3` instead
+    ///
+    pub const AddItemDateTime3 = addItemDateTime3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemDateTime)
@@ -2037,7 +2393,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: QDateTime `
     ///
-    pub fn AddItemDateTime3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemDateTime {
+    pub fn addItemDateTime3(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype) KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2046,6 +2402,10 @@ pub const KConfigLoader = extern struct {
         comptime _ = @TypeOf(defaultValue)._is_QDateTime;
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDateTime3(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addItemDateTime4` instead
+    ///
+    pub const AddItemDateTime4 = addItemDateTime4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -2063,7 +2423,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemDateTime4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemDateTime {
+    pub fn addItemDateTime4(self: KConfigLoader, name: []const u8, reference: anytype, defaultValue: anytype, key: []const u8) KCoreConfigSkeleton__ItemDateTime {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2077,6 +2437,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemDateTime4(@ptrCast(self.ptr), name_str, @ptrCast(reference.ptr), @ptrCast(defaultValue.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `addItemStringList3` instead
+    ///
+    pub const AddItemStringList3 = addItemStringList3;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemStringList)
@@ -2093,28 +2457,28 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: []const []const u8 `
     ///
-    pub fn AddItemStringList3(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8) KCoreConfigSkeleton__ItemStringList {
+    pub fn addItemStringList3(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8) KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList3: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.addItemStringList3: Memory allocation failed");
         defer allocator.free(reference_arr);
-        for (reference, 0..reference.len) |item, i|
+        for (reference, 0..reference.len) |str_item, i|
             reference_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const reference_list = qtc.libqt_list{
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.AddItemStringList3: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.addItemStringList3: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
-        for (defaultValue, 0..defaultValue.len) |item, i|
+        for (defaultValue, 0..defaultValue.len) |str_item, i|
             defaultValue_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const defaultValue_list = qtc.libqt_list{
             .len = defaultValue.len,
@@ -2122,6 +2486,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemStringList3(@ptrCast(self.ptr), name_str, reference_list, defaultValue_list) };
     }
+
+    /// ### DEPRECATED: Use `addItemStringList4` instead
+    ///
+    pub const AddItemStringList4 = addItemStringList4;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -2141,28 +2509,28 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemStringList4(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, key: []const u8) KCoreConfigSkeleton__ItemStringList {
+    pub fn addItemStringList4(self: KConfigLoader, allocator: std.mem.Allocator, name: []const u8, reference: []const []const u8, defaultValue: []const []const u8, key: []const u8) KCoreConfigSkeleton__ItemStringList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
-        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.AddItemStringList4: Memory allocation failed");
+        const reference_arr = allocator.alloc(qtc.libqt_string, reference.len) catch @panic("KConfigLoader.addItemStringList4: Memory allocation failed");
         defer allocator.free(reference_arr);
-        for (reference, 0..reference.len) |item, i|
+        for (reference, 0..reference.len) |str_item, i|
             reference_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const reference_list = qtc.libqt_list{
             .len = reference.len,
             .data = reference_arr.ptr,
         };
-        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.AddItemStringList4: Memory allocation failed");
+        const defaultValue_arr = allocator.alloc(qtc.libqt_string, defaultValue.len) catch @panic("KConfigLoader.addItemStringList4: Memory allocation failed");
         defer allocator.free(defaultValue_arr);
-        for (defaultValue, 0..defaultValue.len) |item, i|
+        for (defaultValue, 0..defaultValue.len) |str_item, i|
             defaultValue_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const defaultValue_list = qtc.libqt_list{
             .len = defaultValue.len,
@@ -2174,6 +2542,10 @@ pub const KConfigLoader = extern struct {
         };
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemStringList4(@ptrCast(self.ptr), name_str, reference_list, defaultValue_list, key_str) };
     }
+
+    /// ### DEPRECATED: Use `addItemIntList3` instead
+    ///
+    pub const AddItemIntList3 = addItemIntList3;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -2189,7 +2561,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` defaultValue: []i32 `
     ///
-    pub fn AddItemIntList3(self: KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32) KCoreConfigSkeleton__ItemIntList {
+    pub fn addItemIntList3(self: KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32) KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2205,6 +2577,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemIntList3(@ptrCast(self.ptr), name_str, reference_list, defaultValue_list) };
     }
 
+    /// ### DEPRECATED: Use `addItemIntList4` instead
+    ///
+    pub const AddItemIntList4 = addItemIntList4;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#addItemIntList)
@@ -2221,7 +2597,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn AddItemIntList4(self: KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8) KCoreConfigSkeleton__ItemIntList {
+    pub fn addItemIntList4(self: KConfigLoader, name: []const u8, reference: []i32, defaultValue: []i32, key: []const u8) KCoreConfigSkeleton__ItemIntList {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2241,6 +2617,10 @@ pub const KConfigLoader = extern struct {
         return .{ .ptr = qtc.KCoreConfigSkeleton_AddItemIntList4(@ptrCast(self.ptr), name_str, reference_list, defaultValue_list, key_str) };
     }
 
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#objectName)
@@ -2251,13 +2631,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KConfigLoader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KConfigLoader.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2269,13 +2653,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KConfigLoader, name: []const u8) void {
+    pub fn setObjectName(self: KConfigLoader, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2285,9 +2673,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn IsWidgetType(self: KConfigLoader) bool {
+    pub fn isWidgetType(self: KConfigLoader) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2297,9 +2689,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn IsWindowType(self: KConfigLoader) bool {
+    pub fn isWindowType(self: KConfigLoader) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2309,9 +2705,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn IsQuickItemType(self: KConfigLoader) bool {
+    pub fn isQuickItemType(self: KConfigLoader) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2321,9 +2721,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SignalsBlocked(self: KConfigLoader) bool {
+    pub fn signalsBlocked(self: KConfigLoader) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2335,9 +2739,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KConfigLoader, b: bool) bool {
+    pub fn blockSignals(self: KConfigLoader, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2347,9 +2755,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Thread(self: KConfigLoader) QThread {
+    pub fn thread(self: KConfigLoader) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2359,12 +2771,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KConfigLoader, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KConfigLoader, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2376,9 +2792,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KConfigLoader, interval: i32) i32 {
+    pub fn startTimer(self: KConfigLoader, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2390,9 +2810,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KConfigLoader, time: i64) i32 {
+    pub fn startTimer2(self: KConfigLoader, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2404,9 +2828,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KConfigLoader, id: i32) void {
+    pub fn killTimer(self: KConfigLoader, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2418,9 +2846,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KConfigLoader, id: i32) void {
+    pub fn killTimer2(self: KConfigLoader, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2432,15 +2864,19 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KConfigLoader, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KConfigLoader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KConfigLoader.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KConfigLoader.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2450,12 +2886,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KConfigLoader, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KConfigLoader, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2467,10 +2907,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KConfigLoader, filterObj: anytype) void {
+    pub fn installEventFilter(self: KConfigLoader, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2482,10 +2926,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KConfigLoader, obj: anytype) void {
+    pub fn removeEventFilter(self: KConfigLoader, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2493,7 +2941,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2501,13 +2949,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2515,7 +2967,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2523,13 +2975,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2539,18 +2995,22 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KConfigLoader, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KConfigLoader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2558,7 +3018,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2566,13 +3026,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2580,7 +3044,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2588,13 +3052,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2604,9 +3072,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Disconnect3(self: KConfigLoader) bool {
+    pub fn disconnect3(self: KConfigLoader) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2618,10 +3090,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KConfigLoader, receiver: anytype) bool {
+    pub fn disconnect4(self: KConfigLoader, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2631,10 +3107,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2644,9 +3124,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn DumpObjectTree(self: KConfigLoader) void {
+    pub fn dumpObjectTree(self: KConfigLoader) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2656,9 +3140,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn DumpObjectInfo(self: KConfigLoader) void {
+    pub fn dumpObjectInfo(self: KConfigLoader) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2672,11 +3160,15 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KConfigLoader, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KConfigLoader, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2688,7 +3180,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KConfigLoader, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KConfigLoader, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2696,27 +3188,19 @@ pub const KConfigLoader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KConfigLoader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KConfigLoader.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KConfigLoader.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KConfigLoader.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KConfigLoader `
-    ///
-    pub fn BindingStorage(self: KConfigLoader) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2726,9 +3210,29 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn BindingStorage2(self: KConfigLoader) QBindingStorage {
+    pub fn bindingStorage(self: KConfigLoader) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KConfigLoader `
+    ///
+    pub fn bindingStorage2(self: KConfigLoader) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2738,9 +3242,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Destroyed(self: KConfigLoader) void {
+    pub fn destroyed(self: KConfigLoader) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2752,9 +3260,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KConfigLoader, callback: *const fn (KConfigLoader) callconv(.c) void) void {
+    pub fn onDestroyed(self: KConfigLoader, callback: *const fn (KConfigLoader) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2764,9 +3276,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Parent(self: KConfigLoader) QObject {
+    pub fn parent(self: KConfigLoader) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2778,10 +3294,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KConfigLoader, classname: [:0]const u8) bool {
+    pub fn inherits(self: KConfigLoader, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2791,9 +3311,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn DeleteLater(self: KConfigLoader) void {
+    pub fn deleteLater(self: KConfigLoader) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2807,9 +3331,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KConfigLoader, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KConfigLoader, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2823,9 +3351,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KConfigLoader, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KConfigLoader, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2833,7 +3365,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2843,13 +3375,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2857,7 +3393,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2867,13 +3403,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2883,7 +3423,7 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2891,12 +3431,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KConfigLoader, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KConfigLoader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2908,10 +3452,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KConfigLoader, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KConfigLoader, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2925,11 +3473,15 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KConfigLoader, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KConfigLoader, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2945,13 +3497,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KConfigLoader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KConfigLoader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2964,11 +3520,15 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KConfigLoader, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KConfigLoader, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2980,10 +3540,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KConfigLoader, param1: anytype) void {
+    pub fn destroyed1(self: KConfigLoader, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2995,9 +3559,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KConfigLoader, callback: *const fn (KConfigLoader, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KConfigLoader, callback: *const fn (KConfigLoader, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3009,13 +3577,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn MetaObject(self: KConfigLoader) QMetaObject {
+    pub fn metaObject(self: KConfigLoader) QMetaObject {
         return .{ .ptr = qtc.KConfigLoader_MetaObject(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3027,9 +3595,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperMetaObject(self: KConfigLoader) QMetaObject {
+    pub fn superMetaObject(self: KConfigLoader) QMetaObject {
         return .{ .ptr = qtc.KConfigLoader_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3043,9 +3615,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KConfigLoader, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KConfigLoader, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KConfigLoader_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3059,14 +3635,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KConfigLoader, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KConfigLoader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KConfigLoader_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3080,10 +3656,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KConfigLoader, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KConfigLoader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KConfigLoader_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3097,9 +3677,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KConfigLoader_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3117,13 +3701,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KConfigLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KConfigLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KConfigLoader_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3141,9 +3725,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KConfigLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KConfigLoader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KConfigLoader_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Inherited from KConfigSkeleton
     ///
@@ -3157,10 +3745,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KConfigLoader, callback: *const fn (KConfigLoader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KConfigLoader, callback: *const fn (KConfigLoader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KConfigLoader_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `setDefaults` instead
+    ///
+    pub const SetDefaults = setDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -3171,13 +3763,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SetDefaults(self: KConfigLoader) void {
+    pub fn setDefaults(self: KConfigLoader) void {
         qtc.KConfigLoader_SetDefaults(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDefaults` instead
+    /// ### DEPRECATED: Use `superSetDefaults` instead
     ///
-    pub const QBaseSetDefaults = SuperSetDefaults;
+    pub const SuperSetDefaults = superSetDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3189,10 +3781,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperSetDefaults(self: KConfigLoader) void {
+    pub fn superSetDefaults(self: KConfigLoader) void {
         qtc.KConfigLoader_SuperSetDefaults(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSetDefaults` instead
+    ///
+    pub const OnSetDefaults = onSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#setDefaults)
@@ -3205,10 +3801,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetDefaults(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetDefaults(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigLoader_OnSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `useDefaults` instead
+    ///
+    pub const UseDefaults = useDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -3221,13 +3821,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UseDefaults(self: KConfigLoader, b: bool) bool {
+    pub fn useDefaults(self: KConfigLoader, b: bool) bool {
         return qtc.KConfigLoader_UseDefaults(@ptrCast(self.ptr), b);
     }
 
-    /// ### DEPRECATED: Use `SuperUseDefaults` instead
+    /// ### DEPRECATED: Use `superUseDefaults` instead
     ///
-    pub const QBaseUseDefaults = SuperUseDefaults;
+    pub const SuperUseDefaults = superUseDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3241,10 +3841,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperUseDefaults(self: KConfigLoader, b: bool) bool {
+    pub fn superUseDefaults(self: KConfigLoader, b: bool) bool {
         return qtc.KConfigLoader_SuperUseDefaults(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onUseDefaults` instead
+    ///
+    pub const OnUseDefaults = onUseDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#useDefaults)
@@ -3257,9 +3861,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, b: bool) callconv(.c) bool `
     ///
-    pub fn OnUseDefaults(self: KConfigLoader, callback: *const fn (KConfigLoader, bool) callconv(.c) bool) void {
+    pub fn onUseDefaults(self: KConfigLoader, callback: *const fn (KConfigLoader, bool) callconv(.c) bool) void {
         qtc.KConfigLoader_OnUseDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `usrUseDefaults` instead
+    ///
+    pub const UsrUseDefaults = usrUseDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3273,13 +3881,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UsrUseDefaults(self: KConfigLoader, b: bool) bool {
+    pub fn usrUseDefaults(self: KConfigLoader, b: bool) bool {
         return qtc.KConfigLoader_UsrUseDefaults(@ptrCast(self.ptr), b);
     }
 
-    /// ### DEPRECATED: Use `SuperUsrUseDefaults` instead
+    /// ### DEPRECATED: Use `superUsrUseDefaults` instead
     ///
-    pub const QBaseUsrUseDefaults = SuperUsrUseDefaults;
+    pub const SuperUsrUseDefaults = superUsrUseDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3293,9 +3901,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperUsrUseDefaults(self: KConfigLoader, b: bool) bool {
+    pub fn superUsrUseDefaults(self: KConfigLoader, b: bool) bool {
         return qtc.KConfigLoader_SuperUsrUseDefaults(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onUsrUseDefaults` instead
+    ///
+    pub const OnUsrUseDefaults = onUsrUseDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3309,10 +3921,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, b: bool) callconv(.c) bool `
     ///
-    pub fn OnUsrUseDefaults(self: KConfigLoader, callback: *const fn (KConfigLoader, bool) callconv(.c) bool) void {
+    pub fn onUsrUseDefaults(self: KConfigLoader, callback: *const fn (KConfigLoader, bool) callconv(.c) bool) void {
         qtc.KConfigLoader_OnUsrUseDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `usrSetDefaults` instead
+    ///
+    pub const UsrSetDefaults = usrSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -3323,13 +3939,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn UsrSetDefaults(self: KConfigLoader) void {
+    pub fn usrSetDefaults(self: KConfigLoader) void {
         qtc.KConfigLoader_UsrSetDefaults(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUsrSetDefaults` instead
+    /// ### DEPRECATED: Use `superUsrSetDefaults` instead
     ///
-    pub const QBaseUsrSetDefaults = SuperUsrSetDefaults;
+    pub const SuperUsrSetDefaults = superUsrSetDefaults;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3341,10 +3957,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperUsrSetDefaults(self: KConfigLoader) void {
+    pub fn superUsrSetDefaults(self: KConfigLoader) void {
         qtc.KConfigLoader_SuperUsrSetDefaults(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUsrSetDefaults` instead
+    ///
+    pub const OnUsrSetDefaults = onUsrSetDefaults;
+
     /// Inherited from KCoreConfigSkeleton
     ///
     /// ### [Upstream resources](https://api.kde.org/kcoreconfigskeleton.html#usrSetDefaults)
@@ -3357,9 +3977,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUsrSetDefaults(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrSetDefaults(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigLoader_OnUsrSetDefaults(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `usrRead` instead
+    ///
+    pub const UsrRead = usrRead;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3371,13 +3995,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn UsrRead(self: KConfigLoader) void {
+    pub fn usrRead(self: KConfigLoader) void {
         qtc.KConfigLoader_UsrRead(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUsrRead` instead
+    /// ### DEPRECATED: Use `superUsrRead` instead
     ///
-    pub const QBaseUsrRead = SuperUsrRead;
+    pub const SuperUsrRead = superUsrRead;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3389,9 +4013,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperUsrRead(self: KConfigLoader) void {
+    pub fn superUsrRead(self: KConfigLoader) void {
         qtc.KConfigLoader_SuperUsrRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUsrRead` instead
+    ///
+    pub const OnUsrRead = onUsrRead;
 
     /// Inherited from KCoreConfigSkeleton
     ///
@@ -3405,9 +4033,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUsrRead(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
+    pub fn onUsrRead(self: KConfigLoader, callback: *const fn () callconv(.c) void) void {
         qtc.KConfigLoader_OnUsrRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3419,16 +4051,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KConfigLoader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KConfigLoader_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KConfigLoader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KConfigLoader_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3440,12 +4072,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KConfigLoader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KConfigLoader_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KConfigLoader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KConfigLoader_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3459,9 +4095,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QEvent) callconv(.c) bool) void {
         qtc.KConfigLoader_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3475,17 +4115,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KConfigLoader, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KConfigLoader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KConfigLoader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KConfigLoader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3499,13 +4139,17 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KConfigLoader, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KConfigLoader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KConfigLoader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KConfigLoader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3519,9 +4163,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KConfigLoader, callback: *const fn (KConfigLoader, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KConfigLoader, callback: *const fn (KConfigLoader, QObject, QEvent) callconv(.c) bool) void {
         qtc.KConfigLoader_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3533,16 +4181,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KConfigLoader_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KConfigLoader_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3554,12 +4202,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KConfigLoader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KConfigLoader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3573,9 +4225,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QTimerEvent) callconv(.c) void) void {
         qtc.KConfigLoader_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3587,16 +4243,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KConfigLoader_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KConfigLoader_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3608,12 +4264,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KConfigLoader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KConfigLoader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3627,9 +4287,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QChildEvent) callconv(.c) void) void {
         qtc.KConfigLoader_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3641,16 +4305,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KConfigLoader_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KConfigLoader_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3662,12 +4326,16 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KConfigLoader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KConfigLoader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KConfigLoader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KConfigLoader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3681,9 +4349,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KConfigLoader, callback: *const fn (KConfigLoader, QEvent) callconv(.c) void) void {
         qtc.KConfigLoader_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3697,14 +4369,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KConfigLoader, signal: anytype) void {
+    pub fn connectNotify(self: KConfigLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KConfigLoader_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3718,11 +4390,15 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KConfigLoader, signal: anytype) void {
+    pub fn superConnectNotify(self: KConfigLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KConfigLoader_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3735,9 +4411,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) void) void {
         qtc.KConfigLoader_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3751,14 +4431,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KConfigLoader, signal: anytype) void {
+    pub fn disconnectNotify(self: KConfigLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KConfigLoader_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3772,10 +4452,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KConfigLoader, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KConfigLoader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KConfigLoader_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3789,9 +4473,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) void) void {
         qtc.KConfigLoader_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3803,13 +4491,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Sender(self: KConfigLoader) QObject {
+    pub fn sender(self: KConfigLoader) QObject {
         return .{ .ptr = qtc.KConfigLoader_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3821,9 +4509,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperSender(self: KConfigLoader) QObject {
+    pub fn superSender(self: KConfigLoader) QObject {
         return .{ .ptr = qtc.KConfigLoader_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3837,9 +4529,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KConfigLoader, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KConfigLoader, callback: *const fn () callconv(.c) QObject) void {
         qtc.KConfigLoader_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3851,13 +4547,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SenderSignalIndex(self: KConfigLoader) i32 {
+    pub fn senderSignalIndex(self: KConfigLoader) i32 {
         return qtc.KConfigLoader_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3869,9 +4565,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn SuperSenderSignalIndex(self: KConfigLoader) i32 {
+    pub fn superSenderSignalIndex(self: KConfigLoader) i32 {
         return qtc.KConfigLoader_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3885,9 +4585,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KConfigLoader, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KConfigLoader, callback: *const fn () callconv(.c) i32) void {
         qtc.KConfigLoader_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3901,14 +4605,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KConfigLoader, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KConfigLoader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KConfigLoader_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3922,10 +4626,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KConfigLoader, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KConfigLoader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KConfigLoader_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3939,9 +4647,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) i32) void {
         qtc.KConfigLoader_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3955,14 +4667,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KConfigLoader, signal: anytype) bool {
+    pub fn isSignalConnected(self: KConfigLoader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KConfigLoader_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3976,10 +4688,14 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KConfigLoader, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KConfigLoader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KConfigLoader_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3993,9 +4709,13 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KConfigLoader, callback: *const fn (KConfigLoader, QMetaMethod) callconv(.c) bool) void {
         qtc.KConfigLoader_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4009,23 +4729,23 @@ pub const KConfigLoader = extern struct {
     ///
     /// ` callback: *const fn (self: KConfigLoader, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KConfigLoader, callback: *const fn (KConfigLoader, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kconfigloader.html#dtor.KConfigLoader)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KConfigLoader `
     ///
-    pub fn Delete(self: KConfigLoader) void {
+    pub fn delete(self: KConfigLoader) void {
         qtc.KConfigLoader_Delete(@ptrCast(self.ptr));
     }
 };

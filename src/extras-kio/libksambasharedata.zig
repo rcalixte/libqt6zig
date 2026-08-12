@@ -13,22 +13,34 @@ pub const KSambaShareData = extern struct {
 
     pub const _is_KSambaShareData = {};
 
-    /// New constructs a new KSambaShareData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KSambaShareData {
+    pub const New = new;
+
+    /// Allocate a new KSambaShareData object in C++ memory
+    ///
+    pub fn new() KSambaShareData {
         return .{ .ptr = qtc.KSambaShareData_new() };
     }
 
-    /// New2 constructs a new KSambaShareData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KSambaShareData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KSambaShareData `
     ///
-    pub fn New2(other: anytype) KSambaShareData {
+    pub fn new2(other: anytype) KSambaShareData {
         comptime _ = @TypeOf(other)._is_KSambaShareData;
         return .{ .ptr = qtc.KSambaShareData_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#name)
     ///
@@ -38,13 +50,17 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `path` instead
+    ///
+    pub const Path = path;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#path)
     ///
@@ -54,13 +70,17 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
+    pub fn path(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Path(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Path: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.path: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `comment` instead
+    ///
+    pub const Comment = comment;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#comment)
     ///
@@ -70,13 +90,17 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Comment(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
+    pub fn comment(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Comment(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Comment: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.comment: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `acl` instead
+    ///
+    pub const Acl = acl;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#acl)
     ///
@@ -86,13 +110,17 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Acl(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
+    pub fn acl(self: KSambaShareData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSambaShareData_Acl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.Acl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSambaShareData.acl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `guestPermission` instead
+    ///
+    pub const GuestPermission = guestPermission;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#guestPermission)
     ///
@@ -104,9 +132,13 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` ksambasharedata_enums.GuestPermission `
     ///
-    pub fn GuestPermission(self: KSambaShareData) i32 {
+    pub fn guestPermission(self: KSambaShareData) i32 {
         return qtc.KSambaShareData_GuestPermission(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setName)
     ///
@@ -114,19 +146,23 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` self: KSambaShareData `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetName(self: KSambaShareData, name: []const u8) i32 {
+    pub fn setName(self: KSambaShareData, _name: []const u8) i32 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.KSambaShareData_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `setPath` instead
+    ///
+    pub const SetPath = setPath;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setPath)
     ///
@@ -134,19 +170,23 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` self: KSambaShareData `
     ///
-    /// ` path: []const u8 `
+    /// ` _path: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetPath(self: KSambaShareData, path: []const u8) i32 {
+    pub fn setPath(self: KSambaShareData, _path: []const u8) i32 {
         const path_str = qtc.libqt_string{
-            .len = path.len,
-            .data = path.ptr,
+            .len = _path.len,
+            .data = _path.ptr,
         };
         return qtc.KSambaShareData_SetPath(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `setComment` instead
+    ///
+    pub const SetComment = setComment;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setComment)
     ///
@@ -154,19 +194,23 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` self: KSambaShareData `
     ///
-    /// ` comment: []const u8 `
+    /// ` _comment: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetComment(self: KSambaShareData, comment: []const u8) i32 {
+    pub fn setComment(self: KSambaShareData, _comment: []const u8) i32 {
         const comment_str = qtc.libqt_string{
-            .len = comment.len,
-            .data = comment.ptr,
+            .len = _comment.len,
+            .data = _comment.ptr,
         };
         return qtc.KSambaShareData_SetComment(@ptrCast(self.ptr), comment_str);
     }
+
+    /// ### DEPRECATED: Use `setAcl` instead
+    ///
+    pub const SetAcl = setAcl;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setAcl)
     ///
@@ -174,19 +218,23 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` self: KSambaShareData `
     ///
-    /// ` acl: []const u8 `
+    /// ` _acl: []const u8 `
     ///
     /// ## Returns:
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetAcl(self: KSambaShareData, acl: []const u8) i32 {
+    pub fn setAcl(self: KSambaShareData, _acl: []const u8) i32 {
         const acl_str = qtc.libqt_string{
-            .len = acl.len,
-            .data = acl.ptr,
+            .len = _acl.len,
+            .data = _acl.ptr,
         };
         return qtc.KSambaShareData_SetAcl(@ptrCast(self.ptr), acl_str);
     }
+
+    /// ### DEPRECATED: Use `setGuestPermission` instead
+    ///
+    pub const SetGuestPermission = setGuestPermission;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setGuestPermission)
     ///
@@ -198,9 +246,13 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetGuestPermission(self: KSambaShareData) i32 {
+    pub fn setGuestPermission(self: KSambaShareData) i32 {
         return qtc.KSambaShareData_SetGuestPermission(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#save)
     ///
@@ -212,9 +264,13 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn Save(self: KSambaShareData) i32 {
+    pub fn save(self: KSambaShareData) i32 {
         return qtc.KSambaShareData_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#remove)
     ///
@@ -226,9 +282,13 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn Remove(self: KSambaShareData) i32 {
+    pub fn remove(self: KSambaShareData) i32 {
         return qtc.KSambaShareData_Remove(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#operator-eq)
     ///
@@ -238,10 +298,14 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` other: KSambaShareData `
     ///
-    pub fn OperatorAssign(self: KSambaShareData, other: anytype) void {
+    pub fn operatorAssign(self: KSambaShareData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KSambaShareData;
         qtc.KSambaShareData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#operator-eq-eq)
     ///
@@ -251,10 +315,14 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` other: KSambaShareData `
     ///
-    pub fn OperatorEqual(self: KSambaShareData, other: anytype) bool {
+    pub fn operatorEqual(self: KSambaShareData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSambaShareData;
         return qtc.KSambaShareData_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#operator-not-eq)
     ///
@@ -264,10 +332,14 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` other: KSambaShareData `
     ///
-    pub fn OperatorNotEqual(self: KSambaShareData, other: anytype) bool {
+    pub fn operatorNotEqual(self: KSambaShareData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSambaShareData;
         return qtc.KSambaShareData_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGuestPermission1` instead
+    ///
+    pub const SetGuestPermission1 = setGuestPermission1;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#setGuestPermission)
     ///
@@ -281,23 +353,23 @@ pub const KSambaShareData = extern struct {
     ///
     /// ` ksambasharedata_enums.UserShareError `
     ///
-    pub fn SetGuestPermission1(self: KSambaShareData, permission: *const i32) i32 {
+    pub fn setGuestPermission1(self: KSambaShareData, permission: *const i32) i32 {
         return qtc.KSambaShareData_SetGuestPermission1(@ptrCast(self.ptr), @ptrCast(permission));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/ksambasharedata.html#dtor.KSambaShareData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSambaShareData `
     ///
-    pub fn Delete(self: KSambaShareData) void {
+    pub fn delete(self: KSambaShareData) void {
         qtc.KSambaShareData_Delete(@ptrCast(self.ptr));
     }
 };

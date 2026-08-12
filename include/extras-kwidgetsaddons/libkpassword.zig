@@ -14,15 +14,23 @@ pub const KPassword = extern struct {
 
     pub const _is_KPassword = {};
 
+    /// ### DEPRECATED: Use `getEnumMetaObject` instead
+    ///
+    pub const GetEnumMetaObject = getEnumMetaObject;
+
     /// ### [Upstream resources](https://api.kde.org/kpassword.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: kpassword_enums.RevealMode `
     ///
-    pub fn GetEnumMetaObject(param1: i32) QMetaObject {
+    pub fn getEnumMetaObject(param1: i32) QMetaObject {
         return .{ .ptr = qtc.KPassword_GetEnumMetaObject(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `getEnumName` instead
+    ///
+    pub const GetEnumName = getEnumName;
 
     /// ### [Upstream resources](https://api.kde.org/kpassword.html#qt_getEnumName)
     ///
@@ -30,7 +38,7 @@ pub const KPassword = extern struct {
     ///
     /// ` param1: kpassword_enums.RevealMode `
     ///
-    pub fn GetEnumName(param1: i32) [:0]const u8 {
+    pub fn getEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.KPassword_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }

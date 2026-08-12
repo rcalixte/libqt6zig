@@ -106,30 +106,42 @@ pub const QPlainTextEdit = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QPlainTextEdit object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPlainTextEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QPlainTextEdit {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QPlainTextEdit_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QPlainTextEdit {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QPlainTextEdit_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QPlainTextEdit object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QPlainTextEdit {
+    pub const New2 = new2;
+
+    /// Allocate a new QPlainTextEdit object in C++ memory
+    ///
+    pub fn new2() QPlainTextEdit {
         return .{ .ptr = qtc.QPlainTextEdit_new2() };
     }
 
-    /// New3 constructs a new QPlainTextEdit object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPlainTextEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New3(text: []const u8) QPlainTextEdit {
+    pub fn new3(text: []const u8) QPlainTextEdit {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -137,22 +149,30 @@ pub const QPlainTextEdit = extern struct {
         return .{ .ptr = qtc.QPlainTextEdit_new3(text_str) };
     }
 
-    /// New4 constructs a new QPlainTextEdit object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPlainTextEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(text: []const u8, parent: anytype) QPlainTextEdit {
+    pub fn new4(text: []const u8, _parent: anytype) QPlainTextEdit {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QPlainTextEdit_new4(text_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QPlainTextEdit_new4(text_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -160,9 +180,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MetaObject(self: QPlainTextEdit) QMetaObject {
+    pub fn metaObject(self: QPlainTextEdit) QMetaObject {
         return .{ .ptr = qtc.QPlainTextEdit_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -174,13 +198,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPlainTextEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -190,9 +214,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperMetaObject(self: QPlainTextEdit) QMetaObject {
+    pub fn superMetaObject(self: QPlainTextEdit) QMetaObject {
         return .{ .ptr = qtc.QPlainTextEdit_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -200,10 +228,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPlainTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPlainTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlainTextEdit_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -213,13 +245,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPlainTextEdit_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -229,10 +261,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPlainTextEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPlainTextEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlainTextEdit_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -244,9 +280,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPlainTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPlainTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlainTextEdit_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -256,13 +296,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -276,9 +316,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPlainTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPlainTextEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlainTextEdit_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -288,14 +332,18 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocument` instead
+    ///
+    pub const SetDocument = setDocument;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setDocument)
     ///
@@ -303,12 +351,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn SetDocument(self: QPlainTextEdit, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        qtc.QPlainTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn setDocument(self: QPlainTextEdit, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        qtc.QPlainTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#document)
     ///
@@ -316,9 +368,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Document(self: QPlainTextEdit) QTextDocument {
+    pub fn document(self: QPlainTextEdit) QTextDocument {
         return .{ .ptr = qtc.QPlainTextEdit_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setPlaceholderText)
     ///
@@ -326,15 +382,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: QPlainTextEdit, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: QPlainTextEdit, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QPlainTextEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#placeholderText)
     ///
@@ -344,13 +404,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextCursor` instead
+    ///
+    pub const SetTextCursor = setTextCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setTextCursor)
     ///
@@ -358,12 +422,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SetTextCursor(self: QPlainTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QPlainTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setTextCursor(self: QPlainTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QPlainTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `textCursor` instead
+    ///
+    pub const TextCursor = textCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textCursor)
     ///
@@ -371,9 +439,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn TextCursor(self: QPlainTextEdit) QTextCursor {
+    pub fn textCursor(self: QPlainTextEdit) QTextCursor {
         return .{ .ptr = qtc.QPlainTextEdit_TextCursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#isReadOnly)
     ///
@@ -381,9 +453,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsReadOnly(self: QPlainTextEdit) bool {
+    pub fn isReadOnly(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setReadOnly)
     ///
@@ -393,9 +469,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` ro: bool `
     ///
-    pub fn SetReadOnly(self: QPlainTextEdit, ro: bool) void {
+    pub fn setReadOnly(self: QPlainTextEdit, ro: bool) void {
         qtc.QPlainTextEdit_SetReadOnly(@ptrCast(self.ptr), ro);
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setTextInteractionFlags)
     ///
@@ -405,9 +485,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: QPlainTextEdit, flags: i32) void {
+    pub fn setTextInteractionFlags(self: QPlainTextEdit, flags: i32) void {
         qtc.QPlainTextEdit_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textInteractionFlags)
     ///
@@ -419,9 +503,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: QPlainTextEdit) i32 {
+    pub fn textInteractionFlags(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeCurrentCharFormat` instead
+    ///
+    pub const MergeCurrentCharFormat = mergeCurrentCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mergeCurrentCharFormat)
     ///
@@ -431,10 +519,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCurrentCharFormat(self: QPlainTextEdit, modifier: anytype) void {
+    pub fn mergeCurrentCharFormat(self: QPlainTextEdit, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QPlainTextEdit_MergeCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCharFormat` instead
+    ///
+    pub const SetCurrentCharFormat = setCurrentCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setCurrentCharFormat)
     ///
@@ -444,10 +536,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetCurrentCharFormat(self: QPlainTextEdit, format: anytype) void {
+    pub fn setCurrentCharFormat(self: QPlainTextEdit, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QPlainTextEdit_SetCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormat` instead
+    ///
+    pub const CurrentCharFormat = currentCharFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#currentCharFormat)
     ///
@@ -455,9 +551,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CurrentCharFormat(self: QPlainTextEdit) QTextCharFormat {
+    pub fn currentCharFormat(self: QPlainTextEdit) QTextCharFormat {
         return .{ .ptr = qtc.QPlainTextEdit_CurrentCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tabChangesFocus` instead
+    ///
+    pub const TabChangesFocus = tabChangesFocus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#tabChangesFocus)
     ///
@@ -465,9 +565,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn TabChangesFocus(self: QPlainTextEdit) bool {
+    pub fn tabChangesFocus(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_TabChangesFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabChangesFocus` instead
+    ///
+    pub const SetTabChangesFocus = setTabChangesFocus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setTabChangesFocus)
     ///
@@ -477,9 +581,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTabChangesFocus(self: QPlainTextEdit, b: bool) void {
+    pub fn setTabChangesFocus(self: QPlainTextEdit, b: bool) void {
         qtc.QPlainTextEdit_SetTabChangesFocus(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setDocumentTitle` instead
+    ///
+    pub const SetDocumentTitle = setDocumentTitle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setDocumentTitle)
     ///
@@ -489,13 +597,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetDocumentTitle(self: QPlainTextEdit, title: []const u8) void {
+    pub fn setDocumentTitle(self: QPlainTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QPlainTextEdit_SetDocumentTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `documentTitle` instead
+    ///
+    pub const DocumentTitle = documentTitle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#documentTitle)
     ///
@@ -505,13 +617,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentTitle(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentTitle(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.documentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isUndoRedoEnabled` instead
+    ///
+    pub const IsUndoRedoEnabled = isUndoRedoEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#isUndoRedoEnabled)
     ///
@@ -519,9 +635,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsUndoRedoEnabled(self: QPlainTextEdit) bool {
+    pub fn isUndoRedoEnabled(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUndoRedoEnabled` instead
+    ///
+    pub const SetUndoRedoEnabled = setUndoRedoEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setUndoRedoEnabled)
     ///
@@ -531,9 +651,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: QPlainTextEdit, enable: bool) void {
+    pub fn setUndoRedoEnabled(self: QPlainTextEdit, enable: bool) void {
         qtc.QPlainTextEdit_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setMaximumBlockCount` instead
+    ///
+    pub const SetMaximumBlockCount = setMaximumBlockCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setMaximumBlockCount)
     ///
@@ -543,9 +667,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` maximum: i32 `
     ///
-    pub fn SetMaximumBlockCount(self: QPlainTextEdit, maximum: i32) void {
+    pub fn setMaximumBlockCount(self: QPlainTextEdit, maximum: i32) void {
         qtc.QPlainTextEdit_SetMaximumBlockCount(@ptrCast(self.ptr), @bitCast(maximum));
     }
+
+    /// ### DEPRECATED: Use `maximumBlockCount` instead
+    ///
+    pub const MaximumBlockCount = maximumBlockCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#maximumBlockCount)
     ///
@@ -553,9 +681,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MaximumBlockCount(self: QPlainTextEdit) i32 {
+    pub fn maximumBlockCount(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_MaximumBlockCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineWrapMode` instead
+    ///
+    pub const LineWrapMode = lineWrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#lineWrapMode)
     ///
@@ -567,9 +699,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qplaintextedit_enums.LineWrapMode `
     ///
-    pub fn LineWrapMode(self: QPlainTextEdit) i32 {
+    pub fn lineWrapMode(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_LineWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapMode` instead
+    ///
+    pub const SetLineWrapMode = setLineWrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setLineWrapMode)
     ///
@@ -579,9 +715,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` mode: qplaintextedit_enums.LineWrapMode `
     ///
-    pub fn SetLineWrapMode(self: QPlainTextEdit, mode: i32) void {
+    pub fn setLineWrapMode(self: QPlainTextEdit, mode: i32) void {
         qtc.QPlainTextEdit_SetLineWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `wordWrapMode` instead
+    ///
+    pub const WordWrapMode = wordWrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wordWrapMode)
     ///
@@ -593,9 +733,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WordWrapMode(self: QPlainTextEdit) i32 {
+    pub fn wordWrapMode(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_WordWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrapMode` instead
+    ///
+    pub const SetWordWrapMode = setWordWrapMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setWordWrapMode)
     ///
@@ -605,9 +749,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` policy: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWordWrapMode(self: QPlainTextEdit, policy: i32) void {
+    pub fn setWordWrapMode(self: QPlainTextEdit, policy: i32) void {
         qtc.QPlainTextEdit_SetWordWrapMode(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundVisible` instead
+    ///
+    pub const SetBackgroundVisible = setBackgroundVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setBackgroundVisible)
     ///
@@ -617,9 +765,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetBackgroundVisible(self: QPlainTextEdit, visible: bool) void {
+    pub fn setBackgroundVisible(self: QPlainTextEdit, visible: bool) void {
         qtc.QPlainTextEdit_SetBackgroundVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `backgroundVisible` instead
+    ///
+    pub const BackgroundVisible = backgroundVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#backgroundVisible)
     ///
@@ -627,9 +779,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn BackgroundVisible(self: QPlainTextEdit) bool {
+    pub fn backgroundVisible(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_BackgroundVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCenterOnScroll` instead
+    ///
+    pub const SetCenterOnScroll = setCenterOnScroll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setCenterOnScroll)
     ///
@@ -639,9 +795,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetCenterOnScroll(self: QPlainTextEdit, enabled: bool) void {
+    pub fn setCenterOnScroll(self: QPlainTextEdit, enabled: bool) void {
         qtc.QPlainTextEdit_SetCenterOnScroll(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `centerOnScroll` instead
+    ///
+    pub const CenterOnScroll = centerOnScroll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#centerOnScroll)
     ///
@@ -649,9 +809,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CenterOnScroll(self: QPlainTextEdit) bool {
+    pub fn centerOnScroll(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_CenterOnScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
@@ -661,13 +825,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` exp: []const u8 `
     ///
-    pub fn Find(self: QPlainTextEdit, exp: []const u8) bool {
+    pub fn find(self: QPlainTextEdit, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QPlainTextEdit_Find(@ptrCast(self.ptr), exp_str);
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
@@ -677,10 +845,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` exp: QRegularExpression `
     ///
-    pub fn Find2(self: QPlainTextEdit, exp: anytype) bool {
+    pub fn find2(self: QPlainTextEdit, exp: anytype) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QPlainTextEdit_Find2(@ptrCast(self.ptr), @ptrCast(exp.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPlainText` instead
+    ///
+    pub const ToPlainText = toPlainText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#toPlainText)
     ///
@@ -690,13 +862,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toPlainText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlainTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.toPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ensureCursorVisible` instead
+    ///
+    pub const EnsureCursorVisible = ensureCursorVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#ensureCursorVisible)
     ///
@@ -704,9 +880,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn EnsureCursorVisible(self: QPlainTextEdit) void {
+    pub fn ensureCursorVisible(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_EnsureCursorVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadResource` instead
+    ///
+    pub const LoadResource = loadResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#loadResource)
     ///
@@ -718,10 +898,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: QPlainTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn loadResource(self: QPlainTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.QPlainTextEdit_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLoadResource` instead
+    ///
+    pub const OnLoadResource = onLoadResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#loadResource)
     ///
@@ -735,13 +919,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnLoadResource(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, QUrl) callconv(.c) QVariant) void {
+    pub fn onLoadResource(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, QUrl) callconv(.c) QVariant) void {
         qtc.QPlainTextEdit_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    /// ### DEPRECATED: Use `superLoadResource` instead
     ///
-    pub const QBaseLoadResource = SuperLoadResource;
+    pub const SuperLoadResource = superLoadResource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#loadResource)
     ///
@@ -755,10 +939,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: QPlainTextEdit, typeVal: i32, name: anytype) QVariant {
+    pub fn superLoadResource(self: QPlainTextEdit, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.QPlainTextEdit_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createStandardContextMenu)
     ///
@@ -766,9 +954,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CreateStandardContextMenu(self: QPlainTextEdit) QMenu {
+    pub fn createStandardContextMenu(self: QPlainTextEdit) QMenu {
         return .{ .ptr = qtc.QPlainTextEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu2` instead
+    ///
+    pub const CreateStandardContextMenu2 = createStandardContextMenu2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createStandardContextMenu)
     ///
@@ -778,10 +970,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn CreateStandardContextMenu2(self: QPlainTextEdit, position: anytype) QMenu {
+    pub fn createStandardContextMenu2(self: QPlainTextEdit, position: anytype) QMenu {
         comptime _ = @TypeOf(position)._is_QPoint;
         return .{ .ptr = qtc.QPlainTextEdit_CreateStandardContextMenu2(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForPosition` instead
+    ///
+    pub const CursorForPosition = cursorForPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorForPosition)
     ///
@@ -789,12 +985,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorForPosition(self: QPlainTextEdit, pos: anytype) QTextCursor {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QPlainTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn cursorForPosition(self: QPlainTextEdit, _pos: anytype) QTextCursor {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QPlainTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorRect)
     ///
@@ -802,12 +1002,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn CursorRect(self: QPlainTextEdit, cursor: anytype) QRect {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        return .{ .ptr = qtc.QPlainTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
+    pub fn cursorRect(self: QPlainTextEdit, _cursor: anytype) QRect {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QPlainTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(_cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect2` instead
+    ///
+    pub const CursorRect2 = cursorRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorRect)
     ///
@@ -815,9 +1019,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CursorRect2(self: QPlainTextEdit) QRect {
+    pub fn cursorRect2(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QPlainTextEdit_CursorRect2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `anchorAt` instead
+    ///
+    pub const AnchorAt = anchorAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#anchorAt)
     ///
@@ -827,16 +1035,20 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn AnchorAt(self: QPlainTextEdit, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        var _str = qtc.QPlainTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn anchorAt(self: QPlainTextEdit, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        var _str = qtc.QPlainTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.anchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `overwriteMode` instead
+    ///
+    pub const OverwriteMode = overwriteMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#overwriteMode)
     ///
@@ -844,9 +1056,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn OverwriteMode(self: QPlainTextEdit) bool {
+    pub fn overwriteMode(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_OverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOverwriteMode` instead
+    ///
+    pub const SetOverwriteMode = setOverwriteMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setOverwriteMode)
     ///
@@ -856,9 +1072,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: QPlainTextEdit, overwrite: bool) void {
+    pub fn setOverwriteMode(self: QPlainTextEdit, overwrite: bool) void {
         qtc.QPlainTextEdit_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `tabStopDistance` instead
+    ///
+    pub const TabStopDistance = tabStopDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#tabStopDistance)
     ///
@@ -866,9 +1086,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn TabStopDistance(self: QPlainTextEdit) f64 {
+    pub fn tabStopDistance(self: QPlainTextEdit) f64 {
         return qtc.QPlainTextEdit_TabStopDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabStopDistance` instead
+    ///
+    pub const SetTabStopDistance = setTabStopDistance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setTabStopDistance)
     ///
@@ -878,9 +1102,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetTabStopDistance(self: QPlainTextEdit, distance: f64) void {
+    pub fn setTabStopDistance(self: QPlainTextEdit, distance: f64) void {
         qtc.QPlainTextEdit_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
+
+    /// ### DEPRECATED: Use `cursorWidth` instead
+    ///
+    pub const CursorWidth = cursorWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorWidth)
     ///
@@ -888,9 +1116,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CursorWidth(self: QPlainTextEdit) i32 {
+    pub fn cursorWidth(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_CursorWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorWidth` instead
+    ///
+    pub const SetCursorWidth = setCursorWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setCursorWidth)
     ///
@@ -898,11 +1130,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetCursorWidth(self: QPlainTextEdit, width: i32) void {
-        qtc.QPlainTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setCursorWidth(self: QPlainTextEdit, _width: i32) void {
+        qtc.QPlainTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `setExtraSelections` instead
+    ///
+    pub const SetExtraSelections = setExtraSelections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setExtraSelections)
     ///
@@ -912,13 +1148,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` selections: []QTextEdit__ExtraSelection `
     ///
-    pub fn SetExtraSelections(self: QPlainTextEdit, selections: []QTextEdit__ExtraSelection) void {
+    pub fn setExtraSelections(self: QPlainTextEdit, selections: []QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
         qtc.QPlainTextEdit_SetExtraSelections(@ptrCast(self.ptr), selections_list);
     }
+
+    /// ### DEPRECATED: Use `extraSelections` instead
+    ///
+    pub const ExtraSelections = extraSelections;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#extraSelections)
     ///
@@ -928,15 +1168,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelections(self: QPlainTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
+    pub fn extraSelections(self: QPlainTextEdit, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QPlainTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("QPlainTextEdit.ExtraSelections: Memory allocation failed");
-        const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("QPlainTextEdit.extraSelections: Memory allocation failed");
+        const _data_val: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#moveCursor)
     ///
@@ -946,9 +1190,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MoveCursor(self: QPlainTextEdit, operation: i32) void {
+    pub fn moveCursor(self: QPlainTextEdit, operation: i32) void {
         qtc.QPlainTextEdit_MoveCursor(@ptrCast(self.ptr), @bitCast(operation));
     }
+
+    /// ### DEPRECATED: Use `canPaste` instead
+    ///
+    pub const CanPaste = canPaste;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canPaste)
     ///
@@ -956,9 +1204,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CanPaste(self: QPlainTextEdit) bool {
+    pub fn canPaste(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_CanPaste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#print)
     ///
@@ -968,10 +1220,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: QPlainTextEdit, printer: anytype) void {
+    pub fn print(self: QPlainTextEdit, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
         qtc.QPlainTextEdit_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockCount` instead
+    ///
+    pub const BlockCount = blockCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockCount)
     ///
@@ -979,9 +1235,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn BlockCount(self: QPlainTextEdit) i32 {
+    pub fn blockCount(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_BlockCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
     ///
@@ -989,11 +1249,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QPlainTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.QPlainTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn inputMethodQuery(self: QPlainTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.QPlainTextEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
     ///
@@ -1007,13 +1271,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) QVariant) void {
         qtc.QPlainTextEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
     ///
@@ -1023,11 +1287,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QPlainTextEdit, property: i32) QVariant {
-        return .{ .ptr = qtc.QPlainTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn superInputMethodQuery(self: QPlainTextEdit, _property: i32) QVariant {
+        return .{ .ptr = qtc.QPlainTextEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodQuery)
     ///
@@ -1039,10 +1307,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: QPlainTextEdit, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: QPlainTextEdit, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QPlainTextEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlainText` instead
+    ///
+    pub const SetPlainText = setPlainText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#setPlainText)
     ///
@@ -1052,7 +1324,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: QPlainTextEdit, text: []const u8) void {
+    pub fn setPlainText(self: QPlainTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1060,15 +1332,23 @@ pub const QPlainTextEdit = extern struct {
         qtc.QPlainTextEdit_SetPlainText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cut)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Cut(self: QPlainTextEdit) void {
+    pub fn cut(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#copy)
     ///
@@ -1076,9 +1356,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Copy(self: QPlainTextEdit) void {
+    pub fn copy(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paste)
     ///
@@ -1086,9 +1370,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Paste(self: QPlainTextEdit) void {
+    pub fn paste(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#undo)
     ///
@@ -1096,9 +1384,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Undo(self: QPlainTextEdit) void {
+    pub fn undo(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#redo)
     ///
@@ -1106,9 +1398,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Redo(self: QPlainTextEdit) void {
+    pub fn redo(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#clear)
     ///
@@ -1116,9 +1412,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Clear(self: QPlainTextEdit) void {
+    pub fn clear(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#selectAll)
     ///
@@ -1126,9 +1426,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SelectAll(self: QPlainTextEdit) void {
+    pub fn selectAll(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPlainText` instead
+    ///
+    pub const InsertPlainText = insertPlainText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertPlainText)
     ///
@@ -1138,13 +1442,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertPlainText(self: QPlainTextEdit, text: []const u8) void {
+    pub fn insertPlainText(self: QPlainTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPlainTextEdit_InsertPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `appendPlainText` instead
+    ///
+    pub const AppendPlainText = appendPlainText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#appendPlainText)
     ///
@@ -1154,13 +1462,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AppendPlainText(self: QPlainTextEdit, text: []const u8) void {
+    pub fn appendPlainText(self: QPlainTextEdit, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPlainTextEdit_AppendPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `appendHtml` instead
+    ///
+    pub const AppendHtml = appendHtml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#appendHtml)
     ///
@@ -1170,7 +1482,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` html: []const u8 `
     ///
-    pub fn AppendHtml(self: QPlainTextEdit, html: []const u8) void {
+    pub fn appendHtml(self: QPlainTextEdit, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
@@ -1178,15 +1490,23 @@ pub const QPlainTextEdit = extern struct {
         qtc.QPlainTextEdit_AppendHtml(@ptrCast(self.ptr), html_str);
     }
 
+    /// ### DEPRECATED: Use `centerCursor` instead
+    ///
+    pub const CenterCursor = centerCursor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#centerCursor)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CenterCursor(self: QPlainTextEdit) void {
+    pub fn centerCursor(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_CenterCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomIn)
     ///
@@ -1194,9 +1514,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ZoomIn(self: QPlainTextEdit) void {
+    pub fn zoomIn(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_ZoomIn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomOut)
     ///
@@ -1204,20 +1528,28 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ZoomOut(self: QPlainTextEdit) void {
+    pub fn zoomOut(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_ZoomOut(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn TextChanged(self: QPlainTextEdit) void {
+    pub fn textChanged(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_TextChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#textChanged)
     ///
     /// ## Parameters:
@@ -1226,10 +1558,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
+    pub fn onTextChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `undoAvailable` instead
+    ///
+    pub const UndoAvailable = undoAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#undoAvailable)
     ///
     /// ## Parameter(s):
@@ -1238,10 +1574,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UndoAvailable(self: QPlainTextEdit, b: bool) void {
+    pub fn undoAvailable(self: QPlainTextEdit, b: bool) void {
         qtc.QPlainTextEdit_UndoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onUndoAvailable` instead
+    ///
+    pub const OnUndoAvailable = onUndoAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#undoAvailable)
     ///
     /// ## Parameters:
@@ -1250,10 +1590,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
+    pub fn onUndoAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `redoAvailable` instead
+    ///
+    pub const RedoAvailable = redoAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#redoAvailable)
     ///
     /// ## Parameter(s):
@@ -1262,10 +1606,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn RedoAvailable(self: QPlainTextEdit, b: bool) void {
+    pub fn redoAvailable(self: QPlainTextEdit, b: bool) void {
         qtc.QPlainTextEdit_RedoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onRedoAvailable` instead
+    ///
+    pub const OnRedoAvailable = onRedoAvailable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#redoAvailable)
     ///
     /// ## Parameters:
@@ -1274,9 +1622,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
+    pub fn onRedoAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `copyAvailable` instead
+    ///
+    pub const CopyAvailable = copyAvailable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#copyAvailable)
     ///
@@ -1286,9 +1638,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn CopyAvailable(self: QPlainTextEdit, b: bool) void {
+    pub fn copyAvailable(self: QPlainTextEdit, b: bool) void {
         qtc.QPlainTextEdit_CopyAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onCopyAvailable` instead
+    ///
+    pub const OnCopyAvailable = onCopyAvailable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#copyAvailable)
     ///
@@ -1298,20 +1654,28 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, b: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
+    pub fn onCopyAvailable(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#selectionChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SelectionChanged(self: QPlainTextEdit) void {
+    pub fn selectionChanged(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#selectionChanged)
     ///
     /// ## Parameters:
@@ -1320,9 +1684,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorPositionChanged)
     ///
@@ -1330,9 +1698,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CursorPositionChanged(self: QPlainTextEdit) void {
+    pub fn cursorPositionChanged(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_CursorPositionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#cursorPositionChanged)
     ///
@@ -1342,9 +1714,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateRequest` instead
+    ///
+    pub const UpdateRequest = updateRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#updateRequest)
     ///
@@ -1352,14 +1728,18 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` dy: i32 `
     ///
-    pub fn UpdateRequest(self: QPlainTextEdit, rect: anytype, dy: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QPlainTextEdit_UpdateRequest(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(dy));
+    pub fn updateRequest(self: QPlainTextEdit, _rect: anytype, dy: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QPlainTextEdit_UpdateRequest(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onUpdateRequest` instead
+    ///
+    pub const OnUpdateRequest = onUpdateRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#updateRequest)
     ///
@@ -1369,9 +1749,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, rect: QRect, dy: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateRequest(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QRect, i32) callconv(.c) void) void {
+    pub fn onUpdateRequest(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QRect, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_UpdateRequest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `blockCountChanged` instead
+    ///
+    pub const BlockCountChanged = blockCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockCountChanged)
     ///
@@ -1381,9 +1765,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` newBlockCount: i32 `
     ///
-    pub fn BlockCountChanged(self: QPlainTextEdit, newBlockCount: i32) void {
+    pub fn blockCountChanged(self: QPlainTextEdit, newBlockCount: i32) void {
         qtc.QPlainTextEdit_BlockCountChanged(@ptrCast(self.ptr), @bitCast(newBlockCount));
     }
+
+    /// ### DEPRECATED: Use `onBlockCountChanged` instead
+    ///
+    pub const OnBlockCountChanged = onBlockCountChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockCountChanged)
     ///
@@ -1393,9 +1781,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, newBlockCount: i32) callconv(.c) void `
     ///
-    pub fn OnBlockCountChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) void) void {
+    pub fn onBlockCountChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_BlockCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `modificationChanged` instead
+    ///
+    pub const ModificationChanged = modificationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#modificationChanged)
     ///
@@ -1405,9 +1797,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn ModificationChanged(self: QPlainTextEdit, param1: bool) void {
+    pub fn modificationChanged(self: QPlainTextEdit, param1: bool) void {
         qtc.QPlainTextEdit_ModificationChanged(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onModificationChanged` instead
+    ///
+    pub const OnModificationChanged = onModificationChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#modificationChanged)
     ///
@@ -1417,9 +1813,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: bool) callconv(.c) void `
     ///
-    pub fn OnModificationChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
+    pub fn onModificationChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_Connect_ModificationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#event)
     ///
@@ -1429,10 +1829,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QPlainTextEdit, e: anytype) bool {
+    pub fn event(self: QPlainTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QPlainTextEdit_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#event)
     ///
@@ -1444,13 +1848,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#event)
     ///
@@ -1462,10 +1866,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QPlainTextEdit, e: anytype) bool {
+    pub fn superEvent(self: QPlainTextEdit, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QPlainTextEdit_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent)
     ///
@@ -1475,10 +1883,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn timerEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.QPlainTextEdit_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent)
     ///
@@ -1490,13 +1902,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTimerEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#timerEvent)
     ///
@@ -1508,11 +1920,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superTimerEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.QPlainTextEdit_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
     ///
     /// ## Parameter(s):
@@ -1521,11 +1937,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn keyPressEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QPlainTextEdit_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
     ///
     /// Allows for overriding the related default method
@@ -1536,13 +1956,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyPressEvent)
     ///
@@ -1554,11 +1974,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superKeyPressEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QPlainTextEdit_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -1567,10 +1991,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn keyReleaseEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QPlainTextEdit_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent)
     ///
@@ -1582,13 +2010,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QKeyEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#keyReleaseEvent)
     ///
@@ -1600,10 +2028,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QPlainTextEdit_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent)
     ///
@@ -1613,10 +2045,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn resizeEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QPlainTextEdit_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent)
     ///
@@ -1628,13 +2064,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QResizeEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#resizeEvent)
     ///
@@ -1646,10 +2082,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superResizeEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QPlainTextEdit_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent)
     ///
@@ -1659,10 +2099,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn paintEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QPlainTextEdit_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent)
     ///
@@ -1674,13 +2118,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPaintEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#paintEvent)
     ///
@@ -1692,11 +2136,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superPaintEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QPlainTextEdit_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
     ///
     /// ## Parameter(s):
@@ -1705,11 +2153,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn mousePressEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
@@ -1720,13 +2172,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mousePressEvent)
     ///
@@ -1738,11 +2190,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superMousePressEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
     ///
     /// ## Parameter(s):
@@ -1751,11 +2207,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn mouseMoveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
     ///
     /// Allows for overriding the related default method
@@ -1766,13 +2226,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseMoveEvent)
     ///
@@ -1784,11 +2244,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superMouseMoveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -1797,11 +2261,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn mouseReleaseEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
@@ -1812,13 +2280,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseReleaseEvent)
     ///
@@ -1830,11 +2298,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent)
     ///
     /// ## Parameter(s):
@@ -1843,10 +2315,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn mouseDoubleClickEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent)
     ///
@@ -1858,13 +2334,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMouseEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#mouseDoubleClickEvent)
     ///
@@ -1876,10 +2352,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QPlainTextEdit_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild)
     ///
@@ -1889,9 +2369,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QPlainTextEdit, next: bool) bool {
+    pub fn focusNextPrevChild(self: QPlainTextEdit, next: bool) bool {
         return qtc.QPlainTextEdit_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild)
     ///
@@ -1903,13 +2387,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusNextPrevChild)
     ///
@@ -1921,9 +2405,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QPlainTextEdit, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QPlainTextEdit, next: bool) bool {
         return qtc.QPlainTextEdit_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent)
     ///
@@ -1933,10 +2421,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn contextMenuEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.QPlainTextEdit_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent)
     ///
@@ -1948,13 +2440,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QContextMenuEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contextMenuEvent)
     ///
@@ -1966,10 +2458,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superContextMenuEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.QPlainTextEdit_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent)
     ///
@@ -1979,10 +2475,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn dragEnterEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.QPlainTextEdit_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent)
     ///
@@ -1994,13 +2494,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragEnterEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragEnterEvent)
     ///
@@ -2012,10 +2512,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superDragEnterEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.QPlainTextEdit_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent)
     ///
@@ -2025,10 +2529,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn dragLeaveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.QPlainTextEdit_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent)
     ///
@@ -2040,13 +2548,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragLeaveEvent)
     ///
@@ -2058,10 +2566,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superDragLeaveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.QPlainTextEdit_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent)
     ///
@@ -2071,10 +2583,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn dragMoveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.QPlainTextEdit_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent)
     ///
@@ -2086,13 +2602,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDragMoveEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dragMoveEvent)
     ///
@@ -2104,10 +2620,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superDragMoveEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.QPlainTextEdit_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent)
     ///
@@ -2117,10 +2637,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn dropEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.QPlainTextEdit_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent)
     ///
@@ -2132,13 +2656,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QDropEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dropEvent)
     ///
@@ -2150,11 +2674,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superDropEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.QPlainTextEdit_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
     ///
     /// ## Parameter(s):
@@ -2163,11 +2691,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn focusInEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QPlainTextEdit_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
     ///
     /// Allows for overriding the related default method
@@ -2178,13 +2710,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusInEvent)
     ///
@@ -2196,11 +2728,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superFocusInEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QPlainTextEdit_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent)
     ///
     /// ## Parameter(s):
@@ -2209,10 +2745,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn focusOutEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QPlainTextEdit_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent)
     ///
@@ -2224,13 +2764,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QFocusEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#focusOutEvent)
     ///
@@ -2242,10 +2782,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superFocusOutEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QPlainTextEdit_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#showEvent)
     ///
@@ -2255,10 +2799,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: QPlainTextEdit, param1: anytype) void {
+    pub fn showEvent(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QPlainTextEdit_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#showEvent)
     ///
@@ -2270,13 +2818,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QShowEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#showEvent)
     ///
@@ -2288,10 +2836,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QPlainTextEdit, param1: anytype) void {
+    pub fn superShowEvent(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QPlainTextEdit_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent)
     ///
@@ -2301,10 +2853,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn changeEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QPlainTextEdit_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent)
     ///
@@ -2316,13 +2872,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#changeEvent)
     ///
@@ -2334,10 +2890,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superChangeEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QPlainTextEdit_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent)
     ///
@@ -2347,10 +2907,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn wheelEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QPlainTextEdit_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent)
     ///
@@ -2362,13 +2926,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QWheelEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#wheelEvent)
     ///
@@ -2380,10 +2944,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QPlainTextEdit, e: anytype) void {
+    pub fn superWheelEvent(self: QPlainTextEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QPlainTextEdit_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `createMimeDataFromSelection` instead
+    ///
+    pub const CreateMimeDataFromSelection = createMimeDataFromSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection)
     ///
@@ -2391,9 +2959,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CreateMimeDataFromSelection(self: QPlainTextEdit) QMimeData {
+    pub fn createMimeDataFromSelection(self: QPlainTextEdit) QMimeData {
         return .{ .ptr = qtc.QPlainTextEdit_CreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateMimeDataFromSelection` instead
+    ///
+    pub const OnCreateMimeDataFromSelection = onCreateMimeDataFromSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection)
     ///
@@ -2405,13 +2977,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMimeData `
     ///
-    pub fn OnCreateMimeDataFromSelection(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMimeData) void {
         qtc.QPlainTextEdit_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    /// ### DEPRECATED: Use `superCreateMimeDataFromSelection` instead
     ///
-    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+    pub const SuperCreateMimeDataFromSelection = superCreateMimeDataFromSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#createMimeDataFromSelection)
     ///
@@ -2421,9 +2993,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperCreateMimeDataFromSelection(self: QPlainTextEdit) QMimeData {
+    pub fn superCreateMimeDataFromSelection(self: QPlainTextEdit) QMimeData {
         return .{ .ptr = qtc.QPlainTextEdit_SuperCreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `canInsertFromMimeData` instead
+    ///
+    pub const CanInsertFromMimeData = canInsertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData)
     ///
@@ -2433,10 +3009,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: QPlainTextEdit, source: anytype) bool {
+    pub fn canInsertFromMimeData(self: QPlainTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.QPlainTextEdit_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanInsertFromMimeData` instead
+    ///
+    pub const OnCanInsertFromMimeData = onCanInsertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData)
     ///
@@ -2448,13 +3028,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMimeData) callconv(.c) bool) void {
+    pub fn onCanInsertFromMimeData(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMimeData) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superCanInsertFromMimeData` instead
     ///
-    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+    pub const SuperCanInsertFromMimeData = superCanInsertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#canInsertFromMimeData)
     ///
@@ -2466,10 +3046,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: QPlainTextEdit, source: anytype) bool {
+    pub fn superCanInsertFromMimeData(self: QPlainTextEdit, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.QPlainTextEdit_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertFromMimeData` instead
+    ///
+    pub const InsertFromMimeData = insertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData)
     ///
@@ -2479,10 +3063,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn InsertFromMimeData(self: QPlainTextEdit, source: anytype) void {
+    pub fn insertFromMimeData(self: QPlainTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.QPlainTextEdit_InsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertFromMimeData` instead
+    ///
+    pub const OnInsertFromMimeData = onInsertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData)
     ///
@@ -2494,13 +3082,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, source: QMimeData) callconv(.c) void `
     ///
-    pub fn OnInsertFromMimeData(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMimeData) callconv(.c) void) void {
+    pub fn onInsertFromMimeData(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMimeData) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superInsertFromMimeData` instead
     ///
-    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+    pub const SuperInsertFromMimeData = superInsertFromMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#insertFromMimeData)
     ///
@@ -2512,10 +3100,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperInsertFromMimeData(self: QPlainTextEdit, source: anytype) void {
+    pub fn superInsertFromMimeData(self: QPlainTextEdit, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.QPlainTextEdit_SuperInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent)
     ///
@@ -2525,10 +3117,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QPlainTextEdit, param1: anytype) void {
+    pub fn inputMethodEvent(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QPlainTextEdit_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent)
     ///
@@ -2540,13 +3136,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QInputMethodEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#inputMethodEvent)
     ///
@@ -2558,10 +3154,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QPlainTextEdit, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QPlainTextEdit_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy)
     ///
@@ -2573,9 +3173,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: QPlainTextEdit, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: QPlainTextEdit, dx: i32, dy: i32) void {
         qtc.QPlainTextEdit_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy)
     ///
@@ -2587,13 +3191,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#scrollContentsBy)
     ///
@@ -2607,9 +3211,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: QPlainTextEdit, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: QPlainTextEdit, dx: i32, dy: i32) void {
         qtc.QPlainTextEdit_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `doSetTextCursor` instead
+    ///
+    pub const DoSetTextCursor = doSetTextCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor)
     ///
@@ -2617,12 +3225,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn DoSetTextCursor(self: QPlainTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QPlainTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn doSetTextCursor(self: QPlainTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QPlainTextEdit_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoSetTextCursor` instead
+    ///
+    pub const OnDoSetTextCursor = onDoSetTextCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor)
     ///
@@ -2634,13 +3246,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnDoSetTextCursor(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextCursor) callconv(.c) void) void {
+    pub fn onDoSetTextCursor(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextCursor) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDoSetTextCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    /// ### DEPRECATED: Use `superDoSetTextCursor` instead
     ///
-    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+    pub const SuperDoSetTextCursor = superDoSetTextCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#doSetTextCursor)
     ///
@@ -2650,12 +3262,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SuperDoSetTextCursor(self: QPlainTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QPlainTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn superDoSetTextCursor(self: QPlainTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QPlainTextEdit_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `firstVisibleBlock` instead
+    ///
+    pub const FirstVisibleBlock = firstVisibleBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
     ///
@@ -2663,9 +3279,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FirstVisibleBlock(self: QPlainTextEdit) QTextBlock {
+    pub fn firstVisibleBlock(self: QPlainTextEdit) QTextBlock {
         return .{ .ptr = qtc.QPlainTextEdit_FirstVisibleBlock(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFirstVisibleBlock` instead
+    ///
+    pub const OnFirstVisibleBlock = onFirstVisibleBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
     ///
@@ -2679,13 +3299,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFirstVisibleBlock(self: QPlainTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
+    pub fn onFirstVisibleBlock(self: QPlainTextEdit, callback: *const fn () callconv(.c) QTextBlock) void {
         qtc.QPlainTextEdit_OnFirstVisibleBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFirstVisibleBlock` instead
+    /// ### DEPRECATED: Use `superFirstVisibleBlock` instead
     ///
-    pub const QBaseFirstVisibleBlock = SuperFirstVisibleBlock;
+    pub const SuperFirstVisibleBlock = superFirstVisibleBlock;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#firstVisibleBlock)
     ///
@@ -2695,9 +3315,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperFirstVisibleBlock(self: QPlainTextEdit) QTextBlock {
+    pub fn superFirstVisibleBlock(self: QPlainTextEdit) QTextBlock {
         return .{ .ptr = qtc.QPlainTextEdit_SuperFirstVisibleBlock(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentOffset` instead
+    ///
+    pub const ContentOffset = contentOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
     ///
@@ -2705,9 +3329,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ContentOffset(self: QPlainTextEdit) QPointF {
+    pub fn contentOffset(self: QPlainTextEdit) QPointF {
         return .{ .ptr = qtc.QPlainTextEdit_ContentOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onContentOffset` instead
+    ///
+    pub const OnContentOffset = onContentOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
     ///
@@ -2721,13 +3349,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnContentOffset(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPointF) void {
+    pub fn onContentOffset(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPointF) void {
         qtc.QPlainTextEdit_OnContentOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContentOffset` instead
+    /// ### DEPRECATED: Use `superContentOffset` instead
     ///
-    pub const QBaseContentOffset = SuperContentOffset;
+    pub const SuperContentOffset = superContentOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#contentOffset)
     ///
@@ -2737,9 +3365,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperContentOffset(self: QPlainTextEdit) QPointF {
+    pub fn superContentOffset(self: QPlainTextEdit) QPointF {
         return .{ .ptr = qtc.QPlainTextEdit_SuperContentOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `blockBoundingRect` instead
+    ///
+    pub const BlockBoundingRect = blockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
     ///
@@ -2749,11 +3381,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn BlockBoundingRect(self: QPlainTextEdit, block: anytype) QRectF {
+    pub fn blockBoundingRect(self: QPlainTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextEdit_BlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onBlockBoundingRect` instead
+    ///
+    pub const OnBlockBoundingRect = onBlockBoundingRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
     ///
     /// Allows for overriding the related default method
@@ -2766,13 +3402,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBlockBoundingRect(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
+    pub fn onBlockBoundingRect(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextEdit_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
     ///
-    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+    pub const SuperBlockBoundingRect = superBlockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingRect)
     ///
@@ -2784,11 +3420,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn SuperBlockBoundingRect(self: QPlainTextEdit, block: anytype) QRectF {
+    pub fn superBlockBoundingRect(self: QPlainTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextEdit_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `blockBoundingGeometry` instead
+    ///
+    pub const BlockBoundingGeometry = blockBoundingGeometry;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
     ///
     /// ## Parameter(s):
@@ -2797,10 +3437,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn BlockBoundingGeometry(self: QPlainTextEdit, block: anytype) QRectF {
+    pub fn blockBoundingGeometry(self: QPlainTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextEdit_BlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBlockBoundingGeometry` instead
+    ///
+    pub const OnBlockBoundingGeometry = onBlockBoundingGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
     ///
@@ -2814,13 +3458,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBlockBoundingGeometry(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
+    pub fn onBlockBoundingGeometry(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextEdit_OnBlockBoundingGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBlockBoundingGeometry` instead
+    /// ### DEPRECATED: Use `superBlockBoundingGeometry` instead
     ///
-    pub const QBaseBlockBoundingGeometry = SuperBlockBoundingGeometry;
+    pub const SuperBlockBoundingGeometry = superBlockBoundingGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#blockBoundingGeometry)
     ///
@@ -2832,10 +3476,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn SuperBlockBoundingGeometry(self: QPlainTextEdit, block: anytype) QRectF {
+    pub fn superBlockBoundingGeometry(self: QPlainTextEdit, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextEdit_SuperBlockBoundingGeometry(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getPaintContext` instead
+    ///
+    pub const GetPaintContext = getPaintContext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
     ///
@@ -2843,9 +3491,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn GetPaintContext(self: QPlainTextEdit) QAbstractTextDocumentLayout__PaintContext {
+    pub fn getPaintContext(self: QPlainTextEdit) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.QPlainTextEdit_GetPaintContext(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGetPaintContext` instead
+    ///
+    pub const OnGetPaintContext = onGetPaintContext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
     ///
@@ -2859,13 +3511,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnGetPaintContext(self: QPlainTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
+    pub fn onGetPaintContext(self: QPlainTextEdit, callback: *const fn () callconv(.c) QAbstractTextDocumentLayout__PaintContext) void {
         qtc.QPlainTextEdit_OnGetPaintContext(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetPaintContext` instead
+    /// ### DEPRECATED: Use `superGetPaintContext` instead
     ///
-    pub const QBaseGetPaintContext = SuperGetPaintContext;
+    pub const SuperGetPaintContext = superGetPaintContext;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#getPaintContext)
     ///
@@ -2875,9 +3527,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperGetPaintContext(self: QPlainTextEdit) QAbstractTextDocumentLayout__PaintContext {
+    pub fn superGetPaintContext(self: QPlainTextEdit) QAbstractTextDocumentLayout__PaintContext {
         return .{ .ptr = qtc.QPlainTextEdit_SuperGetPaintContext(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `zoomInF` instead
+    ///
+    pub const ZoomInF = zoomInF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
     ///
@@ -2887,9 +3543,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn ZoomInF(self: QPlainTextEdit, range: f32) void {
+    pub fn zoomInF(self: QPlainTextEdit, range: f32) void {
         qtc.QPlainTextEdit_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `onZoomInF` instead
+    ///
+    pub const OnZoomInF = onZoomInF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
     ///
@@ -2901,13 +3561,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, range: f32) callconv(.c) void `
     ///
-    pub fn OnZoomInF(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, f32) callconv(.c) void) void {
+    pub fn onZoomInF(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, f32) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    /// ### DEPRECATED: Use `superZoomInF` instead
     ///
-    pub const QBaseZoomInF = SuperZoomInF;
+    pub const SuperZoomInF = superZoomInF;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomInF)
     ///
@@ -2919,9 +3579,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn SuperZoomInF(self: QPlainTextEdit, range: f32) void {
+    pub fn superZoomInF(self: QPlainTextEdit, range: f32) void {
         qtc.QPlainTextEdit_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2933,15 +3597,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -2955,15 +3623,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `find22` instead
+    ///
+    pub const Find22 = find22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
@@ -2975,13 +3647,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find22(self: QPlainTextEdit, exp: []const u8, options: i32) bool {
+    pub fn find22(self: QPlainTextEdit, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QPlainTextEdit_Find22(@ptrCast(self.ptr), exp_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `find23` instead
+    ///
+    pub const Find23 = find23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#find)
     ///
@@ -2993,10 +3669,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find23(self: QPlainTextEdit, exp: anytype, options: i32) bool {
+    pub fn find23(self: QPlainTextEdit, exp: anytype, options: i32) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QPlainTextEdit_Find23(@ptrCast(self.ptr), @ptrCast(exp.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `moveCursor2` instead
+    ///
+    pub const MoveCursor2 = moveCursor2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#moveCursor)
     ///
@@ -3008,9 +3688,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn MoveCursor2(self: QPlainTextEdit, operation: i32, mode: i32) void {
+    pub fn moveCursor2(self: QPlainTextEdit, operation: i32, mode: i32) void {
         qtc.QPlainTextEdit_MoveCursor2(@ptrCast(self.ptr), @bitCast(operation), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `zoomIn1` instead
+    ///
+    pub const ZoomIn1 = zoomIn1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomIn)
     ///
@@ -3020,9 +3704,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn1(self: QPlainTextEdit, range: i32) void {
+    pub fn zoomIn1(self: QPlainTextEdit, range: i32) void {
         qtc.QPlainTextEdit_ZoomIn1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `zoomOut1` instead
+    ///
+    pub const ZoomOut1 = zoomOut1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#zoomOut)
     ///
@@ -3032,9 +3720,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut1(self: QPlainTextEdit, range: i32) void {
+    pub fn zoomOut1(self: QPlainTextEdit, range: i32) void {
         qtc.QPlainTextEdit_ZoomOut1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3048,9 +3740,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: QPlainTextEdit) i32 {
+    pub fn verticalScrollBarPolicy(self: QPlainTextEdit) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3060,11 +3756,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: QPlainTextEdit, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: QPlainTextEdit, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3074,9 +3774,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn VerticalScrollBar(self: QPlainTextEdit) QScrollBar {
+    pub fn verticalScrollBar(self: QPlainTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3088,10 +3792,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: QPlainTextEdit, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: QPlainTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3105,9 +3813,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: QPlainTextEdit) i32 {
+    pub fn horizontalScrollBarPolicy(self: QPlainTextEdit) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3117,11 +3829,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: QPlainTextEdit, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: QPlainTextEdit, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3131,9 +3847,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HorizontalScrollBar(self: QPlainTextEdit) QScrollBar {
+    pub fn horizontalScrollBar(self: QPlainTextEdit) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3145,10 +3865,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: QPlainTextEdit, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: QPlainTextEdit, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3158,9 +3882,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CornerWidget(self: QPlainTextEdit) QWidget {
+    pub fn cornerWidget(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3172,10 +3900,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: QPlainTextEdit, widget: anytype) void {
+    pub fn setCornerWidget(self: QPlainTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3189,10 +3921,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: QPlainTextEdit, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: QPlainTextEdit, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3206,15 +3942,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: QPlainTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: QPlainTextEdit, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QPlainTextEdit.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QPlainTextEdit.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3224,9 +3964,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Viewport(self: QPlainTextEdit) QWidget {
+    pub fn viewport(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3238,10 +3982,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: QPlainTextEdit, widget: anytype) void {
+    pub fn setViewport(self: QPlainTextEdit, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3251,9 +3999,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MaximumViewportSize(self: QPlainTextEdit) QSize {
+    pub fn maximumViewportSize(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3267,9 +4019,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QPlainTextEdit) i32 {
+    pub fn sizeAdjustPolicy(self: QPlainTextEdit) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3281,9 +4037,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QPlainTextEdit, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QPlainTextEdit, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3293,9 +4053,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FrameStyle(self: QPlainTextEdit) i32 {
+    pub fn frameStyle(self: QPlainTextEdit) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3305,11 +4069,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: QPlainTextEdit, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: QPlainTextEdit, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -3319,9 +4087,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FrameWidth(self: QPlainTextEdit) i32 {
+    pub fn frameWidth(self: QPlainTextEdit) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -3335,9 +4107,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QPlainTextEdit) i32 {
+    pub fn frameShape(self: QPlainTextEdit) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -3347,11 +4123,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QPlainTextEdit, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QPlainTextEdit, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3365,9 +4145,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: QPlainTextEdit) i32 {
+    pub fn frameShadow(self: QPlainTextEdit) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3377,11 +4161,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: QPlainTextEdit, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: QPlainTextEdit, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3391,9 +4179,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn LineWidth(self: QPlainTextEdit) i32 {
+    pub fn lineWidth(self: QPlainTextEdit) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3403,11 +4195,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QPlainTextEdit, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QPlainTextEdit, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3417,9 +4213,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MidLineWidth(self: QPlainTextEdit) i32 {
+    pub fn midLineWidth(self: QPlainTextEdit) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3429,11 +4229,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QPlainTextEdit, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QPlainTextEdit, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -3443,9 +4247,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FrameRect(self: QPlainTextEdit) QRect {
+    pub fn frameRect(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -3455,12 +4263,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: QPlainTextEdit, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: QPlainTextEdit, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3470,9 +4282,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn WinId(self: QPlainTextEdit) usize {
+    pub fn winId(self: QPlainTextEdit) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3482,9 +4298,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn CreateWinId(self: QPlainTextEdit) void {
+    pub fn createWinId(self: QPlainTextEdit) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3494,9 +4314,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn InternalWinId(self: QPlainTextEdit) usize {
+    pub fn internalWinId(self: QPlainTextEdit) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3506,9 +4330,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn EffectiveWinId(self: QPlainTextEdit) usize {
+    pub fn effectiveWinId(self: QPlainTextEdit) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3518,9 +4346,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Style(self: QPlainTextEdit) QStyle {
+    pub fn style(self: QPlainTextEdit) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3530,12 +4362,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QPlainTextEdit, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QPlainTextEdit, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -3545,9 +4381,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsTopLevel(self: QPlainTextEdit) bool {
+    pub fn isTopLevel(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -3557,9 +4397,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsWindow(self: QPlainTextEdit) bool {
+    pub fn isWindow(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -3569,9 +4413,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsModal(self: QPlainTextEdit) bool {
+    pub fn isModal(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -3585,9 +4433,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QPlainTextEdit) i32 {
+    pub fn windowModality(self: QPlainTextEdit) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3597,11 +4449,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QPlainTextEdit, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QPlainTextEdit, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3611,9 +4467,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsEnabled(self: QPlainTextEdit) bool {
+    pub fn isEnabled(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3625,10 +4485,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QPlainTextEdit, param1: anytype) bool {
+    pub fn isEnabledTo(self: QPlainTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3640,9 +4504,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QPlainTextEdit, enabled: bool) void {
+    pub fn setEnabled(self: QPlainTextEdit, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3654,9 +4522,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QPlainTextEdit, disabled: bool) void {
+    pub fn setDisabled(self: QPlainTextEdit, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3668,9 +4540,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QPlainTextEdit, windowModified: bool) void {
+    pub fn setWindowModified(self: QPlainTextEdit, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3680,9 +4556,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FrameGeometry(self: QPlainTextEdit) QRect {
+    pub fn frameGeometry(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3692,9 +4572,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Geometry(self: QPlainTextEdit) QRect {
+    pub fn geometry(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3704,9 +4588,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn NormalGeometry(self: QPlainTextEdit) QRect {
+    pub fn normalGeometry(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3716,9 +4604,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn X(self: QPlainTextEdit) i32 {
+    pub fn x(self: QPlainTextEdit) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3728,9 +4620,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Y(self: QPlainTextEdit) i32 {
+    pub fn y(self: QPlainTextEdit) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3740,9 +4636,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Pos(self: QPlainTextEdit) QPoint {
+    pub fn pos(self: QPlainTextEdit) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3752,9 +4652,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FrameSize(self: QPlainTextEdit) QSize {
+    pub fn frameSize(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3764,9 +4668,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Size(self: QPlainTextEdit) QSize {
+    pub fn size(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3776,9 +4684,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Width(self: QPlainTextEdit) i32 {
+    pub fn width(self: QPlainTextEdit) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3788,9 +4700,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Height(self: QPlainTextEdit) i32 {
+    pub fn height(self: QPlainTextEdit) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3800,9 +4716,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Rect(self: QPlainTextEdit) QRect {
+    pub fn rect(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3812,9 +4732,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ChildrenRect(self: QPlainTextEdit) QRect {
+    pub fn childrenRect(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3824,9 +4748,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ChildrenRegion(self: QPlainTextEdit) QRegion {
+    pub fn childrenRegion(self: QPlainTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3836,9 +4764,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MinimumSize(self: QPlainTextEdit) QSize {
+    pub fn minimumSize(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3848,9 +4780,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MaximumSize(self: QPlainTextEdit) QSize {
+    pub fn maximumSize(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3860,9 +4796,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MinimumWidth(self: QPlainTextEdit) i32 {
+    pub fn minimumWidth(self: QPlainTextEdit) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3872,9 +4812,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MinimumHeight(self: QPlainTextEdit) i32 {
+    pub fn minimumHeight(self: QPlainTextEdit) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3884,9 +4828,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MaximumWidth(self: QPlainTextEdit) i32 {
+    pub fn maximumWidth(self: QPlainTextEdit) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3896,9 +4844,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MaximumHeight(self: QPlainTextEdit) i32 {
+    pub fn maximumHeight(self: QPlainTextEdit) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3908,12 +4860,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QPlainTextEdit, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QPlainTextEdit, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4883,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QPlainTextEdit, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QPlainTextEdit, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3939,12 +4899,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QPlainTextEdit, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QPlainTextEdit, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3958,9 +4922,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QPlainTextEdit, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QPlainTextEdit, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3972,9 +4940,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QPlainTextEdit, minw: i32) void {
+    pub fn setMinimumWidth(self: QPlainTextEdit, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3986,9 +4958,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QPlainTextEdit, minh: i32) void {
+    pub fn setMinimumHeight(self: QPlainTextEdit, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4000,9 +4976,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QPlainTextEdit, maxw: i32) void {
+    pub fn setMaximumWidth(self: QPlainTextEdit, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4014,9 +4994,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QPlainTextEdit, maxh: i32) void {
+    pub fn setMaximumHeight(self: QPlainTextEdit, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4026,9 +5010,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SizeIncrement(self: QPlainTextEdit) QSize {
+    pub fn sizeIncrement(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4038,12 +5026,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QPlainTextEdit, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QPlainTextEdit, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5049,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QPlainTextEdit, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QPlainTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -4069,9 +5065,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn BaseSize(self: QPlainTextEdit) QSize {
+    pub fn baseSize(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -4081,12 +5081,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QPlainTextEdit, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QPlainTextEdit, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -4100,9 +5104,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QPlainTextEdit, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QPlainTextEdit, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -4114,10 +5122,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QPlainTextEdit, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QPlainTextEdit, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -4131,9 +5143,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QPlainTextEdit, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QPlainTextEdit, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -4145,9 +5161,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QPlainTextEdit, w: i32) void {
+    pub fn setFixedWidth(self: QPlainTextEdit, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -4159,9 +5179,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QPlainTextEdit, h: i32) void {
+    pub fn setFixedHeight(self: QPlainTextEdit, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -4173,11 +5197,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QPlainTextEdit, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QPlainTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -4188,11 +5216,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QPlainTextEdit, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QPlainTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4203,11 +5235,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QPlainTextEdit, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QPlainTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4218,11 +5254,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QPlainTextEdit, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QPlainTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4233,11 +5273,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QPlainTextEdit, param1: anytype) QPointF {
+    pub fn mapToParent(self: QPlainTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4248,10 +5292,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QPlainTextEdit, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QPlainTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4263,10 +5311,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QPlainTextEdit, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QPlainTextEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4278,10 +5330,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QPlainTextEdit, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QPlainTextEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4295,12 +5351,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QPlainTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QPlainTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4313,11 +5373,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QPlainTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QPlainTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4331,11 +5395,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QPlainTextEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QPlainTextEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4349,11 +5417,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QPlainTextEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QPlainTextEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4363,9 +5435,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Window(self: QPlainTextEdit) QWidget {
+    pub fn window(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4375,9 +5451,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn NativeParentWidget(self: QPlainTextEdit) QWidget {
+    pub fn nativeParentWidget(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4387,9 +5467,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn TopLevelWidget(self: QPlainTextEdit) QWidget {
+    pub fn topLevelWidget(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4399,9 +5483,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Palette(self: QPlainTextEdit) QPalette {
+    pub fn palette(self: QPlainTextEdit) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4411,12 +5499,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QPlainTextEdit, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QPlainTextEdit, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4426,11 +5518,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QPlainTextEdit, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QPlainTextEdit, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4444,9 +5540,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QPlainTextEdit) i32 {
+    pub fn backgroundRole(self: QPlainTextEdit) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4456,11 +5556,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QPlainTextEdit, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QPlainTextEdit, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4474,9 +5578,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QPlainTextEdit) i32 {
+    pub fn foregroundRole(self: QPlainTextEdit) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4486,9 +5594,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Font(self: QPlainTextEdit) QFont {
+    pub fn font(self: QPlainTextEdit) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4498,12 +5610,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QPlainTextEdit, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QPlainTextEdit, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4513,9 +5629,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FontMetrics(self: QPlainTextEdit) QFontMetrics {
+    pub fn fontMetrics(self: QPlainTextEdit) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4525,9 +5645,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FontInfo(self: QPlainTextEdit) QFontInfo {
+    pub fn fontInfo(self: QPlainTextEdit) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4537,9 +5661,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Cursor(self: QPlainTextEdit) QCursor {
+    pub fn cursor(self: QPlainTextEdit) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -4549,12 +5677,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QPlainTextEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QPlainTextEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -4564,9 +5696,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UnsetCursor(self: QPlainTextEdit) void {
+    pub fn unsetCursor(self: QPlainTextEdit) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4578,9 +5714,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QPlainTextEdit, enable: bool) void {
+    pub fn setMouseTracking(self: QPlainTextEdit, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4590,9 +5730,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HasMouseTracking(self: QPlainTextEdit) bool {
+    pub fn hasMouseTracking(self: QPlainTextEdit) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4602,9 +5746,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UnderMouse(self: QPlainTextEdit) bool {
+    pub fn underMouse(self: QPlainTextEdit) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4616,9 +5764,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QPlainTextEdit, enable: bool) void {
+    pub fn setTabletTracking(self: QPlainTextEdit, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4628,24 +5780,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HasTabletTracking(self: QPlainTextEdit) bool {
+    pub fn hasTabletTracking(self: QPlainTextEdit) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlainTextEdit `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QPlainTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4655,12 +5796,35 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QPlainTextEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QPlainTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlainTextEdit `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QPlainTextEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4670,9 +5834,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Mask(self: QPlainTextEdit) QRegion {
+    pub fn mask(self: QPlainTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4682,9 +5850,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ClearMask(self: QPlainTextEdit) void {
+    pub fn clearMask(self: QPlainTextEdit) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4696,10 +5868,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QPlainTextEdit, target: anytype) void {
+    pub fn render(self: QPlainTextEdit, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4711,10 +5887,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QPlainTextEdit, painter: anytype) void {
+    pub fn render2(self: QPlainTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4724,9 +5904,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Grab(self: QPlainTextEdit) QPixmap {
+    pub fn grab(self: QPlainTextEdit) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4736,9 +5920,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn GraphicsEffect(self: QPlainTextEdit) QGraphicsEffect {
+    pub fn graphicsEffect(self: QPlainTextEdit) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4750,10 +5938,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QPlainTextEdit, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QPlainTextEdit, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4765,9 +5957,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QPlainTextEdit, typeVal: i32) void {
+    pub fn grabGesture(self: QPlainTextEdit, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4779,9 +5975,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QPlainTextEdit, typeVal: i32) void {
+    pub fn ungrabGesture(self: QPlainTextEdit, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4791,15 +5991,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QPlainTextEdit, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QPlainTextEdit, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4809,15 +6013,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QPlainTextEdit, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QPlainTextEdit, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4829,13 +6037,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4847,13 +6059,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4865,10 +6081,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QPlainTextEdit, icon: anytype) void {
+    pub fn setWindowIcon(self: QPlainTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4878,9 +6098,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn WindowIcon(self: QPlainTextEdit) QIcon {
+    pub fn windowIcon(self: QPlainTextEdit) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4890,15 +6114,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QPlainTextEdit, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QPlainTextEdit, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4910,13 +6138,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4926,15 +6158,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QPlainTextEdit, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QPlainTextEdit, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4946,13 +6182,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4964,13 +6204,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QPlainTextEdit, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QPlainTextEdit, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4982,13 +6226,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5000,9 +6248,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QPlainTextEdit, level: f64) void {
+    pub fn setWindowOpacity(self: QPlainTextEdit, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5012,9 +6264,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn WindowOpacity(self: QPlainTextEdit) f64 {
+    pub fn windowOpacity(self: QPlainTextEdit) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -5024,9 +6280,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsWindowModified(self: QPlainTextEdit) bool {
+    pub fn isWindowModified(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -5036,15 +6296,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QPlainTextEdit, toolTip: []const u8) void {
+    pub fn setToolTip(self: QPlainTextEdit, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -5056,13 +6320,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5074,9 +6342,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QPlainTextEdit, msec: i32) void {
+    pub fn setToolTipDuration(self: QPlainTextEdit, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5086,9 +6358,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ToolTipDuration(self: QPlainTextEdit) i32 {
+    pub fn toolTipDuration(self: QPlainTextEdit) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -5098,15 +6374,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QPlainTextEdit, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QPlainTextEdit, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -5118,13 +6398,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5134,15 +6418,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QPlainTextEdit, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QPlainTextEdit, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5154,13 +6442,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5172,13 +6464,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5190,13 +6486,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QPlainTextEdit, name: []const u8) void {
+    pub fn setAccessibleName(self: QPlainTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5208,13 +6508,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5226,13 +6530,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QPlainTextEdit, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QPlainTextEdit, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5244,9 +6552,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QPlainTextEdit, direction: i32) void {
+    pub fn setLayoutDirection(self: QPlainTextEdit, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5260,9 +6572,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QPlainTextEdit) i32 {
+    pub fn layoutDirection(self: QPlainTextEdit) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5272,9 +6588,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UnsetLayoutDirection(self: QPlainTextEdit) void {
+    pub fn unsetLayoutDirection(self: QPlainTextEdit) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5284,12 +6604,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QPlainTextEdit, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QPlainTextEdit, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5299,9 +6623,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Locale(self: QPlainTextEdit) QLocale {
+    pub fn locale(self: QPlainTextEdit) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5311,9 +6639,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UnsetLocale(self: QPlainTextEdit) void {
+    pub fn unsetLocale(self: QPlainTextEdit) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5323,9 +6655,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsRightToLeft(self: QPlainTextEdit) bool {
+    pub fn isRightToLeft(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5335,9 +6671,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsLeftToRight(self: QPlainTextEdit) bool {
+    pub fn isLeftToRight(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5347,9 +6687,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SetFocus(self: QPlainTextEdit) void {
+    pub fn setFocus(self: QPlainTextEdit) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5359,9 +6703,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsActiveWindow(self: QPlainTextEdit) bool {
+    pub fn isActiveWindow(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5371,9 +6719,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ActivateWindow(self: QPlainTextEdit) void {
+    pub fn activateWindow(self: QPlainTextEdit) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5383,9 +6735,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ClearFocus(self: QPlainTextEdit) void {
+    pub fn clearFocus(self: QPlainTextEdit) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5397,9 +6753,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QPlainTextEdit, reason: i32) void {
+    pub fn setFocus2(self: QPlainTextEdit, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5413,9 +6773,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QPlainTextEdit) i32 {
+    pub fn focusPolicy(self: QPlainTextEdit) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5427,9 +6791,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QPlainTextEdit, policy: i32) void {
+    pub fn setFocusPolicy(self: QPlainTextEdit, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5439,9 +6807,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HasFocus(self: QPlainTextEdit) bool {
+    pub fn hasFocus(self: QPlainTextEdit) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5453,11 +6825,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5467,12 +6843,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QPlainTextEdit, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QPlainTextEdit, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5482,9 +6862,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FocusProxy(self: QPlainTextEdit) QWidget {
+    pub fn focusProxy(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5498,9 +6882,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QPlainTextEdit) i32 {
+    pub fn contextMenuPolicy(self: QPlainTextEdit) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5512,9 +6900,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QPlainTextEdit, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QPlainTextEdit, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5524,9 +6916,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn GrabMouse(self: QPlainTextEdit) void {
+    pub fn grabMouse(self: QPlainTextEdit) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5538,10 +6934,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QPlainTextEdit, param1: anytype) void {
+    pub fn grabMouse2(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -5551,9 +6951,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ReleaseMouse(self: QPlainTextEdit) void {
+    pub fn releaseMouse(self: QPlainTextEdit) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5563,9 +6967,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn GrabKeyboard(self: QPlainTextEdit) void {
+    pub fn grabKeyboard(self: QPlainTextEdit) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5575,9 +6983,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ReleaseKeyboard(self: QPlainTextEdit) void {
+    pub fn releaseKeyboard(self: QPlainTextEdit) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5589,10 +7001,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QPlainTextEdit, key: anytype) i32 {
+    pub fn grabShortcut(self: QPlainTextEdit, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5604,9 +7020,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QPlainTextEdit, id: i32) void {
+    pub fn releaseShortcut(self: QPlainTextEdit, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5618,9 +7038,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QPlainTextEdit, id: i32) void {
+    pub fn setShortcutEnabled(self: QPlainTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5632,25 +7056,37 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QPlainTextEdit, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QPlainTextEdit, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5660,9 +7096,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UpdatesEnabled(self: QPlainTextEdit) bool {
+    pub fn updatesEnabled(self: QPlainTextEdit) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5674,9 +7114,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QPlainTextEdit, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QPlainTextEdit, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5686,9 +7130,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn GraphicsProxyWidget(self: QPlainTextEdit) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QPlainTextEdit) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -5698,9 +7146,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Update(self: QPlainTextEdit) void {
+    pub fn update(self: QPlainTextEdit) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5710,9 +7162,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Repaint(self: QPlainTextEdit) void {
+    pub fn repaint(self: QPlainTextEdit) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5722,17 +7178,21 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QPlainTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QPlainTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5744,11 +7204,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QPlainTextEdit, param1: anytype) void {
+    pub fn update3(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5759,10 +7223,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QPlainTextEdit, param1: anytype) void {
+    pub fn update4(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5772,17 +7240,21 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QPlainTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QPlainTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5794,10 +7266,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QPlainTextEdit, param1: anytype) void {
+    pub fn repaint3(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5809,10 +7285,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QPlainTextEdit, param1: anytype) void {
+    pub fn repaint4(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5824,9 +7304,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QPlainTextEdit, hidden: bool) void {
+    pub fn setHidden(self: QPlainTextEdit, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5836,9 +7320,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Show(self: QPlainTextEdit) void {
+    pub fn show(self: QPlainTextEdit) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5848,9 +7336,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Hide(self: QPlainTextEdit) void {
+    pub fn hide(self: QPlainTextEdit) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5860,9 +7352,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ShowMinimized(self: QPlainTextEdit) void {
+    pub fn showMinimized(self: QPlainTextEdit) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5872,9 +7368,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ShowMaximized(self: QPlainTextEdit) void {
+    pub fn showMaximized(self: QPlainTextEdit) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5884,9 +7384,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ShowFullScreen(self: QPlainTextEdit) void {
+    pub fn showFullScreen(self: QPlainTextEdit) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5896,9 +7400,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ShowNormal(self: QPlainTextEdit) void {
+    pub fn showNormal(self: QPlainTextEdit) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -5908,9 +7416,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Close(self: QPlainTextEdit) bool {
+    pub fn close(self: QPlainTextEdit) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5920,9 +7432,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Raise(self: QPlainTextEdit) void {
+    pub fn raise(self: QPlainTextEdit) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5932,9 +7448,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Lower(self: QPlainTextEdit) void {
+    pub fn lower(self: QPlainTextEdit) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5946,10 +7466,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QPlainTextEdit, param1: anytype) void {
+    pub fn stackUnder(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5959,13 +7483,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QPlainTextEdit, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QPlainTextEdit, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5977,10 +7505,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QPlainTextEdit, param1: anytype) void {
+    pub fn move2(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5994,9 +7526,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QPlainTextEdit, w: i32, h: i32) void {
+    pub fn resize(self: QPlainTextEdit, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -6008,10 +7544,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QPlainTextEdit, param1: anytype) void {
+    pub fn resize2(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6021,17 +7561,21 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QPlainTextEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QPlainTextEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -6041,12 +7585,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QPlainTextEdit, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QPlainTextEdit, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6058,13 +7606,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QPlainTextEdit, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QPlainTextEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPlainTextEdit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPlainTextEdit.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6074,15 +7626,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QPlainTextEdit, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QPlainTextEdit, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -6092,9 +7648,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn AdjustSize(self: QPlainTextEdit) void {
+    pub fn adjustSize(self: QPlainTextEdit) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -6104,9 +7664,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsVisible(self: QPlainTextEdit) bool {
+    pub fn isVisible(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -6118,10 +7682,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QPlainTextEdit, param1: anytype) bool {
+    pub fn isVisibleTo(self: QPlainTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -6131,9 +7699,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsHidden(self: QPlainTextEdit) bool {
+    pub fn isHidden(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6143,9 +7715,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsMinimized(self: QPlainTextEdit) bool {
+    pub fn isMinimized(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6155,9 +7731,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsMaximized(self: QPlainTextEdit) bool {
+    pub fn isMaximized(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6167,9 +7747,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsFullScreen(self: QPlainTextEdit) bool {
+    pub fn isFullScreen(self: QPlainTextEdit) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -6183,9 +7767,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QPlainTextEdit) i32 {
+    pub fn windowState(self: QPlainTextEdit) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6197,9 +7785,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QPlainTextEdit, state: i32) void {
+    pub fn setWindowState(self: QPlainTextEdit, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6211,9 +7803,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QPlainTextEdit, state: i32) void {
+    pub fn overrideWindowState(self: QPlainTextEdit, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6223,9 +7819,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SizePolicy(self: QPlainTextEdit) QSizePolicy {
+    pub fn sizePolicy(self: QPlainTextEdit) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6235,12 +7835,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QPlainTextEdit, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QPlainTextEdit, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6254,9 +7858,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QPlainTextEdit, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QPlainTextEdit, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6266,9 +7874,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn VisibleRegion(self: QPlainTextEdit) QRegion {
+    pub fn visibleRegion(self: QPlainTextEdit) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6286,9 +7898,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6300,10 +7916,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QPlainTextEdit, margins: anytype) void {
+    pub fn setContentsMargins2(self: QPlainTextEdit, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6313,9 +7933,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ContentsMargins(self: QPlainTextEdit) QMargins {
+    pub fn contentsMargins(self: QPlainTextEdit) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6325,9 +7949,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ContentsRect(self: QPlainTextEdit) QRect {
+    pub fn contentsRect(self: QPlainTextEdit) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6337,9 +7965,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Layout(self: QPlainTextEdit) QLayout {
+    pub fn layout(self: QPlainTextEdit) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6349,12 +7981,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QPlainTextEdit, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QPlainTextEdit, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6364,24 +8000,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UpdateGeometry(self: QPlainTextEdit) void {
+    pub fn updateGeometry(self: QPlainTextEdit) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlainTextEdit `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QPlainTextEdit, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6391,14 +8016,37 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QPlainTextEdit, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlainTextEdit `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QPlainTextEdit, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QPlainTextEdit, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6412,9 +8060,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QPlainTextEdit, dx: i32, dy: i32) void {
+    pub fn scroll(self: QPlainTextEdit, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6430,10 +8082,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QPlainTextEdit, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QPlainTextEdit, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6443,9 +8099,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FocusWidget(self: QPlainTextEdit) QWidget {
+    pub fn focusWidget(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6455,9 +8115,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn NextInFocusChain(self: QPlainTextEdit) QWidget {
+    pub fn nextInFocusChain(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6467,9 +8131,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn PreviousInFocusChain(self: QPlainTextEdit) QWidget {
+    pub fn previousInFocusChain(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6479,9 +8147,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn AcceptDrops(self: QPlainTextEdit) bool {
+    pub fn acceptDrops(self: QPlainTextEdit) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6493,9 +8165,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QPlainTextEdit, on: bool) void {
+    pub fn setAcceptDrops(self: QPlainTextEdit, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6507,10 +8183,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QPlainTextEdit, action: anytype) void {
+    pub fn addAction(self: QPlainTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6520,15 +8200,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QPlainTextEdit, actions: []QAction) void {
+    pub fn addActions(self: QPlainTextEdit, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6540,16 +8224,20 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QPlainTextEdit, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QPlainTextEdit, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -6563,11 +8251,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QPlainTextEdit, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QPlainTextEdit, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -6579,10 +8271,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QPlainTextEdit, action: anytype) void {
+    pub fn removeAction(self: QPlainTextEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -6594,15 +8290,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QPlainTextEdit, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QPlainTextEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QPlainTextEdit.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QPlainTextEdit.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -6614,13 +8314,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QPlainTextEdit, text: []const u8) QAction {
+    pub fn addAction2(self: QPlainTextEdit, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6634,7 +8338,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QPlainTextEdit, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QPlainTextEdit, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6643,6 +8347,10 @@ pub const QPlainTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6655,7 +8363,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QPlainTextEdit, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QPlainTextEdit, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -6663,6 +8371,10 @@ pub const QPlainTextEdit = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -6678,7 +8390,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QPlainTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QPlainTextEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6688,6 +8400,10 @@ pub const QPlainTextEdit = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -6696,9 +8412,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ParentWidget(self: QPlainTextEdit) QWidget {
+    pub fn parentWidget(self: QPlainTextEdit) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6710,9 +8430,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QPlainTextEdit, typeVal: i32) void {
+    pub fn setWindowFlags(self: QPlainTextEdit, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6726,9 +8450,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QPlainTextEdit) i32 {
+    pub fn windowFlags(self: QPlainTextEdit) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6740,9 +8468,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QPlainTextEdit, param1: i32) void {
+    pub fn setWindowFlag(self: QPlainTextEdit, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6754,9 +8486,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QPlainTextEdit, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QPlainTextEdit, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6770,9 +8506,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QPlainTextEdit) i32 {
+    pub fn windowType(self: QPlainTextEdit) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6782,13 +8522,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QPlainTextEdit, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QPlainTextEdit, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6800,10 +8544,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QPlainTextEdit, p: anytype) QWidget {
+    pub fn childAt2(self: QPlainTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6815,10 +8563,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QPlainTextEdit, p: anytype) QWidget {
+    pub fn childAt3(self: QPlainTextEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6830,9 +8582,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QPlainTextEdit, param1: i32) void {
+    pub fn setAttribute(self: QPlainTextEdit, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6844,9 +8600,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QPlainTextEdit, param1: i32) bool {
+    pub fn testAttribute(self: QPlainTextEdit, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6856,9 +8616,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn EnsurePolished(self: QPlainTextEdit) void {
+    pub fn ensurePolished(self: QPlainTextEdit) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6870,10 +8634,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QPlainTextEdit, child: anytype) bool {
+    pub fn isAncestorOf(self: QPlainTextEdit, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6883,9 +8651,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn AutoFillBackground(self: QPlainTextEdit) bool {
+    pub fn autoFillBackground(self: QPlainTextEdit) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6897,9 +8669,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QPlainTextEdit, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QPlainTextEdit, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6909,9 +8685,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn BackingStore(self: QPlainTextEdit) QBackingStore {
+    pub fn backingStore(self: QPlainTextEdit) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6921,9 +8701,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn WindowHandle(self: QPlainTextEdit) QWindow {
+    pub fn windowHandle(self: QPlainTextEdit) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6933,9 +8717,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Screen(self: QPlainTextEdit) QScreen {
+    pub fn screen(self: QPlainTextEdit) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6945,12 +8733,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QPlainTextEdit, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QPlainTextEdit, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6958,12 +8750,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6975,13 +8771,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QPlainTextEdit, title: []const u8) void {
+    pub fn windowTitleChanged(self: QPlainTextEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6993,9 +8793,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7007,10 +8811,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QPlainTextEdit, icon: anytype) void {
+    pub fn windowIconChanged(self: QPlainTextEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7022,9 +8830,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7036,13 +8848,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QPlainTextEdit, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QPlainTextEdit, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7054,9 +8870,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7066,12 +8886,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QPlainTextEdit, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QPlainTextEdit, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7083,9 +8907,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7099,9 +8927,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QPlainTextEdit) i32 {
+    pub fn inputMethodHints(self: QPlainTextEdit) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7113,9 +8945,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QPlainTextEdit, hints: i32) void {
+    pub fn setInputMethodHints(self: QPlainTextEdit, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -7129,11 +8965,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QPlainTextEdit, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QPlainTextEdit, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -7149,13 +8989,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QPlainTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QPlainTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -7172,12 +9016,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QPlainTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QPlainTextEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -7191,11 +9039,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QPlainTextEdit, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QPlainTextEdit, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7211,12 +9063,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QPlainTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QPlainTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7234,12 +9090,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QPlainTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QPlainTextEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7251,10 +9111,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QPlainTextEdit, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QPlainTextEdit, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7268,9 +9132,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QPlainTextEdit, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QPlainTextEdit, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7284,10 +9152,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QPlainTextEdit, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QPlainTextEdit, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7301,9 +9173,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QPlainTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QPlainTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7317,9 +9193,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QPlainTextEdit, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QPlainTextEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7333,9 +9213,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QPlainTextEdit, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QPlainTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7349,25 +9233,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QPlainTextEdit, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QPlainTextEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7375,17 +9247,41 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7397,13 +9293,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPlainTextEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextEdit.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7415,13 +9315,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPlainTextEdit, name: []const u8) void {
+    pub fn setObjectName(self: QPlainTextEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7431,9 +9335,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsWidgetType(self: QPlainTextEdit) bool {
+    pub fn isWidgetType(self: QPlainTextEdit) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7443,9 +9351,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsWindowType(self: QPlainTextEdit) bool {
+    pub fn isWindowType(self: QPlainTextEdit) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7455,9 +9367,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn IsQuickItemType(self: QPlainTextEdit) bool {
+    pub fn isQuickItemType(self: QPlainTextEdit) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7467,9 +9383,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SignalsBlocked(self: QPlainTextEdit) bool {
+    pub fn signalsBlocked(self: QPlainTextEdit) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7481,9 +9401,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPlainTextEdit, b: bool) bool {
+    pub fn blockSignals(self: QPlainTextEdit, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7493,9 +9417,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Thread(self: QPlainTextEdit) QThread {
+    pub fn thread(self: QPlainTextEdit) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7505,12 +9433,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPlainTextEdit, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPlainTextEdit, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7522,9 +9454,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPlainTextEdit, interval: i32) i32 {
+    pub fn startTimer(self: QPlainTextEdit, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7536,9 +9472,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPlainTextEdit, time: i64) i32 {
+    pub fn startTimer2(self: QPlainTextEdit, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7550,9 +9490,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPlainTextEdit, id: i32) void {
+    pub fn killTimer(self: QPlainTextEdit, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7564,9 +9508,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPlainTextEdit, id: i32) void {
+    pub fn killTimer2(self: QPlainTextEdit, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7578,15 +9526,19 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPlainTextEdit, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPlainTextEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlainTextEdit.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlainTextEdit.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7598,10 +9550,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPlainTextEdit, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPlainTextEdit, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7613,10 +9569,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPlainTextEdit, obj: anytype) void {
+    pub fn removeEventFilter(self: QPlainTextEdit, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7624,7 +9584,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7632,13 +9592,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7646,7 +9610,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7654,13 +9618,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7670,18 +9638,22 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPlainTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPlainTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7689,7 +9661,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7697,13 +9669,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7711,7 +9687,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7719,13 +9695,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7735,9 +9715,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Disconnect3(self: QPlainTextEdit) bool {
+    pub fn disconnect3(self: QPlainTextEdit) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7749,10 +9733,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPlainTextEdit, receiver: anytype) bool {
+    pub fn disconnect4(self: QPlainTextEdit, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7762,10 +9750,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7775,9 +9767,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DumpObjectTree(self: QPlainTextEdit) void {
+    pub fn dumpObjectTree(self: QPlainTextEdit) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7787,9 +9783,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DumpObjectInfo(self: QPlainTextEdit) void {
+    pub fn dumpObjectInfo(self: QPlainTextEdit) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7803,11 +9803,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPlainTextEdit, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPlainTextEdit, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7819,10 +9823,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPlainTextEdit, name: [:0]const u8) QVariant {
+    pub fn property(self: QPlainTextEdit, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7834,7 +9842,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPlainTextEdit, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPlainTextEdit, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7842,27 +9850,19 @@ pub const QPlainTextEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlainTextEdit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlainTextEdit.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlainTextEdit.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPlainTextEdit.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlainTextEdit `
-    ///
-    pub fn BindingStorage(self: QPlainTextEdit) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7872,9 +9872,29 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn BindingStorage2(self: QPlainTextEdit) QBindingStorage {
+    pub fn bindingStorage(self: QPlainTextEdit) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlainTextEdit `
+    ///
+    pub fn bindingStorage2(self: QPlainTextEdit) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7884,9 +9904,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Destroyed(self: QPlainTextEdit) void {
+    pub fn destroyed(self: QPlainTextEdit) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7898,9 +9922,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7910,9 +9938,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Parent(self: QPlainTextEdit) QObject {
+    pub fn parent(self: QPlainTextEdit) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7924,10 +9956,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPlainTextEdit, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPlainTextEdit, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7937,9 +9973,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DeleteLater(self: QPlainTextEdit) void {
+    pub fn deleteLater(self: QPlainTextEdit) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7953,9 +9993,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPlainTextEdit, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPlainTextEdit, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7969,9 +10013,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPlainTextEdit, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPlainTextEdit, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7979,7 +10027,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7989,13 +10037,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -8003,7 +10055,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8013,13 +10065,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -8029,7 +10085,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8037,12 +10093,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPlainTextEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPlainTextEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8054,10 +10114,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPlainTextEdit, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPlainTextEdit, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8071,11 +10135,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPlainTextEdit, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPlainTextEdit, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8091,13 +10159,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPlainTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPlainTextEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8110,11 +10182,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPlainTextEdit, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPlainTextEdit, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8126,10 +10202,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPlainTextEdit, param1: anytype) void {
+    pub fn destroyed1(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8141,9 +10221,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -8153,9 +10237,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn PaintingActive(self: QPlainTextEdit) bool {
+    pub fn paintingActive(self: QPlainTextEdit) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8165,9 +10253,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn WidthMM(self: QPlainTextEdit) i32 {
+    pub fn widthMM(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8177,9 +10269,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HeightMM(self: QPlainTextEdit) i32 {
+    pub fn heightMM(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8189,9 +10285,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn LogicalDpiX(self: QPlainTextEdit) i32 {
+    pub fn logicalDpiX(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8201,9 +10301,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn LogicalDpiY(self: QPlainTextEdit) i32 {
+    pub fn logicalDpiY(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8213,9 +10317,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn PhysicalDpiX(self: QPlainTextEdit) i32 {
+    pub fn physicalDpiX(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8225,9 +10333,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn PhysicalDpiY(self: QPlainTextEdit) i32 {
+    pub fn physicalDpiY(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8237,9 +10349,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DevicePixelRatio(self: QPlainTextEdit) f64 {
+    pub fn devicePixelRatio(self: QPlainTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8249,9 +10365,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DevicePixelRatioF(self: QPlainTextEdit) f64 {
+    pub fn devicePixelRatioF(self: QPlainTextEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8261,9 +10381,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ColorCount(self: QPlainTextEdit) i32 {
+    pub fn colorCount(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8273,17 +10397,25 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Depth(self: QPlainTextEdit) i32 {
+    pub fn depth(self: QPlainTextEdit) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8291,13 +10423,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8309,13 +10445,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn MinimumSizeHint(self: QPlainTextEdit) QSize {
+    pub fn minimumSizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8327,10 +10463,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperMinimumSizeHint(self: QPlainTextEdit) QSize {
+    pub fn superMinimumSizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -8345,9 +10485,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8359,13 +10503,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SizeHint(self: QPlainTextEdit) QSize {
+    pub fn sizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8377,9 +10521,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperSizeHint(self: QPlainTextEdit) QSize {
+    pub fn superSizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8395,9 +10543,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8409,16 +10561,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: QPlainTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QPlainTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: QPlainTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QPlainTextEdit_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8430,12 +10582,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: QPlainTextEdit, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QPlainTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: QPlainTextEdit, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QPlainTextEdit_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8449,9 +10605,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QWidget) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8467,15 +10627,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QPlainTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QPlainTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QPlainTextEdit_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8491,11 +10651,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPlainTextEdit, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QPlainTextEdit, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QPlainTextEdit_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8509,9 +10673,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8525,14 +10693,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: QPlainTextEdit, param1: anytype) bool {
+    pub fn viewportEvent(self: QPlainTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QPlainTextEdit_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8546,10 +10714,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: QPlainTextEdit, param1: anytype) bool {
+    pub fn superViewportEvent(self: QPlainTextEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QPlainTextEdit_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8563,9 +10735,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8577,13 +10753,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ViewportSizeHint(self: QPlainTextEdit) QSize {
+    pub fn viewportSizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8595,9 +10771,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperViewportSizeHint(self: QPlainTextEdit) QSize {
+    pub fn superViewportSizeHint(self: QPlainTextEdit) QSize {
         return .{ .ptr = qtc.QPlainTextEdit_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -8613,9 +10793,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QPlainTextEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPlainTextEdit_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8629,14 +10813,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: QPlainTextEdit, option: anytype) void {
+    pub fn initStyleOption(self: QPlainTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QPlainTextEdit_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8650,10 +10834,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: QPlainTextEdit, option: anytype) void {
+    pub fn superInitStyleOption(self: QPlainTextEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QPlainTextEdit_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -8667,9 +10855,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QStyleOptionFrame) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8681,13 +10873,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn DevType(self: QPlainTextEdit) i32 {
+    pub fn devType(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8699,9 +10891,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperDevType(self: QPlainTextEdit) i32 {
+    pub fn superDevType(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8715,9 +10911,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QPlainTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPlainTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8731,13 +10931,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QPlainTextEdit, visible: bool) void {
+    pub fn setVisible(self: QPlainTextEdit, visible: bool) void {
         qtc.QPlainTextEdit_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8751,9 +10951,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QPlainTextEdit, visible: bool) void {
+    pub fn superSetVisible(self: QPlainTextEdit, visible: bool) void {
         qtc.QPlainTextEdit_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8767,9 +10971,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, bool) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8783,13 +10991,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QPlainTextEdit, param1: i32) i32 {
+    pub fn heightForWidth(self: QPlainTextEdit, param1: i32) i32 {
         return qtc.QPlainTextEdit_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8803,9 +11011,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QPlainTextEdit, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QPlainTextEdit, param1: i32) i32 {
         return qtc.QPlainTextEdit_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8819,9 +11031,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8833,13 +11049,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn HasHeightForWidth(self: QPlainTextEdit) bool {
+    pub fn hasHeightForWidth(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8851,9 +11067,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperHasHeightForWidth(self: QPlainTextEdit) bool {
+    pub fn superHasHeightForWidth(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8867,9 +11087,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8881,13 +11105,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn PaintEngine(self: QPlainTextEdit) QPaintEngine {
+    pub fn paintEngine(self: QPlainTextEdit) QPaintEngine {
         return .{ .ptr = qtc.QPlainTextEdit_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8899,9 +11123,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperPaintEngine(self: QPlainTextEdit) QPaintEngine {
+    pub fn superPaintEngine(self: QPlainTextEdit) QPaintEngine {
         return .{ .ptr = qtc.QPlainTextEdit_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8915,9 +11143,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QPlainTextEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8929,16 +11161,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QPlainTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QPlainTextEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8950,12 +11182,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QPlainTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QPlainTextEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8969,9 +11205,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEnterEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8983,16 +11223,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9004,12 +11244,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9023,9 +11267,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9037,16 +11285,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QPlainTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QPlainTextEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9058,12 +11306,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QPlainTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QPlainTextEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9077,9 +11329,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMoveEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9091,16 +11347,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QPlainTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QPlainTextEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9112,12 +11368,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QPlainTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QPlainTextEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9131,9 +11391,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QCloseEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9145,16 +11409,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QPlainTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QPlainTextEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9166,12 +11430,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QPlainTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QPlainTextEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9185,9 +11453,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QTabletEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9199,16 +11471,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QPlainTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QPlainTextEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9220,12 +11492,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QPlainTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QPlainTextEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9239,9 +11515,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QActionEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9253,16 +11533,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QPlainTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QPlainTextEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9274,12 +11554,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QPlainTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QPlainTextEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9293,9 +11577,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QHideEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9313,7 +11601,7 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QPlainTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QPlainTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9321,9 +11609,9 @@ pub const QPlainTextEdit = extern struct {
         return qtc.QPlainTextEdit_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9341,13 +11629,17 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QPlainTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QPlainTextEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QPlainTextEdit_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9361,9 +11653,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9377,13 +11673,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QPlainTextEdit, param1: i32) i32 {
+    pub fn metric(self: QPlainTextEdit, param1: i32) i32 {
         return qtc.QPlainTextEdit_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9397,9 +11693,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QPlainTextEdit, param1: i32) i32 {
+    pub fn superMetric(self: QPlainTextEdit, param1: i32) i32 {
         return qtc.QPlainTextEdit_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9413,9 +11713,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9429,14 +11733,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QPlainTextEdit, painter: anytype) void {
+    pub fn initPainter(self: QPlainTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPlainTextEdit_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9450,10 +11754,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QPlainTextEdit, painter: anytype) void {
+    pub fn superInitPainter(self: QPlainTextEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPlainTextEdit_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9467,9 +11775,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPainter) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9483,14 +11795,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QPlainTextEdit, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QPlainTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPlainTextEdit_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9504,10 +11816,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QPlainTextEdit, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QPlainTextEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPlainTextEdit_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9521,9 +11837,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QPlainTextEdit_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9535,13 +11855,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SharedPainter(self: QPlainTextEdit) QPainter {
+    pub fn sharedPainter(self: QPlainTextEdit) QPainter {
         return .{ .ptr = qtc.QPlainTextEdit_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9553,9 +11873,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperSharedPainter(self: QPlainTextEdit) QPainter {
+    pub fn superSharedPainter(self: QPlainTextEdit) QPainter {
         return .{ .ptr = qtc.QPlainTextEdit_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9569,9 +11893,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPlainTextEdit, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QPlainTextEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9583,16 +11911,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlainTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlainTextEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9604,12 +11932,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlainTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlainTextEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9623,9 +11955,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QChildEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9637,16 +11973,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9658,12 +11994,16 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPlainTextEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPlainTextEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9677,9 +12017,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QEvent) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9693,14 +12037,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPlainTextEdit, signal: anytype) void {
+    pub fn connectNotify(self: QPlainTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextEdit_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9714,11 +12058,15 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPlainTextEdit, signal: anytype) void {
+    pub fn superConnectNotify(self: QPlainTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextEdit_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9731,9 +12079,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9747,14 +12099,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPlainTextEdit, signal: anytype) void {
+    pub fn disconnectNotify(self: QPlainTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextEdit_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9768,10 +12120,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPlainTextEdit, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPlainTextEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextEdit_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9785,9 +12141,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9807,13 +12167,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QPlainTextEdit_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9833,9 +12193,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QPlainTextEdit_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9849,9 +12213,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9863,13 +12231,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn ViewportMargins(self: QPlainTextEdit) QMargins {
+    pub fn viewportMargins(self: QPlainTextEdit) QMargins {
         return .{ .ptr = qtc.QPlainTextEdit_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9881,9 +12249,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperViewportMargins(self: QPlainTextEdit) QMargins {
+    pub fn superViewportMargins(self: QPlainTextEdit) QMargins {
         return .{ .ptr = qtc.QPlainTextEdit_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9899,9 +12271,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: QPlainTextEdit, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QPlainTextEdit_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -9915,14 +12291,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: QPlainTextEdit, param1: anytype) void {
+    pub fn drawFrame(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QPlainTextEdit_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -9936,10 +12312,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: QPlainTextEdit, param1: anytype) void {
+    pub fn superDrawFrame(self: QPlainTextEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QPlainTextEdit_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -9953,10 +12333,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QPainter) callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9967,13 +12351,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn UpdateMicroFocus(self: QPlainTextEdit) void {
+    pub fn updateMicroFocus(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9985,10 +12369,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperUpdateMicroFocus(self: QPlainTextEdit) void {
+    pub fn superUpdateMicroFocus(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10001,10 +12389,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.QPlainTextEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10015,13 +12407,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Create(self: QPlainTextEdit) void {
+    pub fn create(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10033,10 +12425,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperCreate(self: QPlainTextEdit) void {
+    pub fn superCreate(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10049,9 +12445,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.QPlainTextEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10063,13 +12463,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Destroy(self: QPlainTextEdit) void {
+    pub fn destroy(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10081,9 +12481,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperDestroy(self: QPlainTextEdit) void {
+    pub fn superDestroy(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10097,10 +12501,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QPlainTextEdit, callback: *const fn () callconv(.c) void) void {
         qtc.QPlainTextEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10111,13 +12519,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FocusNextChild(self: QPlainTextEdit) bool {
+    pub fn focusNextChild(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10129,10 +12537,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperFocusNextChild(self: QPlainTextEdit) bool {
+    pub fn superFocusNextChild(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10145,9 +12557,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10159,13 +12575,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn FocusPreviousChild(self: QPlainTextEdit) bool {
+    pub fn focusPreviousChild(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10177,9 +12593,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperFocusPreviousChild(self: QPlainTextEdit) bool {
+    pub fn superFocusPreviousChild(self: QPlainTextEdit) bool {
         return qtc.QPlainTextEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10193,9 +12613,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QPlainTextEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10207,13 +12631,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Sender(self: QPlainTextEdit) QObject {
+    pub fn sender(self: QPlainTextEdit) QObject {
         return .{ .ptr = qtc.QPlainTextEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10225,9 +12649,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperSender(self: QPlainTextEdit) QObject {
+    pub fn superSender(self: QPlainTextEdit) QObject {
         return .{ .ptr = qtc.QPlainTextEdit_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10241,9 +12669,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPlainTextEdit, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPlainTextEdit, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPlainTextEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10255,13 +12687,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SenderSignalIndex(self: QPlainTextEdit) i32 {
+    pub fn senderSignalIndex(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10273,9 +12705,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn SuperSenderSignalIndex(self: QPlainTextEdit) i32 {
+    pub fn superSenderSignalIndex(self: QPlainTextEdit) i32 {
         return qtc.QPlainTextEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10289,9 +12725,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPlainTextEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPlainTextEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10305,14 +12745,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPlainTextEdit, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPlainTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlainTextEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10326,10 +12766,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPlainTextEdit, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPlainTextEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlainTextEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10343,9 +12787,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPlainTextEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10359,14 +12807,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPlainTextEdit, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPlainTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlainTextEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10380,10 +12828,14 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPlainTextEdit, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPlainTextEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlainTextEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10397,9 +12849,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, QMetaMethod) callconv(.c) bool) void {
         qtc.QPlainTextEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10415,13 +12871,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QPlainTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QPlainTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QPlainTextEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10437,9 +12893,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QPlainTextEdit, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QPlainTextEdit, metricA: i32, metricB: i32) f64 {
         return qtc.QPlainTextEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10453,9 +12913,13 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, i32, i32) callconv(.c) f64) void {
         qtc.QPlainTextEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10469,23 +12933,23 @@ pub const QPlainTextEdit = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPlainTextEdit, callback: *const fn (QPlainTextEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextedit.html#dtor.QPlainTextEdit)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlainTextEdit `
     ///
-    pub fn Delete(self: QPlainTextEdit) void {
+    pub fn delete(self: QPlainTextEdit) void {
         qtc.QPlainTextEdit_Delete(@ptrCast(self.ptr));
     }
 };
@@ -10502,16 +12966,24 @@ pub const QPlainTextDocumentLayout = extern struct {
     pub const _is_QAbstractTextDocumentLayout = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPlainTextDocumentLayout object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPlainTextDocumentLayout object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn New(document: anytype) QPlainTextDocumentLayout {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        return .{ .ptr = qtc.QPlainTextDocumentLayout_new(@ptrCast(document.ptr)) };
+    pub fn new(_document: anytype) QPlainTextDocumentLayout {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        return .{ .ptr = qtc.QPlainTextDocumentLayout_new(@ptrCast(_document.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -10519,9 +12991,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn MetaObject(self: QPlainTextDocumentLayout) QMetaObject {
+    pub fn metaObject(self: QPlainTextDocumentLayout) QMetaObject {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -10533,13 +13009,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPlainTextDocumentLayout_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -10549,9 +13025,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SuperMetaObject(self: QPlainTextDocumentLayout) QMetaObject {
+    pub fn superMetaObject(self: QPlainTextDocumentLayout) QMetaObject {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -10559,10 +13039,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPlainTextDocumentLayout, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPlainTextDocumentLayout, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlainTextDocumentLayout_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -10572,13 +13056,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPlainTextDocumentLayout_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -10588,10 +13072,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPlainTextDocumentLayout, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPlainTextDocumentLayout, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlainTextDocumentLayout_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -10603,9 +13091,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPlainTextDocumentLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPlainTextDocumentLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlainTextDocumentLayout_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -10615,13 +13107,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -10635,9 +13127,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPlainTextDocumentLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPlainTextDocumentLayout, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlainTextDocumentLayout_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -10647,14 +13143,18 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `draw` instead
+    ///
+    pub const Draw = draw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#draw)
     ///
@@ -10666,11 +13166,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param2: QAbstractTextDocumentLayout__PaintContext `
     ///
-    pub fn Draw(self: QPlainTextDocumentLayout, param1: anytype, param2: anytype) void {
+    pub fn draw(self: QPlainTextDocumentLayout, param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         comptime _ = @TypeOf(param2)._is_QAbstractTextDocumentLayout__PaintContext;
         qtc.QPlainTextDocumentLayout_Draw(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDraw` instead
+    ///
+    pub const OnDraw = onDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#draw)
     ///
@@ -10682,13 +13186,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: QPainter, param2: QAbstractTextDocumentLayout__PaintContext) callconv(.c) void `
     ///
-    pub fn OnDraw(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPainter, QAbstractTextDocumentLayout__PaintContext) callconv(.c) void) void {
+    pub fn onDraw(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPainter, QAbstractTextDocumentLayout__PaintContext) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnDraw(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDraw` instead
+    /// ### DEPRECATED: Use `superDraw` instead
     ///
-    pub const QBaseDraw = SuperDraw;
+    pub const SuperDraw = superDraw;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#draw)
     ///
@@ -10702,11 +13206,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param2: QAbstractTextDocumentLayout__PaintContext `
     ///
-    pub fn SuperDraw(self: QPlainTextDocumentLayout, param1: anytype, param2: anytype) void {
+    pub fn superDraw(self: QPlainTextDocumentLayout, param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         comptime _ = @TypeOf(param2)._is_QAbstractTextDocumentLayout__PaintContext;
         qtc.QPlainTextDocumentLayout_SuperDraw(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `hitTest` instead
+    ///
+    pub const HitTest = hitTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
     ///
@@ -10718,10 +13226,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param2: qnamespace_enums.HitTestAccuracy `
     ///
-    pub fn HitTest(self: QPlainTextDocumentLayout, param1: anytype, param2: i32) i32 {
+    pub fn hitTest(self: QPlainTextDocumentLayout, param1: anytype, param2: i32) i32 {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return qtc.QPlainTextDocumentLayout_HitTest(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onHitTest` instead
+    ///
+    pub const OnHitTest = onHitTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
     ///
@@ -10733,13 +13245,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: QPointF, param2: qnamespace_enums.HitTestAccuracy) callconv(.c) i32 `
     ///
-    pub fn OnHitTest(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPointF, i32) callconv(.c) i32) void {
+    pub fn onHitTest(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPointF, i32) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnHitTest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHitTest` instead
+    /// ### DEPRECATED: Use `superHitTest` instead
     ///
-    pub const QBaseHitTest = SuperHitTest;
+    pub const SuperHitTest = superHitTest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#hitTest)
     ///
@@ -10753,10 +13265,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param2: qnamespace_enums.HitTestAccuracy `
     ///
-    pub fn SuperHitTest(self: QPlainTextDocumentLayout, param1: anytype, param2: i32) i32 {
+    pub fn superHitTest(self: QPlainTextDocumentLayout, param1: anytype, param2: i32) i32 {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return qtc.QPlainTextDocumentLayout_SuperHitTest(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `pageCount` instead
+    ///
+    pub const PageCount = pageCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount)
     ///
@@ -10764,9 +13280,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn PageCount(self: QPlainTextDocumentLayout) i32 {
+    pub fn pageCount(self: QPlainTextDocumentLayout) i32 {
         return qtc.QPlainTextDocumentLayout_PageCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPageCount` instead
+    ///
+    pub const OnPageCount = onPageCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount)
     ///
@@ -10778,13 +13298,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnPageCount(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onPageCount(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnPageCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPageCount` instead
+    /// ### DEPRECATED: Use `superPageCount` instead
     ///
-    pub const QBasePageCount = SuperPageCount;
+    pub const SuperPageCount = superPageCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#pageCount)
     ///
@@ -10794,9 +13314,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SuperPageCount(self: QPlainTextDocumentLayout) i32 {
+    pub fn superPageCount(self: QPlainTextDocumentLayout) i32 {
         return qtc.QPlainTextDocumentLayout_SuperPageCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentSize` instead
+    ///
+    pub const DocumentSize = documentSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentSize)
     ///
@@ -10804,9 +13328,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn DocumentSize(self: QPlainTextDocumentLayout) QSizeF {
+    pub fn documentSize(self: QPlainTextDocumentLayout) QSizeF {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_DocumentSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDocumentSize` instead
+    ///
+    pub const OnDocumentSize = onDocumentSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentSize)
     ///
@@ -10820,13 +13348,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDocumentSize(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QSizeF) void {
+    pub fn onDocumentSize(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QSizeF) void {
         qtc.QPlainTextDocumentLayout_OnDocumentSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDocumentSize` instead
+    /// ### DEPRECATED: Use `superDocumentSize` instead
     ///
-    pub const QBaseDocumentSize = SuperDocumentSize;
+    pub const SuperDocumentSize = superDocumentSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentSize)
     ///
@@ -10836,9 +13364,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SuperDocumentSize(self: QPlainTextDocumentLayout) QSizeF {
+    pub fn superDocumentSize(self: QPlainTextDocumentLayout) QSizeF {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperDocumentSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameBoundingRect` instead
+    ///
+    pub const FrameBoundingRect = frameBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#frameBoundingRect)
     ///
@@ -10848,10 +13380,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: QTextFrame `
     ///
-    pub fn FrameBoundingRect(self: QPlainTextDocumentLayout, param1: anytype) QRectF {
+    pub fn frameBoundingRect(self: QPlainTextDocumentLayout, param1: anytype) QRectF {
         comptime _ = @TypeOf(param1)._is_QTextFrame;
         return .{ .ptr = qtc.QPlainTextDocumentLayout_FrameBoundingRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onFrameBoundingRect` instead
+    ///
+    pub const OnFrameBoundingRect = onFrameBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#frameBoundingRect)
     ///
@@ -10865,13 +13401,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFrameBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextFrame) callconv(.c) QRectF) void {
+    pub fn onFrameBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextFrame) callconv(.c) QRectF) void {
         qtc.QPlainTextDocumentLayout_OnFrameBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFrameBoundingRect` instead
+    /// ### DEPRECATED: Use `superFrameBoundingRect` instead
     ///
-    pub const QBaseFrameBoundingRect = SuperFrameBoundingRect;
+    pub const SuperFrameBoundingRect = superFrameBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#frameBoundingRect)
     ///
@@ -10883,10 +13419,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: QTextFrame `
     ///
-    pub fn SuperFrameBoundingRect(self: QPlainTextDocumentLayout, param1: anytype) QRectF {
+    pub fn superFrameBoundingRect(self: QPlainTextDocumentLayout, param1: anytype) QRectF {
         comptime _ = @TypeOf(param1)._is_QTextFrame;
         return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperFrameBoundingRect(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `blockBoundingRect` instead
+    ///
+    pub const BlockBoundingRect = blockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockBoundingRect)
     ///
@@ -10896,10 +13436,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn BlockBoundingRect(self: QPlainTextDocumentLayout, block: anytype) QRectF {
+    pub fn blockBoundingRect(self: QPlainTextDocumentLayout, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextDocumentLayout_BlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onBlockBoundingRect` instead
+    ///
+    pub const OnBlockBoundingRect = onBlockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockBoundingRect)
     ///
@@ -10913,13 +13457,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBlockBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextBlock) callconv(.c) QRectF) void {
+    pub fn onBlockBoundingRect(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextBlock) callconv(.c) QRectF) void {
         qtc.QPlainTextDocumentLayout_OnBlockBoundingRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBlockBoundingRect` instead
+    /// ### DEPRECATED: Use `superBlockBoundingRect` instead
     ///
-    pub const QBaseBlockBoundingRect = SuperBlockBoundingRect;
+    pub const SuperBlockBoundingRect = superBlockBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#blockBoundingRect)
     ///
@@ -10931,10 +13475,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn SuperBlockBoundingRect(self: QPlainTextDocumentLayout, block: anytype) QRectF {
+    pub fn superBlockBoundingRect(self: QPlainTextDocumentLayout, block: anytype) QRectF {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperBlockBoundingRect(@ptrCast(self.ptr), @ptrCast(block.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensureBlockLayout` instead
+    ///
+    pub const EnsureBlockLayout = ensureBlockLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#ensureBlockLayout)
     ///
@@ -10944,10 +13492,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn EnsureBlockLayout(self: QPlainTextDocumentLayout, block: anytype) void {
+    pub fn ensureBlockLayout(self: QPlainTextDocumentLayout, block: anytype) void {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         qtc.QPlainTextDocumentLayout_EnsureBlockLayout(@ptrCast(self.ptr), @ptrCast(block.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorWidth` instead
+    ///
+    pub const SetCursorWidth = setCursorWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#setCursorWidth)
     ///
@@ -10955,11 +13507,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetCursorWidth(self: QPlainTextDocumentLayout, width: i32) void {
-        qtc.QPlainTextDocumentLayout_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setCursorWidth(self: QPlainTextDocumentLayout, _width: i32) void {
+        qtc.QPlainTextDocumentLayout_SetCursorWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `cursorWidth` instead
+    ///
+    pub const CursorWidth = cursorWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#cursorWidth)
     ///
@@ -10967,9 +13523,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn CursorWidth(self: QPlainTextDocumentLayout) i32 {
+    pub fn cursorWidth(self: QPlainTextDocumentLayout) i32 {
         return qtc.QPlainTextDocumentLayout_CursorWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `requestUpdate` instead
+    ///
+    pub const RequestUpdate = requestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#requestUpdate)
     ///
@@ -10977,9 +13537,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn RequestUpdate(self: QPlainTextDocumentLayout) void {
+    pub fn requestUpdate(self: QPlainTextDocumentLayout) void {
         qtc.QPlainTextDocumentLayout_RequestUpdate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentChanged` instead
+    ///
+    pub const DocumentChanged = documentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentChanged)
     ///
@@ -10993,9 +13557,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` charsAdded: i32 `
     ///
-    pub fn DocumentChanged(self: QPlainTextDocumentLayout, from: i32, param2: i32, charsAdded: i32) void {
+    pub fn documentChanged(self: QPlainTextDocumentLayout, from: i32, param2: i32, charsAdded: i32) void {
         qtc.QPlainTextDocumentLayout_DocumentChanged(@ptrCast(self.ptr), @bitCast(from), @bitCast(param2), @bitCast(charsAdded));
     }
+
+    /// ### DEPRECATED: Use `onDocumentChanged` instead
+    ///
+    pub const OnDocumentChanged = onDocumentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentChanged)
     ///
@@ -11007,13 +13575,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, from: i32, param2: i32, charsAdded: i32) callconv(.c) void `
     ///
-    pub fn OnDocumentChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32, i32, i32) callconv(.c) void) void {
+    pub fn onDocumentChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32, i32, i32) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnDocumentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDocumentChanged` instead
+    /// ### DEPRECATED: Use `superDocumentChanged` instead
     ///
-    pub const QBaseDocumentChanged = SuperDocumentChanged;
+    pub const SuperDocumentChanged = superDocumentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#documentChanged)
     ///
@@ -11029,9 +13597,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` charsAdded: i32 `
     ///
-    pub fn SuperDocumentChanged(self: QPlainTextDocumentLayout, from: i32, param2: i32, charsAdded: i32) void {
+    pub fn superDocumentChanged(self: QPlainTextDocumentLayout, from: i32, param2: i32, charsAdded: i32) void {
         qtc.QPlainTextDocumentLayout_SuperDocumentChanged(@ptrCast(self.ptr), @bitCast(from), @bitCast(param2), @bitCast(charsAdded));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -11043,15 +13615,19 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -11065,15 +13641,19 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `anchorAt` instead
+    ///
+    pub const AnchorAt = anchorAt;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11085,16 +13665,20 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn AnchorAt(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        var _str = qtc.QAbstractTextDocumentLayout_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn anchorAt(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        var _str = qtc.QAbstractTextDocumentLayout_AnchorAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.anchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `imageAt` instead
+    ///
+    pub const ImageAt = imageAt;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11106,16 +13690,20 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn ImageAt(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        var _str = qtc.QAbstractTextDocumentLayout_ImageAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn imageAt(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        var _str = qtc.QAbstractTextDocumentLayout_ImageAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.ImageAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.imageAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `formatAt` instead
+    ///
+    pub const FormatAt = formatAt;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11125,12 +13713,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn FormatAt(self: QPlainTextDocumentLayout, pos: anytype) QTextFormat {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_FormatAt(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn formatAt(self: QPlainTextDocumentLayout, _pos: anytype) QTextFormat {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        return .{ .ptr = qtc.QAbstractTextDocumentLayout_FormatAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `blockWithMarkerAt` instead
+    ///
+    pub const BlockWithMarkerAt = blockWithMarkerAt;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11140,12 +13732,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn BlockWithMarkerAt(self: QPlainTextDocumentLayout, pos: anytype) QTextBlock {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        return .{ .ptr = qtc.QAbstractTextDocumentLayout_BlockWithMarkerAt(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn blockWithMarkerAt(self: QPlainTextDocumentLayout, _pos: anytype) QTextBlock {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        return .{ .ptr = qtc.QAbstractTextDocumentLayout_BlockWithMarkerAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPaintDevice` instead
+    ///
+    pub const SetPaintDevice = setPaintDevice;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11157,10 +13753,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` device: QPaintDevice `
     ///
-    pub fn SetPaintDevice(self: QPlainTextDocumentLayout, device: anytype) void {
+    pub fn setPaintDevice(self: QPlainTextDocumentLayout, device: anytype) void {
         comptime _ = @TypeOf(device)._is_QPaintDevice;
         qtc.QAbstractTextDocumentLayout_SetPaintDevice(@ptrCast(self.ptr), @ptrCast(device.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintDevice` instead
+    ///
+    pub const PaintDevice = paintDevice;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11170,9 +13770,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn PaintDevice(self: QPlainTextDocumentLayout) QPaintDevice {
+    pub fn paintDevice(self: QPlainTextDocumentLayout) QPaintDevice {
         return .{ .ptr = qtc.QAbstractTextDocumentLayout_PaintDevice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11182,9 +13786,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Document(self: QPlainTextDocumentLayout) QTextDocument {
+    pub fn document(self: QPlainTextDocumentLayout) QTextDocument {
         return .{ .ptr = qtc.QAbstractTextDocumentLayout_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `registerHandler` instead
+    ///
+    pub const RegisterHandler = registerHandler;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11198,10 +13806,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` component: QObject `
     ///
-    pub fn RegisterHandler(self: QPlainTextDocumentLayout, objectType: i32, component: anytype) void {
+    pub fn registerHandler(self: QPlainTextDocumentLayout, objectType: i32, component: anytype) void {
         comptime _ = @TypeOf(component)._is_QObject;
         qtc.QAbstractTextDocumentLayout_RegisterHandler(@ptrCast(self.ptr), @bitCast(objectType), @ptrCast(component.ptr));
     }
+
+    /// ### DEPRECATED: Use `unregisterHandler` instead
+    ///
+    pub const UnregisterHandler = unregisterHandler;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11213,9 +13825,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` objectType: i32 `
     ///
-    pub fn UnregisterHandler(self: QPlainTextDocumentLayout, objectType: i32) void {
+    pub fn unregisterHandler(self: QPlainTextDocumentLayout, objectType: i32) void {
         qtc.QAbstractTextDocumentLayout_UnregisterHandler(@ptrCast(self.ptr), @bitCast(objectType));
     }
+
+    /// ### DEPRECATED: Use `handlerForObject` instead
+    ///
+    pub const HandlerForObject = handlerForObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11227,9 +13843,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` objectType: i32 `
     ///
-    pub fn HandlerForObject(self: QPlainTextDocumentLayout, objectType: i32) QTextObjectInterface {
+    pub fn handlerForObject(self: QPlainTextDocumentLayout, objectType: i32) QTextObjectInterface {
         return .{ .ptr = qtc.QAbstractTextDocumentLayout_HandlerForObject(@ptrCast(self.ptr), @bitCast(objectType)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11239,9 +13859,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Update(self: QPlainTextDocumentLayout) void {
+    pub fn update(self: QPlainTextDocumentLayout) void {
         qtc.QAbstractTextDocumentLayout_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdate` instead
+    ///
+    pub const OnUpdate = onUpdate;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11253,9 +13877,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout) callconv(.c) void `
     ///
-    pub fn OnUpdate(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout) callconv(.c) void) void {
+    pub fn onUpdate(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_Update(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateBlock` instead
+    ///
+    pub const UpdateBlock = updateBlock;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11267,10 +13895,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` block: QTextBlock `
     ///
-    pub fn UpdateBlock(self: QPlainTextDocumentLayout, block: anytype) void {
+    pub fn updateBlock(self: QPlainTextDocumentLayout, block: anytype) void {
         comptime _ = @TypeOf(block)._is_QTextBlock;
         qtc.QAbstractTextDocumentLayout_UpdateBlock(@ptrCast(self.ptr), @ptrCast(block.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateBlock` instead
+    ///
+    pub const OnUpdateBlock = onUpdateBlock;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11282,9 +13914,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, block: QTextBlock) callconv(.c) void `
     ///
-    pub fn OnUpdateBlock(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextBlock) callconv(.c) void) void {
+    pub fn onUpdateBlock(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextBlock) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_UpdateBlock(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `documentSizeChanged` instead
+    ///
+    pub const DocumentSizeChanged = documentSizeChanged;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11296,10 +13932,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` newSize: QSizeF `
     ///
-    pub fn DocumentSizeChanged(self: QPlainTextDocumentLayout, newSize: anytype) void {
+    pub fn documentSizeChanged(self: QPlainTextDocumentLayout, newSize: anytype) void {
         comptime _ = @TypeOf(newSize)._is_QSizeF;
         qtc.QAbstractTextDocumentLayout_DocumentSizeChanged(@ptrCast(self.ptr), @ptrCast(newSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDocumentSizeChanged` instead
+    ///
+    pub const OnDocumentSizeChanged = onDocumentSizeChanged;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11311,9 +13951,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, newSize: QSizeF) callconv(.c) void `
     ///
-    pub fn OnDocumentSizeChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QSizeF) callconv(.c) void) void {
+    pub fn onDocumentSizeChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QSizeF) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_DocumentSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pageCountChanged` instead
+    ///
+    pub const PageCountChanged = pageCountChanged;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11325,9 +13969,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` newPages: i32 `
     ///
-    pub fn PageCountChanged(self: QPlainTextDocumentLayout, newPages: i32) void {
+    pub fn pageCountChanged(self: QPlainTextDocumentLayout, newPages: i32) void {
         qtc.QAbstractTextDocumentLayout_PageCountChanged(@ptrCast(self.ptr), @bitCast(newPages));
     }
+
+    /// ### DEPRECATED: Use `onPageCountChanged` instead
+    ///
+    pub const OnPageCountChanged = onPageCountChanged;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11339,9 +13987,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, newPages: i32) callconv(.c) void `
     ///
-    pub fn OnPageCountChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) void) void {
+    pub fn onPageCountChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_PageCountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `unregisterHandler2` instead
+    ///
+    pub const UnregisterHandler2 = unregisterHandler2;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11355,10 +14007,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` component: QObject `
     ///
-    pub fn UnregisterHandler2(self: QPlainTextDocumentLayout, objectType: i32, component: anytype) void {
+    pub fn unregisterHandler2(self: QPlainTextDocumentLayout, objectType: i32, component: anytype) void {
         comptime _ = @TypeOf(component)._is_QObject;
         qtc.QAbstractTextDocumentLayout_UnregisterHandler2(@ptrCast(self.ptr), @bitCast(objectType), @ptrCast(component.ptr));
     }
+
+    /// ### DEPRECATED: Use `update1` instead
+    ///
+    pub const Update1 = update1;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11370,10 +14026,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: QRectF `
     ///
-    pub fn Update1(self: QPlainTextDocumentLayout, param1: anytype) void {
+    pub fn update1(self: QPlainTextDocumentLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         qtc.QAbstractTextDocumentLayout_Update1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdate1` instead
+    ///
+    pub const OnUpdate1 = onUpdate1;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -11385,9 +14045,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: QRectF) callconv(.c) void `
     ///
-    pub fn OnUpdate1(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QRectF) callconv(.c) void) void {
+    pub fn onUpdate1(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QRectF) callconv(.c) void) void {
         qtc.QAbstractTextDocumentLayout_Connect_Update1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -11399,13 +14063,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlainTextDocumentLayout.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -11417,13 +14085,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPlainTextDocumentLayout, name: []const u8) void {
+    pub fn setObjectName(self: QPlainTextDocumentLayout, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -11433,9 +14105,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn IsWidgetType(self: QPlainTextDocumentLayout) bool {
+    pub fn isWidgetType(self: QPlainTextDocumentLayout) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -11445,9 +14121,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn IsWindowType(self: QPlainTextDocumentLayout) bool {
+    pub fn isWindowType(self: QPlainTextDocumentLayout) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -11457,9 +14137,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn IsQuickItemType(self: QPlainTextDocumentLayout) bool {
+    pub fn isQuickItemType(self: QPlainTextDocumentLayout) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -11469,9 +14153,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SignalsBlocked(self: QPlainTextDocumentLayout) bool {
+    pub fn signalsBlocked(self: QPlainTextDocumentLayout) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -11483,9 +14171,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPlainTextDocumentLayout, b: bool) bool {
+    pub fn blockSignals(self: QPlainTextDocumentLayout, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -11495,9 +14187,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Thread(self: QPlainTextDocumentLayout) QThread {
+    pub fn thread(self: QPlainTextDocumentLayout) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -11507,12 +14203,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPlainTextDocumentLayout, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPlainTextDocumentLayout, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -11524,9 +14224,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPlainTextDocumentLayout, interval: i32) i32 {
+    pub fn startTimer(self: QPlainTextDocumentLayout, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -11538,9 +14242,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPlainTextDocumentLayout, time: i64) i32 {
+    pub fn startTimer2(self: QPlainTextDocumentLayout, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -11552,9 +14260,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPlainTextDocumentLayout, id: i32) void {
+    pub fn killTimer(self: QPlainTextDocumentLayout, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -11566,9 +14278,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPlainTextDocumentLayout, id: i32) void {
+    pub fn killTimer2(self: QPlainTextDocumentLayout, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -11580,15 +14296,19 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlainTextDocumentLayout.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlainTextDocumentLayout.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -11598,12 +14318,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPlainTextDocumentLayout, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPlainTextDocumentLayout, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -11615,10 +14339,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPlainTextDocumentLayout, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPlainTextDocumentLayout, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -11630,10 +14358,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPlainTextDocumentLayout, obj: anytype) void {
+    pub fn removeEventFilter(self: QPlainTextDocumentLayout, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -11641,7 +14373,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -11649,13 +14381,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -11663,7 +14399,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -11671,13 +14407,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -11687,18 +14427,22 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPlainTextDocumentLayout, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPlainTextDocumentLayout, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -11706,7 +14450,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -11714,13 +14458,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -11728,7 +14476,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -11736,13 +14484,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -11752,9 +14504,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Disconnect3(self: QPlainTextDocumentLayout) bool {
+    pub fn disconnect3(self: QPlainTextDocumentLayout) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -11766,10 +14522,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPlainTextDocumentLayout, receiver: anytype) bool {
+    pub fn disconnect4(self: QPlainTextDocumentLayout, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -11779,10 +14539,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -11792,9 +14556,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn DumpObjectTree(self: QPlainTextDocumentLayout) void {
+    pub fn dumpObjectTree(self: QPlainTextDocumentLayout) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -11804,9 +14572,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn DumpObjectInfo(self: QPlainTextDocumentLayout) void {
+    pub fn dumpObjectInfo(self: QPlainTextDocumentLayout) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -11820,11 +14592,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPlainTextDocumentLayout, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPlainTextDocumentLayout, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -11836,10 +14612,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPlainTextDocumentLayout, name: [:0]const u8) QVariant {
+    pub fn property(self: QPlainTextDocumentLayout, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -11851,7 +14631,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPlainTextDocumentLayout, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -11859,27 +14639,19 @@ pub const QPlainTextDocumentLayout = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlainTextDocumentLayout.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlainTextDocumentLayout.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlainTextDocumentLayout.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPlainTextDocumentLayout.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlainTextDocumentLayout `
-    ///
-    pub fn BindingStorage(self: QPlainTextDocumentLayout) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -11889,9 +14661,29 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn BindingStorage2(self: QPlainTextDocumentLayout) QBindingStorage {
+    pub fn bindingStorage(self: QPlainTextDocumentLayout) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlainTextDocumentLayout `
+    ///
+    pub fn bindingStorage2(self: QPlainTextDocumentLayout) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -11901,9 +14693,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Destroyed(self: QPlainTextDocumentLayout) void {
+    pub fn destroyed(self: QPlainTextDocumentLayout) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -11915,9 +14711,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -11927,9 +14727,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Parent(self: QPlainTextDocumentLayout) QObject {
+    pub fn parent(self: QPlainTextDocumentLayout) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -11941,10 +14745,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPlainTextDocumentLayout, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPlainTextDocumentLayout, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -11954,9 +14762,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn DeleteLater(self: QPlainTextDocumentLayout) void {
+    pub fn deleteLater(self: QPlainTextDocumentLayout) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -11970,9 +14782,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPlainTextDocumentLayout, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPlainTextDocumentLayout, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -11986,9 +14802,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPlainTextDocumentLayout, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPlainTextDocumentLayout, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -11996,7 +14816,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -12006,13 +14826,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -12020,7 +14844,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -12030,13 +14854,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -12046,7 +14874,7 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -12054,12 +14882,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPlainTextDocumentLayout, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPlainTextDocumentLayout, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -12071,10 +14903,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPlainTextDocumentLayout, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPlainTextDocumentLayout, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -12088,11 +14924,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPlainTextDocumentLayout, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPlainTextDocumentLayout, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -12108,13 +14948,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPlainTextDocumentLayout, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPlainTextDocumentLayout, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -12127,11 +14971,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPlainTextDocumentLayout, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPlainTextDocumentLayout, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -12143,10 +14991,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPlainTextDocumentLayout, param1: anytype) void {
+    pub fn destroyed1(self: QPlainTextDocumentLayout, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -12158,10 +15010,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `resizeInlineObject` instead
+    ///
+    pub const ResizeInlineObject = resizeInlineObject;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#resizeInlineObject)
@@ -12176,17 +15032,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn ResizeInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, format: anytype) void {
+    pub fn resizeInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(item)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_ResizeInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_ResizeInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeInlineObject` instead
+    /// ### DEPRECATED: Use `superResizeInlineObject` instead
     ///
-    pub const QBaseResizeInlineObject = SuperResizeInlineObject;
+    pub const SuperResizeInlineObject = superResizeInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12202,13 +15058,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn SuperResizeInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, format: anytype) void {
+    pub fn superResizeInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(item)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_SuperResizeInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_SuperResizeInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeInlineObject` instead
+    ///
+    pub const OnResizeInlineObject = onResizeInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12222,10 +15082,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, item: QTextInlineObject, posInDocument: i32, format: QTextFormat) callconv(.c) void `
     ///
-    pub fn OnResizeInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
+    pub fn onResizeInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnResizeInlineObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `positionInlineObject` instead
+    ///
+    pub const PositionInlineObject = positionInlineObject;
+
     /// Inherited from QAbstractTextDocumentLayout
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstracttextdocumentlayout.html#positionInlineObject)
@@ -12240,17 +15104,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn PositionInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, format: anytype) void {
+    pub fn positionInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(item)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_PositionInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_PositionInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPositionInlineObject` instead
+    /// ### DEPRECATED: Use `superPositionInlineObject` instead
     ///
-    pub const QBasePositionInlineObject = SuperPositionInlineObject;
+    pub const SuperPositionInlineObject = superPositionInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12266,13 +15130,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn SuperPositionInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, format: anytype) void {
+    pub fn superPositionInlineObject(self: QPlainTextDocumentLayout, item: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(item)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_SuperPositionInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_SuperPositionInlineObject(@ptrCast(self.ptr), @ptrCast(item.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPositionInlineObject` instead
+    ///
+    pub const OnPositionInlineObject = onPositionInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12286,9 +15154,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, item: QTextInlineObject, posInDocument: i32, format: QTextFormat) callconv(.c) void `
     ///
-    pub fn OnPositionInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
+    pub fn onPositionInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnPositionInlineObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawInlineObject` instead
+    ///
+    pub const DrawInlineObject = drawInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12302,25 +15174,25 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
     /// ` object: QTextInlineObject `
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn DrawInlineObject(self: QPlainTextDocumentLayout, painter: anytype, rect: anytype, object: anytype, posInDocument: i32, format: anytype) void {
+    pub fn drawInlineObject(self: QPlainTextDocumentLayout, painter: anytype, _rect: anytype, object: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
+        comptime _ = @TypeOf(_rect)._is_QRectF;
         comptime _ = @TypeOf(object)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_DrawInlineObject(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(object.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_DrawInlineObject(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(object.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawInlineObject` instead
+    /// ### DEPRECATED: Use `superDrawInlineObject` instead
     ///
-    pub const QBaseDrawInlineObject = SuperDrawInlineObject;
+    pub const SuperDrawInlineObject = superDrawInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12334,21 +15206,25 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRectF `
+    /// ` _rect: QRectF `
     ///
     /// ` object: QTextInlineObject `
     ///
     /// ` posInDocument: i32 `
     ///
-    /// ` format: QTextFormat `
+    /// ` _format: QTextFormat `
     ///
-    pub fn SuperDrawInlineObject(self: QPlainTextDocumentLayout, painter: anytype, rect: anytype, object: anytype, posInDocument: i32, format: anytype) void {
+    pub fn superDrawInlineObject(self: QPlainTextDocumentLayout, painter: anytype, _rect: anytype, object: anytype, posInDocument: i32, _format: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRectF;
+        comptime _ = @TypeOf(_rect)._is_QRectF;
         comptime _ = @TypeOf(object)._is_QTextInlineObject;
-        comptime _ = @TypeOf(format)._is_QTextFormat;
-        qtc.QPlainTextDocumentLayout_SuperDrawInlineObject(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(object.ptr), @bitCast(posInDocument), @ptrCast(format.ptr));
+        comptime _ = @TypeOf(_format)._is_QTextFormat;
+        qtc.QPlainTextDocumentLayout_SuperDrawInlineObject(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(object.ptr), @bitCast(posInDocument), @ptrCast(_format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawInlineObject` instead
+    ///
+    pub const OnDrawInlineObject = onDrawInlineObject;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12362,9 +15238,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, painter: QPainter, rect: QRectF, object: QTextInlineObject, posInDocument: i32, format: QTextFormat) callconv(.c) void `
     ///
-    pub fn OnDrawInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPainter, QRectF, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
+    pub fn onDrawInlineObject(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QPainter, QRectF, QTextInlineObject, i32, QTextFormat) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnDrawInlineObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -12376,16 +15256,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPlainTextDocumentLayout, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlainTextDocumentLayout_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPlainTextDocumentLayout, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlainTextDocumentLayout_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -12397,12 +15277,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPlainTextDocumentLayout, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlainTextDocumentLayout_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPlainTextDocumentLayout, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlainTextDocumentLayout_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -12416,9 +15300,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QEvent) callconv(.c) bool) void {
         qtc.QPlainTextDocumentLayout_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -12432,17 +15320,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPlainTextDocumentLayout, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPlainTextDocumentLayout, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlainTextDocumentLayout_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlainTextDocumentLayout_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -12456,13 +15344,17 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPlainTextDocumentLayout, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPlainTextDocumentLayout, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlainTextDocumentLayout_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlainTextDocumentLayout_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -12476,9 +15368,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPlainTextDocumentLayout_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -12490,16 +15386,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPlainTextDocumentLayout_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPlainTextDocumentLayout_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -12511,12 +15407,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPlainTextDocumentLayout_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPlainTextDocumentLayout_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -12530,9 +15430,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QTimerEvent) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -12544,16 +15448,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlainTextDocumentLayout_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlainTextDocumentLayout_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -12565,12 +15469,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlainTextDocumentLayout_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlainTextDocumentLayout_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -12584,9 +15492,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QChildEvent) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -12598,16 +15510,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextDocumentLayout_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextDocumentLayout_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12619,12 +15531,16 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPlainTextDocumentLayout, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlainTextDocumentLayout_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPlainTextDocumentLayout, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlainTextDocumentLayout_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -12638,9 +15554,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QEvent) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -12654,14 +15574,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
+    pub fn connectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextDocumentLayout_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12675,11 +15595,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
+    pub fn superConnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextDocumentLayout_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -12692,9 +15616,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12708,14 +15636,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
+    pub fn disconnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextDocumentLayout_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12729,10 +15657,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPlainTextDocumentLayout, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlainTextDocumentLayout_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -12746,9 +15678,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) void) void {
         qtc.QPlainTextDocumentLayout_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `formatIndex` instead
+    ///
+    pub const FormatIndex = formatIndex;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12760,15 +15696,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: i32 `
+    /// ` _pos: i32 `
     ///
-    pub fn FormatIndex(self: QPlainTextDocumentLayout, pos: i32) i32 {
-        return qtc.QPlainTextDocumentLayout_FormatIndex(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn formatIndex(self: QPlainTextDocumentLayout, _pos: i32) i32 {
+        return qtc.QPlainTextDocumentLayout_FormatIndex(@ptrCast(self.ptr), @bitCast(_pos));
     }
 
-    /// ### DEPRECATED: Use `SuperFormatIndex` instead
+    /// ### DEPRECATED: Use `superFormatIndex` instead
     ///
-    pub const QBaseFormatIndex = SuperFormatIndex;
+    pub const SuperFormatIndex = superFormatIndex;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12780,11 +15716,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: i32 `
+    /// ` _pos: i32 `
     ///
-    pub fn SuperFormatIndex(self: QPlainTextDocumentLayout, pos: i32) i32 {
-        return qtc.QPlainTextDocumentLayout_SuperFormatIndex(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn superFormatIndex(self: QPlainTextDocumentLayout, _pos: i32) i32 {
+        return qtc.QPlainTextDocumentLayout_SuperFormatIndex(@ptrCast(self.ptr), @bitCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `onFormatIndex` instead
+    ///
+    pub const OnFormatIndex = onFormatIndex;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12798,9 +15738,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, pos: i32) callconv(.c) i32 `
     ///
-    pub fn OnFormatIndex(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) i32) void {
+    pub fn onFormatIndex(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnFormatIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `format` instead
+    ///
+    pub const Format = format;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12812,15 +15756,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: i32 `
+    /// ` _pos: i32 `
     ///
-    pub fn Format(self: QPlainTextDocumentLayout, pos: i32) QTextCharFormat {
-        return .{ .ptr = qtc.QPlainTextDocumentLayout_Format(@ptrCast(self.ptr), @bitCast(pos)) };
+    pub fn format(self: QPlainTextDocumentLayout, _pos: i32) QTextCharFormat {
+        return .{ .ptr = qtc.QPlainTextDocumentLayout_Format(@ptrCast(self.ptr), @bitCast(_pos)) };
     }
 
-    /// ### DEPRECATED: Use `SuperFormat` instead
+    /// ### DEPRECATED: Use `superFormat` instead
     ///
-    pub const QBaseFormat = SuperFormat;
+    pub const SuperFormat = superFormat;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12832,11 +15776,15 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    /// ` pos: i32 `
+    /// ` _pos: i32 `
     ///
-    pub fn SuperFormat(self: QPlainTextDocumentLayout, pos: i32) QTextCharFormat {
-        return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperFormat(@ptrCast(self.ptr), @bitCast(pos)) };
+    pub fn superFormat(self: QPlainTextDocumentLayout, _pos: i32) QTextCharFormat {
+        return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperFormat(@ptrCast(self.ptr), @bitCast(_pos)) };
     }
+
+    /// ### DEPRECATED: Use `onFormat` instead
+    ///
+    pub const OnFormat = onFormat;
 
     /// Inherited from QAbstractTextDocumentLayout
     ///
@@ -12852,9 +15800,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnFormat(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) QTextCharFormat) void {
+    pub fn onFormat(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, i32) callconv(.c) QTextCharFormat) void {
         qtc.QPlainTextDocumentLayout_OnFormat(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -12866,13 +15818,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Sender(self: QPlainTextDocumentLayout) QObject {
+    pub fn sender(self: QPlainTextDocumentLayout) QObject {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -12884,9 +15836,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SuperSender(self: QPlainTextDocumentLayout) QObject {
+    pub fn superSender(self: QPlainTextDocumentLayout) QObject {
         return .{ .ptr = qtc.QPlainTextDocumentLayout_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -12900,9 +15856,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPlainTextDocumentLayout_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12914,13 +15874,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SenderSignalIndex(self: QPlainTextDocumentLayout) i32 {
+    pub fn senderSignalIndex(self: QPlainTextDocumentLayout) i32 {
         return qtc.QPlainTextDocumentLayout_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12932,9 +15892,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn SuperSenderSignalIndex(self: QPlainTextDocumentLayout) i32 {
+    pub fn superSenderSignalIndex(self: QPlainTextDocumentLayout) i32 {
         return qtc.QPlainTextDocumentLayout_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12948,9 +15912,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPlainTextDocumentLayout, callback: *const fn () callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -12964,14 +15932,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPlainTextDocumentLayout, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPlainTextDocumentLayout, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlainTextDocumentLayout_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -12985,10 +15953,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPlainTextDocumentLayout, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPlainTextDocumentLayout, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlainTextDocumentLayout_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -13002,9 +15974,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPlainTextDocumentLayout_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13018,14 +15994,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPlainTextDocumentLayout, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPlainTextDocumentLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlainTextDocumentLayout_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13039,10 +16015,14 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPlainTextDocumentLayout, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPlainTextDocumentLayout, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlainTextDocumentLayout_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -13056,9 +16036,13 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, QMetaMethod) callconv(.c) bool) void {
         qtc.QPlainTextDocumentLayout_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -13072,23 +16056,23 @@ pub const QPlainTextDocumentLayout = extern struct {
     ///
     /// ` callback: *const fn (self: QPlainTextDocumentLayout, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPlainTextDocumentLayout, callback: *const fn (QPlainTextDocumentLayout, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaintextdocumentlayout.html#dtor.QPlainTextDocumentLayout)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlainTextDocumentLayout `
     ///
-    pub fn Delete(self: QPlainTextDocumentLayout) void {
+    pub fn delete(self: QPlainTextDocumentLayout) void {
         qtc.QPlainTextDocumentLayout_Delete(@ptrCast(self.ptr));
     }
 };

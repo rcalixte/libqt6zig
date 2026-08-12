@@ -18,13 +18,17 @@ pub const Poppler__LinkDestination = extern struct {
 
     pub const _is_Poppler__LinkDestination = {};
 
-    /// New constructs a new Poppler::LinkDestination object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkDestination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` description: []const u8 `
     ///
-    pub fn New(description: []const u8) Poppler__LinkDestination {
+    pub fn new(description: []const u8) Poppler__LinkDestination {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
@@ -32,16 +36,24 @@ pub const Poppler__LinkDestination = extern struct {
         return .{ .ptr = qtc.Poppler__LinkDestination_new(description_str) };
     }
 
-    /// New2 constructs a new Poppler::LinkDestination object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Poppler::LinkDestination object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Poppler__LinkDestination `
     ///
-    pub fn New2(other: anytype) Poppler__LinkDestination {
+    pub fn new2(other: anytype) Poppler__LinkDestination {
         comptime _ = @TypeOf(other)._is_Poppler__LinkDestination;
         return .{ .ptr = qtc.Poppler__LinkDestination_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `kind` instead
+    ///
+    pub const Kind = kind;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
@@ -53,115 +65,139 @@ pub const Poppler__LinkDestination = extern struct {
     ///
     /// ` poppler_link_enums.Kind `
     ///
-    pub fn Kind(self: Poppler__LinkDestination) i32 {
+    pub fn kind(self: Poppler__LinkDestination) i32 {
         return qtc.Poppler__LinkDestination_Kind(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `pageNumber` instead
+    ///
+    pub const PageNumber = pageNumber;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn PageNumber(self: Poppler__LinkDestination) i32 {
+    pub fn pageNumber(self: Poppler__LinkDestination) i32 {
         return qtc.Poppler__LinkDestination_PageNumber(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `left` instead
+    ///
+    pub const Left = left;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Left(self: Poppler__LinkDestination) f64 {
+    pub fn left(self: Poppler__LinkDestination) f64 {
         return qtc.Poppler__LinkDestination_Left(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `bottom` instead
+    ///
+    pub const Bottom = bottom;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Bottom(self: Poppler__LinkDestination) f64 {
+    pub fn bottom(self: Poppler__LinkDestination) f64 {
         return qtc.Poppler__LinkDestination_Bottom(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `right` instead
+    ///
+    pub const Right = right;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Right(self: Poppler__LinkDestination) f64 {
+    pub fn right(self: Poppler__LinkDestination) f64 {
         return qtc.Poppler__LinkDestination_Right(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `top` instead
+    ///
+    pub const Top = top;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Top(self: Poppler__LinkDestination) f64 {
+    pub fn top(self: Poppler__LinkDestination) f64 {
         return qtc.Poppler__LinkDestination_Top(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `zoom` instead
+    ///
+    pub const Zoom = zoom;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Zoom(self: Poppler__LinkDestination) f64 {
+    pub fn zoom(self: Poppler__LinkDestination) f64 {
         return qtc.Poppler__LinkDestination_Zoom(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isChangeLeft` instead
+    ///
+    pub const IsChangeLeft = isChangeLeft;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn IsChangeLeft(self: Poppler__LinkDestination) bool {
+    pub fn isChangeLeft(self: Poppler__LinkDestination) bool {
         return qtc.Poppler__LinkDestination_IsChangeLeft(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isChangeTop` instead
+    ///
+    pub const IsChangeTop = isChangeTop;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn IsChangeTop(self: Poppler__LinkDestination) bool {
+    pub fn isChangeTop(self: Poppler__LinkDestination) bool {
         return qtc.Poppler__LinkDestination_IsChangeTop(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isChangeZoom` instead
+    ///
+    pub const IsChangeZoom = isChangeZoom;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn IsChangeZoom(self: Poppler__LinkDestination) bool {
+    pub fn isChangeZoom(self: Poppler__LinkDestination) bool {
         return qtc.Poppler__LinkDestination_IsChangeZoom(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
+    /// ### DEPRECATED: Use `toString` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkDestination `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn ToString(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__LinkDestination_ToString(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.ToString: Memory allocation failed");
-        @memcpy(_ret, _str.data[0.._str.len]);
-        return _ret;
-    }
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
@@ -171,13 +207,37 @@ pub const Poppler__LinkDestination = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DestinationName(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
-        var _str = qtc.Poppler__LinkDestination_DestinationName(@ptrCast(self.ptr));
+    pub fn toString(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__LinkDestination_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.DestinationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `destinationName` instead
+    ///
+    pub const DestinationName = destinationName;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkDestination `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn destinationName(self: Poppler__LinkDestination, allocator: std.mem.Allocator) []const u8 {
+        var _str = qtc.Poppler__LinkDestination_DestinationName(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_str);
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkDestination.destinationName: Memory allocation failed");
+        @memcpy(_ret, _str.data[0.._str.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
@@ -187,24 +247,24 @@ pub const Poppler__LinkDestination = extern struct {
     ///
     /// ` other: Poppler__LinkDestination `
     ///
-    pub fn OperatorAssign(self: Poppler__LinkDestination, other: anytype) void {
+    pub fn operatorAssign(self: Poppler__LinkDestination, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Poppler__LinkDestination;
         qtc.Poppler__LinkDestination_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkDestination.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkDestination `
     ///
-    pub fn Delete(self: Poppler__LinkDestination) void {
+    pub fn delete(self: Poppler__LinkDestination) void {
         qtc.Poppler__LinkDestination_Delete(@ptrCast(self.ptr));
     }
 };
@@ -219,16 +279,24 @@ pub const Poppler__Link = extern struct {
 
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::Link object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::Link object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
-    pub fn New(linkArea: anytype) Poppler__Link {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
-        return .{ .ptr = qtc.Poppler__Link_new(@ptrCast(linkArea.ptr)) };
+    pub fn new(_linkArea: anytype) Poppler__Link {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
+        return .{ .ptr = qtc.Poppler__Link_new(@ptrCast(_linkArea.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
@@ -240,9 +308,13 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__Link) i32 {
+    pub fn linkType(self: Poppler__Link) i32 {
         return qtc.Poppler__Link_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
@@ -254,13 +326,13 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__Link, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__Link, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__Link_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
@@ -274,9 +346,13 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__Link) i32 {
+    pub fn superLinkType(self: Poppler__Link) i32 {
         return qtc.Poppler__Link_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
@@ -284,9 +360,13 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` self: Poppler__Link `
     ///
-    pub fn LinkArea(self: Poppler__Link) QRectF {
+    pub fn linkArea(self: Poppler__Link) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
@@ -296,29 +376,29 @@ pub const Poppler__Link = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__Link, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__Link, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__Link.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__Link.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1Link.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__Link `
     ///
-    pub fn Delete(self: Poppler__Link) void {
+    pub fn delete(self: Poppler__Link) void {
         qtc.Poppler__Link_Delete(@ptrCast(self.ptr));
     }
 };
@@ -334,25 +414,33 @@ pub const Poppler__LinkGoto = extern struct {
     pub const _is_Poppler__LinkGoto = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkGoto object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkGoto object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
     /// ` extFileName: []const u8 `
     ///
-    /// ` destination: Poppler__LinkDestination `
+    /// ` _destination: Poppler__LinkDestination `
     ///
-    pub fn New(linkArea: anytype, extFileName: []const u8, destination: anytype) Poppler__LinkGoto {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
+    pub fn new(_linkArea: anytype, extFileName: []const u8, _destination: anytype) Poppler__LinkGoto {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
         const extFileName_str = qtc.libqt_string{
             .len = extFileName.len,
             .data = extFileName.ptr,
         };
-        comptime _ = @TypeOf(destination)._is_Poppler__LinkDestination;
-        return .{ .ptr = qtc.Poppler__LinkGoto_new(@ptrCast(linkArea.ptr), extFileName_str, @ptrCast(destination.ptr)) };
+        comptime _ = @TypeOf(_destination)._is_Poppler__LinkDestination;
+        return .{ .ptr = qtc.Poppler__LinkGoto_new(@ptrCast(_linkArea.ptr), extFileName_str, @ptrCast(_destination.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isExternal` instead
+    ///
+    pub const IsExternal = isExternal;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -360,9 +448,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` self: Poppler__LinkGoto `
     ///
-    pub fn IsExternal(self: Poppler__LinkGoto) bool {
+    pub fn isExternal(self: Poppler__LinkGoto) bool {
         return qtc.Poppler__LinkGoto_IsExternal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -372,13 +464,17 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkGoto_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkGoto.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkGoto.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `destination` instead
+    ///
+    pub const Destination = destination;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -386,9 +482,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` self: Poppler__LinkGoto `
     ///
-    pub fn Destination(self: Poppler__LinkGoto) Poppler__LinkDestination {
+    pub fn destination(self: Poppler__LinkGoto) Poppler__LinkDestination {
         return .{ .ptr = qtc.Poppler__LinkGoto_Destination(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -400,9 +500,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkGoto) i32 {
+    pub fn linkType(self: Poppler__LinkGoto) i32 {
         return qtc.Poppler__LinkGoto_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -414,13 +518,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkGoto, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkGoto, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkGoto_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
@@ -434,9 +538,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkGoto) i32 {
+    pub fn superLinkType(self: Poppler__LinkGoto) i32 {
         return qtc.Poppler__LinkGoto_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -446,9 +554,13 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` self: Poppler__LinkGoto `
     ///
-    pub fn LinkArea(self: Poppler__LinkGoto) QRectF {
+    pub fn linkArea(self: Poppler__LinkGoto) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -460,29 +572,29 @@ pub const Poppler__LinkGoto = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkGoto, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkGoto.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkGoto.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkGoto.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkGoto `
     ///
-    pub fn Delete(self: Poppler__LinkGoto) void {
+    pub fn delete(self: Poppler__LinkGoto) void {
         qtc.Poppler__LinkGoto_Delete(@ptrCast(self.ptr));
     }
 };
@@ -498,18 +610,22 @@ pub const Poppler__LinkExecute = extern struct {
     pub const _is_Poppler__LinkExecute = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkExecute object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkExecute object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
     /// ` file: []const u8 `
     ///
     /// ` params: []const u8 `
     ///
-    pub fn New(linkArea: anytype, file: []const u8, params: []const u8) Poppler__LinkExecute {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
+    pub fn new(_linkArea: anytype, file: []const u8, params: []const u8) Poppler__LinkExecute {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
         const file_str = qtc.libqt_string{
             .len = file.len,
             .data = file.ptr,
@@ -518,8 +634,12 @@ pub const Poppler__LinkExecute = extern struct {
             .len = params.len,
             .data = params.ptr,
         };
-        return .{ .ptr = qtc.Poppler__LinkExecute_new(@ptrCast(linkArea.ptr), file_str, params_str) };
+        return .{ .ptr = qtc.Poppler__LinkExecute_new(@ptrCast(_linkArea.ptr), file_str, params_str) };
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
@@ -529,13 +649,17 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkExecute_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parameters` instead
+    ///
+    pub const Parameters = parameters;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
@@ -545,13 +669,17 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parameters(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
+    pub fn parameters(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkExecute_Parameters(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.Parameters: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkExecute.parameters: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
@@ -563,9 +691,13 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkExecute) i32 {
+    pub fn linkType(self: Poppler__LinkExecute) i32 {
         return qtc.Poppler__LinkExecute_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
@@ -577,13 +709,13 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkExecute, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkExecute, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkExecute_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
@@ -597,9 +729,13 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkExecute) i32 {
+    pub fn superLinkType(self: Poppler__LinkExecute) i32 {
         return qtc.Poppler__LinkExecute_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -609,9 +745,13 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` self: Poppler__LinkExecute `
     ///
-    pub fn LinkArea(self: Poppler__LinkExecute) QRectF {
+    pub fn linkArea(self: Poppler__LinkExecute) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -623,29 +763,29 @@ pub const Poppler__LinkExecute = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkExecute, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkExecute.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkExecute.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkExecute.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkExecute `
     ///
-    pub fn Delete(self: Poppler__LinkExecute) void {
+    pub fn delete(self: Poppler__LinkExecute) void {
         qtc.Poppler__LinkExecute_Delete(@ptrCast(self.ptr));
     }
 };
@@ -661,22 +801,30 @@ pub const Poppler__LinkBrowse = extern struct {
     pub const _is_Poppler__LinkBrowse = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkBrowse object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkBrowse object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
-    /// ` url: []const u8 `
+    /// ` _url: []const u8 `
     ///
-    pub fn New(linkArea: anytype, url: []const u8) Poppler__LinkBrowse {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
+    pub fn new(_linkArea: anytype, _url: []const u8) Poppler__LinkBrowse {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
         const url_str = qtc.libqt_string{
-            .len = url.len,
-            .data = url.ptr,
+            .len = _url.len,
+            .data = _url.ptr,
         };
-        return .{ .ptr = qtc.Poppler__LinkBrowse_new(@ptrCast(linkArea.ptr), url_str) };
+        return .{ .ptr = qtc.Poppler__LinkBrowse_new(@ptrCast(_linkArea.ptr), url_str) };
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkBrowse.html)
     ///
@@ -686,13 +834,17 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Url(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []const u8 {
+    pub fn url(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkBrowse_Url(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkBrowse.Url: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkBrowse.url: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkBrowse.html)
     ///
@@ -704,9 +856,13 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkBrowse) i32 {
+    pub fn linkType(self: Poppler__LinkBrowse) i32 {
         return qtc.Poppler__LinkBrowse_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkBrowse.html)
     ///
@@ -718,13 +874,13 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkBrowse, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkBrowse, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkBrowse_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkBrowse.html)
     ///
@@ -738,9 +894,13 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkBrowse) i32 {
+    pub fn superLinkType(self: Poppler__LinkBrowse) i32 {
         return qtc.Poppler__LinkBrowse_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -750,9 +910,13 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` self: Poppler__LinkBrowse `
     ///
-    pub fn LinkArea(self: Poppler__LinkBrowse) QRectF {
+    pub fn linkArea(self: Poppler__LinkBrowse) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -764,29 +928,29 @@ pub const Poppler__LinkBrowse = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkBrowse, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkBrowse.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkBrowse.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkBrowse.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkBrowse `
     ///
-    pub fn Delete(self: Poppler__LinkBrowse) void {
+    pub fn delete(self: Poppler__LinkBrowse) void {
         qtc.Poppler__LinkBrowse_Delete(@ptrCast(self.ptr));
     }
 };
@@ -802,18 +966,26 @@ pub const Poppler__LinkAction = extern struct {
     pub const _is_Poppler__LinkAction = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkAction object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkAction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
-    /// ` actionType: poppler_link_enums.ActionType `
+    /// ` _actionType: poppler_link_enums.ActionType `
     ///
-    pub fn New(linkArea: anytype, actionType: i32) Poppler__LinkAction {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
-        return .{ .ptr = qtc.Poppler__LinkAction_new(@ptrCast(linkArea.ptr), @bitCast(actionType)) };
+    pub fn new(_linkArea: anytype, _actionType: i32) Poppler__LinkAction {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
+        return .{ .ptr = qtc.Poppler__LinkAction_new(@ptrCast(_linkArea.ptr), @bitCast(_actionType)) };
     }
+
+    /// ### DEPRECATED: Use `actionType` instead
+    ///
+    pub const ActionType = actionType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAction.html)
     ///
@@ -825,9 +997,13 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` poppler_link_enums.ActionType `
     ///
-    pub fn ActionType(self: Poppler__LinkAction) i32 {
+    pub fn actionType(self: Poppler__LinkAction) i32 {
         return qtc.Poppler__LinkAction_ActionType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAction.html)
     ///
@@ -839,9 +1015,13 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkAction) i32 {
+    pub fn linkType(self: Poppler__LinkAction) i32 {
         return qtc.Poppler__LinkAction_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAction.html)
     ///
@@ -853,13 +1033,13 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkAction, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkAction, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkAction_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAction.html)
     ///
@@ -873,9 +1053,13 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkAction) i32 {
+    pub fn superLinkType(self: Poppler__LinkAction) i32 {
         return qtc.Poppler__LinkAction_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -885,9 +1069,13 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` self: Poppler__LinkAction `
     ///
-    pub fn LinkArea(self: Poppler__LinkAction) QRectF {
+    pub fn linkArea(self: Poppler__LinkAction) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -899,29 +1087,29 @@ pub const Poppler__LinkAction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkAction, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkAction, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkAction.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkAction.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkAction.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkAction `
     ///
-    pub fn Delete(self: Poppler__LinkAction) void {
+    pub fn delete(self: Poppler__LinkAction) void {
         qtc.Poppler__LinkAction_Delete(@ptrCast(self.ptr));
     }
 };
@@ -937,27 +1125,35 @@ pub const Poppler__LinkSound = extern struct {
     pub const _is_Poppler__LinkSound = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkSound object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkSound object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
-    /// ` volume: f64 `
+    /// ` _volume: f64 `
     ///
     /// ` sync: bool `
     ///
-    /// ` repeat: bool `
+    /// ` _repeat: bool `
     ///
-    /// ` mix: bool `
+    /// ` _mix: bool `
     ///
-    /// ` sound: Poppler__SoundObject `
+    /// ` _sound: Poppler__SoundObject `
     ///
-    pub fn New(linkArea: anytype, volume: f64, sync: bool, repeat: bool, mix: bool, sound: anytype) Poppler__LinkSound {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
-        comptime _ = @TypeOf(sound)._is_Poppler__SoundObject;
-        return .{ .ptr = qtc.Poppler__LinkSound_new(@ptrCast(linkArea.ptr), @bitCast(volume), sync, repeat, mix, @ptrCast(sound.ptr)) };
+    pub fn new(_linkArea: anytype, _volume: f64, sync: bool, _repeat: bool, _mix: bool, _sound: anytype) Poppler__LinkSound {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
+        comptime _ = @TypeOf(_sound)._is_Poppler__SoundObject;
+        return .{ .ptr = qtc.Poppler__LinkSound_new(@ptrCast(_linkArea.ptr), @bitCast(_volume), sync, _repeat, _mix, @ptrCast(_sound.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
@@ -969,9 +1165,13 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkSound) i32 {
+    pub fn linkType(self: Poppler__LinkSound) i32 {
         return qtc.Poppler__LinkSound_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
@@ -983,13 +1183,13 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkSound, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkSound, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkSound_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
@@ -1003,49 +1203,55 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkSound) i32 {
+    pub fn superLinkType(self: Poppler__LinkSound) i32 {
         return qtc.Poppler__LinkSound_SuperLinkType(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `volume` instead
+    ///
+    pub const Volume = volume;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn Volume(self: Poppler__LinkSound) f64 {
+    pub fn volume(self: Poppler__LinkSound) f64 {
         return qtc.Poppler__LinkSound_Volume(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `synchronous` instead
+    ///
+    pub const Synchronous = synchronous;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn Synchronous(self: Poppler__LinkSound) bool {
+    pub fn synchronous(self: Poppler__LinkSound) bool {
         return qtc.Poppler__LinkSound_Synchronous(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `repeat` instead
+    ///
+    pub const Repeat = repeat;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn Repeat(self: Poppler__LinkSound) bool {
+    pub fn repeat(self: Poppler__LinkSound) bool {
         return qtc.Poppler__LinkSound_Repeat(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
+    /// ### DEPRECATED: Use `mix` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkSound `
-    ///
-    pub fn Mix(self: Poppler__LinkSound) bool {
-        return qtc.Poppler__LinkSound_Mix(@ptrCast(self.ptr));
-    }
+    pub const Mix = mix;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
@@ -1053,9 +1259,27 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn Sound(self: Poppler__LinkSound) Poppler__SoundObject {
+    pub fn mix(self: Poppler__LinkSound) bool {
+        return qtc.Poppler__LinkSound_Mix(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `sound` instead
+    ///
+    pub const Sound = sound;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkSound `
+    ///
+    pub fn sound(self: Poppler__LinkSound) Poppler__SoundObject {
         return .{ .ptr = qtc.Poppler__LinkSound_Sound(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1065,9 +1289,13 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn LinkArea(self: Poppler__LinkSound) QRectF {
+    pub fn linkArea(self: Poppler__LinkSound) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1079,29 +1307,29 @@ pub const Poppler__LinkSound = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkSound, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkSound, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSound.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSound.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSound.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkSound `
     ///
-    pub fn Delete(self: Poppler__LinkSound) void {
+    pub fn delete(self: Poppler__LinkSound) void {
         qtc.Poppler__LinkSound_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1117,6 +1345,10 @@ pub const Poppler__LinkRendition = extern struct {
     pub const _is_Poppler__LinkRendition = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
     /// ## Parameter(s):
@@ -1127,9 +1359,13 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkRendition) i32 {
+    pub fn linkType(self: Poppler__LinkRendition) i32 {
         return qtc.Poppler__LinkRendition_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rendition` instead
+    ///
+    pub const Rendition = rendition;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
@@ -1137,9 +1373,13 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` self: Poppler__LinkRendition `
     ///
-    pub fn Rendition(self: Poppler__LinkRendition) Poppler__MediaRendition {
+    pub fn rendition(self: Poppler__LinkRendition) Poppler__MediaRendition {
         return .{ .ptr = qtc.Poppler__LinkRendition_Rendition(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `action` instead
+    ///
+    pub const Action = action;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
@@ -1151,9 +1391,13 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` poppler_link_enums.RenditionAction `
     ///
-    pub fn Action(self: Poppler__LinkRendition) i32 {
+    pub fn action(self: Poppler__LinkRendition) i32 {
         return qtc.Poppler__LinkRendition_Action(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `script` instead
+    ///
+    pub const Script = script;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
@@ -1163,13 +1407,17 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Script(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []const u8 {
+    pub fn script(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkRendition_Script(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkRendition.Script: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkRendition.script: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isReferencedAnnotation` instead
+    ///
+    pub const IsReferencedAnnotation = isReferencedAnnotation;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
@@ -1179,10 +1427,14 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` annotation: Poppler__ScreenAnnotation `
     ///
-    pub fn IsReferencedAnnotation(self: Poppler__LinkRendition, annotation: anytype) bool {
+    pub fn isReferencedAnnotation(self: Poppler__LinkRendition, annotation: anytype) bool {
         comptime _ = @TypeOf(annotation)._is_Poppler__ScreenAnnotation;
         return qtc.Poppler__LinkRendition_IsReferencedAnnotation(@ptrCast(self.ptr), @ptrCast(annotation.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1192,9 +1444,13 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` self: Poppler__LinkRendition `
     ///
-    pub fn LinkArea(self: Poppler__LinkRendition) QRectF {
+    pub fn linkArea(self: Poppler__LinkRendition) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1206,29 +1462,29 @@ pub const Poppler__LinkRendition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkRendition, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkRendition.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkRendition.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkRendition.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkRendition `
     ///
-    pub fn Delete(self: Poppler__LinkRendition) void {
+    pub fn delete(self: Poppler__LinkRendition) void {
         qtc.Poppler__LinkRendition_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1244,22 +1500,30 @@ pub const Poppler__LinkJavaScript = extern struct {
     pub const _is_Poppler__LinkJavaScript = {};
     pub const _is_Poppler__Link = {};
 
-    /// New constructs a new Poppler::LinkJavaScript object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new Poppler::LinkJavaScript object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` linkArea: QRectF `
+    /// ` _linkArea: QRectF `
     ///
     /// ` js: []const u8 `
     ///
-    pub fn New(linkArea: anytype, js: []const u8) Poppler__LinkJavaScript {
-        comptime _ = @TypeOf(linkArea)._is_QRectF;
+    pub fn new(_linkArea: anytype, js: []const u8) Poppler__LinkJavaScript {
+        comptime _ = @TypeOf(_linkArea)._is_QRectF;
         const js_str = qtc.libqt_string{
             .len = js.len,
             .data = js.ptr,
         };
-        return .{ .ptr = qtc.Poppler__LinkJavaScript_new(@ptrCast(linkArea.ptr), js_str) };
+        return .{ .ptr = qtc.Poppler__LinkJavaScript_new(@ptrCast(_linkArea.ptr), js_str) };
     }
+
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
     ///
@@ -1271,9 +1535,13 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkJavaScript) i32 {
+    pub fn linkType(self: Poppler__LinkJavaScript) i32 {
         return qtc.Poppler__LinkJavaScript_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLinkType` instead
+    ///
+    pub const OnLinkType = onLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
     ///
@@ -1285,13 +1553,13 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnLinkType(self: Poppler__LinkJavaScript, callback: *const fn () callconv(.c) i32) void {
+    pub fn onLinkType(self: Poppler__LinkJavaScript, callback: *const fn () callconv(.c) i32) void {
         qtc.Poppler__LinkJavaScript_OnLinkType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLinkType` instead
+    /// ### DEPRECATED: Use `superLinkType` instead
     ///
-    pub const QBaseLinkType = SuperLinkType;
+    pub const SuperLinkType = superLinkType;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
     ///
@@ -1305,9 +1573,13 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn SuperLinkType(self: Poppler__LinkJavaScript) i32 {
+    pub fn superLinkType(self: Poppler__LinkJavaScript) i32 {
         return qtc.Poppler__LinkJavaScript_SuperLinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `script` instead
+    ///
+    pub const Script = script;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
     ///
@@ -1317,14 +1589,18 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Script(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []const u8 {
+    pub fn script(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkJavaScript_Script(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkJavaScript.Script: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkJavaScript.script: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
+
     /// Inherited from Poppler::Link
     ///
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
@@ -1333,9 +1609,13 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` self: Poppler__LinkJavaScript `
     ///
-    pub fn LinkArea(self: Poppler__LinkJavaScript) QRectF {
+    pub fn linkArea(self: Poppler__LinkJavaScript) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1347,29 +1627,29 @@ pub const Poppler__LinkJavaScript = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkJavaScript, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkJavaScript.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkJavaScript.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkJavaScript.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkJavaScript `
     ///
-    pub fn Delete(self: Poppler__LinkJavaScript) void {
+    pub fn delete(self: Poppler__LinkJavaScript) void {
         qtc.Poppler__LinkJavaScript_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1385,6 +1665,10 @@ pub const Poppler__LinkMovie = extern struct {
     pub const _is_Poppler__LinkMovie = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkMovie.html)
     ///
     /// ## Parameter(s):
@@ -1395,9 +1679,13 @@ pub const Poppler__LinkMovie = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkMovie) i32 {
+    pub fn linkType(self: Poppler__LinkMovie) i32 {
         return qtc.Poppler__LinkMovie_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operation` instead
+    ///
+    pub const Operation = operation;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkMovie.html)
     ///
@@ -1409,9 +1697,13 @@ pub const Poppler__LinkMovie = extern struct {
     ///
     /// ` poppler_link_enums.Operation `
     ///
-    pub fn Operation(self: Poppler__LinkMovie) i32 {
+    pub fn operation(self: Poppler__LinkMovie) i32 {
         return qtc.Poppler__LinkMovie_Operation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReferencedAnnotation` instead
+    ///
+    pub const IsReferencedAnnotation = isReferencedAnnotation;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkMovie.html)
     ///
@@ -1421,10 +1713,14 @@ pub const Poppler__LinkMovie = extern struct {
     ///
     /// ` annotation: Poppler__MovieAnnotation `
     ///
-    pub fn IsReferencedAnnotation(self: Poppler__LinkMovie, annotation: anytype) bool {
+    pub fn isReferencedAnnotation(self: Poppler__LinkMovie, annotation: anytype) bool {
         comptime _ = @TypeOf(annotation)._is_Poppler__MovieAnnotation;
         return qtc.Poppler__LinkMovie_IsReferencedAnnotation(@ptrCast(self.ptr), @ptrCast(annotation.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1434,9 +1730,13 @@ pub const Poppler__LinkMovie = extern struct {
     ///
     /// ` self: Poppler__LinkMovie `
     ///
-    pub fn LinkArea(self: Poppler__LinkMovie) QRectF {
+    pub fn linkArea(self: Poppler__LinkMovie) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1448,29 +1748,29 @@ pub const Poppler__LinkMovie = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkMovie, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkMovie, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkMovie.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkMovie.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkMovie.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkMovie `
     ///
-    pub fn Delete(self: Poppler__LinkMovie) void {
+    pub fn delete(self: Poppler__LinkMovie) void {
         qtc.Poppler__LinkMovie_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1486,6 +1786,10 @@ pub const Poppler__LinkOCGState = extern struct {
     pub const _is_Poppler__LinkOCGState = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkOCGState.html)
     ///
     /// ## Parameter(s):
@@ -1496,9 +1800,13 @@ pub const Poppler__LinkOCGState = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkOCGState) i32 {
+    pub fn linkType(self: Poppler__LinkOCGState) i32 {
         return qtc.Poppler__LinkOCGState_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1508,9 +1816,13 @@ pub const Poppler__LinkOCGState = extern struct {
     ///
     /// ` self: Poppler__LinkOCGState `
     ///
-    pub fn LinkArea(self: Poppler__LinkOCGState) QRectF {
+    pub fn linkArea(self: Poppler__LinkOCGState) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1522,29 +1834,29 @@ pub const Poppler__LinkOCGState = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkOCGState, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkOCGState, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkOCGState.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkOCGState.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkOCGState.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkOCGState `
     ///
-    pub fn Delete(self: Poppler__LinkOCGState) void {
+    pub fn delete(self: Poppler__LinkOCGState) void {
         qtc.Poppler__LinkOCGState_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1560,6 +1872,10 @@ pub const Poppler__LinkHide = extern struct {
     pub const _is_Poppler__LinkHide = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkHide.html)
     ///
     /// ## Parameter(s):
@@ -1570,9 +1886,13 @@ pub const Poppler__LinkHide = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkHide) i32 {
+    pub fn linkType(self: Poppler__LinkHide) i32 {
         return qtc.Poppler__LinkHide_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `targets` instead
+    ///
+    pub const Targets = targets;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkHide.html)
     ///
@@ -1582,7 +1902,7 @@ pub const Poppler__LinkHide = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Targets(self: Poppler__LinkHide, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn targets(self: Poppler__LinkHide, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.Poppler__LinkHide_Targets(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1590,15 +1910,19 @@ pub const Poppler__LinkHide = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__LinkHide.Targets: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("Poppler__LinkHide.targets: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Poppler__LinkHide.Targets: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Poppler__LinkHide.targets: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isShowAction` instead
+    ///
+    pub const IsShowAction = isShowAction;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkHide.html)
     ///
@@ -1606,9 +1930,13 @@ pub const Poppler__LinkHide = extern struct {
     ///
     /// ` self: Poppler__LinkHide `
     ///
-    pub fn IsShowAction(self: Poppler__LinkHide) bool {
+    pub fn isShowAction(self: Poppler__LinkHide) bool {
         return qtc.Poppler__LinkHide_IsShowAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1618,9 +1946,13 @@ pub const Poppler__LinkHide = extern struct {
     ///
     /// ` self: Poppler__LinkHide `
     ///
-    pub fn LinkArea(self: Poppler__LinkHide) QRectF {
+    pub fn linkArea(self: Poppler__LinkHide) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1632,29 +1964,29 @@ pub const Poppler__LinkHide = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkHide, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkHide, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkHide.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkHide.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkHide.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkHide `
     ///
-    pub fn Delete(self: Poppler__LinkHide) void {
+    pub fn delete(self: Poppler__LinkHide) void {
         qtc.Poppler__LinkHide_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1670,6 +2002,10 @@ pub const Poppler__LinkResetForm = extern struct {
     pub const _is_Poppler__LinkResetForm = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkResetForm.html)
     ///
     /// ## Parameter(s):
@@ -1680,9 +2016,13 @@ pub const Poppler__LinkResetForm = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkResetForm) i32 {
+    pub fn linkType(self: Poppler__LinkResetForm) i32 {
         return qtc.Poppler__LinkResetForm_LinkType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1692,9 +2032,13 @@ pub const Poppler__LinkResetForm = extern struct {
     ///
     /// ` self: Poppler__LinkResetForm `
     ///
-    pub fn LinkArea(self: Poppler__LinkResetForm) QRectF {
+    pub fn linkArea(self: Poppler__LinkResetForm) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1706,29 +2050,29 @@ pub const Poppler__LinkResetForm = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkResetForm, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkResetForm, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkResetForm.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkResetForm.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkResetForm.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkResetForm `
     ///
-    pub fn Delete(self: Poppler__LinkResetForm) void {
+    pub fn delete(self: Poppler__LinkResetForm) void {
         qtc.Poppler__LinkResetForm_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1744,6 +2088,10 @@ pub const Poppler__LinkSubmitForm = extern struct {
     pub const _is_Poppler__LinkSubmitForm = {};
     pub const _is_Poppler__Link = {};
 
+    /// ### DEPRECATED: Use `linkType` instead
+    ///
+    pub const LinkType = linkType;
+
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
     ///
     /// ## Parameter(s):
@@ -1754,26 +2102,13 @@ pub const Poppler__LinkSubmitForm = extern struct {
     ///
     /// ` poppler_link_enums.LinkType `
     ///
-    pub fn LinkType(self: Poppler__LinkSubmitForm) i32 {
+    pub fn linkType(self: Poppler__LinkSubmitForm) i32 {
         return qtc.Poppler__LinkSubmitForm_LinkType(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
+    /// ### DEPRECATED: Use `getFieldIds` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Poppler__LinkSubmitForm `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn GetFieldIds(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []i32 {
-        const _arr: qtc.libqt_list = qtc.Poppler__LinkSubmitForm_GetFieldIds(@ptrCast(self.ptr));
-        defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Poppler__LinkSubmitForm.GetFieldIds: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
-        return _ret;
-    }
+    pub const GetFieldIds = getFieldIds;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
     ///
@@ -1783,13 +2118,38 @@ pub const Poppler__LinkSubmitForm = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GetUrl(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []const u8 {
+    pub fn getFieldIds(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []i32 {
+        const _arr: qtc.libqt_list = qtc.Poppler__LinkSubmitForm_GetFieldIds(@ptrCast(self.ptr));
+        defer qtc.libqt_free(_arr.data);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("Poppler__LinkSubmitForm.getFieldIds: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `getUrl` instead
+    ///
+    pub const GetUrl = getUrl;
+
+    /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Poppler__LinkSubmitForm `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn getUrl(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Poppler__LinkSubmitForm_GetUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkSubmitForm.GetUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Poppler__LinkSubmitForm.getUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `getFlags` instead
+    ///
+    pub const GetFlags = getFlags;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
     ///
@@ -1801,9 +2161,13 @@ pub const Poppler__LinkSubmitForm = extern struct {
     ///
     /// ` flag of poppler_link_enums.SubmitFormFlag `
     ///
-    pub fn GetFlags(self: Poppler__LinkSubmitForm) i32 {
+    pub fn getFlags(self: Poppler__LinkSubmitForm) i32 {
         return qtc.Poppler__LinkSubmitForm_GetFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `linkArea` instead
+    ///
+    pub const LinkArea = linkArea;
 
     /// Inherited from Poppler::Link
     ///
@@ -1813,9 +2177,13 @@ pub const Poppler__LinkSubmitForm = extern struct {
     ///
     /// ` self: Poppler__LinkSubmitForm `
     ///
-    pub fn LinkArea(self: Poppler__LinkSubmitForm) QRectF {
+    pub fn linkArea(self: Poppler__LinkSubmitForm) QRectF {
         return .{ .ptr = qtc.Poppler__Link_LinkArea(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextLinks` instead
+    ///
+    pub const NextLinks = nextLinks;
 
     /// Inherited from Poppler::Link
     ///
@@ -1827,29 +2195,29 @@ pub const Poppler__LinkSubmitForm = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NextLinks(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []Poppler__Link {
+    pub fn nextLinks(self: Poppler__LinkSubmitForm, allocator: std.mem.Allocator) []Poppler__Link {
         const _arr: qtc.libqt_list = qtc.Poppler__Link_NextLinks(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSubmitForm.NextLinks: Memory allocation failed");
-        const _data: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Poppler__Link, _arr.len) catch @panic("Poppler__LinkSubmitForm.nextLinks: Memory allocation failed");
+        const _data_val: [*]QtC.Poppler__Link = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://poppler.freedesktop.org/api/qt6/classPoppler_1_1LinkSubmitForm.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Poppler__LinkSubmitForm `
     ///
-    pub fn Delete(self: Poppler__LinkSubmitForm) void {
+    pub fn delete(self: Poppler__LinkSubmitForm) void {
         qtc.Poppler__LinkSubmitForm_Delete(@ptrCast(self.ptr));
     }
 };

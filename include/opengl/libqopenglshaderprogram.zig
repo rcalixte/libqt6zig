@@ -37,28 +37,40 @@ pub const QOpenGLShader = extern struct {
     pub const _is_QOpenGLShader = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QOpenGLShader object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QOpenGLShader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    pub fn New(typeVal: i32) QOpenGLShader {
+    pub fn new(typeVal: i32) QOpenGLShader {
         return .{ .ptr = qtc.QOpenGLShader_new(@bitCast(typeVal)) };
     }
 
-    /// New2 constructs a new QOpenGLShader object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLShader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(typeVal: i32, parent: anytype) QOpenGLShader {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QOpenGLShader_new2(@bitCast(typeVal), @ptrCast(parent.ptr)) };
+    pub fn new2(typeVal: i32, _parent: anytype) QOpenGLShader {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QOpenGLShader_new2(@bitCast(typeVal), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,9 +78,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn MetaObject(self: QOpenGLShader) QMetaObject {
+    pub fn metaObject(self: QOpenGLShader) QMetaObject {
         return .{ .ptr = qtc.QOpenGLShader_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,13 +96,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QOpenGLShader, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLShader, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QOpenGLShader_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -96,9 +112,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn SuperMetaObject(self: QOpenGLShader) QMetaObject {
+    pub fn superMetaObject(self: QOpenGLShader) QMetaObject {
         return .{ .ptr = qtc.QOpenGLShader_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -106,10 +126,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QOpenGLShader, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QOpenGLShader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShader_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -119,13 +143,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QOpenGLShader_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -135,10 +159,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QOpenGLShader, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QOpenGLShader, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShader_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -150,9 +178,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QOpenGLShader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QOpenGLShader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLShader_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -162,13 +194,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QOpenGLShader, callback: *const fn (QOpenGLShader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QOpenGLShader, callback: *const fn (QOpenGLShader, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QOpenGLShader_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -182,9 +214,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QOpenGLShader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QOpenGLShader, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLShader_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -194,14 +230,18 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shaderType` instead
+    ///
+    pub const ShaderType = shaderType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#shaderType)
     ///
@@ -213,9 +253,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    pub fn ShaderType(self: QOpenGLShader) i32 {
+    pub fn shaderType(self: QOpenGLShader) i32 {
         return qtc.QOpenGLShader_ShaderType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compileSourceCode` instead
+    ///
+    pub const CompileSourceCode = compileSourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
@@ -225,10 +269,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` source: [:0]const u8 `
     ///
-    pub fn CompileSourceCode(self: QOpenGLShader, source: [:0]const u8) bool {
+    pub fn compileSourceCode(self: QOpenGLShader, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShader_CompileSourceCode(@ptrCast(self.ptr), source_Cstring);
     }
+
+    /// ### DEPRECATED: Use `compileSourceCode2` instead
+    ///
+    pub const CompileSourceCode2 = compileSourceCode2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
@@ -238,13 +286,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` source: []u8 `
     ///
-    pub fn CompileSourceCode2(self: QOpenGLShader, source: []u8) bool {
+    pub fn compileSourceCode2(self: QOpenGLShader, source: []u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShader_CompileSourceCode2(@ptrCast(self.ptr), source_str);
     }
+
+    /// ### DEPRECATED: Use `compileSourceCode3` instead
+    ///
+    pub const CompileSourceCode3 = compileSourceCode3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceCode)
     ///
@@ -254,13 +306,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` source: []const u8 `
     ///
-    pub fn CompileSourceCode3(self: QOpenGLShader, source: []const u8) bool {
+    pub fn compileSourceCode3(self: QOpenGLShader, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShader_CompileSourceCode3(@ptrCast(self.ptr), source_str);
     }
+
+    /// ### DEPRECATED: Use `compileSourceFile` instead
+    ///
+    pub const CompileSourceFile = compileSourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#compileSourceFile)
     ///
@@ -270,13 +326,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn CompileSourceFile(self: QOpenGLShader, fileName: []const u8) bool {
+    pub fn compileSourceFile(self: QOpenGLShader, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         return qtc.QOpenGLShader_CompileSourceFile(@ptrCast(self.ptr), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `sourceCode` instead
+    ///
+    pub const SourceCode = sourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#sourceCode)
     ///
@@ -286,13 +346,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SourceCode(self: QOpenGLShader, allocator: std.mem.Allocator) []u8 {
+    pub fn sourceCode(self: QOpenGLShader, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QOpenGLShader_SourceCode(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLShader.SourceCode: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QOpenGLShader.sourceCode: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isCompiled` instead
+    ///
+    pub const IsCompiled = isCompiled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#isCompiled)
     ///
@@ -300,9 +364,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn IsCompiled(self: QOpenGLShader) bool {
+    pub fn isCompiled(self: QOpenGLShader) bool {
         return qtc.QOpenGLShader_IsCompiled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `log` instead
+    ///
+    pub const Log = log;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#log)
     ///
@@ -312,13 +380,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Log(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
+    pub fn log(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOpenGLShader_Log(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Log: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shaderId` instead
+    ///
+    pub const ShaderId = shaderId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#shaderId)
     ///
@@ -326,9 +398,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn ShaderId(self: QOpenGLShader) u32 {
+    pub fn shaderId(self: QOpenGLShader) u32 {
         return qtc.QOpenGLShader_ShaderId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasOpenGLShaders` instead
+    ///
+    pub const HasOpenGLShaders = hasOpenGLShaders;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
     ///
@@ -336,9 +412,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` typeVal: flag of qopenglshaderprogram_enums.ShaderTypeBit `
     ///
-    pub fn HasOpenGLShaders(typeVal: i32) bool {
+    pub fn hasOpenGLShaders(typeVal: i32) bool {
         return qtc.QOpenGLShader_HasOpenGLShaders(@bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -350,15 +430,19 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -372,15 +456,19 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasOpenGLShaders2` instead
+    ///
+    pub const HasOpenGLShaders2 = hasOpenGLShaders2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#hasOpenGLShaders)
     ///
@@ -390,10 +478,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` context: QOpenGLContext `
     ///
-    pub fn HasOpenGLShaders2(typeVal: i32, context: anytype) bool {
+    pub fn hasOpenGLShaders2(typeVal: i32, context: anytype) bool {
         comptime _ = @TypeOf(context)._is_QOpenGLContext;
         return qtc.QOpenGLShader_HasOpenGLShaders2(@bitCast(typeVal), @ptrCast(context.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -405,13 +497,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QOpenGLShader, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShader.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -423,13 +519,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QOpenGLShader, name: []const u8) void {
+    pub fn setObjectName(self: QOpenGLShader, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -439,9 +539,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn IsWidgetType(self: QOpenGLShader) bool {
+    pub fn isWidgetType(self: QOpenGLShader) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -451,9 +555,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn IsWindowType(self: QOpenGLShader) bool {
+    pub fn isWindowType(self: QOpenGLShader) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -463,9 +571,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn IsQuickItemType(self: QOpenGLShader) bool {
+    pub fn isQuickItemType(self: QOpenGLShader) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -475,9 +587,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn SignalsBlocked(self: QOpenGLShader) bool {
+    pub fn signalsBlocked(self: QOpenGLShader) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -489,9 +605,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QOpenGLShader, b: bool) bool {
+    pub fn blockSignals(self: QOpenGLShader, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -501,9 +621,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Thread(self: QOpenGLShader) QThread {
+    pub fn thread(self: QOpenGLShader) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -513,12 +637,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QOpenGLShader, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QOpenGLShader, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -530,9 +658,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QOpenGLShader, interval: i32) i32 {
+    pub fn startTimer(self: QOpenGLShader, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -544,9 +676,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QOpenGLShader, time: i64) i32 {
+    pub fn startTimer2(self: QOpenGLShader, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -558,9 +694,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QOpenGLShader, id: i32) void {
+    pub fn killTimer(self: QOpenGLShader, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -572,9 +712,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QOpenGLShader, id: i32) void {
+    pub fn killTimer2(self: QOpenGLShader, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -586,15 +730,19 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QOpenGLShader, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QOpenGLShader, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShader.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShader.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -604,12 +752,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QOpenGLShader, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QOpenGLShader, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -621,10 +773,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QOpenGLShader, filterObj: anytype) void {
+    pub fn installEventFilter(self: QOpenGLShader, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -636,10 +792,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QOpenGLShader, obj: anytype) void {
+    pub fn removeEventFilter(self: QOpenGLShader, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -647,7 +807,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -655,13 +815,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -669,7 +833,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -677,13 +841,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -693,18 +861,22 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QOpenGLShader, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QOpenGLShader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -712,7 +884,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -720,13 +892,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -734,7 +910,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -742,13 +918,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -758,9 +938,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Disconnect3(self: QOpenGLShader) bool {
+    pub fn disconnect3(self: QOpenGLShader) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -772,10 +956,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QOpenGLShader, receiver: anytype) bool {
+    pub fn disconnect4(self: QOpenGLShader, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -785,10 +973,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -798,9 +990,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn DumpObjectTree(self: QOpenGLShader) void {
+    pub fn dumpObjectTree(self: QOpenGLShader) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -810,9 +1006,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn DumpObjectInfo(self: QOpenGLShader) void {
+    pub fn dumpObjectInfo(self: QOpenGLShader) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -826,11 +1026,15 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QOpenGLShader, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QOpenGLShader, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -842,10 +1046,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QOpenGLShader, name: [:0]const u8) QVariant {
+    pub fn property(self: QOpenGLShader, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -857,7 +1065,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QOpenGLShader, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLShader, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -865,27 +1073,19 @@ pub const QOpenGLShader = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShader.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShader.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLShader.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLShader.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShader `
-    ///
-    pub fn BindingStorage(self: QOpenGLShader) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -895,9 +1095,29 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn BindingStorage2(self: QOpenGLShader) QBindingStorage {
+    pub fn bindingStorage(self: QOpenGLShader) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLShader `
+    ///
+    pub fn bindingStorage2(self: QOpenGLShader) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -907,9 +1127,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Destroyed(self: QOpenGLShader) void {
+    pub fn destroyed(self: QOpenGLShader) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -921,9 +1145,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QOpenGLShader, callback: *const fn (QOpenGLShader) callconv(.c) void) void {
+    pub fn onDestroyed(self: QOpenGLShader, callback: *const fn (QOpenGLShader) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -933,9 +1161,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Parent(self: QOpenGLShader) QObject {
+    pub fn parent(self: QOpenGLShader) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -947,10 +1179,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QOpenGLShader, classname: [:0]const u8) bool {
+    pub fn inherits(self: QOpenGLShader, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -960,9 +1196,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn DeleteLater(self: QOpenGLShader) void {
+    pub fn deleteLater(self: QOpenGLShader) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -976,9 +1216,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QOpenGLShader, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QOpenGLShader, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -992,9 +1236,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QOpenGLShader, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QOpenGLShader, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1002,7 +1250,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1012,13 +1260,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1026,7 +1278,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1036,13 +1288,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1052,7 +1308,7 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1060,12 +1316,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QOpenGLShader, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QOpenGLShader, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1077,10 +1337,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QOpenGLShader, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QOpenGLShader, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1094,11 +1358,15 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QOpenGLShader, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QOpenGLShader, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1114,13 +1382,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QOpenGLShader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QOpenGLShader, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1133,11 +1405,15 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QOpenGLShader, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QOpenGLShader, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1149,10 +1425,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QOpenGLShader, param1: anytype) void {
+    pub fn destroyed1(self: QOpenGLShader, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1164,9 +1444,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1178,16 +1462,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QOpenGLShader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShader_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QOpenGLShader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShader_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1199,12 +1483,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QOpenGLShader, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShader_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QOpenGLShader, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShader_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1218,9 +1506,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLShader_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1234,17 +1526,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QOpenGLShader, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QOpenGLShader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShader_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1258,13 +1550,17 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QOpenGLShader, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QOpenGLShader, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShader_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1278,9 +1574,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QObject, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLShader_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1292,16 +1592,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLShader_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLShader_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1313,12 +1613,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLShader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLShader_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1332,9 +1636,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QTimerEvent) callconv(.c) void) void {
         qtc.QOpenGLShader_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1346,16 +1654,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLShader_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLShader_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1367,12 +1675,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLShader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLShader_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1386,9 +1698,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QChildEvent) callconv(.c) void) void {
         qtc.QOpenGLShader_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1400,16 +1716,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLShader_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLShader_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1421,12 +1737,16 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QOpenGLShader, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLShader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QOpenGLShader, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLShader_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1440,9 +1760,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QEvent) callconv(.c) void) void {
         qtc.QOpenGLShader_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1456,14 +1780,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QOpenGLShader, signal: anytype) void {
+    pub fn connectNotify(self: QOpenGLShader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShader_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1477,11 +1801,15 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QOpenGLShader, signal: anytype) void {
+    pub fn superConnectNotify(self: QOpenGLShader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShader_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1494,9 +1822,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLShader_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1510,14 +1842,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QOpenGLShader, signal: anytype) void {
+    pub fn disconnectNotify(self: QOpenGLShader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShader_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1531,10 +1863,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QOpenGLShader, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QOpenGLShader, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShader_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1548,9 +1884,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLShader_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1562,13 +1902,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Sender(self: QOpenGLShader) QObject {
+    pub fn sender(self: QOpenGLShader) QObject {
         return .{ .ptr = qtc.QOpenGLShader_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1580,9 +1920,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn SuperSender(self: QOpenGLShader) QObject {
+    pub fn superSender(self: QOpenGLShader) QObject {
         return .{ .ptr = qtc.QOpenGLShader_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1596,9 +1940,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QOpenGLShader, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QOpenGLShader, callback: *const fn () callconv(.c) QObject) void {
         qtc.QOpenGLShader_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1610,13 +1958,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn SenderSignalIndex(self: QOpenGLShader) i32 {
+    pub fn senderSignalIndex(self: QOpenGLShader) i32 {
         return qtc.QOpenGLShader_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1628,9 +1976,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn SuperSenderSignalIndex(self: QOpenGLShader) i32 {
+    pub fn superSenderSignalIndex(self: QOpenGLShader) i32 {
         return qtc.QOpenGLShader_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1644,9 +1996,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QOpenGLShader, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QOpenGLShader, callback: *const fn () callconv(.c) i32) void {
         qtc.QOpenGLShader_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1660,14 +2016,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QOpenGLShader, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QOpenGLShader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShader_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1681,10 +2037,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QOpenGLShader, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QOpenGLShader, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShader_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1698,9 +2058,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) i32) void {
         qtc.QOpenGLShader_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1714,14 +2078,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QOpenGLShader, signal: anytype) bool {
+    pub fn isSignalConnected(self: QOpenGLShader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShader_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1735,10 +2099,14 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QOpenGLShader, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QOpenGLShader, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShader_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1752,9 +2120,13 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QOpenGLShader, callback: *const fn (QOpenGLShader, QMetaMethod) callconv(.c) bool) void {
         qtc.QOpenGLShader_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1768,23 +2140,23 @@ pub const QOpenGLShader = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShader, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QOpenGLShader, callback: *const fn (QOpenGLShader, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshader.html#dtor.QOpenGLShader)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLShader `
     ///
-    pub fn Delete(self: QOpenGLShader) void {
+    pub fn delete(self: QOpenGLShader) void {
         qtc.QOpenGLShader_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1800,22 +2172,34 @@ pub const QOpenGLShaderProgram = extern struct {
     pub const _is_QOpenGLShaderProgram = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QOpenGLShaderProgram object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLShaderProgram {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLShaderProgram object in C++ memory
+    ///
+    pub fn new() QOpenGLShaderProgram {
         return .{ .ptr = qtc.QOpenGLShaderProgram_new() };
     }
 
-    /// New2 constructs a new QOpenGLShaderProgram object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLShaderProgram object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QOpenGLShaderProgram {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QOpenGLShaderProgram_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QOpenGLShaderProgram {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QOpenGLShaderProgram_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1823,9 +2207,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn MetaObject(self: QOpenGLShaderProgram) QMetaObject {
+    pub fn metaObject(self: QOpenGLShaderProgram) QMetaObject {
         return .{ .ptr = qtc.QOpenGLShaderProgram_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1837,13 +2225,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QOpenGLShaderProgram_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1853,9 +2241,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SuperMetaObject(self: QOpenGLShaderProgram) QMetaObject {
+    pub fn superMetaObject(self: QOpenGLShaderProgram) QMetaObject {
         return .{ .ptr = qtc.QOpenGLShaderProgram_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1863,10 +2255,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QOpenGLShaderProgram, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QOpenGLShaderProgram, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShaderProgram_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1876,13 +2272,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QOpenGLShaderProgram_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1892,10 +2288,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QOpenGLShaderProgram, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QOpenGLShaderProgram, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QOpenGLShaderProgram_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1907,9 +2307,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QOpenGLShaderProgram, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QOpenGLShaderProgram, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLShaderProgram_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1919,13 +2323,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QOpenGLShaderProgram_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1939,9 +2343,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QOpenGLShaderProgram, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QOpenGLShaderProgram, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QOpenGLShaderProgram_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1951,14 +2359,18 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addShader` instead
+    ///
+    pub const AddShader = addShader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShader)
     ///
@@ -1968,10 +2380,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` shader: QOpenGLShader `
     ///
-    pub fn AddShader(self: QOpenGLShaderProgram, shader: anytype) bool {
+    pub fn addShader(self: QOpenGLShaderProgram, shader: anytype) bool {
         comptime _ = @TypeOf(shader)._is_QOpenGLShader;
         return qtc.QOpenGLShaderProgram_AddShader(@ptrCast(self.ptr), @ptrCast(shader.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeShader` instead
+    ///
+    pub const RemoveShader = removeShader;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeShader)
     ///
@@ -1981,10 +2397,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` shader: QOpenGLShader `
     ///
-    pub fn RemoveShader(self: QOpenGLShaderProgram, shader: anytype) void {
+    pub fn removeShader(self: QOpenGLShaderProgram, shader: anytype) void {
         comptime _ = @TypeOf(shader)._is_QOpenGLShader;
         qtc.QOpenGLShaderProgram_RemoveShader(@ptrCast(self.ptr), @ptrCast(shader.ptr));
     }
+
+    /// ### DEPRECATED: Use `shaders` instead
+    ///
+    pub const Shaders = shaders;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#shaders)
     ///
@@ -1994,15 +2414,19 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Shaders(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QOpenGLShader {
+    pub fn shaders(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QOpenGLShader {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_Shaders(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QOpenGLShader, _arr.len) catch @panic("QOpenGLShaderProgram.Shaders: Memory allocation failed");
-        const _data: [*]QtC.QOpenGLShader = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QOpenGLShader, _arr.len) catch @panic("QOpenGLShaderProgram.shaders: Memory allocation failed");
+        const _data_val: [*]QtC.QOpenGLShader = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addShaderFromSourceCode` instead
+    ///
+    pub const AddShaderFromSourceCode = addShaderFromSourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
@@ -2014,10 +2438,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: [:0]const u8 `
     ///
-    pub fn AddShaderFromSourceCode(self: QOpenGLShaderProgram, typeVal: i32, source: [:0]const u8) bool {
+    pub fn addShaderFromSourceCode(self: QOpenGLShaderProgram, typeVal: i32, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode(@ptrCast(self.ptr), @bitCast(typeVal), source_Cstring);
     }
+
+    /// ### DEPRECATED: Use `addShaderFromSourceCode2` instead
+    ///
+    pub const AddShaderFromSourceCode2 = addShaderFromSourceCode2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
@@ -2029,13 +2457,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: []u8 `
     ///
-    pub fn AddShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
+    pub fn addShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode2(@ptrCast(self.ptr), @bitCast(typeVal), source_str);
     }
+
+    /// ### DEPRECATED: Use `addShaderFromSourceCode3` instead
+    ///
+    pub const AddShaderFromSourceCode3 = addShaderFromSourceCode3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceCode)
     ///
@@ -2047,13 +2479,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: []const u8 `
     ///
-    pub fn AddShaderFromSourceCode3(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
+    pub fn addShaderFromSourceCode3(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceCode3(@ptrCast(self.ptr), @bitCast(typeVal), source_str);
     }
+
+    /// ### DEPRECATED: Use `addShaderFromSourceFile` instead
+    ///
+    pub const AddShaderFromSourceFile = addShaderFromSourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addShaderFromSourceFile)
     ///
@@ -2065,13 +2501,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn AddShaderFromSourceFile(self: QOpenGLShaderProgram, typeVal: i32, fileName: []const u8) bool {
+    pub fn addShaderFromSourceFile(self: QOpenGLShaderProgram, typeVal: i32, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
         };
         return qtc.QOpenGLShaderProgram_AddShaderFromSourceFile(@ptrCast(self.ptr), @bitCast(typeVal), fileName_str);
     }
+
+    /// ### DEPRECATED: Use `addCacheableShaderFromSourceCode` instead
+    ///
+    pub const AddCacheableShaderFromSourceCode = addCacheableShaderFromSourceCode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
@@ -2083,10 +2523,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: [:0]const u8 `
     ///
-    pub fn AddCacheableShaderFromSourceCode(self: QOpenGLShaderProgram, typeVal: i32, source: [:0]const u8) bool {
+    pub fn addCacheableShaderFromSourceCode(self: QOpenGLShaderProgram, typeVal: i32, source: [:0]const u8) bool {
         const source_Cstring = source.ptr;
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode(@ptrCast(self.ptr), @bitCast(typeVal), source_Cstring);
     }
+
+    /// ### DEPRECATED: Use `addCacheableShaderFromSourceCode2` instead
+    ///
+    pub const AddCacheableShaderFromSourceCode2 = addCacheableShaderFromSourceCode2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
@@ -2098,13 +2542,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: []u8 `
     ///
-    pub fn AddCacheableShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
+    pub fn addCacheableShaderFromSourceCode2(self: QOpenGLShaderProgram, typeVal: i32, source: []u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode2(@ptrCast(self.ptr), @bitCast(typeVal), source_str);
     }
+
+    /// ### DEPRECATED: Use `addCacheableShaderFromSourceCode3` instead
+    ///
+    pub const AddCacheableShaderFromSourceCode3 = addCacheableShaderFromSourceCode3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceCode)
     ///
@@ -2116,13 +2564,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` source: []const u8 `
     ///
-    pub fn AddCacheableShaderFromSourceCode3(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
+    pub fn addCacheableShaderFromSourceCode3(self: QOpenGLShaderProgram, typeVal: i32, source: []const u8) bool {
         const source_str = qtc.libqt_string{
             .len = source.len,
             .data = source.ptr,
         };
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceCode3(@ptrCast(self.ptr), @bitCast(typeVal), source_str);
     }
+
+    /// ### DEPRECATED: Use `addCacheableShaderFromSourceFile` instead
+    ///
+    pub const AddCacheableShaderFromSourceFile = addCacheableShaderFromSourceFile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#addCacheableShaderFromSourceFile)
     ///
@@ -2134,7 +2586,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` fileName: []const u8 `
     ///
-    pub fn AddCacheableShaderFromSourceFile(self: QOpenGLShaderProgram, typeVal: i32, fileName: []const u8) bool {
+    pub fn addCacheableShaderFromSourceFile(self: QOpenGLShaderProgram, typeVal: i32, fileName: []const u8) bool {
         const fileName_str = qtc.libqt_string{
             .len = fileName.len,
             .data = fileName.ptr,
@@ -2142,15 +2594,23 @@ pub const QOpenGLShaderProgram = extern struct {
         return qtc.QOpenGLShaderProgram_AddCacheableShaderFromSourceFile(@ptrCast(self.ptr), @bitCast(typeVal), fileName_str);
     }
 
+    /// ### DEPRECATED: Use `removeAllShaders` instead
+    ///
+    pub const RemoveAllShaders = removeAllShaders;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#removeAllShaders)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn RemoveAllShaders(self: QOpenGLShaderProgram) void {
+    pub fn removeAllShaders(self: QOpenGLShaderProgram) void {
         qtc.QOpenGLShaderProgram_RemoveAllShaders(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `link` instead
+    ///
+    pub const Link = link;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
@@ -2158,9 +2618,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Link(self: QOpenGLShaderProgram) bool {
+    pub fn link(self: QOpenGLShaderProgram) bool {
         return qtc.QOpenGLShaderProgram_Link(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLink` instead
+    ///
+    pub const OnLink = onLink;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
@@ -2172,13 +2636,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnLink(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) bool) void {
+    pub fn onLink(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) bool) void {
         qtc.QOpenGLShaderProgram_OnLink(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLink` instead
+    /// ### DEPRECATED: Use `superLink` instead
     ///
-    pub const QBaseLink = SuperLink;
+    pub const SuperLink = superLink;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#link)
     ///
@@ -2188,9 +2652,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SuperLink(self: QOpenGLShaderProgram) bool {
+    pub fn superLink(self: QOpenGLShaderProgram) bool {
         return qtc.QOpenGLShaderProgram_SuperLink(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLinked` instead
+    ///
+    pub const IsLinked = isLinked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#isLinked)
     ///
@@ -2198,9 +2666,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn IsLinked(self: QOpenGLShaderProgram) bool {
+    pub fn isLinked(self: QOpenGLShaderProgram) bool {
         return qtc.QOpenGLShaderProgram_IsLinked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `log` instead
+    ///
+    pub const Log = log;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#log)
     ///
@@ -2210,13 +2682,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Log(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
+    pub fn log(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QOpenGLShaderProgram_Log(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Log: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.log: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `bind` instead
+    ///
+    pub const Bind = bind;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bind)
     ///
@@ -2224,9 +2700,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Bind(self: QOpenGLShaderProgram) bool {
+    pub fn bind(self: QOpenGLShaderProgram) bool {
         return qtc.QOpenGLShaderProgram_Bind(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `release` instead
+    ///
+    pub const Release = release;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#release)
     ///
@@ -2234,9 +2714,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Release(self: QOpenGLShaderProgram) void {
+    pub fn release(self: QOpenGLShaderProgram) void {
         qtc.QOpenGLShaderProgram_Release(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#create)
     ///
@@ -2244,9 +2728,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Create(self: QOpenGLShaderProgram) bool {
+    pub fn create(self: QOpenGLShaderProgram) bool {
         return qtc.QOpenGLShaderProgram_Create(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `programId` instead
+    ///
+    pub const ProgramId = programId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#programId)
     ///
@@ -2254,9 +2742,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn ProgramId(self: QOpenGLShaderProgram) u32 {
+    pub fn programId(self: QOpenGLShaderProgram) u32 {
         return qtc.QOpenGLShaderProgram_ProgramId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxGeometryOutputVertices` instead
+    ///
+    pub const MaxGeometryOutputVertices = maxGeometryOutputVertices;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#maxGeometryOutputVertices)
     ///
@@ -2264,9 +2756,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn MaxGeometryOutputVertices(self: QOpenGLShaderProgram) i32 {
+    pub fn maxGeometryOutputVertices(self: QOpenGLShaderProgram) i32 {
         return qtc.QOpenGLShaderProgram_MaxGeometryOutputVertices(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPatchVertexCount` instead
+    ///
+    pub const SetPatchVertexCount = setPatchVertexCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setPatchVertexCount)
     ///
@@ -2276,9 +2772,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetPatchVertexCount(self: QOpenGLShaderProgram, count: i32) void {
+    pub fn setPatchVertexCount(self: QOpenGLShaderProgram, count: i32) void {
         qtc.QOpenGLShaderProgram_SetPatchVertexCount(@ptrCast(self.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `patchVertexCount` instead
+    ///
+    pub const PatchVertexCount = patchVertexCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#patchVertexCount)
     ///
@@ -2286,9 +2786,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn PatchVertexCount(self: QOpenGLShaderProgram) i32 {
+    pub fn patchVertexCount(self: QOpenGLShaderProgram) i32 {
         return qtc.QOpenGLShaderProgram_PatchVertexCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultOuterTessellationLevels` instead
+    ///
+    pub const SetDefaultOuterTessellationLevels = setDefaultOuterTessellationLevels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultOuterTessellationLevels)
     ///
@@ -2298,13 +2802,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` levels: []f32 `
     ///
-    pub fn SetDefaultOuterTessellationLevels(self: QOpenGLShaderProgram, levels: []f32) void {
+    pub fn setDefaultOuterTessellationLevels(self: QOpenGLShaderProgram, levels: []f32) void {
         const levels_list = qtc.libqt_list{
             .len = levels.len,
             .data = levels.ptr,
         };
         qtc.QOpenGLShaderProgram_SetDefaultOuterTessellationLevels(@ptrCast(self.ptr), levels_list);
     }
+
+    /// ### DEPRECATED: Use `defaultOuterTessellationLevels` instead
+    ///
+    pub const DefaultOuterTessellationLevels = defaultOuterTessellationLevels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultOuterTessellationLevels)
     ///
@@ -2314,14 +2822,18 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultOuterTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
+    pub fn defaultOuterTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_DefaultOuterTessellationLevels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.DefaultOuterTessellationLevels: Memory allocation failed");
-        const _data: [*]f32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.defaultOuterTessellationLevels: Memory allocation failed");
+        const _data_val: [*]f32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDefaultInnerTessellationLevels` instead
+    ///
+    pub const SetDefaultInnerTessellationLevels = setDefaultInnerTessellationLevels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setDefaultInnerTessellationLevels)
     ///
@@ -2331,13 +2843,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` levels: []f32 `
     ///
-    pub fn SetDefaultInnerTessellationLevels(self: QOpenGLShaderProgram, levels: []f32) void {
+    pub fn setDefaultInnerTessellationLevels(self: QOpenGLShaderProgram, levels: []f32) void {
         const levels_list = qtc.libqt_list{
             .len = levels.len,
             .data = levels.ptr,
         };
         qtc.QOpenGLShaderProgram_SetDefaultInnerTessellationLevels(@ptrCast(self.ptr), levels_list);
     }
+
+    /// ### DEPRECATED: Use `defaultInnerTessellationLevels` instead
+    ///
+    pub const DefaultInnerTessellationLevels = defaultInnerTessellationLevels;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#defaultInnerTessellationLevels)
     ///
@@ -2347,14 +2863,18 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultInnerTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
+    pub fn defaultInnerTessellationLevels(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []f32 {
         const _arr: qtc.libqt_list = qtc.QOpenGLShaderProgram_DefaultInnerTessellationLevels(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.DefaultInnerTessellationLevels: Memory allocation failed");
-        const _data: [*]f32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(f32, _arr.len) catch @panic("QOpenGLShaderProgram.defaultInnerTessellationLevels: Memory allocation failed");
+        const _data_val: [*]f32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `bindAttributeLocation` instead
+    ///
+    pub const BindAttributeLocation = bindAttributeLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
@@ -2366,10 +2886,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` location: i32 `
     ///
-    pub fn BindAttributeLocation(self: QOpenGLShaderProgram, name: [:0]const u8, location: i32) void {
+    pub fn bindAttributeLocation(self: QOpenGLShaderProgram, name: [:0]const u8, location: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_BindAttributeLocation(@ptrCast(self.ptr), name_Cstring, @bitCast(location));
     }
+
+    /// ### DEPRECATED: Use `bindAttributeLocation2` instead
+    ///
+    pub const BindAttributeLocation2 = bindAttributeLocation2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
@@ -2381,7 +2905,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` location: i32 `
     ///
-    pub fn BindAttributeLocation2(self: QOpenGLShaderProgram, name: []u8, location: i32) void {
+    pub fn bindAttributeLocation2(self: QOpenGLShaderProgram, name: []u8, location: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2389,6 +2913,10 @@ pub const QOpenGLShaderProgram = extern struct {
         qtc.QOpenGLShaderProgram_BindAttributeLocation2(@ptrCast(self.ptr), name_str, @bitCast(location));
     }
 
+    /// ### DEPRECATED: Use `bindAttributeLocation3` instead
+    ///
+    pub const BindAttributeLocation3 = bindAttributeLocation3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#bindAttributeLocation)
     ///
     /// ## Parameter(s):
@@ -2399,7 +2927,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` location: i32 `
     ///
-    pub fn BindAttributeLocation3(self: QOpenGLShaderProgram, name: []const u8, location: i32) void {
+    pub fn bindAttributeLocation3(self: QOpenGLShaderProgram, name: []const u8, location: i32) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2407,6 +2935,10 @@ pub const QOpenGLShaderProgram = extern struct {
         qtc.QOpenGLShaderProgram_BindAttributeLocation3(@ptrCast(self.ptr), name_str, @bitCast(location));
     }
 
+    /// ### DEPRECATED: Use `attributeLocation` instead
+    ///
+    pub const AttributeLocation = attributeLocation;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
     /// ## Parameter(s):
@@ -2415,10 +2947,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn AttributeLocation(self: QOpenGLShaderProgram, name: [:0]const u8) i32 {
+    pub fn attributeLocation(self: QOpenGLShaderProgram, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLShaderProgram_AttributeLocation(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `attributeLocation2` instead
+    ///
+    pub const AttributeLocation2 = attributeLocation2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
@@ -2428,7 +2964,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: []u8 `
     ///
-    pub fn AttributeLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
+    pub fn attributeLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2436,6 +2972,10 @@ pub const QOpenGLShaderProgram = extern struct {
         return qtc.QOpenGLShaderProgram_AttributeLocation2(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `attributeLocation3` instead
+    ///
+    pub const AttributeLocation3 = attributeLocation3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#attributeLocation)
     ///
     /// ## Parameter(s):
@@ -2444,7 +2984,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn AttributeLocation3(self: QOpenGLShaderProgram, name: []const u8) i32 {
+    pub fn attributeLocation3(self: QOpenGLShaderProgram, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -2452,6 +2992,10 @@ pub const QOpenGLShaderProgram = extern struct {
         return qtc.QOpenGLShaderProgram_AttributeLocation3(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `setAttributeValue` instead
+    ///
+    pub const SetAttributeValue = setAttributeValue;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ## Parameter(s):
@@ -2462,9 +3006,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn SetAttributeValue(self: QOpenGLShaderProgram, location: i32, value: f32) void {
+    pub fn setAttributeValue(self: QOpenGLShaderProgram, location: i32, value: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue(@ptrCast(self.ptr), @bitCast(location), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue2` instead
+    ///
+    pub const SetAttributeValue2 = setAttributeValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2478,9 +3026,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn SetAttributeValue2(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32) void {
+    pub fn setAttributeValue2(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue2(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue3` instead
+    ///
+    pub const SetAttributeValue3 = setAttributeValue3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2496,9 +3048,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetAttributeValue3(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32) void {
+    pub fn setAttributeValue3(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue3(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue4` instead
+    ///
+    pub const SetAttributeValue4 = setAttributeValue4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2516,9 +3072,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetAttributeValue4(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn setAttributeValue4(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue4(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y), @bitCast(z), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue5` instead
+    ///
+    pub const SetAttributeValue5 = setAttributeValue5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2530,10 +3090,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector2D `
     ///
-    pub fn SetAttributeValue5(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setAttributeValue5(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeValue5(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue6` instead
+    ///
+    pub const SetAttributeValue6 = setAttributeValue6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2545,10 +3109,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector3D `
     ///
-    pub fn SetAttributeValue6(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setAttributeValue6(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeValue6(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue7` instead
+    ///
+    pub const SetAttributeValue7 = setAttributeValue7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2560,10 +3128,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetAttributeValue7(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setAttributeValue7(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeValue7(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue8` instead
+    ///
+    pub const SetAttributeValue8 = setAttributeValue8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2575,10 +3147,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QColor `
     ///
-    pub fn SetAttributeValue8(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setAttributeValue8(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QColor;
         qtc.QOpenGLShaderProgram_SetAttributeValue8(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue9` instead
+    ///
+    pub const SetAttributeValue9 = setAttributeValue9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2594,9 +3170,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` rows: i32 `
     ///
-    pub fn SetAttributeValue9(self: QOpenGLShaderProgram, location: i32, values: []const f32, columns: i32, rows: i32) void {
+    pub fn setAttributeValue9(self: QOpenGLShaderProgram, location: i32, values: []const f32, columns: i32, rows: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeValue9(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(columns), @bitCast(rows));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue10` instead
+    ///
+    pub const SetAttributeValue10 = setAttributeValue10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2608,10 +3188,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn SetAttributeValue10(self: QOpenGLShaderProgram, name: [:0]const u8, value: f32) void {
+    pub fn setAttributeValue10(self: QOpenGLShaderProgram, name: [:0]const u8, value: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue10(@ptrCast(self.ptr), name_Cstring, @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue11` instead
+    ///
+    pub const SetAttributeValue11 = setAttributeValue11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2625,10 +3209,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn SetAttributeValue11(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32) void {
+    pub fn setAttributeValue11(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue11(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue12` instead
+    ///
+    pub const SetAttributeValue12 = setAttributeValue12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2644,10 +3232,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetAttributeValue12(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32) void {
+    pub fn setAttributeValue12(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue12(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue13` instead
+    ///
+    pub const SetAttributeValue13 = setAttributeValue13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2665,10 +3257,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetAttributeValue13(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn setAttributeValue13(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue13(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y), @bitCast(z), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue14` instead
+    ///
+    pub const SetAttributeValue14 = setAttributeValue14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2680,12 +3276,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector2D `
     ///
-    pub fn SetAttributeValue14(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setAttributeValue14(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeValue14(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
+    /// ### DEPRECATED: Use `setAttributeValue15` instead
+    ///
+    pub const SetAttributeValue15 = setAttributeValue15;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
     /// ## Parameter(s):
@@ -2696,11 +3296,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector3D `
     ///
-    pub fn SetAttributeValue15(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setAttributeValue15(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeValue15(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue16` instead
+    ///
+    pub const SetAttributeValue16 = setAttributeValue16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2712,11 +3316,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetAttributeValue16(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setAttributeValue16(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeValue16(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue17` instead
+    ///
+    pub const SetAttributeValue17 = setAttributeValue17;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2728,11 +3336,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QColor `
     ///
-    pub fn SetAttributeValue17(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setAttributeValue17(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QColor;
         qtc.QOpenGLShaderProgram_SetAttributeValue17(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeValue18` instead
+    ///
+    pub const SetAttributeValue18 = setAttributeValue18;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeValue)
     ///
@@ -2748,10 +3360,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` rows: i32 `
     ///
-    pub fn SetAttributeValue18(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, columns: i32, rows: i32) void {
+    pub fn setAttributeValue18(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, columns: i32, rows: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeValue18(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(columns), @bitCast(rows));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray` instead
+    ///
+    pub const SetAttributeArray = setAttributeArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2765,9 +3381,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray(self: QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32) void {
+    pub fn setAttributeArray(self: QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray2` instead
+    ///
+    pub const SetAttributeArray2 = setAttributeArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2779,10 +3399,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector2D `
     ///
-    pub fn SetAttributeArray2(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
+    pub fn setAttributeArray2(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeArray2(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray3` instead
+    ///
+    pub const SetAttributeArray3 = setAttributeArray3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2794,10 +3418,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector3D `
     ///
-    pub fn SetAttributeArray3(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
+    pub fn setAttributeArray3(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeArray3(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray4` instead
+    ///
+    pub const SetAttributeArray4 = setAttributeArray4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2809,10 +3437,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector4D `
     ///
-    pub fn SetAttributeArray4(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
+    pub fn setAttributeArray4(self: QOpenGLShaderProgram, location: i32, values: anytype) void {
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeArray4(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray5` instead
+    ///
+    pub const SetAttributeArray5 = setAttributeArray5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2828,9 +3460,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray5(self: QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
+    pub fn setAttributeArray5(self: QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray5(@ptrCast(self.ptr), @bitCast(location), @bitCast(typeVal), @ptrCast(values), @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray6` instead
+    ///
+    pub const SetAttributeArray6 = setAttributeArray6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2844,10 +3480,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray6(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, tupleSize: i32) void {
+    pub fn setAttributeArray6(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray6(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray7` instead
+    ///
+    pub const SetAttributeArray7 = setAttributeArray7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2859,12 +3499,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector2D `
     ///
-    pub fn SetAttributeArray7(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
+    pub fn setAttributeArray7(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeArray7(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr));
     }
 
+    /// ### DEPRECATED: Use `setAttributeArray8` instead
+    ///
+    pub const SetAttributeArray8 = setAttributeArray8;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ## Parameter(s):
@@ -2875,11 +3519,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector3D `
     ///
-    pub fn SetAttributeArray8(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
+    pub fn setAttributeArray8(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeArray8(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray9` instead
+    ///
+    pub const SetAttributeArray9 = setAttributeArray9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2891,11 +3539,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` values: QVector4D `
     ///
-    pub fn SetAttributeArray9(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
+    pub fn setAttributeArray9(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeArray9(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray10` instead
+    ///
+    pub const SetAttributeArray10 = setAttributeArray10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -2911,11 +3563,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeArray10(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
+    pub fn setAttributeArray10(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray10(@ptrCast(self.ptr), name_Cstring, @bitCast(typeVal), @ptrCast(values), @bitCast(tupleSize));
     }
 
+    /// ### DEPRECATED: Use `setAttributeBuffer` instead
+    ///
+    pub const SetAttributeBuffer = setAttributeBuffer;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
     /// ## Parameter(s):
@@ -2930,9 +3586,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeBuffer(self: QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32) void {
+    pub fn setAttributeBuffer(self: QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer(@ptrCast(self.ptr), @bitCast(location), @bitCast(typeVal), @bitCast(offset), @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setAttributeBuffer2` instead
+    ///
+    pub const SetAttributeBuffer2 = setAttributeBuffer2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
@@ -2948,11 +3608,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetAttributeBuffer2(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32) void {
+    pub fn setAttributeBuffer2(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeBuffer2(@ptrCast(self.ptr), name_Cstring, @bitCast(typeVal), @bitCast(offset), @bitCast(tupleSize));
     }
 
+    /// ### DEPRECATED: Use `enableAttributeArray` instead
+    ///
+    pub const EnableAttributeArray = enableAttributeArray;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
     ///
     /// ## Parameter(s):
@@ -2961,9 +3625,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` location: i32 `
     ///
-    pub fn EnableAttributeArray(self: QOpenGLShaderProgram, location: i32) void {
+    pub fn enableAttributeArray(self: QOpenGLShaderProgram, location: i32) void {
         qtc.QOpenGLShaderProgram_EnableAttributeArray(@ptrCast(self.ptr), @bitCast(location));
     }
+
+    /// ### DEPRECATED: Use `enableAttributeArray2` instead
+    ///
+    pub const EnableAttributeArray2 = enableAttributeArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#enableAttributeArray)
     ///
@@ -2973,11 +3641,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn EnableAttributeArray2(self: QOpenGLShaderProgram, name: [:0]const u8) void {
+    pub fn enableAttributeArray2(self: QOpenGLShaderProgram, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_EnableAttributeArray2(@ptrCast(self.ptr), name_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disableAttributeArray` instead
+    ///
+    pub const DisableAttributeArray = disableAttributeArray;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
     ///
     /// ## Parameter(s):
@@ -2986,9 +3658,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` location: i32 `
     ///
-    pub fn DisableAttributeArray(self: QOpenGLShaderProgram, location: i32) void {
+    pub fn disableAttributeArray(self: QOpenGLShaderProgram, location: i32) void {
         qtc.QOpenGLShaderProgram_DisableAttributeArray(@ptrCast(self.ptr), @bitCast(location));
     }
+
+    /// ### DEPRECATED: Use `disableAttributeArray2` instead
+    ///
+    pub const DisableAttributeArray2 = disableAttributeArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#disableAttributeArray)
     ///
@@ -2998,10 +3674,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn DisableAttributeArray2(self: QOpenGLShaderProgram, name: [:0]const u8) void {
+    pub fn disableAttributeArray2(self: QOpenGLShaderProgram, name: [:0]const u8) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_DisableAttributeArray2(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `uniformLocation` instead
+    ///
+    pub const UniformLocation = uniformLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
@@ -3011,10 +3691,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn UniformLocation(self: QOpenGLShaderProgram, name: [:0]const u8) i32 {
+    pub fn uniformLocation(self: QOpenGLShaderProgram, name: [:0]const u8) i32 {
         const name_Cstring = name.ptr;
         return qtc.QOpenGLShaderProgram_UniformLocation(@ptrCast(self.ptr), name_Cstring);
     }
+
+    /// ### DEPRECATED: Use `uniformLocation2` instead
+    ///
+    pub const UniformLocation2 = uniformLocation2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
@@ -3024,13 +3708,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: []u8 `
     ///
-    pub fn UniformLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
+    pub fn uniformLocation2(self: QOpenGLShaderProgram, name: []u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.QOpenGLShaderProgram_UniformLocation2(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `uniformLocation3` instead
+    ///
+    pub const UniformLocation3 = uniformLocation3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#uniformLocation)
     ///
@@ -3040,7 +3728,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn UniformLocation3(self: QOpenGLShaderProgram, name: []const u8) i32 {
+    pub fn uniformLocation3(self: QOpenGLShaderProgram, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -3048,6 +3736,10 @@ pub const QOpenGLShaderProgram = extern struct {
         return qtc.QOpenGLShaderProgram_UniformLocation3(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `setUniformValue` instead
+    ///
+    pub const SetUniformValue = setUniformValue;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ## Parameter(s):
@@ -3058,9 +3750,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn SetUniformValue(self: QOpenGLShaderProgram, location: i32, value: f32) void {
+    pub fn setUniformValue(self: QOpenGLShaderProgram, location: i32, value: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue(@ptrCast(self.ptr), @bitCast(location), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue2` instead
+    ///
+    pub const SetUniformValue2 = setUniformValue2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3072,9 +3768,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SetUniformValue2(self: QOpenGLShaderProgram, location: i32, value: i32) void {
+    pub fn setUniformValue2(self: QOpenGLShaderProgram, location: i32, value: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue2(@ptrCast(self.ptr), @bitCast(location), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue3` instead
+    ///
+    pub const SetUniformValue3 = setUniformValue3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3086,9 +3786,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: u32 `
     ///
-    pub fn SetUniformValue3(self: QOpenGLShaderProgram, location: i32, value: u32) void {
+    pub fn setUniformValue3(self: QOpenGLShaderProgram, location: i32, value: u32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue3(@ptrCast(self.ptr), @bitCast(location), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue4` instead
+    ///
+    pub const SetUniformValue4 = setUniformValue4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3102,9 +3806,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn SetUniformValue4(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32) void {
+    pub fn setUniformValue4(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue4(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue5` instead
+    ///
+    pub const SetUniformValue5 = setUniformValue5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3120,9 +3828,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetUniformValue5(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32) void {
+    pub fn setUniformValue5(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue5(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue6` instead
+    ///
+    pub const SetUniformValue6 = setUniformValue6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3140,9 +3852,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetUniformValue6(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn setUniformValue6(self: QOpenGLShaderProgram, location: i32, x: f32, y: f32, z: f32, w: f32) void {
         qtc.QOpenGLShaderProgram_SetUniformValue6(@ptrCast(self.ptr), @bitCast(location), @bitCast(x), @bitCast(y), @bitCast(z), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue7` instead
+    ///
+    pub const SetUniformValue7 = setUniformValue7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3154,10 +3870,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector2D `
     ///
-    pub fn SetUniformValue7(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setUniformValue7(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetUniformValue7(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue8` instead
+    ///
+    pub const SetUniformValue8 = setUniformValue8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3169,10 +3889,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector3D `
     ///
-    pub fn SetUniformValue8(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setUniformValue8(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetUniformValue8(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue9` instead
+    ///
+    pub const SetUniformValue9 = setUniformValue9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3184,10 +3908,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetUniformValue9(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setUniformValue9(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetUniformValue9(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue10` instead
+    ///
+    pub const SetUniformValue10 = setUniformValue10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3199,10 +3927,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetUniformValue10(self: QOpenGLShaderProgram, location: i32, color: anytype) void {
+    pub fn setUniformValue10(self: QOpenGLShaderProgram, location: i32, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QOpenGLShaderProgram_SetUniformValue10(@ptrCast(self.ptr), @bitCast(location), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue11` instead
+    ///
+    pub const SetUniformValue11 = setUniformValue11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3214,10 +3946,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn SetUniformValue11(self: QOpenGLShaderProgram, location: i32, point: anytype) void {
+    pub fn setUniformValue11(self: QOpenGLShaderProgram, location: i32, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPoint;
         qtc.QOpenGLShaderProgram_SetUniformValue11(@ptrCast(self.ptr), @bitCast(location), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue12` instead
+    ///
+    pub const SetUniformValue12 = setUniformValue12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3229,10 +3965,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SetUniformValue12(self: QOpenGLShaderProgram, location: i32, point: anytype) void {
+    pub fn setUniformValue12(self: QOpenGLShaderProgram, location: i32, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QOpenGLShaderProgram_SetUniformValue12(@ptrCast(self.ptr), @bitCast(location), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue13` instead
+    ///
+    pub const SetUniformValue13 = setUniformValue13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3244,10 +3984,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SetUniformValue13(self: QOpenGLShaderProgram, location: i32, size: anytype) void {
+    pub fn setUniformValue13(self: QOpenGLShaderProgram, location: i32, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QOpenGLShaderProgram_SetUniformValue13(@ptrCast(self.ptr), @bitCast(location), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue14` instead
+    ///
+    pub const SetUniformValue14 = setUniformValue14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3259,10 +4003,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` size: QSizeF `
     ///
-    pub fn SetUniformValue14(self: QOpenGLShaderProgram, location: i32, size: anytype) void {
+    pub fn setUniformValue14(self: QOpenGLShaderProgram, location: i32, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSizeF;
         qtc.QOpenGLShaderProgram_SetUniformValue14(@ptrCast(self.ptr), @bitCast(location), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue23` instead
+    ///
+    pub const SetUniformValue23 = setUniformValue23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3274,10 +4022,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QMatrix4x4 `
     ///
-    pub fn SetUniformValue23(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setUniformValue23(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QMatrix4x4;
         qtc.QOpenGLShaderProgram_SetUniformValue23(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue27` instead
+    ///
+    pub const SetUniformValue27 = setUniformValue27;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3289,10 +4041,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QTransform `
     ///
-    pub fn SetUniformValue27(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
+    pub fn setUniformValue27(self: QOpenGLShaderProgram, location: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QTransform;
         qtc.QOpenGLShaderProgram_SetUniformValue27(@ptrCast(self.ptr), @bitCast(location), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue28` instead
+    ///
+    pub const SetUniformValue28 = setUniformValue28;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3304,10 +4060,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn SetUniformValue28(self: QOpenGLShaderProgram, name: [:0]const u8, value: f32) void {
+    pub fn setUniformValue28(self: QOpenGLShaderProgram, name: [:0]const u8, value: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue28(@ptrCast(self.ptr), name_Cstring, @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue29` instead
+    ///
+    pub const SetUniformValue29 = setUniformValue29;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3319,10 +4079,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SetUniformValue29(self: QOpenGLShaderProgram, name: [:0]const u8, value: i32) void {
+    pub fn setUniformValue29(self: QOpenGLShaderProgram, name: [:0]const u8, value: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue29(@ptrCast(self.ptr), name_Cstring, @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue30` instead
+    ///
+    pub const SetUniformValue30 = setUniformValue30;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3334,10 +4098,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: u32 `
     ///
-    pub fn SetUniformValue30(self: QOpenGLShaderProgram, name: [:0]const u8, value: u32) void {
+    pub fn setUniformValue30(self: QOpenGLShaderProgram, name: [:0]const u8, value: u32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue30(@ptrCast(self.ptr), name_Cstring, @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue31` instead
+    ///
+    pub const SetUniformValue31 = setUniformValue31;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3351,10 +4119,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` y: f32 `
     ///
-    pub fn SetUniformValue31(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32) void {
+    pub fn setUniformValue31(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue31(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue32` instead
+    ///
+    pub const SetUniformValue32 = setUniformValue32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3370,10 +4142,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` z: f32 `
     ///
-    pub fn SetUniformValue32(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32) void {
+    pub fn setUniformValue32(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue32(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y), @bitCast(z));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue33` instead
+    ///
+    pub const SetUniformValue33 = setUniformValue33;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3391,10 +4167,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` w: f32 `
     ///
-    pub fn SetUniformValue33(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
+    pub fn setUniformValue33(self: QOpenGLShaderProgram, name: [:0]const u8, x: f32, y: f32, z: f32, w: f32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValue33(@ptrCast(self.ptr), name_Cstring, @bitCast(x), @bitCast(y), @bitCast(z), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue34` instead
+    ///
+    pub const SetUniformValue34 = setUniformValue34;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3406,12 +4186,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector2D `
     ///
-    pub fn SetUniformValue34(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setUniformValue34(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetUniformValue34(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
+    /// ### DEPRECATED: Use `setUniformValue35` instead
+    ///
+    pub const SetUniformValue35 = setUniformValue35;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
     /// ## Parameter(s):
@@ -3422,11 +4206,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector3D `
     ///
-    pub fn SetUniformValue35(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setUniformValue35(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetUniformValue35(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue36` instead
+    ///
+    pub const SetUniformValue36 = setUniformValue36;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3438,11 +4226,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVector4D `
     ///
-    pub fn SetUniformValue36(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setUniformValue36(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetUniformValue36(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue37` instead
+    ///
+    pub const SetUniformValue37 = setUniformValue37;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3454,11 +4246,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetUniformValue37(self: QOpenGLShaderProgram, name: [:0]const u8, color: anytype) void {
+    pub fn setUniformValue37(self: QOpenGLShaderProgram, name: [:0]const u8, color: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QOpenGLShaderProgram_SetUniformValue37(@ptrCast(self.ptr), name_Cstring, @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue38` instead
+    ///
+    pub const SetUniformValue38 = setUniformValue38;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3470,11 +4266,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn SetUniformValue38(self: QOpenGLShaderProgram, name: [:0]const u8, point: anytype) void {
+    pub fn setUniformValue38(self: QOpenGLShaderProgram, name: [:0]const u8, point: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(point)._is_QPoint;
         qtc.QOpenGLShaderProgram_SetUniformValue38(@ptrCast(self.ptr), name_Cstring, @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue39` instead
+    ///
+    pub const SetUniformValue39 = setUniformValue39;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3486,11 +4286,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn SetUniformValue39(self: QOpenGLShaderProgram, name: [:0]const u8, point: anytype) void {
+    pub fn setUniformValue39(self: QOpenGLShaderProgram, name: [:0]const u8, point: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QOpenGLShaderProgram_SetUniformValue39(@ptrCast(self.ptr), name_Cstring, @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue40` instead
+    ///
+    pub const SetUniformValue40 = setUniformValue40;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3502,11 +4306,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SetUniformValue40(self: QOpenGLShaderProgram, name: [:0]const u8, size: anytype) void {
+    pub fn setUniformValue40(self: QOpenGLShaderProgram, name: [:0]const u8, size: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(size)._is_QSize;
         qtc.QOpenGLShaderProgram_SetUniformValue40(@ptrCast(self.ptr), name_Cstring, @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue41` instead
+    ///
+    pub const SetUniformValue41 = setUniformValue41;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3518,11 +4326,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` size: QSizeF `
     ///
-    pub fn SetUniformValue41(self: QOpenGLShaderProgram, name: [:0]const u8, size: anytype) void {
+    pub fn setUniformValue41(self: QOpenGLShaderProgram, name: [:0]const u8, size: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(size)._is_QSizeF;
         qtc.QOpenGLShaderProgram_SetUniformValue41(@ptrCast(self.ptr), name_Cstring, @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue50` instead
+    ///
+    pub const SetUniformValue50 = setUniformValue50;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3534,11 +4346,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QMatrix4x4 `
     ///
-    pub fn SetUniformValue50(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setUniformValue50(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QMatrix4x4;
         qtc.QOpenGLShaderProgram_SetUniformValue50(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUniformValue54` instead
+    ///
+    pub const SetUniformValue54 = setUniformValue54;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValue)
     ///
@@ -3550,12 +4366,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QTransform `
     ///
-    pub fn SetUniformValue54(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
+    pub fn setUniformValue54(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QTransform;
         qtc.QOpenGLShaderProgram_SetUniformValue54(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
 
+    /// ### DEPRECATED: Use `setUniformValueArray` instead
+    ///
+    pub const SetUniformValueArray = setUniformValueArray;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ## Parameter(s):
@@ -3570,9 +4390,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetUniformValueArray(self: QOpenGLShaderProgram, location: i32, values: []const f32, count: i32, tupleSize: i32) void {
+    pub fn setUniformValueArray(self: QOpenGLShaderProgram, location: i32, values: []const f32, count: i32, tupleSize: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(count), @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray2` instead
+    ///
+    pub const SetUniformValueArray2 = setUniformValueArray2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3586,9 +4410,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray2(self: QOpenGLShaderProgram, location: i32, values: []const i32, count: i32) void {
+    pub fn setUniformValueArray2(self: QOpenGLShaderProgram, location: i32, values: []const i32, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray2(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray3` instead
+    ///
+    pub const SetUniformValueArray3 = setUniformValueArray3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3602,9 +4430,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray3(self: QOpenGLShaderProgram, location: i32, values: []const u32, count: i32) void {
+    pub fn setUniformValueArray3(self: QOpenGLShaderProgram, location: i32, values: []const u32, count: i32) void {
         qtc.QOpenGLShaderProgram_SetUniformValueArray3(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray4` instead
+    ///
+    pub const SetUniformValueArray4 = setUniformValueArray4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3618,10 +4450,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray4(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
+    pub fn setUniformValueArray4(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray4(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray5` instead
+    ///
+    pub const SetUniformValueArray5 = setUniformValueArray5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3635,10 +4471,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray5(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
+    pub fn setUniformValueArray5(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray5(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray6` instead
+    ///
+    pub const SetUniformValueArray6 = setUniformValueArray6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3652,10 +4492,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray6(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
+    pub fn setUniformValueArray6(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray6(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray15` instead
+    ///
+    pub const SetUniformValueArray15 = setUniformValueArray15;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3669,10 +4513,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray15(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
+    pub fn setUniformValueArray15(self: QOpenGLShaderProgram, location: i32, values: anytype, count: i32) void {
         comptime _ = @TypeOf(values)._is_QMatrix4x4;
         qtc.QOpenGLShaderProgram_SetUniformValueArray15(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray16` instead
+    ///
+    pub const SetUniformValueArray16 = setUniformValueArray16;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3688,10 +4536,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` tupleSize: i32 `
     ///
-    pub fn SetUniformValueArray16(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, count: i32, tupleSize: i32) void {
+    pub fn setUniformValueArray16(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, count: i32, tupleSize: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray16(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(count), @bitCast(tupleSize));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray17` instead
+    ///
+    pub const SetUniformValueArray17 = setUniformValueArray17;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3705,10 +4557,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray17(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const i32, count: i32) void {
+    pub fn setUniformValueArray17(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const i32, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray17(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray18` instead
+    ///
+    pub const SetUniformValueArray18 = setUniformValueArray18;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3722,10 +4578,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray18(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const u32, count: i32) void {
+    pub fn setUniformValueArray18(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const u32, count: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetUniformValueArray18(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray19` instead
+    ///
+    pub const SetUniformValueArray19 = setUniformValueArray19;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3739,12 +4599,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray19(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
+    pub fn setUniformValueArray19(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray19(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `setUniformValueArray20` instead
+    ///
+    pub const SetUniformValueArray20 = setUniformValueArray20;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
     /// ## Parameter(s):
@@ -3757,11 +4621,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray20(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
+    pub fn setUniformValueArray20(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray20(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray21` instead
+    ///
+    pub const SetUniformValueArray21 = setUniformValueArray21;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3775,11 +4643,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray21(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
+    pub fn setUniformValueArray21(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetUniformValueArray21(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(count));
     }
+
+    /// ### DEPRECATED: Use `setUniformValueArray30` instead
+    ///
+    pub const SetUniformValueArray30 = setUniformValueArray30;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setUniformValueArray)
     ///
@@ -3793,17 +4665,25 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` count: i32 `
     ///
-    pub fn SetUniformValueArray30(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
+    pub fn setUniformValueArray30(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, count: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QMatrix4x4;
         qtc.QOpenGLShaderProgram_SetUniformValueArray30(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(count));
     }
 
+    /// ### DEPRECATED: Use `hasOpenGLShaderPrograms` instead
+    ///
+    pub const HasOpenGLShaderPrograms = hasOpenGLShaderPrograms;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
     ///
-    pub fn HasOpenGLShaderPrograms() bool {
+    pub fn hasOpenGLShaderPrograms() bool {
         return qtc.QOpenGLShaderProgram_HasOpenGLShaderPrograms();
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3815,15 +4695,19 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -3837,15 +4721,19 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray42` instead
+    ///
+    pub const SetAttributeArray42 = setAttributeArray42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3861,9 +4749,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray42(self: QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeArray42(self: QOpenGLShaderProgram, location: i32, values: []const f32, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray42(@ptrCast(self.ptr), @bitCast(location), values.ptr, @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray32` instead
+    ///
+    pub const SetAttributeArray32 = setAttributeArray32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3877,10 +4769,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray32(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
+    pub fn setAttributeArray32(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeArray32(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray33` instead
+    ///
+    pub const SetAttributeArray33 = setAttributeArray33;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3894,10 +4790,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray33(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
+    pub fn setAttributeArray33(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeArray33(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray34` instead
+    ///
+    pub const SetAttributeArray34 = setAttributeArray34;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3911,10 +4811,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray34(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
+    pub fn setAttributeArray34(self: QOpenGLShaderProgram, location: i32, values: anytype, stride: i32) void {
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeArray34(@ptrCast(self.ptr), @bitCast(location), @ptrCast(values.ptr), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray52` instead
+    ///
+    pub const SetAttributeArray52 = setAttributeArray52;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3932,9 +4836,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray52(self: QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeArray52(self: QOpenGLShaderProgram, location: i32, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeArray52(@ptrCast(self.ptr), @bitCast(location), @bitCast(typeVal), @ptrCast(values), @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray43` instead
+    ///
+    pub const SetAttributeArray43 = setAttributeArray43;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3950,10 +4858,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray43(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeArray43(self: QOpenGLShaderProgram, name: [:0]const u8, values: []const f32, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray43(@ptrCast(self.ptr), name_Cstring, values.ptr, @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray35` instead
+    ///
+    pub const SetAttributeArray35 = setAttributeArray35;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -3967,12 +4879,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray35(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
+    pub fn setAttributeArray35(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector2D;
         qtc.QOpenGLShaderProgram_SetAttributeArray35(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(stride));
     }
 
+    /// ### DEPRECATED: Use `setAttributeArray36` instead
+    ///
+    pub const SetAttributeArray36 = setAttributeArray36;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
     /// ## Parameter(s):
@@ -3985,11 +4901,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray36(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
+    pub fn setAttributeArray36(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector3D;
         qtc.QOpenGLShaderProgram_SetAttributeArray36(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray37` instead
+    ///
+    pub const SetAttributeArray37 = setAttributeArray37;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -4003,11 +4923,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray37(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
+    pub fn setAttributeArray37(self: QOpenGLShaderProgram, name: [:0]const u8, values: anytype, stride: i32) void {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(values)._is_QVector4D;
         qtc.QOpenGLShaderProgram_SetAttributeArray37(@ptrCast(self.ptr), name_Cstring, @ptrCast(values.ptr), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeArray53` instead
+    ///
+    pub const SetAttributeArray53 = setAttributeArray53;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeArray)
     ///
@@ -4025,10 +4949,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeArray53(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeArray53(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, values: ?*const anyopaque, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeArray53(@ptrCast(self.ptr), name_Cstring, @bitCast(typeVal), @ptrCast(values), @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeBuffer5` instead
+    ///
+    pub const SetAttributeBuffer5 = setAttributeBuffer5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
@@ -4046,9 +4974,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeBuffer5(self: QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeBuffer5(self: QOpenGLShaderProgram, location: i32, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
         qtc.QOpenGLShaderProgram_SetAttributeBuffer5(@ptrCast(self.ptr), @bitCast(location), @bitCast(typeVal), @bitCast(offset), @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `setAttributeBuffer52` instead
+    ///
+    pub const SetAttributeBuffer52 = setAttributeBuffer52;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#setAttributeBuffer)
     ///
@@ -4066,10 +4998,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` stride: i32 `
     ///
-    pub fn SetAttributeBuffer52(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
+    pub fn setAttributeBuffer52(self: QOpenGLShaderProgram, name: [:0]const u8, typeVal: u32, offset: i32, tupleSize: i32, stride: i32) void {
         const name_Cstring = name.ptr;
         qtc.QOpenGLShaderProgram_SetAttributeBuffer52(@ptrCast(self.ptr), name_Cstring, @bitCast(typeVal), @bitCast(offset), @bitCast(tupleSize), @bitCast(stride));
     }
+
+    /// ### DEPRECATED: Use `hasOpenGLShaderPrograms1` instead
+    ///
+    pub const HasOpenGLShaderPrograms1 = hasOpenGLShaderPrograms1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#hasOpenGLShaderPrograms)
     ///
@@ -4077,10 +5013,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` context: QOpenGLContext `
     ///
-    pub fn HasOpenGLShaderPrograms1(context: anytype) bool {
+    pub fn hasOpenGLShaderPrograms1(context: anytype) bool {
         comptime _ = @TypeOf(context)._is_QOpenGLContext;
         return qtc.QOpenGLShaderProgram_HasOpenGLShaderPrograms1(@ptrCast(context.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4092,13 +5032,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QOpenGLShaderProgram.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4110,13 +5054,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QOpenGLShaderProgram, name: []const u8) void {
+    pub fn setObjectName(self: QOpenGLShaderProgram, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4126,9 +5074,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn IsWidgetType(self: QOpenGLShaderProgram) bool {
+    pub fn isWidgetType(self: QOpenGLShaderProgram) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4138,9 +5090,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn IsWindowType(self: QOpenGLShaderProgram) bool {
+    pub fn isWindowType(self: QOpenGLShaderProgram) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4150,9 +5106,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn IsQuickItemType(self: QOpenGLShaderProgram) bool {
+    pub fn isQuickItemType(self: QOpenGLShaderProgram) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4162,9 +5122,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SignalsBlocked(self: QOpenGLShaderProgram) bool {
+    pub fn signalsBlocked(self: QOpenGLShaderProgram) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4176,9 +5140,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QOpenGLShaderProgram, b: bool) bool {
+    pub fn blockSignals(self: QOpenGLShaderProgram, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4188,9 +5156,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Thread(self: QOpenGLShaderProgram) QThread {
+    pub fn thread(self: QOpenGLShaderProgram) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4200,12 +5172,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QOpenGLShaderProgram, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QOpenGLShaderProgram, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4217,9 +5193,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QOpenGLShaderProgram, interval: i32) i32 {
+    pub fn startTimer(self: QOpenGLShaderProgram, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4231,9 +5211,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QOpenGLShaderProgram, time: i64) i32 {
+    pub fn startTimer2(self: QOpenGLShaderProgram, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4245,9 +5229,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QOpenGLShaderProgram, id: i32) void {
+    pub fn killTimer(self: QOpenGLShaderProgram, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4259,9 +5247,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QOpenGLShaderProgram, id: i32) void {
+    pub fn killTimer2(self: QOpenGLShaderProgram, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4273,15 +5265,19 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShaderProgram.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QOpenGLShaderProgram.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -4291,12 +5287,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QOpenGLShaderProgram, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QOpenGLShaderProgram, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4308,10 +5308,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QOpenGLShaderProgram, filterObj: anytype) void {
+    pub fn installEventFilter(self: QOpenGLShaderProgram, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4323,10 +5327,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QOpenGLShaderProgram, obj: anytype) void {
+    pub fn removeEventFilter(self: QOpenGLShaderProgram, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4334,7 +5342,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4342,13 +5350,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4356,7 +5368,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4364,13 +5376,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4380,18 +5396,22 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QOpenGLShaderProgram, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QOpenGLShaderProgram, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4399,7 +5419,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4407,13 +5427,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4421,7 +5445,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4429,13 +5453,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4445,9 +5473,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Disconnect3(self: QOpenGLShaderProgram) bool {
+    pub fn disconnect3(self: QOpenGLShaderProgram) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4459,10 +5491,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QOpenGLShaderProgram, receiver: anytype) bool {
+    pub fn disconnect4(self: QOpenGLShaderProgram, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4472,10 +5508,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4485,9 +5525,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn DumpObjectTree(self: QOpenGLShaderProgram) void {
+    pub fn dumpObjectTree(self: QOpenGLShaderProgram) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4497,9 +5541,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn DumpObjectInfo(self: QOpenGLShaderProgram) void {
+    pub fn dumpObjectInfo(self: QOpenGLShaderProgram) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4513,11 +5561,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QOpenGLShaderProgram, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4529,10 +5581,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QOpenGLShaderProgram, name: [:0]const u8) QVariant {
+    pub fn property(self: QOpenGLShaderProgram, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4544,7 +5600,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QOpenGLShaderProgram, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4552,27 +5608,19 @@ pub const QOpenGLShaderProgram = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShaderProgram.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QOpenGLShaderProgram.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QOpenGLShaderProgram.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QOpenGLShaderProgram.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QOpenGLShaderProgram `
-    ///
-    pub fn BindingStorage(self: QOpenGLShaderProgram) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4582,9 +5630,29 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn BindingStorage2(self: QOpenGLShaderProgram) QBindingStorage {
+    pub fn bindingStorage(self: QOpenGLShaderProgram) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QOpenGLShaderProgram `
+    ///
+    pub fn bindingStorage2(self: QOpenGLShaderProgram) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4594,9 +5662,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Destroyed(self: QOpenGLShaderProgram) void {
+    pub fn destroyed(self: QOpenGLShaderProgram) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4608,9 +5680,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram) callconv(.c) void) void {
+    pub fn onDestroyed(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4620,9 +5696,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Parent(self: QOpenGLShaderProgram) QObject {
+    pub fn parent(self: QOpenGLShaderProgram) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4634,10 +5714,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QOpenGLShaderProgram, classname: [:0]const u8) bool {
+    pub fn inherits(self: QOpenGLShaderProgram, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4647,9 +5731,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn DeleteLater(self: QOpenGLShaderProgram) void {
+    pub fn deleteLater(self: QOpenGLShaderProgram) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4663,9 +5751,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QOpenGLShaderProgram, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QOpenGLShaderProgram, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4679,9 +5771,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QOpenGLShaderProgram, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QOpenGLShaderProgram, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4689,7 +5785,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4699,13 +5795,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4713,7 +5813,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4723,13 +5823,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4739,7 +5843,7 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4747,12 +5851,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QOpenGLShaderProgram, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QOpenGLShaderProgram, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -4764,10 +5872,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QOpenGLShaderProgram, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QOpenGLShaderProgram, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -4781,11 +5893,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QOpenGLShaderProgram, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QOpenGLShaderProgram, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -4801,13 +5917,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QOpenGLShaderProgram, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QOpenGLShaderProgram, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -4820,11 +5940,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QOpenGLShaderProgram, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QOpenGLShaderProgram, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -4836,10 +5960,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QOpenGLShaderProgram, param1: anytype) void {
+    pub fn destroyed1(self: QOpenGLShaderProgram, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -4851,9 +5979,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -4865,16 +5997,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QOpenGLShaderProgram, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShaderProgram_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QOpenGLShaderProgram, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShaderProgram_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -4886,12 +6018,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QOpenGLShaderProgram, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShaderProgram_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QOpenGLShaderProgram, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShaderProgram_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -4905,9 +6041,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLShaderProgram_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -4921,17 +6061,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QOpenGLShaderProgram, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QOpenGLShaderProgram, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShaderProgram_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShaderProgram_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4945,13 +6085,17 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QOpenGLShaderProgram, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QOpenGLShaderProgram, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QOpenGLShaderProgram_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QOpenGLShaderProgram_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4965,9 +6109,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QObject, QEvent) callconv(.c) bool) void {
         qtc.QOpenGLShaderProgram_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -4979,16 +6127,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLShaderProgram_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLShaderProgram_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5000,12 +6148,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QOpenGLShaderProgram_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QOpenGLShaderProgram_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -5019,9 +6171,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QTimerEvent) callconv(.c) void) void {
         qtc.QOpenGLShaderProgram_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -5033,16 +6189,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLShaderProgram_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLShaderProgram_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5054,12 +6210,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QOpenGLShaderProgram_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QOpenGLShaderProgram_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -5073,9 +6233,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QChildEvent) callconv(.c) void) void {
         qtc.QOpenGLShaderProgram_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -5087,16 +6251,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLShaderProgram_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLShaderProgram_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5108,12 +6272,16 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QOpenGLShaderProgram, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QOpenGLShaderProgram_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QOpenGLShaderProgram, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QOpenGLShaderProgram_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -5127,9 +6295,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QEvent) callconv(.c) void) void {
         qtc.QOpenGLShaderProgram_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -5143,14 +6315,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
+    pub fn connectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShaderProgram_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5164,11 +6336,15 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
+    pub fn superConnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShaderProgram_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -5181,9 +6357,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLShaderProgram_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5197,14 +6377,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
+    pub fn disconnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShaderProgram_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5218,10 +6398,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QOpenGLShaderProgram, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QOpenGLShaderProgram_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -5235,9 +6419,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) void) void {
         qtc.QOpenGLShaderProgram_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -5249,13 +6437,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Sender(self: QOpenGLShaderProgram) QObject {
+    pub fn sender(self: QOpenGLShaderProgram) QObject {
         return .{ .ptr = qtc.QOpenGLShaderProgram_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -5267,9 +6455,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SuperSender(self: QOpenGLShaderProgram) QObject {
+    pub fn superSender(self: QOpenGLShaderProgram) QObject {
         return .{ .ptr = qtc.QOpenGLShaderProgram_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -5283,9 +6475,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) QObject) void {
         qtc.QOpenGLShaderProgram_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5297,13 +6493,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SenderSignalIndex(self: QOpenGLShaderProgram) i32 {
+    pub fn senderSignalIndex(self: QOpenGLShaderProgram) i32 {
         return qtc.QOpenGLShaderProgram_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5315,9 +6511,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn SuperSenderSignalIndex(self: QOpenGLShaderProgram) i32 {
+    pub fn superSenderSignalIndex(self: QOpenGLShaderProgram) i32 {
         return qtc.QOpenGLShaderProgram_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -5331,9 +6531,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QOpenGLShaderProgram, callback: *const fn () callconv(.c) i32) void {
         qtc.QOpenGLShaderProgram_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -5347,14 +6551,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QOpenGLShaderProgram, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QOpenGLShaderProgram, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShaderProgram_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -5368,10 +6572,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QOpenGLShaderProgram, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QOpenGLShaderProgram, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QOpenGLShaderProgram_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -5385,9 +6593,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) i32) void {
         qtc.QOpenGLShaderProgram_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5401,14 +6613,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
+    pub fn isSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShaderProgram_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5422,10 +6634,14 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QOpenGLShaderProgram, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QOpenGLShaderProgram_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -5439,9 +6655,13 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, QMetaMethod) callconv(.c) bool) void {
         qtc.QOpenGLShaderProgram_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5455,23 +6675,23 @@ pub const QOpenGLShaderProgram = extern struct {
     ///
     /// ` callback: *const fn (self: QOpenGLShaderProgram, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QOpenGLShaderProgram, callback: *const fn (QOpenGLShaderProgram, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglshaderprogram.html#dtor.QOpenGLShaderProgram)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLShaderProgram `
     ///
-    pub fn Delete(self: QOpenGLShaderProgram) void {
+    pub fn delete(self: QOpenGLShaderProgram) void {
         qtc.QOpenGLShaderProgram_Delete(@ptrCast(self.ptr));
     }
 };

@@ -16,22 +16,34 @@ pub const QPlaceMatchRequest = extern struct {
 
     pub const _is_QPlaceMatchRequest = {};
 
-    /// New constructs a new QPlaceMatchRequest object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceMatchRequest {
+    pub const New = new;
+
+    /// Allocate a new QPlaceMatchRequest object in C++ memory
+    ///
+    pub fn new() QPlaceMatchRequest {
         return .{ .ptr = qtc.QPlaceMatchRequest_new() };
     }
 
-    /// New2 constructs a new QPlaceMatchRequest object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceMatchRequest object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceMatchRequest `
     ///
-    pub fn New2(other: anytype) QPlaceMatchRequest {
+    pub fn new2(other: anytype) QPlaceMatchRequest {
         comptime _ = @TypeOf(other)._is_QPlaceMatchRequest;
         return .{ .ptr = qtc.QPlaceMatchRequest_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` other: QPlaceMatchRequest `
     ///
-    pub fn OperatorAssign(self: QPlaceMatchRequest, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceMatchRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceMatchRequest;
         qtc.QPlaceMatchRequest_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#swap)
     ///
@@ -54,10 +70,14 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` other: QPlaceMatchRequest `
     ///
-    pub fn Swap(self: QPlaceMatchRequest, other: anytype) void {
+    pub fn swap(self: QPlaceMatchRequest, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceMatchRequest;
         qtc.QPlaceMatchRequest_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `places` instead
+    ///
+    pub const Places = places;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#places)
     ///
@@ -67,15 +87,19 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Places(self: QPlaceMatchRequest, allocator: std.mem.Allocator) []QPlace {
+    pub fn places(self: QPlaceMatchRequest, allocator: std.mem.Allocator) []QPlace {
         const _arr: qtc.libqt_list = qtc.QPlaceMatchRequest_Places(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPlace, _arr.len) catch @panic("QPlaceMatchRequest.Places: Memory allocation failed");
-        const _data: [*]QtC.QPlace = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPlace, _arr.len) catch @panic("QPlaceMatchRequest.places: Memory allocation failed");
+        const _data_val: [*]QtC.QPlace = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaces` instead
+    ///
+    pub const SetPlaces = setPlaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#setPlaces)
     ///
@@ -83,15 +107,19 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` self: QPlaceMatchRequest `
     ///
-    /// ` places: []QPlace `
+    /// ` _places: []QPlace `
     ///
-    pub fn SetPlaces(self: QPlaceMatchRequest, places: []QPlace) void {
+    pub fn setPlaces(self: QPlaceMatchRequest, _places: []QPlace) void {
         const places_list = qtc.libqt_list{
-            .len = places.len,
-            .data = @ptrCast(places.ptr),
+            .len = _places.len,
+            .data = @ptrCast(_places.ptr),
         };
         qtc.QPlaceMatchRequest_SetPlaces(@ptrCast(self.ptr), places_list);
     }
+
+    /// ### DEPRECATED: Use `setResults` instead
+    ///
+    pub const SetResults = setResults;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#setResults)
     ///
@@ -101,13 +129,17 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` results: []QPlaceSearchResult `
     ///
-    pub fn SetResults(self: QPlaceMatchRequest, results: []QPlaceSearchResult) void {
+    pub fn setResults(self: QPlaceMatchRequest, results: []QPlaceSearchResult) void {
         const results_list = qtc.libqt_list{
             .len = results.len,
             .data = @ptrCast(results.ptr),
         };
         qtc.QPlaceMatchRequest_SetResults(@ptrCast(self.ptr), results_list);
     }
+
+    /// ### DEPRECATED: Use `parameters` instead
+    ///
+    pub const Parameters = parameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#parameters)
     ///
@@ -117,10 +149,10 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Parameters(self: QPlaceMatchRequest, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn parameters(self: QPlaceMatchRequest, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QPlaceMatchRequest_Parameters(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceMatchRequest.Parameters: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QPlaceMatchRequest.parameters: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -134,13 +166,17 @@ pub const QPlaceMatchRequest = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QPlaceMatchRequest.Parameters: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QPlaceMatchRequest.parameters: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParameters` instead
+    ///
+    pub const SetParameters = setParameters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#setParameters)
     ///
@@ -150,16 +186,16 @@ pub const QPlaceMatchRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` parameters: ArrayMap_constu8_QVariant `
+    /// ` _parameters: ArrayMap_constu8_QVariant `
     ///
-    pub fn SetParameters(self: QPlaceMatchRequest, allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) void {
-        const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceMatchRequest.SetParameters: Memory allocation failed");
+    pub fn setParameters(self: QPlaceMatchRequest, allocator: std.mem.Allocator, _parameters: ArrayMap_constu8_QVariant) void {
+        const parameters_count = _parameters.count();
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceMatchRequest.setParameters: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceMatchRequest.SetParameters: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceMatchRequest.setParameters: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
-        var parameters_it = parameters.iterator();
+        var parameters_it = _parameters.iterator();
         while (parameters_it.next()) |it_entry| : (i += 1) {
             const parameters_key = it_entry.key_ptr.*;
             parameters_keys[i] = qtc.libqt_string{
@@ -176,29 +212,33 @@ pub const QPlaceMatchRequest = extern struct {
         qtc.QPlaceMatchRequest_SetParameters(@ptrCast(self.ptr), parameters_map);
     }
 
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#clear)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceMatchRequest `
     ///
-    pub fn Clear(self: QPlaceMatchRequest) void {
+    pub fn clear(self: QPlaceMatchRequest) void {
         qtc.QPlaceMatchRequest_Clear(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacematchrequest.html#dtor.QPlaceMatchRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceMatchRequest `
     ///
-    pub fn Delete(self: QPlaceMatchRequest) void {
+    pub fn delete(self: QPlaceMatchRequest) void {
         qtc.QPlaceMatchRequest_Delete(@ptrCast(self.ptr));
     }
 };

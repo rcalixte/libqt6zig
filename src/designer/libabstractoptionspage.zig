@@ -13,11 +13,19 @@ pub const QDesignerOptionsPageInterface = extern struct {
 
     pub const _is_QDesignerOptionsPageInterface = {};
 
-    /// New constructs a new QDesignerOptionsPageInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerOptionsPageInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerOptionsPageInterface object in C++ memory
+    ///
+    pub fn new() QDesignerOptionsPageInterface {
         return .{ .ptr = qtc.QDesignerOptionsPageInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#name)
     ///
@@ -27,13 +35,17 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDesignerOptionsPageInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDesignerOptionsPageInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerOptionsPageInterface_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerOptionsPageInterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerOptionsPageInterface.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onName` instead
+    ///
+    pub const OnName = onName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#name)
     ///
@@ -45,13 +57,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnName(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QDesignerOptionsPageInterface_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperName` instead
+    /// ### DEPRECATED: Use `superName` instead
     ///
-    pub const QBaseName = SuperName;
+    pub const SuperName = superName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#name)
     ///
@@ -63,13 +75,17 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperName(self: QDesignerOptionsPageInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn superName(self: QDesignerOptionsPageInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerOptionsPageInterface_SuperName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerOptionsPageInterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerOptionsPageInterface.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createPage` instead
+    ///
+    pub const CreatePage = createPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#createPage)
     ///
@@ -79,10 +95,14 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn CreatePage(self: QDesignerOptionsPageInterface, parent: anytype) QWidget {
+    pub fn createPage(self: QDesignerOptionsPageInterface, parent: anytype) QWidget {
         comptime _ = @TypeOf(parent)._is_QWidget;
         return .{ .ptr = qtc.QDesignerOptionsPageInterface_CreatePage(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreatePage` instead
+    ///
+    pub const OnCreatePage = onCreatePage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#createPage)
     ///
@@ -94,13 +114,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerOptionsPageInterface, parent: QWidget) callconv(.c) QWidget `
     ///
-    pub fn OnCreatePage(self: QDesignerOptionsPageInterface, callback: *const fn (QDesignerOptionsPageInterface, QWidget) callconv(.c) QWidget) void {
+    pub fn onCreatePage(self: QDesignerOptionsPageInterface, callback: *const fn (QDesignerOptionsPageInterface, QWidget) callconv(.c) QWidget) void {
         qtc.QDesignerOptionsPageInterface_OnCreatePage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreatePage` instead
+    /// ### DEPRECATED: Use `superCreatePage` instead
     ///
-    pub const QBaseCreatePage = SuperCreatePage;
+    pub const SuperCreatePage = superCreatePage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#createPage)
     ///
@@ -112,21 +132,29 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` parent: QWidget `
     ///
-    pub fn SuperCreatePage(self: QDesignerOptionsPageInterface, parent: anytype) QWidget {
+    pub fn superCreatePage(self: QDesignerOptionsPageInterface, parent: anytype) QWidget {
         comptime _ = @TypeOf(parent)._is_QWidget;
         return .{ .ptr = qtc.QDesignerOptionsPageInterface_SuperCreatePage(@ptrCast(self.ptr), @ptrCast(parent.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `apply` instead
+    ///
+    pub const Apply = apply;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerOptionsPageInterface `
     ///
-    pub fn Apply(self: QDesignerOptionsPageInterface) void {
+    pub fn apply(self: QDesignerOptionsPageInterface) void {
         qtc.QDesignerOptionsPageInterface_Apply(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onApply` instead
+    ///
+    pub const OnApply = onApply;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
     ///
     /// Allows for overriding the related default method
@@ -137,13 +165,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnApply(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onApply(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerOptionsPageInterface_OnApply(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperApply` instead
+    /// ### DEPRECATED: Use `superApply` instead
     ///
-    pub const QBaseApply = SuperApply;
+    pub const SuperApply = superApply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#apply)
     ///
@@ -153,9 +181,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` self: QDesignerOptionsPageInterface `
     ///
-    pub fn SuperApply(self: QDesignerOptionsPageInterface) void {
+    pub fn superApply(self: QDesignerOptionsPageInterface) void {
         qtc.QDesignerOptionsPageInterface_SuperApply(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finish` instead
+    ///
+    pub const Finish = finish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)
     ///
@@ -163,9 +195,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` self: QDesignerOptionsPageInterface `
     ///
-    pub fn Finish(self: QDesignerOptionsPageInterface) void {
+    pub fn finish(self: QDesignerOptionsPageInterface) void {
         qtc.QDesignerOptionsPageInterface_Finish(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinish` instead
+    ///
+    pub const OnFinish = onFinish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)
     ///
@@ -177,13 +213,13 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnFinish(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onFinish(self: QDesignerOptionsPageInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerOptionsPageInterface_OnFinish(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFinish` instead
+    /// ### DEPRECATED: Use `superFinish` instead
     ///
-    pub const QBaseFinish = SuperFinish;
+    pub const SuperFinish = superFinish;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#finish)
     ///
@@ -193,23 +229,23 @@ pub const QDesignerOptionsPageInterface = extern struct {
     ///
     /// ` self: QDesignerOptionsPageInterface `
     ///
-    pub fn SuperFinish(self: QDesignerOptionsPageInterface) void {
+    pub fn superFinish(self: QDesignerOptionsPageInterface) void {
         qtc.QDesignerOptionsPageInterface_SuperFinish(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesigneroptionspageinterface.html#dtor.QDesignerOptionsPageInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerOptionsPageInterface `
     ///
-    pub fn Delete(self: QDesignerOptionsPageInterface) void {
+    pub fn delete(self: QDesignerOptionsPageInterface) void {
         qtc.QDesignerOptionsPageInterface_Delete(@ptrCast(self.ptr));
     }
 };

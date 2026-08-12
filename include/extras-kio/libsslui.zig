@@ -5,6 +5,10 @@ const sslui_enums = enums;
 
 /// ### [Upstream resources](https://api.kde.org/kio-sslui.html)
 pub const KIO__SslUi = extern struct {
+    /// ### DEPRECATED: Use `askIgnoreSslErrors` instead
+    ///
+    pub const AskIgnoreSslErrors = askIgnoreSslErrors;
+
     /// ### [Upstream resources](https://api.kde.org/kio-sslui.html#askIgnoreSslErrors)
     ///
     /// ## Parameter(s):
@@ -13,7 +17,7 @@ pub const KIO__SslUi = extern struct {
     ///
     /// ` storedRules: sslui_enums.RulesStorage `
     ///
-    pub fn AskIgnoreSslErrors(uiData: anytype, storedRules: i32) bool {
+    pub fn askIgnoreSslErrors(uiData: anytype, storedRules: i32) bool {
         comptime _ = @TypeOf(uiData)._is_KSslErrorUiData;
         return qtc.KIO__SslUi_AskIgnoreSslErrors(@ptrCast(uiData.ptr), @bitCast(storedRules));
     }

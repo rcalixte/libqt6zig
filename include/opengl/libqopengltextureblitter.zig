@@ -15,11 +15,19 @@ pub const QOpenGLTextureBlitter = extern struct {
 
     pub const _is_QOpenGLTextureBlitter = {};
 
-    /// New constructs a new QOpenGLTextureBlitter object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QOpenGLTextureBlitter {
+    pub const New = new;
+
+    /// Allocate a new QOpenGLTextureBlitter object in C++ memory
+    ///
+    pub fn new() QOpenGLTextureBlitter {
         return .{ .ptr = qtc.QOpenGLTextureBlitter_new() };
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#create)
     ///
@@ -27,9 +35,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn Create(self: QOpenGLTextureBlitter) bool {
+    pub fn create(self: QOpenGLTextureBlitter) bool {
         return qtc.QOpenGLTextureBlitter_Create(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCreated` instead
+    ///
+    pub const IsCreated = isCreated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#isCreated)
     ///
@@ -37,9 +49,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn IsCreated(self: QOpenGLTextureBlitter) bool {
+    pub fn isCreated(self: QOpenGLTextureBlitter) bool {
         return qtc.QOpenGLTextureBlitter_IsCreated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#destroy)
     ///
@@ -47,9 +63,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn Destroy(self: QOpenGLTextureBlitter) void {
+    pub fn destroy(self: QOpenGLTextureBlitter) void {
         qtc.QOpenGLTextureBlitter_Destroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsExternalOESTarget` instead
+    ///
+    pub const SupportsExternalOESTarget = supportsExternalOESTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#supportsExternalOESTarget)
     ///
@@ -57,9 +77,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn SupportsExternalOESTarget(self: QOpenGLTextureBlitter) bool {
+    pub fn supportsExternalOESTarget(self: QOpenGLTextureBlitter) bool {
         return qtc.QOpenGLTextureBlitter_SupportsExternalOESTarget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportsRectangleTarget` instead
+    ///
+    pub const SupportsRectangleTarget = supportsRectangleTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#supportsRectangleTarget)
     ///
@@ -67,9 +91,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn SupportsRectangleTarget(self: QOpenGLTextureBlitter) bool {
+    pub fn supportsRectangleTarget(self: QOpenGLTextureBlitter) bool {
         return qtc.QOpenGLTextureBlitter_SupportsRectangleTarget(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bind` instead
+    ///
+    pub const Bind = bind;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#bind)
     ///
@@ -77,9 +105,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn Bind(self: QOpenGLTextureBlitter) void {
+    pub fn bind(self: QOpenGLTextureBlitter) void {
         qtc.QOpenGLTextureBlitter_Bind(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `release` instead
+    ///
+    pub const Release = release;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#release)
     ///
@@ -87,9 +119,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn Release(self: QOpenGLTextureBlitter) void {
+    pub fn release(self: QOpenGLTextureBlitter) void {
         qtc.QOpenGLTextureBlitter_Release(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRedBlueSwizzle` instead
+    ///
+    pub const SetRedBlueSwizzle = setRedBlueSwizzle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#setRedBlueSwizzle)
     ///
@@ -99,9 +135,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` swizzle: bool `
     ///
-    pub fn SetRedBlueSwizzle(self: QOpenGLTextureBlitter, swizzle: bool) void {
+    pub fn setRedBlueSwizzle(self: QOpenGLTextureBlitter, swizzle: bool) void {
         qtc.QOpenGLTextureBlitter_SetRedBlueSwizzle(@ptrCast(self.ptr), swizzle);
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#setOpacity)
     ///
@@ -111,9 +151,13 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` opacity: f32 `
     ///
-    pub fn SetOpacity(self: QOpenGLTextureBlitter, opacity: f32) void {
+    pub fn setOpacity(self: QOpenGLTextureBlitter, opacity: f32) void {
         qtc.QOpenGLTextureBlitter_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
     }
+
+    /// ### DEPRECATED: Use `blit` instead
+    ///
+    pub const Blit = blit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#blit)
     ///
@@ -123,14 +167,18 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` texture: u32 `
     ///
-    /// ` targetTransform: QMatrix4x4 `
+    /// ` _targetTransform: QMatrix4x4 `
     ///
     /// ` sourceOrigin: qopengltextureblitter_enums.Origin `
     ///
-    pub fn Blit(self: QOpenGLTextureBlitter, texture: u32, targetTransform: anytype, sourceOrigin: i32) void {
-        comptime _ = @TypeOf(targetTransform)._is_QMatrix4x4;
-        qtc.QOpenGLTextureBlitter_Blit(@ptrCast(self.ptr), @bitCast(texture), @ptrCast(targetTransform.ptr), @bitCast(sourceOrigin));
+    pub fn blit(self: QOpenGLTextureBlitter, texture: u32, _targetTransform: anytype, sourceOrigin: i32) void {
+        comptime _ = @TypeOf(_targetTransform)._is_QMatrix4x4;
+        qtc.QOpenGLTextureBlitter_Blit(@ptrCast(self.ptr), @bitCast(texture), @ptrCast(_targetTransform.ptr), @bitCast(sourceOrigin));
     }
+
+    /// ### DEPRECATED: Use `targetTransform` instead
+    ///
+    pub const TargetTransform = targetTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#targetTransform)
     ///
@@ -140,11 +188,15 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` viewport: QRect `
     ///
-    pub fn TargetTransform(target: anytype, viewport: anytype) QMatrix4x4 {
+    pub fn targetTransform(target: anytype, viewport: anytype) QMatrix4x4 {
         comptime _ = @TypeOf(target)._is_QRectF;
         comptime _ = @TypeOf(viewport)._is_QRect;
         return .{ .ptr = qtc.QOpenGLTextureBlitter_TargetTransform(@ptrCast(target.ptr), @ptrCast(viewport.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `bind1` instead
+    ///
+    pub const Bind1 = bind1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#bind)
     ///
@@ -154,23 +206,23 @@ pub const QOpenGLTextureBlitter = extern struct {
     ///
     /// ` target: u32 `
     ///
-    pub fn Bind1(self: QOpenGLTextureBlitter, target: u32) void {
+    pub fn bind1(self: QOpenGLTextureBlitter, target: u32) void {
         qtc.QOpenGLTextureBlitter_Bind1(@ptrCast(self.ptr), @bitCast(target));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopengltextureblitter.html#dtor.QOpenGLTextureBlitter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLTextureBlitter `
     ///
-    pub fn Delete(self: QOpenGLTextureBlitter) void {
+    pub fn delete(self: QOpenGLTextureBlitter) void {
         qtc.QOpenGLTextureBlitter_Delete(@ptrCast(self.ptr));
     }
 };

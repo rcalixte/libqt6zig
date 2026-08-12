@@ -43,22 +43,34 @@ pub const QSplineSeries = extern struct {
     pub const _is_QAbstractSeries = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QSplineSeries object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSplineSeries {
+    pub const New = new;
+
+    /// Allocate a new QSplineSeries object in C++ memory
+    ///
+    pub fn new() QSplineSeries {
         return .{ .ptr = qtc.QSplineSeries_new() };
     }
 
-    /// New2 constructs a new QSplineSeries object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSplineSeries object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QSplineSeries {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSplineSeries_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QSplineSeries {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSplineSeries_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -66,9 +78,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn MetaObject(self: QSplineSeries) QMetaObject {
+    pub fn metaObject(self: QSplineSeries) QMetaObject {
         return .{ .ptr = qtc.QSplineSeries_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,13 +96,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QSplineSeries, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSplineSeries, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QSplineSeries_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -96,9 +112,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SuperMetaObject(self: QSplineSeries) QMetaObject {
+    pub fn superMetaObject(self: QSplineSeries) QMetaObject {
         return .{ .ptr = qtc.QSplineSeries_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -106,10 +126,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QSplineSeries, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QSplineSeries, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSplineSeries_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -119,13 +143,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QSplineSeries_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -135,10 +159,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QSplineSeries, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QSplineSeries, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSplineSeries_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -150,9 +178,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QSplineSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QSplineSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSplineSeries_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -162,13 +194,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QSplineSeries, callback: *const fn (QSplineSeries, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QSplineSeries, callback: *const fn (QSplineSeries, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSplineSeries_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -182,9 +214,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QSplineSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QSplineSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSplineSeries_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -194,14 +230,20 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplineseries-qtcharts.html#type)
     ///
@@ -213,9 +255,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` qabstractseries_enums.SeriesType `
     ///
-    pub fn Type(self: QSplineSeries) i32 {
+    pub fn type0(self: QSplineSeries) i32 {
         return qtc.QSplineSeries_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplineseries-qtcharts.html#type)
     ///
@@ -227,13 +273,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QSplineSeries, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QSplineSeries, callback: *const fn () callconv(.c) i32) void {
         qtc.QSplineSeries_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplineseries-qtcharts.html#type)
     ///
@@ -247,9 +293,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` qabstractseries_enums.SeriesType `
     ///
-    pub fn SuperType(self: QSplineSeries) i32 {
+    pub fn superType(self: QSplineSeries) i32 {
         return qtc.QSplineSeries_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -261,15 +311,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -283,15 +337,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// Inherited from QXYSeries
     ///
@@ -305,9 +363,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn Append(self: QSplineSeries, x: f64, y: f64) void {
+    pub fn append(self: QSplineSeries, x: f64, y: f64) void {
         qtc.QXYSeries_Append(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `append2` instead
+    ///
+    pub const Append2 = append2;
 
     /// Inherited from QXYSeries
     ///
@@ -319,10 +381,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Append2(self: QSplineSeries, point: anytype) void {
+    pub fn append2(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Append2(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `append3` instead
+    ///
+    pub const Append3 = append3;
 
     /// Inherited from QXYSeries
     ///
@@ -332,15 +398,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` points: []QPointF `
+    /// ` _points: []QPointF `
     ///
-    pub fn Append3(self: QSplineSeries, points: []QPointF) void {
+    pub fn append3(self: QSplineSeries, _points: []QPointF) void {
         const points_list = qtc.libqt_list{
-            .len = points.len,
-            .data = @ptrCast(points.ptr),
+            .len = _points.len,
+            .data = @ptrCast(_points.ptr),
         };
         qtc.QXYSeries_Append3(@ptrCast(self.ptr), points_list);
     }
+
+    /// ### DEPRECATED: Use `replace` instead
+    ///
+    pub const Replace = replace;
 
     /// Inherited from QXYSeries
     ///
@@ -358,9 +428,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` newY: f64 `
     ///
-    pub fn Replace(self: QSplineSeries, oldX: f64, oldY: f64, newX: f64, newY: f64) void {
+    pub fn replace(self: QSplineSeries, oldX: f64, oldY: f64, newX: f64, newY: f64) void {
         qtc.QXYSeries_Replace(@ptrCast(self.ptr), @bitCast(oldX), @bitCast(oldY), @bitCast(newX), @bitCast(newY));
     }
+
+    /// ### DEPRECATED: Use `replace2` instead
+    ///
+    pub const Replace2 = replace2;
 
     /// Inherited from QXYSeries
     ///
@@ -374,11 +448,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` newPoint: QPointF `
     ///
-    pub fn Replace2(self: QSplineSeries, oldPoint: anytype, newPoint: anytype) void {
+    pub fn replace2(self: QSplineSeries, oldPoint: anytype, newPoint: anytype) void {
         comptime _ = @TypeOf(oldPoint)._is_QPointF;
         comptime _ = @TypeOf(newPoint)._is_QPointF;
         qtc.QXYSeries_Replace2(@ptrCast(self.ptr), @ptrCast(oldPoint.ptr), @ptrCast(newPoint.ptr));
     }
+
+    /// ### DEPRECATED: Use `replace3` instead
+    ///
+    pub const Replace3 = replace3;
 
     /// Inherited from QXYSeries
     ///
@@ -394,9 +472,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` newY: f64 `
     ///
-    pub fn Replace3(self: QSplineSeries, index: i32, newX: f64, newY: f64) void {
+    pub fn replace3(self: QSplineSeries, index: i32, newX: f64, newY: f64) void {
         qtc.QXYSeries_Replace3(@ptrCast(self.ptr), @bitCast(index), @bitCast(newX), @bitCast(newY));
     }
+
+    /// ### DEPRECATED: Use `replace4` instead
+    ///
+    pub const Replace4 = replace4;
 
     /// Inherited from QXYSeries
     ///
@@ -410,10 +492,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` newPoint: QPointF `
     ///
-    pub fn Replace4(self: QSplineSeries, index: i32, newPoint: anytype) void {
+    pub fn replace4(self: QSplineSeries, index: i32, newPoint: anytype) void {
         comptime _ = @TypeOf(newPoint)._is_QPointF;
         qtc.QXYSeries_Replace4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(newPoint.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// Inherited from QXYSeries
     ///
@@ -427,9 +513,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` y: f64 `
     ///
-    pub fn Remove(self: QSplineSeries, x: f64, y: f64) void {
+    pub fn remove(self: QSplineSeries, x: f64, y: f64) void {
         qtc.QXYSeries_Remove(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `remove2` instead
+    ///
+    pub const Remove2 = remove2;
 
     /// Inherited from QXYSeries
     ///
@@ -441,10 +531,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Remove2(self: QSplineSeries, point: anytype) void {
+    pub fn remove2(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Remove2(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove3` instead
+    ///
+    pub const Remove3 = remove3;
 
     /// Inherited from QXYSeries
     ///
@@ -456,9 +550,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Remove3(self: QSplineSeries, index: i32) void {
+    pub fn remove3(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_Remove3(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removePoints` instead
+    ///
+    pub const RemovePoints = removePoints;
 
     /// Inherited from QXYSeries
     ///
@@ -470,11 +568,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn RemovePoints(self: QSplineSeries, index: i32, count: i32) void {
-        qtc.QXYSeries_RemovePoints(@ptrCast(self.ptr), @bitCast(index), @bitCast(count));
+    pub fn removePoints(self: QSplineSeries, index: i32, _count: i32) void {
+        qtc.QXYSeries_RemovePoints(@ptrCast(self.ptr), @bitCast(index), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// Inherited from QXYSeries
     ///
@@ -488,10 +590,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Insert(self: QSplineSeries, index: i32, point: anytype) void {
+    pub fn insert(self: QSplineSeries, index: i32, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Insert(@ptrCast(self.ptr), @bitCast(index), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QXYSeries
     ///
@@ -501,9 +607,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Clear(self: QSplineSeries) void {
+    pub fn clear(self: QSplineSeries) void {
         qtc.QXYSeries_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QXYSeries
     ///
@@ -513,9 +623,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Count(self: QSplineSeries) i32 {
+    pub fn count(self: QSplineSeries) i32 {
         return qtc.QXYSeries_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `points` instead
+    ///
+    pub const Points = points;
 
     /// Inherited from QXYSeries
     ///
@@ -527,15 +641,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Points(self: QSplineSeries, allocator: std.mem.Allocator) []QPointF {
+    pub fn points(self: QSplineSeries, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QXYSeries_Points(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QSplineSeries.Points: Memory allocation failed");
-        const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QSplineSeries.points: Memory allocation failed");
+        const _data_val: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pointsVector` instead
+    ///
+    pub const PointsVector = pointsVector;
 
     /// Inherited from QXYSeries
     ///
@@ -547,15 +665,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PointsVector(self: QSplineSeries, allocator: std.mem.Allocator) []QPointF {
+    pub fn pointsVector(self: QSplineSeries, allocator: std.mem.Allocator) []QPointF {
         const _arr: qtc.libqt_list = qtc.QXYSeries_PointsVector(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QSplineSeries.PointsVector: Memory allocation failed");
-        const _data: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPointF, _arr.len) catch @panic("QSplineSeries.pointsVector: Memory allocation failed");
+        const _data_val: [*]QtC.QPointF = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
 
     /// Inherited from QXYSeries
     ///
@@ -567,9 +689,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn At(self: QSplineSeries, index: i32) QPointF {
+    pub fn at(self: QSplineSeries, index: i32) QPointF {
         return .{ .ptr = qtc.QXYSeries_At(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft` instead
+    ///
+    pub const OperatorShiftLeft = operatorShiftLeft;
 
     /// Inherited from QXYSeries
     ///
@@ -581,10 +707,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn OperatorShiftLeft(self: QSplineSeries, point: anytype) QXYSeries {
+    pub fn operatorShiftLeft(self: QSplineSeries, point: anytype) QXYSeries {
         comptime _ = @TypeOf(point)._is_QPointF;
         return .{ .ptr = qtc.QXYSeries_OperatorShiftLeft(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorShiftLeft2` instead
+    ///
+    pub const OperatorShiftLeft2 = operatorShiftLeft2;
 
     /// Inherited from QXYSeries
     ///
@@ -594,15 +724,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` points: []QPointF `
+    /// ` _points: []QPointF `
     ///
-    pub fn OperatorShiftLeft2(self: QSplineSeries, points: []QPointF) QXYSeries {
+    pub fn operatorShiftLeft2(self: QSplineSeries, _points: []QPointF) QXYSeries {
         const points_list = qtc.libqt_list{
-            .len = points.len,
-            .data = @ptrCast(points.ptr),
+            .len = _points.len,
+            .data = @ptrCast(_points.ptr),
         };
         return .{ .ptr = qtc.QXYSeries_OperatorShiftLeft2(@ptrCast(self.ptr), points_list) };
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// Inherited from QXYSeries
     ///
@@ -612,9 +746,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Pen(self: QSplineSeries) QPen {
+    pub fn pen(self: QSplineSeries) QPen {
         return .{ .ptr = qtc.QXYSeries_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// Inherited from QXYSeries
     ///
@@ -624,9 +762,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Brush(self: QSplineSeries) QBrush {
+    pub fn brush(self: QSplineSeries) QBrush {
         return .{ .ptr = qtc.QXYSeries_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectedColor` instead
+    ///
+    pub const SetSelectedColor = setSelectedColor;
 
     /// Inherited from QXYSeries
     ///
@@ -636,12 +778,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetSelectedColor(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setSelectedColor(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_SetSelectedColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedColor` instead
+    ///
+    pub const SelectedColor = selectedColor;
 
     /// Inherited from QXYSeries
     ///
@@ -651,9 +797,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SelectedColor(self: QSplineSeries) QColor {
+    pub fn selectedColor(self: QSplineSeries) QColor {
         return .{ .ptr = qtc.QXYSeries_SelectedColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPointsVisible` instead
+    ///
+    pub const SetPointsVisible = setPointsVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -663,9 +813,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetPointsVisible(self: QSplineSeries) void {
+    pub fn setPointsVisible(self: QSplineSeries) void {
         qtc.QXYSeries_SetPointsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointsVisible` instead
+    ///
+    pub const PointsVisible = pointsVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -675,9 +829,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointsVisible(self: QSplineSeries) bool {
+    pub fn pointsVisible(self: QSplineSeries) bool {
         return qtc.QXYSeries_PointsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsFormat` instead
+    ///
+    pub const SetPointLabelsFormat = setPointLabelsFormat;
 
     /// Inherited from QXYSeries
     ///
@@ -689,13 +847,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` format: []const u8 `
     ///
-    pub fn SetPointLabelsFormat(self: QSplineSeries, format: []const u8) void {
+    pub fn setPointLabelsFormat(self: QSplineSeries, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         qtc.QXYSeries_SetPointLabelsFormat(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `pointLabelsFormat` instead
+    ///
+    pub const PointLabelsFormat = pointLabelsFormat;
 
     /// Inherited from QXYSeries
     ///
@@ -707,13 +869,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PointLabelsFormat(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn pointLabelsFormat(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QXYSeries_PointLabelsFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.PointLabelsFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.pointLabelsFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsVisible` instead
+    ///
+    pub const SetPointLabelsVisible = setPointLabelsVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -723,9 +889,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetPointLabelsVisible(self: QSplineSeries) void {
+    pub fn setPointLabelsVisible(self: QSplineSeries) void {
         qtc.QXYSeries_SetPointLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsVisible` instead
+    ///
+    pub const PointLabelsVisible = pointLabelsVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -735,9 +905,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointLabelsVisible(self: QSplineSeries) bool {
+    pub fn pointLabelsVisible(self: QSplineSeries) bool {
         return qtc.QXYSeries_PointLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsFont` instead
+    ///
+    pub const SetPointLabelsFont = setPointLabelsFont;
 
     /// Inherited from QXYSeries
     ///
@@ -749,10 +923,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn SetPointLabelsFont(self: QSplineSeries, font: anytype) void {
+    pub fn setPointLabelsFont(self: QSplineSeries, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QXYSeries_SetPointLabelsFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsFont` instead
+    ///
+    pub const PointLabelsFont = pointLabelsFont;
 
     /// Inherited from QXYSeries
     ///
@@ -762,9 +940,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointLabelsFont(self: QSplineSeries) QFont {
+    pub fn pointLabelsFont(self: QSplineSeries) QFont {
         return .{ .ptr = qtc.QXYSeries_PointLabelsFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsColor` instead
+    ///
+    pub const SetPointLabelsColor = setPointLabelsColor;
 
     /// Inherited from QXYSeries
     ///
@@ -774,12 +956,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetPointLabelsColor(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_SetPointLabelsColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setPointLabelsColor(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_SetPointLabelsColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsColor` instead
+    ///
+    pub const PointLabelsColor = pointLabelsColor;
 
     /// Inherited from QXYSeries
     ///
@@ -789,9 +975,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointLabelsColor(self: QSplineSeries) QColor {
+    pub fn pointLabelsColor(self: QSplineSeries) QColor {
         return .{ .ptr = qtc.QXYSeries_PointLabelsColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsClipping` instead
+    ///
+    pub const SetPointLabelsClipping = setPointLabelsClipping;
 
     /// Inherited from QXYSeries
     ///
@@ -801,9 +991,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetPointLabelsClipping(self: QSplineSeries) void {
+    pub fn setPointLabelsClipping(self: QSplineSeries) void {
         qtc.QXYSeries_SetPointLabelsClipping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsClipping` instead
+    ///
+    pub const PointLabelsClipping = pointLabelsClipping;
 
     /// Inherited from QXYSeries
     ///
@@ -813,9 +1007,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointLabelsClipping(self: QSplineSeries) bool {
+    pub fn pointLabelsClipping(self: QSplineSeries) bool {
         return qtc.QXYSeries_PointLabelsClipping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replace5` instead
+    ///
+    pub const Replace5 = replace5;
 
     /// Inherited from QXYSeries
     ///
@@ -825,15 +1023,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` points: []QPointF `
+    /// ` _points: []QPointF `
     ///
-    pub fn Replace5(self: QSplineSeries, points: []QPointF) void {
+    pub fn replace5(self: QSplineSeries, _points: []QPointF) void {
         const points_list = qtc.libqt_list{
-            .len = points.len,
-            .data = @ptrCast(points.ptr),
+            .len = _points.len,
+            .data = @ptrCast(_points.ptr),
         };
         qtc.QXYSeries_Replace5(@ptrCast(self.ptr), points_list);
     }
+
+    /// ### DEPRECATED: Use `isPointSelected` instead
+    ///
+    pub const IsPointSelected = isPointSelected;
 
     /// Inherited from QXYSeries
     ///
@@ -845,9 +1047,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsPointSelected(self: QSplineSeries, index: i32) bool {
+    pub fn isPointSelected(self: QSplineSeries, index: i32) bool {
         return qtc.QXYSeries_IsPointSelected(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `selectPoint` instead
+    ///
+    pub const SelectPoint = selectPoint;
 
     /// Inherited from QXYSeries
     ///
@@ -859,9 +1065,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SelectPoint(self: QSplineSeries, index: i32) void {
+    pub fn selectPoint(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_SelectPoint(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `deselectPoint` instead
+    ///
+    pub const DeselectPoint = deselectPoint;
 
     /// Inherited from QXYSeries
     ///
@@ -873,9 +1083,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn DeselectPoint(self: QSplineSeries, index: i32) void {
+    pub fn deselectPoint(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_DeselectPoint(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setPointSelected` instead
+    ///
+    pub const SetPointSelected = setPointSelected;
 
     /// Inherited from QXYSeries
     ///
@@ -889,9 +1103,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` selected: bool `
     ///
-    pub fn SetPointSelected(self: QSplineSeries, index: i32, selected: bool) void {
+    pub fn setPointSelected(self: QSplineSeries, index: i32, selected: bool) void {
         qtc.QXYSeries_SetPointSelected(@ptrCast(self.ptr), @bitCast(index), selected);
     }
+
+    /// ### DEPRECATED: Use `selectAllPoints` instead
+    ///
+    pub const SelectAllPoints = selectAllPoints;
 
     /// Inherited from QXYSeries
     ///
@@ -901,9 +1119,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SelectAllPoints(self: QSplineSeries) void {
+    pub fn selectAllPoints(self: QSplineSeries) void {
         qtc.QXYSeries_SelectAllPoints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deselectAllPoints` instead
+    ///
+    pub const DeselectAllPoints = deselectAllPoints;
 
     /// Inherited from QXYSeries
     ///
@@ -913,9 +1135,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn DeselectAllPoints(self: QSplineSeries) void {
+    pub fn deselectAllPoints(self: QSplineSeries) void {
         qtc.QXYSeries_DeselectAllPoints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectPoints` instead
+    ///
+    pub const SelectPoints = selectPoints;
 
     /// Inherited from QXYSeries
     ///
@@ -927,13 +1153,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn SelectPoints(self: QSplineSeries, indexes: []i32) void {
+    pub fn selectPoints(self: QSplineSeries, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QXYSeries_SelectPoints(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `deselectPoints` instead
+    ///
+    pub const DeselectPoints = deselectPoints;
 
     /// Inherited from QXYSeries
     ///
@@ -945,13 +1175,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn DeselectPoints(self: QSplineSeries, indexes: []i32) void {
+    pub fn deselectPoints(self: QSplineSeries, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QXYSeries_DeselectPoints(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `toggleSelection` instead
+    ///
+    pub const ToggleSelection = toggleSelection;
 
     /// Inherited from QXYSeries
     ///
@@ -963,13 +1197,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` indexes: []i32 `
     ///
-    pub fn ToggleSelection(self: QSplineSeries, indexes: []i32) void {
+    pub fn toggleSelection(self: QSplineSeries, indexes: []i32) void {
         const indexes_list = qtc.libqt_list{
             .len = indexes.len,
             .data = indexes.ptr,
         };
         qtc.QXYSeries_ToggleSelection(@ptrCast(self.ptr), indexes_list);
     }
+
+    /// ### DEPRECATED: Use `selectedPoints` instead
+    ///
+    pub const SelectedPoints = selectedPoints;
 
     /// Inherited from QXYSeries
     ///
@@ -981,14 +1219,18 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedPoints(self: QSplineSeries, allocator: std.mem.Allocator) []i32 {
+    pub fn selectedPoints(self: QSplineSeries, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QXYSeries_SelectedPoints(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QSplineSeries.SelectedPoints: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QSplineSeries.selectedPoints: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLightMarker` instead
+    ///
+    pub const SetLightMarker = setLightMarker;
 
     /// Inherited from QXYSeries
     ///
@@ -998,12 +1240,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` lightMarker: QImage `
+    /// ` _lightMarker: QImage `
     ///
-    pub fn SetLightMarker(self: QSplineSeries, lightMarker: anytype) void {
-        comptime _ = @TypeOf(lightMarker)._is_QImage;
-        qtc.QXYSeries_SetLightMarker(@ptrCast(self.ptr), @ptrCast(lightMarker.ptr));
+    pub fn setLightMarker(self: QSplineSeries, _lightMarker: anytype) void {
+        comptime _ = @TypeOf(_lightMarker)._is_QImage;
+        qtc.QXYSeries_SetLightMarker(@ptrCast(self.ptr), @ptrCast(_lightMarker.ptr));
     }
+
+    /// ### DEPRECATED: Use `lightMarker` instead
+    ///
+    pub const LightMarker = lightMarker;
 
     /// Inherited from QXYSeries
     ///
@@ -1013,9 +1259,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn LightMarker(self: QSplineSeries) QImage {
+    pub fn lightMarker(self: QSplineSeries) QImage {
         return .{ .ptr = qtc.QXYSeries_LightMarker(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectedLightMarker` instead
+    ///
+    pub const SetSelectedLightMarker = setSelectedLightMarker;
 
     /// Inherited from QXYSeries
     ///
@@ -1025,12 +1275,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` selectedLightMarker: QImage `
+    /// ` _selectedLightMarker: QImage `
     ///
-    pub fn SetSelectedLightMarker(self: QSplineSeries, selectedLightMarker: anytype) void {
-        comptime _ = @TypeOf(selectedLightMarker)._is_QImage;
-        qtc.QXYSeries_SetSelectedLightMarker(@ptrCast(self.ptr), @ptrCast(selectedLightMarker.ptr));
+    pub fn setSelectedLightMarker(self: QSplineSeries, _selectedLightMarker: anytype) void {
+        comptime _ = @TypeOf(_selectedLightMarker)._is_QImage;
+        qtc.QXYSeries_SetSelectedLightMarker(@ptrCast(self.ptr), @ptrCast(_selectedLightMarker.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedLightMarker` instead
+    ///
+    pub const SelectedLightMarker = selectedLightMarker;
 
     /// Inherited from QXYSeries
     ///
@@ -1040,9 +1294,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SelectedLightMarker(self: QSplineSeries) QImage {
+    pub fn selectedLightMarker(self: QSplineSeries) QImage {
         return .{ .ptr = qtc.QXYSeries_SelectedLightMarker(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMarkerSize` instead
+    ///
+    pub const SetMarkerSize = setMarkerSize;
 
     /// Inherited from QXYSeries
     ///
@@ -1054,9 +1312,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` size: f64 `
     ///
-    pub fn SetMarkerSize(self: QSplineSeries, size: f64) void {
+    pub fn setMarkerSize(self: QSplineSeries, size: f64) void {
         qtc.QXYSeries_SetMarkerSize(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `markerSize` instead
+    ///
+    pub const MarkerSize = markerSize;
 
     /// Inherited from QXYSeries
     ///
@@ -1066,9 +1328,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn MarkerSize(self: QSplineSeries) f64 {
+    pub fn markerSize(self: QSplineSeries) f64 {
         return qtc.QXYSeries_MarkerSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBestFitLineVisible` instead
+    ///
+    pub const SetBestFitLineVisible = setBestFitLineVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -1078,9 +1344,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetBestFitLineVisible(self: QSplineSeries) void {
+    pub fn setBestFitLineVisible(self: QSplineSeries) void {
         qtc.QXYSeries_SetBestFitLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bestFitLineVisible` instead
+    ///
+    pub const BestFitLineVisible = bestFitLineVisible;
 
     /// Inherited from QXYSeries
     ///
@@ -1090,9 +1360,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn BestFitLineVisible(self: QSplineSeries) bool {
+    pub fn bestFitLineVisible(self: QSplineSeries) bool {
         return qtc.QXYSeries_BestFitLineVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bestFitLineEquation` instead
+    ///
+    pub const BestFitLineEquation = bestFitLineEquation;
 
     /// Inherited from QXYSeries
     ///
@@ -1104,13 +1378,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn BestFitLineEquation(self: QSplineSeries, ok: *bool) Struct_f64_f64 {
+    pub fn bestFitLineEquation(self: QSplineSeries, ok: *bool) Struct_f64_f64 {
         const _pair = qtc.QXYSeries_BestFitLineEquation(@ptrCast(self.ptr), @ptrCast(ok));
         return .{
             .first = @bitCast(_pair.first),
             .second = @bitCast(_pair.second),
         };
     }
+
+    /// ### DEPRECATED: Use `setBestFitLinePen` instead
+    ///
+    pub const SetBestFitLinePen = setBestFitLinePen;
 
     /// Inherited from QXYSeries
     ///
@@ -1120,12 +1398,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetBestFitLinePen(self: QSplineSeries, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QXYSeries_SetBestFitLinePen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setBestFitLinePen(self: QSplineSeries, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QXYSeries_SetBestFitLinePen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `bestFitLinePen` instead
+    ///
+    pub const BestFitLinePen = bestFitLinePen;
 
     /// Inherited from QXYSeries
     ///
@@ -1135,9 +1417,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn BestFitLinePen(self: QSplineSeries) QPen {
+    pub fn bestFitLinePen(self: QSplineSeries) QPen {
         return .{ .ptr = qtc.QXYSeries_BestFitLinePen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBestFitLineColor` instead
+    ///
+    pub const SetBestFitLineColor = setBestFitLineColor;
 
     /// Inherited from QXYSeries
     ///
@@ -1147,12 +1433,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetBestFitLineColor(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_SetBestFitLineColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setBestFitLineColor(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_SetBestFitLineColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `bestFitLineColor` instead
+    ///
+    pub const BestFitLineColor = bestFitLineColor;
 
     /// Inherited from QXYSeries
     ///
@@ -1162,10 +1452,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn BestFitLineColor(self: QSplineSeries) QColor {
+    pub fn bestFitLineColor(self: QSplineSeries) QColor {
         return .{ .ptr = qtc.QXYSeries_BestFitLineColor(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `clearPointConfiguration` instead
+    ///
+    pub const ClearPointConfiguration = clearPointConfiguration;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
@@ -1176,10 +1470,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ClearPointConfiguration(self: QSplineSeries, index: i32) void {
+    pub fn clearPointConfiguration(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_ClearPointConfiguration(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `clearPointConfiguration2` instead
+    ///
+    pub const ClearPointConfiguration2 = clearPointConfiguration2;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#clearPointConfiguration)
@@ -1192,9 +1490,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` key: qxyseries_enums.PointConfiguration `
     ///
-    pub fn ClearPointConfiguration2(self: QSplineSeries, index: i32, key: i32) void {
+    pub fn clearPointConfiguration2(self: QSplineSeries, index: i32, key: i32) void {
         qtc.QXYSeries_ClearPointConfiguration2(@ptrCast(self.ptr), @bitCast(index), @bitCast(key));
     }
+
+    /// ### DEPRECATED: Use `clearPointsConfiguration` instead
+    ///
+    pub const ClearPointsConfiguration = clearPointsConfiguration;
 
     /// Inherited from QXYSeries
     ///
@@ -1204,9 +1506,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn ClearPointsConfiguration(self: QSplineSeries) void {
+    pub fn clearPointsConfiguration(self: QSplineSeries) void {
         qtc.QXYSeries_ClearPointsConfiguration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearPointsConfiguration2` instead
+    ///
+    pub const ClearPointsConfiguration2 = clearPointsConfiguration2;
 
     /// Inherited from QXYSeries
     ///
@@ -1218,9 +1524,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` key: qxyseries_enums.PointConfiguration `
     ///
-    pub fn ClearPointsConfiguration2(self: QSplineSeries, key: i32) void {
+    pub fn clearPointsConfiguration2(self: QSplineSeries, key: i32) void {
         qtc.QXYSeries_ClearPointsConfiguration2(@ptrCast(self.ptr), @bitCast(key));
     }
+
+    /// ### DEPRECATED: Use `setPointConfiguration` instead
+    ///
+    pub const SetPointConfiguration = setPointConfiguration;
 
     /// Inherited from QXYSeries
     ///
@@ -1236,11 +1546,11 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` configuration: Map_i32_QVariant (key: qxyseries_enums.PointConfiguration) `
     ///
-    pub fn SetPointConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, index: i32, configuration: Map_i32_QVariant) void {
+    pub fn setPointConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, index: i32, configuration: Map_i32_QVariant) void {
         const configuration_count = configuration.count();
-        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QSplineSeries.SetPointConfiguration: Memory allocation failed");
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QSplineSeries.setPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(QtC.QVariant, configuration_count) catch @panic("QSplineSeries.SetPointConfiguration: Memory allocation failed");
+        const configuration_values = allocator.alloc(QtC.QVariant, configuration_count) catch @panic("QSplineSeries.setPointConfiguration: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
@@ -1257,6 +1567,10 @@ pub const QSplineSeries = extern struct {
         qtc.QXYSeries_SetPointConfiguration(@ptrCast(self.ptr), @bitCast(index), configuration_map);
     }
 
+    /// ### DEPRECATED: Use `setPointConfiguration2` instead
+    ///
+    pub const SetPointConfiguration2 = setPointConfiguration2;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#setPointConfiguration)
@@ -1271,10 +1585,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetPointConfiguration2(self: QSplineSeries, index: i32, key: i32, value: anytype) void {
+    pub fn setPointConfiguration2(self: QSplineSeries, index: i32, key: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QXYSeries_SetPointConfiguration2(@ptrCast(self.ptr), @bitCast(index), @bitCast(key), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPointsConfiguration` instead
+    ///
+    pub const SetPointsConfiguration = setPointsConfiguration;
 
     /// Inherited from QXYSeries
     ///
@@ -1286,16 +1604,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pointsConfiguration: Map_i32_Map_i32_QVariant `
+    /// ` _pointsConfiguration: Map_i32_Map_i32_QVariant `
     ///
-    pub fn SetPointsConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, pointsConfiguration: Map_i32_Map_i32_QVariant) void {
-        const pointsConfiguration_count = pointsConfiguration.count();
-        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration_count) catch @panic("QSplineSeries.SetPointsConfiguration: Memory allocation failed");
+    pub fn setPointsConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, _pointsConfiguration: Map_i32_Map_i32_QVariant) void {
+        const pointsConfiguration_count = _pointsConfiguration.count();
+        const pointsConfiguration_keys = allocator.alloc(i32, pointsConfiguration_count) catch @panic("QSplineSeries.setPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_keys);
-        const pointsConfiguration_values = allocator.alloc(Map_i32_QVariant, pointsConfiguration_count) catch @panic("QSplineSeries.SetPointsConfiguration: Memory allocation failed");
+        const pointsConfiguration_values = allocator.alloc(Map_i32_QVariant, pointsConfiguration_count) catch @panic("QSplineSeries.setPointsConfiguration: Memory allocation failed");
         defer allocator.free(pointsConfiguration_values);
         var i: usize = 0;
-        var pointsConfiguration_it = pointsConfiguration.iterator();
+        var pointsConfiguration_it = _pointsConfiguration.iterator();
         while (pointsConfiguration_it.next()) |it_entry| : (i += 1) {
             const pointsConfiguration_key = it_entry.key_ptr.*;
             pointsConfiguration_keys[i] = @bitCast(pointsConfiguration_key);
@@ -1308,6 +1626,10 @@ pub const QSplineSeries = extern struct {
         };
         qtc.QXYSeries_SetPointsConfiguration(@ptrCast(self.ptr), pointsConfiguration_map);
     }
+
+    /// ### DEPRECATED: Use `pointConfiguration` instead
+    ///
+    pub const PointConfiguration = pointConfiguration;
 
     /// Inherited from QXYSeries
     ///
@@ -1325,10 +1647,10 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` Map_i32_QVariant (key: qxyseries_enums.PointConfiguration) `
     ///
-    pub fn PointConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, index: i32) Map_i32_QVariant {
+    pub fn pointConfiguration(self: QSplineSeries, allocator: std.mem.Allocator, index: i32) Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointConfiguration(@ptrCast(self.ptr), @bitCast(index));
         var _ret: Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSplineSeries.PointConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSplineSeries.pointConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1344,6 +1666,10 @@ pub const QSplineSeries = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `pointsConfiguration` instead
+    ///
+    pub const PointsConfiguration = pointsConfiguration;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsConfiguration)
@@ -1354,10 +1680,10 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PointsConfiguration(self: QSplineSeries, allocator: std.mem.Allocator) Map_i32_Map_i32_QVariant {
+    pub fn pointsConfiguration(self: QSplineSeries, allocator: std.mem.Allocator) Map_i32_Map_i32_QVariant {
         const _map: qtc.libqt_map = qtc.QXYSeries_PointsConfiguration(@ptrCast(self.ptr));
         var _ret: Map_i32_Map_i32_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSplineSeries.PointsConfiguration: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QSplineSeries.pointsConfiguration: Total capacity allocation failed");
         defer {
             qtc.libqt_free(_map.keys);
             qtc.libqt_free(_map.values);
@@ -1373,6 +1699,10 @@ pub const QSplineSeries = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `sizeBy` instead
+    ///
+    pub const SizeBy = sizeBy;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#sizeBy)
@@ -1387,13 +1717,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` maxSize: f64 `
     ///
-    pub fn SizeBy(self: QSplineSeries, sourceData: []f64, minSize: f64, maxSize: f64) void {
+    pub fn sizeBy(self: QSplineSeries, sourceData: []f64, minSize: f64, maxSize: f64) void {
         const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
         qtc.QXYSeries_SizeBy(@ptrCast(self.ptr), sourceData_list, @bitCast(minSize), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `colorBy` instead
+    ///
+    pub const ColorBy = colorBy;
 
     /// Inherited from QXYSeries
     ///
@@ -1405,13 +1739,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` sourceData: []f64 `
     ///
-    pub fn ColorBy(self: QSplineSeries, sourceData: []f64) void {
+    pub fn colorBy(self: QSplineSeries, sourceData: []f64) void {
         const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
         };
         qtc.QXYSeries_ColorBy(@ptrCast(self.ptr), sourceData_list);
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QXYSeries
     ///
@@ -1423,10 +1761,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Clicked(self: QSplineSeries, point: anytype) void {
+    pub fn clicked(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Clicked(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QXYSeries
     ///
@@ -1438,9 +1780,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, point: QPointF) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
+    pub fn onClicked(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// Inherited from QXYSeries
     ///
@@ -1454,10 +1800,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` state: bool `
     ///
-    pub fn Hovered(self: QSplineSeries, point: anytype, state: bool) void {
+    pub fn hovered(self: QSplineSeries, point: anytype, state: bool) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Hovered(@ptrCast(self.ptr), @ptrCast(point.ptr), state);
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// Inherited from QXYSeries
     ///
@@ -1469,9 +1819,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, point: QPointF, state: bool) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF, bool) callconv(.c) void) void {
+    pub fn onHovered(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
 
     /// Inherited from QXYSeries
     ///
@@ -1483,11 +1837,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Pressed(self: QSplineSeries, point: anytype) void {
+    pub fn pressed(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Pressed(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pressed)
@@ -1498,9 +1856,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, point: QPointF) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
+    pub fn onPressed(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
 
     /// Inherited from QXYSeries
     ///
@@ -1512,11 +1874,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn Released(self: QSplineSeries, point: anytype) void {
+    pub fn released(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_Released(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#released)
@@ -1527,9 +1893,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, point: QPointF) callconv(.c) void `
     ///
-    pub fn OnReleased(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
+    pub fn onReleased(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
         qtc.QXYSeries_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QXYSeries
     ///
@@ -1541,10 +1911,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` point: QPointF `
     ///
-    pub fn DoubleClicked(self: QSplineSeries, point: anytype) void {
+    pub fn doubleClicked(self: QSplineSeries, point: anytype) void {
         comptime _ = @TypeOf(point)._is_QPointF;
         qtc.QXYSeries_DoubleClicked(@ptrCast(self.ptr), @ptrCast(point.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
 
     /// Inherited from QXYSeries
     ///
@@ -1556,10 +1930,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, point: QPointF) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QSplineSeries, callback: *const fn (QSplineSeries, QPointF) callconv(.c) void) void {
         qtc.QXYSeries_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pointReplaced` instead
+    ///
+    pub const PointReplaced = pointReplaced;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
@@ -1570,10 +1948,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn PointReplaced(self: QSplineSeries, index: i32) void {
+    pub fn pointReplaced(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_PointReplaced(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onPointReplaced` instead
+    ///
+    pub const OnPointReplaced = onPointReplaced;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointReplaced)
@@ -1584,10 +1966,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, index: i32) callconv(.c) void `
     ///
-    pub fn OnPointReplaced(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
+    pub fn onPointReplaced(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `pointRemoved` instead
+    ///
+    pub const PointRemoved = pointRemoved;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
@@ -1598,10 +1984,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn PointRemoved(self: QSplineSeries, index: i32) void {
+    pub fn pointRemoved(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_PointRemoved(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onPointRemoved` instead
+    ///
+    pub const OnPointRemoved = onPointRemoved;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointRemoved)
@@ -1612,9 +2002,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, index: i32) callconv(.c) void `
     ///
-    pub fn OnPointRemoved(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
+    pub fn onPointRemoved(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointAdded` instead
+    ///
+    pub const PointAdded = pointAdded;
 
     /// Inherited from QXYSeries
     ///
@@ -1626,9 +2020,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn PointAdded(self: QSplineSeries, index: i32) void {
+    pub fn pointAdded(self: QSplineSeries, index: i32) void {
         qtc.QXYSeries_PointAdded(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onPointAdded` instead
+    ///
+    pub const OnPointAdded = onPointAdded;
 
     /// Inherited from QXYSeries
     ///
@@ -1640,10 +2038,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, index: i32) callconv(.c) void `
     ///
-    pub fn OnPointAdded(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
+    pub fn onPointAdded(self: QSplineSeries, callback: *const fn (QSplineSeries, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `colorChanged` instead
+    ///
+    pub const ColorChanged = colorChanged;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#colorChanged)
@@ -1652,12 +2054,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn ColorChanged(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_ColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn colorChanged(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_ColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onColorChanged` instead
+    ///
+    pub const OnColorChanged = onColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1669,10 +2075,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, color: QColor) callconv(.c) void `
     ///
-    pub fn OnColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
+    pub fn onColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
         qtc.QXYSeries_Connect_ColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectedColorChanged` instead
+    ///
+    pub const SelectedColorChanged = selectedColorChanged;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#selectedColorChanged)
@@ -1681,12 +2091,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SelectedColorChanged(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_SelectedColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn selectedColorChanged(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_SelectedColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectedColorChanged` instead
+    ///
+    pub const OnSelectedColorChanged = onSelectedColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1698,9 +2112,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, color: QColor) callconv(.c) void `
     ///
-    pub fn OnSelectedColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
+    pub fn onSelectedColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointsReplaced` instead
+    ///
+    pub const PointsReplaced = pointsReplaced;
 
     /// Inherited from QXYSeries
     ///
@@ -1710,9 +2128,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn PointsReplaced(self: QSplineSeries) void {
+    pub fn pointsReplaced(self: QSplineSeries) void {
         qtc.QXYSeries_PointsReplaced(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPointsReplaced` instead
+    ///
+    pub const OnPointsReplaced = onPointsReplaced;
 
     /// Inherited from QXYSeries
     ///
@@ -1724,9 +2146,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnPointsReplaced(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onPointsReplaced(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsReplaced(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsFormatChanged` instead
+    ///
+    pub const PointLabelsFormatChanged = pointLabelsFormatChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1738,13 +2164,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` format: []const u8 `
     ///
-    pub fn PointLabelsFormatChanged(self: QSplineSeries, format: []const u8) void {
+    pub fn pointLabelsFormatChanged(self: QSplineSeries, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         qtc.QXYSeries_PointLabelsFormatChanged(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `onPointLabelsFormatChanged` instead
+    ///
+    pub const OnPointLabelsFormatChanged = onPointLabelsFormatChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1756,9 +2186,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, format: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPointLabelsFormatChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) void) void {
+    pub fn onPointLabelsFormatChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsVisibilityChanged` instead
+    ///
+    pub const PointLabelsVisibilityChanged = pointLabelsVisibilityChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1770,9 +2204,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn PointLabelsVisibilityChanged(self: QSplineSeries, visible: bool) void {
+    pub fn pointLabelsVisibilityChanged(self: QSplineSeries, visible: bool) void {
         qtc.QXYSeries_PointLabelsVisibilityChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onPointLabelsVisibilityChanged` instead
+    ///
+    pub const OnPointLabelsVisibilityChanged = onPointLabelsVisibilityChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1784,9 +2222,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, visible: bool) callconv(.c) void `
     ///
-    pub fn OnPointLabelsVisibilityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
+    pub fn onPointLabelsVisibilityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsVisibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsFontChanged` instead
+    ///
+    pub const PointLabelsFontChanged = pointLabelsFontChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1798,10 +2240,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn PointLabelsFontChanged(self: QSplineSeries, font: anytype) void {
+    pub fn pointLabelsFontChanged(self: QSplineSeries, font: anytype) void {
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QXYSeries_PointLabelsFontChanged(@ptrCast(self.ptr), @ptrCast(font.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPointLabelsFontChanged` instead
+    ///
+    pub const OnPointLabelsFontChanged = onPointLabelsFontChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1813,9 +2259,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, font: QFont) callconv(.c) void `
     ///
-    pub fn OnPointLabelsFontChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QFont) callconv(.c) void) void {
+    pub fn onPointLabelsFontChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QFont) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsColorChanged` instead
+    ///
+    pub const PointLabelsColorChanged = pointLabelsColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1825,12 +2275,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn PointLabelsColorChanged(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_PointLabelsColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn pointLabelsColorChanged(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_PointLabelsColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPointLabelsColorChanged` instead
+    ///
+    pub const OnPointLabelsColorChanged = onPointLabelsColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1842,9 +2296,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, color: QColor) callconv(.c) void `
     ///
-    pub fn OnPointLabelsColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
+    pub fn onPointLabelsColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointLabelsClippingChanged` instead
+    ///
+    pub const PointLabelsClippingChanged = pointLabelsClippingChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1856,9 +2314,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` clipping: bool `
     ///
-    pub fn PointLabelsClippingChanged(self: QSplineSeries, clipping: bool) void {
+    pub fn pointLabelsClippingChanged(self: QSplineSeries, clipping: bool) void {
         qtc.QXYSeries_PointLabelsClippingChanged(@ptrCast(self.ptr), clipping);
     }
+
+    /// ### DEPRECATED: Use `onPointLabelsClippingChanged` instead
+    ///
+    pub const OnPointLabelsClippingChanged = onPointLabelsClippingChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1870,9 +2332,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, clipping: bool) callconv(.c) void `
     ///
-    pub fn OnPointLabelsClippingChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
+    pub fn onPointLabelsClippingChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointLabelsClippingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointsRemoved` instead
+    ///
+    pub const PointsRemoved = pointsRemoved;
 
     /// Inherited from QXYSeries
     ///
@@ -1884,11 +2350,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` index: i32 `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn PointsRemoved(self: QSplineSeries, index: i32, count: i32) void {
-        qtc.QXYSeries_PointsRemoved(@ptrCast(self.ptr), @bitCast(index), @bitCast(count));
+    pub fn pointsRemoved(self: QSplineSeries, index: i32, _count: i32) void {
+        qtc.QXYSeries_PointsRemoved(@ptrCast(self.ptr), @bitCast(index), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `onPointsRemoved` instead
+    ///
+    pub const OnPointsRemoved = onPointsRemoved;
 
     /// Inherited from QXYSeries
     ///
@@ -1900,9 +2370,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, index: i32, count: i32) callconv(.c) void `
     ///
-    pub fn OnPointsRemoved(self: QSplineSeries, callback: *const fn (QSplineSeries, i32, i32) callconv(.c) void) void {
+    pub fn onPointsRemoved(self: QSplineSeries, callback: *const fn (QSplineSeries, i32, i32) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `penChanged` instead
+    ///
+    pub const PenChanged = penChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1912,12 +2386,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn PenChanged(self: QSplineSeries, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QXYSeries_PenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn penChanged(self: QSplineSeries, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QXYSeries_PenChanged(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPenChanged` instead
+    ///
+    pub const OnPenChanged = onPenChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1929,9 +2407,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnPenChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
+    pub fn onPenChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedPointsChanged` instead
+    ///
+    pub const SelectedPointsChanged = selectedPointsChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1941,9 +2423,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SelectedPointsChanged(self: QSplineSeries) void {
+    pub fn selectedPointsChanged(self: QSplineSeries) void {
         qtc.QXYSeries_SelectedPointsChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectedPointsChanged` instead
+    ///
+    pub const OnSelectedPointsChanged = onSelectedPointsChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1955,9 +2441,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnSelectedPointsChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onSelectedPointsChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedPointsChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `lightMarkerChanged` instead
+    ///
+    pub const LightMarkerChanged = lightMarkerChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1967,12 +2457,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` lightMarker: QImage `
+    /// ` _lightMarker: QImage `
     ///
-    pub fn LightMarkerChanged(self: QSplineSeries, lightMarker: anytype) void {
-        comptime _ = @TypeOf(lightMarker)._is_QImage;
-        qtc.QXYSeries_LightMarkerChanged(@ptrCast(self.ptr), @ptrCast(lightMarker.ptr));
+    pub fn lightMarkerChanged(self: QSplineSeries, _lightMarker: anytype) void {
+        comptime _ = @TypeOf(_lightMarker)._is_QImage;
+        qtc.QXYSeries_LightMarkerChanged(@ptrCast(self.ptr), @ptrCast(_lightMarker.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLightMarkerChanged` instead
+    ///
+    pub const OnLightMarkerChanged = onLightMarkerChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1984,9 +2478,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, lightMarker: QImage) callconv(.c) void `
     ///
-    pub fn OnLightMarkerChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QImage) callconv(.c) void) void {
+    pub fn onLightMarkerChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QImage) callconv(.c) void) void {
         qtc.QXYSeries_Connect_LightMarkerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedLightMarkerChanged` instead
+    ///
+    pub const SelectedLightMarkerChanged = selectedLightMarkerChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -1996,12 +2494,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` selectedLightMarker: QImage `
+    /// ` _selectedLightMarker: QImage `
     ///
-    pub fn SelectedLightMarkerChanged(self: QSplineSeries, selectedLightMarker: anytype) void {
-        comptime _ = @TypeOf(selectedLightMarker)._is_QImage;
-        qtc.QXYSeries_SelectedLightMarkerChanged(@ptrCast(self.ptr), @ptrCast(selectedLightMarker.ptr));
+    pub fn selectedLightMarkerChanged(self: QSplineSeries, _selectedLightMarker: anytype) void {
+        comptime _ = @TypeOf(_selectedLightMarker)._is_QImage;
+        qtc.QXYSeries_SelectedLightMarkerChanged(@ptrCast(self.ptr), @ptrCast(_selectedLightMarker.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectedLightMarkerChanged` instead
+    ///
+    pub const OnSelectedLightMarkerChanged = onSelectedLightMarkerChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2013,9 +2515,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, selectedLightMarker: QImage) callconv(.c) void `
     ///
-    pub fn OnSelectedLightMarkerChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QImage) callconv(.c) void) void {
+    pub fn onSelectedLightMarkerChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QImage) callconv(.c) void) void {
         qtc.QXYSeries_Connect_SelectedLightMarkerChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bestFitLineVisibilityChanged` instead
+    ///
+    pub const BestFitLineVisibilityChanged = bestFitLineVisibilityChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2027,9 +2533,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn BestFitLineVisibilityChanged(self: QSplineSeries, visible: bool) void {
+    pub fn bestFitLineVisibilityChanged(self: QSplineSeries, visible: bool) void {
         qtc.QXYSeries_BestFitLineVisibilityChanged(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onBestFitLineVisibilityChanged` instead
+    ///
+    pub const OnBestFitLineVisibilityChanged = onBestFitLineVisibilityChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2041,9 +2551,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, visible: bool) callconv(.c) void `
     ///
-    pub fn OnBestFitLineVisibilityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
+    pub fn onBestFitLineVisibilityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, bool) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineVisibilityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bestFitLinePenChanged` instead
+    ///
+    pub const BestFitLinePenChanged = bestFitLinePenChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2053,12 +2567,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn BestFitLinePenChanged(self: QSplineSeries, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QXYSeries_BestFitLinePenChanged(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn bestFitLinePenChanged(self: QSplineSeries, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QXYSeries_BestFitLinePenChanged(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBestFitLinePenChanged` instead
+    ///
+    pub const OnBestFitLinePenChanged = onBestFitLinePenChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2070,9 +2588,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnBestFitLinePenChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
+    pub fn onBestFitLinePenChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLinePenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bestFitLineColorChanged` instead
+    ///
+    pub const BestFitLineColorChanged = bestFitLineColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2082,12 +2604,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn BestFitLineColorChanged(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QXYSeries_BestFitLineColorChanged(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn bestFitLineColorChanged(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QXYSeries_BestFitLineColorChanged(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBestFitLineColorChanged` instead
+    ///
+    pub const OnBestFitLineColorChanged = onBestFitLineColorChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2099,9 +2625,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, color: QColor) callconv(.c) void `
     ///
-    pub fn OnBestFitLineColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
+    pub fn onBestFitLineColorChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
         qtc.QXYSeries_Connect_BestFitLineColorChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pointsConfigurationChanged` instead
+    ///
+    pub const PointsConfigurationChanged = pointsConfigurationChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2115,11 +2645,11 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` configuration: Map_i32_Map_i32_QVariant `
     ///
-    pub fn PointsConfigurationChanged(self: QSplineSeries, allocator: std.mem.Allocator, configuration: Map_i32_Map_i32_QVariant) void {
+    pub fn pointsConfigurationChanged(self: QSplineSeries, allocator: std.mem.Allocator, configuration: Map_i32_Map_i32_QVariant) void {
         const configuration_count = configuration.count();
-        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QSplineSeries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_keys = allocator.alloc(i32, configuration_count) catch @panic("QSplineSeries.pointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_keys);
-        const configuration_values = allocator.alloc(Map_i32_QVariant, configuration_count) catch @panic("QSplineSeries.PointsConfigurationChanged: Memory allocation failed");
+        const configuration_values = allocator.alloc(Map_i32_QVariant, configuration_count) catch @panic("QSplineSeries.pointsConfigurationChanged: Memory allocation failed");
         defer allocator.free(configuration_values);
         var i: usize = 0;
         var configuration_it = configuration.iterator();
@@ -2136,6 +2666,10 @@ pub const QSplineSeries = extern struct {
         qtc.QXYSeries_PointsConfigurationChanged(@ptrCast(self.ptr), configuration_map);
     }
 
+    /// ### DEPRECATED: Use `onPointsConfigurationChanged` instead
+    ///
+    pub const OnPointsConfigurationChanged = onPointsConfigurationChanged;
+
     /// Inherited from QXYSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qxyseries.html#pointsConfigurationChanged)
@@ -2146,9 +2680,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, configuration: qtc.libqt_map (Map_i32_Map_i32_QVariant)) callconv(.c) void `
     ///
-    pub fn OnPointsConfigurationChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, qtc.libqt_map) callconv(.c) void) void {
+    pub fn onPointsConfigurationChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, qtc.libqt_map) callconv(.c) void) void {
         qtc.QXYSeries_Connect_PointsConfigurationChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `markerSizeChanged` instead
+    ///
+    pub const MarkerSizeChanged = markerSizeChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2160,9 +2698,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` size: f64 `
     ///
-    pub fn MarkerSizeChanged(self: QSplineSeries, size: f64) void {
+    pub fn markerSizeChanged(self: QSplineSeries, size: f64) void {
         qtc.QXYSeries_MarkerSizeChanged(@ptrCast(self.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `onMarkerSizeChanged` instead
+    ///
+    pub const OnMarkerSizeChanged = onMarkerSizeChanged;
 
     /// Inherited from QXYSeries
     ///
@@ -2174,9 +2716,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, size: f64) callconv(.c) void `
     ///
-    pub fn OnMarkerSizeChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, f64) callconv(.c) void) void {
+    pub fn onMarkerSizeChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, f64) callconv(.c) void) void {
         qtc.QXYSeries_Connect_MarkerSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPointsVisible1` instead
+    ///
+    pub const SetPointsVisible1 = setPointsVisible1;
 
     /// Inherited from QXYSeries
     ///
@@ -2188,9 +2734,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetPointsVisible1(self: QSplineSeries, visible: bool) void {
+    pub fn setPointsVisible1(self: QSplineSeries, visible: bool) void {
         qtc.QXYSeries_SetPointsVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsVisible1` instead
+    ///
+    pub const SetPointLabelsVisible1 = setPointLabelsVisible1;
 
     /// Inherited from QXYSeries
     ///
@@ -2202,9 +2752,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetPointLabelsVisible1(self: QSplineSeries, visible: bool) void {
+    pub fn setPointLabelsVisible1(self: QSplineSeries, visible: bool) void {
         qtc.QXYSeries_SetPointLabelsVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setPointLabelsClipping1` instead
+    ///
+    pub const SetPointLabelsClipping1 = setPointLabelsClipping1;
 
     /// Inherited from QXYSeries
     ///
@@ -2216,9 +2770,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetPointLabelsClipping1(self: QSplineSeries, enabled: bool) void {
+    pub fn setPointLabelsClipping1(self: QSplineSeries, enabled: bool) void {
         qtc.QXYSeries_SetPointLabelsClipping1(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setBestFitLineVisible1` instead
+    ///
+    pub const SetBestFitLineVisible1 = setBestFitLineVisible1;
 
     /// Inherited from QXYSeries
     ///
@@ -2230,9 +2788,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetBestFitLineVisible1(self: QSplineSeries, visible: bool) void {
+    pub fn setBestFitLineVisible1(self: QSplineSeries, visible: bool) void {
         qtc.QXYSeries_SetBestFitLineVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `colorBy2` instead
+    ///
+    pub const ColorBy2 = colorBy2;
 
     /// Inherited from QXYSeries
     ///
@@ -2246,7 +2808,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` gradient: QLinearGradient `
     ///
-    pub fn ColorBy2(self: QSplineSeries, sourceData: []f64, gradient: anytype) void {
+    pub fn colorBy2(self: QSplineSeries, sourceData: []f64, gradient: anytype) void {
         const sourceData_list = qtc.libqt_list{
             .len = sourceData.len,
             .data = sourceData.ptr,
@@ -2254,6 +2816,10 @@ pub const QSplineSeries = extern struct {
         comptime _ = @TypeOf(gradient)._is_QLinearGradient;
         qtc.QXYSeries_ColorBy2(@ptrCast(self.ptr), sourceData_list, @ptrCast(gradient.ptr));
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2263,15 +2829,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QSplineSeries, name: []const u8) void {
+    pub fn setName(self: QSplineSeries, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QAbstractSeries_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2283,13 +2853,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSeries_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2299,9 +2873,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetVisible(self: QSplineSeries) void {
+    pub fn setVisible(self: QSplineSeries) void {
         qtc.QAbstractSeries_SetVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2311,9 +2889,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn IsVisible(self: QSplineSeries) bool {
+    pub fn isVisible(self: QSplineSeries) bool {
         return qtc.QAbstractSeries_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2323,9 +2905,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Opacity(self: QSplineSeries) f64 {
+    pub fn opacity(self: QSplineSeries) f64 {
         return qtc.QAbstractSeries_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2335,11 +2921,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QSplineSeries, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QSplineSeries, _opacity: f64) void {
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `setUseOpenGL` instead
+    ///
+    pub const SetUseOpenGL = setUseOpenGL;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2349,9 +2939,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SetUseOpenGL(self: QSplineSeries) void {
+    pub fn setUseOpenGL(self: QSplineSeries) void {
         qtc.QAbstractSeries_SetUseOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `useOpenGL` instead
+    ///
+    pub const UseOpenGL = useOpenGL;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2361,9 +2955,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn UseOpenGL(self: QSplineSeries) bool {
+    pub fn useOpenGL(self: QSplineSeries) bool {
         return qtc.QAbstractSeries_UseOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `chart` instead
+    ///
+    pub const Chart = chart;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2373,9 +2971,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Chart(self: QSplineSeries) QChart {
+    pub fn chart(self: QSplineSeries) QChart {
         return .{ .ptr = qtc.QAbstractSeries_Chart(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attachAxis` instead
+    ///
+    pub const AttachAxis = attachAxis;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2387,10 +2989,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` axis: QAbstractAxis `
     ///
-    pub fn AttachAxis(self: QSplineSeries, axis: anytype) bool {
+    pub fn attachAxis(self: QSplineSeries, axis: anytype) bool {
         comptime _ = @TypeOf(axis)._is_QAbstractAxis;
         return qtc.QAbstractSeries_AttachAxis(@ptrCast(self.ptr), @ptrCast(axis.ptr));
     }
+
+    /// ### DEPRECATED: Use `detachAxis` instead
+    ///
+    pub const DetachAxis = detachAxis;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2402,10 +3008,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` axis: QAbstractAxis `
     ///
-    pub fn DetachAxis(self: QSplineSeries, axis: anytype) bool {
+    pub fn detachAxis(self: QSplineSeries, axis: anytype) bool {
         comptime _ = @TypeOf(axis)._is_QAbstractAxis;
         return qtc.QAbstractSeries_DetachAxis(@ptrCast(self.ptr), @ptrCast(axis.ptr));
     }
+
+    /// ### DEPRECATED: Use `attachedAxes` instead
+    ///
+    pub const AttachedAxes = attachedAxes;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2417,15 +3027,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AttachedAxes(self: QSplineSeries, allocator: std.mem.Allocator) []QAbstractAxis {
+    pub fn attachedAxes(self: QSplineSeries, allocator: std.mem.Allocator) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QSplineSeries.AttachedAxes: Memory allocation failed");
-        const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QSplineSeries.attachedAxes: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2435,9 +3049,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Show(self: QSplineSeries) void {
+    pub fn show(self: QSplineSeries) void {
         qtc.QAbstractSeries_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2447,10 +3065,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Hide(self: QSplineSeries) void {
+    pub fn hide(self: QSplineSeries) void {
         qtc.QAbstractSeries_Hide(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `nameChanged` instead
+    ///
+    pub const NameChanged = nameChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
@@ -2459,10 +3081,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn NameChanged(self: QSplineSeries) void {
+    pub fn nameChanged(self: QSplineSeries) void {
         qtc.QAbstractSeries_NameChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onNameChanged` instead
+    ///
+    pub const OnNameChanged = onNameChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
@@ -2473,10 +3099,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnNameChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onNameChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
@@ -2485,10 +3115,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn VisibleChanged(self: QSplineSeries) void {
+    pub fn visibleChanged(self: QSplineSeries) void {
         qtc.QAbstractSeries_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
@@ -2499,10 +3133,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
@@ -2511,10 +3149,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn OpacityChanged(self: QSplineSeries) void {
+    pub fn opacityChanged(self: QSplineSeries) void {
         qtc.QAbstractSeries_OpacityChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
@@ -2525,9 +3167,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `useOpenGLChanged` instead
+    ///
+    pub const UseOpenGLChanged = useOpenGLChanged;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2537,9 +3183,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn UseOpenGLChanged(self: QSplineSeries) void {
+    pub fn useOpenGLChanged(self: QSplineSeries) void {
         qtc.QAbstractSeries_UseOpenGLChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUseOpenGLChanged` instead
+    ///
+    pub const OnUseOpenGLChanged = onUseOpenGLChanged;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2551,9 +3201,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnUseOpenGLChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onUseOpenGLChanged(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible1` instead
+    ///
+    pub const SetVisible1 = setVisible1;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2565,9 +3219,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible1(self: QSplineSeries, visible: bool) void {
+    pub fn setVisible1(self: QSplineSeries, visible: bool) void {
         qtc.QAbstractSeries_SetVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setUseOpenGL1` instead
+    ///
+    pub const SetUseOpenGL1 = setUseOpenGL1;
 
     /// Inherited from QAbstractSeries
     ///
@@ -2579,9 +3237,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUseOpenGL1(self: QSplineSeries, enable: bool) void {
+    pub fn setUseOpenGL1(self: QSplineSeries, enable: bool) void {
         qtc.QAbstractSeries_SetUseOpenGL1(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -2593,13 +3255,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QSplineSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSplineSeries.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -2609,15 +3275,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: QSplineSeries, name: []const u8) void {
+    pub fn setObjectName(self: QSplineSeries, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -2627,9 +3297,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn IsWidgetType(self: QSplineSeries) bool {
+    pub fn isWidgetType(self: QSplineSeries) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -2639,9 +3313,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn IsWindowType(self: QSplineSeries) bool {
+    pub fn isWindowType(self: QSplineSeries) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -2651,9 +3329,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn IsQuickItemType(self: QSplineSeries) bool {
+    pub fn isQuickItemType(self: QSplineSeries) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -2663,9 +3345,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SignalsBlocked(self: QSplineSeries) bool {
+    pub fn signalsBlocked(self: QSplineSeries) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -2677,9 +3363,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QSplineSeries, b: bool) bool {
+    pub fn blockSignals(self: QSplineSeries, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -2689,9 +3379,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Thread(self: QSplineSeries) QThread {
+    pub fn thread(self: QSplineSeries) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -2701,12 +3395,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QSplineSeries, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QSplineSeries, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -2718,9 +3416,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QSplineSeries, interval: i32) i32 {
+    pub fn startTimer(self: QSplineSeries, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -2732,9 +3434,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QSplineSeries, time: i64) i32 {
+    pub fn startTimer2(self: QSplineSeries, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -2746,9 +3452,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QSplineSeries, id: i32) void {
+    pub fn killTimer(self: QSplineSeries, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -2760,9 +3470,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QSplineSeries, id: i32) void {
+    pub fn killTimer2(self: QSplineSeries, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -2774,15 +3488,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QSplineSeries, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QSplineSeries, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSplineSeries.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSplineSeries.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -2792,12 +3510,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QSplineSeries, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QSplineSeries, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2809,10 +3531,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QSplineSeries, filterObj: anytype) void {
+    pub fn installEventFilter(self: QSplineSeries, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2824,10 +3550,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QSplineSeries, obj: anytype) void {
+    pub fn removeEventFilter(self: QSplineSeries, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2835,7 +3565,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2843,13 +3573,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2857,7 +3591,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2865,13 +3599,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2881,18 +3619,22 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QSplineSeries, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QSplineSeries, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2900,7 +3642,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2908,13 +3650,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2922,7 +3668,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2930,13 +3676,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2946,9 +3696,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Disconnect3(self: QSplineSeries) bool {
+    pub fn disconnect3(self: QSplineSeries) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2960,10 +3714,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QSplineSeries, receiver: anytype) bool {
+    pub fn disconnect4(self: QSplineSeries, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2973,10 +3731,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2986,9 +3748,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn DumpObjectTree(self: QSplineSeries) void {
+    pub fn dumpObjectTree(self: QSplineSeries) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2998,9 +3764,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn DumpObjectInfo(self: QSplineSeries) void {
+    pub fn dumpObjectInfo(self: QSplineSeries) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -3010,15 +3780,19 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QSplineSeries, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: QSplineSeries, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -3028,12 +3802,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: QSplineSeries, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: QSplineSeries, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -3045,7 +3823,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QSplineSeries, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSplineSeries, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -3053,27 +3831,19 @@ pub const QSplineSeries = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSplineSeries.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSplineSeries.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSplineSeries.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSplineSeries.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSplineSeries `
-    ///
-    pub fn BindingStorage(self: QSplineSeries) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -3083,9 +3853,29 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn BindingStorage2(self: QSplineSeries) QBindingStorage {
+    pub fn bindingStorage(self: QSplineSeries) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSplineSeries `
+    ///
+    pub fn bindingStorage2(self: QSplineSeries) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -3095,9 +3885,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Destroyed(self: QSplineSeries) void {
+    pub fn destroyed(self: QSplineSeries) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -3109,9 +3903,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
+    pub fn onDestroyed(self: QSplineSeries, callback: *const fn (QSplineSeries) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -3121,9 +3919,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Parent(self: QSplineSeries) QObject {
+    pub fn parent(self: QSplineSeries) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -3135,10 +3937,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QSplineSeries, classname: [:0]const u8) bool {
+    pub fn inherits(self: QSplineSeries, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -3148,9 +3954,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn DeleteLater(self: QSplineSeries) void {
+    pub fn deleteLater(self: QSplineSeries) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -3164,9 +3974,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QSplineSeries, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QSplineSeries, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -3180,9 +3994,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QSplineSeries, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QSplineSeries, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -3190,7 +4008,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3200,13 +4018,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -3214,7 +4036,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -3224,13 +4046,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -3240,7 +4066,7 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -3248,12 +4074,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QSplineSeries, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QSplineSeries, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -3265,10 +4095,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QSplineSeries, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QSplineSeries, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -3282,11 +4116,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QSplineSeries, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QSplineSeries, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -3302,13 +4140,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QSplineSeries, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QSplineSeries, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -3321,11 +4163,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QSplineSeries, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QSplineSeries, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -3337,10 +4183,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QSplineSeries, param1: anytype) void {
+    pub fn destroyed1(self: QSplineSeries, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -3352,9 +4202,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QSplineSeries, callback: *const fn (QSplineSeries, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QSplineSeries, callback: *const fn (QSplineSeries, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// Inherited from QXYSeries
     ///
@@ -3366,16 +4220,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetPen(self: QSplineSeries, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QSplineSeries_SetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setPen(self: QSplineSeries, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QSplineSeries_SetPen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPen` instead
+    /// ### DEPRECATED: Use `superSetPen` instead
     ///
-    pub const QBaseSetPen = SuperSetPen;
+    pub const SuperSetPen = superSetPen;
 
     /// Inherited from QXYSeries
     ///
@@ -3387,12 +4241,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SuperSetPen(self: QSplineSeries, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QSplineSeries_SuperSetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn superSetPen(self: QSplineSeries, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QSplineSeries_SuperSetPen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPen` instead
+    ///
+    pub const OnSetPen = onSetPen;
 
     /// Inherited from QXYSeries
     ///
@@ -3406,9 +4264,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, pen: QPen) callconv(.c) void `
     ///
-    pub fn OnSetPen(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
+    pub fn onSetPen(self: QSplineSeries, callback: *const fn (QSplineSeries, QPen) callconv(.c) void) void {
         qtc.QSplineSeries_OnSetPen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// Inherited from QXYSeries
     ///
@@ -3420,16 +4282,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QSplineSeries, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QSplineSeries_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QSplineSeries, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QSplineSeries_SetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetBrush` instead
+    /// ### DEPRECATED: Use `superSetBrush` instead
     ///
-    pub const QBaseSetBrush = SuperSetBrush;
+    pub const SuperSetBrush = superSetBrush;
 
     /// Inherited from QXYSeries
     ///
@@ -3441,12 +4303,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SuperSetBrush(self: QSplineSeries, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QSplineSeries_SuperSetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn superSetBrush(self: QSplineSeries, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QSplineSeries_SuperSetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetBrush` instead
+    ///
+    pub const OnSetBrush = onSetBrush;
 
     /// Inherited from QXYSeries
     ///
@@ -3460,9 +4326,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, brush: QBrush) callconv(.c) void `
     ///
-    pub fn OnSetBrush(self: QSplineSeries, callback: *const fn (QSplineSeries, QBrush) callconv(.c) void) void {
+    pub fn onSetBrush(self: QSplineSeries, callback: *const fn (QSplineSeries, QBrush) callconv(.c) void) void {
         qtc.QSplineSeries_OnSetBrush(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setColor` instead
+    ///
+    pub const SetColor = setColor;
 
     /// Inherited from QXYSeries
     ///
@@ -3474,16 +4344,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SetColor(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QSplineSeries_SetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn setColor(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QSplineSeries_SetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetColor` instead
+    /// ### DEPRECATED: Use `superSetColor` instead
     ///
-    pub const QBaseSetColor = SuperSetColor;
+    pub const SuperSetColor = superSetColor;
 
     /// Inherited from QXYSeries
     ///
@@ -3495,12 +4365,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` color: QColor `
+    /// ` _color: QColor `
     ///
-    pub fn SuperSetColor(self: QSplineSeries, color: anytype) void {
-        comptime _ = @TypeOf(color)._is_QColor;
-        qtc.QSplineSeries_SuperSetColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
+    pub fn superSetColor(self: QSplineSeries, _color: anytype) void {
+        comptime _ = @TypeOf(_color)._is_QColor;
+        qtc.QSplineSeries_SuperSetColor(@ptrCast(self.ptr), @ptrCast(_color.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetColor` instead
+    ///
+    pub const OnSetColor = onSetColor;
 
     /// Inherited from QXYSeries
     ///
@@ -3514,9 +4388,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, color: QColor) callconv(.c) void `
     ///
-    pub fn OnSetColor(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
+    pub fn onSetColor(self: QSplineSeries, callback: *const fn (QSplineSeries, QColor) callconv(.c) void) void {
         qtc.QSplineSeries_OnSetColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `color` instead
+    ///
+    pub const Color = color;
 
     /// Inherited from QXYSeries
     ///
@@ -3528,13 +4406,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Color(self: QSplineSeries) QColor {
+    pub fn color(self: QSplineSeries) QColor {
         return .{ .ptr = qtc.QSplineSeries_Color(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperColor` instead
+    /// ### DEPRECATED: Use `superColor` instead
     ///
-    pub const QBaseColor = SuperColor;
+    pub const SuperColor = superColor;
 
     /// Inherited from QXYSeries
     ///
@@ -3546,9 +4424,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SuperColor(self: QSplineSeries) QColor {
+    pub fn superColor(self: QSplineSeries) QColor {
         return .{ .ptr = qtc.QSplineSeries_SuperColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onColor` instead
+    ///
+    pub const OnColor = onColor;
 
     /// Inherited from QXYSeries
     ///
@@ -3564,9 +4446,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnColor(self: QSplineSeries, callback: *const fn () callconv(.c) QColor) void {
+    pub fn onColor(self: QSplineSeries, callback: *const fn () callconv(.c) QColor) void {
         qtc.QSplineSeries_OnColor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -3578,16 +4464,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QSplineSeries, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSplineSeries_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QSplineSeries, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSplineSeries_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -3599,12 +4485,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QSplineSeries, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSplineSeries_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QSplineSeries, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSplineSeries_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -3618,9 +4508,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QEvent) callconv(.c) bool) void {
         qtc.QSplineSeries_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -3634,17 +4528,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QSplineSeries, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QSplineSeries, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSplineSeries_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSplineSeries_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3658,13 +4552,17 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QSplineSeries, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QSplineSeries, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSplineSeries_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSplineSeries_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -3678,9 +4576,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QSplineSeries, callback: *const fn (QSplineSeries, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QSplineSeries, callback: *const fn (QSplineSeries, QObject, QEvent) callconv(.c) bool) void {
         qtc.QSplineSeries_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -3692,16 +4594,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSplineSeries_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSplineSeries_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3713,12 +4615,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSplineSeries_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSplineSeries_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -3732,9 +4638,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QTimerEvent) callconv(.c) void) void {
         qtc.QSplineSeries_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -3746,16 +4656,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSplineSeries_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSplineSeries_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3767,12 +4677,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSplineSeries_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSplineSeries_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -3786,9 +4700,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QChildEvent) callconv(.c) void) void {
         qtc.QSplineSeries_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -3800,16 +4718,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSplineSeries_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSplineSeries_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3821,12 +4739,16 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QSplineSeries, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSplineSeries_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QSplineSeries, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSplineSeries_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -3840,9 +4762,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QSplineSeries, callback: *const fn (QSplineSeries, QEvent) callconv(.c) void) void {
         qtc.QSplineSeries_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -3856,14 +4782,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QSplineSeries, signal: anytype) void {
+    pub fn connectNotify(self: QSplineSeries, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSplineSeries_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3877,11 +4803,15 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QSplineSeries, signal: anytype) void {
+    pub fn superConnectNotify(self: QSplineSeries, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSplineSeries_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -3894,9 +4824,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) void) void {
         qtc.QSplineSeries_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3910,14 +4844,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QSplineSeries, signal: anytype) void {
+    pub fn disconnectNotify(self: QSplineSeries, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSplineSeries_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3931,10 +4865,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QSplineSeries, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QSplineSeries, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSplineSeries_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -3948,9 +4886,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) void) void {
         qtc.QSplineSeries_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3962,13 +4904,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Sender(self: QSplineSeries) QObject {
+    pub fn sender(self: QSplineSeries) QObject {
         return .{ .ptr = qtc.QSplineSeries_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3980,9 +4922,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SuperSender(self: QSplineSeries) QObject {
+    pub fn superSender(self: QSplineSeries) QObject {
         return .{ .ptr = qtc.QSplineSeries_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3996,9 +4942,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QSplineSeries, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QSplineSeries, callback: *const fn () callconv(.c) QObject) void {
         qtc.QSplineSeries_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4010,13 +4960,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SenderSignalIndex(self: QSplineSeries) i32 {
+    pub fn senderSignalIndex(self: QSplineSeries) i32 {
         return qtc.QSplineSeries_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4028,9 +4978,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn SuperSenderSignalIndex(self: QSplineSeries) i32 {
+    pub fn superSenderSignalIndex(self: QSplineSeries) i32 {
         return qtc.QSplineSeries_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -4044,9 +4998,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QSplineSeries, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QSplineSeries, callback: *const fn () callconv(.c) i32) void {
         qtc.QSplineSeries_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -4060,14 +5018,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QSplineSeries, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QSplineSeries, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSplineSeries_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -4081,10 +5039,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QSplineSeries, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QSplineSeries, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSplineSeries_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -4098,9 +5060,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSplineSeries_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4114,14 +5080,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QSplineSeries, signal: anytype) bool {
+    pub fn isSignalConnected(self: QSplineSeries, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSplineSeries_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4135,10 +5101,14 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QSplineSeries, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QSplineSeries, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSplineSeries_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -4152,9 +5122,13 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QSplineSeries, callback: *const fn (QSplineSeries, QMetaMethod) callconv(.c) bool) void {
         qtc.QSplineSeries_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -4168,23 +5142,23 @@ pub const QSplineSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QSplineSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QSplineSeries, callback: *const fn (QSplineSeries, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsplineseries-qtcharts.html#dtor.QSplineSeries)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSplineSeries `
     ///
-    pub fn Delete(self: QSplineSeries) void {
+    pub fn delete(self: QSplineSeries) void {
         qtc.QSplineSeries_Delete(@ptrCast(self.ptr));
     }
 };

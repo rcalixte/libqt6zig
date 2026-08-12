@@ -14,22 +14,34 @@ pub const Attica__Comment = extern struct {
 
     pub const _is_Attica__Comment = {};
 
-    /// New constructs a new Attica::Comment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__Comment {
+    pub const New = new;
+
+    /// Allocate a new Attica::Comment object in C++ memory
+    ///
+    pub fn new() Attica__Comment {
         return .{ .ptr = qtc.Attica__Comment_new() };
     }
 
-    /// New2 constructs a new Attica::Comment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::Comment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__Comment `
     ///
-    pub fn New2(other: anytype) Attica__Comment {
+    pub fn new2(other: anytype) Attica__Comment {
         comptime _ = @TypeOf(other)._is_Attica__Comment;
         return .{ .ptr = qtc.Attica__Comment_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `commentTypeToString` instead
+    ///
+    pub const CommentTypeToString = commentTypeToString;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#commentTypeToString)
     ///
@@ -39,13 +51,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` typeVal: comment_enums.Type `
     ///
-    pub fn CommentTypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
+    pub fn commentTypeToString(allocator: std.mem.Allocator, typeVal: i32) []const u8 {
         var _str = qtc.Attica__Comment_CommentTypeToString(@bitCast(typeVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.CommentTypeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.commentTypeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#operator-eq)
     ///
@@ -55,10 +71,14 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` other: Attica__Comment `
     ///
-    pub fn OperatorAssign(self: Attica__Comment, other: anytype) void {
+    pub fn operatorAssign(self: Attica__Comment, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__Comment;
         qtc.Attica__Comment_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setId` instead
+    ///
+    pub const SetId = setId;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setId)
     ///
@@ -66,15 +86,19 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` id: []const u8 `
+    /// ` _id: []const u8 `
     ///
-    pub fn SetId(self: Attica__Comment, id: []const u8) void {
+    pub fn setId(self: Attica__Comment, _id: []const u8) void {
         const id_str = qtc.libqt_string{
-            .len = id.len,
-            .data = id.ptr,
+            .len = _id.len,
+            .data = _id.ptr,
         };
         qtc.Attica__Comment_SetId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#id)
     ///
@@ -84,13 +108,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
+    pub fn id(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Comment_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.id: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSubject` instead
+    ///
+    pub const SetSubject = setSubject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setSubject)
     ///
@@ -98,15 +126,19 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` subject: []const u8 `
+    /// ` _subject: []const u8 `
     ///
-    pub fn SetSubject(self: Attica__Comment, subject: []const u8) void {
+    pub fn setSubject(self: Attica__Comment, _subject: []const u8) void {
         const subject_str = qtc.libqt_string{
-            .len = subject.len,
-            .data = subject.ptr,
+            .len = _subject.len,
+            .data = _subject.ptr,
         };
         qtc.Attica__Comment_SetSubject(@ptrCast(self.ptr), subject_str);
     }
+
+    /// ### DEPRECATED: Use `subject` instead
+    ///
+    pub const Subject = subject;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#subject)
     ///
@@ -116,13 +148,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Subject(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
+    pub fn subject(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Comment_Subject(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.Subject: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.subject: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setText)
     ///
@@ -130,15 +166,19 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: Attica__Comment, text: []const u8) void {
+    pub fn setText(self: Attica__Comment, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.Attica__Comment_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#text)
     ///
@@ -148,13 +188,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Comment_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setChildCount` instead
+    ///
+    pub const SetChildCount = setChildCount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setChildCount)
     ///
@@ -162,11 +206,15 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` childCount: i32 `
+    /// ` _childCount: i32 `
     ///
-    pub fn SetChildCount(self: Attica__Comment, childCount: i32) void {
-        qtc.Attica__Comment_SetChildCount(@ptrCast(self.ptr), @bitCast(childCount));
+    pub fn setChildCount(self: Attica__Comment, _childCount: i32) void {
+        qtc.Attica__Comment_SetChildCount(@ptrCast(self.ptr), @bitCast(_childCount));
     }
+
+    /// ### DEPRECATED: Use `childCount` instead
+    ///
+    pub const ChildCount = childCount;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#childCount)
     ///
@@ -174,9 +222,13 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    pub fn ChildCount(self: Attica__Comment) i32 {
+    pub fn childCount(self: Attica__Comment) i32 {
         return qtc.Attica__Comment_ChildCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUser` instead
+    ///
+    pub const SetUser = setUser;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setUser)
     ///
@@ -184,15 +236,19 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` user: []const u8 `
+    /// ` _user: []const u8 `
     ///
-    pub fn SetUser(self: Attica__Comment, user: []const u8) void {
+    pub fn setUser(self: Attica__Comment, _user: []const u8) void {
         const user_str = qtc.libqt_string{
-            .len = user.len,
-            .data = user.ptr,
+            .len = _user.len,
+            .data = _user.ptr,
         };
         qtc.Attica__Comment_SetUser(@ptrCast(self.ptr), user_str);
     }
+
+    /// ### DEPRECATED: Use `user` instead
+    ///
+    pub const User = user;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#user)
     ///
@@ -202,13 +258,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn User(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
+    pub fn user(self: Attica__Comment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__Comment_User(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.User: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__Comment.user: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDate` instead
+    ///
+    pub const SetDate = setDate;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setDate)
     ///
@@ -216,12 +276,16 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` date: QDateTime `
+    /// ` _date: QDateTime `
     ///
-    pub fn SetDate(self: Attica__Comment, date: anytype) void {
-        comptime _ = @TypeOf(date)._is_QDateTime;
-        qtc.Attica__Comment_SetDate(@ptrCast(self.ptr), @ptrCast(date.ptr));
+    pub fn setDate(self: Attica__Comment, _date: anytype) void {
+        comptime _ = @TypeOf(_date)._is_QDateTime;
+        qtc.Attica__Comment_SetDate(@ptrCast(self.ptr), @ptrCast(_date.ptr));
     }
+
+    /// ### DEPRECATED: Use `date` instead
+    ///
+    pub const Date = date;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#date)
     ///
@@ -229,9 +293,13 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    pub fn Date(self: Attica__Comment) QDateTime {
+    pub fn date(self: Attica__Comment) QDateTime {
         return .{ .ptr = qtc.Attica__Comment_Date(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScore` instead
+    ///
+    pub const SetScore = setScore;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setScore)
     ///
@@ -239,11 +307,15 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    /// ` score: i32 `
+    /// ` _score: i32 `
     ///
-    pub fn SetScore(self: Attica__Comment, score: i32) void {
-        qtc.Attica__Comment_SetScore(@ptrCast(self.ptr), @bitCast(score));
+    pub fn setScore(self: Attica__Comment, _score: i32) void {
+        qtc.Attica__Comment_SetScore(@ptrCast(self.ptr), @bitCast(_score));
     }
+
+    /// ### DEPRECATED: Use `score` instead
+    ///
+    pub const Score = score;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#score)
     ///
@@ -251,9 +323,13 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    pub fn Score(self: Attica__Comment) i32 {
+    pub fn score(self: Attica__Comment) i32 {
         return qtc.Attica__Comment_Score(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChildren` instead
+    ///
+    pub const SetChildren = setChildren;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#setChildren)
     ///
@@ -263,13 +339,17 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` comments: []Attica__Comment `
     ///
-    pub fn SetChildren(self: Attica__Comment, comments: []Attica__Comment) void {
+    pub fn setChildren(self: Attica__Comment, comments: []Attica__Comment) void {
         const comments_list = qtc.libqt_list{
             .len = comments.len,
             .data = @ptrCast(comments.ptr),
         };
         qtc.Attica__Comment_SetChildren(@ptrCast(self.ptr), comments_list);
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#children)
     ///
@@ -279,15 +359,19 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Attica__Comment, allocator: std.mem.Allocator) []Attica__Comment {
+    pub fn children(self: Attica__Comment, allocator: std.mem.Allocator) []Attica__Comment {
         const _arr: qtc.libqt_list = qtc.Attica__Comment_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Attica__Comment, _arr.len) catch @panic("Attica__Comment.Children: Memory allocation failed");
-        const _data: [*]QtC.Attica__Comment = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Attica__Comment, _arr.len) catch @panic("Attica__Comment.children: Memory allocation failed");
+        const _data_val: [*]QtC.Attica__Comment = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/attica-comment.html#isValid)
     ///
@@ -295,21 +379,21 @@ pub const Attica__Comment = extern struct {
     ///
     /// ` self: Attica__Comment `
     ///
-    pub fn IsValid(self: Attica__Comment) bool {
+    pub fn isValid(self: Attica__Comment) bool {
         return qtc.Attica__Comment_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__Comment `
     ///
-    pub fn Delete(self: Attica__Comment) void {
+    pub fn delete(self: Attica__Comment) void {
         qtc.Attica__Comment_Delete(@ptrCast(self.ptr));
     }
 };

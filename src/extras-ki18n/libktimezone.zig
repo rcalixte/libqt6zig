@@ -13,6 +13,10 @@ pub const KTimeZone = extern struct {
 
     pub const _is_KTimeZone = {};
 
+    /// ### DEPRECATED: Use `fromLocation` instead
+    ///
+    pub const FromLocation = fromLocation;
+
     /// ### [Upstream resources](https://api.kde.org/ktimezone.html#fromLocation)
     ///
     /// ## Parameter(s):
@@ -21,10 +25,14 @@ pub const KTimeZone = extern struct {
     ///
     /// ` longitude: f32 `
     ///
-    pub fn FromLocation(latitude: f32, longitude: f32) [:0]const u8 {
+    pub fn fromLocation(latitude: f32, longitude: f32) [:0]const u8 {
         const _ret = qtc.KTimeZone_FromLocation(@bitCast(latitude), @bitCast(longitude));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `country` instead
+    ///
+    pub const Country = country;
 
     /// ### [Upstream resources](https://api.kde.org/ktimezone.html#country)
     ///
@@ -32,7 +40,7 @@ pub const KTimeZone = extern struct {
     ///
     /// ` ianaId: [:0]const u8 `
     ///
-    pub fn Country(ianaId: [:0]const u8) KCountry {
+    pub fn country(ianaId: [:0]const u8) KCountry {
         const ianaId_Cstring = ianaId.ptr;
         return .{ .ptr = qtc.KTimeZone_Country(ianaId_Cstring) };
     }

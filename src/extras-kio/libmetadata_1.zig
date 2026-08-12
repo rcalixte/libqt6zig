@@ -17,13 +17,21 @@ pub const KIO__MetaData = extern struct {
 
     pub const _is_KIO__MetaData = {};
 
-    /// New constructs a new KIO::MetaData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KIO__MetaData {
+    pub const New = new;
+
+    /// Allocate a new KIO::MetaData object in C++ memory
+    ///
+    pub fn new() KIO__MetaData {
         return .{ .ptr = qtc.KIO__MetaData_new() };
     }
 
-    /// New2 constructs a new KIO::MetaData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KIO::MetaData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -31,11 +39,11 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` metaData: ArrayMap_constu8_constu8 `
     ///
-    pub fn New2(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
+    pub fn new2(allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.New2: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.new2: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.New2: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.new2: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -59,7 +67,11 @@ pub const KIO__MetaData = extern struct {
         return .{ .ptr = qtc.KIO__MetaData_new2(metaData_map) };
     }
 
-    /// New3 constructs a new KIO::MetaData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KIO::MetaData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -67,11 +79,11 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` param1: ArrayMap_constu8_QVariant `
     ///
-    pub fn New3(allocator: std.mem.Allocator, param1: ArrayMap_constu8_QVariant) KIO__MetaData {
+    pub fn new3(allocator: std.mem.Allocator, param1: ArrayMap_constu8_QVariant) KIO__MetaData {
         const param1_count = param1.count();
-        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("KIO__MetaData.New3: Memory allocation failed");
+        const param1_keys = allocator.alloc(qtc.libqt_string, param1_count) catch @panic("KIO__MetaData.new3: Memory allocation failed");
         defer allocator.free(param1_keys);
-        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("KIO__MetaData.New3: Memory allocation failed");
+        const param1_values = allocator.alloc(QtC.QVariant, param1_count) catch @panic("KIO__MetaData.new3: Memory allocation failed");
         defer allocator.free(param1_values);
         var i: usize = 0;
         var param1_it = param1.iterator();
@@ -91,16 +103,24 @@ pub const KIO__MetaData = extern struct {
         return .{ .ptr = qtc.KIO__MetaData_new3(param1_map) };
     }
 
-    /// New4 constructs a new KIO::MetaData object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KIO::MetaData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KIO__MetaData `
     ///
-    pub fn New4(param1: anytype) KIO__MetaData {
+    pub fn new4(param1: anytype) KIO__MetaData {
         comptime _ = @TypeOf(param1)._is_KIO__MetaData;
         return .{ .ptr = qtc.KIO__MetaData_new4(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
@@ -112,11 +132,11 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` metaData: ArrayMap_constu8_constu8 `
     ///
-    pub fn OperatorPlusAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
+    pub fn operatorPlusAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_constu8) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign: Memory allocation failed");
+        const metaData_values = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -140,6 +160,10 @@ pub const KIO__MetaData = extern struct {
         return .{ .ptr = qtc.KIO__MetaData_OperatorPlusAssign(@ptrCast(self.ptr), metaData_map) };
     }
 
+    /// ### DEPRECATED: Use `operatorPlusAssign2` instead
+    ///
+    pub const OperatorPlusAssign2 = operatorPlusAssign2;
+
     /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-2b-eq)
     ///
     /// ## Parameter(s):
@@ -150,11 +174,11 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` metaData: ArrayMap_constu8_QVariant `
     ///
-    pub fn OperatorPlusAssign2(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) KIO__MetaData {
+    pub fn operatorPlusAssign2(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) KIO__MetaData {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign2: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.OperatorPlusAssign2: Memory allocation failed");
+        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.operatorPlusAssign2: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -174,6 +198,10 @@ pub const KIO__MetaData = extern struct {
         return .{ .ptr = qtc.KIO__MetaData_OperatorPlusAssign2(@ptrCast(self.ptr), metaData_map) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
     /// ## Parameter(s):
@@ -184,11 +212,11 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` metaData: ArrayMap_constu8_QVariant `
     ///
-    pub fn OperatorAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) void {
+    pub fn operatorAssign(self: KIO__MetaData, allocator: std.mem.Allocator, metaData: ArrayMap_constu8_QVariant) void {
         const metaData_count = metaData.count();
-        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.OperatorAssign: Memory allocation failed");
+        const metaData_keys = allocator.alloc(qtc.libqt_string, metaData_count) catch @panic("KIO__MetaData.operatorAssign: Memory allocation failed");
         defer allocator.free(metaData_keys);
-        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.OperatorAssign: Memory allocation failed");
+        const metaData_values = allocator.alloc(QtC.QVariant, metaData_count) catch @panic("KIO__MetaData.operatorAssign: Memory allocation failed");
         defer allocator.free(metaData_values);
         var i: usize = 0;
         var metaData_it = metaData.iterator();
@@ -208,15 +236,23 @@ pub const KIO__MetaData = extern struct {
         qtc.KIO__MetaData_OperatorAssign(@ptrCast(self.ptr), metaData_map);
     }
 
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
+
     /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#toVariant)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KIO__MetaData `
     ///
-    pub fn ToVariant(self: KIO__MetaData) QVariant {
+    pub fn toVariant(self: KIO__MetaData) QVariant {
         return .{ .ptr = qtc.KIO__MetaData_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://api.kde.org/kio-metadata.html#operator-eq)
     ///
@@ -226,22 +262,22 @@ pub const KIO__MetaData = extern struct {
     ///
     /// ` param1: KIO__MetaData `
     ///
-    pub fn OperatorAssign2(self: KIO__MetaData, param1: anytype) void {
+    pub fn operatorAssign2(self: KIO__MetaData, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KIO__MetaData;
         qtc.KIO__MetaData_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KIO__MetaData `
     ///
-    pub fn Delete(self: KIO__MetaData) void {
+    pub fn delete(self: KIO__MetaData) void {
         qtc.KIO__MetaData_Delete(@ptrCast(self.ptr));
     }
 };

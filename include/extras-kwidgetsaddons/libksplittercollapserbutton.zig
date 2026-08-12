@@ -86,7 +86,11 @@ pub const KSplitterCollapserButton = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KSplitterCollapserButton object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KSplitterCollapserButton object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -94,11 +98,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` splitter: QSplitter `
     ///
-    pub fn New(childWidget: anytype, splitter: anytype) KSplitterCollapserButton {
+    pub fn new(childWidget: anytype, splitter: anytype) KSplitterCollapserButton {
         comptime _ = @TypeOf(childWidget)._is_QWidget;
         comptime _ = @TypeOf(splitter)._is_QSplitter;
         return .{ .ptr = qtc.KSplitterCollapserButton_new(@ptrCast(childWidget.ptr), @ptrCast(splitter.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -106,9 +114,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MetaObject(self: KSplitterCollapserButton) QMetaObject {
+    pub fn metaObject(self: KSplitterCollapserButton) QMetaObject {
         return .{ .ptr = qtc.KSplitterCollapserButton_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -120,13 +132,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KSplitterCollapserButton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -136,9 +148,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperMetaObject(self: KSplitterCollapserButton) QMetaObject {
+    pub fn superMetaObject(self: KSplitterCollapserButton) QMetaObject {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -146,10 +162,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KSplitterCollapserButton, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KSplitterCollapserButton, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSplitterCollapserButton_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +179,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KSplitterCollapserButton_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -175,10 +195,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KSplitterCollapserButton, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KSplitterCollapserButton, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KSplitterCollapserButton_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -190,9 +214,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KSplitterCollapserButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KSplitterCollapserButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSplitterCollapserButton_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -202,13 +230,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -222,9 +250,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KSplitterCollapserButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KSplitterCollapserButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KSplitterCollapserButton_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -234,14 +266,18 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isWidgetCollapsed` instead
+    ///
+    pub const IsWidgetCollapsed = isWidgetCollapsed;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#isWidgetCollapsed)
     ///
@@ -249,9 +285,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsWidgetCollapsed(self: KSplitterCollapserButton) bool {
+    pub fn isWidgetCollapsed(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_IsWidgetCollapsed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
@@ -259,9 +299,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SizeHint(self: KSplitterCollapserButton) QSize {
+    pub fn sizeHint(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.KSplitterCollapserButton_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
@@ -275,13 +319,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSplitterCollapserButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#sizeHint)
     ///
@@ -291,9 +335,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperSizeHint(self: KSplitterCollapserButton) QSize {
+    pub fn superSizeHint(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `collapse` instead
+    ///
+    pub const Collapse = collapse;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#collapse)
     ///
@@ -301,9 +349,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Collapse(self: KSplitterCollapserButton) void {
+    pub fn collapse(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_Collapse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `restore` instead
+    ///
+    pub const Restore = restore;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#restore)
     ///
@@ -311,9 +363,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Restore(self: KSplitterCollapserButton) void {
+    pub fn restore(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_Restore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCollapsed` instead
+    ///
+    pub const SetCollapsed = setCollapsed;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#setCollapsed)
     ///
@@ -323,9 +379,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` collapsed: bool `
     ///
-    pub fn SetCollapsed(self: KSplitterCollapserButton, collapsed: bool) void {
+    pub fn setCollapsed(self: KSplitterCollapserButton, collapsed: bool) void {
         qtc.KSplitterCollapserButton_SetCollapsed(@ptrCast(self.ptr), collapsed);
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
@@ -337,11 +397,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KSplitterCollapserButton, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KSplitterCollapserButton, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KSplitterCollapserButton_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
@@ -353,13 +417,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QObject, QEvent) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#eventFilter)
     ///
@@ -373,11 +437,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KSplitterCollapserButton, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KSplitterCollapserButton, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KSplitterCollapserButton_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
@@ -387,10 +455,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn paintEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSplitterCollapserButton_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
@@ -402,13 +474,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPaintEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#paintEvent)
     ///
@@ -420,10 +492,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superPaintEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KSplitterCollapserButton_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
@@ -431,12 +507,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSplitterCollapserButton_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSplitterCollapserButton_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
@@ -448,13 +528,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEnterEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#enterEvent)
     ///
@@ -464,12 +544,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KSplitterCollapserButton_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KSplitterCollapserButton_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
@@ -477,12 +561,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSplitterCollapserButton_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSplitterCollapserButton_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
@@ -494,13 +582,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#leaveEvent)
     ///
@@ -510,12 +598,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSplitterCollapserButton_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSplitterCollapserButton_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
@@ -523,12 +615,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSplitterCollapserButton_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSplitterCollapserButton_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
@@ -540,13 +636,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QShowEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#showEvent)
     ///
@@ -556,12 +652,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KSplitterCollapserButton_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KSplitterCollapserButton_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -573,15 +673,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -595,15 +699,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -617,9 +725,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: KSplitterCollapserButton) i32 {
+    pub fn toolButtonStyle(self: KSplitterCollapserButton) i32 {
         return qtc.QToolButton_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `arrowType` instead
+    ///
+    pub const ArrowType = arrowType;
 
     /// Inherited from QToolButton
     ///
@@ -633,9 +745,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowType(self: KSplitterCollapserButton) i32 {
+    pub fn arrowType(self: KSplitterCollapserButton) i32 {
         return qtc.QToolButton_ArrowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowType` instead
+    ///
+    pub const SetArrowType = setArrowType;
 
     /// Inherited from QToolButton
     ///
@@ -647,9 +763,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowType(self: KSplitterCollapserButton, typeVal: i32) void {
+    pub fn setArrowType(self: KSplitterCollapserButton, typeVal: i32) void {
         qtc.QToolButton_SetArrowType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setMenu` instead
+    ///
+    pub const SetMenu = setMenu;
 
     /// Inherited from QToolButton
     ///
@@ -659,12 +779,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` menu: QMenu `
+    /// ` _menu: QMenu `
     ///
-    pub fn SetMenu(self: KSplitterCollapserButton, menu: anytype) void {
-        comptime _ = @TypeOf(menu)._is_QMenu;
-        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
+    pub fn setMenu(self: KSplitterCollapserButton, _menu: anytype) void {
+        comptime _ = @TypeOf(_menu)._is_QMenu;
+        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(_menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `menu` instead
+    ///
+    pub const Menu = menu;
 
     /// Inherited from QToolButton
     ///
@@ -674,9 +798,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Menu(self: KSplitterCollapserButton) QMenu {
+    pub fn menu(self: KSplitterCollapserButton) QMenu {
         return .{ .ptr = qtc.QToolButton_Menu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPopupMode` instead
+    ///
+    pub const SetPopupMode = setPopupMode;
 
     /// Inherited from QToolButton
     ///
@@ -688,9 +816,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` mode: qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn SetPopupMode(self: KSplitterCollapserButton, mode: i32) void {
+    pub fn setPopupMode(self: KSplitterCollapserButton, mode: i32) void {
         qtc.QToolButton_SetPopupMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `popupMode` instead
+    ///
+    pub const PopupMode = popupMode;
 
     /// Inherited from QToolButton
     ///
@@ -704,9 +836,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn PopupMode(self: KSplitterCollapserButton) i32 {
+    pub fn popupMode(self: KSplitterCollapserButton) i32 {
         return qtc.QToolButton_PopupMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultAction` instead
+    ///
+    pub const DefaultAction = defaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -716,9 +852,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DefaultAction(self: KSplitterCollapserButton) QAction {
+    pub fn defaultAction(self: KSplitterCollapserButton) QAction {
         return .{ .ptr = qtc.QToolButton_DefaultAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAutoRaise` instead
+    ///
+    pub const SetAutoRaise = setAutoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -730,9 +870,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoRaise(self: KSplitterCollapserButton, enable: bool) void {
+    pub fn setAutoRaise(self: KSplitterCollapserButton, enable: bool) void {
         qtc.QToolButton_SetAutoRaise(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `autoRaise` instead
+    ///
+    pub const AutoRaise = autoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -742,9 +886,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoRaise(self: KSplitterCollapserButton) bool {
+    pub fn autoRaise(self: KSplitterCollapserButton) bool {
         return qtc.QToolButton_AutoRaise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMenu` instead
+    ///
+    pub const ShowMenu = showMenu;
 
     /// Inherited from QToolButton
     ///
@@ -754,9 +902,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ShowMenu(self: KSplitterCollapserButton) void {
+    pub fn showMenu(self: KSplitterCollapserButton) void {
         qtc.QToolButton_ShowMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -766,11 +918,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` style: qnamespace_enums.ToolButtonStyle `
+    /// ` _style: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: KSplitterCollapserButton, style: i32) void {
-        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setToolButtonStyle(self: KSplitterCollapserButton, _style: i32) void {
+        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setDefaultAction` instead
+    ///
+    pub const SetDefaultAction = setDefaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -780,12 +936,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` defaultAction: QAction `
+    /// ` _defaultAction: QAction `
     ///
-    pub fn SetDefaultAction(self: KSplitterCollapserButton, defaultAction: anytype) void {
-        comptime _ = @TypeOf(defaultAction)._is_QAction;
-        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(defaultAction.ptr));
+    pub fn setDefaultAction(self: KSplitterCollapserButton, _defaultAction: anytype) void {
+        comptime _ = @TypeOf(_defaultAction)._is_QAction;
+        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(_defaultAction.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
 
     /// Inherited from QToolButton
     ///
@@ -797,10 +957,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QAction `
     ///
-    pub fn Triggered(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn triggered(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAction;
         qtc.QToolButton_Triggered(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
 
     /// Inherited from QToolButton
     ///
@@ -812,9 +976,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QAction) callconv(.c) void) void {
+    pub fn onTriggered(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QAction) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAbstractButton
     ///
@@ -824,15 +992,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KSplitterCollapserButton, text: []const u8) void {
+    pub fn setText(self: KSplitterCollapserButton, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAbstractButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -844,13 +1016,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -860,12 +1036,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KSplitterCollapserButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KSplitterCollapserButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -875,9 +1055,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Icon(self: KSplitterCollapserButton) QIcon {
+    pub fn icon(self: KSplitterCollapserButton) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -887,9 +1071,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IconSize(self: KSplitterCollapserButton) QSize {
+    pub fn iconSize(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -901,10 +1089,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: KSplitterCollapserButton, key: anytype) void {
+    pub fn setShortcut(self: KSplitterCollapserButton, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -914,9 +1106,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Shortcut(self: KSplitterCollapserButton) QKeySequence {
+    pub fn shortcut(self: KSplitterCollapserButton) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -928,9 +1124,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: KSplitterCollapserButton, checkable: bool) void {
+    pub fn setCheckable(self: KSplitterCollapserButton, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -940,9 +1140,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsCheckable(self: KSplitterCollapserButton) bool {
+    pub fn isCheckable(self: KSplitterCollapserButton) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -952,9 +1156,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsChecked(self: KSplitterCollapserButton) bool {
+    pub fn isChecked(self: KSplitterCollapserButton) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -966,9 +1174,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: KSplitterCollapserButton, down: bool) void {
+    pub fn setDown(self: KSplitterCollapserButton, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -978,9 +1190,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsDown(self: KSplitterCollapserButton) bool {
+    pub fn isDown(self: KSplitterCollapserButton) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -990,11 +1206,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: KSplitterCollapserButton, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: KSplitterCollapserButton, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -1004,9 +1224,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoRepeat(self: KSplitterCollapserButton) bool {
+    pub fn autoRepeat(self: KSplitterCollapserButton) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -1016,11 +1240,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: KSplitterCollapserButton, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: KSplitterCollapserButton, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -1030,9 +1258,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoRepeatDelay(self: KSplitterCollapserButton) i32 {
+    pub fn autoRepeatDelay(self: KSplitterCollapserButton) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -1042,11 +1274,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: KSplitterCollapserButton, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: KSplitterCollapserButton, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -1056,9 +1292,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoRepeatInterval(self: KSplitterCollapserButton) i32 {
+    pub fn autoRepeatInterval(self: KSplitterCollapserButton) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -1068,11 +1308,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: KSplitterCollapserButton, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: KSplitterCollapserButton, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -1082,9 +1326,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoExclusive(self: KSplitterCollapserButton) bool {
+    pub fn autoExclusive(self: KSplitterCollapserButton) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -1094,9 +1342,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Group(self: KSplitterCollapserButton) QButtonGroup {
+    pub fn group(self: KSplitterCollapserButton) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -1106,12 +1358,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KSplitterCollapserButton, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KSplitterCollapserButton, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -1121,9 +1377,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AnimateClick(self: KSplitterCollapserButton) void {
+    pub fn animateClick(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -1133,9 +1393,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Click(self: KSplitterCollapserButton) void {
+    pub fn click(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -1145,9 +1409,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Toggle(self: KSplitterCollapserButton) void {
+    pub fn toggle(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1159,10 +1427,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: KSplitterCollapserButton, checked: bool) void {
+    pub fn setChecked(self: KSplitterCollapserButton, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -1171,10 +1443,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Pressed(self: KSplitterCollapserButton) void {
+    pub fn pressed(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -1185,10 +1461,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
+    pub fn onPressed(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1197,10 +1477,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Released(self: KSplitterCollapserButton) void {
+    pub fn released(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1211,9 +1495,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton) callconv(.c) void `
     ///
-    pub fn OnReleased(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
+    pub fn onReleased(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1223,9 +1511,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Clicked(self: KSplitterCollapserButton) void {
+    pub fn clicked(self: KSplitterCollapserButton) void {
         qtc.QAbstractButton_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1237,10 +1529,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
+    pub fn onClicked(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1251,10 +1547,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: KSplitterCollapserButton, checked: bool) void {
+    pub fn toggled(self: KSplitterCollapserButton, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1265,9 +1565,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
+    pub fn onToggled(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1279,9 +1583,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: KSplitterCollapserButton, checked: bool) void {
+    pub fn clicked1(self: KSplitterCollapserButton, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1293,9 +1601,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1305,9 +1617,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn WinId(self: KSplitterCollapserButton) usize {
+    pub fn winId(self: KSplitterCollapserButton) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1317,9 +1633,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn CreateWinId(self: KSplitterCollapserButton) void {
+    pub fn createWinId(self: KSplitterCollapserButton) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1329,9 +1649,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn InternalWinId(self: KSplitterCollapserButton) usize {
+    pub fn internalWinId(self: KSplitterCollapserButton) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1341,9 +1665,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn EffectiveWinId(self: KSplitterCollapserButton) usize {
+    pub fn effectiveWinId(self: KSplitterCollapserButton) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1353,9 +1681,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Style(self: KSplitterCollapserButton) QStyle {
+    pub fn style(self: KSplitterCollapserButton) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1365,12 +1697,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KSplitterCollapserButton, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KSplitterCollapserButton, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1380,9 +1716,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsTopLevel(self: KSplitterCollapserButton) bool {
+    pub fn isTopLevel(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1392,9 +1732,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsWindow(self: KSplitterCollapserButton) bool {
+    pub fn isWindow(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1404,9 +1748,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsModal(self: KSplitterCollapserButton) bool {
+    pub fn isModal(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1420,9 +1768,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KSplitterCollapserButton) i32 {
+    pub fn windowModality(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1432,11 +1784,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KSplitterCollapserButton, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KSplitterCollapserButton, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1446,9 +1802,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsEnabled(self: KSplitterCollapserButton) bool {
+    pub fn isEnabled(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1460,10 +1820,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KSplitterCollapserButton, param1: anytype) bool {
+    pub fn isEnabledTo(self: KSplitterCollapserButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1475,9 +1839,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KSplitterCollapserButton, enabled: bool) void {
+    pub fn setEnabled(self: KSplitterCollapserButton, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1489,9 +1857,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KSplitterCollapserButton, disabled: bool) void {
+    pub fn setDisabled(self: KSplitterCollapserButton, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1503,9 +1875,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KSplitterCollapserButton, windowModified: bool) void {
+    pub fn setWindowModified(self: KSplitterCollapserButton, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1515,9 +1891,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FrameGeometry(self: KSplitterCollapserButton) QRect {
+    pub fn frameGeometry(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1527,9 +1907,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Geometry(self: KSplitterCollapserButton) QRect {
+    pub fn geometry(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1539,9 +1923,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn NormalGeometry(self: KSplitterCollapserButton) QRect {
+    pub fn normalGeometry(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1551,9 +1939,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn X(self: KSplitterCollapserButton) i32 {
+    pub fn x(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1563,9 +1955,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Y(self: KSplitterCollapserButton) i32 {
+    pub fn y(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1575,9 +1971,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Pos(self: KSplitterCollapserButton) QPoint {
+    pub fn pos(self: KSplitterCollapserButton) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1587,9 +1987,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FrameSize(self: KSplitterCollapserButton) QSize {
+    pub fn frameSize(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1599,9 +2003,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Size(self: KSplitterCollapserButton) QSize {
+    pub fn size(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1611,9 +2019,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Width(self: KSplitterCollapserButton) i32 {
+    pub fn width(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1623,9 +2035,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Height(self: KSplitterCollapserButton) i32 {
+    pub fn height(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1635,9 +2051,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Rect(self: KSplitterCollapserButton) QRect {
+    pub fn rect(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1647,9 +2067,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ChildrenRect(self: KSplitterCollapserButton) QRect {
+    pub fn childrenRect(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1659,9 +2083,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ChildrenRegion(self: KSplitterCollapserButton) QRegion {
+    pub fn childrenRegion(self: KSplitterCollapserButton) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1671,9 +2099,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MinimumSize(self: KSplitterCollapserButton) QSize {
+    pub fn minimumSize(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1683,9 +2115,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MaximumSize(self: KSplitterCollapserButton) QSize {
+    pub fn maximumSize(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1695,9 +2131,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MinimumWidth(self: KSplitterCollapserButton) i32 {
+    pub fn minimumWidth(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1707,9 +2147,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MinimumHeight(self: KSplitterCollapserButton) i32 {
+    pub fn minimumHeight(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1719,9 +2163,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MaximumWidth(self: KSplitterCollapserButton) i32 {
+    pub fn maximumWidth(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1731,9 +2179,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MaximumHeight(self: KSplitterCollapserButton) i32 {
+    pub fn maximumHeight(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1743,12 +2195,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KSplitterCollapserButton, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KSplitterCollapserButton, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1762,9 +2218,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KSplitterCollapserButton, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KSplitterCollapserButton, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1774,12 +2234,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KSplitterCollapserButton, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KSplitterCollapserButton, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1793,9 +2257,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KSplitterCollapserButton, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KSplitterCollapserButton, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1807,9 +2275,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KSplitterCollapserButton, minw: i32) void {
+    pub fn setMinimumWidth(self: KSplitterCollapserButton, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2293,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KSplitterCollapserButton, minh: i32) void {
+    pub fn setMinimumHeight(self: KSplitterCollapserButton, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1835,9 +2311,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KSplitterCollapserButton, maxw: i32) void {
+    pub fn setMaximumWidth(self: KSplitterCollapserButton, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1849,9 +2329,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KSplitterCollapserButton, maxh: i32) void {
+    pub fn setMaximumHeight(self: KSplitterCollapserButton, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1861,9 +2345,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SizeIncrement(self: KSplitterCollapserButton) QSize {
+    pub fn sizeIncrement(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1873,12 +2361,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KSplitterCollapserButton, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KSplitterCollapserButton, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1892,9 +2384,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KSplitterCollapserButton, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KSplitterCollapserButton, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1904,9 +2400,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn BaseSize(self: KSplitterCollapserButton) QSize {
+    pub fn baseSize(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1916,12 +2416,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KSplitterCollapserButton, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KSplitterCollapserButton, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1935,9 +2439,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KSplitterCollapserButton, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KSplitterCollapserButton, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1949,10 +2457,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KSplitterCollapserButton, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KSplitterCollapserButton, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1966,9 +2478,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KSplitterCollapserButton, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KSplitterCollapserButton, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1980,9 +2496,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KSplitterCollapserButton, w: i32) void {
+    pub fn setFixedWidth(self: KSplitterCollapserButton, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1994,9 +2514,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KSplitterCollapserButton, h: i32) void {
+    pub fn setFixedHeight(self: KSplitterCollapserButton, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2008,11 +2532,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KSplitterCollapserButton, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KSplitterCollapserButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2023,11 +2551,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KSplitterCollapserButton, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KSplitterCollapserButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2038,11 +2570,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KSplitterCollapserButton, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KSplitterCollapserButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2053,11 +2589,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KSplitterCollapserButton, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KSplitterCollapserButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2068,11 +2608,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KSplitterCollapserButton, param1: anytype) QPointF {
+    pub fn mapToParent(self: KSplitterCollapserButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2083,10 +2627,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KSplitterCollapserButton, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KSplitterCollapserButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2098,10 +2646,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KSplitterCollapserButton, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KSplitterCollapserButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2113,10 +2665,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KSplitterCollapserButton, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KSplitterCollapserButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2130,12 +2686,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2148,11 +2708,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2166,11 +2730,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2184,11 +2752,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KSplitterCollapserButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2198,9 +2770,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Window(self: KSplitterCollapserButton) QWidget {
+    pub fn window(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2210,9 +2786,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn NativeParentWidget(self: KSplitterCollapserButton) QWidget {
+    pub fn nativeParentWidget(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2222,9 +2802,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn TopLevelWidget(self: KSplitterCollapserButton) QWidget {
+    pub fn topLevelWidget(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2234,9 +2818,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Palette(self: KSplitterCollapserButton) QPalette {
+    pub fn palette(self: KSplitterCollapserButton) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2246,12 +2834,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KSplitterCollapserButton, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KSplitterCollapserButton, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2261,11 +2853,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KSplitterCollapserButton, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KSplitterCollapserButton, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2279,9 +2875,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KSplitterCollapserButton) i32 {
+    pub fn backgroundRole(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2291,11 +2891,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KSplitterCollapserButton, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KSplitterCollapserButton, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2309,9 +2913,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KSplitterCollapserButton) i32 {
+    pub fn foregroundRole(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2321,9 +2929,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Font(self: KSplitterCollapserButton) QFont {
+    pub fn font(self: KSplitterCollapserButton) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2333,12 +2945,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KSplitterCollapserButton, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KSplitterCollapserButton, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2348,9 +2964,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FontMetrics(self: KSplitterCollapserButton) QFontMetrics {
+    pub fn fontMetrics(self: KSplitterCollapserButton) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2360,9 +2980,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FontInfo(self: KSplitterCollapserButton) QFontInfo {
+    pub fn fontInfo(self: KSplitterCollapserButton) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2372,9 +2996,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Cursor(self: KSplitterCollapserButton) QCursor {
+    pub fn cursor(self: KSplitterCollapserButton) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2384,12 +3012,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KSplitterCollapserButton, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KSplitterCollapserButton, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2399,9 +3031,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UnsetCursor(self: KSplitterCollapserButton) void {
+    pub fn unsetCursor(self: KSplitterCollapserButton) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2413,9 +3049,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KSplitterCollapserButton, enable: bool) void {
+    pub fn setMouseTracking(self: KSplitterCollapserButton, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2425,9 +3065,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn HasMouseTracking(self: KSplitterCollapserButton) bool {
+    pub fn hasMouseTracking(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2437,9 +3081,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UnderMouse(self: KSplitterCollapserButton) bool {
+    pub fn underMouse(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2451,9 +3099,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KSplitterCollapserButton, enable: bool) void {
+    pub fn setTabletTracking(self: KSplitterCollapserButton, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2463,24 +3115,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn HasTabletTracking(self: KSplitterCollapserButton) bool {
+    pub fn hasTabletTracking(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSplitterCollapserButton `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KSplitterCollapserButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2490,12 +3131,35 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KSplitterCollapserButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KSplitterCollapserButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSplitterCollapserButton `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KSplitterCollapserButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2505,9 +3169,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Mask(self: KSplitterCollapserButton) QRegion {
+    pub fn mask(self: KSplitterCollapserButton) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2517,9 +3185,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ClearMask(self: KSplitterCollapserButton) void {
+    pub fn clearMask(self: KSplitterCollapserButton) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2531,10 +3203,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KSplitterCollapserButton, target: anytype) void {
+    pub fn render(self: KSplitterCollapserButton, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2546,10 +3222,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KSplitterCollapserButton, painter: anytype) void {
+    pub fn render2(self: KSplitterCollapserButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2559,9 +3239,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Grab(self: KSplitterCollapserButton) QPixmap {
+    pub fn grab(self: KSplitterCollapserButton) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2571,9 +3255,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn GraphicsEffect(self: KSplitterCollapserButton) QGraphicsEffect {
+    pub fn graphicsEffect(self: KSplitterCollapserButton) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2585,10 +3273,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KSplitterCollapserButton, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KSplitterCollapserButton, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2600,9 +3292,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KSplitterCollapserButton, typeVal: i32) void {
+    pub fn grabGesture(self: KSplitterCollapserButton, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2614,9 +3310,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KSplitterCollapserButton, typeVal: i32) void {
+    pub fn ungrabGesture(self: KSplitterCollapserButton, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2626,15 +3326,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KSplitterCollapserButton, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KSplitterCollapserButton, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2644,15 +3348,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KSplitterCollapserButton, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KSplitterCollapserButton, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2664,13 +3372,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2682,13 +3394,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2698,12 +3414,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KSplitterCollapserButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KSplitterCollapserButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2713,9 +3433,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn WindowIcon(self: KSplitterCollapserButton) QIcon {
+    pub fn windowIcon(self: KSplitterCollapserButton) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2725,15 +3449,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KSplitterCollapserButton, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KSplitterCollapserButton, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2745,13 +3473,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2761,15 +3493,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KSplitterCollapserButton, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KSplitterCollapserButton, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2781,13 +3517,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2799,13 +3539,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KSplitterCollapserButton, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KSplitterCollapserButton, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2817,13 +3561,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2835,9 +3583,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KSplitterCollapserButton, level: f64) void {
+    pub fn setWindowOpacity(self: KSplitterCollapserButton, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3599,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn WindowOpacity(self: KSplitterCollapserButton) f64 {
+    pub fn windowOpacity(self: KSplitterCollapserButton) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2859,9 +3615,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsWindowModified(self: KSplitterCollapserButton) bool {
+    pub fn isWindowModified(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2871,15 +3631,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KSplitterCollapserButton, toolTip: []const u8) void {
+    pub fn setToolTip(self: KSplitterCollapserButton, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2891,13 +3655,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2909,9 +3677,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KSplitterCollapserButton, msec: i32) void {
+    pub fn setToolTipDuration(self: KSplitterCollapserButton, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2921,9 +3693,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ToolTipDuration(self: KSplitterCollapserButton) i32 {
+    pub fn toolTipDuration(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2933,15 +3709,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KSplitterCollapserButton, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KSplitterCollapserButton, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2953,13 +3733,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2969,15 +3753,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KSplitterCollapserButton, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KSplitterCollapserButton, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2989,13 +3777,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3007,13 +3799,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3025,13 +3821,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KSplitterCollapserButton, name: []const u8) void {
+    pub fn setAccessibleName(self: KSplitterCollapserButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3043,13 +3843,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3061,13 +3865,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KSplitterCollapserButton, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KSplitterCollapserButton, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3079,9 +3887,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KSplitterCollapserButton, direction: i32) void {
+    pub fn setLayoutDirection(self: KSplitterCollapserButton, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3095,9 +3907,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KSplitterCollapserButton) i32 {
+    pub fn layoutDirection(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3107,9 +3923,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UnsetLayoutDirection(self: KSplitterCollapserButton) void {
+    pub fn unsetLayoutDirection(self: KSplitterCollapserButton) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3119,12 +3939,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KSplitterCollapserButton, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KSplitterCollapserButton, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3134,9 +3958,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Locale(self: KSplitterCollapserButton) QLocale {
+    pub fn locale(self: KSplitterCollapserButton) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3146,9 +3974,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UnsetLocale(self: KSplitterCollapserButton) void {
+    pub fn unsetLocale(self: KSplitterCollapserButton) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3158,9 +3990,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsRightToLeft(self: KSplitterCollapserButton) bool {
+    pub fn isRightToLeft(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3170,9 +4006,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsLeftToRight(self: KSplitterCollapserButton) bool {
+    pub fn isLeftToRight(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3182,9 +4022,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SetFocus(self: KSplitterCollapserButton) void {
+    pub fn setFocus(self: KSplitterCollapserButton) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3194,9 +4038,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsActiveWindow(self: KSplitterCollapserButton) bool {
+    pub fn isActiveWindow(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3206,9 +4054,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ActivateWindow(self: KSplitterCollapserButton) void {
+    pub fn activateWindow(self: KSplitterCollapserButton) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3218,9 +4070,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ClearFocus(self: KSplitterCollapserButton) void {
+    pub fn clearFocus(self: KSplitterCollapserButton) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3232,9 +4088,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KSplitterCollapserButton, reason: i32) void {
+    pub fn setFocus2(self: KSplitterCollapserButton, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3248,9 +4108,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KSplitterCollapserButton) i32 {
+    pub fn focusPolicy(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3262,9 +4126,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KSplitterCollapserButton, policy: i32) void {
+    pub fn setFocusPolicy(self: KSplitterCollapserButton, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3274,9 +4142,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn HasFocus(self: KSplitterCollapserButton) bool {
+    pub fn hasFocus(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3288,11 +4160,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3302,12 +4178,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KSplitterCollapserButton, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KSplitterCollapserButton, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3317,9 +4197,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FocusProxy(self: KSplitterCollapserButton) QWidget {
+    pub fn focusProxy(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3333,9 +4217,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KSplitterCollapserButton) i32 {
+    pub fn contextMenuPolicy(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3347,9 +4235,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KSplitterCollapserButton, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KSplitterCollapserButton, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3359,9 +4251,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn GrabMouse(self: KSplitterCollapserButton) void {
+    pub fn grabMouse(self: KSplitterCollapserButton) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3373,10 +4269,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn grabMouse2(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3386,9 +4286,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ReleaseMouse(self: KSplitterCollapserButton) void {
+    pub fn releaseMouse(self: KSplitterCollapserButton) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3398,9 +4302,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn GrabKeyboard(self: KSplitterCollapserButton) void {
+    pub fn grabKeyboard(self: KSplitterCollapserButton) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3410,9 +4318,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ReleaseKeyboard(self: KSplitterCollapserButton) void {
+    pub fn releaseKeyboard(self: KSplitterCollapserButton) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3424,10 +4336,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KSplitterCollapserButton, key: anytype) i32 {
+    pub fn grabShortcut(self: KSplitterCollapserButton, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3439,9 +4355,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KSplitterCollapserButton, id: i32) void {
+    pub fn releaseShortcut(self: KSplitterCollapserButton, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3453,9 +4373,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KSplitterCollapserButton, id: i32) void {
+    pub fn setShortcutEnabled(self: KSplitterCollapserButton, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3467,25 +4391,37 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KSplitterCollapserButton, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KSplitterCollapserButton, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3495,9 +4431,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UpdatesEnabled(self: KSplitterCollapserButton) bool {
+    pub fn updatesEnabled(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3509,9 +4449,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KSplitterCollapserButton, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KSplitterCollapserButton, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3521,9 +4465,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn GraphicsProxyWidget(self: KSplitterCollapserButton) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KSplitterCollapserButton) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3533,9 +4481,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Update(self: KSplitterCollapserButton) void {
+    pub fn update(self: KSplitterCollapserButton) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3545,9 +4497,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Repaint(self: KSplitterCollapserButton) void {
+    pub fn repaint(self: KSplitterCollapserButton) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3557,17 +4513,21 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KSplitterCollapserButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KSplitterCollapserButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3579,11 +4539,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn update3(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3594,10 +4558,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn update4(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3607,17 +4575,21 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KSplitterCollapserButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KSplitterCollapserButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3629,10 +4601,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn repaint3(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3644,10 +4620,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn repaint4(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3659,9 +4639,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KSplitterCollapserButton, hidden: bool) void {
+    pub fn setHidden(self: KSplitterCollapserButton, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3671,9 +4655,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Show(self: KSplitterCollapserButton) void {
+    pub fn show(self: KSplitterCollapserButton) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3683,9 +4671,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Hide(self: KSplitterCollapserButton) void {
+    pub fn hide(self: KSplitterCollapserButton) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3695,9 +4687,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ShowMinimized(self: KSplitterCollapserButton) void {
+    pub fn showMinimized(self: KSplitterCollapserButton) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3707,9 +4703,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ShowMaximized(self: KSplitterCollapserButton) void {
+    pub fn showMaximized(self: KSplitterCollapserButton) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3719,9 +4719,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ShowFullScreen(self: KSplitterCollapserButton) void {
+    pub fn showFullScreen(self: KSplitterCollapserButton) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3731,9 +4735,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ShowNormal(self: KSplitterCollapserButton) void {
+    pub fn showNormal(self: KSplitterCollapserButton) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3743,9 +4751,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Close(self: KSplitterCollapserButton) bool {
+    pub fn close(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3755,9 +4767,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Raise(self: KSplitterCollapserButton) void {
+    pub fn raise(self: KSplitterCollapserButton) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3767,9 +4783,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Lower(self: KSplitterCollapserButton) void {
+    pub fn lower(self: KSplitterCollapserButton) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3781,10 +4801,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn stackUnder(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3794,13 +4818,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KSplitterCollapserButton, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KSplitterCollapserButton, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3812,10 +4840,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn move2(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4861,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KSplitterCollapserButton, w: i32, h: i32) void {
+    pub fn resize(self: KSplitterCollapserButton, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3843,10 +4879,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn resize2(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3856,17 +4896,21 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KSplitterCollapserButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KSplitterCollapserButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3876,12 +4920,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KSplitterCollapserButton, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KSplitterCollapserButton, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3893,13 +4941,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSplitterCollapserButton.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KSplitterCollapserButton.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3909,15 +4961,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KSplitterCollapserButton, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KSplitterCollapserButton, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4983,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AdjustSize(self: KSplitterCollapserButton) void {
+    pub fn adjustSize(self: KSplitterCollapserButton) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3939,9 +4999,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsVisible(self: KSplitterCollapserButton) bool {
+    pub fn isVisible(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3953,10 +5017,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KSplitterCollapserButton, param1: anytype) bool {
+    pub fn isVisibleTo(self: KSplitterCollapserButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +5034,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsHidden(self: KSplitterCollapserButton) bool {
+    pub fn isHidden(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3978,9 +5050,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsMinimized(self: KSplitterCollapserButton) bool {
+    pub fn isMinimized(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3990,9 +5066,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsMaximized(self: KSplitterCollapserButton) bool {
+    pub fn isMaximized(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4002,9 +5082,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsFullScreen(self: KSplitterCollapserButton) bool {
+    pub fn isFullScreen(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4018,9 +5102,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KSplitterCollapserButton) i32 {
+    pub fn windowState(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4032,9 +5120,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KSplitterCollapserButton, state: i32) void {
+    pub fn setWindowState(self: KSplitterCollapserButton, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4046,9 +5138,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KSplitterCollapserButton, state: i32) void {
+    pub fn overrideWindowState(self: KSplitterCollapserButton, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4058,9 +5154,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SizePolicy(self: KSplitterCollapserButton) QSizePolicy {
+    pub fn sizePolicy(self: KSplitterCollapserButton) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4070,12 +5170,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KSplitterCollapserButton, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KSplitterCollapserButton, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5193,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KSplitterCollapserButton, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KSplitterCollapserButton, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4101,9 +5209,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn VisibleRegion(self: KSplitterCollapserButton) QRegion {
+    pub fn visibleRegion(self: KSplitterCollapserButton) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4121,9 +5233,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KSplitterCollapserButton, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KSplitterCollapserButton, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4135,10 +5251,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KSplitterCollapserButton, margins: anytype) void {
+    pub fn setContentsMargins2(self: KSplitterCollapserButton, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4148,9 +5268,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ContentsMargins(self: KSplitterCollapserButton) QMargins {
+    pub fn contentsMargins(self: KSplitterCollapserButton) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4160,9 +5284,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ContentsRect(self: KSplitterCollapserButton) QRect {
+    pub fn contentsRect(self: KSplitterCollapserButton) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4172,9 +5300,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Layout(self: KSplitterCollapserButton) QLayout {
+    pub fn layout(self: KSplitterCollapserButton) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4184,12 +5316,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KSplitterCollapserButton, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KSplitterCollapserButton, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4199,24 +5335,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UpdateGeometry(self: KSplitterCollapserButton) void {
+    pub fn updateGeometry(self: KSplitterCollapserButton) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSplitterCollapserButton `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KSplitterCollapserButton, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4226,14 +5351,37 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KSplitterCollapserButton, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSplitterCollapserButton `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KSplitterCollapserButton, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KSplitterCollapserButton, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4247,9 +5395,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KSplitterCollapserButton, dx: i32, dy: i32) void {
+    pub fn scroll(self: KSplitterCollapserButton, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4265,10 +5417,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KSplitterCollapserButton, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KSplitterCollapserButton, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4278,9 +5434,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FocusWidget(self: KSplitterCollapserButton) QWidget {
+    pub fn focusWidget(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4290,9 +5450,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn NextInFocusChain(self: KSplitterCollapserButton) QWidget {
+    pub fn nextInFocusChain(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4302,9 +5466,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn PreviousInFocusChain(self: KSplitterCollapserButton) QWidget {
+    pub fn previousInFocusChain(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4314,9 +5482,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AcceptDrops(self: KSplitterCollapserButton) bool {
+    pub fn acceptDrops(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4328,9 +5500,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KSplitterCollapserButton, on: bool) void {
+    pub fn setAcceptDrops(self: KSplitterCollapserButton, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4342,10 +5518,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KSplitterCollapserButton, action: anytype) void {
+    pub fn addAction(self: KSplitterCollapserButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4355,15 +5535,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KSplitterCollapserButton, actions: []QAction) void {
+    pub fn addActions(self: KSplitterCollapserButton, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4375,16 +5559,20 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KSplitterCollapserButton, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KSplitterCollapserButton, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4398,11 +5586,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KSplitterCollapserButton, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KSplitterCollapserButton, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4414,10 +5606,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KSplitterCollapserButton, action: anytype) void {
+    pub fn removeAction(self: KSplitterCollapserButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4429,15 +5625,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSplitterCollapserButton.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KSplitterCollapserButton.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4447,36 +5647,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KSplitterCollapserButton, text: []const u8) QAction {
+    pub fn addAction2(self: KSplitterCollapserButton, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSplitterCollapserButton `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: KSplitterCollapserButton, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4486,18 +5669,22 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: KSplitterCollapserButton, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: KSplitterCollapserButton, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4507,21 +5694,50 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: KSplitterCollapserButton, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: KSplitterCollapserButton, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSplitterCollapserButton `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: KSplitterCollapserButton, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4531,9 +5747,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ParentWidget(self: KSplitterCollapserButton) QWidget {
+    pub fn parentWidget(self: KSplitterCollapserButton) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4545,9 +5765,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KSplitterCollapserButton, typeVal: i32) void {
+    pub fn setWindowFlags(self: KSplitterCollapserButton, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4561,9 +5785,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KSplitterCollapserButton) i32 {
+    pub fn windowFlags(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4575,9 +5803,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KSplitterCollapserButton, param1: i32) void {
+    pub fn setWindowFlag(self: KSplitterCollapserButton, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4589,9 +5821,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KSplitterCollapserButton, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KSplitterCollapserButton, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4605,9 +5841,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KSplitterCollapserButton) i32 {
+    pub fn windowType(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4617,9 +5857,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4629,13 +5873,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KSplitterCollapserButton, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KSplitterCollapserButton, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4647,10 +5895,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KSplitterCollapserButton, p: anytype) QWidget {
+    pub fn childAt2(self: KSplitterCollapserButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4662,10 +5914,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KSplitterCollapserButton, p: anytype) QWidget {
+    pub fn childAt3(self: KSplitterCollapserButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4677,9 +5933,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KSplitterCollapserButton, param1: i32) void {
+    pub fn setAttribute(self: KSplitterCollapserButton, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4691,9 +5951,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KSplitterCollapserButton, param1: i32) bool {
+    pub fn testAttribute(self: KSplitterCollapserButton, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4703,9 +5967,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn EnsurePolished(self: KSplitterCollapserButton) void {
+    pub fn ensurePolished(self: KSplitterCollapserButton) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4717,10 +5985,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KSplitterCollapserButton, child: anytype) bool {
+    pub fn isAncestorOf(self: KSplitterCollapserButton, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4730,9 +6002,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn AutoFillBackground(self: KSplitterCollapserButton) bool {
+    pub fn autoFillBackground(self: KSplitterCollapserButton) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4744,9 +6020,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KSplitterCollapserButton, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KSplitterCollapserButton, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4756,9 +6036,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn BackingStore(self: KSplitterCollapserButton) QBackingStore {
+    pub fn backingStore(self: KSplitterCollapserButton) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4768,9 +6052,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn WindowHandle(self: KSplitterCollapserButton) QWindow {
+    pub fn windowHandle(self: KSplitterCollapserButton) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4780,9 +6068,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Screen(self: KSplitterCollapserButton) QScreen {
+    pub fn screen(self: KSplitterCollapserButton) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4792,12 +6084,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KSplitterCollapserButton, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KSplitterCollapserButton, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4805,12 +6101,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4822,13 +6122,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KSplitterCollapserButton, title: []const u8) void {
+    pub fn windowTitleChanged(self: KSplitterCollapserButton, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4840,9 +6144,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4852,12 +6160,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KSplitterCollapserButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KSplitterCollapserButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4869,9 +6181,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4883,13 +6199,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KSplitterCollapserButton, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KSplitterCollapserButton, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4901,9 +6221,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4913,12 +6237,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KSplitterCollapserButton, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KSplitterCollapserButton, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4930,9 +6258,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4946,9 +6278,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KSplitterCollapserButton) i32 {
+    pub fn inputMethodHints(self: KSplitterCollapserButton) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4960,9 +6296,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KSplitterCollapserButton, hints: i32) void {
+    pub fn setInputMethodHints(self: KSplitterCollapserButton, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4976,11 +6316,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4996,13 +6340,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5019,12 +6367,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KSplitterCollapserButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5038,11 +6390,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5058,12 +6414,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5081,12 +6441,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KSplitterCollapserButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5098,10 +6462,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KSplitterCollapserButton, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KSplitterCollapserButton, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5115,9 +6483,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KSplitterCollapserButton, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KSplitterCollapserButton, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5131,10 +6503,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KSplitterCollapserButton, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KSplitterCollapserButton, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5148,9 +6524,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KSplitterCollapserButton, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KSplitterCollapserButton, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5164,9 +6544,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KSplitterCollapserButton, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KSplitterCollapserButton, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5180,9 +6564,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KSplitterCollapserButton, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KSplitterCollapserButton, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5196,25 +6584,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KSplitterCollapserButton, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KSplitterCollapserButton, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5222,17 +6598,41 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5244,13 +6644,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSplitterCollapserButton.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5262,13 +6666,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KSplitterCollapserButton, name: []const u8) void {
+    pub fn setObjectName(self: KSplitterCollapserButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5278,9 +6686,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsWidgetType(self: KSplitterCollapserButton) bool {
+    pub fn isWidgetType(self: KSplitterCollapserButton) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5290,9 +6702,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsWindowType(self: KSplitterCollapserButton) bool {
+    pub fn isWindowType(self: KSplitterCollapserButton) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5302,9 +6718,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn IsQuickItemType(self: KSplitterCollapserButton) bool {
+    pub fn isQuickItemType(self: KSplitterCollapserButton) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5314,9 +6734,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SignalsBlocked(self: KSplitterCollapserButton) bool {
+    pub fn signalsBlocked(self: KSplitterCollapserButton) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5328,9 +6752,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KSplitterCollapserButton, b: bool) bool {
+    pub fn blockSignals(self: KSplitterCollapserButton, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5340,9 +6768,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Thread(self: KSplitterCollapserButton) QThread {
+    pub fn thread(self: KSplitterCollapserButton) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5352,12 +6784,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KSplitterCollapserButton, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KSplitterCollapserButton, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5369,9 +6805,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KSplitterCollapserButton, interval: i32) i32 {
+    pub fn startTimer(self: KSplitterCollapserButton, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5383,9 +6823,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KSplitterCollapserButton, time: i64) i32 {
+    pub fn startTimer2(self: KSplitterCollapserButton, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5397,9 +6841,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KSplitterCollapserButton, id: i32) void {
+    pub fn killTimer(self: KSplitterCollapserButton, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5411,9 +6859,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KSplitterCollapserButton, id: i32) void {
+    pub fn killTimer2(self: KSplitterCollapserButton, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5425,15 +6877,19 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KSplitterCollapserButton, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSplitterCollapserButton.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KSplitterCollapserButton.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5445,10 +6901,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KSplitterCollapserButton, filterObj: anytype) void {
+    pub fn installEventFilter(self: KSplitterCollapserButton, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5460,10 +6920,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KSplitterCollapserButton, obj: anytype) void {
+    pub fn removeEventFilter(self: KSplitterCollapserButton, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5471,7 +6935,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5479,13 +6943,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5493,7 +6961,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5501,13 +6969,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5517,18 +6989,22 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KSplitterCollapserButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KSplitterCollapserButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5536,7 +7012,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5544,13 +7020,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5558,7 +7038,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5566,13 +7046,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5582,9 +7066,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Disconnect3(self: KSplitterCollapserButton) bool {
+    pub fn disconnect3(self: KSplitterCollapserButton) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5596,10 +7084,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KSplitterCollapserButton, receiver: anytype) bool {
+    pub fn disconnect4(self: KSplitterCollapserButton, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5609,10 +7101,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5622,9 +7118,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DumpObjectTree(self: KSplitterCollapserButton) void {
+    pub fn dumpObjectTree(self: KSplitterCollapserButton) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5634,9 +7134,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DumpObjectInfo(self: KSplitterCollapserButton) void {
+    pub fn dumpObjectInfo(self: KSplitterCollapserButton) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5650,11 +7154,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KSplitterCollapserButton, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KSplitterCollapserButton, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5666,10 +7174,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KSplitterCollapserButton, name: [:0]const u8) QVariant {
+    pub fn property(self: KSplitterCollapserButton, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5681,7 +7193,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KSplitterCollapserButton, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KSplitterCollapserButton, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5689,27 +7201,19 @@ pub const KSplitterCollapserButton = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSplitterCollapserButton.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KSplitterCollapserButton.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSplitterCollapserButton.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSplitterCollapserButton.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KSplitterCollapserButton `
-    ///
-    pub fn BindingStorage(self: KSplitterCollapserButton) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5719,9 +7223,29 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn BindingStorage2(self: KSplitterCollapserButton) QBindingStorage {
+    pub fn bindingStorage(self: KSplitterCollapserButton) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KSplitterCollapserButton `
+    ///
+    pub fn bindingStorage2(self: KSplitterCollapserButton) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5731,9 +7255,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Destroyed(self: KSplitterCollapserButton) void {
+    pub fn destroyed(self: KSplitterCollapserButton) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5745,9 +7273,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
+    pub fn onDestroyed(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5757,9 +7289,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Parent(self: KSplitterCollapserButton) QObject {
+    pub fn parent(self: KSplitterCollapserButton) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5771,10 +7307,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KSplitterCollapserButton, classname: [:0]const u8) bool {
+    pub fn inherits(self: KSplitterCollapserButton, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5784,9 +7324,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DeleteLater(self: KSplitterCollapserButton) void {
+    pub fn deleteLater(self: KSplitterCollapserButton) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5800,9 +7344,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KSplitterCollapserButton, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KSplitterCollapserButton, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5816,9 +7364,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KSplitterCollapserButton, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KSplitterCollapserButton, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5826,7 +7378,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5836,13 +7388,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5850,7 +7406,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5860,13 +7416,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5876,7 +7436,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5884,12 +7444,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KSplitterCollapserButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KSplitterCollapserButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5901,10 +7465,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KSplitterCollapserButton, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KSplitterCollapserButton, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5918,11 +7486,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KSplitterCollapserButton, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KSplitterCollapserButton, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5938,13 +7510,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KSplitterCollapserButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KSplitterCollapserButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5957,11 +7533,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KSplitterCollapserButton, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KSplitterCollapserButton, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5973,10 +7553,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn destroyed1(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5988,9 +7572,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6000,9 +7588,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn PaintingActive(self: KSplitterCollapserButton) bool {
+    pub fn paintingActive(self: KSplitterCollapserButton) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6012,9 +7604,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn WidthMM(self: KSplitterCollapserButton) i32 {
+    pub fn widthMM(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6024,9 +7620,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn HeightMM(self: KSplitterCollapserButton) i32 {
+    pub fn heightMM(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6036,9 +7636,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn LogicalDpiX(self: KSplitterCollapserButton) i32 {
+    pub fn logicalDpiX(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6048,9 +7652,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn LogicalDpiY(self: KSplitterCollapserButton) i32 {
+    pub fn logicalDpiY(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6060,9 +7668,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn PhysicalDpiX(self: KSplitterCollapserButton) i32 {
+    pub fn physicalDpiX(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6072,9 +7684,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn PhysicalDpiY(self: KSplitterCollapserButton) i32 {
+    pub fn physicalDpiY(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6084,9 +7700,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DevicePixelRatio(self: KSplitterCollapserButton) f64 {
+    pub fn devicePixelRatio(self: KSplitterCollapserButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6096,9 +7716,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DevicePixelRatioF(self: KSplitterCollapserButton) f64 {
+    pub fn devicePixelRatioF(self: KSplitterCollapserButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6108,9 +7732,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn ColorCount(self: KSplitterCollapserButton) i32 {
+    pub fn colorCount(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6120,17 +7748,25 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Depth(self: KSplitterCollapserButton) i32 {
+    pub fn depth(self: KSplitterCollapserButton) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6138,13 +7774,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6156,13 +7796,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn MinimumSizeHint(self: KSplitterCollapserButton) QSize {
+    pub fn minimumSizeHint(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.KSplitterCollapserButton_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6174,9 +7814,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperMinimumSizeHint(self: KSplitterCollapserButton) QSize {
+    pub fn superMinimumSizeHint(self: KSplitterCollapserButton) QSize {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6192,9 +7836,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KSplitterCollapserButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QToolButton
     ///
@@ -6208,14 +7856,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KSplitterCollapserButton, e: anytype) bool {
+    pub fn event(self: KSplitterCollapserButton, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSplitterCollapserButton_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6229,10 +7877,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KSplitterCollapserButton, e: anytype) bool {
+    pub fn superEvent(self: KSplitterCollapserButton, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KSplitterCollapserButton_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6246,9 +7898,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6262,14 +7918,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn mousePressEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6283,11 +7939,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superMousePressEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#mousePressEvent)
@@ -6300,9 +7960,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6316,14 +7980,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6337,10 +8001,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6354,9 +8022,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6370,14 +8042,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn ActionEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn actionEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KSplitterCollapserButton_ActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6391,10 +8063,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superActionEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KSplitterCollapserButton_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6408,9 +8084,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QActionEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6424,14 +8104,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn timerEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KSplitterCollapserButton_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6445,10 +8125,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superTimerEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KSplitterCollapserButton_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6462,9 +8146,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QTimerEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6478,14 +8166,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn changeEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KSplitterCollapserButton_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6499,10 +8187,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superChangeEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KSplitterCollapserButton_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6516,9 +8208,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hitButton` instead
+    ///
+    pub const HitButton = hitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6530,16 +8226,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn HitButton(self: KSplitterCollapserButton, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.KSplitterCollapserButton_HitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn hitButton(self: KSplitterCollapserButton, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.KSplitterCollapserButton_HitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHitButton` instead
+    /// ### DEPRECATED: Use `superHitButton` instead
     ///
-    pub const QBaseHitButton = SuperHitButton;
+    pub const SuperHitButton = superHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6551,12 +8247,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperHitButton(self: KSplitterCollapserButton, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.KSplitterCollapserButton_SuperHitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn superHitButton(self: KSplitterCollapserButton, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.KSplitterCollapserButton_SuperHitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHitButton` instead
+    ///
+    pub const OnHitButton = onHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6570,10 +8270,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, pos: QPoint) callconv(.c) bool `
     ///
-    pub fn OnHitButton(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) bool) void {
+    pub fn onHitButton(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnHitButton(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `checkStateSet` instead
+    ///
+    pub const CheckStateSet = checkStateSet;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet)
@@ -6584,13 +8288,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn CheckStateSet(self: KSplitterCollapserButton) void {
+    pub fn checkStateSet(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_CheckStateSet(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckStateSet` instead
+    /// ### DEPRECATED: Use `superCheckStateSet` instead
     ///
-    pub const QBaseCheckStateSet = SuperCheckStateSet;
+    pub const SuperCheckStateSet = superCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6602,9 +8306,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperCheckStateSet(self: KSplitterCollapserButton) void {
+    pub fn superCheckStateSet(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_SuperCheckStateSet(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCheckStateSet` instead
+    ///
+    pub const OnCheckStateSet = onCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6618,9 +8326,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckStateSet(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nextCheckState` instead
+    ///
+    pub const NextCheckState = nextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6632,13 +8344,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn NextCheckState(self: KSplitterCollapserButton) void {
+    pub fn nextCheckState(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_NextCheckState(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperNextCheckState` instead
+    /// ### DEPRECATED: Use `superNextCheckState` instead
     ///
-    pub const QBaseNextCheckState = SuperNextCheckState;
+    pub const SuperNextCheckState = superNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6650,9 +8362,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperNextCheckState(self: KSplitterCollapserButton) void {
+    pub fn superNextCheckState(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_SuperNextCheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNextCheckState` instead
+    ///
+    pub const OnNextCheckState = onNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6666,9 +8382,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnNextCheckState(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6682,14 +8402,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn InitStyleOption(self: KSplitterCollapserButton, option: anytype) void {
+    pub fn initStyleOption(self: KSplitterCollapserButton, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.KSplitterCollapserButton_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6703,10 +8423,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn SuperInitStyleOption(self: KSplitterCollapserButton, option: anytype) void {
+    pub fn superInitStyleOption(self: KSplitterCollapserButton, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.KSplitterCollapserButton_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6720,9 +8444,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, option: QStyleOptionToolButton) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QStyleOptionToolButton) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QStyleOptionToolButton) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6736,14 +8464,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn keyPressEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KSplitterCollapserButton_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6757,11 +8485,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn superKeyPressEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KSplitterCollapserButton_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyPressEvent)
@@ -6774,9 +8506,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QKeyEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6790,14 +8526,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn keyReleaseEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KSplitterCollapserButton_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6811,10 +8547,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KSplitterCollapserButton_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6828,9 +8568,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QKeyEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6844,14 +8588,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn mouseMoveEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6865,10 +8609,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KSplitterCollapserButton_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6882,9 +8630,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6898,14 +8650,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn focusInEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KSplitterCollapserButton_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6919,11 +8671,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn superFocusInEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KSplitterCollapserButton_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusInEvent)
@@ -6936,9 +8692,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QFocusEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6952,14 +8712,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn focusOutEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KSplitterCollapserButton_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6973,10 +8733,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KSplitterCollapserButton, e: anytype) void {
+    pub fn superFocusOutEvent(self: KSplitterCollapserButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KSplitterCollapserButton_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6990,9 +8754,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QFocusEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7004,13 +8772,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn DevType(self: KSplitterCollapserButton) i32 {
+    pub fn devType(self: KSplitterCollapserButton) i32 {
         return qtc.KSplitterCollapserButton_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7022,9 +8790,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperDevType(self: KSplitterCollapserButton) i32 {
+    pub fn superDevType(self: KSplitterCollapserButton) i32 {
         return qtc.KSplitterCollapserButton_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7038,9 +8810,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7054,13 +8830,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KSplitterCollapserButton, visible: bool) void {
+    pub fn setVisible(self: KSplitterCollapserButton, visible: bool) void {
         qtc.KSplitterCollapserButton_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7074,9 +8850,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KSplitterCollapserButton, visible: bool) void {
+    pub fn superSetVisible(self: KSplitterCollapserButton, visible: bool) void {
         qtc.KSplitterCollapserButton_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7090,9 +8870,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7106,13 +8890,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KSplitterCollapserButton, param1: i32) i32 {
+    pub fn heightForWidth(self: KSplitterCollapserButton, param1: i32) i32 {
         return qtc.KSplitterCollapserButton_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7126,9 +8910,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KSplitterCollapserButton, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KSplitterCollapserButton, param1: i32) i32 {
         return qtc.KSplitterCollapserButton_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7142,9 +8930,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7156,13 +8948,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn HasHeightForWidth(self: KSplitterCollapserButton) bool {
+    pub fn hasHeightForWidth(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7174,9 +8966,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperHasHeightForWidth(self: KSplitterCollapserButton) bool {
+    pub fn superHasHeightForWidth(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7190,9 +8986,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7204,13 +9004,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn PaintEngine(self: KSplitterCollapserButton) QPaintEngine {
+    pub fn paintEngine(self: KSplitterCollapserButton) QPaintEngine {
         return .{ .ptr = qtc.KSplitterCollapserButton_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7222,9 +9022,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperPaintEngine(self: KSplitterCollapserButton) QPaintEngine {
+    pub fn superPaintEngine(self: KSplitterCollapserButton) QPaintEngine {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7238,9 +9042,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KSplitterCollapserButton_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7252,16 +9060,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSplitterCollapserButton_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSplitterCollapserButton_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7273,12 +9081,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KSplitterCollapserButton_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KSplitterCollapserButton_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7292,9 +9104,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMouseEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7306,16 +9122,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KSplitterCollapserButton_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KSplitterCollapserButton_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7327,12 +9143,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KSplitterCollapserButton_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KSplitterCollapserButton_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7346,9 +9166,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QWheelEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7360,16 +9184,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSplitterCollapserButton_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSplitterCollapserButton_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7381,12 +9205,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KSplitterCollapserButton_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KSplitterCollapserButton_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7400,9 +9228,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMoveEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7414,16 +9246,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KSplitterCollapserButton_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KSplitterCollapserButton_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7435,12 +9267,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KSplitterCollapserButton_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KSplitterCollapserButton_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7454,9 +9290,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QResizeEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7468,16 +9308,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSplitterCollapserButton_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSplitterCollapserButton_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7489,12 +9329,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KSplitterCollapserButton_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KSplitterCollapserButton_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7508,9 +9352,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QCloseEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7522,16 +9370,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KSplitterCollapserButton_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KSplitterCollapserButton_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7543,12 +9391,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KSplitterCollapserButton_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KSplitterCollapserButton_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7562,9 +9414,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QContextMenuEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7576,16 +9432,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSplitterCollapserButton_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSplitterCollapserButton_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7597,12 +9453,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KSplitterCollapserButton_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KSplitterCollapserButton_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7616,9 +9476,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QTabletEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7630,16 +9494,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSplitterCollapserButton_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSplitterCollapserButton_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7651,12 +9515,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KSplitterCollapserButton_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KSplitterCollapserButton_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7670,9 +9538,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragEnterEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7684,16 +9556,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSplitterCollapserButton_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSplitterCollapserButton_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7705,12 +9577,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KSplitterCollapserButton_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KSplitterCollapserButton_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7724,9 +9600,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragMoveEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7738,16 +9618,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSplitterCollapserButton_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSplitterCollapserButton_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7759,12 +9639,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KSplitterCollapserButton_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KSplitterCollapserButton_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7778,9 +9662,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7792,16 +9680,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSplitterCollapserButton_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSplitterCollapserButton_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7813,12 +9701,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KSplitterCollapserButton_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KSplitterCollapserButton_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7832,9 +9724,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QDropEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7846,16 +9742,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSplitterCollapserButton_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSplitterCollapserButton_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7867,12 +9763,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KSplitterCollapserButton_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KSplitterCollapserButton_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7886,9 +9786,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QHideEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7906,7 +9810,7 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KSplitterCollapserButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KSplitterCollapserButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7914,9 +9818,9 @@ pub const KSplitterCollapserButton = extern struct {
         return qtc.KSplitterCollapserButton_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7934,13 +9838,17 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KSplitterCollapserButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KSplitterCollapserButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KSplitterCollapserButton_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7954,9 +9862,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7970,13 +9882,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KSplitterCollapserButton, param1: i32) i32 {
+    pub fn metric(self: KSplitterCollapserButton, param1: i32) i32 {
         return qtc.KSplitterCollapserButton_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7990,9 +9902,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KSplitterCollapserButton, param1: i32) i32 {
+    pub fn superMetric(self: KSplitterCollapserButton, param1: i32) i32 {
         return qtc.KSplitterCollapserButton_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8006,9 +9922,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8022,14 +9942,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KSplitterCollapserButton, painter: anytype) void {
+    pub fn initPainter(self: KSplitterCollapserButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSplitterCollapserButton_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8043,10 +9963,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KSplitterCollapserButton, painter: anytype) void {
+    pub fn superInitPainter(self: KSplitterCollapserButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KSplitterCollapserButton_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8060,9 +9984,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPainter) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8076,14 +10004,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KSplitterCollapserButton, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KSplitterCollapserButton, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSplitterCollapserButton_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8097,10 +10025,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KSplitterCollapserButton, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KSplitterCollapserButton, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8114,9 +10046,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KSplitterCollapserButton_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8128,13 +10064,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SharedPainter(self: KSplitterCollapserButton) QPainter {
+    pub fn sharedPainter(self: KSplitterCollapserButton) QPainter {
         return .{ .ptr = qtc.KSplitterCollapserButton_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8146,9 +10082,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperSharedPainter(self: KSplitterCollapserButton) QPainter {
+    pub fn superSharedPainter(self: KSplitterCollapserButton) QPainter {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8162,9 +10102,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KSplitterCollapserButton_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8178,14 +10122,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn inputMethodEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSplitterCollapserButton_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8199,10 +10143,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KSplitterCollapserButton, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KSplitterCollapserButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KSplitterCollapserButton_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8216,9 +10164,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QInputMethodEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8232,13 +10184,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KSplitterCollapserButton, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KSplitterCollapserButton, param1: i32) QVariant {
         return .{ .ptr = qtc.KSplitterCollapserButton_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8252,9 +10204,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KSplitterCollapserButton, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KSplitterCollapserButton, param1: i32) QVariant {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8270,9 +10226,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32) callconv(.c) QVariant) void {
         qtc.KSplitterCollapserButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8286,13 +10246,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KSplitterCollapserButton, next: bool) bool {
+    pub fn focusNextPrevChild(self: KSplitterCollapserButton, next: bool) bool {
         return qtc.KSplitterCollapserButton_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8306,9 +10266,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KSplitterCollapserButton, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KSplitterCollapserButton, next: bool) bool {
         return qtc.KSplitterCollapserButton_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8322,9 +10286,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, bool) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8336,16 +10304,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSplitterCollapserButton_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSplitterCollapserButton_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8357,12 +10325,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KSplitterCollapserButton_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KSplitterCollapserButton_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8376,9 +10348,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QChildEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8390,16 +10366,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSplitterCollapserButton_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSplitterCollapserButton_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8411,12 +10387,16 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KSplitterCollapserButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KSplitterCollapserButton_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KSplitterCollapserButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KSplitterCollapserButton_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8430,9 +10410,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QEvent) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8446,14 +10430,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
+    pub fn connectNotify(self: KSplitterCollapserButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSplitterCollapserButton_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8467,11 +10451,15 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
+    pub fn superConnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSplitterCollapserButton_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8484,9 +10472,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8500,14 +10492,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
+    pub fn disconnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSplitterCollapserButton_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8521,10 +10513,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KSplitterCollapserButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KSplitterCollapserButton_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8538,10 +10534,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8552,13 +10552,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn UpdateMicroFocus(self: KSplitterCollapserButton) void {
+    pub fn updateMicroFocus(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8570,10 +10570,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperUpdateMicroFocus(self: KSplitterCollapserButton) void {
+    pub fn superUpdateMicroFocus(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8586,10 +10590,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8600,13 +10608,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Create(self: KSplitterCollapserButton) void {
+    pub fn create(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8618,10 +10626,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperCreate(self: KSplitterCollapserButton) void {
+    pub fn superCreate(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8634,9 +10646,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8648,13 +10664,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Destroy(self: KSplitterCollapserButton) void {
+    pub fn destroy(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8666,9 +10682,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperDestroy(self: KSplitterCollapserButton) void {
+    pub fn superDestroy(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8682,10 +10702,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) void) void {
         qtc.KSplitterCollapserButton_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8696,13 +10720,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FocusNextChild(self: KSplitterCollapserButton) bool {
+    pub fn focusNextChild(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8714,10 +10738,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperFocusNextChild(self: KSplitterCollapserButton) bool {
+    pub fn superFocusNextChild(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8730,9 +10758,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8744,13 +10776,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn FocusPreviousChild(self: KSplitterCollapserButton) bool {
+    pub fn focusPreviousChild(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8762,9 +10794,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperFocusPreviousChild(self: KSplitterCollapserButton) bool {
+    pub fn superFocusPreviousChild(self: KSplitterCollapserButton) bool {
         return qtc.KSplitterCollapserButton_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8778,9 +10814,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8792,13 +10832,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Sender(self: KSplitterCollapserButton) QObject {
+    pub fn sender(self: KSplitterCollapserButton) QObject {
         return .{ .ptr = qtc.KSplitterCollapserButton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8810,9 +10850,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperSender(self: KSplitterCollapserButton) QObject {
+    pub fn superSender(self: KSplitterCollapserButton) QObject {
         return .{ .ptr = qtc.KSplitterCollapserButton_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8826,9 +10870,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) QObject) void {
         qtc.KSplitterCollapserButton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8840,13 +10888,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SenderSignalIndex(self: KSplitterCollapserButton) i32 {
+    pub fn senderSignalIndex(self: KSplitterCollapserButton) i32 {
         return qtc.KSplitterCollapserButton_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8858,9 +10906,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn SuperSenderSignalIndex(self: KSplitterCollapserButton) i32 {
+    pub fn superSenderSignalIndex(self: KSplitterCollapserButton) i32 {
         return qtc.KSplitterCollapserButton_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8874,9 +10926,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KSplitterCollapserButton, callback: *const fn () callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8890,14 +10946,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KSplitterCollapserButton, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KSplitterCollapserButton, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSplitterCollapserButton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8911,10 +10967,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KSplitterCollapserButton, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KSplitterCollapserButton, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KSplitterCollapserButton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8928,9 +10988,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) i32) void {
         qtc.KSplitterCollapserButton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8944,14 +11008,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KSplitterCollapserButton, signal: anytype) bool {
+    pub fn isSignalConnected(self: KSplitterCollapserButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSplitterCollapserButton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8965,10 +11029,14 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KSplitterCollapserButton, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KSplitterCollapserButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KSplitterCollapserButton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8982,9 +11050,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, QMetaMethod) callconv(.c) bool) void {
         qtc.KSplitterCollapserButton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9000,13 +11072,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KSplitterCollapserButton, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KSplitterCollapserButton, metricA: i32, metricB: i32) f64 {
         return qtc.KSplitterCollapserButton_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9022,9 +11094,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KSplitterCollapserButton, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KSplitterCollapserButton, metricA: i32, metricB: i32) f64 {
         return qtc.KSplitterCollapserButton_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9038,9 +11114,13 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, i32, i32) callconv(.c) f64) void {
         qtc.KSplitterCollapserButton_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9054,23 +11134,23 @@ pub const KSplitterCollapserButton = extern struct {
     ///
     /// ` callback: *const fn (self: KSplitterCollapserButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KSplitterCollapserButton, callback: *const fn (KSplitterCollapserButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/ksplittercollapserbutton.html#dtor.KSplitterCollapserButton)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSplitterCollapserButton `
     ///
-    pub fn Delete(self: KSplitterCollapserButton) void {
+    pub fn delete(self: KSplitterCollapserButton) void {
         qtc.KSplitterCollapserButton_Delete(@ptrCast(self.ptr));
     }
 };

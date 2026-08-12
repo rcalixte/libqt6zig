@@ -79,19 +79,27 @@ pub const KMimeTypeChooser = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KMimeTypeChooser {
+    pub const New = new;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
+    ///
+    pub fn new() KMimeTypeChooser {
         return .{ .ptr = qtc.KMimeTypeChooser_new() };
     }
 
-    /// New2 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New2(text: []const u8) KMimeTypeChooser {
+    pub fn new2(text: []const u8) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -99,7 +107,11 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_new2(text_str) };
     }
 
-    /// New3 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -109,17 +121,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` selectedMimeTypes: []const []const u8 `
     ///
-    pub fn New3(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8) KMimeTypeChooser {
+    pub fn new3(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.New3: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.new3: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -128,7 +140,11 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_new3(text_str, selectedMimeTypes_list) };
     }
 
-    /// New4 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -140,17 +156,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    pub fn New4(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooser {
+    pub fn new4(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.New4: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.new4: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -163,7 +179,11 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_new4(text_str, selectedMimeTypes_list, defaultGroup_str) };
     }
 
-    /// New5 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -177,17 +197,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` groupsToShow: []const []const u8 `
     ///
-    pub fn New5(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8) KMimeTypeChooser {
+    pub fn new5(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.New5: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.new5: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -197,12 +217,12 @@ pub const KMimeTypeChooser = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.New5: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.new5: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
@@ -211,7 +231,11 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_new5(text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list) };
     }
 
-    /// New6 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -227,17 +251,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` visuals: i32 `
     ///
-    pub fn New6(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32) KMimeTypeChooser {
+    pub fn new6(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.New6: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.new6: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -247,12 +271,12 @@ pub const KMimeTypeChooser = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.New6: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.new6: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
@@ -261,7 +285,11 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooser_new6(text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals)) };
     }
 
-    /// New7 constructs a new KMimeTypeChooser object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KMimeTypeChooser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -277,19 +305,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` visuals: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New7(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, parent: anytype) KMimeTypeChooser {
+    pub fn new7(allocator: std.mem.Allocator, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, _parent: anytype) KMimeTypeChooser {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.New7: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooser.new7: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -299,20 +327,24 @@ pub const KMimeTypeChooser = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.New7: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooser.new7: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
             .data = groupsToShow_arr.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KMimeTypeChooser_new7(text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KMimeTypeChooser_new7(text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -320,9 +352,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MetaObject(self: KMimeTypeChooser) QMetaObject {
+    pub fn metaObject(self: KMimeTypeChooser) QMetaObject {
         return .{ .ptr = qtc.KMimeTypeChooser_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -334,13 +370,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KMimeTypeChooser_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -350,9 +386,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperMetaObject(self: KMimeTypeChooser) QMetaObject {
+    pub fn superMetaObject(self: KMimeTypeChooser) QMetaObject {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -360,10 +400,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KMimeTypeChooser, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KMimeTypeChooser, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMimeTypeChooser_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -373,13 +417,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KMimeTypeChooser_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -389,10 +433,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KMimeTypeChooser, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KMimeTypeChooser, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMimeTypeChooser_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -404,9 +452,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KMimeTypeChooser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KMimeTypeChooser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMimeTypeChooser_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -416,13 +468,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -436,9 +488,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KMimeTypeChooser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KMimeTypeChooser, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMimeTypeChooser_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -448,14 +504,18 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooser.html#mimeTypes)
     ///
@@ -465,7 +525,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KMimeTypeChooser_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -473,15 +533,19 @@ pub const KMimeTypeChooser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KMimeTypeChooser.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KMimeTypeChooser.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMimeTypeChooser.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMimeTypeChooser.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `patterns` instead
+    ///
+    pub const Patterns = patterns;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooser.html#patterns)
     ///
@@ -491,7 +555,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Patterns(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn patterns(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KMimeTypeChooser_Patterns(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -499,15 +563,19 @@ pub const KMimeTypeChooser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KMimeTypeChooser.Patterns: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KMimeTypeChooser.patterns: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMimeTypeChooser.Patterns: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMimeTypeChooser.patterns: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -519,15 +587,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -541,15 +613,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -559,9 +635,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn WinId(self: KMimeTypeChooser) usize {
+    pub fn winId(self: KMimeTypeChooser) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -571,9 +651,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn CreateWinId(self: KMimeTypeChooser) void {
+    pub fn createWinId(self: KMimeTypeChooser) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -583,9 +667,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn InternalWinId(self: KMimeTypeChooser) usize {
+    pub fn internalWinId(self: KMimeTypeChooser) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -595,9 +683,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn EffectiveWinId(self: KMimeTypeChooser) usize {
+    pub fn effectiveWinId(self: KMimeTypeChooser) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -607,9 +699,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Style(self: KMimeTypeChooser) QStyle {
+    pub fn style(self: KMimeTypeChooser) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -619,12 +715,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KMimeTypeChooser, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KMimeTypeChooser, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -634,9 +734,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsTopLevel(self: KMimeTypeChooser) bool {
+    pub fn isTopLevel(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -646,9 +750,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsWindow(self: KMimeTypeChooser) bool {
+    pub fn isWindow(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -658,9 +766,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsModal(self: KMimeTypeChooser) bool {
+    pub fn isModal(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -674,9 +786,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KMimeTypeChooser) i32 {
+    pub fn windowModality(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -686,11 +802,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KMimeTypeChooser, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KMimeTypeChooser, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -700,9 +820,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsEnabled(self: KMimeTypeChooser) bool {
+    pub fn isEnabled(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -714,10 +838,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KMimeTypeChooser, param1: anytype) bool {
+    pub fn isEnabledTo(self: KMimeTypeChooser, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -729,9 +857,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KMimeTypeChooser, enabled: bool) void {
+    pub fn setEnabled(self: KMimeTypeChooser, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -743,9 +875,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KMimeTypeChooser, disabled: bool) void {
+    pub fn setDisabled(self: KMimeTypeChooser, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -757,9 +893,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KMimeTypeChooser, windowModified: bool) void {
+    pub fn setWindowModified(self: KMimeTypeChooser, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -769,9 +909,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FrameGeometry(self: KMimeTypeChooser) QRect {
+    pub fn frameGeometry(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -781,9 +925,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Geometry(self: KMimeTypeChooser) QRect {
+    pub fn geometry(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -793,9 +941,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn NormalGeometry(self: KMimeTypeChooser) QRect {
+    pub fn normalGeometry(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -805,9 +957,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn X(self: KMimeTypeChooser) i32 {
+    pub fn x(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -817,9 +973,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Y(self: KMimeTypeChooser) i32 {
+    pub fn y(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +989,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Pos(self: KMimeTypeChooser) QPoint {
+    pub fn pos(self: KMimeTypeChooser) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1005,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FrameSize(self: KMimeTypeChooser) QSize {
+    pub fn frameSize(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1021,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Size(self: KMimeTypeChooser) QSize {
+    pub fn size(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -865,9 +1037,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Width(self: KMimeTypeChooser) i32 {
+    pub fn width(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -877,9 +1053,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Height(self: KMimeTypeChooser) i32 {
+    pub fn height(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -889,9 +1069,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Rect(self: KMimeTypeChooser) QRect {
+    pub fn rect(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -901,9 +1085,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ChildrenRect(self: KMimeTypeChooser) QRect {
+    pub fn childrenRect(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -913,9 +1101,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ChildrenRegion(self: KMimeTypeChooser) QRegion {
+    pub fn childrenRegion(self: KMimeTypeChooser) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -925,9 +1117,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MinimumSize(self: KMimeTypeChooser) QSize {
+    pub fn minimumSize(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -937,9 +1133,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MaximumSize(self: KMimeTypeChooser) QSize {
+    pub fn maximumSize(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -949,9 +1149,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MinimumWidth(self: KMimeTypeChooser) i32 {
+    pub fn minimumWidth(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -961,9 +1165,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MinimumHeight(self: KMimeTypeChooser) i32 {
+    pub fn minimumHeight(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -973,9 +1181,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MaximumWidth(self: KMimeTypeChooser) i32 {
+    pub fn maximumWidth(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -985,9 +1197,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MaximumHeight(self: KMimeTypeChooser) i32 {
+    pub fn maximumHeight(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -997,12 +1213,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KMimeTypeChooser, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KMimeTypeChooser, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1016,9 +1236,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KMimeTypeChooser, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KMimeTypeChooser, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1028,12 +1252,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KMimeTypeChooser, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KMimeTypeChooser, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1047,9 +1275,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KMimeTypeChooser, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KMimeTypeChooser, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1061,9 +1293,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KMimeTypeChooser, minw: i32) void {
+    pub fn setMinimumWidth(self: KMimeTypeChooser, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1075,9 +1311,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KMimeTypeChooser, minh: i32) void {
+    pub fn setMinimumHeight(self: KMimeTypeChooser, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1089,9 +1329,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KMimeTypeChooser, maxw: i32) void {
+    pub fn setMaximumWidth(self: KMimeTypeChooser, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1103,9 +1347,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KMimeTypeChooser, maxh: i32) void {
+    pub fn setMaximumHeight(self: KMimeTypeChooser, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1115,9 +1363,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SizeIncrement(self: KMimeTypeChooser) QSize {
+    pub fn sizeIncrement(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1127,12 +1379,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KMimeTypeChooser, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KMimeTypeChooser, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1146,9 +1402,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KMimeTypeChooser, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KMimeTypeChooser, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1158,9 +1418,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn BaseSize(self: KMimeTypeChooser) QSize {
+    pub fn baseSize(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1170,12 +1434,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KMimeTypeChooser, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KMimeTypeChooser, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1189,9 +1457,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KMimeTypeChooser, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KMimeTypeChooser, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1203,10 +1475,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KMimeTypeChooser, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KMimeTypeChooser, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1220,9 +1496,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KMimeTypeChooser, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KMimeTypeChooser, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1234,9 +1514,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KMimeTypeChooser, w: i32) void {
+    pub fn setFixedWidth(self: KMimeTypeChooser, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1248,9 +1532,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KMimeTypeChooser, h: i32) void {
+    pub fn setFixedHeight(self: KMimeTypeChooser, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1262,11 +1550,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KMimeTypeChooser, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KMimeTypeChooser, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1277,11 +1569,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KMimeTypeChooser, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KMimeTypeChooser, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1292,11 +1588,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KMimeTypeChooser, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KMimeTypeChooser, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1307,11 +1607,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KMimeTypeChooser, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KMimeTypeChooser, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1322,11 +1626,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KMimeTypeChooser, param1: anytype) QPointF {
+    pub fn mapToParent(self: KMimeTypeChooser, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1337,10 +1645,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KMimeTypeChooser, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KMimeTypeChooser, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1352,10 +1664,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KMimeTypeChooser, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KMimeTypeChooser, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1367,10 +1683,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KMimeTypeChooser, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KMimeTypeChooser, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1384,12 +1704,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1402,11 +1726,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1420,11 +1748,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1438,11 +1770,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KMimeTypeChooser, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1452,9 +1788,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Window(self: KMimeTypeChooser) QWidget {
+    pub fn window(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1464,9 +1804,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn NativeParentWidget(self: KMimeTypeChooser) QWidget {
+    pub fn nativeParentWidget(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1476,9 +1820,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn TopLevelWidget(self: KMimeTypeChooser) QWidget {
+    pub fn topLevelWidget(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1488,9 +1836,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Palette(self: KMimeTypeChooser) QPalette {
+    pub fn palette(self: KMimeTypeChooser) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1500,12 +1852,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KMimeTypeChooser, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KMimeTypeChooser, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1515,11 +1871,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KMimeTypeChooser, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KMimeTypeChooser, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1533,9 +1893,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KMimeTypeChooser) i32 {
+    pub fn backgroundRole(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1545,11 +1909,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KMimeTypeChooser, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KMimeTypeChooser, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1563,9 +1931,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KMimeTypeChooser) i32 {
+    pub fn foregroundRole(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1575,9 +1947,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Font(self: KMimeTypeChooser) QFont {
+    pub fn font(self: KMimeTypeChooser) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1587,12 +1963,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KMimeTypeChooser, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KMimeTypeChooser, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1602,9 +1982,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FontMetrics(self: KMimeTypeChooser) QFontMetrics {
+    pub fn fontMetrics(self: KMimeTypeChooser) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1614,9 +1998,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FontInfo(self: KMimeTypeChooser) QFontInfo {
+    pub fn fontInfo(self: KMimeTypeChooser) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1626,9 +2014,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Cursor(self: KMimeTypeChooser) QCursor {
+    pub fn cursor(self: KMimeTypeChooser) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1638,12 +2030,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KMimeTypeChooser, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KMimeTypeChooser, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1653,9 +2049,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UnsetCursor(self: KMimeTypeChooser) void {
+    pub fn unsetCursor(self: KMimeTypeChooser) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1667,9 +2067,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KMimeTypeChooser, enable: bool) void {
+    pub fn setMouseTracking(self: KMimeTypeChooser, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1679,9 +2083,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn HasMouseTracking(self: KMimeTypeChooser) bool {
+    pub fn hasMouseTracking(self: KMimeTypeChooser) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1691,9 +2099,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UnderMouse(self: KMimeTypeChooser) bool {
+    pub fn underMouse(self: KMimeTypeChooser) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1705,9 +2117,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KMimeTypeChooser, enable: bool) void {
+    pub fn setTabletTracking(self: KMimeTypeChooser, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1717,24 +2133,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn HasTabletTracking(self: KMimeTypeChooser) bool {
+    pub fn hasTabletTracking(self: KMimeTypeChooser) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KMimeTypeChooser, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1744,12 +2149,35 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KMimeTypeChooser, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KMimeTypeChooser, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooser `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KMimeTypeChooser, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1759,9 +2187,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Mask(self: KMimeTypeChooser) QRegion {
+    pub fn mask(self: KMimeTypeChooser) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1771,9 +2203,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ClearMask(self: KMimeTypeChooser) void {
+    pub fn clearMask(self: KMimeTypeChooser) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1785,10 +2221,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KMimeTypeChooser, target: anytype) void {
+    pub fn render(self: KMimeTypeChooser, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1800,10 +2240,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KMimeTypeChooser, painter: anytype) void {
+    pub fn render2(self: KMimeTypeChooser, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1813,9 +2257,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Grab(self: KMimeTypeChooser) QPixmap {
+    pub fn grab(self: KMimeTypeChooser) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1825,9 +2273,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn GraphicsEffect(self: KMimeTypeChooser) QGraphicsEffect {
+    pub fn graphicsEffect(self: KMimeTypeChooser) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1839,10 +2291,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KMimeTypeChooser, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KMimeTypeChooser, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1854,9 +2310,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KMimeTypeChooser, typeVal: i32) void {
+    pub fn grabGesture(self: KMimeTypeChooser, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1868,9 +2328,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KMimeTypeChooser, typeVal: i32) void {
+    pub fn ungrabGesture(self: KMimeTypeChooser, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1880,15 +2344,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KMimeTypeChooser, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KMimeTypeChooser, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1898,15 +2366,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KMimeTypeChooser, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KMimeTypeChooser, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1918,13 +2390,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1936,13 +2412,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1954,10 +2434,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KMimeTypeChooser, icon: anytype) void {
+    pub fn setWindowIcon(self: KMimeTypeChooser, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1967,9 +2451,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn WindowIcon(self: KMimeTypeChooser) QIcon {
+    pub fn windowIcon(self: KMimeTypeChooser) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1979,15 +2467,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KMimeTypeChooser, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KMimeTypeChooser, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1999,13 +2491,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2015,15 +2511,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KMimeTypeChooser, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KMimeTypeChooser, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2035,13 +2535,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2053,13 +2557,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KMimeTypeChooser, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KMimeTypeChooser, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2071,13 +2579,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2089,9 +2601,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KMimeTypeChooser, level: f64) void {
+    pub fn setWindowOpacity(self: KMimeTypeChooser, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2101,9 +2617,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn WindowOpacity(self: KMimeTypeChooser) f64 {
+    pub fn windowOpacity(self: KMimeTypeChooser) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2113,9 +2633,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsWindowModified(self: KMimeTypeChooser) bool {
+    pub fn isWindowModified(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2125,15 +2649,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KMimeTypeChooser, toolTip: []const u8) void {
+    pub fn setToolTip(self: KMimeTypeChooser, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2145,13 +2673,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2163,9 +2695,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KMimeTypeChooser, msec: i32) void {
+    pub fn setToolTipDuration(self: KMimeTypeChooser, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2711,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ToolTipDuration(self: KMimeTypeChooser) i32 {
+    pub fn toolTipDuration(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2187,15 +2727,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KMimeTypeChooser, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KMimeTypeChooser, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2207,13 +2751,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2223,15 +2771,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KMimeTypeChooser, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KMimeTypeChooser, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2243,13 +2795,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2261,13 +2817,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2279,13 +2839,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KMimeTypeChooser, name: []const u8) void {
+    pub fn setAccessibleName(self: KMimeTypeChooser, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2297,13 +2861,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2315,13 +2883,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KMimeTypeChooser, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KMimeTypeChooser, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2333,9 +2905,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KMimeTypeChooser, direction: i32) void {
+    pub fn setLayoutDirection(self: KMimeTypeChooser, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2349,9 +2925,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KMimeTypeChooser) i32 {
+    pub fn layoutDirection(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2361,9 +2941,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UnsetLayoutDirection(self: KMimeTypeChooser) void {
+    pub fn unsetLayoutDirection(self: KMimeTypeChooser) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2373,12 +2957,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KMimeTypeChooser, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KMimeTypeChooser, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2388,9 +2976,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Locale(self: KMimeTypeChooser) QLocale {
+    pub fn locale(self: KMimeTypeChooser) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2400,9 +2992,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UnsetLocale(self: KMimeTypeChooser) void {
+    pub fn unsetLocale(self: KMimeTypeChooser) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2412,9 +3008,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsRightToLeft(self: KMimeTypeChooser) bool {
+    pub fn isRightToLeft(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2424,9 +3024,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsLeftToRight(self: KMimeTypeChooser) bool {
+    pub fn isLeftToRight(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2436,9 +3040,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SetFocus(self: KMimeTypeChooser) void {
+    pub fn setFocus(self: KMimeTypeChooser) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2448,9 +3056,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsActiveWindow(self: KMimeTypeChooser) bool {
+    pub fn isActiveWindow(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2460,9 +3072,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ActivateWindow(self: KMimeTypeChooser) void {
+    pub fn activateWindow(self: KMimeTypeChooser) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3088,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ClearFocus(self: KMimeTypeChooser) void {
+    pub fn clearFocus(self: KMimeTypeChooser) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2486,9 +3106,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KMimeTypeChooser, reason: i32) void {
+    pub fn setFocus2(self: KMimeTypeChooser, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2502,9 +3126,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KMimeTypeChooser) i32 {
+    pub fn focusPolicy(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2516,9 +3144,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KMimeTypeChooser, policy: i32) void {
+    pub fn setFocusPolicy(self: KMimeTypeChooser, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2528,9 +3160,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn HasFocus(self: KMimeTypeChooser) bool {
+    pub fn hasFocus(self: KMimeTypeChooser) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2542,11 +3178,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2556,12 +3196,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KMimeTypeChooser, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KMimeTypeChooser, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2571,9 +3215,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FocusProxy(self: KMimeTypeChooser) QWidget {
+    pub fn focusProxy(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2587,9 +3235,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KMimeTypeChooser) i32 {
+    pub fn contextMenuPolicy(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2601,9 +3253,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KMimeTypeChooser, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KMimeTypeChooser, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2613,9 +3269,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn GrabMouse(self: KMimeTypeChooser) void {
+    pub fn grabMouse(self: KMimeTypeChooser) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2627,10 +3287,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn grabMouse2(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2640,9 +3304,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ReleaseMouse(self: KMimeTypeChooser) void {
+    pub fn releaseMouse(self: KMimeTypeChooser) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2652,9 +3320,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn GrabKeyboard(self: KMimeTypeChooser) void {
+    pub fn grabKeyboard(self: KMimeTypeChooser) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2664,9 +3336,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ReleaseKeyboard(self: KMimeTypeChooser) void {
+    pub fn releaseKeyboard(self: KMimeTypeChooser) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2678,10 +3354,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KMimeTypeChooser, key: anytype) i32 {
+    pub fn grabShortcut(self: KMimeTypeChooser, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2693,9 +3373,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KMimeTypeChooser, id: i32) void {
+    pub fn releaseShortcut(self: KMimeTypeChooser, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2707,9 +3391,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KMimeTypeChooser, id: i32) void {
+    pub fn setShortcutEnabled(self: KMimeTypeChooser, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2721,25 +3409,37 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KMimeTypeChooser, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KMimeTypeChooser, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2749,9 +3449,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UpdatesEnabled(self: KMimeTypeChooser) bool {
+    pub fn updatesEnabled(self: KMimeTypeChooser) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2763,9 +3467,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KMimeTypeChooser, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KMimeTypeChooser, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2775,9 +3483,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn GraphicsProxyWidget(self: KMimeTypeChooser) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KMimeTypeChooser) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2787,9 +3499,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Update(self: KMimeTypeChooser) void {
+    pub fn update(self: KMimeTypeChooser) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2799,9 +3515,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Repaint(self: KMimeTypeChooser) void {
+    pub fn repaint(self: KMimeTypeChooser) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2811,17 +3531,21 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KMimeTypeChooser, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KMimeTypeChooser, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2833,11 +3557,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn update3(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2848,10 +3576,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn update4(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2861,17 +3593,21 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KMimeTypeChooser, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KMimeTypeChooser, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2883,10 +3619,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn repaint3(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2898,10 +3638,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn repaint4(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2913,9 +3657,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KMimeTypeChooser, hidden: bool) void {
+    pub fn setHidden(self: KMimeTypeChooser, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2925,9 +3673,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Show(self: KMimeTypeChooser) void {
+    pub fn show(self: KMimeTypeChooser) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2937,9 +3689,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Hide(self: KMimeTypeChooser) void {
+    pub fn hide(self: KMimeTypeChooser) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2949,9 +3705,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ShowMinimized(self: KMimeTypeChooser) void {
+    pub fn showMinimized(self: KMimeTypeChooser) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2961,9 +3721,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ShowMaximized(self: KMimeTypeChooser) void {
+    pub fn showMaximized(self: KMimeTypeChooser) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2973,9 +3737,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ShowFullScreen(self: KMimeTypeChooser) void {
+    pub fn showFullScreen(self: KMimeTypeChooser) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2985,9 +3753,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ShowNormal(self: KMimeTypeChooser) void {
+    pub fn showNormal(self: KMimeTypeChooser) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3769,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Close(self: KMimeTypeChooser) bool {
+    pub fn close(self: KMimeTypeChooser) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3785,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Raise(self: KMimeTypeChooser) void {
+    pub fn raise(self: KMimeTypeChooser) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3021,9 +3801,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Lower(self: KMimeTypeChooser) void {
+    pub fn lower(self: KMimeTypeChooser) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3035,10 +3819,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn stackUnder(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3048,13 +3836,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KMimeTypeChooser, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KMimeTypeChooser, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3066,10 +3858,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn move2(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3083,9 +3879,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KMimeTypeChooser, w: i32, h: i32) void {
+    pub fn resize(self: KMimeTypeChooser, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3097,10 +3897,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn resize2(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3110,17 +3914,21 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KMimeTypeChooser, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KMimeTypeChooser, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3130,12 +3938,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KMimeTypeChooser, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KMimeTypeChooser, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3147,13 +3959,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KMimeTypeChooser, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KMimeTypeChooser, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMimeTypeChooser.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMimeTypeChooser.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3163,15 +3979,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KMimeTypeChooser, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KMimeTypeChooser, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3181,9 +4001,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn AdjustSize(self: KMimeTypeChooser) void {
+    pub fn adjustSize(self: KMimeTypeChooser) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3193,9 +4017,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsVisible(self: KMimeTypeChooser) bool {
+    pub fn isVisible(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3207,10 +4035,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KMimeTypeChooser, param1: anytype) bool {
+    pub fn isVisibleTo(self: KMimeTypeChooser, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3220,9 +4052,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsHidden(self: KMimeTypeChooser) bool {
+    pub fn isHidden(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3232,9 +4068,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsMinimized(self: KMimeTypeChooser) bool {
+    pub fn isMinimized(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3244,9 +4084,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsMaximized(self: KMimeTypeChooser) bool {
+    pub fn isMaximized(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4100,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsFullScreen(self: KMimeTypeChooser) bool {
+    pub fn isFullScreen(self: KMimeTypeChooser) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3272,9 +4120,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KMimeTypeChooser) i32 {
+    pub fn windowState(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3286,9 +4138,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KMimeTypeChooser, state: i32) void {
+    pub fn setWindowState(self: KMimeTypeChooser, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3300,9 +4156,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KMimeTypeChooser, state: i32) void {
+    pub fn overrideWindowState(self: KMimeTypeChooser, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3312,9 +4172,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SizePolicy(self: KMimeTypeChooser) QSizePolicy {
+    pub fn sizePolicy(self: KMimeTypeChooser) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3324,12 +4188,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KMimeTypeChooser, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KMimeTypeChooser, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3343,9 +4211,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KMimeTypeChooser, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KMimeTypeChooser, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3355,9 +4227,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn VisibleRegion(self: KMimeTypeChooser) QRegion {
+    pub fn visibleRegion(self: KMimeTypeChooser) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3375,9 +4251,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KMimeTypeChooser, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KMimeTypeChooser, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3389,10 +4269,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KMimeTypeChooser, margins: anytype) void {
+    pub fn setContentsMargins2(self: KMimeTypeChooser, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3402,9 +4286,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ContentsMargins(self: KMimeTypeChooser) QMargins {
+    pub fn contentsMargins(self: KMimeTypeChooser) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3414,9 +4302,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ContentsRect(self: KMimeTypeChooser) QRect {
+    pub fn contentsRect(self: KMimeTypeChooser) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3426,9 +4318,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Layout(self: KMimeTypeChooser) QLayout {
+    pub fn layout(self: KMimeTypeChooser) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3438,12 +4334,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KMimeTypeChooser, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KMimeTypeChooser, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3453,24 +4353,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UpdateGeometry(self: KMimeTypeChooser) void {
+    pub fn updateGeometry(self: KMimeTypeChooser) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KMimeTypeChooser, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3480,14 +4369,37 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KMimeTypeChooser, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooser `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KMimeTypeChooser, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KMimeTypeChooser, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3501,9 +4413,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KMimeTypeChooser, dx: i32, dy: i32) void {
+    pub fn scroll(self: KMimeTypeChooser, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3519,10 +4435,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KMimeTypeChooser, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KMimeTypeChooser, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4452,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FocusWidget(self: KMimeTypeChooser) QWidget {
+    pub fn focusWidget(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4468,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn NextInFocusChain(self: KMimeTypeChooser) QWidget {
+    pub fn nextInFocusChain(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4484,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn PreviousInFocusChain(self: KMimeTypeChooser) QWidget {
+    pub fn previousInFocusChain(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4500,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn AcceptDrops(self: KMimeTypeChooser) bool {
+    pub fn acceptDrops(self: KMimeTypeChooser) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3582,9 +4518,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KMimeTypeChooser, on: bool) void {
+    pub fn setAcceptDrops(self: KMimeTypeChooser, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3596,10 +4536,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KMimeTypeChooser, action: anytype) void {
+    pub fn addAction(self: KMimeTypeChooser, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3609,15 +4553,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KMimeTypeChooser, actions: []QAction) void {
+    pub fn addActions(self: KMimeTypeChooser, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3629,16 +4577,20 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KMimeTypeChooser, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KMimeTypeChooser, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3652,11 +4604,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KMimeTypeChooser, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KMimeTypeChooser, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3668,10 +4624,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KMimeTypeChooser, action: anytype) void {
+    pub fn removeAction(self: KMimeTypeChooser, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3683,15 +4643,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KMimeTypeChooser, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KMimeTypeChooser, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMimeTypeChooser.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMimeTypeChooser.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3703,13 +4667,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KMimeTypeChooser, text: []const u8) QAction {
+    pub fn addAction2(self: KMimeTypeChooser, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3723,7 +4691,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KMimeTypeChooser, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KMimeTypeChooser, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3732,6 +4700,10 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3744,7 +4716,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KMimeTypeChooser, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KMimeTypeChooser, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3752,6 +4724,10 @@ pub const KMimeTypeChooser = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3767,7 +4743,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KMimeTypeChooser, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KMimeTypeChooser, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3777,6 +4753,10 @@ pub const KMimeTypeChooser = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3785,9 +4765,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ParentWidget(self: KMimeTypeChooser) QWidget {
+    pub fn parentWidget(self: KMimeTypeChooser) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3799,9 +4783,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KMimeTypeChooser, typeVal: i32) void {
+    pub fn setWindowFlags(self: KMimeTypeChooser, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3815,9 +4803,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KMimeTypeChooser) i32 {
+    pub fn windowFlags(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4821,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KMimeTypeChooser, param1: i32) void {
+    pub fn setWindowFlag(self: KMimeTypeChooser, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3843,9 +4839,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KMimeTypeChooser, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KMimeTypeChooser, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3859,9 +4859,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KMimeTypeChooser) i32 {
+    pub fn windowType(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3871,9 +4875,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3883,13 +4891,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KMimeTypeChooser, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KMimeTypeChooser, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3901,10 +4913,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KMimeTypeChooser, p: anytype) QWidget {
+    pub fn childAt2(self: KMimeTypeChooser, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3916,10 +4932,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KMimeTypeChooser, p: anytype) QWidget {
+    pub fn childAt3(self: KMimeTypeChooser, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3931,9 +4951,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KMimeTypeChooser, param1: i32) void {
+    pub fn setAttribute(self: KMimeTypeChooser, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3945,9 +4969,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KMimeTypeChooser, param1: i32) bool {
+    pub fn testAttribute(self: KMimeTypeChooser, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3957,9 +4985,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn EnsurePolished(self: KMimeTypeChooser) void {
+    pub fn ensurePolished(self: KMimeTypeChooser) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3971,10 +5003,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KMimeTypeChooser, child: anytype) bool {
+    pub fn isAncestorOf(self: KMimeTypeChooser, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +5020,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn AutoFillBackground(self: KMimeTypeChooser) bool {
+    pub fn autoFillBackground(self: KMimeTypeChooser) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5038,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KMimeTypeChooser, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KMimeTypeChooser, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4010,9 +5054,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn BackingStore(self: KMimeTypeChooser) QBackingStore {
+    pub fn backingStore(self: KMimeTypeChooser) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4022,9 +5070,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn WindowHandle(self: KMimeTypeChooser) QWindow {
+    pub fn windowHandle(self: KMimeTypeChooser) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4034,9 +5086,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Screen(self: KMimeTypeChooser) QScreen {
+    pub fn screen(self: KMimeTypeChooser) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4046,12 +5102,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KMimeTypeChooser, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KMimeTypeChooser, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4059,12 +5119,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4076,13 +5140,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KMimeTypeChooser, title: []const u8) void {
+    pub fn windowTitleChanged(self: KMimeTypeChooser, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4094,9 +5162,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4108,10 +5180,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KMimeTypeChooser, icon: anytype) void {
+    pub fn windowIconChanged(self: KMimeTypeChooser, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4123,9 +5199,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4137,13 +5217,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KMimeTypeChooser, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KMimeTypeChooser, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4155,9 +5239,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4167,12 +5255,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KMimeTypeChooser, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KMimeTypeChooser, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4184,9 +5276,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4200,9 +5296,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KMimeTypeChooser) i32 {
+    pub fn inputMethodHints(self: KMimeTypeChooser) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4214,9 +5314,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KMimeTypeChooser, hints: i32) void {
+    pub fn setInputMethodHints(self: KMimeTypeChooser, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4230,11 +5334,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KMimeTypeChooser, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KMimeTypeChooser, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4250,13 +5358,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KMimeTypeChooser, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KMimeTypeChooser, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4273,12 +5385,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KMimeTypeChooser, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KMimeTypeChooser, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4292,11 +5408,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4312,12 +5432,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4335,12 +5459,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KMimeTypeChooser, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4352,10 +5480,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KMimeTypeChooser, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KMimeTypeChooser, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4369,9 +5501,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KMimeTypeChooser, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KMimeTypeChooser, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4385,10 +5521,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KMimeTypeChooser, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KMimeTypeChooser, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4402,9 +5542,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KMimeTypeChooser, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KMimeTypeChooser, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4418,9 +5562,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KMimeTypeChooser, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KMimeTypeChooser, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4434,9 +5582,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KMimeTypeChooser, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KMimeTypeChooser, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4450,25 +5602,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KMimeTypeChooser, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KMimeTypeChooser, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4476,17 +5616,41 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4498,13 +5662,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KMimeTypeChooser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooser.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4516,13 +5684,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KMimeTypeChooser, name: []const u8) void {
+    pub fn setObjectName(self: KMimeTypeChooser, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4532,9 +5704,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsWidgetType(self: KMimeTypeChooser) bool {
+    pub fn isWidgetType(self: KMimeTypeChooser) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4544,9 +5720,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsWindowType(self: KMimeTypeChooser) bool {
+    pub fn isWindowType(self: KMimeTypeChooser) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4556,9 +5736,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn IsQuickItemType(self: KMimeTypeChooser) bool {
+    pub fn isQuickItemType(self: KMimeTypeChooser) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4568,9 +5752,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SignalsBlocked(self: KMimeTypeChooser) bool {
+    pub fn signalsBlocked(self: KMimeTypeChooser) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4582,9 +5770,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KMimeTypeChooser, b: bool) bool {
+    pub fn blockSignals(self: KMimeTypeChooser, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4594,9 +5786,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Thread(self: KMimeTypeChooser) QThread {
+    pub fn thread(self: KMimeTypeChooser) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4606,12 +5802,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KMimeTypeChooser, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KMimeTypeChooser, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4623,9 +5823,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KMimeTypeChooser, interval: i32) i32 {
+    pub fn startTimer(self: KMimeTypeChooser, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4637,9 +5841,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KMimeTypeChooser, time: i64) i32 {
+    pub fn startTimer2(self: KMimeTypeChooser, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4651,9 +5859,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KMimeTypeChooser, id: i32) void {
+    pub fn killTimer(self: KMimeTypeChooser, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4665,9 +5877,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KMimeTypeChooser, id: i32) void {
+    pub fn killTimer2(self: KMimeTypeChooser, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4679,15 +5895,19 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KMimeTypeChooser, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KMimeTypeChooser, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMimeTypeChooser.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMimeTypeChooser.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4699,10 +5919,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KMimeTypeChooser, filterObj: anytype) void {
+    pub fn installEventFilter(self: KMimeTypeChooser, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4714,10 +5938,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KMimeTypeChooser, obj: anytype) void {
+    pub fn removeEventFilter(self: KMimeTypeChooser, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4725,7 +5953,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4733,13 +5961,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4747,7 +5979,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4755,13 +5987,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4771,18 +6007,22 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KMimeTypeChooser, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KMimeTypeChooser, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4790,7 +6030,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4798,13 +6038,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4812,7 +6056,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4820,13 +6064,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4836,9 +6084,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Disconnect3(self: KMimeTypeChooser) bool {
+    pub fn disconnect3(self: KMimeTypeChooser) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4850,10 +6102,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KMimeTypeChooser, receiver: anytype) bool {
+    pub fn disconnect4(self: KMimeTypeChooser, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4863,10 +6119,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4876,9 +6136,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DumpObjectTree(self: KMimeTypeChooser) void {
+    pub fn dumpObjectTree(self: KMimeTypeChooser) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4888,9 +6152,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DumpObjectInfo(self: KMimeTypeChooser) void {
+    pub fn dumpObjectInfo(self: KMimeTypeChooser) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4904,11 +6172,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KMimeTypeChooser, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KMimeTypeChooser, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4920,10 +6192,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KMimeTypeChooser, name: [:0]const u8) QVariant {
+    pub fn property(self: KMimeTypeChooser, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4935,7 +6211,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KMimeTypeChooser, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KMimeTypeChooser, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4943,27 +6219,19 @@ pub const KMimeTypeChooser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMimeTypeChooser.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMimeTypeChooser.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMimeTypeChooser.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMimeTypeChooser.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooser `
-    ///
-    pub fn BindingStorage(self: KMimeTypeChooser) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4973,9 +6241,29 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn BindingStorage2(self: KMimeTypeChooser) QBindingStorage {
+    pub fn bindingStorage(self: KMimeTypeChooser) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooser `
+    ///
+    pub fn bindingStorage2(self: KMimeTypeChooser) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4985,9 +6273,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Destroyed(self: KMimeTypeChooser) void {
+    pub fn destroyed(self: KMimeTypeChooser) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4999,9 +6291,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) void) void {
+    pub fn onDestroyed(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5011,9 +6307,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Parent(self: KMimeTypeChooser) QObject {
+    pub fn parent(self: KMimeTypeChooser) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5025,10 +6325,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KMimeTypeChooser, classname: [:0]const u8) bool {
+    pub fn inherits(self: KMimeTypeChooser, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5038,9 +6342,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DeleteLater(self: KMimeTypeChooser) void {
+    pub fn deleteLater(self: KMimeTypeChooser) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5054,9 +6362,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KMimeTypeChooser, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KMimeTypeChooser, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5070,9 +6382,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KMimeTypeChooser, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KMimeTypeChooser, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5080,7 +6396,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5090,13 +6406,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5104,7 +6424,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5114,13 +6434,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5130,7 +6454,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5138,12 +6462,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KMimeTypeChooser, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KMimeTypeChooser, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5155,10 +6483,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KMimeTypeChooser, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KMimeTypeChooser, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5172,11 +6504,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KMimeTypeChooser, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KMimeTypeChooser, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5192,13 +6528,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KMimeTypeChooser, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KMimeTypeChooser, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5211,11 +6551,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KMimeTypeChooser, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KMimeTypeChooser, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5227,10 +6571,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn destroyed1(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5242,9 +6590,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5254,9 +6606,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn PaintingActive(self: KMimeTypeChooser) bool {
+    pub fn paintingActive(self: KMimeTypeChooser) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5266,9 +6622,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn WidthMM(self: KMimeTypeChooser) i32 {
+    pub fn widthMM(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5278,9 +6638,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn HeightMM(self: KMimeTypeChooser) i32 {
+    pub fn heightMM(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5290,9 +6654,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn LogicalDpiX(self: KMimeTypeChooser) i32 {
+    pub fn logicalDpiX(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5302,9 +6670,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn LogicalDpiY(self: KMimeTypeChooser) i32 {
+    pub fn logicalDpiY(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5314,9 +6686,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn PhysicalDpiX(self: KMimeTypeChooser) i32 {
+    pub fn physicalDpiX(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5326,9 +6702,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn PhysicalDpiY(self: KMimeTypeChooser) i32 {
+    pub fn physicalDpiY(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5338,9 +6718,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DevicePixelRatio(self: KMimeTypeChooser) f64 {
+    pub fn devicePixelRatio(self: KMimeTypeChooser) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5350,9 +6734,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DevicePixelRatioF(self: KMimeTypeChooser) f64 {
+    pub fn devicePixelRatioF(self: KMimeTypeChooser) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5362,9 +6750,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn ColorCount(self: KMimeTypeChooser) i32 {
+    pub fn colorCount(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5374,17 +6766,25 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Depth(self: KMimeTypeChooser) i32 {
+    pub fn depth(self: KMimeTypeChooser) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5392,13 +6792,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5410,13 +6814,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn DevType(self: KMimeTypeChooser) i32 {
+    pub fn devType(self: KMimeTypeChooser) i32 {
         return qtc.KMimeTypeChooser_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5428,9 +6832,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperDevType(self: KMimeTypeChooser) i32 {
+    pub fn superDevType(self: KMimeTypeChooser) i32 {
         return qtc.KMimeTypeChooser_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5444,9 +6852,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5460,13 +6872,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KMimeTypeChooser, visible: bool) void {
+    pub fn setVisible(self: KMimeTypeChooser, visible: bool) void {
         qtc.KMimeTypeChooser_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5480,9 +6892,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KMimeTypeChooser, visible: bool) void {
+    pub fn superSetVisible(self: KMimeTypeChooser, visible: bool) void {
         qtc.KMimeTypeChooser_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5496,10 +6912,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, bool) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5510,13 +6930,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SizeHint(self: KMimeTypeChooser) QSize {
+    pub fn sizeHint(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.KMimeTypeChooser_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5528,10 +6948,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperSizeHint(self: KMimeTypeChooser) QSize {
+    pub fn superSizeHint(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5546,9 +6970,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5560,13 +6988,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn MinimumSizeHint(self: KMimeTypeChooser) QSize {
+    pub fn minimumSizeHint(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.KMimeTypeChooser_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5578,9 +7006,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperMinimumSizeHint(self: KMimeTypeChooser) QSize {
+    pub fn superMinimumSizeHint(self: KMimeTypeChooser) QSize {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5596,9 +7028,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooser_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5612,13 +7048,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KMimeTypeChooser, param1: i32) i32 {
+    pub fn heightForWidth(self: KMimeTypeChooser, param1: i32) i32 {
         return qtc.KMimeTypeChooser_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5632,9 +7068,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KMimeTypeChooser, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KMimeTypeChooser, param1: i32) i32 {
         return qtc.KMimeTypeChooser_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5648,9 +7088,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5662,13 +7106,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn HasHeightForWidth(self: KMimeTypeChooser) bool {
+    pub fn hasHeightForWidth(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5680,9 +7124,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperHasHeightForWidth(self: KMimeTypeChooser) bool {
+    pub fn superHasHeightForWidth(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5696,9 +7144,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5710,13 +7162,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn PaintEngine(self: KMimeTypeChooser) QPaintEngine {
+    pub fn paintEngine(self: KMimeTypeChooser) QPaintEngine {
         return .{ .ptr = qtc.KMimeTypeChooser_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5728,9 +7180,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperPaintEngine(self: KMimeTypeChooser) QPaintEngine {
+    pub fn superPaintEngine(self: KMimeTypeChooser) QPaintEngine {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5744,9 +7200,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KMimeTypeChooser_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5758,16 +7218,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KMimeTypeChooser, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooser_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KMimeTypeChooser, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooser_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5779,12 +7239,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KMimeTypeChooser, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooser_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KMimeTypeChooser, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooser_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5798,10 +7262,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5812,16 +7280,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5833,12 +7301,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5852,10 +7324,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5866,16 +7342,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5887,12 +7363,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5906,10 +7386,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5920,16 +7404,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5941,12 +7425,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5960,10 +7448,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5974,16 +7466,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5995,12 +7487,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooser_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooser_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6014,9 +7510,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6028,16 +7528,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMimeTypeChooser_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMimeTypeChooser_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6049,12 +7549,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMimeTypeChooser_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMimeTypeChooser_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6068,10 +7572,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QWheelEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6082,16 +7590,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooser_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooser_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6103,12 +7611,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooser_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooser_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6122,10 +7634,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QKeyEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6136,16 +7652,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooser_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooser_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6157,12 +7673,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooser_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooser_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6176,10 +7696,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QKeyEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6190,16 +7714,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooser_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooser_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6211,12 +7735,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooser_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooser_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6230,10 +7758,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QFocusEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6244,16 +7776,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooser_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooser_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6265,12 +7797,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooser_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooser_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6284,9 +7820,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QFocusEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6298,16 +7838,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMimeTypeChooser_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMimeTypeChooser_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6319,12 +7859,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMimeTypeChooser_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMimeTypeChooser_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6338,9 +7882,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEnterEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6352,16 +7900,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooser_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooser_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6373,12 +7921,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooser_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooser_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6392,9 +7944,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6406,16 +7962,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KMimeTypeChooser_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KMimeTypeChooser_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6427,12 +7983,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KMimeTypeChooser_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KMimeTypeChooser_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6446,9 +8006,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPaintEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6460,16 +8024,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMimeTypeChooser_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMimeTypeChooser_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6481,12 +8045,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMimeTypeChooser_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMimeTypeChooser_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6500,9 +8068,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMoveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6514,16 +8086,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KMimeTypeChooser_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KMimeTypeChooser_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6535,12 +8107,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KMimeTypeChooser_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KMimeTypeChooser_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6554,9 +8130,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QResizeEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6568,16 +8148,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KMimeTypeChooser_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KMimeTypeChooser_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6589,12 +8169,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KMimeTypeChooser_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KMimeTypeChooser_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6608,9 +8192,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QCloseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6622,16 +8210,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KMimeTypeChooser_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KMimeTypeChooser_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6643,12 +8231,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KMimeTypeChooser_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KMimeTypeChooser_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6662,9 +8254,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QContextMenuEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6676,16 +8272,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMimeTypeChooser_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMimeTypeChooser_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6697,12 +8293,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMimeTypeChooser_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMimeTypeChooser_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6716,9 +8316,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QTabletEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6730,16 +8334,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMimeTypeChooser_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMimeTypeChooser_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6751,12 +8355,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMimeTypeChooser_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMimeTypeChooser_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6770,9 +8378,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QActionEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6784,16 +8396,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMimeTypeChooser_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMimeTypeChooser_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6805,12 +8417,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMimeTypeChooser_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMimeTypeChooser_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6824,9 +8440,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragEnterEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6838,16 +8458,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMimeTypeChooser_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMimeTypeChooser_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6859,12 +8479,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMimeTypeChooser_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMimeTypeChooser_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6878,9 +8502,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragMoveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6892,16 +8520,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMimeTypeChooser_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMimeTypeChooser_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6913,12 +8541,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMimeTypeChooser_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMimeTypeChooser_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6932,9 +8564,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6946,16 +8582,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMimeTypeChooser_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMimeTypeChooser_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6967,12 +8603,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMimeTypeChooser_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMimeTypeChooser_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6986,9 +8626,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QDropEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7000,16 +8644,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KMimeTypeChooser_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KMimeTypeChooser_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7021,12 +8665,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KMimeTypeChooser_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KMimeTypeChooser_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7040,9 +8688,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QShowEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7054,16 +8706,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMimeTypeChooser_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMimeTypeChooser_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7075,12 +8727,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMimeTypeChooser_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMimeTypeChooser_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7094,9 +8750,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QHideEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7114,7 +8774,7 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KMimeTypeChooser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KMimeTypeChooser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7122,9 +8782,9 @@ pub const KMimeTypeChooser = extern struct {
         return qtc.KMimeTypeChooser_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7142,13 +8802,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KMimeTypeChooser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KMimeTypeChooser, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KMimeTypeChooser_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7162,9 +8826,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7178,14 +8846,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn changeEvent(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMimeTypeChooser_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7199,10 +8867,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn superChangeEvent(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMimeTypeChooser_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7216,9 +8888,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7232,13 +8908,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KMimeTypeChooser, param1: i32) i32 {
+    pub fn metric(self: KMimeTypeChooser, param1: i32) i32 {
         return qtc.KMimeTypeChooser_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7252,9 +8928,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KMimeTypeChooser, param1: i32) i32 {
+    pub fn superMetric(self: KMimeTypeChooser, param1: i32) i32 {
         return qtc.KMimeTypeChooser_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7268,9 +8948,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7284,14 +8968,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KMimeTypeChooser, painter: anytype) void {
+    pub fn initPainter(self: KMimeTypeChooser, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMimeTypeChooser_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7305,10 +8989,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KMimeTypeChooser, painter: anytype) void {
+    pub fn superInitPainter(self: KMimeTypeChooser, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMimeTypeChooser_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7322,9 +9010,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPainter) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7338,14 +9030,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KMimeTypeChooser, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KMimeTypeChooser, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMimeTypeChooser_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7359,10 +9051,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KMimeTypeChooser, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KMimeTypeChooser, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMimeTypeChooser_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7376,9 +9072,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KMimeTypeChooser_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7390,13 +9090,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SharedPainter(self: KMimeTypeChooser) QPainter {
+    pub fn sharedPainter(self: KMimeTypeChooser) QPainter {
         return .{ .ptr = qtc.KMimeTypeChooser_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7408,9 +9108,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperSharedPainter(self: KMimeTypeChooser) QPainter {
+    pub fn superSharedPainter(self: KMimeTypeChooser) QPainter {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7424,9 +9128,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KMimeTypeChooser_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7440,14 +9148,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn inputMethodEvent(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMimeTypeChooser_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7461,10 +9169,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KMimeTypeChooser, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KMimeTypeChooser, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMimeTypeChooser_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7478,9 +9190,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QInputMethodEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7494,13 +9210,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KMimeTypeChooser, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KMimeTypeChooser, param1: i32) QVariant {
         return .{ .ptr = qtc.KMimeTypeChooser_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7514,9 +9230,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KMimeTypeChooser, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KMimeTypeChooser, param1: i32) QVariant {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7532,9 +9252,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32) callconv(.c) QVariant) void {
         qtc.KMimeTypeChooser_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7548,13 +9272,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KMimeTypeChooser, next: bool) bool {
+    pub fn focusNextPrevChild(self: KMimeTypeChooser, next: bool) bool {
         return qtc.KMimeTypeChooser_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7568,9 +9292,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KMimeTypeChooser, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KMimeTypeChooser, next: bool) bool {
         return qtc.KMimeTypeChooser_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7584,9 +9312,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, bool) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7600,17 +9332,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KMimeTypeChooser, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KMimeTypeChooser, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooser_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooser_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7624,13 +9356,17 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KMimeTypeChooser, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KMimeTypeChooser, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooser_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooser_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7644,9 +9380,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QObject, QEvent) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7658,16 +9398,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMimeTypeChooser_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMimeTypeChooser_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7679,12 +9419,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMimeTypeChooser_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMimeTypeChooser_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7698,9 +9442,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QTimerEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7712,16 +9460,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMimeTypeChooser_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMimeTypeChooser_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7733,12 +9481,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMimeTypeChooser_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMimeTypeChooser_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7752,9 +9504,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QChildEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7766,16 +9522,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooser_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooser_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7787,12 +9543,16 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KMimeTypeChooser, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooser_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KMimeTypeChooser, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooser_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7806,9 +9566,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7822,14 +9586,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KMimeTypeChooser, signal: anytype) void {
+    pub fn connectNotify(self: KMimeTypeChooser, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooser_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7843,11 +9607,15 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KMimeTypeChooser, signal: anytype) void {
+    pub fn superConnectNotify(self: KMimeTypeChooser, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooser_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7860,9 +9628,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7876,14 +9648,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KMimeTypeChooser, signal: anytype) void {
+    pub fn disconnectNotify(self: KMimeTypeChooser, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooser_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7897,10 +9669,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KMimeTypeChooser, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KMimeTypeChooser, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooser_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7914,10 +9690,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7928,13 +9708,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn UpdateMicroFocus(self: KMimeTypeChooser) void {
+    pub fn updateMicroFocus(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7946,10 +9726,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperUpdateMicroFocus(self: KMimeTypeChooser) void {
+    pub fn superUpdateMicroFocus(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7962,10 +9746,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7976,13 +9764,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Create(self: KMimeTypeChooser) void {
+    pub fn create(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7994,10 +9782,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperCreate(self: KMimeTypeChooser) void {
+    pub fn superCreate(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8010,9 +9802,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8024,13 +9820,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Destroy(self: KMimeTypeChooser) void {
+    pub fn destroy(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8042,9 +9838,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperDestroy(self: KMimeTypeChooser) void {
+    pub fn superDestroy(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8058,10 +9858,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KMimeTypeChooser, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooser_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8072,13 +9876,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FocusNextChild(self: KMimeTypeChooser) bool {
+    pub fn focusNextChild(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8090,10 +9894,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperFocusNextChild(self: KMimeTypeChooser) bool {
+    pub fn superFocusNextChild(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8106,9 +9914,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8120,13 +9932,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn FocusPreviousChild(self: KMimeTypeChooser) bool {
+    pub fn focusPreviousChild(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8138,9 +9950,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperFocusPreviousChild(self: KMimeTypeChooser) bool {
+    pub fn superFocusPreviousChild(self: KMimeTypeChooser) bool {
         return qtc.KMimeTypeChooser_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8154,9 +9970,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KMimeTypeChooser, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8168,13 +9988,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Sender(self: KMimeTypeChooser) QObject {
+    pub fn sender(self: KMimeTypeChooser) QObject {
         return .{ .ptr = qtc.KMimeTypeChooser_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8186,9 +10006,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperSender(self: KMimeTypeChooser) QObject {
+    pub fn superSender(self: KMimeTypeChooser) QObject {
         return .{ .ptr = qtc.KMimeTypeChooser_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8202,9 +10026,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KMimeTypeChooser, callback: *const fn () callconv(.c) QObject) void {
         qtc.KMimeTypeChooser_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8216,13 +10044,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SenderSignalIndex(self: KMimeTypeChooser) i32 {
+    pub fn senderSignalIndex(self: KMimeTypeChooser) i32 {
         return qtc.KMimeTypeChooser_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8234,9 +10062,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn SuperSenderSignalIndex(self: KMimeTypeChooser) i32 {
+    pub fn superSenderSignalIndex(self: KMimeTypeChooser) i32 {
         return qtc.KMimeTypeChooser_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8250,9 +10082,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KMimeTypeChooser, callback: *const fn () callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8266,14 +10102,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KMimeTypeChooser, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KMimeTypeChooser, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMimeTypeChooser_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8287,10 +10123,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KMimeTypeChooser, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KMimeTypeChooser, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMimeTypeChooser_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8304,9 +10144,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) i32) void {
         qtc.KMimeTypeChooser_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8320,14 +10164,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
+    pub fn isSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooser_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8341,10 +10185,14 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KMimeTypeChooser, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooser_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8358,9 +10206,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, QMetaMethod) callconv(.c) bool) void {
         qtc.KMimeTypeChooser_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8376,13 +10228,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooser_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8398,9 +10250,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KMimeTypeChooser, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooser_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8414,9 +10270,13 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, i32, i32) callconv(.c) f64) void {
         qtc.KMimeTypeChooser_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8430,23 +10290,23 @@ pub const KMimeTypeChooser = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooser, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KMimeTypeChooser, callback: *const fn (KMimeTypeChooser, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooser.html#dtor.KMimeTypeChooser)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMimeTypeChooser `
     ///
-    pub fn Delete(self: KMimeTypeChooser) void {
+    pub fn delete(self: KMimeTypeChooser) void {
         qtc.KMimeTypeChooser_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8465,13 +10325,21 @@ pub const KMimeTypeChooserDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KMimeTypeChooserDialog {
+    pub const New = new;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
+    ///
+    pub fn new() KMimeTypeChooserDialog {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new() };
     }
 
-    /// New2 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8485,7 +10353,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    pub fn New2(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooserDialog {
+    pub fn new2(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8494,12 +10362,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New2: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new2: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8512,13 +10380,17 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new2(title_str, text_str, selectedMimeTypes_list, defaultGroup_str) };
     }
 
-    /// New3 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` title: []const u8 `
     ///
-    pub fn New3(title: []const u8) KMimeTypeChooserDialog {
+    pub fn new3(title: []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8526,7 +10398,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new3(title_str) };
     }
 
-    /// New4 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8534,7 +10410,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn New4(title: []const u8, text: []const u8) KMimeTypeChooserDialog {
+    pub fn new4(title: []const u8, text: []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8546,7 +10422,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new4(title_str, text_str) };
     }
 
-    /// New5 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8558,7 +10438,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` selectedMimeTypes: []const []const u8 `
     ///
-    pub fn New5(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8) KMimeTypeChooserDialog {
+    pub fn new5(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8567,12 +10447,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New5: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new5: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8581,7 +10461,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new5(title_str, text_str, selectedMimeTypes_list) };
     }
 
-    /// New6 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8595,7 +10479,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    pub fn New6(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooserDialog {
+    pub fn new6(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8604,12 +10488,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New6: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new6: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8622,7 +10506,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new6(title_str, text_str, selectedMimeTypes_list, defaultGroup_str) };
     }
 
-    /// New7 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8638,7 +10526,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` groupsToShow: []const []const u8 `
     ///
-    pub fn New7(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8) KMimeTypeChooserDialog {
+    pub fn new7(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8647,12 +10535,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New7: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new7: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8662,12 +10550,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.New7: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.new7: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
@@ -8676,7 +10564,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new7(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list) };
     }
 
-    /// New8 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8694,7 +10586,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` visuals: i32 `
     ///
-    pub fn New8(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32) KMimeTypeChooserDialog {
+    pub fn new8(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8703,12 +10595,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New8: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new8: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8718,12 +10610,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.New8: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.new8: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
@@ -8732,7 +10624,11 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_new8(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals)) };
     }
 
-    /// New9 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8750,9 +10646,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` visuals: i32 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New9(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, parent: anytype) KMimeTypeChooserDialog {
+    pub fn new9(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, groupsToShow: []const []const u8, visuals: i32, _parent: anytype) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8761,12 +10657,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New9: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new9: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8776,22 +10672,26 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.New9: Memory allocation failed");
+        const groupsToShow_arr = allocator.alloc(qtc.libqt_string, groupsToShow.len) catch @panic("KMimeTypeChooserDialog.new9: Memory allocation failed");
         defer allocator.free(groupsToShow_arr);
-        for (groupsToShow, 0..groupsToShow.len) |item, i|
+        for (groupsToShow, 0..groupsToShow.len) |str_item, i|
             groupsToShow_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const groupsToShow_list = qtc.libqt_list{
             .len = groupsToShow.len,
             .data = groupsToShow_arr.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KMimeTypeChooserDialog_new9(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KMimeTypeChooserDialog_new9(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, groupsToShow_list, @bitCast(visuals), @ptrCast(_parent.ptr)) };
     }
 
-    /// New10 constructs a new KMimeTypeChooserDialog object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new KMimeTypeChooserDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8805,9 +10705,9 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` defaultGroup: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New10(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, parent: anytype) KMimeTypeChooserDialog {
+    pub fn new10(allocator: std.mem.Allocator, title: []const u8, text: []const u8, selectedMimeTypes: []const []const u8, defaultGroup: []const u8, _parent: anytype) KMimeTypeChooserDialog {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
@@ -8816,12 +10716,12 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = text.len,
             .data = text.ptr,
         };
-        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.New10: Memory allocation failed");
+        const selectedMimeTypes_arr = allocator.alloc(qtc.libqt_string, selectedMimeTypes.len) catch @panic("KMimeTypeChooserDialog.new10: Memory allocation failed");
         defer allocator.free(selectedMimeTypes_arr);
-        for (selectedMimeTypes, 0..selectedMimeTypes.len) |item, i|
+        for (selectedMimeTypes, 0..selectedMimeTypes.len) |str_item, i|
             selectedMimeTypes_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const selectedMimeTypes_list = qtc.libqt_list{
             .len = selectedMimeTypes.len,
@@ -8831,9 +10731,13 @@ pub const KMimeTypeChooserDialog = extern struct {
             .len = defaultGroup.len,
             .data = defaultGroup.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KMimeTypeChooserDialog_new10(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KMimeTypeChooserDialog_new10(title_str, text_str, selectedMimeTypes_list, defaultGroup_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8841,9 +10745,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MetaObject(self: KMimeTypeChooserDialog) QMetaObject {
+    pub fn metaObject(self: KMimeTypeChooserDialog) QMetaObject {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8855,13 +10763,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KMimeTypeChooserDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -8871,9 +10779,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperMetaObject(self: KMimeTypeChooserDialog) QMetaObject {
+    pub fn superMetaObject(self: KMimeTypeChooserDialog) QMetaObject {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -8881,10 +10793,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KMimeTypeChooserDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KMimeTypeChooserDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMimeTypeChooserDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -8894,13 +10810,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KMimeTypeChooserDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -8910,10 +10826,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KMimeTypeChooserDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KMimeTypeChooserDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMimeTypeChooserDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -8925,9 +10845,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KMimeTypeChooserDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KMimeTypeChooserDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMimeTypeChooserDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -8937,13 +10861,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -8957,9 +10881,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KMimeTypeChooserDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KMimeTypeChooserDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMimeTypeChooserDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8969,14 +10897,18 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `chooser` instead
+    ///
+    pub const Chooser = chooser;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooserdialog.html#chooser)
     ///
@@ -8984,9 +10916,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Chooser(self: KMimeTypeChooserDialog) KMimeTypeChooser {
+    pub fn chooser(self: KMimeTypeChooserDialog) KMimeTypeChooser {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_Chooser(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
@@ -8994,9 +10930,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SizeHint(self: KMimeTypeChooserDialog) QSize {
+    pub fn sizeHint(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
@@ -9010,13 +10950,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooserdialog.html#sizeHint)
     ///
@@ -9026,9 +10966,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperSizeHint(self: KMimeTypeChooserDialog) QSize {
+    pub fn superSizeHint(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9040,15 +10984,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -9062,15 +11010,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -9080,9 +11032,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Result(self: KMimeTypeChooserDialog) i32 {
+    pub fn result(self: KMimeTypeChooserDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -9094,9 +11050,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KMimeTypeChooserDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KMimeTypeChooserDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -9106,9 +11066,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KMimeTypeChooserDialog) bool {
+    pub fn isSizeGripEnabled(self: KMimeTypeChooserDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -9120,9 +11084,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KMimeTypeChooserDialog, modal: bool) void {
+    pub fn setModal(self: KMimeTypeChooserDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -9134,9 +11102,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KMimeTypeChooserDialog, r: i32) void {
+    pub fn setResult(self: KMimeTypeChooserDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -9146,11 +11118,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KMimeTypeChooserDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KMimeTypeChooserDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -9162,10 +11138,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -9174,10 +11154,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Accepted(self: KMimeTypeChooserDialog) void {
+    pub fn accepted(self: KMimeTypeChooserDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -9188,9 +11172,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -9200,9 +11188,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Rejected(self: KMimeTypeChooserDialog) void {
+    pub fn rejected(self: KMimeTypeChooserDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -9214,9 +11206,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -9226,9 +11222,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn WinId(self: KMimeTypeChooserDialog) usize {
+    pub fn winId(self: KMimeTypeChooserDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -9238,9 +11238,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn CreateWinId(self: KMimeTypeChooserDialog) void {
+    pub fn createWinId(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -9250,9 +11254,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn InternalWinId(self: KMimeTypeChooserDialog) usize {
+    pub fn internalWinId(self: KMimeTypeChooserDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -9262,9 +11270,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn EffectiveWinId(self: KMimeTypeChooserDialog) usize {
+    pub fn effectiveWinId(self: KMimeTypeChooserDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -9274,9 +11286,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Style(self: KMimeTypeChooserDialog) QStyle {
+    pub fn style(self: KMimeTypeChooserDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -9286,12 +11302,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KMimeTypeChooserDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KMimeTypeChooserDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -9301,9 +11321,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsTopLevel(self: KMimeTypeChooserDialog) bool {
+    pub fn isTopLevel(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -9313,9 +11337,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsWindow(self: KMimeTypeChooserDialog) bool {
+    pub fn isWindow(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -9325,9 +11353,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsModal(self: KMimeTypeChooserDialog) bool {
+    pub fn isModal(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -9341,9 +11373,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KMimeTypeChooserDialog) i32 {
+    pub fn windowModality(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -9353,11 +11389,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KMimeTypeChooserDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KMimeTypeChooserDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9367,9 +11407,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsEnabled(self: KMimeTypeChooserDialog) bool {
+    pub fn isEnabled(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -9381,10 +11425,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KMimeTypeChooserDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KMimeTypeChooserDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9396,9 +11444,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KMimeTypeChooserDialog, enabled: bool) void {
+    pub fn setEnabled(self: KMimeTypeChooserDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -9410,9 +11462,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KMimeTypeChooserDialog, disabled: bool) void {
+    pub fn setDisabled(self: KMimeTypeChooserDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -9424,9 +11480,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KMimeTypeChooserDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KMimeTypeChooserDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9436,9 +11496,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FrameGeometry(self: KMimeTypeChooserDialog) QRect {
+    pub fn frameGeometry(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -9448,9 +11512,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Geometry(self: KMimeTypeChooserDialog) QRect {
+    pub fn geometry(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9460,9 +11528,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn NormalGeometry(self: KMimeTypeChooserDialog) QRect {
+    pub fn normalGeometry(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -9472,9 +11544,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn X(self: KMimeTypeChooserDialog) i32 {
+    pub fn x(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -9484,9 +11560,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Y(self: KMimeTypeChooserDialog) i32 {
+    pub fn y(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -9496,9 +11576,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Pos(self: KMimeTypeChooserDialog) QPoint {
+    pub fn pos(self: KMimeTypeChooserDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -9508,9 +11592,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FrameSize(self: KMimeTypeChooserDialog) QSize {
+    pub fn frameSize(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -9520,9 +11608,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Size(self: KMimeTypeChooserDialog) QSize {
+    pub fn size(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -9532,9 +11624,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Width(self: KMimeTypeChooserDialog) i32 {
+    pub fn width(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -9544,9 +11640,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Height(self: KMimeTypeChooserDialog) i32 {
+    pub fn height(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -9556,9 +11656,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Rect(self: KMimeTypeChooserDialog) QRect {
+    pub fn rect(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -9568,9 +11672,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ChildrenRect(self: KMimeTypeChooserDialog) QRect {
+    pub fn childrenRect(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -9580,9 +11688,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ChildrenRegion(self: KMimeTypeChooserDialog) QRegion {
+    pub fn childrenRegion(self: KMimeTypeChooserDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9592,9 +11704,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MinimumSize(self: KMimeTypeChooserDialog) QSize {
+    pub fn minimumSize(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -9604,9 +11720,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MaximumSize(self: KMimeTypeChooserDialog) QSize {
+    pub fn maximumSize(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9616,9 +11736,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MinimumWidth(self: KMimeTypeChooserDialog) i32 {
+    pub fn minimumWidth(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9628,9 +11752,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MinimumHeight(self: KMimeTypeChooserDialog) i32 {
+    pub fn minimumHeight(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9640,9 +11768,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MaximumWidth(self: KMimeTypeChooserDialog) i32 {
+    pub fn maximumWidth(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9652,9 +11784,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MaximumHeight(self: KMimeTypeChooserDialog) i32 {
+    pub fn maximumHeight(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9664,12 +11800,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KMimeTypeChooserDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KMimeTypeChooserDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -9683,9 +11823,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KMimeTypeChooserDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KMimeTypeChooserDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -9695,12 +11839,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KMimeTypeChooserDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KMimeTypeChooserDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -9714,9 +11862,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KMimeTypeChooserDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KMimeTypeChooserDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9728,9 +11880,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KMimeTypeChooserDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KMimeTypeChooserDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9742,9 +11898,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KMimeTypeChooserDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KMimeTypeChooserDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9756,9 +11916,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KMimeTypeChooserDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KMimeTypeChooserDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9770,9 +11934,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KMimeTypeChooserDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KMimeTypeChooserDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -9782,9 +11950,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SizeIncrement(self: KMimeTypeChooserDialog) QSize {
+    pub fn sizeIncrement(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -9794,12 +11966,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KMimeTypeChooserDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KMimeTypeChooserDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -9813,9 +11989,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -9825,9 +12005,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn BaseSize(self: KMimeTypeChooserDialog) QSize {
+    pub fn baseSize(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -9837,12 +12021,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KMimeTypeChooserDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KMimeTypeChooserDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -9856,9 +12044,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KMimeTypeChooserDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KMimeTypeChooserDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -9870,10 +12062,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KMimeTypeChooserDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KMimeTypeChooserDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -9887,9 +12083,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -9901,9 +12101,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KMimeTypeChooserDialog, w: i32) void {
+    pub fn setFixedWidth(self: KMimeTypeChooserDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -9915,9 +12119,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KMimeTypeChooserDialog, h: i32) void {
+    pub fn setFixedHeight(self: KMimeTypeChooserDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -9929,11 +12137,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -9944,11 +12156,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -9959,11 +12175,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -9974,11 +12194,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -9989,11 +12213,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10004,10 +12232,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -10019,10 +12251,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KMimeTypeChooserDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -10034,10 +12270,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KMimeTypeChooserDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -10051,12 +12291,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -10069,11 +12313,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -10087,11 +12335,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -10105,11 +12357,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -10119,9 +12375,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Window(self: KMimeTypeChooserDialog) QWidget {
+    pub fn window(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -10131,9 +12391,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn NativeParentWidget(self: KMimeTypeChooserDialog) QWidget {
+    pub fn nativeParentWidget(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -10143,9 +12407,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn TopLevelWidget(self: KMimeTypeChooserDialog) QWidget {
+    pub fn topLevelWidget(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -10155,9 +12423,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Palette(self: KMimeTypeChooserDialog) QPalette {
+    pub fn palette(self: KMimeTypeChooserDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -10167,12 +12439,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KMimeTypeChooserDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KMimeTypeChooserDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10182,11 +12458,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KMimeTypeChooserDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KMimeTypeChooserDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10200,9 +12480,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KMimeTypeChooserDialog) i32 {
+    pub fn backgroundRole(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10212,11 +12496,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KMimeTypeChooserDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KMimeTypeChooserDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10230,9 +12518,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KMimeTypeChooserDialog) i32 {
+    pub fn foregroundRole(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -10242,9 +12534,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Font(self: KMimeTypeChooserDialog) QFont {
+    pub fn font(self: KMimeTypeChooserDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -10254,12 +12550,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KMimeTypeChooserDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KMimeTypeChooserDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -10269,9 +12569,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FontMetrics(self: KMimeTypeChooserDialog) QFontMetrics {
+    pub fn fontMetrics(self: KMimeTypeChooserDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -10281,9 +12585,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FontInfo(self: KMimeTypeChooserDialog) QFontInfo {
+    pub fn fontInfo(self: KMimeTypeChooserDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -10293,9 +12601,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Cursor(self: KMimeTypeChooserDialog) QCursor {
+    pub fn cursor(self: KMimeTypeChooserDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -10305,12 +12617,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KMimeTypeChooserDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KMimeTypeChooserDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -10320,9 +12636,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UnsetCursor(self: KMimeTypeChooserDialog) void {
+    pub fn unsetCursor(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10334,9 +12654,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KMimeTypeChooserDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KMimeTypeChooserDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10346,9 +12670,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn HasMouseTracking(self: KMimeTypeChooserDialog) bool {
+    pub fn hasMouseTracking(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -10358,9 +12686,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UnderMouse(self: KMimeTypeChooserDialog) bool {
+    pub fn underMouse(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10372,9 +12704,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KMimeTypeChooserDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KMimeTypeChooserDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10384,24 +12720,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn HasTabletTracking(self: KMimeTypeChooserDialog) bool {
+    pub fn hasTabletTracking(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KMimeTypeChooserDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -10411,12 +12736,35 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KMimeTypeChooserDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KMimeTypeChooserDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooserDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KMimeTypeChooserDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -10426,9 +12774,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Mask(self: KMimeTypeChooserDialog) QRegion {
+    pub fn mask(self: KMimeTypeChooserDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -10438,9 +12790,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ClearMask(self: KMimeTypeChooserDialog) void {
+    pub fn clearMask(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -10452,10 +12808,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KMimeTypeChooserDialog, target: anytype) void {
+    pub fn render(self: KMimeTypeChooserDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -10467,10 +12827,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KMimeTypeChooserDialog, painter: anytype) void {
+    pub fn render2(self: KMimeTypeChooserDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -10480,9 +12844,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Grab(self: KMimeTypeChooserDialog) QPixmap {
+    pub fn grab(self: KMimeTypeChooserDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10492,9 +12860,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn GraphicsEffect(self: KMimeTypeChooserDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KMimeTypeChooserDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10506,10 +12878,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KMimeTypeChooserDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KMimeTypeChooserDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10521,9 +12897,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KMimeTypeChooserDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KMimeTypeChooserDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10535,9 +12915,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KMimeTypeChooserDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KMimeTypeChooserDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10547,15 +12931,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KMimeTypeChooserDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KMimeTypeChooserDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10565,15 +12953,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KMimeTypeChooserDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KMimeTypeChooserDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10585,13 +12977,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10603,13 +12999,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10621,10 +13021,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KMimeTypeChooserDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KMimeTypeChooserDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10634,9 +13038,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn WindowIcon(self: KMimeTypeChooserDialog) QIcon {
+    pub fn windowIcon(self: KMimeTypeChooserDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10646,15 +13054,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KMimeTypeChooserDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KMimeTypeChooserDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10666,13 +13078,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -10682,15 +13098,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KMimeTypeChooserDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KMimeTypeChooserDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -10702,13 +13122,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -10720,13 +13144,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KMimeTypeChooserDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KMimeTypeChooserDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -10738,13 +13166,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -10756,9 +13188,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KMimeTypeChooserDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KMimeTypeChooserDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -10768,9 +13204,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn WindowOpacity(self: KMimeTypeChooserDialog) f64 {
+    pub fn windowOpacity(self: KMimeTypeChooserDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -10780,9 +13220,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsWindowModified(self: KMimeTypeChooserDialog) bool {
+    pub fn isWindowModified(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -10792,15 +13236,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KMimeTypeChooserDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KMimeTypeChooserDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -10812,13 +13260,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -10830,9 +13282,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KMimeTypeChooserDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KMimeTypeChooserDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -10842,9 +13298,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ToolTipDuration(self: KMimeTypeChooserDialog) i32 {
+    pub fn toolTipDuration(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -10854,15 +13314,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KMimeTypeChooserDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KMimeTypeChooserDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -10874,13 +13338,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -10890,15 +13358,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KMimeTypeChooserDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KMimeTypeChooserDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -10910,13 +13382,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -10928,13 +13404,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -10946,13 +13426,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KMimeTypeChooserDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KMimeTypeChooserDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -10964,13 +13448,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -10982,13 +13470,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KMimeTypeChooserDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KMimeTypeChooserDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11000,9 +13492,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KMimeTypeChooserDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KMimeTypeChooserDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11016,9 +13512,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KMimeTypeChooserDialog) i32 {
+    pub fn layoutDirection(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11028,9 +13528,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KMimeTypeChooserDialog) void {
+    pub fn unsetLayoutDirection(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -11040,12 +13544,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KMimeTypeChooserDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KMimeTypeChooserDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -11055,9 +13563,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Locale(self: KMimeTypeChooserDialog) QLocale {
+    pub fn locale(self: KMimeTypeChooserDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -11067,9 +13579,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UnsetLocale(self: KMimeTypeChooserDialog) void {
+    pub fn unsetLocale(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -11079,9 +13595,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsRightToLeft(self: KMimeTypeChooserDialog) bool {
+    pub fn isRightToLeft(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -11091,9 +13611,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsLeftToRight(self: KMimeTypeChooserDialog) bool {
+    pub fn isLeftToRight(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -11103,9 +13627,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SetFocus(self: KMimeTypeChooserDialog) void {
+    pub fn setFocus(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -11115,9 +13643,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsActiveWindow(self: KMimeTypeChooserDialog) bool {
+    pub fn isActiveWindow(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -11127,9 +13659,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ActivateWindow(self: KMimeTypeChooserDialog) void {
+    pub fn activateWindow(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -11139,9 +13675,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ClearFocus(self: KMimeTypeChooserDialog) void {
+    pub fn clearFocus(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -11153,9 +13693,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KMimeTypeChooserDialog, reason: i32) void {
+    pub fn setFocus2(self: KMimeTypeChooserDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11169,9 +13713,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KMimeTypeChooserDialog) i32 {
+    pub fn focusPolicy(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11183,9 +13731,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KMimeTypeChooserDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KMimeTypeChooserDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -11195,9 +13747,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn HasFocus(self: KMimeTypeChooserDialog) bool {
+    pub fn hasFocus(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -11209,11 +13765,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11223,12 +13783,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KMimeTypeChooserDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KMimeTypeChooserDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11238,9 +13802,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FocusProxy(self: KMimeTypeChooserDialog) QWidget {
+    pub fn focusProxy(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11254,9 +13822,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KMimeTypeChooserDialog) i32 {
+    pub fn contextMenuPolicy(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11268,9 +13840,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KMimeTypeChooserDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KMimeTypeChooserDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -11280,9 +13856,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn GrabMouse(self: KMimeTypeChooserDialog) void {
+    pub fn grabMouse(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -11294,10 +13874,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -11307,9 +13891,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ReleaseMouse(self: KMimeTypeChooserDialog) void {
+    pub fn releaseMouse(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11319,9 +13907,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn GrabKeyboard(self: KMimeTypeChooserDialog) void {
+    pub fn grabKeyboard(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11331,9 +13923,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ReleaseKeyboard(self: KMimeTypeChooserDialog) void {
+    pub fn releaseKeyboard(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11345,10 +13941,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KMimeTypeChooserDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KMimeTypeChooserDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11360,9 +13960,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KMimeTypeChooserDialog, id: i32) void {
+    pub fn releaseShortcut(self: KMimeTypeChooserDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11374,9 +13978,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KMimeTypeChooserDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KMimeTypeChooserDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -11388,25 +13996,37 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KMimeTypeChooserDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KMimeTypeChooserDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11416,9 +14036,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UpdatesEnabled(self: KMimeTypeChooserDialog) bool {
+    pub fn updatesEnabled(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11430,9 +14054,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KMimeTypeChooserDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KMimeTypeChooserDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -11442,9 +14070,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KMimeTypeChooserDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KMimeTypeChooserDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -11454,9 +14086,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Update(self: KMimeTypeChooserDialog) void {
+    pub fn update(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -11466,9 +14102,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Repaint(self: KMimeTypeChooserDialog) void {
+    pub fn repaint(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -11478,17 +14118,21 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KMimeTypeChooserDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KMimeTypeChooserDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -11500,11 +14144,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn update3(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -11515,10 +14163,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn update4(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -11528,17 +14180,21 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KMimeTypeChooserDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KMimeTypeChooserDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -11550,10 +14206,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn repaint3(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -11565,10 +14225,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn repaint4(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -11580,9 +14244,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KMimeTypeChooserDialog, hidden: bool) void {
+    pub fn setHidden(self: KMimeTypeChooserDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -11592,9 +14260,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Show(self: KMimeTypeChooserDialog) void {
+    pub fn show(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -11604,9 +14276,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Hide(self: KMimeTypeChooserDialog) void {
+    pub fn hide(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -11616,9 +14292,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ShowMinimized(self: KMimeTypeChooserDialog) void {
+    pub fn showMinimized(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -11628,9 +14308,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ShowMaximized(self: KMimeTypeChooserDialog) void {
+    pub fn showMaximized(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -11640,9 +14324,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ShowFullScreen(self: KMimeTypeChooserDialog) void {
+    pub fn showFullScreen(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -11652,9 +14340,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ShowNormal(self: KMimeTypeChooserDialog) void {
+    pub fn showNormal(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -11664,9 +14356,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Close(self: KMimeTypeChooserDialog) bool {
+    pub fn close(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -11676,9 +14372,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Raise(self: KMimeTypeChooserDialog) void {
+    pub fn raise(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -11688,9 +14388,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Lower(self: KMimeTypeChooserDialog) void {
+    pub fn lower(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -11702,10 +14406,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn stackUnder(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -11715,13 +14423,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KMimeTypeChooserDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KMimeTypeChooserDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -11733,10 +14445,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn move2(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -11750,9 +14466,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
+    pub fn resize(self: KMimeTypeChooserDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -11764,10 +14484,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn resize2(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11777,17 +14501,21 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KMimeTypeChooserDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KMimeTypeChooserDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -11797,12 +14525,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KMimeTypeChooserDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KMimeTypeChooserDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11814,13 +14546,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMimeTypeChooserDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMimeTypeChooserDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11830,15 +14566,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KMimeTypeChooserDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KMimeTypeChooserDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -11848,9 +14588,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn AdjustSize(self: KMimeTypeChooserDialog) void {
+    pub fn adjustSize(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -11860,9 +14604,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsVisible(self: KMimeTypeChooserDialog) bool {
+    pub fn isVisible(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -11874,10 +14622,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KMimeTypeChooserDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KMimeTypeChooserDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -11887,9 +14639,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsHidden(self: KMimeTypeChooserDialog) bool {
+    pub fn isHidden(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -11899,9 +14655,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsMinimized(self: KMimeTypeChooserDialog) bool {
+    pub fn isMinimized(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -11911,9 +14671,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsMaximized(self: KMimeTypeChooserDialog) bool {
+    pub fn isMaximized(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -11923,9 +14687,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsFullScreen(self: KMimeTypeChooserDialog) bool {
+    pub fn isFullScreen(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -11939,9 +14707,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KMimeTypeChooserDialog) i32 {
+    pub fn windowState(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -11953,9 +14725,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KMimeTypeChooserDialog, state: i32) void {
+    pub fn setWindowState(self: KMimeTypeChooserDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -11967,9 +14743,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KMimeTypeChooserDialog, state: i32) void {
+    pub fn overrideWindowState(self: KMimeTypeChooserDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -11979,9 +14759,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SizePolicy(self: KMimeTypeChooserDialog) QSizePolicy {
+    pub fn sizePolicy(self: KMimeTypeChooserDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -11991,12 +14775,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KMimeTypeChooserDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KMimeTypeChooserDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -12010,9 +14798,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KMimeTypeChooserDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KMimeTypeChooserDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -12022,9 +14814,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn VisibleRegion(self: KMimeTypeChooserDialog) QRegion {
+    pub fn visibleRegion(self: KMimeTypeChooserDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12042,9 +14838,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KMimeTypeChooserDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KMimeTypeChooserDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -12056,10 +14856,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KMimeTypeChooserDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KMimeTypeChooserDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12069,9 +14873,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ContentsMargins(self: KMimeTypeChooserDialog) QMargins {
+    pub fn contentsMargins(self: KMimeTypeChooserDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -12081,9 +14889,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ContentsRect(self: KMimeTypeChooserDialog) QRect {
+    pub fn contentsRect(self: KMimeTypeChooserDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -12093,9 +14905,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Layout(self: KMimeTypeChooserDialog) QLayout {
+    pub fn layout(self: KMimeTypeChooserDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -12105,12 +14921,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KMimeTypeChooserDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KMimeTypeChooserDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12120,24 +14940,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UpdateGeometry(self: KMimeTypeChooserDialog) void {
+    pub fn updateGeometry(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KMimeTypeChooserDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -12147,14 +14956,37 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KMimeTypeChooserDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooserDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KMimeTypeChooserDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KMimeTypeChooserDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -12168,9 +15000,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KMimeTypeChooserDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KMimeTypeChooserDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -12186,10 +15022,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KMimeTypeChooserDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KMimeTypeChooserDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -12199,9 +15039,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FocusWidget(self: KMimeTypeChooserDialog) QWidget {
+    pub fn focusWidget(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12211,9 +15055,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn NextInFocusChain(self: KMimeTypeChooserDialog) QWidget {
+    pub fn nextInFocusChain(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12223,9 +15071,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn PreviousInFocusChain(self: KMimeTypeChooserDialog) QWidget {
+    pub fn previousInFocusChain(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12235,9 +15087,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn AcceptDrops(self: KMimeTypeChooserDialog) bool {
+    pub fn acceptDrops(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12249,9 +15105,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KMimeTypeChooserDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KMimeTypeChooserDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -12263,10 +15123,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KMimeTypeChooserDialog, action: anytype) void {
+    pub fn addAction(self: KMimeTypeChooserDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -12276,15 +15140,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KMimeTypeChooserDialog, actions: []QAction) void {
+    pub fn addActions(self: KMimeTypeChooserDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -12296,16 +15164,20 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KMimeTypeChooserDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KMimeTypeChooserDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -12319,11 +15191,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KMimeTypeChooserDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KMimeTypeChooserDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -12335,10 +15211,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KMimeTypeChooserDialog, action: anytype) void {
+    pub fn removeAction(self: KMimeTypeChooserDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -12350,15 +15230,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMimeTypeChooserDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMimeTypeChooserDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -12370,13 +15254,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KMimeTypeChooserDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KMimeTypeChooserDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -12390,7 +15278,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KMimeTypeChooserDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KMimeTypeChooserDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -12399,6 +15287,10 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -12411,7 +15303,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KMimeTypeChooserDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KMimeTypeChooserDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -12419,6 +15311,10 @@ pub const KMimeTypeChooserDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -12434,7 +15330,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KMimeTypeChooserDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KMimeTypeChooserDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -12444,6 +15340,10 @@ pub const KMimeTypeChooserDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -12452,9 +15352,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ParentWidget(self: KMimeTypeChooserDialog) QWidget {
+    pub fn parentWidget(self: KMimeTypeChooserDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12466,9 +15370,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KMimeTypeChooserDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KMimeTypeChooserDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12482,9 +15390,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KMimeTypeChooserDialog) i32 {
+    pub fn windowFlags(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -12496,9 +15408,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KMimeTypeChooserDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KMimeTypeChooserDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12510,9 +15426,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KMimeTypeChooserDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KMimeTypeChooserDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -12526,9 +15446,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KMimeTypeChooserDialog) i32 {
+    pub fn windowType(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -12538,9 +15462,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -12550,13 +15478,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KMimeTypeChooserDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KMimeTypeChooserDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -12568,10 +15500,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KMimeTypeChooserDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KMimeTypeChooserDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -12583,10 +15519,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KMimeTypeChooserDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KMimeTypeChooserDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12598,9 +15538,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KMimeTypeChooserDialog, param1: i32) void {
+    pub fn setAttribute(self: KMimeTypeChooserDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12612,9 +15556,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KMimeTypeChooserDialog, param1: i32) bool {
+    pub fn testAttribute(self: KMimeTypeChooserDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -12624,9 +15572,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn EnsurePolished(self: KMimeTypeChooserDialog) void {
+    pub fn ensurePolished(self: KMimeTypeChooserDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -12638,10 +15590,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KMimeTypeChooserDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KMimeTypeChooserDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12651,9 +15607,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn AutoFillBackground(self: KMimeTypeChooserDialog) bool {
+    pub fn autoFillBackground(self: KMimeTypeChooserDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12665,9 +15625,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KMimeTypeChooserDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KMimeTypeChooserDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -12677,9 +15641,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn BackingStore(self: KMimeTypeChooserDialog) QBackingStore {
+    pub fn backingStore(self: KMimeTypeChooserDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -12689,9 +15657,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn WindowHandle(self: KMimeTypeChooserDialog) QWindow {
+    pub fn windowHandle(self: KMimeTypeChooserDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -12701,9 +15673,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Screen(self: KMimeTypeChooserDialog) QScreen {
+    pub fn screen(self: KMimeTypeChooserDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -12713,12 +15689,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KMimeTypeChooserDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KMimeTypeChooserDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -12726,12 +15706,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -12743,13 +15727,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KMimeTypeChooserDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KMimeTypeChooserDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -12761,9 +15749,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -12775,10 +15767,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KMimeTypeChooserDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KMimeTypeChooserDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -12790,9 +15786,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -12804,13 +15804,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KMimeTypeChooserDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KMimeTypeChooserDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -12822,9 +15826,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -12834,12 +15842,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KMimeTypeChooserDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KMimeTypeChooserDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -12851,9 +15863,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -12867,9 +15883,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KMimeTypeChooserDialog) i32 {
+    pub fn inputMethodHints(self: KMimeTypeChooserDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -12881,9 +15901,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KMimeTypeChooserDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KMimeTypeChooserDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -12897,11 +15921,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -12917,13 +15945,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -12940,12 +15972,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KMimeTypeChooserDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -12959,11 +15995,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -12979,12 +16019,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -13002,12 +16046,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KMimeTypeChooserDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -13019,10 +16067,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KMimeTypeChooserDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KMimeTypeChooserDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -13036,9 +16088,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KMimeTypeChooserDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KMimeTypeChooserDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -13052,10 +16108,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KMimeTypeChooserDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KMimeTypeChooserDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -13069,9 +16129,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KMimeTypeChooserDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KMimeTypeChooserDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -13085,9 +16149,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KMimeTypeChooserDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KMimeTypeChooserDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -13101,9 +16169,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KMimeTypeChooserDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KMimeTypeChooserDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -13117,25 +16189,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KMimeTypeChooserDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KMimeTypeChooserDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -13143,17 +16203,41 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -13165,13 +16249,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMimeTypeChooserDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -13183,13 +16271,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KMimeTypeChooserDialog, name: []const u8) void {
+    pub fn setObjectName(self: KMimeTypeChooserDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -13199,9 +16291,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsWidgetType(self: KMimeTypeChooserDialog) bool {
+    pub fn isWidgetType(self: KMimeTypeChooserDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -13211,9 +16307,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsWindowType(self: KMimeTypeChooserDialog) bool {
+    pub fn isWindowType(self: KMimeTypeChooserDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -13223,9 +16323,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn IsQuickItemType(self: KMimeTypeChooserDialog) bool {
+    pub fn isQuickItemType(self: KMimeTypeChooserDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -13235,9 +16339,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SignalsBlocked(self: KMimeTypeChooserDialog) bool {
+    pub fn signalsBlocked(self: KMimeTypeChooserDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -13249,9 +16357,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KMimeTypeChooserDialog, b: bool) bool {
+    pub fn blockSignals(self: KMimeTypeChooserDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -13261,9 +16373,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Thread(self: KMimeTypeChooserDialog) QThread {
+    pub fn thread(self: KMimeTypeChooserDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -13273,12 +16389,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KMimeTypeChooserDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KMimeTypeChooserDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -13290,9 +16410,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KMimeTypeChooserDialog, interval: i32) i32 {
+    pub fn startTimer(self: KMimeTypeChooserDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -13304,9 +16428,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KMimeTypeChooserDialog, time: i64) i32 {
+    pub fn startTimer2(self: KMimeTypeChooserDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -13318,9 +16446,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KMimeTypeChooserDialog, id: i32) void {
+    pub fn killTimer(self: KMimeTypeChooserDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -13332,9 +16464,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KMimeTypeChooserDialog, id: i32) void {
+    pub fn killTimer2(self: KMimeTypeChooserDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -13346,15 +16482,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMimeTypeChooserDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMimeTypeChooserDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13366,10 +16506,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KMimeTypeChooserDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KMimeTypeChooserDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13381,10 +16525,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KMimeTypeChooserDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KMimeTypeChooserDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -13392,7 +16540,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13400,13 +16548,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -13414,7 +16566,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13422,13 +16574,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -13438,18 +16594,22 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KMimeTypeChooserDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KMimeTypeChooserDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -13457,7 +16617,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13465,13 +16625,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -13479,7 +16643,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13487,13 +16651,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -13503,9 +16671,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Disconnect3(self: KMimeTypeChooserDialog) bool {
+    pub fn disconnect3(self: KMimeTypeChooserDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -13517,10 +16689,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KMimeTypeChooserDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KMimeTypeChooserDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -13530,10 +16706,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -13543,9 +16723,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DumpObjectTree(self: KMimeTypeChooserDialog) void {
+    pub fn dumpObjectTree(self: KMimeTypeChooserDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -13555,9 +16739,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DumpObjectInfo(self: KMimeTypeChooserDialog) void {
+    pub fn dumpObjectInfo(self: KMimeTypeChooserDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -13571,11 +16759,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KMimeTypeChooserDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KMimeTypeChooserDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -13587,10 +16779,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KMimeTypeChooserDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KMimeTypeChooserDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -13602,7 +16798,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KMimeTypeChooserDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -13610,27 +16806,19 @@ pub const KMimeTypeChooserDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMimeTypeChooserDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMimeTypeChooserDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMimeTypeChooserDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMimeTypeChooserDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMimeTypeChooserDialog `
-    ///
-    pub fn BindingStorage(self: KMimeTypeChooserDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -13640,9 +16828,29 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn BindingStorage2(self: KMimeTypeChooserDialog) QBindingStorage {
+    pub fn bindingStorage(self: KMimeTypeChooserDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMimeTypeChooserDialog `
+    ///
+    pub fn bindingStorage2(self: KMimeTypeChooserDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -13652,9 +16860,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Destroyed(self: KMimeTypeChooserDialog) void {
+    pub fn destroyed(self: KMimeTypeChooserDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -13666,9 +16878,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -13678,9 +16894,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Parent(self: KMimeTypeChooserDialog) QObject {
+    pub fn parent(self: KMimeTypeChooserDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -13692,10 +16912,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KMimeTypeChooserDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KMimeTypeChooserDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -13705,9 +16929,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DeleteLater(self: KMimeTypeChooserDialog) void {
+    pub fn deleteLater(self: KMimeTypeChooserDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -13721,9 +16949,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KMimeTypeChooserDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KMimeTypeChooserDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -13737,9 +16969,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KMimeTypeChooserDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KMimeTypeChooserDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -13747,7 +16983,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13757,13 +16993,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -13771,7 +17011,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13781,13 +17021,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -13797,7 +17041,7 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13805,12 +17049,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KMimeTypeChooserDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KMimeTypeChooserDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -13822,10 +17070,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KMimeTypeChooserDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KMimeTypeChooserDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -13839,11 +17091,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KMimeTypeChooserDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KMimeTypeChooserDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -13859,13 +17115,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KMimeTypeChooserDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KMimeTypeChooserDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -13878,11 +17138,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KMimeTypeChooserDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KMimeTypeChooserDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -13894,10 +17158,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn destroyed1(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -13909,9 +17177,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -13921,9 +17193,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn PaintingActive(self: KMimeTypeChooserDialog) bool {
+    pub fn paintingActive(self: KMimeTypeChooserDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -13933,9 +17209,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn WidthMM(self: KMimeTypeChooserDialog) i32 {
+    pub fn widthMM(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -13945,9 +17225,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn HeightMM(self: KMimeTypeChooserDialog) i32 {
+    pub fn heightMM(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -13957,9 +17241,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn LogicalDpiX(self: KMimeTypeChooserDialog) i32 {
+    pub fn logicalDpiX(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -13969,9 +17257,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn LogicalDpiY(self: KMimeTypeChooserDialog) i32 {
+    pub fn logicalDpiY(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -13981,9 +17273,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn PhysicalDpiX(self: KMimeTypeChooserDialog) i32 {
+    pub fn physicalDpiX(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -13993,9 +17289,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn PhysicalDpiY(self: KMimeTypeChooserDialog) i32 {
+    pub fn physicalDpiY(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -14005,9 +17305,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DevicePixelRatio(self: KMimeTypeChooserDialog) f64 {
+    pub fn devicePixelRatio(self: KMimeTypeChooserDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14017,9 +17321,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DevicePixelRatioF(self: KMimeTypeChooserDialog) f64 {
+    pub fn devicePixelRatioF(self: KMimeTypeChooserDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -14029,9 +17337,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn ColorCount(self: KMimeTypeChooserDialog) i32 {
+    pub fn colorCount(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -14041,17 +17353,25 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Depth(self: KMimeTypeChooserDialog) i32 {
+    pub fn depth(self: KMimeTypeChooserDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14059,13 +17379,17 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -14079,13 +17403,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KMimeTypeChooserDialog, visible: bool) void {
+    pub fn setVisible(self: KMimeTypeChooserDialog, visible: bool) void {
         qtc.KMimeTypeChooserDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -14099,9 +17423,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KMimeTypeChooserDialog, visible: bool) void {
+    pub fn superSetVisible(self: KMimeTypeChooserDialog, visible: bool) void {
         qtc.KMimeTypeChooserDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -14115,9 +17443,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, bool) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -14129,13 +17461,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn MinimumSizeHint(self: KMimeTypeChooserDialog) QSize {
+    pub fn minimumSizeHint(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -14147,9 +17479,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KMimeTypeChooserDialog) QSize {
+    pub fn superMinimumSizeHint(self: KMimeTypeChooserDialog) QSize {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -14165,9 +17501,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMimeTypeChooserDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -14179,13 +17519,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Open(self: KMimeTypeChooserDialog) void {
+    pub fn open(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -14197,9 +17537,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperOpen(self: KMimeTypeChooserDialog) void {
+    pub fn superOpen(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -14213,9 +17557,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -14227,13 +17575,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Exec(self: KMimeTypeChooserDialog) i32 {
+    pub fn exec(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -14245,9 +17593,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperExec(self: KMimeTypeChooserDialog) i32 {
+    pub fn superExec(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -14261,9 +17613,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -14277,13 +17633,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KMimeTypeChooserDialog, param1: i32) void {
+    pub fn done(self: KMimeTypeChooserDialog, param1: i32) void {
         qtc.KMimeTypeChooserDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -14297,9 +17653,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KMimeTypeChooserDialog, param1: i32) void {
+    pub fn superDone(self: KMimeTypeChooserDialog, param1: i32) void {
         qtc.KMimeTypeChooserDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -14313,10 +17673,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -14327,13 +17691,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Accept(self: KMimeTypeChooserDialog) void {
+    pub fn accept(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -14345,9 +17709,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperAccept(self: KMimeTypeChooserDialog) void {
+    pub fn superAccept(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -14361,9 +17729,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -14375,13 +17747,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Reject(self: KMimeTypeChooserDialog) void {
+    pub fn reject(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -14393,9 +17765,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperReject(self: KMimeTypeChooserDialog) void {
+    pub fn superReject(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -14409,9 +17785,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -14425,14 +17805,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KMimeTypeChooserDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -14446,10 +17826,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KMimeTypeChooserDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -14463,9 +17847,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -14479,14 +17867,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn closeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KMimeTypeChooserDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -14500,10 +17888,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KMimeTypeChooserDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -14517,9 +17909,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -14533,14 +17929,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn showEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KMimeTypeChooserDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -14554,10 +17950,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KMimeTypeChooserDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -14571,9 +17971,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QShowEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -14587,14 +17991,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KMimeTypeChooserDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -14608,10 +18012,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KMimeTypeChooserDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -14625,9 +18033,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -14641,14 +18053,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KMimeTypeChooserDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -14662,10 +18074,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KMimeTypeChooserDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -14679,9 +18095,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -14697,15 +18117,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KMimeTypeChooserDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -14721,11 +18141,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KMimeTypeChooserDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KMimeTypeChooserDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -14739,9 +18163,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -14753,13 +18181,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn DevType(self: KMimeTypeChooserDialog) i32 {
+    pub fn devType(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -14771,9 +18199,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperDevType(self: KMimeTypeChooserDialog) i32 {
+    pub fn superDevType(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -14787,9 +18219,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14803,13 +18239,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KMimeTypeChooserDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KMimeTypeChooserDialog, param1: i32) i32 {
         return qtc.KMimeTypeChooserDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14823,9 +18259,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KMimeTypeChooserDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KMimeTypeChooserDialog, param1: i32) i32 {
         return qtc.KMimeTypeChooserDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14839,9 +18279,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14853,13 +18297,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn HasHeightForWidth(self: KMimeTypeChooserDialog) bool {
+    pub fn hasHeightForWidth(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14871,9 +18315,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KMimeTypeChooserDialog) bool {
+    pub fn superHasHeightForWidth(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -14887,9 +18335,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14901,13 +18353,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn PaintEngine(self: KMimeTypeChooserDialog) QPaintEngine {
+    pub fn paintEngine(self: KMimeTypeChooserDialog) QPaintEngine {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14919,9 +18371,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperPaintEngine(self: KMimeTypeChooserDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KMimeTypeChooserDialog) QPaintEngine {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -14935,9 +18391,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KMimeTypeChooserDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -14949,16 +18409,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KMimeTypeChooserDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooserDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KMimeTypeChooserDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooserDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -14970,12 +18430,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KMimeTypeChooserDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMimeTypeChooserDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KMimeTypeChooserDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMimeTypeChooserDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -14989,10 +18453,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -15003,16 +18471,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -15024,12 +18492,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -15043,10 +18515,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -15057,16 +18533,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15078,12 +18554,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15097,10 +18577,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -15111,16 +18595,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15132,12 +18616,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -15151,10 +18639,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -15165,16 +18657,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15186,12 +18678,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMimeTypeChooserDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMimeTypeChooserDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15205,9 +18701,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15219,16 +18719,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMimeTypeChooserDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMimeTypeChooserDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15240,12 +18740,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMimeTypeChooserDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMimeTypeChooserDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -15259,9 +18763,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15273,16 +18781,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooserDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooserDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15294,12 +18802,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMimeTypeChooserDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMimeTypeChooserDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -15313,10 +18825,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -15327,16 +18843,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooserDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooserDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15348,12 +18864,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooserDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooserDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -15367,10 +18887,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -15381,16 +18905,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooserDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooserDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -15402,12 +18926,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMimeTypeChooserDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMimeTypeChooserDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -15421,9 +18949,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15435,16 +18967,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMimeTypeChooserDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMimeTypeChooserDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15456,12 +18988,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMimeTypeChooserDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMimeTypeChooserDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15475,9 +19011,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15489,16 +19029,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooserDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooserDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15510,12 +19050,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooserDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooserDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15529,9 +19073,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15543,16 +19091,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KMimeTypeChooserDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KMimeTypeChooserDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15564,12 +19112,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KMimeTypeChooserDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KMimeTypeChooserDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -15583,9 +19135,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15597,16 +19153,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMimeTypeChooserDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMimeTypeChooserDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15618,12 +19174,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMimeTypeChooserDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMimeTypeChooserDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15637,9 +19197,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15651,16 +19215,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMimeTypeChooserDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMimeTypeChooserDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15672,12 +19236,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMimeTypeChooserDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMimeTypeChooserDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -15691,9 +19259,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15705,16 +19277,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMimeTypeChooserDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMimeTypeChooserDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15726,12 +19298,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMimeTypeChooserDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMimeTypeChooserDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -15745,9 +19321,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QActionEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15759,16 +19339,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMimeTypeChooserDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMimeTypeChooserDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15780,12 +19360,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMimeTypeChooserDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMimeTypeChooserDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -15799,9 +19383,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15813,16 +19401,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMimeTypeChooserDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMimeTypeChooserDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15834,12 +19422,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMimeTypeChooserDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMimeTypeChooserDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15853,9 +19445,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15867,16 +19463,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMimeTypeChooserDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMimeTypeChooserDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15888,12 +19484,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMimeTypeChooserDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMimeTypeChooserDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -15907,9 +19507,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -15921,16 +19525,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMimeTypeChooserDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMimeTypeChooserDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -15942,12 +19546,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMimeTypeChooserDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMimeTypeChooserDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -15961,9 +19569,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QDropEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -15975,16 +19587,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMimeTypeChooserDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMimeTypeChooserDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -15996,12 +19608,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMimeTypeChooserDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMimeTypeChooserDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -16015,9 +19631,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QHideEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16033,19 +19653,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KMimeTypeChooserDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KMimeTypeChooserDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KMimeTypeChooserDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KMimeTypeChooserDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16061,15 +19681,19 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KMimeTypeChooserDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KMimeTypeChooserDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KMimeTypeChooserDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KMimeTypeChooserDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16083,9 +19707,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16099,14 +19727,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn changeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMimeTypeChooserDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16120,10 +19748,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMimeTypeChooserDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -16137,9 +19769,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -16153,13 +19789,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KMimeTypeChooserDialog, param1: i32) i32 {
+    pub fn metric(self: KMimeTypeChooserDialog, param1: i32) i32 {
         return qtc.KMimeTypeChooserDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -16173,9 +19809,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KMimeTypeChooserDialog, param1: i32) i32 {
+    pub fn superMetric(self: KMimeTypeChooserDialog, param1: i32) i32 {
         return qtc.KMimeTypeChooserDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -16189,9 +19829,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -16205,14 +19849,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KMimeTypeChooserDialog, painter: anytype) void {
+    pub fn initPainter(self: KMimeTypeChooserDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMimeTypeChooserDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16226,10 +19870,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KMimeTypeChooserDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KMimeTypeChooserDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMimeTypeChooserDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -16243,9 +19891,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPainter) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -16259,14 +19911,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KMimeTypeChooserDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KMimeTypeChooserDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMimeTypeChooserDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16280,10 +19932,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KMimeTypeChooserDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KMimeTypeChooserDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -16297,9 +19953,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KMimeTypeChooserDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16311,13 +19971,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SharedPainter(self: KMimeTypeChooserDialog) QPainter {
+    pub fn sharedPainter(self: KMimeTypeChooserDialog) QPainter {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16329,9 +19989,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperSharedPainter(self: KMimeTypeChooserDialog) QPainter {
+    pub fn superSharedPainter(self: KMimeTypeChooserDialog) QPainter {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -16345,9 +20009,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KMimeTypeChooserDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16361,14 +20029,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMimeTypeChooserDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16382,10 +20050,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMimeTypeChooserDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -16399,9 +20071,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16415,13 +20091,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KMimeTypeChooserDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KMimeTypeChooserDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16435,9 +20111,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KMimeTypeChooserDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KMimeTypeChooserDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -16453,9 +20133,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32) callconv(.c) QVariant) void {
         qtc.KMimeTypeChooserDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16469,13 +20153,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KMimeTypeChooserDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KMimeTypeChooserDialog, next: bool) bool {
         return qtc.KMimeTypeChooserDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16489,9 +20173,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KMimeTypeChooserDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KMimeTypeChooserDialog, next: bool) bool {
         return qtc.KMimeTypeChooserDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -16505,9 +20193,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, bool) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -16519,16 +20211,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMimeTypeChooserDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMimeTypeChooserDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -16540,12 +20232,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMimeTypeChooserDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMimeTypeChooserDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -16559,9 +20255,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -16573,16 +20273,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMimeTypeChooserDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMimeTypeChooserDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -16594,12 +20294,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMimeTypeChooserDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMimeTypeChooserDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -16613,9 +20317,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QChildEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -16627,16 +20335,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooserDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooserDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -16648,12 +20356,16 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KMimeTypeChooserDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMimeTypeChooserDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KMimeTypeChooserDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMimeTypeChooserDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -16667,9 +20379,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QEvent) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -16683,14 +20399,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
+    pub fn connectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooserDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16704,11 +20420,15 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooserDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -16721,9 +20441,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16737,14 +20461,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooserDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16758,10 +20482,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KMimeTypeChooserDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMimeTypeChooserDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -16775,9 +20503,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -16791,14 +20523,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KMimeTypeChooserDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -16812,10 +20544,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KMimeTypeChooserDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KMimeTypeChooserDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KMimeTypeChooserDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -16829,10 +20565,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QWidget) callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -16843,13 +20583,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn UpdateMicroFocus(self: KMimeTypeChooserDialog) void {
+    pub fn updateMicroFocus(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -16861,10 +20601,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KMimeTypeChooserDialog) void {
+    pub fn superUpdateMicroFocus(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -16877,10 +20621,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -16891,13 +20639,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Create(self: KMimeTypeChooserDialog) void {
+    pub fn create(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -16909,10 +20657,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperCreate(self: KMimeTypeChooserDialog) void {
+    pub fn superCreate(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -16925,9 +20677,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -16939,13 +20695,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Destroy(self: KMimeTypeChooserDialog) void {
+    pub fn destroy(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -16957,9 +20713,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperDestroy(self: KMimeTypeChooserDialog) void {
+    pub fn superDestroy(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -16973,10 +20733,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KMimeTypeChooserDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -16987,13 +20751,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FocusNextChild(self: KMimeTypeChooserDialog) bool {
+    pub fn focusNextChild(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -17005,10 +20769,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperFocusNextChild(self: KMimeTypeChooserDialog) bool {
+    pub fn superFocusNextChild(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -17021,9 +20789,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17035,13 +20807,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn FocusPreviousChild(self: KMimeTypeChooserDialog) bool {
+    pub fn focusPreviousChild(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17053,9 +20825,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KMimeTypeChooserDialog) bool {
+    pub fn superFocusPreviousChild(self: KMimeTypeChooserDialog) bool {
         return qtc.KMimeTypeChooserDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -17069,9 +20845,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -17083,13 +20863,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Sender(self: KMimeTypeChooserDialog) QObject {
+    pub fn sender(self: KMimeTypeChooserDialog) QObject {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -17101,9 +20881,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperSender(self: KMimeTypeChooserDialog) QObject {
+    pub fn superSender(self: KMimeTypeChooserDialog) QObject {
         return .{ .ptr = qtc.KMimeTypeChooserDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -17117,9 +20901,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KMimeTypeChooserDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17131,13 +20919,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SenderSignalIndex(self: KMimeTypeChooserDialog) i32 {
+    pub fn senderSignalIndex(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17149,9 +20937,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KMimeTypeChooserDialog) i32 {
+    pub fn superSenderSignalIndex(self: KMimeTypeChooserDialog) i32 {
         return qtc.KMimeTypeChooserDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -17165,9 +20957,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KMimeTypeChooserDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -17181,14 +20977,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KMimeTypeChooserDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KMimeTypeChooserDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMimeTypeChooserDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -17202,10 +20998,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KMimeTypeChooserDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KMimeTypeChooserDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMimeTypeChooserDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -17219,9 +21019,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KMimeTypeChooserDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17235,14 +21039,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooserDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17256,10 +21060,14 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KMimeTypeChooserDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMimeTypeChooserDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -17273,9 +21081,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KMimeTypeChooserDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17291,13 +21103,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooserDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17313,9 +21125,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KMimeTypeChooserDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KMimeTypeChooserDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -17329,9 +21145,13 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, i32, i32) callconv(.c) f64) void {
         qtc.KMimeTypeChooserDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -17345,23 +21165,23 @@ pub const KMimeTypeChooserDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KMimeTypeChooserDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KMimeTypeChooserDialog, callback: *const fn (KMimeTypeChooserDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmimetypechooserdialog.html#dtor.KMimeTypeChooserDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMimeTypeChooserDialog `
     ///
-    pub fn Delete(self: KMimeTypeChooserDialog) void {
+    pub fn delete(self: KMimeTypeChooserDialog) void {
         qtc.KMimeTypeChooserDialog_Delete(@ptrCast(self.ptr));
     }
 };

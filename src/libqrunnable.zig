@@ -11,11 +11,19 @@ pub const QRunnable = extern struct {
 
     pub const _is_QRunnable = {};
 
-    /// New constructs a new QRunnable object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QRunnable {
+    pub const New = new;
+
+    /// Allocate a new QRunnable object in C++ memory
+    ///
+    pub fn new() QRunnable {
         return .{ .ptr = qtc.QRunnable_new() };
     }
+
+    /// ### DEPRECATED: Use `run` instead
+    ///
+    pub const Run = run;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
@@ -23,9 +31,13 @@ pub const QRunnable = extern struct {
     ///
     /// ` self: QRunnable `
     ///
-    pub fn Run(self: QRunnable) void {
+    pub fn run(self: QRunnable) void {
         qtc.QRunnable_Run(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRun` instead
+    ///
+    pub const OnRun = onRun;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
@@ -37,13 +49,13 @@ pub const QRunnable = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnRun(self: QRunnable, callback: *const fn () callconv(.c) void) void {
+    pub fn onRun(self: QRunnable, callback: *const fn () callconv(.c) void) void {
         qtc.QRunnable_OnRun(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRun` instead
+    /// ### DEPRECATED: Use `superRun` instead
     ///
-    pub const QBaseRun = SuperRun;
+    pub const SuperRun = superRun;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#run)
     ///
@@ -53,9 +65,13 @@ pub const QRunnable = extern struct {
     ///
     /// ` self: QRunnable `
     ///
-    pub fn SuperRun(self: QRunnable) void {
+    pub fn superRun(self: QRunnable) void {
         qtc.QRunnable_SuperRun(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoDelete` instead
+    ///
+    pub const AutoDelete = autoDelete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#autoDelete)
     ///
@@ -63,9 +79,13 @@ pub const QRunnable = extern struct {
     ///
     /// ` self: QRunnable `
     ///
-    pub fn AutoDelete(self: QRunnable) bool {
+    pub fn autoDelete(self: QRunnable) bool {
         return qtc.QRunnable_AutoDelete(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDelete` instead
+    ///
+    pub const SetAutoDelete = setAutoDelete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#setAutoDelete)
     ///
@@ -73,25 +93,25 @@ pub const QRunnable = extern struct {
     ///
     /// ` self: QRunnable `
     ///
-    /// ` autoDelete: bool `
+    /// ` _autoDelete: bool `
     ///
-    pub fn SetAutoDelete(self: QRunnable, autoDelete: bool) void {
-        qtc.QRunnable_SetAutoDelete(@ptrCast(self.ptr), autoDelete);
+    pub fn setAutoDelete(self: QRunnable, _autoDelete: bool) void {
+        qtc.QRunnable_SetAutoDelete(@ptrCast(self.ptr), _autoDelete);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrunnable.html#dtor.QRunnable)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QRunnable `
     ///
-    pub fn Delete(self: QRunnable) void {
+    pub fn delete(self: QRunnable) void {
         qtc.QRunnable_Delete(@ptrCast(self.ptr));
     }
 };

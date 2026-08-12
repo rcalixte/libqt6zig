@@ -129,16 +129,16 @@ bool QWebEngineCookieStore__FilterRequest_ReservedFlag(const QWebEngineCookieSto
     return self->_reservedFlag;
 }
 
-void QWebEngineCookieStore__FilterRequest_SetReservedFlag(QWebEngineCookieStore__FilterRequest* self, bool _reservedFlag) {
-    self->_reservedFlag = _reservedFlag;
+void QWebEngineCookieStore__FilterRequest_SetReservedFlag(QWebEngineCookieStore__FilterRequest* self, bool reservedFlag) {
+    self->_reservedFlag = reservedFlag;
 }
 
 uint16_t QWebEngineCookieStore__FilterRequest_ReservedType(const QWebEngineCookieStore__FilterRequest* self) {
     return static_cast<uint16_t>(self->_reservedType);
 }
 
-void QWebEngineCookieStore__FilterRequest_SetReservedType(QWebEngineCookieStore__FilterRequest* self, uint16_t _reservedType) {
-    self->_reservedType = static_cast<ushort>(_reservedType);
+void QWebEngineCookieStore__FilterRequest_SetReservedType(QWebEngineCookieStore__FilterRequest* self, uint16_t reservedType) {
+    self->_reservedType = static_cast<ushort>(reservedType);
 }
 
 void QWebEngineCookieStore__FilterRequest_OperatorAssign(QWebEngineCookieStore__FilterRequest* self, const QWebEngineCookieStore__FilterRequest* param1) {

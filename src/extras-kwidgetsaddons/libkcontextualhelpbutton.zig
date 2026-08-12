@@ -85,42 +85,58 @@ pub const KContextualHelpButton = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KContextualHelpButton object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KContextualHelpButton object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KContextualHelpButton {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KContextualHelpButton_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KContextualHelpButton {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KContextualHelpButton_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KContextualHelpButton object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KContextualHelpButton object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` contextualHelpText: []const u8 `
+    /// ` _contextualHelpText: []const u8 `
     ///
-    /// ` heightHintWidget: QWidget `
+    /// ` _heightHintWidget: QWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(contextualHelpText: []const u8, heightHintWidget: anytype, parent: anytype) KContextualHelpButton {
+    pub fn new2(_contextualHelpText: []const u8, _heightHintWidget: anytype, _parent: anytype) KContextualHelpButton {
         const contextualHelpText_str = qtc.libqt_string{
-            .len = contextualHelpText.len,
-            .data = contextualHelpText.ptr,
+            .len = _contextualHelpText.len,
+            .data = _contextualHelpText.ptr,
         };
-        comptime _ = @TypeOf(heightHintWidget)._is_QWidget;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KContextualHelpButton_new2(contextualHelpText_str, @ptrCast(heightHintWidget.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_heightHintWidget)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KContextualHelpButton_new2(contextualHelpText_str, @ptrCast(_heightHintWidget.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New3 constructs a new KContextualHelpButton object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() KContextualHelpButton {
+    pub const New3 = new3;
+
+    /// Allocate a new KContextualHelpButton object in C++ memory
+    ///
+    pub fn new3() KContextualHelpButton {
         return .{ .ptr = qtc.KContextualHelpButton_new3() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -128,9 +144,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MetaObject(self: KContextualHelpButton) QMetaObject {
+    pub fn metaObject(self: KContextualHelpButton) QMetaObject {
         return .{ .ptr = qtc.KContextualHelpButton_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -142,13 +162,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KContextualHelpButton, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KContextualHelpButton, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KContextualHelpButton_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -158,9 +178,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperMetaObject(self: KContextualHelpButton) QMetaObject {
+    pub fn superMetaObject(self: KContextualHelpButton) QMetaObject {
         return .{ .ptr = qtc.KContextualHelpButton_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -168,10 +192,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KContextualHelpButton, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KContextualHelpButton, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KContextualHelpButton_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -181,13 +209,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KContextualHelpButton_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -197,10 +225,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KContextualHelpButton, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KContextualHelpButton, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KContextualHelpButton_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -212,9 +244,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KContextualHelpButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KContextualHelpButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KContextualHelpButton_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -224,13 +260,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -244,9 +280,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KContextualHelpButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KContextualHelpButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KContextualHelpButton_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -256,14 +296,18 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContextualHelpText` instead
+    ///
+    pub const SetContextualHelpText = setContextualHelpText;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#setContextualHelpText)
     ///
@@ -271,15 +315,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` contextualHelpText: []const u8 `
+    /// ` _contextualHelpText: []const u8 `
     ///
-    pub fn SetContextualHelpText(self: KContextualHelpButton, contextualHelpText: []const u8) void {
+    pub fn setContextualHelpText(self: KContextualHelpButton, _contextualHelpText: []const u8) void {
         const contextualHelpText_str = qtc.libqt_string{
-            .len = contextualHelpText.len,
-            .data = contextualHelpText.ptr,
+            .len = _contextualHelpText.len,
+            .data = _contextualHelpText.ptr,
         };
         qtc.KContextualHelpButton_SetContextualHelpText(@ptrCast(self.ptr), contextualHelpText_str);
     }
+
+    /// ### DEPRECATED: Use `contextualHelpText` instead
+    ///
+    pub const ContextualHelpText = contextualHelpText;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpText)
     ///
@@ -289,13 +337,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ContextualHelpText(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn contextualHelpText(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KContextualHelpButton_ContextualHelpText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.ContextualHelpText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.contextualHelpText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHeightHintWidget` instead
+    ///
+    pub const SetHeightHintWidget = setHeightHintWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#setHeightHintWidget)
     ///
@@ -303,12 +355,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` heightHintWidget: QWidget `
+    /// ` _heightHintWidget: QWidget `
     ///
-    pub fn SetHeightHintWidget(self: KContextualHelpButton, heightHintWidget: anytype) void {
-        comptime _ = @TypeOf(heightHintWidget)._is_QWidget;
-        qtc.KContextualHelpButton_SetHeightHintWidget(@ptrCast(self.ptr), @ptrCast(heightHintWidget.ptr));
+    pub fn setHeightHintWidget(self: KContextualHelpButton, _heightHintWidget: anytype) void {
+        comptime _ = @TypeOf(_heightHintWidget)._is_QWidget;
+        qtc.KContextualHelpButton_SetHeightHintWidget(@ptrCast(self.ptr), @ptrCast(_heightHintWidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightHintWidget` instead
+    ///
+    pub const HeightHintWidget = heightHintWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#heightHintWidget)
     ///
@@ -316,9 +372,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HeightHintWidget(self: KContextualHelpButton) QWidget {
+    pub fn heightHintWidget(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.KContextualHelpButton_HeightHintWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
@@ -326,9 +386,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SizeHint(self: KContextualHelpButton) QSize {
+    pub fn sizeHint(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.KContextualHelpButton_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
@@ -342,13 +406,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#sizeHint)
     ///
@@ -358,9 +422,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperSizeHint(self: KContextualHelpButton) QSize {
+    pub fn superSizeHint(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.KContextualHelpButton_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextualHelpTextChanged` instead
+    ///
+    pub const ContextualHelpTextChanged = contextualHelpTextChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
     ///
@@ -370,13 +438,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` newContextualHelpText: []const u8 `
     ///
-    pub fn ContextualHelpTextChanged(self: KContextualHelpButton, newContextualHelpText: []const u8) void {
+    pub fn contextualHelpTextChanged(self: KContextualHelpButton, newContextualHelpText: []const u8) void {
         const newContextualHelpText_str = qtc.libqt_string{
             .len = newContextualHelpText.len,
             .data = newContextualHelpText.ptr,
         };
         qtc.KContextualHelpButton_ContextualHelpTextChanged(@ptrCast(self.ptr), newContextualHelpText_str);
     }
+
+    /// ### DEPRECATED: Use `onContextualHelpTextChanged` instead
+    ///
+    pub const OnContextualHelpTextChanged = onContextualHelpTextChanged;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#contextualHelpTextChanged)
     ///
@@ -386,9 +458,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, newContextualHelpText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnContextualHelpTextChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onContextualHelpTextChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
         qtc.KContextualHelpButton_Connect_ContextualHelpTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -400,15 +476,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -422,15 +502,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -444,9 +528,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: KContextualHelpButton) i32 {
+    pub fn toolButtonStyle(self: KContextualHelpButton) i32 {
         return qtc.QToolButton_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `arrowType` instead
+    ///
+    pub const ArrowType = arrowType;
 
     /// Inherited from QToolButton
     ///
@@ -460,9 +548,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowType(self: KContextualHelpButton) i32 {
+    pub fn arrowType(self: KContextualHelpButton) i32 {
         return qtc.QToolButton_ArrowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowType` instead
+    ///
+    pub const SetArrowType = setArrowType;
 
     /// Inherited from QToolButton
     ///
@@ -474,9 +566,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowType(self: KContextualHelpButton, typeVal: i32) void {
+    pub fn setArrowType(self: KContextualHelpButton, typeVal: i32) void {
         qtc.QToolButton_SetArrowType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setMenu` instead
+    ///
+    pub const SetMenu = setMenu;
 
     /// Inherited from QToolButton
     ///
@@ -486,12 +582,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` menu: QMenu `
+    /// ` _menu: QMenu `
     ///
-    pub fn SetMenu(self: KContextualHelpButton, menu: anytype) void {
-        comptime _ = @TypeOf(menu)._is_QMenu;
-        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
+    pub fn setMenu(self: KContextualHelpButton, _menu: anytype) void {
+        comptime _ = @TypeOf(_menu)._is_QMenu;
+        qtc.QToolButton_SetMenu(@ptrCast(self.ptr), @ptrCast(_menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `menu` instead
+    ///
+    pub const Menu = menu;
 
     /// Inherited from QToolButton
     ///
@@ -501,9 +601,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Menu(self: KContextualHelpButton) QMenu {
+    pub fn menu(self: KContextualHelpButton) QMenu {
         return .{ .ptr = qtc.QToolButton_Menu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPopupMode` instead
+    ///
+    pub const SetPopupMode = setPopupMode;
 
     /// Inherited from QToolButton
     ///
@@ -515,9 +619,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` mode: qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn SetPopupMode(self: KContextualHelpButton, mode: i32) void {
+    pub fn setPopupMode(self: KContextualHelpButton, mode: i32) void {
         qtc.QToolButton_SetPopupMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `popupMode` instead
+    ///
+    pub const PopupMode = popupMode;
 
     /// Inherited from QToolButton
     ///
@@ -531,9 +639,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qtoolbutton_enums.ToolButtonPopupMode `
     ///
-    pub fn PopupMode(self: KContextualHelpButton) i32 {
+    pub fn popupMode(self: KContextualHelpButton) i32 {
         return qtc.QToolButton_PopupMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultAction` instead
+    ///
+    pub const DefaultAction = defaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -543,9 +655,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DefaultAction(self: KContextualHelpButton) QAction {
+    pub fn defaultAction(self: KContextualHelpButton) QAction {
         return .{ .ptr = qtc.QToolButton_DefaultAction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAutoRaise` instead
+    ///
+    pub const SetAutoRaise = setAutoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -557,9 +673,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoRaise(self: KContextualHelpButton, enable: bool) void {
+    pub fn setAutoRaise(self: KContextualHelpButton, enable: bool) void {
         qtc.QToolButton_SetAutoRaise(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `autoRaise` instead
+    ///
+    pub const AutoRaise = autoRaise;
 
     /// Inherited from QToolButton
     ///
@@ -569,9 +689,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoRaise(self: KContextualHelpButton) bool {
+    pub fn autoRaise(self: KContextualHelpButton) bool {
         return qtc.QToolButton_AutoRaise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMenu` instead
+    ///
+    pub const ShowMenu = showMenu;
 
     /// Inherited from QToolButton
     ///
@@ -581,9 +705,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ShowMenu(self: KContextualHelpButton) void {
+    pub fn showMenu(self: KContextualHelpButton) void {
         qtc.QToolButton_ShowMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// Inherited from QToolButton
     ///
@@ -593,11 +721,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` style: qnamespace_enums.ToolButtonStyle `
+    /// ` _style: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: KContextualHelpButton, style: i32) void {
-        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setToolButtonStyle(self: KContextualHelpButton, _style: i32) void {
+        qtc.QToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setDefaultAction` instead
+    ///
+    pub const SetDefaultAction = setDefaultAction;
 
     /// Inherited from QToolButton
     ///
@@ -607,12 +739,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` defaultAction: QAction `
+    /// ` _defaultAction: QAction `
     ///
-    pub fn SetDefaultAction(self: KContextualHelpButton, defaultAction: anytype) void {
-        comptime _ = @TypeOf(defaultAction)._is_QAction;
-        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(defaultAction.ptr));
+    pub fn setDefaultAction(self: KContextualHelpButton, _defaultAction: anytype) void {
+        comptime _ = @TypeOf(_defaultAction)._is_QAction;
+        qtc.QToolButton_SetDefaultAction(@ptrCast(self.ptr), @ptrCast(_defaultAction.ptr));
     }
+
+    /// ### DEPRECATED: Use `triggered` instead
+    ///
+    pub const Triggered = triggered;
 
     /// Inherited from QToolButton
     ///
@@ -624,10 +760,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QAction `
     ///
-    pub fn Triggered(self: KContextualHelpButton, param1: anytype) void {
+    pub fn triggered(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QAction;
         qtc.QToolButton_Triggered(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTriggered` instead
+    ///
+    pub const OnTriggered = onTriggered;
 
     /// Inherited from QToolButton
     ///
@@ -639,9 +779,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QAction) callconv(.c) void `
     ///
-    pub fn OnTriggered(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QAction) callconv(.c) void) void {
+    pub fn onTriggered(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QAction) callconv(.c) void) void {
         qtc.QToolButton_Connect_Triggered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QAbstractButton
     ///
@@ -651,15 +795,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KContextualHelpButton, text: []const u8) void {
+    pub fn setText(self: KContextualHelpButton, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QAbstractButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -671,13 +819,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -687,12 +839,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KContextualHelpButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KContextualHelpButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -702,9 +858,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Icon(self: KContextualHelpButton) QIcon {
+    pub fn icon(self: KContextualHelpButton) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -714,9 +874,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IconSize(self: KContextualHelpButton) QSize {
+    pub fn iconSize(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -728,10 +892,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: KContextualHelpButton, key: anytype) void {
+    pub fn setShortcut(self: KContextualHelpButton, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -741,9 +909,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Shortcut(self: KContextualHelpButton) QKeySequence {
+    pub fn shortcut(self: KContextualHelpButton) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -755,9 +927,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: KContextualHelpButton, checkable: bool) void {
+    pub fn setCheckable(self: KContextualHelpButton, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -767,9 +943,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsCheckable(self: KContextualHelpButton) bool {
+    pub fn isCheckable(self: KContextualHelpButton) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -779,9 +959,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsChecked(self: KContextualHelpButton) bool {
+    pub fn isChecked(self: KContextualHelpButton) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -793,9 +977,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: KContextualHelpButton, down: bool) void {
+    pub fn setDown(self: KContextualHelpButton, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -805,9 +993,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsDown(self: KContextualHelpButton) bool {
+    pub fn isDown(self: KContextualHelpButton) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -817,11 +1009,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: KContextualHelpButton, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: KContextualHelpButton, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -831,9 +1027,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoRepeat(self: KContextualHelpButton) bool {
+    pub fn autoRepeat(self: KContextualHelpButton) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -843,11 +1043,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: KContextualHelpButton, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: KContextualHelpButton, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -857,9 +1061,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoRepeatDelay(self: KContextualHelpButton) i32 {
+    pub fn autoRepeatDelay(self: KContextualHelpButton) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -869,11 +1077,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: KContextualHelpButton, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: KContextualHelpButton, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -883,9 +1095,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoRepeatInterval(self: KContextualHelpButton) i32 {
+    pub fn autoRepeatInterval(self: KContextualHelpButton) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -895,11 +1111,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: KContextualHelpButton, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: KContextualHelpButton, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -909,9 +1129,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoExclusive(self: KContextualHelpButton) bool {
+    pub fn autoExclusive(self: KContextualHelpButton) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -921,9 +1145,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Group(self: KContextualHelpButton) QButtonGroup {
+    pub fn group(self: KContextualHelpButton) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -933,12 +1161,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KContextualHelpButton, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KContextualHelpButton, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -948,9 +1180,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AnimateClick(self: KContextualHelpButton) void {
+    pub fn animateClick(self: KContextualHelpButton) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -960,9 +1196,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Click(self: KContextualHelpButton) void {
+    pub fn click(self: KContextualHelpButton) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -972,9 +1212,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Toggle(self: KContextualHelpButton) void {
+    pub fn toggle(self: KContextualHelpButton) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -986,10 +1230,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: KContextualHelpButton, checked: bool) void {
+    pub fn setChecked(self: KContextualHelpButton, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -998,10 +1246,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Pressed(self: KContextualHelpButton) void {
+    pub fn pressed(self: KContextualHelpButton) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -1012,10 +1264,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
+    pub fn onPressed(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1024,10 +1280,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Released(self: KContextualHelpButton) void {
+    pub fn released(self: KContextualHelpButton) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#released)
@@ -1038,9 +1298,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn OnReleased(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
+    pub fn onReleased(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1050,9 +1314,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Clicked(self: KContextualHelpButton) void {
+    pub fn clicked(self: KContextualHelpButton) void {
         qtc.QAbstractButton_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QAbstractButton
     ///
@@ -1064,10 +1332,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
+    pub fn onClicked(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1078,10 +1350,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: KContextualHelpButton, checked: bool) void {
+    pub fn toggled(self: KContextualHelpButton, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -1092,9 +1368,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
+    pub fn onToggled(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1106,9 +1386,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: KContextualHelpButton, checked: bool) void {
+    pub fn clicked1(self: KContextualHelpButton, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -1120,9 +1404,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1132,9 +1420,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn WinId(self: KContextualHelpButton) usize {
+    pub fn winId(self: KContextualHelpButton) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1144,9 +1436,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn CreateWinId(self: KContextualHelpButton) void {
+    pub fn createWinId(self: KContextualHelpButton) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1156,9 +1452,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn InternalWinId(self: KContextualHelpButton) usize {
+    pub fn internalWinId(self: KContextualHelpButton) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1168,9 +1468,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn EffectiveWinId(self: KContextualHelpButton) usize {
+    pub fn effectiveWinId(self: KContextualHelpButton) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1180,9 +1484,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Style(self: KContextualHelpButton) QStyle {
+    pub fn style(self: KContextualHelpButton) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1192,12 +1500,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KContextualHelpButton, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KContextualHelpButton, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1207,9 +1519,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsTopLevel(self: KContextualHelpButton) bool {
+    pub fn isTopLevel(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1219,9 +1535,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsWindow(self: KContextualHelpButton) bool {
+    pub fn isWindow(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1231,9 +1551,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsModal(self: KContextualHelpButton) bool {
+    pub fn isModal(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1247,9 +1571,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KContextualHelpButton) i32 {
+    pub fn windowModality(self: KContextualHelpButton) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1259,11 +1587,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KContextualHelpButton, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KContextualHelpButton, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1273,9 +1605,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsEnabled(self: KContextualHelpButton) bool {
+    pub fn isEnabled(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1287,10 +1623,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KContextualHelpButton, param1: anytype) bool {
+    pub fn isEnabledTo(self: KContextualHelpButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1302,9 +1642,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KContextualHelpButton, enabled: bool) void {
+    pub fn setEnabled(self: KContextualHelpButton, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1316,9 +1660,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KContextualHelpButton, disabled: bool) void {
+    pub fn setDisabled(self: KContextualHelpButton, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1330,9 +1678,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KContextualHelpButton, windowModified: bool) void {
+    pub fn setWindowModified(self: KContextualHelpButton, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1342,9 +1694,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FrameGeometry(self: KContextualHelpButton) QRect {
+    pub fn frameGeometry(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1354,9 +1710,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Geometry(self: KContextualHelpButton) QRect {
+    pub fn geometry(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1366,9 +1726,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn NormalGeometry(self: KContextualHelpButton) QRect {
+    pub fn normalGeometry(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1378,9 +1742,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn X(self: KContextualHelpButton) i32 {
+    pub fn x(self: KContextualHelpButton) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1390,9 +1758,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Y(self: KContextualHelpButton) i32 {
+    pub fn y(self: KContextualHelpButton) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1402,9 +1774,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Pos(self: KContextualHelpButton) QPoint {
+    pub fn pos(self: KContextualHelpButton) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1414,9 +1790,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FrameSize(self: KContextualHelpButton) QSize {
+    pub fn frameSize(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1426,9 +1806,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Size(self: KContextualHelpButton) QSize {
+    pub fn size(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1438,9 +1822,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Width(self: KContextualHelpButton) i32 {
+    pub fn width(self: KContextualHelpButton) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1450,9 +1838,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Height(self: KContextualHelpButton) i32 {
+    pub fn height(self: KContextualHelpButton) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1462,9 +1854,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Rect(self: KContextualHelpButton) QRect {
+    pub fn rect(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1474,9 +1870,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ChildrenRect(self: KContextualHelpButton) QRect {
+    pub fn childrenRect(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1486,9 +1886,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ChildrenRegion(self: KContextualHelpButton) QRegion {
+    pub fn childrenRegion(self: KContextualHelpButton) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1498,9 +1902,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MinimumSize(self: KContextualHelpButton) QSize {
+    pub fn minimumSize(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1510,9 +1918,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MaximumSize(self: KContextualHelpButton) QSize {
+    pub fn maximumSize(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1522,9 +1934,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MinimumWidth(self: KContextualHelpButton) i32 {
+    pub fn minimumWidth(self: KContextualHelpButton) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1534,9 +1950,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MinimumHeight(self: KContextualHelpButton) i32 {
+    pub fn minimumHeight(self: KContextualHelpButton) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1546,9 +1966,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MaximumWidth(self: KContextualHelpButton) i32 {
+    pub fn maximumWidth(self: KContextualHelpButton) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1558,9 +1982,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MaximumHeight(self: KContextualHelpButton) i32 {
+    pub fn maximumHeight(self: KContextualHelpButton) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1570,12 +1998,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KContextualHelpButton, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KContextualHelpButton, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1589,9 +2021,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KContextualHelpButton, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KContextualHelpButton, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1601,12 +2037,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KContextualHelpButton, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KContextualHelpButton, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1620,9 +2060,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KContextualHelpButton, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KContextualHelpButton, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1634,9 +2078,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KContextualHelpButton, minw: i32) void {
+    pub fn setMinimumWidth(self: KContextualHelpButton, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1648,9 +2096,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KContextualHelpButton, minh: i32) void {
+    pub fn setMinimumHeight(self: KContextualHelpButton, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1662,9 +2114,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KContextualHelpButton, maxw: i32) void {
+    pub fn setMaximumWidth(self: KContextualHelpButton, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1676,9 +2132,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KContextualHelpButton, maxh: i32) void {
+    pub fn setMaximumHeight(self: KContextualHelpButton, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1688,9 +2148,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SizeIncrement(self: KContextualHelpButton) QSize {
+    pub fn sizeIncrement(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1700,12 +2164,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KContextualHelpButton, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KContextualHelpButton, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1719,9 +2187,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KContextualHelpButton, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KContextualHelpButton, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1731,9 +2203,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn BaseSize(self: KContextualHelpButton) QSize {
+    pub fn baseSize(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1743,12 +2219,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KContextualHelpButton, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KContextualHelpButton, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1762,9 +2242,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KContextualHelpButton, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KContextualHelpButton, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1776,10 +2260,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KContextualHelpButton, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KContextualHelpButton, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1793,9 +2281,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KContextualHelpButton, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KContextualHelpButton, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1807,9 +2299,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KContextualHelpButton, w: i32) void {
+    pub fn setFixedWidth(self: KContextualHelpButton, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2317,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KContextualHelpButton, h: i32) void {
+    pub fn setFixedHeight(self: KContextualHelpButton, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1835,11 +2335,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KContextualHelpButton, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KContextualHelpButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1850,11 +2354,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KContextualHelpButton, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KContextualHelpButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1865,11 +2373,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KContextualHelpButton, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KContextualHelpButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1880,11 +2392,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KContextualHelpButton, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KContextualHelpButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1895,11 +2411,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KContextualHelpButton, param1: anytype) QPointF {
+    pub fn mapToParent(self: KContextualHelpButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1910,10 +2430,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KContextualHelpButton, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KContextualHelpButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1925,10 +2449,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KContextualHelpButton, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KContextualHelpButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1940,10 +2468,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KContextualHelpButton, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KContextualHelpButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1957,12 +2489,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KContextualHelpButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KContextualHelpButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1975,11 +2511,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KContextualHelpButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KContextualHelpButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1993,11 +2533,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KContextualHelpButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KContextualHelpButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2011,11 +2555,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KContextualHelpButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KContextualHelpButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2025,9 +2573,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Window(self: KContextualHelpButton) QWidget {
+    pub fn window(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2037,9 +2589,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn NativeParentWidget(self: KContextualHelpButton) QWidget {
+    pub fn nativeParentWidget(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2049,9 +2605,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn TopLevelWidget(self: KContextualHelpButton) QWidget {
+    pub fn topLevelWidget(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2061,9 +2621,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Palette(self: KContextualHelpButton) QPalette {
+    pub fn palette(self: KContextualHelpButton) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2073,12 +2637,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KContextualHelpButton, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KContextualHelpButton, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2088,11 +2656,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KContextualHelpButton, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KContextualHelpButton, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2106,9 +2678,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KContextualHelpButton) i32 {
+    pub fn backgroundRole(self: KContextualHelpButton) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2118,11 +2694,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KContextualHelpButton, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KContextualHelpButton, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2136,9 +2716,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KContextualHelpButton) i32 {
+    pub fn foregroundRole(self: KContextualHelpButton) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2148,9 +2732,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Font(self: KContextualHelpButton) QFont {
+    pub fn font(self: KContextualHelpButton) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2160,12 +2748,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KContextualHelpButton, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KContextualHelpButton, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2175,9 +2767,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FontMetrics(self: KContextualHelpButton) QFontMetrics {
+    pub fn fontMetrics(self: KContextualHelpButton) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2187,9 +2783,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FontInfo(self: KContextualHelpButton) QFontInfo {
+    pub fn fontInfo(self: KContextualHelpButton) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2199,9 +2799,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Cursor(self: KContextualHelpButton) QCursor {
+    pub fn cursor(self: KContextualHelpButton) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2211,12 +2815,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KContextualHelpButton, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KContextualHelpButton, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2226,9 +2834,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UnsetCursor(self: KContextualHelpButton) void {
+    pub fn unsetCursor(self: KContextualHelpButton) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2240,9 +2852,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KContextualHelpButton, enable: bool) void {
+    pub fn setMouseTracking(self: KContextualHelpButton, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2252,9 +2868,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HasMouseTracking(self: KContextualHelpButton) bool {
+    pub fn hasMouseTracking(self: KContextualHelpButton) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2264,9 +2884,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UnderMouse(self: KContextualHelpButton) bool {
+    pub fn underMouse(self: KContextualHelpButton) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2278,9 +2902,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KContextualHelpButton, enable: bool) void {
+    pub fn setTabletTracking(self: KContextualHelpButton, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2290,24 +2918,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HasTabletTracking(self: KContextualHelpButton) bool {
+    pub fn hasTabletTracking(self: KContextualHelpButton) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KContextualHelpButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2317,12 +2934,35 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KContextualHelpButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KContextualHelpButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KContextualHelpButton `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KContextualHelpButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2332,9 +2972,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Mask(self: KContextualHelpButton) QRegion {
+    pub fn mask(self: KContextualHelpButton) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2344,9 +2988,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ClearMask(self: KContextualHelpButton) void {
+    pub fn clearMask(self: KContextualHelpButton) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2358,10 +3006,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KContextualHelpButton, target: anytype) void {
+    pub fn render(self: KContextualHelpButton, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2373,10 +3025,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KContextualHelpButton, painter: anytype) void {
+    pub fn render2(self: KContextualHelpButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2386,9 +3042,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Grab(self: KContextualHelpButton) QPixmap {
+    pub fn grab(self: KContextualHelpButton) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2398,9 +3058,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn GraphicsEffect(self: KContextualHelpButton) QGraphicsEffect {
+    pub fn graphicsEffect(self: KContextualHelpButton) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2412,10 +3076,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KContextualHelpButton, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KContextualHelpButton, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2427,9 +3095,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KContextualHelpButton, typeVal: i32) void {
+    pub fn grabGesture(self: KContextualHelpButton, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2441,9 +3113,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KContextualHelpButton, typeVal: i32) void {
+    pub fn ungrabGesture(self: KContextualHelpButton, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2453,15 +3129,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KContextualHelpButton, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KContextualHelpButton, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2471,15 +3151,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KContextualHelpButton, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KContextualHelpButton, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2491,13 +3175,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2509,13 +3197,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2525,12 +3217,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KContextualHelpButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KContextualHelpButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2540,9 +3236,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn WindowIcon(self: KContextualHelpButton) QIcon {
+    pub fn windowIcon(self: KContextualHelpButton) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2552,15 +3252,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KContextualHelpButton, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KContextualHelpButton, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2572,13 +3276,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2588,15 +3296,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KContextualHelpButton, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KContextualHelpButton, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2608,13 +3320,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2626,13 +3342,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KContextualHelpButton, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KContextualHelpButton, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2644,13 +3364,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2662,9 +3386,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KContextualHelpButton, level: f64) void {
+    pub fn setWindowOpacity(self: KContextualHelpButton, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2674,9 +3402,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn WindowOpacity(self: KContextualHelpButton) f64 {
+    pub fn windowOpacity(self: KContextualHelpButton) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2686,9 +3418,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsWindowModified(self: KContextualHelpButton) bool {
+    pub fn isWindowModified(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2698,15 +3434,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KContextualHelpButton, toolTip: []const u8) void {
+    pub fn setToolTip(self: KContextualHelpButton, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2718,13 +3458,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2736,9 +3480,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KContextualHelpButton, msec: i32) void {
+    pub fn setToolTipDuration(self: KContextualHelpButton, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2748,9 +3496,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ToolTipDuration(self: KContextualHelpButton) i32 {
+    pub fn toolTipDuration(self: KContextualHelpButton) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2760,15 +3512,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KContextualHelpButton, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KContextualHelpButton, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2780,13 +3536,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2796,15 +3556,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KContextualHelpButton, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KContextualHelpButton, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2816,13 +3580,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2834,13 +3602,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2852,13 +3624,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KContextualHelpButton, name: []const u8) void {
+    pub fn setAccessibleName(self: KContextualHelpButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2870,13 +3646,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2888,13 +3668,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KContextualHelpButton, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KContextualHelpButton, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2906,9 +3690,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KContextualHelpButton, direction: i32) void {
+    pub fn setLayoutDirection(self: KContextualHelpButton, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2922,9 +3710,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KContextualHelpButton) i32 {
+    pub fn layoutDirection(self: KContextualHelpButton) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2934,9 +3726,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UnsetLayoutDirection(self: KContextualHelpButton) void {
+    pub fn unsetLayoutDirection(self: KContextualHelpButton) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2946,12 +3742,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KContextualHelpButton, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KContextualHelpButton, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2961,9 +3761,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Locale(self: KContextualHelpButton) QLocale {
+    pub fn locale(self: KContextualHelpButton) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2973,9 +3777,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UnsetLocale(self: KContextualHelpButton) void {
+    pub fn unsetLocale(self: KContextualHelpButton) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2985,9 +3793,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsRightToLeft(self: KContextualHelpButton) bool {
+    pub fn isRightToLeft(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2997,9 +3809,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsLeftToRight(self: KContextualHelpButton) bool {
+    pub fn isLeftToRight(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3825,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SetFocus(self: KContextualHelpButton) void {
+    pub fn setFocus(self: KContextualHelpButton) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3021,9 +3841,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsActiveWindow(self: KContextualHelpButton) bool {
+    pub fn isActiveWindow(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3033,9 +3857,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ActivateWindow(self: KContextualHelpButton) void {
+    pub fn activateWindow(self: KContextualHelpButton) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3045,9 +3873,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ClearFocus(self: KContextualHelpButton) void {
+    pub fn clearFocus(self: KContextualHelpButton) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3059,9 +3891,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KContextualHelpButton, reason: i32) void {
+    pub fn setFocus2(self: KContextualHelpButton, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3075,9 +3911,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KContextualHelpButton) i32 {
+    pub fn focusPolicy(self: KContextualHelpButton) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3089,9 +3929,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KContextualHelpButton, policy: i32) void {
+    pub fn setFocusPolicy(self: KContextualHelpButton, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3101,9 +3945,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HasFocus(self: KContextualHelpButton) bool {
+    pub fn hasFocus(self: KContextualHelpButton) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3115,11 +3963,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3129,12 +3981,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KContextualHelpButton, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KContextualHelpButton, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3144,9 +4000,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FocusProxy(self: KContextualHelpButton) QWidget {
+    pub fn focusProxy(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3160,9 +4020,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KContextualHelpButton) i32 {
+    pub fn contextMenuPolicy(self: KContextualHelpButton) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3174,9 +4038,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KContextualHelpButton, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KContextualHelpButton, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3186,9 +4054,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn GrabMouse(self: KContextualHelpButton) void {
+    pub fn grabMouse(self: KContextualHelpButton) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3200,10 +4072,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KContextualHelpButton, param1: anytype) void {
+    pub fn grabMouse2(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3213,9 +4089,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ReleaseMouse(self: KContextualHelpButton) void {
+    pub fn releaseMouse(self: KContextualHelpButton) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3225,9 +4105,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn GrabKeyboard(self: KContextualHelpButton) void {
+    pub fn grabKeyboard(self: KContextualHelpButton) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3237,9 +4121,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ReleaseKeyboard(self: KContextualHelpButton) void {
+    pub fn releaseKeyboard(self: KContextualHelpButton) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3251,10 +4139,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KContextualHelpButton, key: anytype) i32 {
+    pub fn grabShortcut(self: KContextualHelpButton, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3266,9 +4158,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KContextualHelpButton, id: i32) void {
+    pub fn releaseShortcut(self: KContextualHelpButton, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3280,9 +4176,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KContextualHelpButton, id: i32) void {
+    pub fn setShortcutEnabled(self: KContextualHelpButton, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3294,25 +4194,37 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KContextualHelpButton, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KContextualHelpButton, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3322,9 +4234,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UpdatesEnabled(self: KContextualHelpButton) bool {
+    pub fn updatesEnabled(self: KContextualHelpButton) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3336,9 +4252,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KContextualHelpButton, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KContextualHelpButton, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3348,9 +4268,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn GraphicsProxyWidget(self: KContextualHelpButton) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KContextualHelpButton) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3360,9 +4284,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Update(self: KContextualHelpButton) void {
+    pub fn update(self: KContextualHelpButton) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3372,9 +4300,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Repaint(self: KContextualHelpButton) void {
+    pub fn repaint(self: KContextualHelpButton) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3384,17 +4316,21 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KContextualHelpButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KContextualHelpButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3406,11 +4342,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KContextualHelpButton, param1: anytype) void {
+    pub fn update3(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3421,10 +4361,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KContextualHelpButton, param1: anytype) void {
+    pub fn update4(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3434,17 +4378,21 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KContextualHelpButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KContextualHelpButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3456,10 +4404,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KContextualHelpButton, param1: anytype) void {
+    pub fn repaint3(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3471,10 +4423,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KContextualHelpButton, param1: anytype) void {
+    pub fn repaint4(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3486,9 +4442,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KContextualHelpButton, hidden: bool) void {
+    pub fn setHidden(self: KContextualHelpButton, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4458,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Show(self: KContextualHelpButton) void {
+    pub fn show(self: KContextualHelpButton) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3510,9 +4474,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Hide(self: KContextualHelpButton) void {
+    pub fn hide(self: KContextualHelpButton) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3522,9 +4490,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ShowMinimized(self: KContextualHelpButton) void {
+    pub fn showMinimized(self: KContextualHelpButton) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3534,9 +4506,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ShowMaximized(self: KContextualHelpButton) void {
+    pub fn showMaximized(self: KContextualHelpButton) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3546,9 +4522,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ShowFullScreen(self: KContextualHelpButton) void {
+    pub fn showFullScreen(self: KContextualHelpButton) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3558,9 +4538,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ShowNormal(self: KContextualHelpButton) void {
+    pub fn showNormal(self: KContextualHelpButton) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3570,9 +4554,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Close(self: KContextualHelpButton) bool {
+    pub fn close(self: KContextualHelpButton) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3582,9 +4570,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Raise(self: KContextualHelpButton) void {
+    pub fn raise(self: KContextualHelpButton) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4586,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Lower(self: KContextualHelpButton) void {
+    pub fn lower(self: KContextualHelpButton) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3608,10 +4604,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KContextualHelpButton, param1: anytype) void {
+    pub fn stackUnder(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3621,13 +4621,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KContextualHelpButton, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KContextualHelpButton, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3639,10 +4643,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KContextualHelpButton, param1: anytype) void {
+    pub fn move2(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3656,9 +4664,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KContextualHelpButton, w: i32, h: i32) void {
+    pub fn resize(self: KContextualHelpButton, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3670,10 +4682,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KContextualHelpButton, param1: anytype) void {
+    pub fn resize2(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3683,17 +4699,21 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KContextualHelpButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KContextualHelpButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3703,12 +4723,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KContextualHelpButton, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KContextualHelpButton, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3720,13 +4744,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KContextualHelpButton, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KContextualHelpButton, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KContextualHelpButton.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KContextualHelpButton.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3736,15 +4764,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KContextualHelpButton, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KContextualHelpButton, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3754,9 +4786,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AdjustSize(self: KContextualHelpButton) void {
+    pub fn adjustSize(self: KContextualHelpButton) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3766,9 +4802,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsVisible(self: KContextualHelpButton) bool {
+    pub fn isVisible(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3780,10 +4820,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KContextualHelpButton, param1: anytype) bool {
+    pub fn isVisibleTo(self: KContextualHelpButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4837,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsHidden(self: KContextualHelpButton) bool {
+    pub fn isHidden(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3805,9 +4853,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsMinimized(self: KContextualHelpButton) bool {
+    pub fn isMinimized(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3817,9 +4869,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsMaximized(self: KContextualHelpButton) bool {
+    pub fn isMaximized(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4885,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsFullScreen(self: KContextualHelpButton) bool {
+    pub fn isFullScreen(self: KContextualHelpButton) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3845,9 +4905,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KContextualHelpButton) i32 {
+    pub fn windowState(self: KContextualHelpButton) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3859,9 +4923,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KContextualHelpButton, state: i32) void {
+    pub fn setWindowState(self: KContextualHelpButton, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3873,9 +4941,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KContextualHelpButton, state: i32) void {
+    pub fn overrideWindowState(self: KContextualHelpButton, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3885,9 +4957,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SizePolicy(self: KContextualHelpButton) QSizePolicy {
+    pub fn sizePolicy(self: KContextualHelpButton) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3897,12 +4973,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KContextualHelpButton, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KContextualHelpButton, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3916,9 +4996,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KContextualHelpButton, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KContextualHelpButton, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3928,9 +5012,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn VisibleRegion(self: KContextualHelpButton) QRegion {
+    pub fn visibleRegion(self: KContextualHelpButton) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3948,9 +5036,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KContextualHelpButton, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KContextualHelpButton, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3962,10 +5054,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KContextualHelpButton, margins: anytype) void {
+    pub fn setContentsMargins2(self: KContextualHelpButton, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3975,9 +5071,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ContentsMargins(self: KContextualHelpButton) QMargins {
+    pub fn contentsMargins(self: KContextualHelpButton) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3987,9 +5087,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ContentsRect(self: KContextualHelpButton) QRect {
+    pub fn contentsRect(self: KContextualHelpButton) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3999,9 +5103,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Layout(self: KContextualHelpButton) QLayout {
+    pub fn layout(self: KContextualHelpButton) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4011,12 +5119,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KContextualHelpButton, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KContextualHelpButton, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4026,24 +5138,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UpdateGeometry(self: KContextualHelpButton) void {
+    pub fn updateGeometry(self: KContextualHelpButton) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KContextualHelpButton, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4053,14 +5154,37 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KContextualHelpButton, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KContextualHelpButton `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KContextualHelpButton, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KContextualHelpButton, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4074,9 +5198,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KContextualHelpButton, dx: i32, dy: i32) void {
+    pub fn scroll(self: KContextualHelpButton, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4092,10 +5220,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KContextualHelpButton, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KContextualHelpButton, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5237,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FocusWidget(self: KContextualHelpButton) QWidget {
+    pub fn focusWidget(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5253,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn NextInFocusChain(self: KContextualHelpButton) QWidget {
+    pub fn nextInFocusChain(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4129,9 +5269,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn PreviousInFocusChain(self: KContextualHelpButton) QWidget {
+    pub fn previousInFocusChain(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4141,9 +5285,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AcceptDrops(self: KContextualHelpButton) bool {
+    pub fn acceptDrops(self: KContextualHelpButton) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4155,9 +5303,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KContextualHelpButton, on: bool) void {
+    pub fn setAcceptDrops(self: KContextualHelpButton, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4169,10 +5321,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KContextualHelpButton, action: anytype) void {
+    pub fn addAction(self: KContextualHelpButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4182,15 +5338,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KContextualHelpButton, actions: []QAction) void {
+    pub fn addActions(self: KContextualHelpButton, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4202,16 +5362,20 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KContextualHelpButton, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KContextualHelpButton, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4225,11 +5389,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KContextualHelpButton, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KContextualHelpButton, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4241,10 +5409,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KContextualHelpButton, action: anytype) void {
+    pub fn removeAction(self: KContextualHelpButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4256,15 +5428,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KContextualHelpButton, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KContextualHelpButton, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KContextualHelpButton.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KContextualHelpButton.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4274,36 +5450,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KContextualHelpButton, text: []const u8) QAction {
+    pub fn addAction2(self: KContextualHelpButton, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: KContextualHelpButton, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4313,18 +5472,22 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: KContextualHelpButton, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: KContextualHelpButton, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4334,21 +5497,50 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: KContextualHelpButton, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: KContextualHelpButton, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KContextualHelpButton `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: KContextualHelpButton, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4358,9 +5550,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ParentWidget(self: KContextualHelpButton) QWidget {
+    pub fn parentWidget(self: KContextualHelpButton) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4372,9 +5568,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KContextualHelpButton, typeVal: i32) void {
+    pub fn setWindowFlags(self: KContextualHelpButton, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5588,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KContextualHelpButton) i32 {
+    pub fn windowFlags(self: KContextualHelpButton) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4402,9 +5606,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KContextualHelpButton, param1: i32) void {
+    pub fn setWindowFlag(self: KContextualHelpButton, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4416,9 +5624,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KContextualHelpButton, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KContextualHelpButton, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4432,9 +5644,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KContextualHelpButton) i32 {
+    pub fn windowType(self: KContextualHelpButton) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4444,9 +5660,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4456,13 +5676,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KContextualHelpButton, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KContextualHelpButton, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4474,10 +5698,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KContextualHelpButton, p: anytype) QWidget {
+    pub fn childAt2(self: KContextualHelpButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4489,10 +5717,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KContextualHelpButton, p: anytype) QWidget {
+    pub fn childAt3(self: KContextualHelpButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4504,9 +5736,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KContextualHelpButton, param1: i32) void {
+    pub fn setAttribute(self: KContextualHelpButton, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4518,9 +5754,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KContextualHelpButton, param1: i32) bool {
+    pub fn testAttribute(self: KContextualHelpButton, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4530,9 +5770,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn EnsurePolished(self: KContextualHelpButton) void {
+    pub fn ensurePolished(self: KContextualHelpButton) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4544,10 +5788,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KContextualHelpButton, child: anytype) bool {
+    pub fn isAncestorOf(self: KContextualHelpButton, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4557,9 +5805,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn AutoFillBackground(self: KContextualHelpButton) bool {
+    pub fn autoFillBackground(self: KContextualHelpButton) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4571,9 +5823,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KContextualHelpButton, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KContextualHelpButton, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4583,9 +5839,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn BackingStore(self: KContextualHelpButton) QBackingStore {
+    pub fn backingStore(self: KContextualHelpButton) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4595,9 +5855,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn WindowHandle(self: KContextualHelpButton) QWindow {
+    pub fn windowHandle(self: KContextualHelpButton) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4607,9 +5871,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Screen(self: KContextualHelpButton) QScreen {
+    pub fn screen(self: KContextualHelpButton) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4619,12 +5887,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KContextualHelpButton, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KContextualHelpButton, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4632,12 +5904,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4649,13 +5925,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KContextualHelpButton, title: []const u8) void {
+    pub fn windowTitleChanged(self: KContextualHelpButton, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4667,9 +5947,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4679,12 +5963,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KContextualHelpButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KContextualHelpButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4696,9 +5984,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4710,13 +6002,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KContextualHelpButton, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KContextualHelpButton, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4728,9 +6024,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4740,12 +6040,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KContextualHelpButton, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KContextualHelpButton, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4757,9 +6061,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4773,9 +6081,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KContextualHelpButton) i32 {
+    pub fn inputMethodHints(self: KContextualHelpButton) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4787,9 +6099,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KContextualHelpButton, hints: i32) void {
+    pub fn setInputMethodHints(self: KContextualHelpButton, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4803,11 +6119,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KContextualHelpButton, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KContextualHelpButton, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4823,13 +6143,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KContextualHelpButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KContextualHelpButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4846,12 +6170,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KContextualHelpButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KContextualHelpButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4865,11 +6193,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KContextualHelpButton, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KContextualHelpButton, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4885,12 +6217,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KContextualHelpButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KContextualHelpButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4908,12 +6244,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KContextualHelpButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KContextualHelpButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4925,10 +6265,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KContextualHelpButton, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KContextualHelpButton, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4942,9 +6286,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KContextualHelpButton, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KContextualHelpButton, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4958,10 +6306,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KContextualHelpButton, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KContextualHelpButton, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4975,9 +6327,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KContextualHelpButton, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KContextualHelpButton, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4991,9 +6347,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KContextualHelpButton, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KContextualHelpButton, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5007,9 +6367,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KContextualHelpButton, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KContextualHelpButton, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5023,25 +6387,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KContextualHelpButton, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KContextualHelpButton, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5049,17 +6401,41 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5071,13 +6447,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KContextualHelpButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KContextualHelpButton.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5089,13 +6469,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KContextualHelpButton, name: []const u8) void {
+    pub fn setObjectName(self: KContextualHelpButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5105,9 +6489,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsWidgetType(self: KContextualHelpButton) bool {
+    pub fn isWidgetType(self: KContextualHelpButton) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5117,9 +6505,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsWindowType(self: KContextualHelpButton) bool {
+    pub fn isWindowType(self: KContextualHelpButton) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5129,9 +6521,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn IsQuickItemType(self: KContextualHelpButton) bool {
+    pub fn isQuickItemType(self: KContextualHelpButton) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5141,9 +6537,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SignalsBlocked(self: KContextualHelpButton) bool {
+    pub fn signalsBlocked(self: KContextualHelpButton) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5155,9 +6555,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KContextualHelpButton, b: bool) bool {
+    pub fn blockSignals(self: KContextualHelpButton, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5167,9 +6571,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Thread(self: KContextualHelpButton) QThread {
+    pub fn thread(self: KContextualHelpButton) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5179,12 +6587,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KContextualHelpButton, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KContextualHelpButton, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5196,9 +6608,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KContextualHelpButton, interval: i32) i32 {
+    pub fn startTimer(self: KContextualHelpButton, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5210,9 +6626,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KContextualHelpButton, time: i64) i32 {
+    pub fn startTimer2(self: KContextualHelpButton, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5224,9 +6644,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KContextualHelpButton, id: i32) void {
+    pub fn killTimer(self: KContextualHelpButton, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5238,9 +6662,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KContextualHelpButton, id: i32) void {
+    pub fn killTimer2(self: KContextualHelpButton, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5252,15 +6680,19 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KContextualHelpButton, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KContextualHelpButton, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KContextualHelpButton.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KContextualHelpButton.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5272,10 +6704,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KContextualHelpButton, filterObj: anytype) void {
+    pub fn installEventFilter(self: KContextualHelpButton, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5287,10 +6723,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KContextualHelpButton, obj: anytype) void {
+    pub fn removeEventFilter(self: KContextualHelpButton, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5298,7 +6738,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5306,13 +6746,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5320,7 +6764,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5328,13 +6772,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5344,18 +6792,22 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KContextualHelpButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KContextualHelpButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5363,7 +6815,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5371,13 +6823,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5385,7 +6841,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5393,13 +6849,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5409,9 +6869,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Disconnect3(self: KContextualHelpButton) bool {
+    pub fn disconnect3(self: KContextualHelpButton) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5423,10 +6887,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KContextualHelpButton, receiver: anytype) bool {
+    pub fn disconnect4(self: KContextualHelpButton, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5436,10 +6904,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5449,9 +6921,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DumpObjectTree(self: KContextualHelpButton) void {
+    pub fn dumpObjectTree(self: KContextualHelpButton) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5461,9 +6937,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DumpObjectInfo(self: KContextualHelpButton) void {
+    pub fn dumpObjectInfo(self: KContextualHelpButton) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5477,11 +6957,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KContextualHelpButton, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KContextualHelpButton, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5493,10 +6977,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KContextualHelpButton, name: [:0]const u8) QVariant {
+    pub fn property(self: KContextualHelpButton, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5508,7 +6996,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KContextualHelpButton, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KContextualHelpButton, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5516,27 +7004,19 @@ pub const KContextualHelpButton = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KContextualHelpButton.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KContextualHelpButton.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KContextualHelpButton.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KContextualHelpButton.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KContextualHelpButton `
-    ///
-    pub fn BindingStorage(self: KContextualHelpButton) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5546,9 +7026,29 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn BindingStorage2(self: KContextualHelpButton) QBindingStorage {
+    pub fn bindingStorage(self: KContextualHelpButton) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KContextualHelpButton `
+    ///
+    pub fn bindingStorage2(self: KContextualHelpButton) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5558,9 +7058,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Destroyed(self: KContextualHelpButton) void {
+    pub fn destroyed(self: KContextualHelpButton) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5572,9 +7076,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
+    pub fn onDestroyed(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5584,9 +7092,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Parent(self: KContextualHelpButton) QObject {
+    pub fn parent(self: KContextualHelpButton) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5598,10 +7110,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KContextualHelpButton, classname: [:0]const u8) bool {
+    pub fn inherits(self: KContextualHelpButton, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5611,9 +7127,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DeleteLater(self: KContextualHelpButton) void {
+    pub fn deleteLater(self: KContextualHelpButton) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5627,9 +7147,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KContextualHelpButton, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KContextualHelpButton, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5643,9 +7167,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KContextualHelpButton, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KContextualHelpButton, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5653,7 +7181,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5663,13 +7191,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5677,7 +7209,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5687,13 +7219,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5703,7 +7239,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5711,12 +7247,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KContextualHelpButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KContextualHelpButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5728,10 +7268,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KContextualHelpButton, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KContextualHelpButton, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5745,11 +7289,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KContextualHelpButton, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KContextualHelpButton, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5765,13 +7313,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KContextualHelpButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KContextualHelpButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5784,11 +7336,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KContextualHelpButton, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KContextualHelpButton, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5800,10 +7356,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KContextualHelpButton, param1: anytype) void {
+    pub fn destroyed1(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5815,9 +7375,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5827,9 +7391,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn PaintingActive(self: KContextualHelpButton) bool {
+    pub fn paintingActive(self: KContextualHelpButton) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5839,9 +7407,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn WidthMM(self: KContextualHelpButton) i32 {
+    pub fn widthMM(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5851,9 +7423,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HeightMM(self: KContextualHelpButton) i32 {
+    pub fn heightMM(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5863,9 +7439,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn LogicalDpiX(self: KContextualHelpButton) i32 {
+    pub fn logicalDpiX(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5875,9 +7455,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn LogicalDpiY(self: KContextualHelpButton) i32 {
+    pub fn logicalDpiY(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5887,9 +7471,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn PhysicalDpiX(self: KContextualHelpButton) i32 {
+    pub fn physicalDpiX(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5899,9 +7487,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn PhysicalDpiY(self: KContextualHelpButton) i32 {
+    pub fn physicalDpiY(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5911,9 +7503,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DevicePixelRatio(self: KContextualHelpButton) f64 {
+    pub fn devicePixelRatio(self: KContextualHelpButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5923,9 +7519,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DevicePixelRatioF(self: KContextualHelpButton) f64 {
+    pub fn devicePixelRatioF(self: KContextualHelpButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5935,9 +7535,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn ColorCount(self: KContextualHelpButton) i32 {
+    pub fn colorCount(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5947,17 +7551,25 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Depth(self: KContextualHelpButton) i32 {
+    pub fn depth(self: KContextualHelpButton) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5965,13 +7577,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -5983,13 +7599,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn MinimumSizeHint(self: KContextualHelpButton) QSize {
+    pub fn minimumSizeHint(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.KContextualHelpButton_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6001,9 +7617,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperMinimumSizeHint(self: KContextualHelpButton) QSize {
+    pub fn superMinimumSizeHint(self: KContextualHelpButton) QSize {
         return .{ .ptr = qtc.KContextualHelpButton_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QToolButton
     ///
@@ -6019,9 +7639,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KContextualHelpButton, callback: *const fn () callconv(.c) QSize) void {
         qtc.KContextualHelpButton_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QToolButton
     ///
@@ -6035,14 +7659,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: KContextualHelpButton, e: anytype) bool {
+    pub fn event(self: KContextualHelpButton, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KContextualHelpButton_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6056,10 +7680,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: KContextualHelpButton, e: anytype) bool {
+    pub fn superEvent(self: KContextualHelpButton, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KContextualHelpButton_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6073,9 +7701,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6089,14 +7721,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn mousePressEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KContextualHelpButton_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6110,11 +7742,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superMousePressEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KContextualHelpButton_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#mousePressEvent)
@@ -6127,9 +7763,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6143,14 +7783,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KContextualHelpButton_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6164,10 +7804,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KContextualHelpButton_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6181,9 +7825,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6197,14 +7845,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn paintEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KContextualHelpButton_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6218,10 +7866,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superPaintEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KContextualHelpButton_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6235,9 +7887,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPaintEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6251,14 +7907,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn ActionEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn actionEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KContextualHelpButton_ActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6272,10 +7928,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superActionEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QActionEvent;
         qtc.KContextualHelpButton_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6289,9 +7949,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QActionEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6305,14 +7969,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn enterEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.KContextualHelpButton_EnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6326,10 +7990,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superEnterEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEnterEvent;
         qtc.KContextualHelpButton_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6343,9 +8011,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEnterEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6359,14 +8031,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn LeaveEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn leaveEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KContextualHelpButton_LeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6380,10 +8052,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superLeaveEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KContextualHelpButton_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6397,9 +8073,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6413,14 +8093,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn timerEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KContextualHelpButton_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6434,10 +8114,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superTimerEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KContextualHelpButton_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6451,9 +8135,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QTimerEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6467,14 +8155,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn changeEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KContextualHelpButton_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6488,10 +8176,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superChangeEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KContextualHelpButton_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QToolButton
     ///
@@ -6505,9 +8197,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hitButton` instead
+    ///
+    pub const HitButton = hitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6519,16 +8215,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn HitButton(self: KContextualHelpButton, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.KContextualHelpButton_HitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn hitButton(self: KContextualHelpButton, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.KContextualHelpButton_HitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHitButton` instead
+    /// ### DEPRECATED: Use `superHitButton` instead
     ///
-    pub const QBaseHitButton = SuperHitButton;
+    pub const SuperHitButton = superHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6540,12 +8236,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperHitButton(self: KContextualHelpButton, pos: anytype) bool {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.KContextualHelpButton_SuperHitButton(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn superHitButton(self: KContextualHelpButton, _pos: anytype) bool {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.KContextualHelpButton_SuperHitButton(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHitButton` instead
+    ///
+    pub const OnHitButton = onHitButton;
 
     /// Inherited from QToolButton
     ///
@@ -6559,10 +8259,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, pos: QPoint) callconv(.c) bool `
     ///
-    pub fn OnHitButton(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) bool) void {
+    pub fn onHitButton(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnHitButton(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `checkStateSet` instead
+    ///
+    pub const CheckStateSet = checkStateSet;
+
     /// Inherited from QToolButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtoolbutton.html#checkStateSet)
@@ -6573,13 +8277,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn CheckStateSet(self: KContextualHelpButton) void {
+    pub fn checkStateSet(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_CheckStateSet(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckStateSet` instead
+    /// ### DEPRECATED: Use `superCheckStateSet` instead
     ///
-    pub const QBaseCheckStateSet = SuperCheckStateSet;
+    pub const SuperCheckStateSet = superCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6591,9 +8295,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperCheckStateSet(self: KContextualHelpButton) void {
+    pub fn superCheckStateSet(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_SuperCheckStateSet(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCheckStateSet` instead
+    ///
+    pub const OnCheckStateSet = onCheckStateSet;
 
     /// Inherited from QToolButton
     ///
@@ -6607,9 +8315,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCheckStateSet(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCheckStateSet(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
         qtc.KContextualHelpButton_OnCheckStateSet(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nextCheckState` instead
+    ///
+    pub const NextCheckState = nextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6621,13 +8333,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn NextCheckState(self: KContextualHelpButton) void {
+    pub fn nextCheckState(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_NextCheckState(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperNextCheckState` instead
+    /// ### DEPRECATED: Use `superNextCheckState` instead
     ///
-    pub const QBaseNextCheckState = SuperNextCheckState;
+    pub const SuperNextCheckState = superNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6639,9 +8351,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperNextCheckState(self: KContextualHelpButton) void {
+    pub fn superNextCheckState(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_SuperNextCheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNextCheckState` instead
+    ///
+    pub const OnNextCheckState = onNextCheckState;
 
     /// Inherited from QToolButton
     ///
@@ -6655,9 +8371,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnNextCheckState(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onNextCheckState(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
         qtc.KContextualHelpButton_OnNextCheckState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6671,14 +8391,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn InitStyleOption(self: KContextualHelpButton, option: anytype) void {
+    pub fn initStyleOption(self: KContextualHelpButton, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.KContextualHelpButton_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6692,10 +8412,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` option: QStyleOptionToolButton `
     ///
-    pub fn SuperInitStyleOption(self: KContextualHelpButton, option: anytype) void {
+    pub fn superInitStyleOption(self: KContextualHelpButton, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionToolButton;
         qtc.KContextualHelpButton_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QToolButton
     ///
@@ -6709,9 +8433,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, option: QStyleOptionToolButton) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QStyleOptionToolButton) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QStyleOptionToolButton) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6725,14 +8453,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn keyPressEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KContextualHelpButton_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6746,11 +8474,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn superKeyPressEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KContextualHelpButton_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#keyPressEvent)
@@ -6763,9 +8495,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QKeyEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6779,14 +8515,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn keyReleaseEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KContextualHelpButton_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6800,10 +8536,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.KContextualHelpButton_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6817,9 +8557,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QKeyEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6833,14 +8577,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn mouseMoveEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KContextualHelpButton_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6854,10 +8598,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn superMouseMoveEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.KContextualHelpButton_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6871,9 +8619,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6887,14 +8639,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn focusInEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KContextualHelpButton_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6908,11 +8660,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn superFocusInEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KContextualHelpButton_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#focusInEvent)
@@ -6925,9 +8681,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QFocusEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6941,14 +8701,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn focusOutEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KContextualHelpButton_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6962,10 +8722,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KContextualHelpButton, e: anytype) void {
+    pub fn superFocusOutEvent(self: KContextualHelpButton, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.KContextualHelpButton_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractButton
     ///
@@ -6979,9 +8743,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QFocusEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6993,13 +8761,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn DevType(self: KContextualHelpButton) i32 {
+    pub fn devType(self: KContextualHelpButton) i32 {
         return qtc.KContextualHelpButton_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7011,9 +8779,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperDevType(self: KContextualHelpButton) i32 {
+    pub fn superDevType(self: KContextualHelpButton) i32 {
         return qtc.KContextualHelpButton_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7027,9 +8799,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7043,13 +8819,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KContextualHelpButton, visible: bool) void {
+    pub fn setVisible(self: KContextualHelpButton, visible: bool) void {
         qtc.KContextualHelpButton_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7063,9 +8839,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KContextualHelpButton, visible: bool) void {
+    pub fn superSetVisible(self: KContextualHelpButton, visible: bool) void {
         qtc.KContextualHelpButton_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7079,9 +8859,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7095,13 +8879,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KContextualHelpButton, param1: i32) i32 {
+    pub fn heightForWidth(self: KContextualHelpButton, param1: i32) i32 {
         return qtc.KContextualHelpButton_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7115,9 +8899,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KContextualHelpButton, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KContextualHelpButton, param1: i32) i32 {
         return qtc.KContextualHelpButton_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7131,9 +8919,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7145,13 +8937,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn HasHeightForWidth(self: KContextualHelpButton) bool {
+    pub fn hasHeightForWidth(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7163,9 +8955,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperHasHeightForWidth(self: KContextualHelpButton) bool {
+    pub fn superHasHeightForWidth(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7179,9 +8975,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7193,13 +8993,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn PaintEngine(self: KContextualHelpButton) QPaintEngine {
+    pub fn paintEngine(self: KContextualHelpButton) QPaintEngine {
         return .{ .ptr = qtc.KContextualHelpButton_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7211,9 +9011,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperPaintEngine(self: KContextualHelpButton) QPaintEngine {
+    pub fn superPaintEngine(self: KContextualHelpButton) QPaintEngine {
         return .{ .ptr = qtc.KContextualHelpButton_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7227,9 +9031,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KContextualHelpButton_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7241,16 +9049,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KContextualHelpButton_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KContextualHelpButton_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7262,12 +9070,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KContextualHelpButton_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KContextualHelpButton_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7281,9 +9093,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMouseEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7295,16 +9111,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KContextualHelpButton_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KContextualHelpButton_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7316,12 +9132,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KContextualHelpButton_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KContextualHelpButton_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7335,9 +9155,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QWheelEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7349,16 +9173,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KContextualHelpButton_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KContextualHelpButton_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7370,12 +9194,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KContextualHelpButton_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KContextualHelpButton_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7389,9 +9217,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMoveEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7403,16 +9235,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KContextualHelpButton_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KContextualHelpButton_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7424,12 +9256,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KContextualHelpButton_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KContextualHelpButton_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7443,9 +9279,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QResizeEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7457,16 +9297,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KContextualHelpButton_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KContextualHelpButton_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7478,12 +9318,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KContextualHelpButton_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KContextualHelpButton_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7497,9 +9341,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QCloseEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7511,16 +9359,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KContextualHelpButton_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KContextualHelpButton_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7532,12 +9380,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KContextualHelpButton_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KContextualHelpButton_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7551,9 +9403,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QContextMenuEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7565,16 +9421,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KContextualHelpButton_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KContextualHelpButton_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7586,12 +9442,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KContextualHelpButton_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KContextualHelpButton_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7605,9 +9465,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QTabletEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7619,16 +9483,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KContextualHelpButton_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KContextualHelpButton_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7640,12 +9504,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KContextualHelpButton_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KContextualHelpButton_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7659,9 +9527,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragEnterEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7673,16 +9545,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KContextualHelpButton_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KContextualHelpButton_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7694,12 +9566,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KContextualHelpButton_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KContextualHelpButton_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7713,9 +9589,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragMoveEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7727,16 +9607,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KContextualHelpButton_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KContextualHelpButton_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7748,12 +9628,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KContextualHelpButton_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KContextualHelpButton_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7767,9 +9651,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7781,16 +9669,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KContextualHelpButton_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KContextualHelpButton_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7802,12 +9690,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KContextualHelpButton_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KContextualHelpButton_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7821,9 +9713,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QDropEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7835,16 +9731,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KContextualHelpButton_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KContextualHelpButton_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7856,12 +9752,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KContextualHelpButton_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KContextualHelpButton_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7875,9 +9775,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QShowEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7889,16 +9793,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KContextualHelpButton_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KContextualHelpButton_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7910,12 +9814,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KContextualHelpButton_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KContextualHelpButton_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7929,9 +9837,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QHideEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7949,7 +9861,7 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KContextualHelpButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KContextualHelpButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7957,9 +9869,9 @@ pub const KContextualHelpButton = extern struct {
         return qtc.KContextualHelpButton_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7977,13 +9889,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KContextualHelpButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KContextualHelpButton, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KContextualHelpButton_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7997,9 +9913,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8013,13 +9933,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KContextualHelpButton, param1: i32) i32 {
+    pub fn metric(self: KContextualHelpButton, param1: i32) i32 {
         return qtc.KContextualHelpButton_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8033,9 +9953,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KContextualHelpButton, param1: i32) i32 {
+    pub fn superMetric(self: KContextualHelpButton, param1: i32) i32 {
         return qtc.KContextualHelpButton_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8049,9 +9973,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8065,14 +9993,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KContextualHelpButton, painter: anytype) void {
+    pub fn initPainter(self: KContextualHelpButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KContextualHelpButton_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8086,10 +10014,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KContextualHelpButton, painter: anytype) void {
+    pub fn superInitPainter(self: KContextualHelpButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KContextualHelpButton_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8103,9 +10035,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPainter) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8119,14 +10055,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KContextualHelpButton, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KContextualHelpButton, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KContextualHelpButton_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8140,10 +10076,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KContextualHelpButton, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KContextualHelpButton, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KContextualHelpButton_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8157,9 +10097,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KContextualHelpButton_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8171,13 +10115,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SharedPainter(self: KContextualHelpButton) QPainter {
+    pub fn sharedPainter(self: KContextualHelpButton) QPainter {
         return .{ .ptr = qtc.KContextualHelpButton_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8189,9 +10133,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperSharedPainter(self: KContextualHelpButton) QPainter {
+    pub fn superSharedPainter(self: KContextualHelpButton) QPainter {
         return .{ .ptr = qtc.KContextualHelpButton_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8205,9 +10153,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KContextualHelpButton, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KContextualHelpButton_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8221,14 +10173,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn inputMethodEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KContextualHelpButton_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8242,10 +10194,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KContextualHelpButton, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KContextualHelpButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KContextualHelpButton_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8259,9 +10215,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QInputMethodEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8275,13 +10235,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KContextualHelpButton, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KContextualHelpButton, param1: i32) QVariant {
         return .{ .ptr = qtc.KContextualHelpButton_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8295,9 +10255,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KContextualHelpButton, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KContextualHelpButton, param1: i32) QVariant {
         return .{ .ptr = qtc.KContextualHelpButton_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8313,9 +10277,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32) callconv(.c) QVariant) void {
         qtc.KContextualHelpButton_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8329,13 +10297,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KContextualHelpButton, next: bool) bool {
+    pub fn focusNextPrevChild(self: KContextualHelpButton, next: bool) bool {
         return qtc.KContextualHelpButton_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8349,9 +10317,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KContextualHelpButton, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KContextualHelpButton, next: bool) bool {
         return qtc.KContextualHelpButton_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8365,9 +10337,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, bool) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8381,17 +10357,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KContextualHelpButton, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KContextualHelpButton, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KContextualHelpButton_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KContextualHelpButton_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8405,13 +10381,17 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KContextualHelpButton, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KContextualHelpButton, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KContextualHelpButton_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KContextualHelpButton_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8425,9 +10405,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QObject, QEvent) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8439,16 +10423,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KContextualHelpButton_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KContextualHelpButton_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8460,12 +10444,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KContextualHelpButton_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KContextualHelpButton_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8479,9 +10467,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QChildEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8493,16 +10485,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KContextualHelpButton_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KContextualHelpButton_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8514,12 +10506,16 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KContextualHelpButton, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KContextualHelpButton_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KContextualHelpButton, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KContextualHelpButton_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8533,9 +10529,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QEvent) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8549,14 +10549,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KContextualHelpButton, signal: anytype) void {
+    pub fn connectNotify(self: KContextualHelpButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KContextualHelpButton_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8570,11 +10570,15 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KContextualHelpButton, signal: anytype) void {
+    pub fn superConnectNotify(self: KContextualHelpButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KContextualHelpButton_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8587,9 +10591,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8603,14 +10611,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KContextualHelpButton, signal: anytype) void {
+    pub fn disconnectNotify(self: KContextualHelpButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KContextualHelpButton_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8624,10 +10632,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KContextualHelpButton, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KContextualHelpButton, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KContextualHelpButton_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8641,10 +10653,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8655,13 +10671,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn UpdateMicroFocus(self: KContextualHelpButton) void {
+    pub fn updateMicroFocus(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8673,10 +10689,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperUpdateMicroFocus(self: KContextualHelpButton) void {
+    pub fn superUpdateMicroFocus(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8689,10 +10709,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
         qtc.KContextualHelpButton_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8703,13 +10727,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Create(self: KContextualHelpButton) void {
+    pub fn create(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8721,10 +10745,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperCreate(self: KContextualHelpButton) void {
+    pub fn superCreate(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8737,9 +10765,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
         qtc.KContextualHelpButton_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8751,13 +10783,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Destroy(self: KContextualHelpButton) void {
+    pub fn destroy(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8769,9 +10801,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperDestroy(self: KContextualHelpButton) void {
+    pub fn superDestroy(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8785,10 +10821,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KContextualHelpButton, callback: *const fn () callconv(.c) void) void {
         qtc.KContextualHelpButton_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8799,13 +10839,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FocusNextChild(self: KContextualHelpButton) bool {
+    pub fn focusNextChild(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8817,10 +10857,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperFocusNextChild(self: KContextualHelpButton) bool {
+    pub fn superFocusNextChild(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8833,9 +10877,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8847,13 +10895,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn FocusPreviousChild(self: KContextualHelpButton) bool {
+    pub fn focusPreviousChild(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8865,9 +10913,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperFocusPreviousChild(self: KContextualHelpButton) bool {
+    pub fn superFocusPreviousChild(self: KContextualHelpButton) bool {
         return qtc.KContextualHelpButton_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8881,9 +10933,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KContextualHelpButton, callback: *const fn () callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8895,13 +10951,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Sender(self: KContextualHelpButton) QObject {
+    pub fn sender(self: KContextualHelpButton) QObject {
         return .{ .ptr = qtc.KContextualHelpButton_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8913,9 +10969,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperSender(self: KContextualHelpButton) QObject {
+    pub fn superSender(self: KContextualHelpButton) QObject {
         return .{ .ptr = qtc.KContextualHelpButton_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8929,9 +10989,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KContextualHelpButton, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KContextualHelpButton, callback: *const fn () callconv(.c) QObject) void {
         qtc.KContextualHelpButton_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8943,13 +11007,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SenderSignalIndex(self: KContextualHelpButton) i32 {
+    pub fn senderSignalIndex(self: KContextualHelpButton) i32 {
         return qtc.KContextualHelpButton_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8961,9 +11025,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn SuperSenderSignalIndex(self: KContextualHelpButton) i32 {
+    pub fn superSenderSignalIndex(self: KContextualHelpButton) i32 {
         return qtc.KContextualHelpButton_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8977,9 +11045,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KContextualHelpButton, callback: *const fn () callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8993,14 +11065,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KContextualHelpButton, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KContextualHelpButton, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KContextualHelpButton_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9014,10 +11086,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KContextualHelpButton, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KContextualHelpButton, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KContextualHelpButton_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9031,9 +11107,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) i32) void {
         qtc.KContextualHelpButton_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9047,14 +11127,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
+    pub fn isSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KContextualHelpButton_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9068,10 +11148,14 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KContextualHelpButton, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KContextualHelpButton_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9085,9 +11169,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, QMetaMethod) callconv(.c) bool) void {
         qtc.KContextualHelpButton_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9103,13 +11191,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
         return qtc.KContextualHelpButton_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9125,9 +11213,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KContextualHelpButton, metricA: i32, metricB: i32) f64 {
         return qtc.KContextualHelpButton_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9141,9 +11233,13 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, i32, i32) callconv(.c) f64) void {
         qtc.KContextualHelpButton_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9157,23 +11253,23 @@ pub const KContextualHelpButton = extern struct {
     ///
     /// ` callback: *const fn (self: KContextualHelpButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KContextualHelpButton, callback: *const fn (KContextualHelpButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcontextualhelpbutton.html#dtor.KContextualHelpButton)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KContextualHelpButton `
     ///
-    pub fn Delete(self: KContextualHelpButton) void {
+    pub fn delete(self: KContextualHelpButton) void {
         qtc.KContextualHelpButton_Delete(@ptrCast(self.ptr));
     }
 };

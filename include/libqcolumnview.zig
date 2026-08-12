@@ -96,22 +96,34 @@ pub const QColumnView = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QColumnView object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QColumnView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QColumnView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QColumnView_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QColumnView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QColumnView_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QColumnView object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QColumnView {
+    pub const New2 = new2;
+
+    /// Allocate a new QColumnView object in C++ memory
+    ///
+    pub fn new2() QColumnView {
         return .{ .ptr = qtc.QColumnView_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -119,9 +131,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MetaObject(self: QColumnView) QMetaObject {
+    pub fn metaObject(self: QColumnView) QMetaObject {
         return .{ .ptr = qtc.QColumnView_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,13 +149,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QColumnView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QColumnView, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QColumnView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -149,9 +165,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperMetaObject(self: QColumnView) QMetaObject {
+    pub fn superMetaObject(self: QColumnView) QMetaObject {
         return .{ .ptr = qtc.QColumnView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -159,10 +179,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QColumnView, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QColumnView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QColumnView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -172,13 +196,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QColumnView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -188,10 +212,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QColumnView, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QColumnView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QColumnView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -203,9 +231,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QColumnView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QColumnView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QColumnView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -215,13 +247,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QColumnView, callback: *const fn (QColumnView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QColumnView, callback: *const fn (QColumnView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QColumnView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -235,9 +267,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QColumnView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QColumnView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QColumnView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -247,14 +283,18 @@ pub const QColumnView = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `updatePreviewWidget` instead
+    ///
+    pub const UpdatePreviewWidget = updatePreviewWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#updatePreviewWidget)
     ///
@@ -264,10 +304,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn UpdatePreviewWidget(self: QColumnView, index: anytype) void {
+    pub fn updatePreviewWidget(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QColumnView_UpdatePreviewWidget(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdatePreviewWidget` instead
+    ///
+    pub const OnUpdatePreviewWidget = onUpdatePreviewWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#updatePreviewWidget)
     ///
@@ -277,9 +321,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnUpdatePreviewWidget(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onUpdatePreviewWidget(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QColumnView_Connect_UpdatePreviewWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `indexAt` instead
+    ///
+    pub const IndexAt = indexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#indexAt)
     ///
@@ -289,10 +337,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn IndexAt(self: QColumnView, point: anytype) QModelIndex {
+    pub fn indexAt(self: QColumnView, point: anytype) QModelIndex {
         comptime _ = @TypeOf(point)._is_QPoint;
         return .{ .ptr = qtc.QColumnView_IndexAt(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onIndexAt` instead
+    ///
+    pub const OnIndexAt = onIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#indexAt)
     ///
@@ -306,13 +358,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnIndexAt(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) QModelIndex) void {
+    pub fn onIndexAt(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) QModelIndex) void {
         qtc.QColumnView_OnIndexAt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexAt` instead
+    /// ### DEPRECATED: Use `superIndexAt` instead
     ///
-    pub const QBaseIndexAt = SuperIndexAt;
+    pub const SuperIndexAt = superIndexAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#indexAt)
     ///
@@ -324,10 +376,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` point: QPoint `
     ///
-    pub fn SuperIndexAt(self: QColumnView, point: anytype) QModelIndex {
+    pub fn superIndexAt(self: QColumnView, point: anytype) QModelIndex {
         comptime _ = @TypeOf(point)._is_QPoint;
         return .{ .ptr = qtc.QColumnView_SuperIndexAt(@ptrCast(self.ptr), @ptrCast(point.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `scrollTo` instead
+    ///
+    pub const ScrollTo = scrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollTo)
     ///
@@ -339,10 +395,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn ScrollTo(self: QColumnView, index: anytype, hint: i32) void {
+    pub fn scrollTo(self: QColumnView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QColumnView_ScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onScrollTo` instead
+    ///
+    pub const OnScrollTo = onScrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollTo)
     ///
@@ -354,13 +414,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex, hint: qabstractitemview_enums.ScrollHint) callconv(.c) void `
     ///
-    pub fn OnScrollTo(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32) callconv(.c) void) void {
+    pub fn onScrollTo(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32) callconv(.c) void) void {
         qtc.QColumnView_OnScrollTo(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollTo` instead
+    /// ### DEPRECATED: Use `superScrollTo` instead
     ///
-    pub const QBaseScrollTo = SuperScrollTo;
+    pub const SuperScrollTo = superScrollTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollTo)
     ///
@@ -374,10 +434,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` hint: qabstractitemview_enums.ScrollHint `
     ///
-    pub fn SuperScrollTo(self: QColumnView, index: anytype, hint: i32) void {
+    pub fn superScrollTo(self: QColumnView, index: anytype, hint: i32) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QColumnView_SuperScrollTo(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#sizeHint)
     ///
@@ -385,9 +449,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SizeHint(self: QColumnView) QSize {
+    pub fn sizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#sizeHint)
     ///
@@ -401,13 +469,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QColumnView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#sizeHint)
     ///
@@ -417,9 +485,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperSizeHint(self: QColumnView) QSize {
+    pub fn superSizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `visualRect` instead
+    ///
+    pub const VisualRect = visualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRect)
     ///
@@ -429,10 +501,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn VisualRect(self: QColumnView, index: anytype) QRect {
+    pub fn visualRect(self: QColumnView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QColumnView_VisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRect` instead
+    ///
+    pub const OnVisualRect = onVisualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRect)
     ///
@@ -446,13 +522,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRect(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QRect) void {
+    pub fn onVisualRect(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QRect) void {
         qtc.QColumnView_OnVisualRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRect` instead
+    /// ### DEPRECATED: Use `superVisualRect` instead
     ///
-    pub const QBaseVisualRect = SuperVisualRect;
+    pub const SuperVisualRect = superVisualRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRect)
     ///
@@ -464,10 +540,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperVisualRect(self: QColumnView, index: anytype) QRect {
+    pub fn superVisualRect(self: QColumnView, index: anytype) QRect {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QColumnView_SuperVisualRect(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setModel)
     ///
@@ -475,12 +555,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QColumnView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QColumnView_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QColumnView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QColumnView_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setModel)
     ///
@@ -492,13 +576,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: QColumnView, callback: *const fn (QColumnView, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: QColumnView, callback: *const fn (QColumnView, QAbstractItemModel) callconv(.c) void) void {
         qtc.QColumnView_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setModel)
     ///
@@ -508,12 +592,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: QColumnView, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QColumnView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: QColumnView, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QColumnView_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionModel` instead
+    ///
+    pub const SetSelectionModel = setSelectionModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelectionModel)
     ///
@@ -521,12 +609,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SetSelectionModel(self: QColumnView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QColumnView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn setSelectionModel(self: QColumnView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QColumnView_SetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetSelectionModel` instead
+    ///
+    pub const OnSetSelectionModel = onSetSelectionModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelectionModel)
     ///
@@ -538,13 +630,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, selectionModel: QItemSelectionModel) callconv(.c) void `
     ///
-    pub fn OnSetSelectionModel(self: QColumnView, callback: *const fn (QColumnView, QItemSelectionModel) callconv(.c) void) void {
+    pub fn onSetSelectionModel(self: QColumnView, callback: *const fn (QColumnView, QItemSelectionModel) callconv(.c) void) void {
         qtc.QColumnView_OnSetSelectionModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelectionModel` instead
+    /// ### DEPRECATED: Use `superSetSelectionModel` instead
     ///
-    pub const QBaseSetSelectionModel = SuperSetSelectionModel;
+    pub const SuperSetSelectionModel = superSetSelectionModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelectionModel)
     ///
@@ -554,12 +646,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` selectionModel: QItemSelectionModel `
+    /// ` _selectionModel: QItemSelectionModel `
     ///
-    pub fn SuperSetSelectionModel(self: QColumnView, selectionModel: anytype) void {
-        comptime _ = @TypeOf(selectionModel)._is_QItemSelectionModel;
-        qtc.QColumnView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(selectionModel.ptr));
+    pub fn superSetSelectionModel(self: QColumnView, _selectionModel: anytype) void {
+        comptime _ = @TypeOf(_selectionModel)._is_QItemSelectionModel;
+        qtc.QColumnView_SuperSetSelectionModel(@ptrCast(self.ptr), @ptrCast(_selectionModel.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRootIndex` instead
+    ///
+    pub const SetRootIndex = setRootIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setRootIndex)
     ///
@@ -569,10 +665,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootIndex(self: QColumnView, index: anytype) void {
+    pub fn setRootIndex(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QColumnView_SetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetRootIndex` instead
+    ///
+    pub const OnSetRootIndex = onSetRootIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setRootIndex)
     ///
@@ -584,13 +684,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetRootIndex(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onSetRootIndex(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QColumnView_OnSetRootIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetRootIndex` instead
+    /// ### DEPRECATED: Use `superSetRootIndex` instead
     ///
-    pub const QBaseSetRootIndex = SuperSetRootIndex;
+    pub const SuperSetRootIndex = superSetRootIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setRootIndex)
     ///
@@ -602,10 +702,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetRootIndex(self: QColumnView, index: anytype) void {
+    pub fn superSetRootIndex(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QColumnView_SuperSetRootIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#selectAll)
     ///
@@ -613,9 +717,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SelectAll(self: QColumnView) void {
+    pub fn selectAll(self: QColumnView) void {
         qtc.QColumnView_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectAll` instead
+    ///
+    pub const OnSelectAll = onSelectAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#selectAll)
     ///
@@ -627,13 +735,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSelectAll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onSelectAll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnSelectAll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectAll` instead
+    /// ### DEPRECATED: Use `superSelectAll` instead
     ///
-    pub const QBaseSelectAll = SuperSelectAll;
+    pub const SuperSelectAll = superSelectAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#selectAll)
     ///
@@ -643,9 +751,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperSelectAll(self: QColumnView) void {
+    pub fn superSelectAll(self: QColumnView) void {
         qtc.QColumnView_SuperSelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setResizeGripsVisible` instead
+    ///
+    pub const SetResizeGripsVisible = setResizeGripsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setResizeGripsVisible)
     ///
@@ -655,9 +767,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetResizeGripsVisible(self: QColumnView, visible: bool) void {
+    pub fn setResizeGripsVisible(self: QColumnView, visible: bool) void {
         qtc.QColumnView_SetResizeGripsVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `resizeGripsVisible` instead
+    ///
+    pub const ResizeGripsVisible = resizeGripsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#resizeGripsVisible)
     ///
@@ -665,9 +781,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ResizeGripsVisible(self: QColumnView) bool {
+    pub fn resizeGripsVisible(self: QColumnView) bool {
         return qtc.QColumnView_ResizeGripsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `previewWidget` instead
+    ///
+    pub const PreviewWidget = previewWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#previewWidget)
     ///
@@ -675,9 +795,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PreviewWidget(self: QColumnView) QWidget {
+    pub fn previewWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QColumnView_PreviewWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPreviewWidget` instead
+    ///
+    pub const SetPreviewWidget = setPreviewWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setPreviewWidget)
     ///
@@ -687,10 +811,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetPreviewWidget(self: QColumnView, widget: anytype) void {
+    pub fn setPreviewWidget(self: QColumnView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QColumnView_SetPreviewWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setColumnWidths` instead
+    ///
+    pub const SetColumnWidths = setColumnWidths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setColumnWidths)
     ///
@@ -700,13 +828,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` list: []i32 `
     ///
-    pub fn SetColumnWidths(self: QColumnView, list: []i32) void {
+    pub fn setColumnWidths(self: QColumnView, list: []i32) void {
         const list_list = qtc.libqt_list{
             .len = list.len,
             .data = list.ptr,
         };
         qtc.QColumnView_SetColumnWidths(@ptrCast(self.ptr), list_list);
     }
+
+    /// ### DEPRECATED: Use `columnWidths` instead
+    ///
+    pub const ColumnWidths = columnWidths;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#columnWidths)
     ///
@@ -716,14 +848,18 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ColumnWidths(self: QColumnView, allocator: std.mem.Allocator) []i32 {
+    pub fn columnWidths(self: QColumnView, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QColumnView_ColumnWidths(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QColumnView.ColumnWidths: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QColumnView.columnWidths: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isIndexHidden` instead
+    ///
+    pub const IsIndexHidden = isIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#isIndexHidden)
     ///
@@ -733,10 +869,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsIndexHidden(self: QColumnView, index: anytype) bool {
+    pub fn isIndexHidden(self: QColumnView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QColumnView_IsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsIndexHidden` instead
+    ///
+    pub const OnIsIndexHidden = onIsIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#isIndexHidden)
     ///
@@ -748,13 +888,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnIsIndexHidden(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) bool) void {
+    pub fn onIsIndexHidden(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) bool) void {
         qtc.QColumnView_OnIsIndexHidden(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsIndexHidden` instead
+    /// ### DEPRECATED: Use `superIsIndexHidden` instead
     ///
-    pub const QBaseIsIndexHidden = SuperIsIndexHidden;
+    pub const SuperIsIndexHidden = superIsIndexHidden;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#isIndexHidden)
     ///
@@ -766,10 +906,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperIsIndexHidden(self: QColumnView, index: anytype) bool {
+    pub fn superIsIndexHidden(self: QColumnView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QColumnView_SuperIsIndexHidden(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#moveCursor)
     ///
@@ -781,9 +925,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn MoveCursor(self: QColumnView, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn moveCursor(self: QColumnView, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.QColumnView_MoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
+
+    /// ### DEPRECATED: Use `onMoveCursor` instead
+    ///
+    pub const OnMoveCursor = onMoveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#moveCursor)
     ///
@@ -797,13 +945,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMoveCursor(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) QModelIndex) void {
+    pub fn onMoveCursor(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) QModelIndex) void {
         qtc.QColumnView_OnMoveCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveCursor` instead
+    /// ### DEPRECATED: Use `superMoveCursor` instead
     ///
-    pub const QBaseMoveCursor = SuperMoveCursor;
+    pub const SuperMoveCursor = superMoveCursor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#moveCursor)
     ///
@@ -817,9 +965,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SuperMoveCursor(self: QColumnView, cursorAction: i32, modifiers: i32) QModelIndex {
+    pub fn superMoveCursor(self: QColumnView, cursorAction: i32, modifiers: i32) QModelIndex {
         return .{ .ptr = qtc.QColumnView_SuperMoveCursor(@ptrCast(self.ptr), @bitCast(cursorAction), @bitCast(modifiers)) };
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#resizeEvent)
     ///
@@ -827,12 +979,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QColumnView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QColumnView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#resizeEvent)
     ///
@@ -844,13 +1000,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QColumnView, callback: *const fn (QColumnView, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QColumnView, callback: *const fn (QColumnView, QResizeEvent) callconv(.c) void) void {
         qtc.QColumnView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#resizeEvent)
     ///
@@ -860,12 +1016,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QColumnView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QColumnView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelection)
     ///
@@ -873,14 +1033,18 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SetSelection(self: QColumnView, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QColumnView_SetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn setSelection(self: QColumnView, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QColumnView_SetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `onSetSelection` instead
+    ///
+    pub const OnSetSelection = onSetSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelection)
     ///
@@ -892,13 +1056,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, rect: QRect, command: flag of qitemselectionmodel_enums.SelectionFlag) callconv(.c) void `
     ///
-    pub fn OnSetSelection(self: QColumnView, callback: *const fn (QColumnView, QRect, i32) callconv(.c) void) void {
+    pub fn onSetSelection(self: QColumnView, callback: *const fn (QColumnView, QRect, i32) callconv(.c) void) void {
         qtc.QColumnView_OnSetSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetSelection` instead
+    /// ### DEPRECATED: Use `superSetSelection` instead
     ///
-    pub const QBaseSetSelection = SuperSetSelection;
+    pub const SuperSetSelection = superSetSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#setSelection)
     ///
@@ -908,14 +1072,18 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` command: flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSetSelection(self: QColumnView, rect: anytype, command: i32) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QColumnView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(command));
+    pub fn superSetSelection(self: QColumnView, _rect: anytype, command: i32) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QColumnView_SuperSetSelection(@ptrCast(self.ptr), @ptrCast(_rect.ptr), @bitCast(command));
     }
+
+    /// ### DEPRECATED: Use `visualRegionForSelection` instead
+    ///
+    pub const VisualRegionForSelection = visualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRegionForSelection)
     ///
@@ -925,10 +1093,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn VisualRegionForSelection(self: QColumnView, selection: anytype) QRegion {
+    pub fn visualRegionForSelection(self: QColumnView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QColumnView_VisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onVisualRegionForSelection` instead
+    ///
+    pub const OnVisualRegionForSelection = onVisualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRegionForSelection)
     ///
@@ -942,13 +1114,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnVisualRegionForSelection(self: QColumnView, callback: *const fn (QColumnView, QItemSelection) callconv(.c) QRegion) void {
+    pub fn onVisualRegionForSelection(self: QColumnView, callback: *const fn (QColumnView, QItemSelection) callconv(.c) QRegion) void {
         qtc.QColumnView_OnVisualRegionForSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVisualRegionForSelection` instead
+    /// ### DEPRECATED: Use `superVisualRegionForSelection` instead
     ///
-    pub const QBaseVisualRegionForSelection = SuperVisualRegionForSelection;
+    pub const SuperVisualRegionForSelection = superVisualRegionForSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#visualRegionForSelection)
     ///
@@ -960,21 +1132,29 @@ pub const QColumnView = extern struct {
     ///
     /// ` selection: QItemSelection `
     ///
-    pub fn SuperVisualRegionForSelection(self: QColumnView, selection: anytype) QRegion {
+    pub fn superVisualRegionForSelection(self: QColumnView, selection: anytype) QRegion {
         comptime _ = @TypeOf(selection)._is_QItemSelection;
         return .{ .ptr = qtc.QColumnView_SuperVisualRegionForSelection(@ptrCast(self.ptr), @ptrCast(selection.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `horizontalOffset` instead
+    ///
+    pub const HorizontalOffset = horizontalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#horizontalOffset)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HorizontalOffset(self: QColumnView) i32 {
+    pub fn horizontalOffset(self: QColumnView) i32 {
         return qtc.QColumnView_HorizontalOffset(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onHorizontalOffset` instead
+    ///
+    pub const OnHorizontalOffset = onHorizontalOffset;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#horizontalOffset)
     ///
     /// Allows for overriding the related default method
@@ -985,13 +1165,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnHorizontalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onHorizontalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnHorizontalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalOffset` instead
+    /// ### DEPRECATED: Use `superHorizontalOffset` instead
     ///
-    pub const QBaseHorizontalOffset = SuperHorizontalOffset;
+    pub const SuperHorizontalOffset = superHorizontalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#horizontalOffset)
     ///
@@ -1001,9 +1181,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperHorizontalOffset(self: QColumnView) i32 {
+    pub fn superHorizontalOffset(self: QColumnView) i32 {
         return qtc.QColumnView_SuperHorizontalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `verticalOffset` instead
+    ///
+    pub const VerticalOffset = verticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#verticalOffset)
     ///
@@ -1011,9 +1195,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn VerticalOffset(self: QColumnView) i32 {
+    pub fn verticalOffset(self: QColumnView) i32 {
         return qtc.QColumnView_VerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onVerticalOffset` instead
+    ///
+    pub const OnVerticalOffset = onVerticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#verticalOffset)
     ///
@@ -1025,13 +1213,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnVerticalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onVerticalOffset(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnVerticalOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalOffset` instead
+    /// ### DEPRECATED: Use `superVerticalOffset` instead
     ///
-    pub const QBaseVerticalOffset = SuperVerticalOffset;
+    pub const SuperVerticalOffset = superVerticalOffset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#verticalOffset)
     ///
@@ -1041,9 +1229,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperVerticalOffset(self: QColumnView) i32 {
+    pub fn superVerticalOffset(self: QColumnView) i32 {
         return qtc.QColumnView_SuperVerticalOffset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rowsInserted` instead
+    ///
+    pub const RowsInserted = rowsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#rowsInserted)
     ///
@@ -1051,16 +1243,20 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsInserted(self: QColumnView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QColumnView_RowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsInserted(self: QColumnView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QColumnView_RowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsInserted` instead
+    ///
+    pub const OnRowsInserted = onRowsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#rowsInserted)
     ///
@@ -1072,13 +1268,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsInserted(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsInserted(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QColumnView_OnRowsInserted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsInserted` instead
+    /// ### DEPRECATED: Use `superRowsInserted` instead
     ///
-    pub const QBaseRowsInserted = SuperRowsInserted;
+    pub const SuperRowsInserted = superRowsInserted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#rowsInserted)
     ///
@@ -1088,16 +1284,20 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsInserted(self: QColumnView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QColumnView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsInserted(self: QColumnView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QColumnView_SuperRowsInserted(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `currentChanged` instead
+    ///
+    pub const CurrentChanged = currentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#currentChanged)
     ///
@@ -1109,11 +1309,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn CurrentChanged(self: QColumnView, current: anytype, previous: anytype) void {
+    pub fn currentChanged(self: QColumnView, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QColumnView_CurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentChanged` instead
+    ///
+    pub const OnCurrentChanged = onCurrentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#currentChanged)
     ///
@@ -1125,13 +1329,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, current: QModelIndex, previous: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnCurrentChanged(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QModelIndex) callconv(.c) void) void {
+    pub fn onCurrentChanged(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QModelIndex) callconv(.c) void) void {
         qtc.QColumnView_OnCurrentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCurrentChanged` instead
+    /// ### DEPRECATED: Use `superCurrentChanged` instead
     ///
-    pub const QBaseCurrentChanged = SuperCurrentChanged;
+    pub const SuperCurrentChanged = superCurrentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#currentChanged)
     ///
@@ -1145,11 +1349,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` previous: QModelIndex `
     ///
-    pub fn SuperCurrentChanged(self: QColumnView, current: anytype, previous: anytype) void {
+    pub fn superCurrentChanged(self: QColumnView, current: anytype, previous: anytype) void {
         comptime _ = @TypeOf(current)._is_QModelIndex;
         comptime _ = @TypeOf(previous)._is_QModelIndex;
         qtc.QColumnView_SuperCurrentChanged(@ptrCast(self.ptr), @ptrCast(current.ptr), @ptrCast(previous.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollContentsBy)
     ///
@@ -1161,9 +1369,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: QColumnView, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: QColumnView, dx: i32, dy: i32) void {
         qtc.QColumnView_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollContentsBy)
     ///
@@ -1175,13 +1387,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) void) void {
         qtc.QColumnView_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#scrollContentsBy)
     ///
@@ -1195,9 +1407,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: QColumnView, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: QColumnView, dx: i32, dy: i32) void {
         qtc.QColumnView_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `createColumn` instead
+    ///
+    pub const CreateColumn = createColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#createColumn)
     ///
@@ -1205,12 +1421,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` rootIndex: QModelIndex `
+    /// ` _rootIndex: QModelIndex `
     ///
-    pub fn CreateColumn(self: QColumnView, rootIndex: anytype) QAbstractItemView {
-        comptime _ = @TypeOf(rootIndex)._is_QModelIndex;
-        return .{ .ptr = qtc.QColumnView_CreateColumn(@ptrCast(self.ptr), @ptrCast(rootIndex.ptr)) };
+    pub fn createColumn(self: QColumnView, _rootIndex: anytype) QAbstractItemView {
+        comptime _ = @TypeOf(_rootIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.QColumnView_CreateColumn(@ptrCast(self.ptr), @ptrCast(_rootIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateColumn` instead
+    ///
+    pub const OnCreateColumn = onCreateColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#createColumn)
     ///
@@ -1222,13 +1442,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, rootIndex: QModelIndex) callconv(.c) QAbstractItemView `
     ///
-    pub fn OnCreateColumn(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QAbstractItemView) void {
+    pub fn onCreateColumn(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QAbstractItemView) void {
         qtc.QColumnView_OnCreateColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateColumn` instead
+    /// ### DEPRECATED: Use `superCreateColumn` instead
     ///
-    pub const QBaseCreateColumn = SuperCreateColumn;
+    pub const SuperCreateColumn = superCreateColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#createColumn)
     ///
@@ -1238,12 +1458,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` rootIndex: QModelIndex `
+    /// ` _rootIndex: QModelIndex `
     ///
-    pub fn SuperCreateColumn(self: QColumnView, rootIndex: anytype) QAbstractItemView {
-        comptime _ = @TypeOf(rootIndex)._is_QModelIndex;
-        return .{ .ptr = qtc.QColumnView_SuperCreateColumn(@ptrCast(self.ptr), @ptrCast(rootIndex.ptr)) };
+    pub fn superCreateColumn(self: QColumnView, _rootIndex: anytype) QAbstractItemView {
+        comptime _ = @TypeOf(_rootIndex)._is_QModelIndex;
+        return .{ .ptr = qtc.QColumnView_SuperCreateColumn(@ptrCast(self.ptr), @ptrCast(_rootIndex.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `initializeColumn` instead
+    ///
+    pub const InitializeColumn = initializeColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#initializeColumn)
     ///
@@ -1253,10 +1477,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` column: QAbstractItemView `
     ///
-    pub fn InitializeColumn(self: QColumnView, column: anytype) void {
+    pub fn initializeColumn(self: QColumnView, column: anytype) void {
         comptime _ = @TypeOf(column)._is_QAbstractItemView;
         qtc.QColumnView_InitializeColumn(@ptrCast(self.ptr), @ptrCast(column.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitializeColumn` instead
+    ///
+    pub const OnInitializeColumn = onInitializeColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#initializeColumn)
     ///
@@ -1268,13 +1496,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, column: QAbstractItemView) callconv(.c) void `
     ///
-    pub fn OnInitializeColumn(self: QColumnView, callback: *const fn (QColumnView, QAbstractItemView) callconv(.c) void) void {
+    pub fn onInitializeColumn(self: QColumnView, callback: *const fn (QColumnView, QAbstractItemView) callconv(.c) void) void {
         qtc.QColumnView_OnInitializeColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitializeColumn` instead
+    /// ### DEPRECATED: Use `superInitializeColumn` instead
     ///
-    pub const QBaseInitializeColumn = SuperInitializeColumn;
+    pub const SuperInitializeColumn = superInitializeColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#initializeColumn)
     ///
@@ -1286,10 +1514,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` column: QAbstractItemView `
     ///
-    pub fn SuperInitializeColumn(self: QColumnView, column: anytype) void {
+    pub fn superInitializeColumn(self: QColumnView, column: anytype) void {
         comptime _ = @TypeOf(column)._is_QAbstractItemView;
         qtc.QColumnView_SuperInitializeColumn(@ptrCast(self.ptr), @ptrCast(column.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1301,15 +1533,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1323,15 +1559,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1341,9 +1581,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Model(self: QColumnView) QAbstractItemModel {
+    pub fn model(self: QColumnView) QAbstractItemModel {
         return .{ .ptr = qtc.QAbstractItemView_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectionModel` instead
+    ///
+    pub const SelectionModel = selectionModel;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1353,9 +1597,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SelectionModel(self: QColumnView) QItemSelectionModel {
+    pub fn selectionModel(self: QColumnView) QItemSelectionModel {
         return .{ .ptr = qtc.QAbstractItemView_SelectionModel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1367,10 +1615,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: QColumnView, delegate: anytype) void {
+    pub fn setItemDelegate(self: QColumnView, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1380,9 +1632,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ItemDelegate(self: QColumnView) QAbstractItemDelegate {
+    pub fn itemDelegate(self: QColumnView) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSelectionMode` instead
+    ///
+    pub const SetSelectionMode = setSelectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1394,9 +1650,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SetSelectionMode(self: QColumnView, mode: i32) void {
+    pub fn setSelectionMode(self: QColumnView, mode: i32) void {
         qtc.QAbstractItemView_SetSelectionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `selectionMode` instead
+    ///
+    pub const SelectionMode = selectionMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1410,9 +1670,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionMode `
     ///
-    pub fn SelectionMode(self: QColumnView) i32 {
+    pub fn selectionMode(self: QColumnView) i32 {
         return qtc.QAbstractItemView_SelectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectionBehavior` instead
+    ///
+    pub const SetSelectionBehavior = setSelectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1424,9 +1688,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SetSelectionBehavior(self: QColumnView, behavior: i32) void {
+    pub fn setSelectionBehavior(self: QColumnView, behavior: i32) void {
         qtc.QAbstractItemView_SetSelectionBehavior(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `selectionBehavior` instead
+    ///
+    pub const SelectionBehavior = selectionBehavior;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1440,9 +1708,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.SelectionBehavior `
     ///
-    pub fn SelectionBehavior(self: QColumnView) i32 {
+    pub fn selectionBehavior(self: QColumnView) i32 {
         return qtc.QAbstractItemView_SelectionBehavior(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1452,9 +1724,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn CurrentIndex(self: QColumnView) QModelIndex {
+    pub fn currentIndex(self: QColumnView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_CurrentIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootIndex` instead
+    ///
+    pub const RootIndex = rootIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1464,9 +1740,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn RootIndex(self: QColumnView) QModelIndex {
+    pub fn rootIndex(self: QColumnView) QModelIndex {
         return .{ .ptr = qtc.QAbstractItemView_RootIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditTriggers` instead
+    ///
+    pub const SetEditTriggers = setEditTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1478,9 +1758,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` triggers: flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn SetEditTriggers(self: QColumnView, triggers: i32) void {
+    pub fn setEditTriggers(self: QColumnView, triggers: i32) void {
         qtc.QAbstractItemView_SetEditTriggers(@ptrCast(self.ptr), @bitCast(triggers));
     }
+
+    /// ### DEPRECATED: Use `editTriggers` instead
+    ///
+    pub const EditTriggers = editTriggers;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1494,9 +1778,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` flag of qabstractitemview_enums.EditTrigger `
     ///
-    pub fn EditTriggers(self: QColumnView) i32 {
+    pub fn editTriggers(self: QColumnView) i32 {
         return qtc.QAbstractItemView_EditTriggers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollMode` instead
+    ///
+    pub const SetVerticalScrollMode = setVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1508,9 +1796,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetVerticalScrollMode(self: QColumnView, mode: i32) void {
+    pub fn setVerticalScrollMode(self: QColumnView, mode: i32) void {
         qtc.QAbstractItemView_SetVerticalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollMode` instead
+    ///
+    pub const VerticalScrollMode = verticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1524,9 +1816,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn VerticalScrollMode(self: QColumnView) i32 {
+    pub fn verticalScrollMode(self: QColumnView) i32 {
         return qtc.QAbstractItemView_VerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetVerticalScrollMode` instead
+    ///
+    pub const ResetVerticalScrollMode = resetVerticalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1536,9 +1832,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ResetVerticalScrollMode(self: QColumnView) void {
+    pub fn resetVerticalScrollMode(self: QColumnView) void {
         qtc.QAbstractItemView_ResetVerticalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollMode` instead
+    ///
+    pub const SetHorizontalScrollMode = setHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1550,9 +1850,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` mode: qabstractitemview_enums.ScrollMode `
     ///
-    pub fn SetHorizontalScrollMode(self: QColumnView, mode: i32) void {
+    pub fn setHorizontalScrollMode(self: QColumnView, mode: i32) void {
         qtc.QAbstractItemView_SetHorizontalScrollMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollMode` instead
+    ///
+    pub const HorizontalScrollMode = horizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1566,9 +1870,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.ScrollMode `
     ///
-    pub fn HorizontalScrollMode(self: QColumnView) i32 {
+    pub fn horizontalScrollMode(self: QColumnView) i32 {
         return qtc.QAbstractItemView_HorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetHorizontalScrollMode` instead
+    ///
+    pub const ResetHorizontalScrollMode = resetHorizontalScrollMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1578,9 +1886,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ResetHorizontalScrollMode(self: QColumnView) void {
+    pub fn resetHorizontalScrollMode(self: QColumnView) void {
         qtc.QAbstractItemView_ResetHorizontalScrollMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScroll` instead
+    ///
+    pub const SetAutoScroll = setAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1592,9 +1904,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoScroll(self: QColumnView, enable: bool) void {
+    pub fn setAutoScroll(self: QColumnView, enable: bool) void {
         qtc.QAbstractItemView_SetAutoScroll(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasAutoScroll` instead
+    ///
+    pub const HasAutoScroll = hasAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1604,9 +1920,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HasAutoScroll(self: QColumnView) bool {
+    pub fn hasAutoScroll(self: QColumnView) bool {
         return qtc.QAbstractItemView_HasAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoScrollMargin` instead
+    ///
+    pub const SetAutoScrollMargin = setAutoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1618,9 +1938,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` margin: i32 `
     ///
-    pub fn SetAutoScrollMargin(self: QColumnView, margin: i32) void {
+    pub fn setAutoScrollMargin(self: QColumnView, margin: i32) void {
         qtc.QAbstractItemView_SetAutoScrollMargin(@ptrCast(self.ptr), @bitCast(margin));
     }
+
+    /// ### DEPRECATED: Use `autoScrollMargin` instead
+    ///
+    pub const AutoScrollMargin = autoScrollMargin;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1630,9 +1954,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn AutoScrollMargin(self: QColumnView) i32 {
+    pub fn autoScrollMargin(self: QColumnView) i32 {
         return qtc.QAbstractItemView_AutoScrollMargin(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabKeyNavigation` instead
+    ///
+    pub const SetTabKeyNavigation = setTabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1644,9 +1972,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabKeyNavigation(self: QColumnView, enable: bool) void {
+    pub fn setTabKeyNavigation(self: QColumnView, enable: bool) void {
         qtc.QAbstractItemView_SetTabKeyNavigation(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `tabKeyNavigation` instead
+    ///
+    pub const TabKeyNavigation = tabKeyNavigation;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1656,9 +1988,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn TabKeyNavigation(self: QColumnView) bool {
+    pub fn tabKeyNavigation(self: QColumnView) bool {
         return qtc.QAbstractItemView_TabKeyNavigation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropIndicatorShown` instead
+    ///
+    pub const SetDropIndicatorShown = setDropIndicatorShown;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1670,9 +2006,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDropIndicatorShown(self: QColumnView, enable: bool) void {
+    pub fn setDropIndicatorShown(self: QColumnView, enable: bool) void {
         qtc.QAbstractItemView_SetDropIndicatorShown(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `showDropIndicator` instead
+    ///
+    pub const ShowDropIndicator = showDropIndicator;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1682,9 +2022,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ShowDropIndicator(self: QColumnView) bool {
+    pub fn showDropIndicator(self: QColumnView) bool {
         return qtc.QAbstractItemView_ShowDropIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1696,9 +2040,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDragEnabled(self: QColumnView, enable: bool) void {
+    pub fn setDragEnabled(self: QColumnView, enable: bool) void {
         qtc.QAbstractItemView_SetDragEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1708,9 +2056,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DragEnabled(self: QColumnView) bool {
+    pub fn dragEnabled(self: QColumnView) bool {
         return qtc.QAbstractItemView_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropOverwriteMode` instead
+    ///
+    pub const SetDragDropOverwriteMode = setDragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1722,9 +2074,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetDragDropOverwriteMode(self: QColumnView, overwrite: bool) void {
+    pub fn setDragDropOverwriteMode(self: QColumnView, overwrite: bool) void {
         qtc.QAbstractItemView_SetDragDropOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `dragDropOverwriteMode` instead
+    ///
+    pub const DragDropOverwriteMode = dragDropOverwriteMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1734,9 +2090,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DragDropOverwriteMode(self: QColumnView) bool {
+    pub fn dragDropOverwriteMode(self: QColumnView) bool {
         return qtc.QAbstractItemView_DragDropOverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragDropMode` instead
+    ///
+    pub const SetDragDropMode = setDragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1748,9 +2108,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` behavior: qabstractitemview_enums.DragDropMode `
     ///
-    pub fn SetDragDropMode(self: QColumnView, behavior: i32) void {
+    pub fn setDragDropMode(self: QColumnView, behavior: i32) void {
         qtc.QAbstractItemView_SetDragDropMode(@ptrCast(self.ptr), @bitCast(behavior));
     }
+
+    /// ### DEPRECATED: Use `dragDropMode` instead
+    ///
+    pub const DragDropMode = dragDropMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1764,9 +2128,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.DragDropMode `
     ///
-    pub fn DragDropMode(self: QColumnView) i32 {
+    pub fn dragDropMode(self: QColumnView) i32 {
         return qtc.QAbstractItemView_DragDropMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultDropAction` instead
+    ///
+    pub const SetDefaultDropAction = setDefaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1778,9 +2146,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dropAction: qnamespace_enums.DropAction `
     ///
-    pub fn SetDefaultDropAction(self: QColumnView, dropAction: i32) void {
+    pub fn setDefaultDropAction(self: QColumnView, dropAction: i32) void {
         qtc.QAbstractItemView_SetDefaultDropAction(@ptrCast(self.ptr), @bitCast(dropAction));
     }
+
+    /// ### DEPRECATED: Use `defaultDropAction` instead
+    ///
+    pub const DefaultDropAction = defaultDropAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1794,9 +2166,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DefaultDropAction(self: QColumnView) i32 {
+    pub fn defaultDropAction(self: QColumnView) i32 {
         return qtc.QAbstractItemView_DefaultDropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlternatingRowColors` instead
+    ///
+    pub const SetAlternatingRowColors = setAlternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1808,9 +2184,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAlternatingRowColors(self: QColumnView, enable: bool) void {
+    pub fn setAlternatingRowColors(self: QColumnView, enable: bool) void {
         qtc.QAbstractItemView_SetAlternatingRowColors(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `alternatingRowColors` instead
+    ///
+    pub const AlternatingRowColors = alternatingRowColors;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1820,9 +2200,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn AlternatingRowColors(self: QColumnView) bool {
+    pub fn alternatingRowColors(self: QColumnView) bool {
         return qtc.QAbstractItemView_AlternatingRowColors(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1832,12 +2216,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: QColumnView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: QColumnView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1847,9 +2235,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IconSize(self: QColumnView) QSize {
+    pub fn iconSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QAbstractItemView_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1861,9 +2253,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` mode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: QColumnView, mode: i32) void {
+    pub fn setTextElideMode(self: QColumnView, mode: i32) void {
         qtc.QAbstractItemView_SetTextElideMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1877,9 +2273,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: QColumnView) i32 {
+    pub fn textElideMode(self: QColumnView) i32 {
         return qtc.QAbstractItemView_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForIndex` instead
+    ///
+    pub const SizeHintForIndex = sizeHintForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1891,10 +2291,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHintForIndex(self: QColumnView, index: anytype) QSize {
+    pub fn sizeHintForIndex(self: QColumnView, index: anytype) QSize {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_SizeHintForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `openPersistentEditor` instead
+    ///
+    pub const OpenPersistentEditor = openPersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1906,10 +2310,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn OpenPersistentEditor(self: QColumnView, index: anytype) void {
+    pub fn openPersistentEditor(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_OpenPersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `closePersistentEditor` instead
+    ///
+    pub const ClosePersistentEditor = closePersistentEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1921,10 +2329,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ClosePersistentEditor(self: QColumnView, index: anytype) void {
+    pub fn closePersistentEditor(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_ClosePersistentEditor(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPersistentEditorOpen` instead
+    ///
+    pub const IsPersistentEditorOpen = isPersistentEditorOpen;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1936,10 +2348,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IsPersistentEditorOpen(self: QColumnView, index: anytype) bool {
+    pub fn isPersistentEditorOpen(self: QColumnView, index: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return qtc.QAbstractItemView_IsPersistentEditorOpen(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIndexWidget` instead
+    ///
+    pub const SetIndexWidget = setIndexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1953,11 +2369,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetIndexWidget(self: QColumnView, index: anytype, widget: anytype) void {
+    pub fn setIndexWidget(self: QColumnView, index: anytype, widget: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractItemView_SetIndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexWidget` instead
+    ///
+    pub const IndexWidget = indexWidget;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1969,10 +2389,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn IndexWidget(self: QColumnView, index: anytype) QWidget {
+    pub fn indexWidget(self: QColumnView, index: anytype) QWidget {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_IndexWidget(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForRow` instead
+    ///
+    pub const SetItemDelegateForRow = setItemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -1986,10 +2410,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForRow(self: QColumnView, row: i32, delegate: anytype) void {
+    pub fn setItemDelegateForRow(self: QColumnView, row: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForRow` instead
+    ///
+    pub const ItemDelegateForRow = itemDelegateForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2001,9 +2429,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn ItemDelegateForRow(self: QColumnView, row: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForRow(self: QColumnView, row: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForRow(@ptrCast(self.ptr), @bitCast(row)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegateForColumn` instead
+    ///
+    pub const SetItemDelegateForColumn = setItemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2017,10 +2449,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegateForColumn(self: QColumnView, column: i32, delegate: anytype) void {
+    pub fn setItemDelegateForColumn(self: QColumnView, column: i32, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QAbstractItemView_SetItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForColumn` instead
+    ///
+    pub const ItemDelegateForColumn = itemDelegateForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2032,9 +2468,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn ItemDelegateForColumn(self: QColumnView, column: i32) QAbstractItemDelegate {
+    pub fn itemDelegateForColumn(self: QColumnView, column: i32) QAbstractItemDelegate {
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegateForColumn(@ptrCast(self.ptr), @bitCast(column)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate2` instead
+    ///
+    pub const ItemDelegate2 = itemDelegate2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2046,10 +2486,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegate2(self: QColumnView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegate2(self: QColumnView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QAbstractItemView_ItemDelegate2(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `edit` instead
+    ///
+    pub const Edit = edit;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2061,10 +2505,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Edit(self: QColumnView, index: anytype) void {
+    pub fn edit(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Edit(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearSelection` instead
+    ///
+    pub const ClearSelection = clearSelection;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2074,9 +2522,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ClearSelection(self: QColumnView) void {
+    pub fn clearSelection(self: QColumnView) void {
         qtc.QAbstractItemView_ClearSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2088,10 +2540,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetCurrentIndex(self: QColumnView, index: anytype) void {
+    pub fn setCurrentIndex(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_SetCurrentIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToTop` instead
+    ///
+    pub const ScrollToTop = scrollToTop;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2101,9 +2557,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ScrollToTop(self: QColumnView) void {
+    pub fn scrollToTop(self: QColumnView) void {
         qtc.QAbstractItemView_ScrollToTop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scrollToBottom` instead
+    ///
+    pub const ScrollToBottom = scrollToBottom;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2113,9 +2573,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ScrollToBottom(self: QColumnView) void {
+    pub fn scrollToBottom(self: QColumnView) void {
         qtc.QAbstractItemView_ScrollToBottom(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2127,11 +2591,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Update(self: QColumnView, index: anytype) void {
+    pub fn update(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Update(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -2142,11 +2610,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Pressed(self: QColumnView, index: anytype) void {
+    pub fn pressed(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Pressed(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#pressed)
@@ -2157,9 +2629,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onPressed(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2171,11 +2647,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Clicked(self: QColumnView, index: anytype) void {
+    pub fn clicked(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Clicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#clicked)
@@ -2186,9 +2666,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onClicked(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2200,11 +2684,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DoubleClicked(self: QColumnView, index: anytype) void {
+    pub fn doubleClicked(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_DoubleClicked(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#doubleClicked)
@@ -2215,9 +2703,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2229,11 +2721,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Activated(self: QColumnView, index: anytype) void {
+    pub fn activated(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Activated(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
 
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#activated)
@@ -2244,9 +2740,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onActivated(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `entered` instead
+    ///
+    pub const Entered = entered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2258,10 +2758,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Entered(self: QColumnView, index: anytype) void {
+    pub fn entered(self: QColumnView, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QAbstractItemView_Entered(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEntered` instead
+    ///
+    pub const OnEntered = onEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2273,9 +2777,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnEntered(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
+    pub fn onEntered(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_Entered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEntered` instead
+    ///
+    pub const ViewportEntered = viewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2285,9 +2793,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ViewportEntered(self: QColumnView) void {
+    pub fn viewportEntered(self: QColumnView) void {
         qtc.QAbstractItemView_ViewportEntered(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEntered` instead
+    ///
+    pub const OnViewportEntered = onViewportEntered;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2299,9 +2811,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn OnViewportEntered(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
+    pub fn onViewportEntered(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_ViewportEntered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconSizeChanged` instead
+    ///
+    pub const IconSizeChanged = iconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2311,12 +2827,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn IconSizeChanged(self: QColumnView, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn iconSizeChanged(self: QColumnView, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractItemView_IconSizeChanged(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconSizeChanged` instead
+    ///
+    pub const OnIconSizeChanged = onIconSizeChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -2328,9 +2848,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, size: QSize) callconv(.c) void `
     ///
-    pub fn OnIconSizeChanged(self: QColumnView, callback: *const fn (QColumnView, QSize) callconv(.c) void) void {
+    pub fn onIconSizeChanged(self: QColumnView, callback: *const fn (QColumnView, QSize) callconv(.c) void) void {
         qtc.QAbstractItemView_Connect_IconSizeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2344,9 +2868,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: QColumnView) i32 {
+    pub fn verticalScrollBarPolicy(self: QColumnView) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2356,11 +2884,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: QColumnView, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: QColumnView, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2370,9 +2902,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn VerticalScrollBar(self: QColumnView) QScrollBar {
+    pub fn verticalScrollBar(self: QColumnView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2384,10 +2920,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: QColumnView, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: QColumnView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2401,9 +2941,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: QColumnView) i32 {
+    pub fn horizontalScrollBarPolicy(self: QColumnView) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2413,11 +2957,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: QColumnView, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: QColumnView, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2427,9 +2975,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HorizontalScrollBar(self: QColumnView) QScrollBar {
+    pub fn horizontalScrollBar(self: QColumnView) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2441,10 +2993,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: QColumnView, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: QColumnView, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2454,9 +3010,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn CornerWidget(self: QColumnView) QWidget {
+    pub fn cornerWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2468,10 +3028,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: QColumnView, widget: anytype) void {
+    pub fn setCornerWidget(self: QColumnView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2485,10 +3049,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: QColumnView, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: QColumnView, widget: anytype, alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2502,15 +3070,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: QColumnView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
+    pub fn scrollBarWidgets(self: QColumnView, allocator: std.mem.Allocator, alignment: i32) []QWidget {
         const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QColumnView.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QColumnView.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2520,9 +3092,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Viewport(self: QColumnView) QWidget {
+    pub fn viewport(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2534,10 +3110,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: QColumnView, widget: anytype) void {
+    pub fn setViewport(self: QColumnView, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2547,9 +3127,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MaximumViewportSize(self: QColumnView) QSize {
+    pub fn maximumViewportSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2563,9 +3147,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QColumnView) i32 {
+    pub fn sizeAdjustPolicy(self: QColumnView) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -2577,9 +3165,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QColumnView, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QColumnView, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2589,9 +3181,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FrameStyle(self: QColumnView) i32 {
+    pub fn frameStyle(self: QColumnView) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -2601,11 +3197,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: QColumnView, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: QColumnView, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -2615,9 +3215,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FrameWidth(self: QColumnView) i32 {
+    pub fn frameWidth(self: QColumnView) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -2631,9 +3235,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QColumnView) i32 {
+    pub fn frameShape(self: QColumnView) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -2643,11 +3251,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QColumnView, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QColumnView, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2661,9 +3273,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: QColumnView) i32 {
+    pub fn frameShadow(self: QColumnView) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -2673,11 +3289,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: QColumnView, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: QColumnView, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2687,9 +3307,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn LineWidth(self: QColumnView) i32 {
+    pub fn lineWidth(self: QColumnView) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2699,11 +3323,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QColumnView, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QColumnView, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2713,9 +3341,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MidLineWidth(self: QColumnView) i32 {
+    pub fn midLineWidth(self: QColumnView) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -2725,11 +3357,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QColumnView, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QColumnView, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -2739,9 +3375,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FrameRect(self: QColumnView) QRect {
+    pub fn frameRect(self: QColumnView) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -2751,12 +3391,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: QColumnView, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: QColumnView, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2766,9 +3410,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn WinId(self: QColumnView) usize {
+    pub fn winId(self: QColumnView) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2778,9 +3426,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn CreateWinId(self: QColumnView) void {
+    pub fn createWinId(self: QColumnView) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2790,9 +3442,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn InternalWinId(self: QColumnView) usize {
+    pub fn internalWinId(self: QColumnView) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2802,9 +3458,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn EffectiveWinId(self: QColumnView) usize {
+    pub fn effectiveWinId(self: QColumnView) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2814,9 +3474,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Style(self: QColumnView) QStyle {
+    pub fn style(self: QColumnView) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2826,12 +3490,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QColumnView, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QColumnView, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2841,9 +3509,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsTopLevel(self: QColumnView) bool {
+    pub fn isTopLevel(self: QColumnView) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2853,9 +3525,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsWindow(self: QColumnView) bool {
+    pub fn isWindow(self: QColumnView) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2865,9 +3541,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsModal(self: QColumnView) bool {
+    pub fn isModal(self: QColumnView) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2881,9 +3561,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QColumnView) i32 {
+    pub fn windowModality(self: QColumnView) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2893,11 +3577,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QColumnView, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QColumnView, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2907,9 +3595,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsEnabled(self: QColumnView) bool {
+    pub fn isEnabled(self: QColumnView) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2921,10 +3613,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QColumnView, param1: anytype) bool {
+    pub fn isEnabledTo(self: QColumnView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2936,9 +3632,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QColumnView, enabled: bool) void {
+    pub fn setEnabled(self: QColumnView, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2950,9 +3650,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QColumnView, disabled: bool) void {
+    pub fn setDisabled(self: QColumnView, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2964,9 +3668,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QColumnView, windowModified: bool) void {
+    pub fn setWindowModified(self: QColumnView, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2976,9 +3684,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FrameGeometry(self: QColumnView) QRect {
+    pub fn frameGeometry(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2988,9 +3700,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Geometry(self: QColumnView) QRect {
+    pub fn geometry(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3000,9 +3716,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn NormalGeometry(self: QColumnView) QRect {
+    pub fn normalGeometry(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3012,9 +3732,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn X(self: QColumnView) i32 {
+    pub fn x(self: QColumnView) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3024,9 +3748,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Y(self: QColumnView) i32 {
+    pub fn y(self: QColumnView) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3036,9 +3764,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Pos(self: QColumnView) QPoint {
+    pub fn pos(self: QColumnView) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3048,9 +3780,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FrameSize(self: QColumnView) QSize {
+    pub fn frameSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3060,9 +3796,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Size(self: QColumnView) QSize {
+    pub fn size(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3072,9 +3812,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Width(self: QColumnView) i32 {
+    pub fn width(self: QColumnView) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3084,9 +3828,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Height(self: QColumnView) i32 {
+    pub fn height(self: QColumnView) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3096,9 +3844,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Rect(self: QColumnView) QRect {
+    pub fn rect(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3108,9 +3860,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ChildrenRect(self: QColumnView) QRect {
+    pub fn childrenRect(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3876,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ChildrenRegion(self: QColumnView) QRegion {
+    pub fn childrenRegion(self: QColumnView) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3132,9 +3892,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MinimumSize(self: QColumnView) QSize {
+    pub fn minimumSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3144,9 +3908,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MaximumSize(self: QColumnView) QSize {
+    pub fn maximumSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3156,9 +3924,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MinimumWidth(self: QColumnView) i32 {
+    pub fn minimumWidth(self: QColumnView) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3168,9 +3940,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MinimumHeight(self: QColumnView) i32 {
+    pub fn minimumHeight(self: QColumnView) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3180,9 +3956,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MaximumWidth(self: QColumnView) i32 {
+    pub fn maximumWidth(self: QColumnView) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3192,9 +3972,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MaximumHeight(self: QColumnView) i32 {
+    pub fn maximumHeight(self: QColumnView) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3204,12 +3988,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QColumnView, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QColumnView, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3223,9 +4011,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QColumnView, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QColumnView, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3235,12 +4027,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QColumnView, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QColumnView, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3254,9 +4050,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QColumnView, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QColumnView, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3268,9 +4068,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QColumnView, minw: i32) void {
+    pub fn setMinimumWidth(self: QColumnView, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4086,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QColumnView, minh: i32) void {
+    pub fn setMinimumHeight(self: QColumnView, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3296,9 +4104,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QColumnView, maxw: i32) void {
+    pub fn setMaximumWidth(self: QColumnView, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3310,9 +4122,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QColumnView, maxh: i32) void {
+    pub fn setMaximumHeight(self: QColumnView, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3322,9 +4138,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SizeIncrement(self: QColumnView) QSize {
+    pub fn sizeIncrement(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3334,12 +4154,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QColumnView, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QColumnView, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3353,9 +4177,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QColumnView, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QColumnView, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3365,9 +4193,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn BaseSize(self: QColumnView) QSize {
+    pub fn baseSize(self: QColumnView) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3377,12 +4209,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QColumnView, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QColumnView, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3396,9 +4232,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QColumnView, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QColumnView, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3410,10 +4250,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QColumnView, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QColumnView, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3427,9 +4271,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QColumnView, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QColumnView, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3441,9 +4289,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QColumnView, w: i32) void {
+    pub fn setFixedWidth(self: QColumnView, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3455,9 +4307,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QColumnView, h: i32) void {
+    pub fn setFixedHeight(self: QColumnView, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3469,11 +4325,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QColumnView, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QColumnView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3484,11 +4344,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QColumnView, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QColumnView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3499,11 +4363,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QColumnView, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QColumnView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3514,11 +4382,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QColumnView, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QColumnView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3529,11 +4401,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QColumnView, param1: anytype) QPointF {
+    pub fn mapToParent(self: QColumnView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3544,10 +4420,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QColumnView, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QColumnView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3559,10 +4439,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QColumnView, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QColumnView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3574,10 +4458,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QColumnView, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QColumnView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3591,12 +4479,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QColumnView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QColumnView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3609,11 +4501,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QColumnView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QColumnView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3627,11 +4523,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QColumnView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QColumnView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3645,11 +4545,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QColumnView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QColumnView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3659,9 +4563,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Window(self: QColumnView) QWidget {
+    pub fn window(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3671,9 +4579,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn NativeParentWidget(self: QColumnView) QWidget {
+    pub fn nativeParentWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3683,9 +4595,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn TopLevelWidget(self: QColumnView) QWidget {
+    pub fn topLevelWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3695,9 +4611,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Palette(self: QColumnView) QPalette {
+    pub fn palette(self: QColumnView) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3707,12 +4627,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QColumnView, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QColumnView, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3722,11 +4646,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QColumnView, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QColumnView, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3740,9 +4668,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QColumnView) i32 {
+    pub fn backgroundRole(self: QColumnView) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3752,11 +4684,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QColumnView, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QColumnView, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3770,9 +4706,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QColumnView) i32 {
+    pub fn foregroundRole(self: QColumnView) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3782,9 +4722,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Font(self: QColumnView) QFont {
+    pub fn font(self: QColumnView) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3794,12 +4738,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QColumnView, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QColumnView, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3809,9 +4757,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FontMetrics(self: QColumnView) QFontMetrics {
+    pub fn fontMetrics(self: QColumnView) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3821,9 +4773,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FontInfo(self: QColumnView) QFontInfo {
+    pub fn fontInfo(self: QColumnView) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3833,9 +4789,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Cursor(self: QColumnView) QCursor {
+    pub fn cursor(self: QColumnView) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3845,12 +4805,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QColumnView, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QColumnView, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3860,9 +4824,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UnsetCursor(self: QColumnView) void {
+    pub fn unsetCursor(self: QColumnView) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3874,9 +4842,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QColumnView, enable: bool) void {
+    pub fn setMouseTracking(self: QColumnView, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3886,9 +4858,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HasMouseTracking(self: QColumnView) bool {
+    pub fn hasMouseTracking(self: QColumnView) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3898,9 +4874,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UnderMouse(self: QColumnView) bool {
+    pub fn underMouse(self: QColumnView) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3912,9 +4892,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QColumnView, enable: bool) void {
+    pub fn setTabletTracking(self: QColumnView, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3924,24 +4908,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HasTabletTracking(self: QColumnView) bool {
+    pub fn hasTabletTracking(self: QColumnView) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QColumnView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3951,12 +4924,35 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QColumnView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QColumnView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColumnView `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QColumnView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +4962,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Mask(self: QColumnView) QRegion {
+    pub fn mask(self: QColumnView) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3978,9 +4978,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ClearMask(self: QColumnView) void {
+    pub fn clearMask(self: QColumnView) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3992,10 +4996,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QColumnView, target: anytype) void {
+    pub fn render(self: QColumnView, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4007,10 +5015,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QColumnView, painter: anytype) void {
+    pub fn render2(self: QColumnView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4020,9 +5032,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Grab(self: QColumnView) QPixmap {
+    pub fn grab(self: QColumnView) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4032,9 +5048,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn GraphicsEffect(self: QColumnView) QGraphicsEffect {
+    pub fn graphicsEffect(self: QColumnView) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4046,10 +5066,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QColumnView, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QColumnView, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4061,9 +5085,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QColumnView, typeVal: i32) void {
+    pub fn grabGesture(self: QColumnView, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5103,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QColumnView, typeVal: i32) void {
+    pub fn ungrabGesture(self: QColumnView, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4087,15 +5119,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QColumnView, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QColumnView, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4105,15 +5141,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QColumnView, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QColumnView, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4125,13 +5165,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4143,13 +5187,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4161,10 +5209,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QColumnView, icon: anytype) void {
+    pub fn setWindowIcon(self: QColumnView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4174,9 +5226,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn WindowIcon(self: QColumnView) QIcon {
+    pub fn windowIcon(self: QColumnView) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4186,15 +5242,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QColumnView, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QColumnView, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4206,13 +5266,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4222,15 +5286,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QColumnView, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QColumnView, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4242,13 +5310,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4260,13 +5332,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QColumnView, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QColumnView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4278,13 +5354,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4296,9 +5376,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QColumnView, level: f64) void {
+    pub fn setWindowOpacity(self: QColumnView, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4308,9 +5392,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn WindowOpacity(self: QColumnView) f64 {
+    pub fn windowOpacity(self: QColumnView) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4320,9 +5408,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsWindowModified(self: QColumnView) bool {
+    pub fn isWindowModified(self: QColumnView) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4332,15 +5424,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QColumnView, toolTip: []const u8) void {
+    pub fn setToolTip(self: QColumnView, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4352,13 +5448,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4370,9 +5470,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QColumnView, msec: i32) void {
+    pub fn setToolTipDuration(self: QColumnView, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4382,9 +5486,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ToolTipDuration(self: QColumnView) i32 {
+    pub fn toolTipDuration(self: QColumnView) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4394,15 +5502,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QColumnView, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QColumnView, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4414,13 +5526,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4430,15 +5546,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QColumnView, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QColumnView, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4450,13 +5570,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4468,13 +5592,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4486,13 +5614,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QColumnView, name: []const u8) void {
+    pub fn setAccessibleName(self: QColumnView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4504,13 +5636,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4522,13 +5658,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QColumnView, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QColumnView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4540,9 +5680,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QColumnView, direction: i32) void {
+    pub fn setLayoutDirection(self: QColumnView, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4556,9 +5700,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QColumnView) i32 {
+    pub fn layoutDirection(self: QColumnView) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4568,9 +5716,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UnsetLayoutDirection(self: QColumnView) void {
+    pub fn unsetLayoutDirection(self: QColumnView) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4580,12 +5732,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QColumnView, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QColumnView, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4595,9 +5751,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Locale(self: QColumnView) QLocale {
+    pub fn locale(self: QColumnView) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4607,9 +5767,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UnsetLocale(self: QColumnView) void {
+    pub fn unsetLocale(self: QColumnView) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4619,9 +5783,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsRightToLeft(self: QColumnView) bool {
+    pub fn isRightToLeft(self: QColumnView) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4631,9 +5799,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsLeftToRight(self: QColumnView) bool {
+    pub fn isLeftToRight(self: QColumnView) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4643,9 +5815,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SetFocus(self: QColumnView) void {
+    pub fn setFocus(self: QColumnView) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4655,9 +5831,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsActiveWindow(self: QColumnView) bool {
+    pub fn isActiveWindow(self: QColumnView) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4667,9 +5847,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ActivateWindow(self: QColumnView) void {
+    pub fn activateWindow(self: QColumnView) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4679,9 +5863,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ClearFocus(self: QColumnView) void {
+    pub fn clearFocus(self: QColumnView) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4693,9 +5881,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QColumnView, reason: i32) void {
+    pub fn setFocus2(self: QColumnView, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4709,9 +5901,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QColumnView) i32 {
+    pub fn focusPolicy(self: QColumnView) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4723,9 +5919,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QColumnView, policy: i32) void {
+    pub fn setFocusPolicy(self: QColumnView, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4735,9 +5935,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HasFocus(self: QColumnView) bool {
+    pub fn hasFocus(self: QColumnView) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4749,11 +5953,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4763,12 +5971,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QColumnView, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QColumnView, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4778,9 +5990,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FocusProxy(self: QColumnView) QWidget {
+    pub fn focusProxy(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4794,9 +6010,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QColumnView) i32 {
+    pub fn contextMenuPolicy(self: QColumnView) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4808,9 +6028,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QColumnView, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QColumnView, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4820,9 +6044,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn GrabMouse(self: QColumnView) void {
+    pub fn grabMouse(self: QColumnView) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4834,10 +6062,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QColumnView, param1: anytype) void {
+    pub fn grabMouse2(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4847,9 +6079,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ReleaseMouse(self: QColumnView) void {
+    pub fn releaseMouse(self: QColumnView) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4859,9 +6095,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn GrabKeyboard(self: QColumnView) void {
+    pub fn grabKeyboard(self: QColumnView) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4871,9 +6111,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ReleaseKeyboard(self: QColumnView) void {
+    pub fn releaseKeyboard(self: QColumnView) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4885,10 +6129,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QColumnView, key: anytype) i32 {
+    pub fn grabShortcut(self: QColumnView, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4900,9 +6148,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QColumnView, id: i32) void {
+    pub fn releaseShortcut(self: QColumnView, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4914,9 +6166,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QColumnView, id: i32) void {
+    pub fn setShortcutEnabled(self: QColumnView, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4928,25 +6184,37 @@ pub const QColumnView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QColumnView, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QColumnView, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4956,9 +6224,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdatesEnabled(self: QColumnView) bool {
+    pub fn updatesEnabled(self: QColumnView) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4970,9 +6242,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QColumnView, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QColumnView, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4982,9 +6258,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn GraphicsProxyWidget(self: QColumnView) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QColumnView) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4994,9 +6274,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Repaint(self: QColumnView) void {
+    pub fn repaint(self: QColumnView) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5006,17 +6290,21 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QColumnView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QColumnView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5028,11 +6316,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QColumnView, param1: anytype) void {
+    pub fn update3(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5043,10 +6335,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QColumnView, param1: anytype) void {
+    pub fn update4(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5056,17 +6352,21 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QColumnView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QColumnView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5078,10 +6378,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QColumnView, param1: anytype) void {
+    pub fn repaint3(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5093,10 +6397,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QColumnView, param1: anytype) void {
+    pub fn repaint4(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5108,9 +6416,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QColumnView, hidden: bool) void {
+    pub fn setHidden(self: QColumnView, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5120,9 +6432,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Show(self: QColumnView) void {
+    pub fn show(self: QColumnView) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5132,9 +6448,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Hide(self: QColumnView) void {
+    pub fn hide(self: QColumnView) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5144,9 +6464,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ShowMinimized(self: QColumnView) void {
+    pub fn showMinimized(self: QColumnView) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5156,9 +6480,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ShowMaximized(self: QColumnView) void {
+    pub fn showMaximized(self: QColumnView) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5168,9 +6496,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ShowFullScreen(self: QColumnView) void {
+    pub fn showFullScreen(self: QColumnView) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5180,9 +6512,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ShowNormal(self: QColumnView) void {
+    pub fn showNormal(self: QColumnView) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -5192,9 +6528,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Close(self: QColumnView) bool {
+    pub fn close(self: QColumnView) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5204,9 +6544,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Raise(self: QColumnView) void {
+    pub fn raise(self: QColumnView) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5216,9 +6560,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Lower(self: QColumnView) void {
+    pub fn lower(self: QColumnView) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5230,10 +6578,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QColumnView, param1: anytype) void {
+    pub fn stackUnder(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5243,13 +6595,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QColumnView, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QColumnView, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5261,10 +6617,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QColumnView, param1: anytype) void {
+    pub fn move2(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5278,9 +6638,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QColumnView, w: i32, h: i32) void {
+    pub fn resize(self: QColumnView, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5292,10 +6656,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QColumnView, param1: anytype) void {
+    pub fn resize2(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5305,17 +6673,21 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QColumnView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QColumnView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5325,12 +6697,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QColumnView, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QColumnView, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5342,13 +6718,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QColumnView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QColumnView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QColumnView.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QColumnView.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5358,15 +6738,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QColumnView, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QColumnView, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5376,9 +6760,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn AdjustSize(self: QColumnView) void {
+    pub fn adjustSize(self: QColumnView) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5388,9 +6776,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsVisible(self: QColumnView) bool {
+    pub fn isVisible(self: QColumnView) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5402,10 +6794,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QColumnView, param1: anytype) bool {
+    pub fn isVisibleTo(self: QColumnView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5415,9 +6811,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsHidden(self: QColumnView) bool {
+    pub fn isHidden(self: QColumnView) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5427,9 +6827,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsMinimized(self: QColumnView) bool {
+    pub fn isMinimized(self: QColumnView) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5439,9 +6843,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsMaximized(self: QColumnView) bool {
+    pub fn isMaximized(self: QColumnView) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5451,9 +6859,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsFullScreen(self: QColumnView) bool {
+    pub fn isFullScreen(self: QColumnView) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5467,9 +6879,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QColumnView) i32 {
+    pub fn windowState(self: QColumnView) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5479,11 +6895,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QColumnView, state: i32) void {
-        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setWindowState(self: QColumnView, _state: i32) void {
+        qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5493,11 +6913,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` state: flag of qnamespace_enums.WindowState `
+    /// ` _state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QColumnView, state: i32) void {
-        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn overrideWindowState(self: QColumnView, _state: i32) void {
+        qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5507,9 +6931,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SizePolicy(self: QColumnView) QSizePolicy {
+    pub fn sizePolicy(self: QColumnView) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5519,12 +6947,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QColumnView, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QColumnView, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5538,9 +6970,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QColumnView, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QColumnView, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5550,9 +6986,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn VisibleRegion(self: QColumnView) QRegion {
+    pub fn visibleRegion(self: QColumnView) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5570,9 +7010,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5584,10 +7028,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QColumnView, margins: anytype) void {
+    pub fn setContentsMargins2(self: QColumnView, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5597,9 +7045,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ContentsMargins(self: QColumnView) QMargins {
+    pub fn contentsMargins(self: QColumnView) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5609,9 +7061,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ContentsRect(self: QColumnView) QRect {
+    pub fn contentsRect(self: QColumnView) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5621,9 +7077,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Layout(self: QColumnView) QLayout {
+    pub fn layout(self: QColumnView) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5633,12 +7093,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QColumnView, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QColumnView, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5648,24 +7112,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdateGeometry(self: QColumnView) void {
+    pub fn updateGeometry(self: QColumnView) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QColumnView, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5675,14 +7128,37 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QColumnView, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColumnView `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QColumnView, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QColumnView, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5696,9 +7172,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QColumnView, dx: i32, dy: i32) void {
+    pub fn scroll(self: QColumnView, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5714,10 +7194,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QColumnView, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QColumnView, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5727,9 +7211,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FocusWidget(self: QColumnView) QWidget {
+    pub fn focusWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5739,9 +7227,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn NextInFocusChain(self: QColumnView) QWidget {
+    pub fn nextInFocusChain(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5751,9 +7243,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PreviousInFocusChain(self: QColumnView) QWidget {
+    pub fn previousInFocusChain(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5763,9 +7259,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn AcceptDrops(self: QColumnView) bool {
+    pub fn acceptDrops(self: QColumnView) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5777,9 +7277,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QColumnView, on: bool) void {
+    pub fn setAcceptDrops(self: QColumnView, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -5791,10 +7295,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QColumnView, action: anytype) void {
+    pub fn addAction(self: QColumnView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5804,15 +7312,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QColumnView, actions: []QAction) void {
+    pub fn addActions(self: QColumnView, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5824,16 +7336,20 @@ pub const QColumnView = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QColumnView, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QColumnView, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5847,11 +7363,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QColumnView, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QColumnView, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5863,10 +7383,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QColumnView, action: anytype) void {
+    pub fn removeAction(self: QColumnView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5878,15 +7402,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QColumnView, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QColumnView, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QColumnView.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QColumnView.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5898,13 +7426,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QColumnView, text: []const u8) QAction {
+    pub fn addAction2(self: QColumnView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5918,7 +7450,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QColumnView, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QColumnView, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5927,6 +7459,10 @@ pub const QColumnView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5939,7 +7475,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QColumnView, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QColumnView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5947,6 +7483,10 @@ pub const QColumnView = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5962,7 +7502,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QColumnView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QColumnView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5972,6 +7512,10 @@ pub const QColumnView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5980,9 +7524,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ParentWidget(self: QColumnView) QWidget {
+    pub fn parentWidget(self: QColumnView) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5994,9 +7542,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QColumnView, typeVal: i32) void {
+    pub fn setWindowFlags(self: QColumnView, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6010,9 +7562,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QColumnView) i32 {
+    pub fn windowFlags(self: QColumnView) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6024,9 +7580,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QColumnView, param1: i32) void {
+    pub fn setWindowFlag(self: QColumnView, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6038,9 +7598,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QColumnView, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QColumnView, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6054,9 +7618,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QColumnView) i32 {
+    pub fn windowType(self: QColumnView) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -6066,9 +7634,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6078,13 +7650,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QColumnView, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QColumnView, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6096,10 +7672,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QColumnView, p: anytype) QWidget {
+    pub fn childAt2(self: QColumnView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6111,10 +7691,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QColumnView, p: anytype) QWidget {
+    pub fn childAt3(self: QColumnView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6126,9 +7710,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QColumnView, param1: i32) void {
+    pub fn setAttribute(self: QColumnView, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6140,9 +7728,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QColumnView, param1: i32) bool {
+    pub fn testAttribute(self: QColumnView, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6152,9 +7744,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn EnsurePolished(self: QColumnView) void {
+    pub fn ensurePolished(self: QColumnView) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6166,10 +7762,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QColumnView, child: anytype) bool {
+    pub fn isAncestorOf(self: QColumnView, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6179,9 +7779,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn AutoFillBackground(self: QColumnView) bool {
+    pub fn autoFillBackground(self: QColumnView) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6193,9 +7797,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QColumnView, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QColumnView, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6205,9 +7813,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn BackingStore(self: QColumnView) QBackingStore {
+    pub fn backingStore(self: QColumnView) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6217,9 +7829,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn WindowHandle(self: QColumnView) QWindow {
+    pub fn windowHandle(self: QColumnView) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6229,9 +7845,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Screen(self: QColumnView) QScreen {
+    pub fn screen(self: QColumnView) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6241,12 +7861,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QColumnView, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QColumnView, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6254,12 +7878,16 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6271,13 +7899,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QColumnView, title: []const u8) void {
+    pub fn windowTitleChanged(self: QColumnView, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6289,9 +7921,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6303,10 +7939,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QColumnView, icon: anytype) void {
+    pub fn windowIconChanged(self: QColumnView, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6318,9 +7958,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QColumnView, callback: *const fn (QColumnView, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QColumnView, callback: *const fn (QColumnView, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6332,13 +7976,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QColumnView, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QColumnView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6350,9 +7998,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6362,12 +8014,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QColumnView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QColumnView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6379,9 +8035,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6395,9 +8055,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QColumnView) i32 {
+    pub fn inputMethodHints(self: QColumnView) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6409,9 +8073,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QColumnView, hints: i32) void {
+    pub fn setInputMethodHints(self: QColumnView, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6425,11 +8093,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QColumnView, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QColumnView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6445,13 +8117,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QColumnView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QColumnView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6468,12 +8144,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QColumnView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QColumnView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6487,11 +8167,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QColumnView, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QColumnView, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6507,12 +8191,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QColumnView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QColumnView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6530,12 +8218,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QColumnView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QColumnView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6547,10 +8239,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QColumnView, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QColumnView, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6564,9 +8260,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QColumnView, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QColumnView, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6580,10 +8280,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QColumnView, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QColumnView, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6597,9 +8301,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QColumnView, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QColumnView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6613,9 +8321,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QColumnView, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QColumnView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6629,9 +8341,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QColumnView, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QColumnView, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6645,25 +8361,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QColumnView, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QColumnView, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6671,17 +8375,41 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6693,13 +8421,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QColumnView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QColumnView.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6711,13 +8443,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QColumnView, name: []const u8) void {
+    pub fn setObjectName(self: QColumnView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6727,9 +8463,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsWidgetType(self: QColumnView) bool {
+    pub fn isWidgetType(self: QColumnView) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6739,9 +8479,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsWindowType(self: QColumnView) bool {
+    pub fn isWindowType(self: QColumnView) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6751,9 +8495,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn IsQuickItemType(self: QColumnView) bool {
+    pub fn isQuickItemType(self: QColumnView) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6763,9 +8511,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SignalsBlocked(self: QColumnView) bool {
+    pub fn signalsBlocked(self: QColumnView) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6777,9 +8529,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QColumnView, b: bool) bool {
+    pub fn blockSignals(self: QColumnView, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6789,9 +8545,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Thread(self: QColumnView) QThread {
+    pub fn thread(self: QColumnView) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6801,12 +8561,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QColumnView, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QColumnView, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6818,9 +8582,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QColumnView, interval: i32) i32 {
+    pub fn startTimer(self: QColumnView, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6832,9 +8600,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QColumnView, time: i64) i32 {
+    pub fn startTimer2(self: QColumnView, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6846,9 +8618,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QColumnView, id: i32) void {
+    pub fn killTimer(self: QColumnView, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6860,9 +8636,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QColumnView, id: i32) void {
+    pub fn killTimer2(self: QColumnView, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6874,15 +8654,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QColumnView, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QColumnView, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QColumnView.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QColumnView.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6894,10 +8678,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QColumnView, filterObj: anytype) void {
+    pub fn installEventFilter(self: QColumnView, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6909,10 +8697,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QColumnView, obj: anytype) void {
+    pub fn removeEventFilter(self: QColumnView, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6920,7 +8712,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6928,13 +8720,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6942,7 +8738,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6950,13 +8746,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6966,18 +8766,22 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QColumnView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QColumnView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6985,7 +8789,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6993,13 +8797,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7007,7 +8815,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7015,13 +8823,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7031,9 +8843,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Disconnect3(self: QColumnView) bool {
+    pub fn disconnect3(self: QColumnView) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7045,10 +8861,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QColumnView, receiver: anytype) bool {
+    pub fn disconnect4(self: QColumnView, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7058,10 +8878,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7071,9 +8895,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DumpObjectTree(self: QColumnView) void {
+    pub fn dumpObjectTree(self: QColumnView) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7083,9 +8911,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DumpObjectInfo(self: QColumnView) void {
+    pub fn dumpObjectInfo(self: QColumnView) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7099,11 +8931,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QColumnView, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QColumnView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7115,10 +8951,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QColumnView, name: [:0]const u8) QVariant {
+    pub fn property(self: QColumnView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7130,7 +8970,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QColumnView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QColumnView, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7138,27 +8978,19 @@ pub const QColumnView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QColumnView.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QColumnView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QColumnView.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QColumnView.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QColumnView `
-    ///
-    pub fn BindingStorage(self: QColumnView) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7168,9 +9000,29 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn BindingStorage2(self: QColumnView) QBindingStorage {
+    pub fn bindingStorage(self: QColumnView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QColumnView `
+    ///
+    pub fn bindingStorage2(self: QColumnView) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7180,9 +9032,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Destroyed(self: QColumnView) void {
+    pub fn destroyed(self: QColumnView) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7194,9 +9050,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
+    pub fn onDestroyed(self: QColumnView, callback: *const fn (QColumnView) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7206,9 +9066,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Parent(self: QColumnView) QObject {
+    pub fn parent(self: QColumnView) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7220,10 +9084,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QColumnView, classname: [:0]const u8) bool {
+    pub fn inherits(self: QColumnView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7233,9 +9101,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DeleteLater(self: QColumnView) void {
+    pub fn deleteLater(self: QColumnView) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7249,9 +9121,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QColumnView, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QColumnView, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7265,9 +9141,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QColumnView, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QColumnView, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7275,7 +9155,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7285,13 +9165,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7299,7 +9183,7 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7309,13 +9193,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7325,7 +9213,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7333,12 +9221,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QColumnView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QColumnView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7350,10 +9242,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QColumnView, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QColumnView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7367,11 +9263,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QColumnView, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QColumnView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7387,13 +9287,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QColumnView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QColumnView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7406,11 +9310,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QColumnView, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QColumnView, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7422,10 +9330,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QColumnView, param1: anytype) void {
+    pub fn destroyed1(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7437,9 +9349,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QColumnView, callback: *const fn (QColumnView, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QColumnView, callback: *const fn (QColumnView, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7449,9 +9365,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PaintingActive(self: QColumnView) bool {
+    pub fn paintingActive(self: QColumnView) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7461,9 +9381,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn WidthMM(self: QColumnView) i32 {
+    pub fn widthMM(self: QColumnView) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7473,9 +9397,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HeightMM(self: QColumnView) i32 {
+    pub fn heightMM(self: QColumnView) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7485,9 +9413,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn LogicalDpiX(self: QColumnView) i32 {
+    pub fn logicalDpiX(self: QColumnView) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7497,9 +9429,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn LogicalDpiY(self: QColumnView) i32 {
+    pub fn logicalDpiY(self: QColumnView) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7509,9 +9445,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PhysicalDpiX(self: QColumnView) i32 {
+    pub fn physicalDpiX(self: QColumnView) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7521,9 +9461,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PhysicalDpiY(self: QColumnView) i32 {
+    pub fn physicalDpiY(self: QColumnView) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7533,9 +9477,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DevicePixelRatio(self: QColumnView) f64 {
+    pub fn devicePixelRatio(self: QColumnView) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7545,9 +9493,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DevicePixelRatioF(self: QColumnView) f64 {
+    pub fn devicePixelRatioF(self: QColumnView) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7557,9 +9509,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ColorCount(self: QColumnView) i32 {
+    pub fn colorCount(self: QColumnView) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7569,17 +9525,25 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Depth(self: QColumnView) i32 {
+    pub fn depth(self: QColumnView) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7587,13 +9551,17 @@ pub const QColumnView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `keyboardSearch` instead
+    ///
+    pub const KeyboardSearch = keyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7607,7 +9575,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn KeyboardSearch(self: QColumnView, search: []const u8) void {
+    pub fn keyboardSearch(self: QColumnView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
@@ -7615,9 +9583,9 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_KeyboardSearch(@ptrCast(self.ptr), search_str);
     }
 
-    /// ### DEPRECATED: Use `SuperKeyboardSearch` instead
+    /// ### DEPRECATED: Use `superKeyboardSearch` instead
     ///
-    pub const QBaseKeyboardSearch = SuperKeyboardSearch;
+    pub const SuperKeyboardSearch = superKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7631,13 +9599,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` search: []const u8 `
     ///
-    pub fn SuperKeyboardSearch(self: QColumnView, search: []const u8) void {
+    pub fn superKeyboardSearch(self: QColumnView, search: []const u8) void {
         const search_str = qtc.libqt_string{
             .len = search.len,
             .data = search.ptr,
         };
         qtc.QColumnView_SuperKeyboardSearch(@ptrCast(self.ptr), search_str);
     }
+
+    /// ### DEPRECATED: Use `onKeyboardSearch` instead
+    ///
+    pub const OnKeyboardSearch = onKeyboardSearch;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7651,9 +9623,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, search: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnKeyboardSearch(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onKeyboardSearch(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
         qtc.QColumnView_OnKeyboardSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForRow` instead
+    ///
+    pub const SizeHintForRow = sizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7667,13 +9643,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SizeHintForRow(self: QColumnView, row: i32) i32 {
+    pub fn sizeHintForRow(self: QColumnView, row: i32) i32 {
         return qtc.QColumnView_SizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForRow` instead
+    /// ### DEPRECATED: Use `superSizeHintForRow` instead
     ///
-    pub const QBaseSizeHintForRow = SuperSizeHintForRow;
+    pub const SuperSizeHintForRow = superSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7687,9 +9663,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` row: i32 `
     ///
-    pub fn SuperSizeHintForRow(self: QColumnView, row: i32) i32 {
+    pub fn superSizeHintForRow(self: QColumnView, row: i32) i32 {
         return qtc.QColumnView_SuperSizeHintForRow(@ptrCast(self.ptr), @bitCast(row));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForRow` instead
+    ///
+    pub const OnSizeHintForRow = onSizeHintForRow;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7703,9 +9683,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, row: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForRow(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForRow(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
         qtc.QColumnView_OnSizeHintForRow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintForColumn` instead
+    ///
+    pub const SizeHintForColumn = sizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7719,13 +9703,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SizeHintForColumn(self: QColumnView, column: i32) i32 {
+    pub fn sizeHintForColumn(self: QColumnView, column: i32) i32 {
         return qtc.QColumnView_SizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHintForColumn` instead
+    /// ### DEPRECATED: Use `superSizeHintForColumn` instead
     ///
-    pub const QBaseSizeHintForColumn = SuperSizeHintForColumn;
+    pub const SuperSizeHintForColumn = superSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7739,9 +9723,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` column: i32 `
     ///
-    pub fn SuperSizeHintForColumn(self: QColumnView, column: i32) i32 {
+    pub fn superSizeHintForColumn(self: QColumnView, column: i32) i32 {
         return qtc.QColumnView_SuperSizeHintForColumn(@ptrCast(self.ptr), @bitCast(column));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintForColumn` instead
+    ///
+    pub const OnSizeHintForColumn = onSizeHintForColumn;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7755,9 +9743,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, column: i32) callconv(.c) i32 `
     ///
-    pub fn OnSizeHintForColumn(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
+    pub fn onSizeHintForColumn(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
         qtc.QColumnView_OnSizeHintForColumn(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `itemDelegateForIndex` instead
+    ///
+    pub const ItemDelegateForIndex = itemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7771,14 +9763,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn ItemDelegateForIndex(self: QColumnView, index: anytype) QAbstractItemDelegate {
+    pub fn itemDelegateForIndex(self: QColumnView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QColumnView_ItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperItemDelegateForIndex` instead
+    /// ### DEPRECATED: Use `superItemDelegateForIndex` instead
     ///
-    pub const QBaseItemDelegateForIndex = SuperItemDelegateForIndex;
+    pub const SuperItemDelegateForIndex = superItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7792,10 +9784,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperItemDelegateForIndex(self: QColumnView, index: anytype) QAbstractItemDelegate {
+    pub fn superItemDelegateForIndex(self: QColumnView, index: anytype) QAbstractItemDelegate {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QColumnView_SuperItemDelegateForIndex(@ptrCast(self.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItemDelegateForIndex` instead
+    ///
+    pub const OnItemDelegateForIndex = onItemDelegateForIndex;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7809,9 +9805,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex) callconv(.c) QAbstractItemDelegate `
     ///
-    pub fn OnItemDelegateForIndex(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
+    pub fn onItemDelegateForIndex(self: QColumnView, callback: *const fn (QColumnView, QModelIndex) callconv(.c) QAbstractItemDelegate) void {
         qtc.QColumnView_OnItemDelegateForIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7825,13 +9825,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QColumnView, query: i32) QVariant {
+    pub fn inputMethodQuery(self: QColumnView, query: i32) QVariant {
         return .{ .ptr = qtc.QColumnView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7845,9 +9845,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` query: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QColumnView, query: i32) QVariant {
+    pub fn superInputMethodQuery(self: QColumnView, query: i32) QVariant {
         return .{ .ptr = qtc.QColumnView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(query)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7863,10 +9867,14 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) QVariant) void {
         qtc.QColumnView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#reset)
@@ -7877,13 +9885,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Reset(self: QColumnView) void {
+    pub fn reset(self: QColumnView) void {
         qtc.QColumnView_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7895,9 +9903,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperReset(self: QColumnView) void {
+    pub fn superReset(self: QColumnView) void {
         qtc.QColumnView_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7911,9 +9923,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReset(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onReset(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doItemsLayout` instead
+    ///
+    pub const DoItemsLayout = doItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7925,13 +9941,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DoItemsLayout(self: QColumnView) void {
+    pub fn doItemsLayout(self: QColumnView) void {
         qtc.QColumnView_DoItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoItemsLayout` instead
+    /// ### DEPRECATED: Use `superDoItemsLayout` instead
     ///
-    pub const QBaseDoItemsLayout = SuperDoItemsLayout;
+    pub const SuperDoItemsLayout = superDoItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7943,9 +9959,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperDoItemsLayout(self: QColumnView) void {
+    pub fn superDoItemsLayout(self: QColumnView) void {
         qtc.QColumnView_SuperDoItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoItemsLayout` instead
+    ///
+    pub const OnDoItemsLayout = onDoItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7959,9 +9979,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnDoItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -7979,7 +10003,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn DataChanged(self: QColumnView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn dataChanged(self: QColumnView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -7989,9 +10013,9 @@ pub const QColumnView = extern struct {
         qtc.QColumnView_DataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
 
-    /// ### DEPRECATED: Use `SuperDataChanged` instead
+    /// ### DEPRECATED: Use `superDataChanged` instead
     ///
-    pub const QBaseDataChanged = SuperDataChanged;
+    pub const SuperDataChanged = superDataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8009,7 +10033,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` roles: []i32 `
     ///
-    pub fn SuperDataChanged(self: QColumnView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
+    pub fn superDataChanged(self: QColumnView, topLeft: anytype, bottomRight: anytype, roles: []i32) void {
         comptime _ = @TypeOf(topLeft)._is_QModelIndex;
         comptime _ = @TypeOf(bottomRight)._is_QModelIndex;
         const roles_list = qtc.libqt_list{
@@ -8018,6 +10042,10 @@ pub const QColumnView = extern struct {
         };
         qtc.QColumnView_SuperDataChanged(@ptrCast(self.ptr), @ptrCast(topLeft.ptr), @ptrCast(bottomRight.ptr), roles_list);
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8031,9 +10059,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, topLeft: QModelIndex, bottomRight: QModelIndex, roles: qtc.libqt_list ([]i32)) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onDataChanged(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QModelIndex, qtc.libqt_list) callconv(.c) void) void {
         qtc.QColumnView_OnDataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rowsAboutToBeRemoved` instead
+    ///
+    pub const RowsAboutToBeRemoved = rowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8045,20 +10077,20 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn RowsAboutToBeRemoved(self: QColumnView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QColumnView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn rowsAboutToBeRemoved(self: QColumnView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QColumnView_RowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
 
-    /// ### DEPRECATED: Use `SuperRowsAboutToBeRemoved` instead
+    /// ### DEPRECATED: Use `superRowsAboutToBeRemoved` instead
     ///
-    pub const QBaseRowsAboutToBeRemoved = SuperRowsAboutToBeRemoved;
+    pub const SuperRowsAboutToBeRemoved = superRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8070,16 +10102,20 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` parent: QModelIndex `
+    /// ` _parent: QModelIndex `
     ///
     /// ` start: i32 `
     ///
     /// ` end: i32 `
     ///
-    pub fn SuperRowsAboutToBeRemoved(self: QColumnView, parent: anytype, start: i32, end: i32) void {
-        comptime _ = @TypeOf(parent)._is_QModelIndex;
-        qtc.QColumnView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(start), @bitCast(end));
+    pub fn superRowsAboutToBeRemoved(self: QColumnView, _parent: anytype, start: i32, end: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QModelIndex;
+        qtc.QColumnView_SuperRowsAboutToBeRemoved(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(start), @bitCast(end));
     }
+
+    /// ### DEPRECATED: Use `onRowsAboutToBeRemoved` instead
+    ///
+    pub const OnRowsAboutToBeRemoved = onRowsAboutToBeRemoved;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8093,9 +10129,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, parent: QModelIndex, start: i32, end: i32) callconv(.c) void `
     ///
-    pub fn OnRowsAboutToBeRemoved(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, i32) callconv(.c) void) void {
+    pub fn onRowsAboutToBeRemoved(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, i32) callconv(.c) void) void {
         qtc.QColumnView_OnRowsAboutToBeRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8111,15 +10151,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SelectionChanged(self: QColumnView, selected: anytype, deselected: anytype) void {
+    pub fn selectionChanged(self: QColumnView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QColumnView_SelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionChanged` instead
+    /// ### DEPRECATED: Use `superSelectionChanged` instead
     ///
-    pub const QBaseSelectionChanged = SuperSelectionChanged;
+    pub const SuperSelectionChanged = superSelectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8135,11 +10175,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` deselected: QItemSelection `
     ///
-    pub fn SuperSelectionChanged(self: QColumnView, selected: anytype, deselected: anytype) void {
+    pub fn superSelectionChanged(self: QColumnView, selected: anytype, deselected: anytype) void {
         comptime _ = @TypeOf(selected)._is_QItemSelection;
         comptime _ = @TypeOf(deselected)._is_QItemSelection;
         qtc.QColumnView_SuperSelectionChanged(@ptrCast(self.ptr), @ptrCast(selected.ptr), @ptrCast(deselected.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8153,10 +10197,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, selected: QItemSelection, deselected: QItemSelection) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QColumnView, callback: *const fn (QColumnView, QItemSelection, QItemSelection) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QColumnView, callback: *const fn (QColumnView, QItemSelection, QItemSelection) callconv(.c) void) void {
         qtc.QColumnView_OnSelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorData` instead
+    ///
+    pub const UpdateEditorData = updateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -8167,13 +10215,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdateEditorData(self: QColumnView) void {
+    pub fn updateEditorData(self: QColumnView) void {
         qtc.QColumnView_UpdateEditorData(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorData` instead
+    /// ### DEPRECATED: Use `superUpdateEditorData` instead
     ///
-    pub const QBaseUpdateEditorData = SuperUpdateEditorData;
+    pub const SuperUpdateEditorData = superUpdateEditorData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8185,10 +10233,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperUpdateEditorData(self: QColumnView) void {
+    pub fn superUpdateEditorData(self: QColumnView) void {
         qtc.QColumnView_SuperUpdateEditorData(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorData` instead
+    ///
+    pub const OnUpdateEditorData = onUpdateEditorData;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorData)
@@ -8201,10 +10253,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorData(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorData(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnUpdateEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateEditorGeometries` instead
+    ///
+    pub const UpdateEditorGeometries = updateEditorGeometries;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -8215,13 +10271,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdateEditorGeometries(self: QColumnView) void {
+    pub fn updateEditorGeometries(self: QColumnView) void {
         qtc.QColumnView_UpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometries` instead
     ///
-    pub const QBaseUpdateEditorGeometries = SuperUpdateEditorGeometries;
+    pub const SuperUpdateEditorGeometries = superUpdateEditorGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8233,10 +10289,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperUpdateEditorGeometries(self: QColumnView) void {
+    pub fn superUpdateEditorGeometries(self: QColumnView) void {
         qtc.QColumnView_SuperUpdateEditorGeometries(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateEditorGeometries` instead
+    ///
+    pub const OnUpdateEditorGeometries = onUpdateEditorGeometries;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#updateEditorGeometries)
@@ -8249,9 +10309,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateEditorGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnUpdateEditorGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateGeometries` instead
+    ///
+    pub const UpdateGeometries = updateGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8263,13 +10327,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdateGeometries(self: QColumnView) void {
+    pub fn updateGeometries(self: QColumnView) void {
         qtc.QColumnView_UpdateGeometries(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateGeometries` instead
+    /// ### DEPRECATED: Use `superUpdateGeometries` instead
     ///
-    pub const QBaseUpdateGeometries = SuperUpdateGeometries;
+    pub const SuperUpdateGeometries = superUpdateGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8281,9 +10345,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperUpdateGeometries(self: QColumnView) void {
+    pub fn superUpdateGeometries(self: QColumnView) void {
         qtc.QColumnView_SuperUpdateGeometries(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateGeometries` instead
+    ///
+    pub const OnUpdateGeometries = onUpdateGeometries;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8297,10 +10365,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateGeometries(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnUpdateGeometries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarAction` instead
+    ///
+    pub const VerticalScrollbarAction = verticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -8313,13 +10385,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn VerticalScrollbarAction(self: QColumnView, action: i32) void {
+    pub fn verticalScrollbarAction(self: QColumnView, action: i32) void {
         qtc.QColumnView_VerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarAction` instead
     ///
-    pub const QBaseVerticalScrollbarAction = SuperVerticalScrollbarAction;
+    pub const SuperVerticalScrollbarAction = superVerticalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8333,10 +10405,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperVerticalScrollbarAction(self: QColumnView, action: i32) void {
+    pub fn superVerticalScrollbarAction(self: QColumnView, action: i32) void {
         qtc.QColumnView_SuperVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
+    /// ### DEPRECATED: Use `onVerticalScrollbarAction` instead
+    ///
+    pub const OnVerticalScrollbarAction = onVerticalScrollbarAction;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarAction)
@@ -8349,9 +10425,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, action: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarAction(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarAction(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnVerticalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarAction` instead
+    ///
+    pub const HorizontalScrollbarAction = horizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8365,13 +10445,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn HorizontalScrollbarAction(self: QColumnView, action: i32) void {
+    pub fn horizontalScrollbarAction(self: QColumnView, action: i32) void {
         qtc.QColumnView_HorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarAction` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarAction` instead
     ///
-    pub const QBaseHorizontalScrollbarAction = SuperHorizontalScrollbarAction;
+    pub const SuperHorizontalScrollbarAction = superHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8385,9 +10465,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` action: i32 `
     ///
-    pub fn SuperHorizontalScrollbarAction(self: QColumnView, action: i32) void {
+    pub fn superHorizontalScrollbarAction(self: QColumnView, action: i32) void {
         qtc.QColumnView_SuperHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarAction` instead
+    ///
+    pub const OnHorizontalScrollbarAction = onHorizontalScrollbarAction;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8401,10 +10485,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, action: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarAction(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarAction(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnHorizontalScrollbarAction(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `verticalScrollbarValueChanged` instead
+    ///
+    pub const VerticalScrollbarValueChanged = verticalScrollbarValueChanged;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#verticalScrollbarValueChanged)
@@ -8417,13 +10505,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn VerticalScrollbarValueChanged(self: QColumnView, value: i32) void {
+    pub fn verticalScrollbarValueChanged(self: QColumnView, value: i32) void {
         qtc.QColumnView_VerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperVerticalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superVerticalScrollbarValueChanged` instead
     ///
-    pub const QBaseVerticalScrollbarValueChanged = SuperVerticalScrollbarValueChanged;
+    pub const SuperVerticalScrollbarValueChanged = superVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8437,9 +10525,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperVerticalScrollbarValueChanged(self: QColumnView, value: i32) void {
+    pub fn superVerticalScrollbarValueChanged(self: QColumnView, value: i32) void {
         qtc.QColumnView_SuperVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onVerticalScrollbarValueChanged` instead
+    ///
+    pub const OnVerticalScrollbarValueChanged = onVerticalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8453,9 +10545,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, value: i32) callconv(.c) void `
     ///
-    pub fn OnVerticalScrollbarValueChanged(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onVerticalScrollbarValueChanged(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnVerticalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollbarValueChanged` instead
+    ///
+    pub const HorizontalScrollbarValueChanged = horizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8469,13 +10565,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn HorizontalScrollbarValueChanged(self: QColumnView, value: i32) void {
+    pub fn horizontalScrollbarValueChanged(self: QColumnView, value: i32) void {
         qtc.QColumnView_HorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
 
-    /// ### DEPRECATED: Use `SuperHorizontalScrollbarValueChanged` instead
+    /// ### DEPRECATED: Use `superHorizontalScrollbarValueChanged` instead
     ///
-    pub const QBaseHorizontalScrollbarValueChanged = SuperHorizontalScrollbarValueChanged;
+    pub const SuperHorizontalScrollbarValueChanged = superHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8489,9 +10585,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` value: i32 `
     ///
-    pub fn SuperHorizontalScrollbarValueChanged(self: QColumnView, value: i32) void {
+    pub fn superHorizontalScrollbarValueChanged(self: QColumnView, value: i32) void {
         qtc.QColumnView_SuperHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onHorizontalScrollbarValueChanged` instead
+    ///
+    pub const OnHorizontalScrollbarValueChanged = onHorizontalScrollbarValueChanged;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8505,9 +10605,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, value: i32) callconv(.c) void `
     ///
-    pub fn OnHorizontalScrollbarValueChanged(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onHorizontalScrollbarValueChanged(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnHorizontalScrollbarValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8523,14 +10627,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor(self: QColumnView, editor: anytype, hint: i32) void {
+    pub fn closeEditor(self: QColumnView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QColumnView_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEditor` instead
+    /// ### DEPRECATED: Use `superCloseEditor` instead
     ///
-    pub const QBaseCloseEditor = SuperCloseEditor;
+    pub const SuperCloseEditor = superCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8546,10 +10650,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn SuperCloseEditor(self: QColumnView, editor: anytype, hint: i32) void {
+    pub fn superCloseEditor(self: QColumnView, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QColumnView_SuperCloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8563,9 +10671,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: QColumnView, callback: *const fn (QColumnView, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor(self: QColumnView, callback: *const fn (QColumnView, QWidget, i32) callconv(.c) void) void {
         qtc.QColumnView_OnCloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8579,14 +10691,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: QColumnView, editor: anytype) void {
+    pub fn commitData(self: QColumnView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QColumnView_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCommitData` instead
+    /// ### DEPRECATED: Use `superCommitData` instead
     ///
-    pub const QBaseCommitData = SuperCommitData;
+    pub const SuperCommitData = superCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8600,10 +10712,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn SuperCommitData(self: QColumnView, editor: anytype) void {
+    pub fn superCommitData(self: QColumnView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QColumnView_SuperCommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8617,9 +10733,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: QColumnView, callback: *const fn (QColumnView, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: QColumnView, callback: *const fn (QColumnView, QWidget) callconv(.c) void) void {
         qtc.QColumnView_OnCommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `editorDestroyed` instead
+    ///
+    pub const EditorDestroyed = editorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8633,14 +10753,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn EditorDestroyed(self: QColumnView, editor: anytype) void {
+    pub fn editorDestroyed(self: QColumnView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QColumnView_EditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorDestroyed` instead
+    /// ### DEPRECATED: Use `superEditorDestroyed` instead
     ///
-    pub const QBaseEditorDestroyed = SuperEditorDestroyed;
+    pub const SuperEditorDestroyed = superEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8654,10 +10774,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` editor: QObject `
     ///
-    pub fn SuperEditorDestroyed(self: QColumnView, editor: anytype) void {
+    pub fn superEditorDestroyed(self: QColumnView, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QObject;
         qtc.QColumnView_SuperEditorDestroyed(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorDestroyed` instead
+    ///
+    pub const OnEditorDestroyed = onEditorDestroyed;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8671,9 +10795,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, editor: QObject) callconv(.c) void `
     ///
-    pub fn OnEditorDestroyed(self: QColumnView, callback: *const fn (QColumnView, QObject) callconv(.c) void) void {
+    pub fn onEditorDestroyed(self: QColumnView, callback: *const fn (QColumnView, QObject) callconv(.c) void) void {
         qtc.QColumnView_OnEditorDestroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectedIndexes` instead
+    ///
+    pub const SelectedIndexes = selectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8687,19 +10815,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedIndexes(self: QColumnView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn selectedIndexes(self: QColumnView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QColumnView_SelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QColumnView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QColumnView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedIndexes` instead
+    /// ### DEPRECATED: Use `superSelectedIndexes` instead
     ///
-    pub const QBaseSelectedIndexes = SuperSelectedIndexes;
+    pub const SuperSelectedIndexes = superSelectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8713,15 +10841,19 @@ pub const QColumnView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperSelectedIndexes(self: QColumnView, allocator: std.mem.Allocator) []QModelIndex {
+    pub fn superSelectedIndexes(self: QColumnView, allocator: std.mem.Allocator) []QModelIndex {
         const _arr: qtc.libqt_list = qtc.QColumnView_SuperSelectedIndexes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QColumnView.SelectedIndexes: Memory allocation failed");
-        const _data: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QModelIndex, _arr.len) catch @panic("QColumnView.selectedIndexes: Memory allocation failed");
+        const _data_val: [*]QtC.QModelIndex = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSelectedIndexes` instead
+    ///
+    pub const OnSelectedIndexes = onSelectedIndexes;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8741,9 +10873,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` C ABI representation of []QModelIndex `
     ///
-    pub fn OnSelectedIndexes(self: QColumnView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onSelectedIndexes(self: QColumnView, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QColumnView_OnSelectedIndexes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `edit2` instead
+    ///
+    pub const Edit2 = edit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8759,17 +10895,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Edit2(self: QColumnView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn edit2(self: QColumnView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_Edit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEdit2` instead
+    /// ### DEPRECATED: Use `superEdit2` instead
     ///
-    pub const QBaseEdit2 = SuperEdit2;
+    pub const SuperEdit2 = superEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8785,13 +10921,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` trigger: qabstractitemview_enums.EditTrigger `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEdit2(self: QColumnView, index: anytype, trigger: i32, event: anytype) bool {
+    pub fn superEdit2(self: QColumnView, index: anytype, trigger: i32, _event: anytype) bool {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SuperEdit2(@ptrCast(self.ptr), @ptrCast(index.ptr), @bitCast(trigger), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEdit2` instead
+    ///
+    pub const OnEdit2 = onEdit2;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8805,9 +10945,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex, trigger: qabstractitemview_enums.EditTrigger, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEdit2(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
+    pub fn onEdit2(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, i32, QEvent) callconv(.c) bool) void {
         qtc.QColumnView_OnEdit2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionCommand` instead
+    ///
+    pub const SelectionCommand = selectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8821,21 +10965,21 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SelectionCommand(self: QColumnView, index: anytype, event: anytype) i32 {
+    pub fn selectionCommand(self: QColumnView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectionCommand` instead
+    /// ### DEPRECATED: Use `superSelectionCommand` instead
     ///
-    pub const QBaseSelectionCommand = SuperSelectionCommand;
+    pub const SuperSelectionCommand = superSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8849,17 +10993,21 @@ pub const QColumnView = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ## Returns:
     ///
     /// ` flag of qitemselectionmodel_enums.SelectionFlag `
     ///
-    pub fn SuperSelectionCommand(self: QColumnView, index: anytype, event: anytype) i32 {
+    pub fn superSelectionCommand(self: QColumnView, index: anytype, _event: anytype) i32 {
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SuperSelectionCommand(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionCommand` instead
+    ///
+    pub const OnSelectionCommand = onSelectionCommand;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8873,9 +11021,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, index: QModelIndex, event: QEvent) callconv(.c) i32 `
     ///
-    pub fn OnSelectionCommand(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QEvent) callconv(.c) i32) void {
+    pub fn onSelectionCommand(self: QColumnView, callback: *const fn (QColumnView, QModelIndex, QEvent) callconv(.c) i32) void {
         qtc.QColumnView_OnSelectionCommand(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startDrag` instead
+    ///
+    pub const StartDrag = startDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8889,13 +11041,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn StartDrag(self: QColumnView, supportedActions: i32) void {
+    pub fn startDrag(self: QColumnView, supportedActions: i32) void {
         qtc.QColumnView_StartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
 
-    /// ### DEPRECATED: Use `SuperStartDrag` instead
+    /// ### DEPRECATED: Use `superStartDrag` instead
     ///
-    pub const QBaseStartDrag = SuperStartDrag;
+    pub const SuperStartDrag = superStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8909,9 +11061,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` supportedActions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SuperStartDrag(self: QColumnView, supportedActions: i32) void {
+    pub fn superStartDrag(self: QColumnView, supportedActions: i32) void {
         qtc.QColumnView_SuperStartDrag(@ptrCast(self.ptr), @bitCast(supportedActions));
     }
+
+    /// ### DEPRECATED: Use `onStartDrag` instead
+    ///
+    pub const OnStartDrag = onStartDrag;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8925,9 +11081,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, supportedActions: flag of qnamespace_enums.DropAction) callconv(.c) void `
     ///
-    pub fn OnStartDrag(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onStartDrag(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnStartDrag(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initViewItemOption` instead
+    ///
+    pub const InitViewItemOption = initViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8941,14 +11101,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn InitViewItemOption(self: QColumnView, option: anytype) void {
+    pub fn initViewItemOption(self: QColumnView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QColumnView_InitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitViewItemOption` instead
+    /// ### DEPRECATED: Use `superInitViewItemOption` instead
     ///
-    pub const QBaseInitViewItemOption = SuperInitViewItemOption;
+    pub const SuperInitViewItemOption = superInitViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8962,10 +11122,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperInitViewItemOption(self: QColumnView, option: anytype) void {
+    pub fn superInitViewItemOption(self: QColumnView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         qtc.QColumnView_SuperInitViewItemOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitViewItemOption` instead
+    ///
+    pub const OnInitViewItemOption = onInitViewItemOption;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8979,9 +11143,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, option: QStyleOptionViewItem) callconv(.c) void `
     ///
-    pub fn OnInitViewItemOption(self: QColumnView, callback: *const fn (QColumnView, QStyleOptionViewItem) callconv(.c) void) void {
+    pub fn onInitViewItemOption(self: QColumnView, callback: *const fn (QColumnView, QStyleOptionViewItem) callconv(.c) void) void {
         qtc.QColumnView_OnInitViewItemOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -8995,13 +11163,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QColumnView, next: bool) bool {
+    pub fn focusNextPrevChild(self: QColumnView, next: bool) bool {
         return qtc.QColumnView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9015,9 +11183,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QColumnView, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QColumnView, next: bool) bool {
         return qtc.QColumnView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9031,10 +11203,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QColumnView, callback: *const fn (QColumnView, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QColumnView, callback: *const fn (QColumnView, bool) callconv(.c) bool) void {
         qtc.QColumnView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#event)
@@ -9045,16 +11221,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QColumnView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QColumnView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9066,12 +11242,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QColumnView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QColumnView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9085,10 +11265,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) bool) void {
         qtc.QColumnView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportEvent)
@@ -9099,16 +11283,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ViewportEvent(self: QColumnView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn viewportEvent(self: QColumnView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_ViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9120,12 +11304,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperViewportEvent(self: QColumnView, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superViewportEvent(self: QColumnView, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9139,10 +11327,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) bool) void {
         qtc.QColumnView_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mousePressEvent)
@@ -9153,16 +11345,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9174,12 +11366,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9193,10 +11389,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
         qtc.QColumnView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseMoveEvent)
@@ -9207,16 +11407,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9228,12 +11428,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9247,10 +11451,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
         qtc.QColumnView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseReleaseEvent)
@@ -9261,16 +11469,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9282,12 +11490,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9301,10 +11513,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
         qtc.QColumnView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#mouseDoubleClickEvent)
@@ -9315,16 +11531,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9336,12 +11552,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QColumnView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QColumnView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9355,9 +11575,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QColumnView, callback: *const fn (QColumnView, QMouseEvent) callconv(.c) void) void {
         qtc.QColumnView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9369,16 +11593,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QColumnView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QColumnView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9390,12 +11614,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QColumnView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QColumnView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9409,9 +11637,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QColumnView, callback: *const fn (QColumnView, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QColumnView, callback: *const fn (QColumnView, QDragEnterEvent) callconv(.c) void) void {
         qtc.QColumnView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9423,16 +11655,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QColumnView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QColumnView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9444,12 +11676,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QColumnView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QColumnView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9463,9 +11699,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QDragMoveEvent) callconv(.c) void) void {
         qtc.QColumnView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9477,16 +11717,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QColumnView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QColumnView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9498,12 +11738,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QColumnView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QColumnView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9517,9 +11761,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QColumnView, callback: *const fn (QColumnView, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QColumnView, callback: *const fn (QColumnView, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QColumnView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9531,16 +11779,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QColumnView_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QColumnView_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9552,12 +11800,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QColumnView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QColumnView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9571,10 +11823,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QColumnView, callback: *const fn (QColumnView, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QColumnView, callback: *const fn (QColumnView, QDropEvent) callconv(.c) void) void {
         qtc.QColumnView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusInEvent)
@@ -9585,16 +11841,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColumnView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColumnView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9606,12 +11862,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColumnView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColumnView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9625,10 +11885,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QColumnView, callback: *const fn (QColumnView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QColumnView, callback: *const fn (QColumnView, QFocusEvent) callconv(.c) void) void {
         qtc.QColumnView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#focusOutEvent)
@@ -9639,16 +11903,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColumnView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColumnView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9660,12 +11924,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QColumnView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QColumnView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9679,9 +11947,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QColumnView, callback: *const fn (QColumnView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QColumnView, callback: *const fn (QColumnView, QFocusEvent) callconv(.c) void) void {
         qtc.QColumnView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9693,16 +11965,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColumnView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColumnView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9714,12 +11986,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColumnView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColumnView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9733,9 +12009,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QColumnView, callback: *const fn (QColumnView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QColumnView, callback: *const fn (QColumnView, QKeyEvent) callconv(.c) void) void {
         qtc.QColumnView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9747,16 +12027,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QColumnView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QColumnView_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9768,12 +12048,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QColumnView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QColumnView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9787,9 +12071,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QColumnView, callback: *const fn (QColumnView, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QColumnView, callback: *const fn (QColumnView, QTimerEvent) callconv(.c) void) void {
         qtc.QColumnView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9801,16 +12089,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QColumnView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn inputMethodEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QColumnView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9822,12 +12110,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QInputMethodEvent `
+    /// ` _event: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QInputMethodEvent;
-        qtc.QColumnView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superInputMethodEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QInputMethodEvent;
+        qtc.QColumnView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9841,9 +12133,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QColumnView, callback: *const fn (QColumnView, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QColumnView, callback: *const fn (QColumnView, QInputMethodEvent) callconv(.c) void) void {
         qtc.QColumnView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9857,17 +12153,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QColumnView, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QColumnView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9881,13 +12177,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QColumnView, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QColumnView, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QColumnView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QColumnView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9901,10 +12201,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QColumnView, callback: *const fn (QColumnView, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QColumnView, callback: *const fn (QColumnView, QObject, QEvent) callconv(.c) bool) void {
         qtc.QColumnView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -9915,13 +12219,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ViewportSizeHint(self: QColumnView) QSize {
+    pub fn viewportSizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractItemView
     ///
@@ -9933,10 +12237,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperViewportSizeHint(self: QColumnView) QSize {
+    pub fn superViewportSizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#viewportSizeHint)
@@ -9951,9 +12259,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QColumnView_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9965,13 +12277,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn MinimumSizeHint(self: QColumnView) QSize {
+    pub fn minimumSizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9983,9 +12295,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperMinimumSizeHint(self: QColumnView) QSize {
+    pub fn superMinimumSizeHint(self: QColumnView) QSize {
         return .{ .ptr = qtc.QColumnView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10001,9 +12317,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QColumnView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QColumnView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10015,16 +12335,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: QColumnView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QColumnView_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: QColumnView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QColumnView_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10036,12 +12356,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: QColumnView, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.QColumnView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: QColumnView, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.QColumnView_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10055,9 +12379,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: QColumnView, callback: *const fn (QColumnView, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: QColumnView, callback: *const fn (QColumnView, QWidget) callconv(.c) void) void {
         qtc.QColumnView_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10071,14 +12399,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QColumnView, param1: anytype) void {
+    pub fn paintEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QColumnView_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10092,10 +12420,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QColumnView, param1: anytype) void {
+    pub fn superPaintEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QColumnView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10109,9 +12441,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QColumnView, callback: *const fn (QColumnView, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QColumnView, callback: *const fn (QColumnView, QPaintEvent) callconv(.c) void) void {
         qtc.QColumnView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10125,14 +12461,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QColumnView, param1: anytype) void {
+    pub fn wheelEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QColumnView_WheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10146,10 +12482,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QColumnView, param1: anytype) void {
+    pub fn superWheelEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWheelEvent;
         qtc.QColumnView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10163,9 +12503,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QColumnView, callback: *const fn (QColumnView, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QColumnView, callback: *const fn (QColumnView, QWheelEvent) callconv(.c) void) void {
         qtc.QColumnView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10179,14 +12523,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QColumnView, param1: anytype) void {
+    pub fn contextMenuEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QColumnView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10200,10 +12544,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QColumnView, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QColumnView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -10217,9 +12565,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QColumnView, callback: *const fn (QColumnView, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QColumnView, callback: *const fn (QColumnView, QContextMenuEvent) callconv(.c) void) void {
         qtc.QColumnView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10233,14 +12585,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QColumnView, param1: anytype) void {
+    pub fn changeEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QColumnView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10254,10 +12606,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QColumnView, param1: anytype) void {
+    pub fn superChangeEvent(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QColumnView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -10271,9 +12627,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
         qtc.QColumnView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -10287,14 +12647,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: QColumnView, option: anytype) void {
+    pub fn initStyleOption(self: QColumnView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QColumnView_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -10308,10 +12668,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: QColumnView, option: anytype) void {
+    pub fn superInitStyleOption(self: QColumnView, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.QColumnView_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -10325,9 +12689,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QColumnView, callback: *const fn (QColumnView, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QColumnView, callback: *const fn (QColumnView, QStyleOptionFrame) callconv(.c) void) void {
         qtc.QColumnView_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -10339,13 +12707,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DevType(self: QColumnView) i32 {
+    pub fn devType(self: QColumnView) i32 {
         return qtc.QColumnView_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -10357,9 +12725,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperDevType(self: QColumnView) i32 {
+    pub fn superDevType(self: QColumnView) i32 {
         return qtc.QColumnView_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -10373,9 +12745,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -10389,13 +12765,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QColumnView, visible: bool) void {
+    pub fn setVisible(self: QColumnView, visible: bool) void {
         qtc.QColumnView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -10409,9 +12785,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QColumnView, visible: bool) void {
+    pub fn superSetVisible(self: QColumnView, visible: bool) void {
         qtc.QColumnView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -10425,9 +12805,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QColumnView, callback: *const fn (QColumnView, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QColumnView, callback: *const fn (QColumnView, bool) callconv(.c) void) void {
         qtc.QColumnView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10441,13 +12825,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QColumnView, param1: i32) i32 {
+    pub fn heightForWidth(self: QColumnView, param1: i32) i32 {
         return qtc.QColumnView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10461,9 +12845,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QColumnView, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QColumnView, param1: i32) i32 {
         return qtc.QColumnView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10477,9 +12865,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
         qtc.QColumnView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10491,13 +12883,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn HasHeightForWidth(self: QColumnView) bool {
+    pub fn hasHeightForWidth(self: QColumnView) bool {
         return qtc.QColumnView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10509,9 +12901,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperHasHeightForWidth(self: QColumnView) bool {
+    pub fn superHasHeightForWidth(self: QColumnView) bool {
         return qtc.QColumnView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10525,9 +12921,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
         qtc.QColumnView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10539,13 +12939,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn PaintEngine(self: QColumnView) QPaintEngine {
+    pub fn paintEngine(self: QColumnView) QPaintEngine {
         return .{ .ptr = qtc.QColumnView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10557,9 +12957,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperPaintEngine(self: QColumnView) QPaintEngine {
+    pub fn superPaintEngine(self: QColumnView) QPaintEngine {
         return .{ .ptr = qtc.QColumnView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10573,9 +12977,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QColumnView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QColumnView, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QColumnView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10587,16 +12995,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColumnView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColumnView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10608,12 +13016,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QColumnView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QColumnView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10627,9 +13039,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QColumnView, callback: *const fn (QColumnView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QColumnView, callback: *const fn (QColumnView, QKeyEvent) callconv(.c) void) void {
         qtc.QColumnView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10641,16 +13057,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QColumnView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QColumnView_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10662,12 +13078,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QColumnView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QColumnView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10681,9 +13101,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QColumnView, callback: *const fn (QColumnView, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QColumnView, callback: *const fn (QColumnView, QEnterEvent) callconv(.c) void) void {
         qtc.QColumnView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10695,16 +13119,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColumnView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColumnView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10716,12 +13140,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColumnView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColumnView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10735,9 +13163,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
         qtc.QColumnView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10749,16 +13181,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QColumnView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QColumnView_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10770,12 +13202,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QColumnView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QColumnView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10789,9 +13225,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QColumnView, callback: *const fn (QColumnView, QMoveEvent) callconv(.c) void) void {
         qtc.QColumnView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10803,16 +13243,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QColumnView_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QColumnView_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10824,12 +13264,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QColumnView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QColumnView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10843,9 +13287,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QColumnView, callback: *const fn (QColumnView, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QColumnView, callback: *const fn (QColumnView, QCloseEvent) callconv(.c) void) void {
         qtc.QColumnView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10857,16 +13305,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QColumnView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QColumnView_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10878,12 +13326,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QColumnView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QColumnView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10897,9 +13349,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QColumnView, callback: *const fn (QColumnView, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QColumnView, callback: *const fn (QColumnView, QTabletEvent) callconv(.c) void) void {
         qtc.QColumnView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10911,16 +13367,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QColumnView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QColumnView_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10932,12 +13388,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QColumnView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QColumnView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10951,9 +13411,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QColumnView, callback: *const fn (QColumnView, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QColumnView, callback: *const fn (QColumnView, QActionEvent) callconv(.c) void) void {
         qtc.QColumnView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -10965,16 +13429,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QColumnView_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QColumnView_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -10986,12 +13450,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QColumnView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QColumnView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -11005,9 +13473,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QColumnView, callback: *const fn (QColumnView, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QColumnView, callback: *const fn (QColumnView, QShowEvent) callconv(.c) void) void {
         qtc.QColumnView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -11019,16 +13491,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QColumnView_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QColumnView_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -11040,12 +13512,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QColumnView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QColumnView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -11059,9 +13535,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QColumnView, callback: *const fn (QColumnView, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QColumnView, callback: *const fn (QColumnView, QHideEvent) callconv(.c) void) void {
         qtc.QColumnView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11079,7 +13559,7 @@ pub const QColumnView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -11087,9 +13567,9 @@ pub const QColumnView = extern struct {
         return qtc.QColumnView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11107,13 +13587,17 @@ pub const QColumnView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QColumnView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QColumnView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -11127,9 +13611,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QColumnView, callback: *const fn (QColumnView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QColumnView, callback: *const fn (QColumnView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QColumnView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -11143,13 +13631,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QColumnView, param1: i32) i32 {
+    pub fn metric(self: QColumnView, param1: i32) i32 {
         return qtc.QColumnView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -11163,9 +13651,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QColumnView, param1: i32) i32 {
+    pub fn superMetric(self: QColumnView, param1: i32) i32 {
         return qtc.QColumnView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -11179,9 +13671,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) i32) void {
         qtc.QColumnView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -11195,14 +13691,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QColumnView, painter: anytype) void {
+    pub fn initPainter(self: QColumnView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QColumnView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -11216,10 +13712,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QColumnView, painter: anytype) void {
+    pub fn superInitPainter(self: QColumnView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QColumnView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -11233,9 +13733,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QColumnView, callback: *const fn (QColumnView, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QColumnView, callback: *const fn (QColumnView, QPainter) callconv(.c) void) void {
         qtc.QColumnView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -11249,14 +13753,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QColumnView, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QColumnView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QColumnView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -11270,10 +13774,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QColumnView, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QColumnView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QColumnView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -11287,9 +13795,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QColumnView, callback: *const fn (QColumnView, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QColumnView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11301,13 +13813,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SharedPainter(self: QColumnView) QPainter {
+    pub fn sharedPainter(self: QColumnView) QPainter {
         return .{ .ptr = qtc.QColumnView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11319,9 +13831,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperSharedPainter(self: QColumnView) QPainter {
+    pub fn superSharedPainter(self: QColumnView) QPainter {
         return .{ .ptr = qtc.QColumnView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -11335,9 +13851,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QColumnView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QColumnView, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QColumnView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -11349,16 +13869,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QColumnView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QColumnView_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11370,12 +13890,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QColumnView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QColumnView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -11389,9 +13913,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QColumnView, callback: *const fn (QColumnView, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QColumnView, callback: *const fn (QColumnView, QChildEvent) callconv(.c) void) void {
         qtc.QColumnView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -11403,16 +13931,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColumnView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColumnView_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11424,12 +13952,16 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QColumnView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QColumnView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QColumnView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QColumnView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11443,9 +13975,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QColumnView, callback: *const fn (QColumnView, QEvent) callconv(.c) void) void {
         qtc.QColumnView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -11459,14 +13995,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QColumnView, signal: anytype) void {
+    pub fn connectNotify(self: QColumnView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColumnView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11480,11 +14016,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QColumnView, signal: anytype) void {
+    pub fn superConnectNotify(self: QColumnView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColumnView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -11497,9 +14037,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) void) void {
         qtc.QColumnView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11513,14 +14057,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QColumnView, signal: anytype) void {
+    pub fn disconnectNotify(self: QColumnView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColumnView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11534,10 +14078,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QColumnView, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QColumnView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QColumnView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11551,9 +14099,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) void) void {
         qtc.QColumnView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11569,13 +14121,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn State(self: QColumnView) i32 {
+    pub fn state(self: QColumnView) i32 {
         return qtc.QColumnView_State(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperState` instead
+    /// ### DEPRECATED: Use `superState` instead
     ///
-    pub const QBaseState = SuperState;
+    pub const SuperState = superState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11591,9 +14143,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.State `
     ///
-    pub fn SuperState(self: QColumnView) i32 {
+    pub fn superState(self: QColumnView) i32 {
         return qtc.QColumnView_SuperState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onState` instead
+    ///
+    pub const OnState = onState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11607,9 +14163,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnState(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onState(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11621,15 +14181,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SetState(self: QColumnView, state: i32) void {
-        qtc.QColumnView_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QColumnView, _state: i32) void {
+        qtc.QColumnView_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
 
-    /// ### DEPRECATED: Use `SuperSetState` instead
+    /// ### DEPRECATED: Use `superSetState` instead
     ///
-    pub const QBaseSetState = SuperSetState;
+    pub const SuperSetState = superSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11641,11 +14201,15 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    /// ` state: qabstractitemview_enums.State `
+    /// ` _state: qabstractitemview_enums.State `
     ///
-    pub fn SuperSetState(self: QColumnView, state: i32) void {
-        qtc.QColumnView_SuperSetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn superSetState(self: QColumnView, _state: i32) void {
+        qtc.QColumnView_SuperSetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `onSetState` instead
+    ///
+    pub const OnSetState = onSetState;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11659,10 +14223,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, state: qabstractitemview_enums.State) callconv(.c) void `
     ///
-    pub fn OnSetState(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
+    pub fn onSetState(self: QColumnView, callback: *const fn (QColumnView, i32) callconv(.c) void) void {
         qtc.QColumnView_OnSetState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `scheduleDelayedItemsLayout` instead
+    ///
+    pub const ScheduleDelayedItemsLayout = scheduleDelayedItemsLayout;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#scheduleDelayedItemsLayout)
@@ -11673,13 +14241,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ScheduleDelayedItemsLayout(self: QColumnView) void {
+    pub fn scheduleDelayedItemsLayout(self: QColumnView) void {
         qtc.QColumnView_ScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperScheduleDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superScheduleDelayedItemsLayout` instead
     ///
-    pub const QBaseScheduleDelayedItemsLayout = SuperScheduleDelayedItemsLayout;
+    pub const SuperScheduleDelayedItemsLayout = superScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11691,9 +14259,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperScheduleDelayedItemsLayout(self: QColumnView) void {
+    pub fn superScheduleDelayedItemsLayout(self: QColumnView) void {
         qtc.QColumnView_SuperScheduleDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onScheduleDelayedItemsLayout` instead
+    ///
+    pub const OnScheduleDelayedItemsLayout = onScheduleDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11707,9 +14279,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnScheduleDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onScheduleDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnScheduleDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `executeDelayedItemsLayout` instead
+    ///
+    pub const ExecuteDelayedItemsLayout = executeDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11721,13 +14297,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ExecuteDelayedItemsLayout(self: QColumnView) void {
+    pub fn executeDelayedItemsLayout(self: QColumnView) void {
         qtc.QColumnView_ExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExecuteDelayedItemsLayout` instead
+    /// ### DEPRECATED: Use `superExecuteDelayedItemsLayout` instead
     ///
-    pub const QBaseExecuteDelayedItemsLayout = SuperExecuteDelayedItemsLayout;
+    pub const SuperExecuteDelayedItemsLayout = superExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11739,9 +14315,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperExecuteDelayedItemsLayout(self: QColumnView) void {
+    pub fn superExecuteDelayedItemsLayout(self: QColumnView) void {
         qtc.QColumnView_SuperExecuteDelayedItemsLayout(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExecuteDelayedItemsLayout` instead
+    ///
+    pub const OnExecuteDelayedItemsLayout = onExecuteDelayedItemsLayout;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11755,9 +14335,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnExecuteDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onExecuteDelayedItemsLayout(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnExecuteDelayedItemsLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDirtyRegion` instead
+    ///
+    pub const SetDirtyRegion = setDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11771,14 +14355,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SetDirtyRegion(self: QColumnView, region: anytype) void {
+    pub fn setDirtyRegion(self: QColumnView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QColumnView_SetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDirtyRegion` instead
+    /// ### DEPRECATED: Use `superSetDirtyRegion` instead
     ///
-    pub const QBaseSetDirtyRegion = SuperSetDirtyRegion;
+    pub const SuperSetDirtyRegion = superSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11792,10 +14376,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` region: QRegion `
     ///
-    pub fn SuperSetDirtyRegion(self: QColumnView, region: anytype) void {
+    pub fn superSetDirtyRegion(self: QColumnView, region: anytype) void {
         comptime _ = @TypeOf(region)._is_QRegion;
         qtc.QColumnView_SuperSetDirtyRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDirtyRegion` instead
+    ///
+    pub const OnSetDirtyRegion = onSetDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11809,9 +14397,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, region: QRegion) callconv(.c) void `
     ///
-    pub fn OnSetDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, QRegion) callconv(.c) void) void {
+    pub fn onSetDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, QRegion) callconv(.c) void) void {
         qtc.QColumnView_OnSetDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollDirtyRegion` instead
+    ///
+    pub const ScrollDirtyRegion = scrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11827,13 +14419,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollDirtyRegion(self: QColumnView, dx: i32, dy: i32) void {
+    pub fn scrollDirtyRegion(self: QColumnView, dx: i32, dy: i32) void {
         qtc.QColumnView_ScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollDirtyRegion` instead
+    /// ### DEPRECATED: Use `superScrollDirtyRegion` instead
     ///
-    pub const QBaseScrollDirtyRegion = SuperScrollDirtyRegion;
+    pub const SuperScrollDirtyRegion = superScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11849,9 +14441,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollDirtyRegion(self: QColumnView, dx: i32, dy: i32) void {
+    pub fn superScrollDirtyRegion(self: QColumnView, dx: i32, dy: i32) void {
         qtc.QColumnView_SuperScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollDirtyRegion` instead
+    ///
+    pub const OnScrollDirtyRegion = onScrollDirtyRegion;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11865,9 +14461,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) void) void {
+    pub fn onScrollDirtyRegion(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) void) void {
         qtc.QColumnView_OnScrollDirtyRegion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dirtyRegionOffset` instead
+    ///
+    pub const DirtyRegionOffset = dirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11879,13 +14479,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DirtyRegionOffset(self: QColumnView) QPoint {
+    pub fn dirtyRegionOffset(self: QColumnView) QPoint {
         return .{ .ptr = qtc.QColumnView_DirtyRegionOffset(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDirtyRegionOffset` instead
+    /// ### DEPRECATED: Use `superDirtyRegionOffset` instead
     ///
-    pub const QBaseDirtyRegionOffset = SuperDirtyRegionOffset;
+    pub const SuperDirtyRegionOffset = superDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11897,9 +14497,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperDirtyRegionOffset(self: QColumnView) QPoint {
+    pub fn superDirtyRegionOffset(self: QColumnView) QPoint {
         return .{ .ptr = qtc.QColumnView_SuperDirtyRegionOffset(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDirtyRegionOffset` instead
+    ///
+    pub const OnDirtyRegionOffset = onDirtyRegionOffset;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11915,10 +14519,14 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDirtyRegionOffset(self: QColumnView, callback: *const fn () callconv(.c) QPoint) void {
+    pub fn onDirtyRegionOffset(self: QColumnView, callback: *const fn () callconv(.c) QPoint) void {
         qtc.QColumnView_OnDirtyRegionOffset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `startAutoScroll` instead
+    ///
+    pub const StartAutoScroll = startAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -11929,13 +14537,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn StartAutoScroll(self: QColumnView) void {
+    pub fn startAutoScroll(self: QColumnView) void {
         qtc.QColumnView_StartAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartAutoScroll` instead
+    /// ### DEPRECATED: Use `superStartAutoScroll` instead
     ///
-    pub const QBaseStartAutoScroll = SuperStartAutoScroll;
+    pub const SuperStartAutoScroll = superStartAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11947,10 +14555,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperStartAutoScroll(self: QColumnView) void {
+    pub fn superStartAutoScroll(self: QColumnView) void {
         qtc.QColumnView_SuperStartAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartAutoScroll` instead
+    ///
+    pub const OnStartAutoScroll = onStartAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#startAutoScroll)
@@ -11963,10 +14575,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnStartAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `stopAutoScroll` instead
+    ///
+    pub const StopAutoScroll = stopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -11977,13 +14593,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn StopAutoScroll(self: QColumnView) void {
+    pub fn stopAutoScroll(self: QColumnView) void {
         qtc.QColumnView_StopAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStopAutoScroll` instead
+    /// ### DEPRECATED: Use `superStopAutoScroll` instead
     ///
-    pub const QBaseStopAutoScroll = SuperStopAutoScroll;
+    pub const SuperStopAutoScroll = superStopAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -11995,10 +14611,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperStopAutoScroll(self: QColumnView) void {
+    pub fn superStopAutoScroll(self: QColumnView) void {
         qtc.QColumnView_SuperStopAutoScroll(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStopAutoScroll` instead
+    ///
+    pub const OnStopAutoScroll = onStopAutoScroll;
+
     /// Inherited from QAbstractItemView
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemview.html#stopAutoScroll)
@@ -12011,9 +14631,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnStopAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doAutoScroll` instead
+    ///
+    pub const DoAutoScroll = doAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12025,13 +14649,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn DoAutoScroll(self: QColumnView) void {
+    pub fn doAutoScroll(self: QColumnView) void {
         qtc.QColumnView_DoAutoScroll(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoAutoScroll` instead
+    /// ### DEPRECATED: Use `superDoAutoScroll` instead
     ///
-    pub const QBaseDoAutoScroll = SuperDoAutoScroll;
+    pub const SuperDoAutoScroll = superDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12043,9 +14667,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperDoAutoScroll(self: QColumnView) void {
+    pub fn superDoAutoScroll(self: QColumnView) void {
         qtc.QColumnView_SuperDoAutoScroll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoAutoScroll` instead
+    ///
+    pub const OnDoAutoScroll = onDoAutoScroll;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12059,9 +14687,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDoAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDoAutoScroll(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnDoAutoScroll(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropIndicatorPosition` instead
+    ///
+    pub const DropIndicatorPosition = dropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12077,13 +14709,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn DropIndicatorPosition(self: QColumnView) i32 {
+    pub fn dropIndicatorPosition(self: QColumnView) i32 {
         return qtc.QColumnView_DropIndicatorPosition(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropIndicatorPosition` instead
+    /// ### DEPRECATED: Use `superDropIndicatorPosition` instead
     ///
-    pub const QBaseDropIndicatorPosition = SuperDropIndicatorPosition;
+    pub const SuperDropIndicatorPosition = superDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12099,9 +14731,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` qabstractitemview_enums.DropIndicatorPosition `
     ///
-    pub fn SuperDropIndicatorPosition(self: QColumnView) i32 {
+    pub fn superDropIndicatorPosition(self: QColumnView) i32 {
         return qtc.QColumnView_SuperDropIndicatorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropIndicatorPosition` instead
+    ///
+    pub const OnDropIndicatorPosition = onDropIndicatorPosition;
 
     /// Inherited from QAbstractItemView
     ///
@@ -12115,9 +14751,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDropIndicatorPosition(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDropIndicatorPosition(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnDropIndicatorPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12137,13 +14777,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QColumnView_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12163,9 +14803,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QColumnView_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12179,9 +14823,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: QColumnView, callback: *const fn (QColumnView, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: QColumnView, callback: *const fn (QColumnView, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.QColumnView_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12193,13 +14841,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn ViewportMargins(self: QColumnView) QMargins {
+    pub fn viewportMargins(self: QColumnView) QMargins {
         return .{ .ptr = qtc.QColumnView_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12211,9 +14859,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperViewportMargins(self: QColumnView) QMargins {
+    pub fn superViewportMargins(self: QColumnView) QMargins {
         return .{ .ptr = qtc.QColumnView_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -12229,9 +14881,13 @@ pub const QColumnView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: QColumnView, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: QColumnView, callback: *const fn () callconv(.c) QMargins) void {
         qtc.QColumnView_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -12245,14 +14901,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: QColumnView, param1: anytype) void {
+    pub fn drawFrame(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QColumnView_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -12266,10 +14922,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: QColumnView, param1: anytype) void {
+    pub fn superDrawFrame(self: QColumnView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.QColumnView_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -12283,10 +14943,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: QColumnView, callback: *const fn (QColumnView, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: QColumnView, callback: *const fn (QColumnView, QPainter) callconv(.c) void) void {
         qtc.QColumnView_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -12297,13 +14961,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn UpdateMicroFocus(self: QColumnView) void {
+    pub fn updateMicroFocus(self: QColumnView) void {
         qtc.QColumnView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -12315,10 +14979,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperUpdateMicroFocus(self: QColumnView) void {
+    pub fn superUpdateMicroFocus(self: QColumnView) void {
         qtc.QColumnView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -12331,10 +14999,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -12345,13 +15017,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Create(self: QColumnView) void {
+    pub fn create(self: QColumnView) void {
         qtc.QColumnView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -12363,10 +15035,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperCreate(self: QColumnView) void {
+    pub fn superCreate(self: QColumnView) void {
         qtc.QColumnView_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -12379,9 +15055,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -12393,13 +15073,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Destroy(self: QColumnView) void {
+    pub fn destroy(self: QColumnView) void {
         qtc.QColumnView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -12411,9 +15091,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperDestroy(self: QColumnView) void {
+    pub fn superDestroy(self: QColumnView) void {
         qtc.QColumnView_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -12427,10 +15111,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QColumnView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QColumnView, callback: *const fn () callconv(.c) void) void {
         qtc.QColumnView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -12441,13 +15129,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FocusNextChild(self: QColumnView) bool {
+    pub fn focusNextChild(self: QColumnView) bool {
         return qtc.QColumnView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -12459,10 +15147,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperFocusNextChild(self: QColumnView) bool {
+    pub fn superFocusNextChild(self: QColumnView) bool {
         return qtc.QColumnView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -12475,9 +15167,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
         qtc.QColumnView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12489,13 +15185,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn FocusPreviousChild(self: QColumnView) bool {
+    pub fn focusPreviousChild(self: QColumnView) bool {
         return qtc.QColumnView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12507,9 +15203,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperFocusPreviousChild(self: QColumnView) bool {
+    pub fn superFocusPreviousChild(self: QColumnView) bool {
         return qtc.QColumnView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -12523,9 +15223,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QColumnView, callback: *const fn () callconv(.c) bool) void {
         qtc.QColumnView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -12537,13 +15241,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Sender(self: QColumnView) QObject {
+    pub fn sender(self: QColumnView) QObject {
         return .{ .ptr = qtc.QColumnView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -12555,9 +15259,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperSender(self: QColumnView) QObject {
+    pub fn superSender(self: QColumnView) QObject {
         return .{ .ptr = qtc.QColumnView_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -12571,9 +15279,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QColumnView, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QColumnView, callback: *const fn () callconv(.c) QObject) void {
         qtc.QColumnView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12585,13 +15297,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SenderSignalIndex(self: QColumnView) i32 {
+    pub fn senderSignalIndex(self: QColumnView) i32 {
         return qtc.QColumnView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12603,9 +15315,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` self: QColumnView `
     ///
-    pub fn SuperSenderSignalIndex(self: QColumnView) i32 {
+    pub fn superSenderSignalIndex(self: QColumnView) i32 {
         return qtc.QColumnView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -12619,9 +15335,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QColumnView, callback: *const fn () callconv(.c) i32) void {
         qtc.QColumnView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -12635,14 +15355,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QColumnView, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QColumnView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QColumnView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -12656,10 +15376,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QColumnView, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QColumnView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QColumnView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -12673,9 +15397,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) i32) void {
         qtc.QColumnView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12689,14 +15417,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QColumnView, signal: anytype) bool {
+    pub fn isSignalConnected(self: QColumnView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColumnView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12710,10 +15438,14 @@ pub const QColumnView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QColumnView, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QColumnView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QColumnView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -12727,9 +15459,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QColumnView, callback: *const fn (QColumnView, QMetaMethod) callconv(.c) bool) void {
         qtc.QColumnView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12745,13 +15481,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
         return qtc.QColumnView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12767,9 +15503,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QColumnView, metricA: i32, metricB: i32) f64 {
         return qtc.QColumnView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -12783,9 +15523,13 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QColumnView, callback: *const fn (QColumnView, i32, i32) callconv(.c) f64) void {
         qtc.QColumnView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -12799,23 +15543,23 @@ pub const QColumnView = extern struct {
     ///
     /// ` callback: *const fn (self: QColumnView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QColumnView, callback: *const fn (QColumnView, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolumnview.html#dtor.QColumnView)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QColumnView `
     ///
-    pub fn Delete(self: QColumnView) void {
+    pub fn delete(self: QColumnView) void {
         qtc.QColumnView_Delete(@ptrCast(self.ptr));
     }
 };

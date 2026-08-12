@@ -4820,7 +4820,7 @@ void QCPColorMap_Connect_GradientChanged(QCPColorMap* self, intptr_t slot);
 void QCPColorMap_UpdateMapImage(QCPColorMap* self);
 void QCPColorMap_Draw(QCPColorMap* self, QCPPainter* painter);
 void QCPColorMap_DrawLegendIcon(const QCPColorMap* self, QCPPainter* painter, const QRectF* rect);
-void QCPColorMap_SetData2(QCPColorMap* self, QCPColorMapData* data, bool copyVal);
+void QCPColorMap_SetData2(QCPColorMap* self, QCPColorMapData* data, bool copy);
 void QCPColorMap_RescaleDataRange1(QCPColorMap* self, bool recalculateDataBounds);
 void QCPColorMap_UpdateLegendIcon1(QCPColorMap* self, int transformMode);
 void QCPColorMap_UpdateLegendIcon2(QCPColorMap* self, int transformMode, const QSize* thumbSize);

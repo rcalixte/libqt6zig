@@ -28,16 +28,24 @@ pub const KParts__FileInfoExtension = extern struct {
     pub const _is_KParts__FileInfoExtension = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KParts::FileInfoExtension object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KParts::FileInfoExtension object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: KParts__ReadOnlyPart `
+    /// ` _parent: KParts__ReadOnlyPart `
     ///
-    pub fn New(parent: anytype) KParts__FileInfoExtension {
-        comptime _ = @TypeOf(parent)._is_KParts__ReadOnlyPart;
-        return .{ .ptr = qtc.KParts__FileInfoExtension_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KParts__FileInfoExtension {
+        comptime _ = @TypeOf(_parent)._is_KParts__ReadOnlyPart;
+        return .{ .ptr = qtc.KParts__FileInfoExtension_new(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -45,9 +53,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn MetaObject(self: KParts__FileInfoExtension) QMetaObject {
+    pub fn metaObject(self: KParts__FileInfoExtension) QMetaObject {
         return .{ .ptr = qtc.KParts__FileInfoExtension_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -59,13 +71,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KParts__FileInfoExtension_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -75,9 +87,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SuperMetaObject(self: KParts__FileInfoExtension) QMetaObject {
+    pub fn superMetaObject(self: KParts__FileInfoExtension) QMetaObject {
         return .{ .ptr = qtc.KParts__FileInfoExtension_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -85,10 +101,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KParts__FileInfoExtension, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KParts__FileInfoExtension, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KParts__FileInfoExtension_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -98,13 +118,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KParts__FileInfoExtension_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -114,10 +134,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KParts__FileInfoExtension, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KParts__FileInfoExtension, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KParts__FileInfoExtension_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -129,9 +153,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KParts__FileInfoExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KParts__FileInfoExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KParts__FileInfoExtension_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -141,13 +169,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KParts__FileInfoExtension_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -161,9 +189,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KParts__FileInfoExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KParts__FileInfoExtension, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KParts__FileInfoExtension_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -173,14 +205,18 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `childObject` instead
+    ///
+    pub const ChildObject = childObject;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#childObject)
     ///
@@ -188,10 +224,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn ChildObject(obj: anytype) KParts__FileInfoExtension {
+    pub fn childObject(obj: anytype) KParts__FileInfoExtension {
         comptime _ = @TypeOf(obj)._is_QObject;
         return .{ .ptr = qtc.KParts__FileInfoExtension_ChildObject(@ptrCast(obj.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasSelection` instead
+    ///
+    pub const HasSelection = hasSelection;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#hasSelection)
     ///
@@ -199,9 +239,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn HasSelection(self: KParts__FileInfoExtension) bool {
+    pub fn hasSelection(self: KParts__FileInfoExtension) bool {
         return qtc.KParts__FileInfoExtension_HasSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasSelection` instead
+    ///
+    pub const OnHasSelection = onHasSelection;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#hasSelection)
     ///
@@ -213,13 +257,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasSelection(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasSelection(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) bool) void {
         qtc.KParts__FileInfoExtension_OnHasSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHasSelection` instead
+    /// ### DEPRECATED: Use `superHasSelection` instead
     ///
-    pub const QBaseHasSelection = SuperHasSelection;
+    pub const SuperHasSelection = superHasSelection;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#hasSelection)
     ///
@@ -229,9 +273,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SuperHasSelection(self: KParts__FileInfoExtension) bool {
+    pub fn superHasSelection(self: KParts__FileInfoExtension) bool {
         return qtc.KParts__FileInfoExtension_SuperHasSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `supportedQueryModes` instead
+    ///
+    pub const SupportedQueryModes = supportedQueryModes;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#supportedQueryModes)
     ///
@@ -243,9 +291,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` flag of fileinfoextension_enums.QueryMode `
     ///
-    pub fn SupportedQueryModes(self: KParts__FileInfoExtension) i32 {
+    pub fn supportedQueryModes(self: KParts__FileInfoExtension) i32 {
         return qtc.KParts__FileInfoExtension_SupportedQueryModes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSupportedQueryModes` instead
+    ///
+    pub const OnSupportedQueryModes = onSupportedQueryModes;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#supportedQueryModes)
     ///
@@ -257,13 +309,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSupportedQueryModes(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSupportedQueryModes(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__FileInfoExtension_OnSupportedQueryModes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSupportedQueryModes` instead
+    /// ### DEPRECATED: Use `superSupportedQueryModes` instead
     ///
-    pub const QBaseSupportedQueryModes = SuperSupportedQueryModes;
+    pub const SuperSupportedQueryModes = superSupportedQueryModes;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#supportedQueryModes)
     ///
@@ -277,9 +329,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` flag of fileinfoextension_enums.QueryMode `
     ///
-    pub fn SuperSupportedQueryModes(self: KParts__FileInfoExtension) i32 {
+    pub fn superSupportedQueryModes(self: KParts__FileInfoExtension) i32 {
         return qtc.KParts__FileInfoExtension_SuperSupportedQueryModes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `queryFor` instead
+    ///
+    pub const QueryFor = queryFor;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#queryFor)
     ///
@@ -289,9 +345,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` mode: fileinfoextension_enums.QueryMode `
     ///
-    pub fn QueryFor(self: KParts__FileInfoExtension, mode: i32) KFileItemList {
+    pub fn queryFor(self: KParts__FileInfoExtension, mode: i32) KFileItemList {
         return .{ .ptr = qtc.KParts__FileInfoExtension_QueryFor(@ptrCast(self.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `onQueryFor` instead
+    ///
+    pub const OnQueryFor = onQueryFor;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#queryFor)
     ///
@@ -305,13 +365,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnQueryFor(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32) callconv(.c) KFileItemList) void {
+    pub fn onQueryFor(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, i32) callconv(.c) KFileItemList) void {
         qtc.KParts__FileInfoExtension_OnQueryFor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperQueryFor` instead
+    /// ### DEPRECATED: Use `superQueryFor` instead
     ///
-    pub const QBaseQueryFor = SuperQueryFor;
+    pub const SuperQueryFor = superQueryFor;
 
     /// ### [Upstream resources](https://api.kde.org/kparts-fileinfoextension.html#queryFor)
     ///
@@ -323,9 +383,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` mode: fileinfoextension_enums.QueryMode `
     ///
-    pub fn SuperQueryFor(self: KParts__FileInfoExtension, mode: i32) KFileItemList {
+    pub fn superQueryFor(self: KParts__FileInfoExtension, mode: i32) KFileItemList {
         return .{ .ptr = qtc.KParts__FileInfoExtension_SuperQueryFor(@ptrCast(self.ptr), @bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -337,15 +401,19 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -359,15 +427,19 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -379,13 +451,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KParts__FileInfoExtension.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -397,13 +473,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KParts__FileInfoExtension, name: []const u8) void {
+    pub fn setObjectName(self: KParts__FileInfoExtension, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -413,9 +493,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn IsWidgetType(self: KParts__FileInfoExtension) bool {
+    pub fn isWidgetType(self: KParts__FileInfoExtension) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -425,9 +509,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn IsWindowType(self: KParts__FileInfoExtension) bool {
+    pub fn isWindowType(self: KParts__FileInfoExtension) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -437,9 +525,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn IsQuickItemType(self: KParts__FileInfoExtension) bool {
+    pub fn isQuickItemType(self: KParts__FileInfoExtension) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -449,9 +541,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SignalsBlocked(self: KParts__FileInfoExtension) bool {
+    pub fn signalsBlocked(self: KParts__FileInfoExtension) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -463,9 +559,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KParts__FileInfoExtension, b: bool) bool {
+    pub fn blockSignals(self: KParts__FileInfoExtension, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -475,9 +575,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Thread(self: KParts__FileInfoExtension) QThread {
+    pub fn thread(self: KParts__FileInfoExtension) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -487,12 +591,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KParts__FileInfoExtension, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KParts__FileInfoExtension, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -504,9 +612,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KParts__FileInfoExtension, interval: i32) i32 {
+    pub fn startTimer(self: KParts__FileInfoExtension, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -518,9 +630,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KParts__FileInfoExtension, time: i64) i32 {
+    pub fn startTimer2(self: KParts__FileInfoExtension, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -532,9 +648,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KParts__FileInfoExtension, id: i32) void {
+    pub fn killTimer(self: KParts__FileInfoExtension, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -546,9 +666,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KParts__FileInfoExtension, id: i32) void {
+    pub fn killTimer2(self: KParts__FileInfoExtension, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -560,15 +684,19 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__FileInfoExtension.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KParts__FileInfoExtension.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -578,12 +706,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KParts__FileInfoExtension, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KParts__FileInfoExtension, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -595,10 +727,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KParts__FileInfoExtension, filterObj: anytype) void {
+    pub fn installEventFilter(self: KParts__FileInfoExtension, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -610,10 +746,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KParts__FileInfoExtension, obj: anytype) void {
+    pub fn removeEventFilter(self: KParts__FileInfoExtension, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -621,7 +761,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -629,13 +769,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -643,7 +787,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -651,13 +795,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -667,18 +815,22 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KParts__FileInfoExtension, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KParts__FileInfoExtension, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -686,7 +838,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -694,13 +846,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -708,7 +864,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -716,13 +872,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -732,9 +892,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Disconnect3(self: KParts__FileInfoExtension) bool {
+    pub fn disconnect3(self: KParts__FileInfoExtension) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -746,10 +910,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KParts__FileInfoExtension, receiver: anytype) bool {
+    pub fn disconnect4(self: KParts__FileInfoExtension, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -759,10 +927,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -772,9 +944,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn DumpObjectTree(self: KParts__FileInfoExtension) void {
+    pub fn dumpObjectTree(self: KParts__FileInfoExtension) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -784,9 +960,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn DumpObjectInfo(self: KParts__FileInfoExtension) void {
+    pub fn dumpObjectInfo(self: KParts__FileInfoExtension) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -800,11 +980,15 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KParts__FileInfoExtension, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KParts__FileInfoExtension, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -816,10 +1000,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KParts__FileInfoExtension, name: [:0]const u8) QVariant {
+    pub fn property(self: KParts__FileInfoExtension, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -831,7 +1019,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KParts__FileInfoExtension, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -839,27 +1027,19 @@ pub const KParts__FileInfoExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__FileInfoExtension.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KParts__FileInfoExtension.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KParts__FileInfoExtension.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KParts__FileInfoExtension.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KParts__FileInfoExtension `
-    ///
-    pub fn BindingStorage(self: KParts__FileInfoExtension) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -869,9 +1049,29 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn BindingStorage2(self: KParts__FileInfoExtension) QBindingStorage {
+    pub fn bindingStorage(self: KParts__FileInfoExtension) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KParts__FileInfoExtension `
+    ///
+    pub fn bindingStorage2(self: KParts__FileInfoExtension) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -881,9 +1081,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Destroyed(self: KParts__FileInfoExtension) void {
+    pub fn destroyed(self: KParts__FileInfoExtension) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -895,9 +1099,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension) callconv(.c) void) void {
+    pub fn onDestroyed(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -907,9 +1115,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Parent(self: KParts__FileInfoExtension) QObject {
+    pub fn parent(self: KParts__FileInfoExtension) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -921,10 +1133,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KParts__FileInfoExtension, classname: [:0]const u8) bool {
+    pub fn inherits(self: KParts__FileInfoExtension, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -934,9 +1150,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn DeleteLater(self: KParts__FileInfoExtension) void {
+    pub fn deleteLater(self: KParts__FileInfoExtension) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -950,9 +1170,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KParts__FileInfoExtension, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KParts__FileInfoExtension, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -966,9 +1190,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KParts__FileInfoExtension, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KParts__FileInfoExtension, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -976,7 +1204,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -986,13 +1214,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1000,7 +1232,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1010,13 +1242,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1026,7 +1262,7 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1034,12 +1270,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KParts__FileInfoExtension, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KParts__FileInfoExtension, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1051,10 +1291,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KParts__FileInfoExtension, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KParts__FileInfoExtension, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1068,11 +1312,15 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KParts__FileInfoExtension, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KParts__FileInfoExtension, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1088,13 +1336,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KParts__FileInfoExtension, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KParts__FileInfoExtension, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1107,11 +1359,15 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KParts__FileInfoExtension, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KParts__FileInfoExtension, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1123,10 +1379,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KParts__FileInfoExtension, param1: anytype) void {
+    pub fn destroyed1(self: KParts__FileInfoExtension, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1138,9 +1398,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1152,16 +1416,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KParts__FileInfoExtension, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__FileInfoExtension_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KParts__FileInfoExtension, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__FileInfoExtension_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1173,12 +1437,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KParts__FileInfoExtension, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__FileInfoExtension_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KParts__FileInfoExtension, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__FileInfoExtension_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1192,9 +1460,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QEvent) callconv(.c) bool) void {
         qtc.KParts__FileInfoExtension_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1208,17 +1480,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KParts__FileInfoExtension, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KParts__FileInfoExtension, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__FileInfoExtension_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__FileInfoExtension_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1232,13 +1504,17 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KParts__FileInfoExtension, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KParts__FileInfoExtension, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KParts__FileInfoExtension_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KParts__FileInfoExtension_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1252,9 +1528,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QObject, QEvent) callconv(.c) bool) void {
         qtc.KParts__FileInfoExtension_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1266,16 +1546,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KParts__FileInfoExtension_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KParts__FileInfoExtension_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1287,12 +1567,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KParts__FileInfoExtension_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KParts__FileInfoExtension_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1306,9 +1590,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QTimerEvent) callconv(.c) void) void {
         qtc.KParts__FileInfoExtension_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1320,16 +1608,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KParts__FileInfoExtension_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KParts__FileInfoExtension_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1341,12 +1629,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KParts__FileInfoExtension_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KParts__FileInfoExtension_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1360,9 +1652,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QChildEvent) callconv(.c) void) void {
         qtc.KParts__FileInfoExtension_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1374,16 +1670,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KParts__FileInfoExtension_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KParts__FileInfoExtension_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1395,12 +1691,16 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KParts__FileInfoExtension, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KParts__FileInfoExtension_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KParts__FileInfoExtension, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KParts__FileInfoExtension_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1414,9 +1714,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QEvent) callconv(.c) void) void {
         qtc.KParts__FileInfoExtension_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1430,14 +1734,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
+    pub fn connectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__FileInfoExtension_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1451,11 +1755,15 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
+    pub fn superConnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__FileInfoExtension_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1468,9 +1776,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) void) void {
         qtc.KParts__FileInfoExtension_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1484,14 +1796,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
+    pub fn disconnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__FileInfoExtension_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1505,10 +1817,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KParts__FileInfoExtension, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KParts__FileInfoExtension_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1522,9 +1838,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) void) void {
         qtc.KParts__FileInfoExtension_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1536,13 +1856,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Sender(self: KParts__FileInfoExtension) QObject {
+    pub fn sender(self: KParts__FileInfoExtension) QObject {
         return .{ .ptr = qtc.KParts__FileInfoExtension_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1554,9 +1874,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SuperSender(self: KParts__FileInfoExtension) QObject {
+    pub fn superSender(self: KParts__FileInfoExtension) QObject {
         return .{ .ptr = qtc.KParts__FileInfoExtension_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1570,9 +1894,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) QObject) void {
         qtc.KParts__FileInfoExtension_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1584,13 +1912,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SenderSignalIndex(self: KParts__FileInfoExtension) i32 {
+    pub fn senderSignalIndex(self: KParts__FileInfoExtension) i32 {
         return qtc.KParts__FileInfoExtension_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1602,9 +1930,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn SuperSenderSignalIndex(self: KParts__FileInfoExtension) i32 {
+    pub fn superSenderSignalIndex(self: KParts__FileInfoExtension) i32 {
         return qtc.KParts__FileInfoExtension_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1618,9 +1950,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KParts__FileInfoExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.KParts__FileInfoExtension_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1634,14 +1970,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KParts__FileInfoExtension, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KParts__FileInfoExtension, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__FileInfoExtension_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1655,10 +1991,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KParts__FileInfoExtension, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KParts__FileInfoExtension, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KParts__FileInfoExtension_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1672,9 +2012,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) i32) void {
         qtc.KParts__FileInfoExtension_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1688,14 +2032,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
+    pub fn isSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__FileInfoExtension_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1709,10 +2053,14 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KParts__FileInfoExtension, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KParts__FileInfoExtension_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1726,9 +2074,13 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, QMetaMethod) callconv(.c) bool) void {
         qtc.KParts__FileInfoExtension_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1742,21 +2094,21 @@ pub const KParts__FileInfoExtension = extern struct {
     ///
     /// ` callback: *const fn (self: KParts__FileInfoExtension, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KParts__FileInfoExtension, callback: *const fn (KParts__FileInfoExtension, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KParts__FileInfoExtension `
     ///
-    pub fn Delete(self: KParts__FileInfoExtension) void {
+    pub fn delete(self: KParts__FileInfoExtension) void {
         qtc.KParts__FileInfoExtension_Delete(@ptrCast(self.ptr));
     }
 };

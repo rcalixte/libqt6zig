@@ -13,16 +13,24 @@ pub const KColorUtils = extern struct {
 
     pub const _is_KColorUtils = {};
 
+    /// ### DEPRECATED: Use `hue` instead
+    ///
+    pub const Hue = hue;
+
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#hue)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QColor `
     ///
-    pub fn Hue(param1: anytype) f64 {
+    pub fn hue(param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QColor;
         return qtc.KColorUtils_Hue(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `chroma` instead
+    ///
+    pub const Chroma = chroma;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#chroma)
     ///
@@ -30,10 +38,14 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    pub fn Chroma(param1: anytype) f64 {
+    pub fn chroma(param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QColor;
         return qtc.KColorUtils_Chroma(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `luma` instead
+    ///
+    pub const Luma = luma;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#luma)
     ///
@@ -41,10 +53,14 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    pub fn Luma(param1: anytype) f64 {
+    pub fn luma(param1: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QColor;
         return qtc.KColorUtils_Luma(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `getHcy` instead
+    ///
+    pub const GetHcy = getHcy;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#getHcy)
     ///
@@ -52,34 +68,42 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param1: QColor `
     ///
-    /// ` hue: *f64 `
+    /// ` _hue: *f64 `
     ///
-    /// ` chroma: *f64 `
+    /// ` _chroma: *f64 `
     ///
-    /// ` luma: *f64 `
+    /// ` _luma: *f64 `
     ///
     /// ` alpha: *f64 `
     ///
-    pub fn GetHcy(param1: anytype, hue: *f64, chroma: *f64, luma: *f64, alpha: *f64) void {
+    pub fn getHcy(param1: anytype, _hue: *f64, _chroma: *f64, _luma: *f64, alpha: *f64) void {
         comptime _ = @TypeOf(param1)._is_QColor;
-        qtc.KColorUtils_GetHcy(@ptrCast(param1.ptr), @ptrCast(hue), @ptrCast(chroma), @ptrCast(luma), @ptrCast(alpha));
+        qtc.KColorUtils_GetHcy(@ptrCast(param1.ptr), @ptrCast(_hue), @ptrCast(_chroma), @ptrCast(_luma), @ptrCast(alpha));
     }
+
+    /// ### DEPRECATED: Use `hcyColor` instead
+    ///
+    pub const HcyColor = hcyColor;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#hcyColor)
     ///
     /// ## Parameter(s):
     ///
-    /// ` hue: f64 `
+    /// ` _hue: f64 `
     ///
-    /// ` chroma: f64 `
+    /// ` _chroma: f64 `
     ///
-    /// ` luma: f64 `
+    /// ` _luma: f64 `
     ///
     /// ` alpha: f64 `
     ///
-    pub fn HcyColor(hue: f64, chroma: f64, luma: f64, alpha: f64) QColor {
-        return .{ .ptr = qtc.KColorUtils_HcyColor(@bitCast(hue), @bitCast(chroma), @bitCast(luma), @bitCast(alpha)) };
+    pub fn hcyColor(_hue: f64, _chroma: f64, _luma: f64, alpha: f64) QColor {
+        return .{ .ptr = qtc.KColorUtils_HcyColor(@bitCast(_hue), @bitCast(_chroma), @bitCast(_luma), @bitCast(alpha)) };
     }
+
+    /// ### DEPRECATED: Use `contrastRatio` instead
+    ///
+    pub const ContrastRatio = contrastRatio;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#contrastRatio)
     ///
@@ -89,11 +113,15 @@ pub const KColorUtils = extern struct {
     ///
     /// ` param2: QColor `
     ///
-    pub fn ContrastRatio(param1: anytype, param2: anytype) f64 {
+    pub fn contrastRatio(param1: anytype, param2: anytype) f64 {
         comptime _ = @TypeOf(param1)._is_QColor;
         comptime _ = @TypeOf(param2)._is_QColor;
         return qtc.KColorUtils_ContrastRatio(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `lighten` instead
+    ///
+    pub const Lighten = lighten;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#lighten)
     ///
@@ -105,10 +133,14 @@ pub const KColorUtils = extern struct {
     ///
     /// ` chromaInverseGain: f64 `
     ///
-    pub fn Lighten(param1: anytype, amount: f64, chromaInverseGain: f64) QColor {
+    pub fn lighten(param1: anytype, amount: f64, chromaInverseGain: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_Lighten(@ptrCast(param1.ptr), @bitCast(amount), @bitCast(chromaInverseGain)) };
     }
+
+    /// ### DEPRECATED: Use `darken` instead
+    ///
+    pub const Darken = darken;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#darken)
     ///
@@ -120,10 +152,14 @@ pub const KColorUtils = extern struct {
     ///
     /// ` chromaGain: f64 `
     ///
-    pub fn Darken(param1: anytype, amount: f64, chromaGain: f64) QColor {
+    pub fn darken(param1: anytype, amount: f64, chromaGain: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_Darken(@ptrCast(param1.ptr), @bitCast(amount), @bitCast(chromaGain)) };
     }
+
+    /// ### DEPRECATED: Use `shade` instead
+    ///
+    pub const Shade = shade;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#shade)
     ///
@@ -135,10 +171,14 @@ pub const KColorUtils = extern struct {
     ///
     /// ` chromaAmount: f64 `
     ///
-    pub fn Shade(param1: anytype, lumaAmount: f64, chromaAmount: f64) QColor {
+    pub fn shade(param1: anytype, lumaAmount: f64, chromaAmount: f64) QColor {
         comptime _ = @TypeOf(param1)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_Shade(@ptrCast(param1.ptr), @bitCast(lumaAmount), @bitCast(chromaAmount)) };
     }
+
+    /// ### DEPRECATED: Use `tint` instead
+    ///
+    pub const Tint = tint;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#tint)
     ///
@@ -150,11 +190,15 @@ pub const KColorUtils = extern struct {
     ///
     /// ` amount: f64 `
     ///
-    pub fn Tint(base: anytype, color: anytype, amount: f64) QColor {
+    pub fn tint(base: anytype, color: anytype, amount: f64) QColor {
         comptime _ = @TypeOf(base)._is_QColor;
         comptime _ = @TypeOf(color)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_Tint(@ptrCast(base.ptr), @ptrCast(color.ptr), @bitCast(amount)) };
     }
+
+    /// ### DEPRECATED: Use `mix` instead
+    ///
+    pub const Mix = mix;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#mix)
     ///
@@ -166,11 +210,15 @@ pub const KColorUtils = extern struct {
     ///
     /// ` bias: f64 `
     ///
-    pub fn Mix(c1: anytype, c2: anytype, bias: f64) QColor {
+    pub fn mix(c1: anytype, c2: anytype, bias: f64) QColor {
         comptime _ = @TypeOf(c1)._is_QColor;
         comptime _ = @TypeOf(c2)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_Mix(@ptrCast(c1.ptr), @ptrCast(c2.ptr), @bitCast(bias)) };
     }
+
+    /// ### DEPRECATED: Use `overlayColors` instead
+    ///
+    pub const OverlayColors = overlayColors;
 
     /// ### [Upstream resources](https://api.kde.org/kcolorutils.html#overlayColors)
     ///
@@ -182,7 +230,7 @@ pub const KColorUtils = extern struct {
     ///
     /// ` comp: qpainter_enums.CompositionMode `
     ///
-    pub fn OverlayColors(base: anytype, paint: anytype, comp: i32) QColor {
+    pub fn overlayColors(base: anytype, paint: anytype, comp: i32) QColor {
         comptime _ = @TypeOf(base)._is_QColor;
         comptime _ = @TypeOf(paint)._is_QColor;
         return .{ .ptr = qtc.KColorUtils_OverlayColors(@ptrCast(base.ptr), @ptrCast(paint.ptr), @bitCast(comp)) };

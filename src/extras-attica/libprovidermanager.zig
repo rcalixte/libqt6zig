@@ -29,21 +29,33 @@ pub const Attica__ProviderManager = extern struct {
     pub const _is_Attica__ProviderManager = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new Attica::ProviderManager object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__ProviderManager {
+    pub const New = new;
+
+    /// Allocate a new Attica::ProviderManager object in C++ memory
+    ///
+    pub fn new() Attica__ProviderManager {
         return .{ .ptr = qtc.Attica__ProviderManager_new() };
     }
 
-    /// New2 constructs a new Attica::ProviderManager object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::ProviderManager object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` flags: *const flag of providermanager_enums.ProviderFlag `
     ///
-    pub fn New2(flags: *const i32) Attica__ProviderManager {
+    pub fn new2(flags: *const i32) Attica__ProviderManager {
         return .{ .ptr = qtc.Attica__ProviderManager_new2(@ptrCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn MetaObject(self: Attica__ProviderManager) QMetaObject {
+    pub fn metaObject(self: Attica__ProviderManager) QMetaObject {
         return .{ .ptr = qtc.Attica__ProviderManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: Attica__ProviderManager, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: Attica__ProviderManager, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.Attica__ProviderManager_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn SuperMetaObject(self: Attica__ProviderManager) QMetaObject {
+    pub fn superMetaObject(self: Attica__ProviderManager) QMetaObject {
         return .{ .ptr = qtc.Attica__ProviderManager_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: Attica__ProviderManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: Attica__ProviderManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Attica__ProviderManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.Attica__ProviderManager_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: Attica__ProviderManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: Attica__ProviderManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.Attica__ProviderManager_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: Attica__ProviderManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: Attica__ProviderManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Attica__ProviderManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.Attica__ProviderManager_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: Attica__ProviderManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: Attica__ProviderManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.Attica__ProviderManager_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,14 +215,18 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `loadDefaultProviders` instead
+    ///
+    pub const LoadDefaultProviders = loadDefaultProviders;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#loadDefaultProviders)
     ///
@@ -194,9 +234,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn LoadDefaultProviders(self: Attica__ProviderManager) void {
+    pub fn loadDefaultProviders(self: Attica__ProviderManager) void {
         qtc.Attica__ProviderManager_LoadDefaultProviders(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `defaultProviderFiles` instead
+    ///
+    pub const DefaultProviderFiles = defaultProviderFiles;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#defaultProviderFiles)
     ///
@@ -206,15 +250,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DefaultProviderFiles(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QUrl {
+    pub fn defaultProviderFiles(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.Attica__ProviderManager_DefaultProviderFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__ProviderManager.DefaultProviderFiles: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__ProviderManager.defaultProviderFiles: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addProviderFileToDefaultProviders` instead
+    ///
+    pub const AddProviderFileToDefaultProviders = addProviderFileToDefaultProviders;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#addProviderFileToDefaultProviders)
     ///
@@ -224,10 +272,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn AddProviderFileToDefaultProviders(self: Attica__ProviderManager, url: anytype) void {
+    pub fn addProviderFileToDefaultProviders(self: Attica__ProviderManager, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.Attica__ProviderManager_AddProviderFileToDefaultProviders(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeProviderFileFromDefaultProviders` instead
+    ///
+    pub const RemoveProviderFileFromDefaultProviders = removeProviderFileFromDefaultProviders;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#removeProviderFileFromDefaultProviders)
     ///
@@ -237,10 +289,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn RemoveProviderFileFromDefaultProviders(self: Attica__ProviderManager, url: anytype) void {
+    pub fn removeProviderFileFromDefaultProviders(self: Attica__ProviderManager, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.Attica__ProviderManager_RemoveProviderFileFromDefaultProviders(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAuthenticationSuppressed` instead
+    ///
+    pub const SetAuthenticationSuppressed = setAuthenticationSuppressed;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#setAuthenticationSuppressed)
     ///
@@ -250,9 +306,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` suppressed: bool `
     ///
-    pub fn SetAuthenticationSuppressed(self: Attica__ProviderManager, suppressed: bool) void {
+    pub fn setAuthenticationSuppressed(self: Attica__ProviderManager, suppressed: bool) void {
         qtc.Attica__ProviderManager_SetAuthenticationSuppressed(@ptrCast(self.ptr), suppressed);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#clear)
     ///
@@ -260,9 +320,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Clear(self: Attica__ProviderManager) void {
+    pub fn clear(self: Attica__ProviderManager) void {
         qtc.Attica__ProviderManager_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addProviderFromXml` instead
+    ///
+    pub const AddProviderFromXml = addProviderFromXml;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#addProviderFromXml)
     ///
@@ -272,13 +336,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` providerXml: []const u8 `
     ///
-    pub fn AddProviderFromXml(self: Attica__ProviderManager, providerXml: []const u8) void {
+    pub fn addProviderFromXml(self: Attica__ProviderManager, providerXml: []const u8) void {
         const providerXml_str = qtc.libqt_string{
             .len = providerXml.len,
             .data = providerXml.ptr,
         };
         qtc.Attica__ProviderManager_AddProviderFromXml(@ptrCast(self.ptr), providerXml_str);
     }
+
+    /// ### DEPRECATED: Use `addProviderFile` instead
+    ///
+    pub const AddProviderFile = addProviderFile;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#addProviderFile)
     ///
@@ -288,10 +356,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` file: QUrl `
     ///
-    pub fn AddProviderFile(self: Attica__ProviderManager, file: anytype) void {
+    pub fn addProviderFile(self: Attica__ProviderManager, file: anytype) void {
         comptime _ = @TypeOf(file)._is_QUrl;
         qtc.Attica__ProviderManager_AddProviderFile(@ptrCast(self.ptr), @ptrCast(file.ptr));
     }
+
+    /// ### DEPRECATED: Use `providerFiles` instead
+    ///
+    pub const ProviderFiles = providerFiles;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providerFiles)
     ///
@@ -301,15 +373,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProviderFiles(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QUrl {
+    pub fn providerFiles(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QUrl {
         const _arr: qtc.libqt_list = qtc.Attica__ProviderManager_ProviderFiles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__ProviderManager.ProviderFiles: Memory allocation failed");
-        const _data: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QUrl, _arr.len) catch @panic("Attica__ProviderManager.providerFiles: Memory allocation failed");
+        const _data_val: [*]QtC.QUrl = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `providers` instead
+    ///
+    pub const Providers = providers;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providers)
     ///
@@ -319,15 +395,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Providers(self: Attica__ProviderManager, allocator: std.mem.Allocator) []Attica__Provider {
+    pub fn providers(self: Attica__ProviderManager, allocator: std.mem.Allocator) []Attica__Provider {
         const _arr: qtc.libqt_list = qtc.Attica__ProviderManager_Providers(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Attica__Provider, _arr.len) catch @panic("Attica__ProviderManager.Providers: Memory allocation failed");
-        const _data: [*]QtC.Attica__Provider = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(Attica__Provider, _arr.len) catch @panic("Attica__ProviderManager.providers: Memory allocation failed");
+        const _data_val: [*]QtC.Attica__Provider = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#contains)
     ///
@@ -337,10 +417,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` provider: QUrl `
     ///
-    pub fn Contains(self: Attica__ProviderManager, provider: anytype) bool {
+    pub fn contains(self: Attica__ProviderManager, provider: anytype) bool {
         comptime _ = @TypeOf(provider)._is_QUrl;
         return qtc.Attica__ProviderManager_Contains(@ptrCast(self.ptr), @ptrCast(provider.ptr));
     }
+
+    /// ### DEPRECATED: Use `providerByUrl` instead
+    ///
+    pub const ProviderByUrl = providerByUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providerByUrl)
     ///
@@ -350,10 +434,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ProviderByUrl(self: Attica__ProviderManager, url: anytype) Attica__Provider {
+    pub fn providerByUrl(self: Attica__ProviderManager, url: anytype) Attica__Provider {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.Attica__ProviderManager_ProviderByUrl(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `providerFor` instead
+    ///
+    pub const ProviderFor = providerFor;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providerFor)
     ///
@@ -363,10 +451,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn ProviderFor(self: Attica__ProviderManager, url: anytype) Attica__Provider {
+    pub fn providerFor(self: Attica__ProviderManager, url: anytype) Attica__Provider {
         comptime _ = @TypeOf(url)._is_QUrl;
         return .{ .ptr = qtc.Attica__ProviderManager_ProviderFor(@ptrCast(self.ptr), @ptrCast(url.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `providerAdded` instead
+    ///
+    pub const ProviderAdded = providerAdded;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providerAdded)
     ///
@@ -376,10 +468,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` provider: Attica__Provider `
     ///
-    pub fn ProviderAdded(self: Attica__ProviderManager, provider: anytype) void {
+    pub fn providerAdded(self: Attica__ProviderManager, provider: anytype) void {
         comptime _ = @TypeOf(provider)._is_Attica__Provider;
         qtc.Attica__ProviderManager_ProviderAdded(@ptrCast(self.ptr), @ptrCast(provider.ptr));
     }
+
+    /// ### DEPRECATED: Use `onProviderAdded` instead
+    ///
+    pub const OnProviderAdded = onProviderAdded;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#providerAdded)
     ///
@@ -389,9 +485,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, provider: Attica__Provider) callconv(.c) void `
     ///
-    pub fn OnProviderAdded(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, Attica__Provider) callconv(.c) void) void {
+    pub fn onProviderAdded(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, Attica__Provider) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_ProviderAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `defaultProvidersLoaded` instead
+    ///
+    pub const DefaultProvidersLoaded = defaultProvidersLoaded;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#defaultProvidersLoaded)
     ///
@@ -399,9 +499,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn DefaultProvidersLoaded(self: Attica__ProviderManager) void {
+    pub fn defaultProvidersLoaded(self: Attica__ProviderManager) void {
         qtc.Attica__ProviderManager_DefaultProvidersLoaded(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDefaultProvidersLoaded` instead
+    ///
+    pub const OnDefaultProvidersLoaded = onDefaultProvidersLoaded;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#defaultProvidersLoaded)
     ///
@@ -411,9 +515,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager) callconv(.c) void `
     ///
-    pub fn OnDefaultProvidersLoaded(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager) callconv(.c) void) void {
+    pub fn onDefaultProvidersLoaded(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_DefaultProvidersLoaded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `authenticationCredentialsMissing` instead
+    ///
+    pub const AuthenticationCredentialsMissing = authenticationCredentialsMissing;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#authenticationCredentialsMissing)
     ///
@@ -423,10 +531,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` provider: Attica__Provider `
     ///
-    pub fn AuthenticationCredentialsMissing(self: Attica__ProviderManager, provider: anytype) void {
+    pub fn authenticationCredentialsMissing(self: Attica__ProviderManager, provider: anytype) void {
         comptime _ = @TypeOf(provider)._is_Attica__Provider;
         qtc.Attica__ProviderManager_AuthenticationCredentialsMissing(@ptrCast(self.ptr), @ptrCast(provider.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAuthenticationCredentialsMissing` instead
+    ///
+    pub const OnAuthenticationCredentialsMissing = onAuthenticationCredentialsMissing;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#authenticationCredentialsMissing)
     ///
@@ -436,9 +548,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, provider: Attica__Provider) callconv(.c) void `
     ///
-    pub fn OnAuthenticationCredentialsMissing(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, Attica__Provider) callconv(.c) void) void {
+    pub fn onAuthenticationCredentialsMissing(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, Attica__Provider) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_AuthenticationCredentialsMissing(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `failedToLoad` instead
+    ///
+    pub const FailedToLoad = failedToLoad;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#failedToLoad)
     ///
@@ -450,10 +566,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` errorVal: qnetworkreply_enums.NetworkError `
     ///
-    pub fn FailedToLoad(self: Attica__ProviderManager, provider: anytype, errorVal: i32) void {
+    pub fn failedToLoad(self: Attica__ProviderManager, provider: anytype, errorVal: i32) void {
         comptime _ = @TypeOf(provider)._is_QUrl;
         qtc.Attica__ProviderManager_FailedToLoad(@ptrCast(self.ptr), @ptrCast(provider.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onFailedToLoad` instead
+    ///
+    pub const OnFailedToLoad = onFailedToLoad;
 
     /// ### [Upstream resources](https://api.kde.org/attica-providermanager.html#failedToLoad)
     ///
@@ -463,9 +583,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, provider: QUrl, errorVal: qnetworkreply_enums.NetworkError) callconv(.c) void `
     ///
-    pub fn OnFailedToLoad(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QUrl, i32) callconv(.c) void) void {
+    pub fn onFailedToLoad(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QUrl, i32) callconv(.c) void) void {
         qtc.Attica__ProviderManager_Connect_FailedToLoad(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -477,15 +601,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -499,15 +627,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -519,13 +651,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: Attica__ProviderManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: Attica__ProviderManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__ProviderManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -537,13 +673,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: Attica__ProviderManager, name: []const u8) void {
+    pub fn setObjectName(self: Attica__ProviderManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -553,9 +693,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn IsWidgetType(self: Attica__ProviderManager) bool {
+    pub fn isWidgetType(self: Attica__ProviderManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -565,9 +709,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn IsWindowType(self: Attica__ProviderManager) bool {
+    pub fn isWindowType(self: Attica__ProviderManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -577,9 +725,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn IsQuickItemType(self: Attica__ProviderManager) bool {
+    pub fn isQuickItemType(self: Attica__ProviderManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -589,9 +741,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn SignalsBlocked(self: Attica__ProviderManager) bool {
+    pub fn signalsBlocked(self: Attica__ProviderManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -603,9 +759,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: Attica__ProviderManager, b: bool) bool {
+    pub fn blockSignals(self: Attica__ProviderManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -615,9 +775,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Thread(self: Attica__ProviderManager) QThread {
+    pub fn thread(self: Attica__ProviderManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -627,12 +791,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: Attica__ProviderManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: Attica__ProviderManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -644,9 +812,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: Attica__ProviderManager, interval: i32) i32 {
+    pub fn startTimer(self: Attica__ProviderManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -658,9 +830,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: Attica__ProviderManager, time: i64) i32 {
+    pub fn startTimer2(self: Attica__ProviderManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -672,9 +848,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: Attica__ProviderManager, id: i32) void {
+    pub fn killTimer(self: Attica__ProviderManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -686,9 +866,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: Attica__ProviderManager, id: i32) void {
+    pub fn killTimer2(self: Attica__ProviderManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -700,15 +884,19 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: Attica__ProviderManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Attica__ProviderManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("Attica__ProviderManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -718,12 +906,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: Attica__ProviderManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: Attica__ProviderManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -735,10 +927,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: Attica__ProviderManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: Attica__ProviderManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -750,10 +946,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: Attica__ProviderManager, obj: anytype) void {
+    pub fn removeEventFilter(self: Attica__ProviderManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -761,7 +961,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -769,13 +969,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -783,7 +987,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -791,13 +995,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -807,18 +1015,22 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: Attica__ProviderManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: Attica__ProviderManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -826,7 +1038,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -834,13 +1046,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -848,7 +1064,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -856,13 +1072,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -872,9 +1092,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Disconnect3(self: Attica__ProviderManager) bool {
+    pub fn disconnect3(self: Attica__ProviderManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -886,10 +1110,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: Attica__ProviderManager, receiver: anytype) bool {
+    pub fn disconnect4(self: Attica__ProviderManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -899,10 +1127,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -912,9 +1144,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn DumpObjectTree(self: Attica__ProviderManager) void {
+    pub fn dumpObjectTree(self: Attica__ProviderManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -924,9 +1160,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn DumpObjectInfo(self: Attica__ProviderManager) void {
+    pub fn dumpObjectInfo(self: Attica__ProviderManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -940,11 +1180,15 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: Attica__ProviderManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: Attica__ProviderManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -956,10 +1200,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: Attica__ProviderManager, name: [:0]const u8) QVariant {
+    pub fn property(self: Attica__ProviderManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -971,7 +1219,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: Attica__ProviderManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: Attica__ProviderManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -979,27 +1227,19 @@ pub const Attica__ProviderManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Attica__ProviderManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("Attica__ProviderManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("Attica__ProviderManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("Attica__ProviderManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: Attica__ProviderManager `
-    ///
-    pub fn BindingStorage(self: Attica__ProviderManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1009,9 +1249,29 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn BindingStorage2(self: Attica__ProviderManager) QBindingStorage {
+    pub fn bindingStorage(self: Attica__ProviderManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: Attica__ProviderManager `
+    ///
+    pub fn bindingStorage2(self: Attica__ProviderManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1021,9 +1281,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Destroyed(self: Attica__ProviderManager) void {
+    pub fn destroyed(self: Attica__ProviderManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1035,9 +1299,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1047,9 +1315,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Parent(self: Attica__ProviderManager) QObject {
+    pub fn parent(self: Attica__ProviderManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1061,10 +1333,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: Attica__ProviderManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: Attica__ProviderManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1074,9 +1350,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn DeleteLater(self: Attica__ProviderManager) void {
+    pub fn deleteLater(self: Attica__ProviderManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1090,9 +1370,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: Attica__ProviderManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: Attica__ProviderManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1106,9 +1390,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: Attica__ProviderManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: Attica__ProviderManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1116,7 +1404,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1126,13 +1414,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1140,7 +1432,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1150,13 +1442,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1166,7 +1462,7 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1174,12 +1470,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: Attica__ProviderManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: Attica__ProviderManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1191,10 +1491,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: Attica__ProviderManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: Attica__ProviderManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1208,11 +1512,15 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: Attica__ProviderManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: Attica__ProviderManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1228,13 +1536,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: Attica__ProviderManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: Attica__ProviderManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1247,11 +1559,15 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: Attica__ProviderManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: Attica__ProviderManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1263,10 +1579,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: Attica__ProviderManager, param1: anytype) void {
+    pub fn destroyed1(self: Attica__ProviderManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1278,9 +1598,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1292,16 +1616,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: Attica__ProviderManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Attica__ProviderManager_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: Attica__ProviderManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Attica__ProviderManager_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1313,12 +1637,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: Attica__ProviderManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Attica__ProviderManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: Attica__ProviderManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Attica__ProviderManager_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1332,9 +1660,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QEvent) callconv(.c) bool) void {
         qtc.Attica__ProviderManager_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1348,17 +1680,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: Attica__ProviderManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: Attica__ProviderManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Attica__ProviderManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Attica__ProviderManager_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1372,13 +1704,17 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: Attica__ProviderManager, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: Attica__ProviderManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.Attica__ProviderManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.Attica__ProviderManager_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1392,9 +1728,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QObject, QEvent) callconv(.c) bool) void {
         qtc.Attica__ProviderManager_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1406,16 +1746,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Attica__ProviderManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Attica__ProviderManager_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1427,12 +1767,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.Attica__ProviderManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.Attica__ProviderManager_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1446,9 +1790,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QTimerEvent) callconv(.c) void) void {
         qtc.Attica__ProviderManager_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1460,16 +1808,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Attica__ProviderManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Attica__ProviderManager_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1481,12 +1829,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.Attica__ProviderManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.Attica__ProviderManager_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1500,9 +1852,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QChildEvent) callconv(.c) void) void {
         qtc.Attica__ProviderManager_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1514,16 +1870,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Attica__ProviderManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Attica__ProviderManager_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1535,12 +1891,16 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: Attica__ProviderManager, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.Attica__ProviderManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: Attica__ProviderManager, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.Attica__ProviderManager_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1554,9 +1914,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QEvent) callconv(.c) void) void {
         qtc.Attica__ProviderManager_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1570,14 +1934,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: Attica__ProviderManager, signal: anytype) void {
+    pub fn connectNotify(self: Attica__ProviderManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Attica__ProviderManager_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1591,11 +1955,15 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: Attica__ProviderManager, signal: anytype) void {
+    pub fn superConnectNotify(self: Attica__ProviderManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Attica__ProviderManager_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1608,9 +1976,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) void) void {
         qtc.Attica__ProviderManager_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1624,14 +1996,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: Attica__ProviderManager, signal: anytype) void {
+    pub fn disconnectNotify(self: Attica__ProviderManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Attica__ProviderManager_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1645,10 +2017,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: Attica__ProviderManager, signal: anytype) void {
+    pub fn superDisconnectNotify(self: Attica__ProviderManager, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.Attica__ProviderManager_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1662,9 +2038,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) void) void {
         qtc.Attica__ProviderManager_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1676,13 +2056,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Sender(self: Attica__ProviderManager) QObject {
+    pub fn sender(self: Attica__ProviderManager) QObject {
         return .{ .ptr = qtc.Attica__ProviderManager_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1694,9 +2074,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn SuperSender(self: Attica__ProviderManager) QObject {
+    pub fn superSender(self: Attica__ProviderManager) QObject {
         return .{ .ptr = qtc.Attica__ProviderManager_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1710,9 +2094,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: Attica__ProviderManager, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: Attica__ProviderManager, callback: *const fn () callconv(.c) QObject) void {
         qtc.Attica__ProviderManager_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1724,13 +2112,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn SenderSignalIndex(self: Attica__ProviderManager) i32 {
+    pub fn senderSignalIndex(self: Attica__ProviderManager) i32 {
         return qtc.Attica__ProviderManager_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1742,9 +2130,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn SuperSenderSignalIndex(self: Attica__ProviderManager) i32 {
+    pub fn superSenderSignalIndex(self: Attica__ProviderManager) i32 {
         return qtc.Attica__ProviderManager_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1758,9 +2150,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: Attica__ProviderManager, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: Attica__ProviderManager, callback: *const fn () callconv(.c) i32) void {
         qtc.Attica__ProviderManager_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1774,14 +2170,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: Attica__ProviderManager, signal: [:0]const u8) i32 {
+    pub fn receivers(self: Attica__ProviderManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Attica__ProviderManager_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1795,10 +2191,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: Attica__ProviderManager, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: Attica__ProviderManager, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.Attica__ProviderManager_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1812,9 +2212,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) i32) void {
         qtc.Attica__ProviderManager_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1828,14 +2232,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: Attica__ProviderManager, signal: anytype) bool {
+    pub fn isSignalConnected(self: Attica__ProviderManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Attica__ProviderManager_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1849,10 +2253,14 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: Attica__ProviderManager, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: Attica__ProviderManager, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.Attica__ProviderManager_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1866,9 +2274,13 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, QMetaMethod) callconv(.c) bool) void {
         qtc.Attica__ProviderManager_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1882,21 +2294,21 @@ pub const Attica__ProviderManager = extern struct {
     ///
     /// ` callback: *const fn (self: Attica__ProviderManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: Attica__ProviderManager, callback: *const fn (Attica__ProviderManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__ProviderManager `
     ///
-    pub fn Delete(self: Attica__ProviderManager) void {
+    pub fn delete(self: Attica__ProviderManager) void {
         qtc.Attica__ProviderManager_Delete(@ptrCast(self.ptr));
     }
 };

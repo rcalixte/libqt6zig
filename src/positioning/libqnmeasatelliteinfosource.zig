@@ -33,28 +33,40 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     pub const _is_QGeoSatelliteInfoSource = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QNmeaSatelliteInfoSource object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QNmeaSatelliteInfoSource object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: qnmeasatelliteinfosource_enums.UpdateMode `
     ///
-    pub fn New(mode: i32) QNmeaSatelliteInfoSource {
+    pub fn new(mode: i32) QNmeaSatelliteInfoSource {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_new(@bitCast(mode)) };
     }
 
-    /// New2 constructs a new QNmeaSatelliteInfoSource object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QNmeaSatelliteInfoSource object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: qnmeasatelliteinfosource_enums.UpdateMode `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(mode: i32, parent: anytype) QNmeaSatelliteInfoSource {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QNmeaSatelliteInfoSource_new2(@bitCast(mode), @ptrCast(parent.ptr)) };
+    pub fn new2(mode: i32, _parent: anytype) QNmeaSatelliteInfoSource {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QNmeaSatelliteInfoSource_new2(@bitCast(mode), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -62,9 +74,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn MetaObject(self: QNmeaSatelliteInfoSource) QMetaObject {
+    pub fn metaObject(self: QNmeaSatelliteInfoSource) QMetaObject {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -76,13 +92,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QNmeaSatelliteInfoSource_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -92,9 +108,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperMetaObject(self: QNmeaSatelliteInfoSource) QMetaObject {
+    pub fn superMetaObject(self: QNmeaSatelliteInfoSource) QMetaObject {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -102,10 +122,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QNmeaSatelliteInfoSource, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QNmeaSatelliteInfoSource, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNmeaSatelliteInfoSource_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -115,13 +139,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QNmeaSatelliteInfoSource_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -131,10 +155,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QNmeaSatelliteInfoSource, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QNmeaSatelliteInfoSource, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QNmeaSatelliteInfoSource_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -146,9 +174,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QNmeaSatelliteInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QNmeaSatelliteInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNmeaSatelliteInfoSource_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +190,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -178,9 +210,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QNmeaSatelliteInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QNmeaSatelliteInfoSource, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QNmeaSatelliteInfoSource_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -190,14 +226,18 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `updateMode` instead
+    ///
+    pub const UpdateMode = updateMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#updateMode)
     ///
@@ -209,9 +249,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.UpdateMode `
     ///
-    pub fn UpdateMode(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn updateMode(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_UpdateMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDevice` instead
+    ///
+    pub const SetDevice = setDevice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setDevice)
     ///
@@ -221,10 +265,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` source: QIODevice `
     ///
-    pub fn SetDevice(self: QNmeaSatelliteInfoSource, source: anytype) void {
+    pub fn setDevice(self: QNmeaSatelliteInfoSource, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QIODevice;
         qtc.QNmeaSatelliteInfoSource_SetDevice(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `device` instead
+    ///
+    pub const Device = device;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#device)
     ///
@@ -232,9 +280,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Device(self: QNmeaSatelliteInfoSource) QIODevice {
+    pub fn device(self: QNmeaSatelliteInfoSource) QIODevice {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_Device(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUpdateInterval` instead
+    ///
+    pub const SetUpdateInterval = setUpdateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setUpdateInterval)
     ///
@@ -244,9 +296,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetUpdateInterval(self: QNmeaSatelliteInfoSource, msec: i32) void {
+    pub fn setUpdateInterval(self: QNmeaSatelliteInfoSource, msec: i32) void {
         qtc.QNmeaSatelliteInfoSource_SetUpdateInterval(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `onSetUpdateInterval` instead
+    ///
+    pub const OnSetUpdateInterval = onSetUpdateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setUpdateInterval)
     ///
@@ -258,13 +314,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, msec: i32) callconv(.c) void `
     ///
-    pub fn OnSetUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
+    pub fn onSetUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnSetUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetUpdateInterval` instead
+    /// ### DEPRECATED: Use `superSetUpdateInterval` instead
     ///
-    pub const QBaseSetUpdateInterval = SuperSetUpdateInterval;
+    pub const SuperSetUpdateInterval = superSetUpdateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setUpdateInterval)
     ///
@@ -276,20 +332,28 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SuperSetUpdateInterval(self: QNmeaSatelliteInfoSource, msec: i32) void {
+    pub fn superSetUpdateInterval(self: QNmeaSatelliteInfoSource, msec: i32) void {
         qtc.QNmeaSatelliteInfoSource_SuperSetUpdateInterval(@ptrCast(self.ptr), @bitCast(msec));
     }
 
+    /// ### DEPRECATED: Use `minimumUpdateInterval` instead
+    ///
+    pub const MinimumUpdateInterval = minimumUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#minimumUpdateInterval)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn MinimumUpdateInterval(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn minimumUpdateInterval(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_MinimumUpdateInterval(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMinimumUpdateInterval` instead
+    ///
+    pub const OnMinimumUpdateInterval = onMinimumUpdateInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#minimumUpdateInterval)
     ///
     /// Allows for overriding the related default method
@@ -300,13 +364,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnMinimumUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onMinimumUpdateInterval(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnMinimumUpdateInterval(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumUpdateInterval` instead
+    /// ### DEPRECATED: Use `superMinimumUpdateInterval` instead
     ///
-    pub const QBaseMinimumUpdateInterval = SuperMinimumUpdateInterval;
+    pub const SuperMinimumUpdateInterval = superMinimumUpdateInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#minimumUpdateInterval)
     ///
@@ -316,9 +380,15 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperMinimumUpdateInterval(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn superMinimumUpdateInterval(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_SuperMinimumUpdateInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#error)
     ///
@@ -330,9 +400,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn Error(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn error0(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onError` instead
+    ///
+    pub const OnError = onError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#error)
     ///
@@ -344,13 +418,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnError(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onError(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperError` instead
+    /// ### DEPRECATED: Use `superError` instead
     ///
-    pub const QBaseError = SuperError;
+    pub const SuperError = superError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#error)
     ///
@@ -364,9 +438,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn SuperError(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn superError(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_SuperError(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackendProperty` instead
+    ///
+    pub const SetBackendProperty = setBackendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setBackendProperty)
     ///
@@ -378,7 +456,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8, value: anytype) bool {
+    pub fn setBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8, value: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -386,6 +464,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QNmeaSatelliteInfoSource_SetBackendProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetBackendProperty` instead
+    ///
+    pub const OnSetBackendProperty = onSetBackendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setBackendProperty)
     ///
@@ -397,13 +479,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, name: [*:0]const u8, value: QVariant) callconv(.c) bool `
     ///
-    pub fn OnSetBackendProperty(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, QVariant) callconv(.c) bool) void {
+    pub fn onSetBackendProperty(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, QVariant) callconv(.c) bool) void {
         qtc.QNmeaSatelliteInfoSource_OnSetBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetBackendProperty` instead
+    /// ### DEPRECATED: Use `superSetBackendProperty` instead
     ///
-    pub const QBaseSetBackendProperty = SuperSetBackendProperty;
+    pub const SuperSetBackendProperty = superSetBackendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setBackendProperty)
     ///
@@ -417,7 +499,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperSetBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8, value: anytype) bool {
+    pub fn superSetBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8, value: anytype) bool {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -425,6 +507,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QNmeaSatelliteInfoSource_SuperSetBackendProperty(@ptrCast(self.ptr), name_str, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `backendProperty` instead
+    ///
+    pub const BackendProperty = backendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#backendProperty)
     ///
@@ -434,13 +520,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn BackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8) QVariant {
+    pub fn backendProperty(self: QNmeaSatelliteInfoSource, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_BackendProperty(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `onBackendProperty` instead
+    ///
+    pub const OnBackendProperty = onBackendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#backendProperty)
     ///
@@ -454,13 +544,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnBackendProperty(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
+    pub fn onBackendProperty(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) QVariant) void {
         qtc.QNmeaSatelliteInfoSource_OnBackendProperty(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperBackendProperty` instead
+    /// ### DEPRECATED: Use `superBackendProperty` instead
     ///
-    pub const QBaseBackendProperty = SuperBackendProperty;
+    pub const SuperBackendProperty = superBackendProperty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#backendProperty)
     ///
@@ -472,7 +562,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8) QVariant {
+    pub fn superBackendProperty(self: QNmeaSatelliteInfoSource, name: []const u8) QVariant {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -480,16 +570,24 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_SuperBackendProperty(@ptrCast(self.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `startUpdates` instead
+    ///
+    pub const StartUpdates = startUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#startUpdates)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn StartUpdates(self: QNmeaSatelliteInfoSource) void {
+    pub fn startUpdates(self: QNmeaSatelliteInfoSource) void {
         qtc.QNmeaSatelliteInfoSource_StartUpdates(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onStartUpdates` instead
+    ///
+    pub const OnStartUpdates = onStartUpdates;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#startUpdates)
     ///
     /// Allows for overriding the related default method
@@ -500,13 +598,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnStartUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStartUpdates` instead
+    /// ### DEPRECATED: Use `superStartUpdates` instead
     ///
-    pub const QBaseStartUpdates = SuperStartUpdates;
+    pub const SuperStartUpdates = superStartUpdates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#startUpdates)
     ///
@@ -516,9 +614,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperStartUpdates(self: QNmeaSatelliteInfoSource) void {
+    pub fn superStartUpdates(self: QNmeaSatelliteInfoSource) void {
         qtc.QNmeaSatelliteInfoSource_SuperStartUpdates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stopUpdates` instead
+    ///
+    pub const StopUpdates = stopUpdates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#stopUpdates)
     ///
@@ -526,9 +628,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn StopUpdates(self: QNmeaSatelliteInfoSource) void {
+    pub fn stopUpdates(self: QNmeaSatelliteInfoSource) void {
         qtc.QNmeaSatelliteInfoSource_StopUpdates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStopUpdates` instead
+    ///
+    pub const OnStopUpdates = onStopUpdates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#stopUpdates)
     ///
@@ -540,13 +646,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStopUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
+    pub fn onStopUpdates(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnStopUpdates(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStopUpdates` instead
+    /// ### DEPRECATED: Use `superStopUpdates` instead
     ///
-    pub const QBaseStopUpdates = SuperStopUpdates;
+    pub const SuperStopUpdates = superStopUpdates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#stopUpdates)
     ///
@@ -556,9 +662,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperStopUpdates(self: QNmeaSatelliteInfoSource) void {
+    pub fn superStopUpdates(self: QNmeaSatelliteInfoSource) void {
         qtc.QNmeaSatelliteInfoSource_SuperStopUpdates(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `requestUpdate` instead
+    ///
+    pub const RequestUpdate = requestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#requestUpdate)
     ///
@@ -568,9 +678,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn RequestUpdate(self: QNmeaSatelliteInfoSource, timeout: i32) void {
+    pub fn requestUpdate(self: QNmeaSatelliteInfoSource, timeout: i32) void {
         qtc.QNmeaSatelliteInfoSource_RequestUpdate(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `onRequestUpdate` instead
+    ///
+    pub const OnRequestUpdate = onRequestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#requestUpdate)
     ///
@@ -582,13 +696,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, timeout: i32) callconv(.c) void `
     ///
-    pub fn OnRequestUpdate(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
+    pub fn onRequestUpdate(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnRequestUpdate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRequestUpdate` instead
+    /// ### DEPRECATED: Use `superRequestUpdate` instead
     ///
-    pub const QBaseRequestUpdate = SuperRequestUpdate;
+    pub const SuperRequestUpdate = superRequestUpdate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#requestUpdate)
     ///
@@ -600,9 +714,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` timeout: i32 `
     ///
-    pub fn SuperRequestUpdate(self: QNmeaSatelliteInfoSource, timeout: i32) void {
+    pub fn superRequestUpdate(self: QNmeaSatelliteInfoSource, timeout: i32) void {
         qtc.QNmeaSatelliteInfoSource_SuperRequestUpdate(@ptrCast(self.ptr), @bitCast(timeout));
     }
+
+    /// ### DEPRECATED: Use `parseSatellitesInUseFromNmea` instead
+    ///
+    pub const ParseSatellitesInUseFromNmea = parseSatellitesInUseFromNmea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
@@ -620,7 +738,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn ParseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, pnrsInUse: []i32) i32 {
+    pub fn parseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, pnrsInUse: []i32) i32 {
         const data_Cstring = data.ptr;
         const pnrsInUse_list = qtc.libqt_list{
             .len = pnrsInUse.len,
@@ -628,6 +746,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         };
         return qtc.QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea(@ptrCast(self.ptr), data_Cstring, @bitCast(size), pnrsInUse_list);
     }
+
+    /// ### DEPRECATED: Use `onParseSatellitesInUseFromNmea` instead
+    ///
+    pub const OnParseSatellitesInUseFromNmea = onParseSatellitesInUseFromNmea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
@@ -639,13 +761,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
     ///
-    pub fn OnParseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, i32, qtc.libqt_list) callconv(.c) i32) void {
+    pub fn onParseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, i32, qtc.libqt_list) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParseSatellitesInUseFromNmea` instead
+    /// ### DEPRECATED: Use `superParseSatellitesInUseFromNmea` instead
     ///
-    pub const QBaseParseSatellitesInUseFromNmea = SuperParseSatellitesInUseFromNmea;
+    pub const SuperParseSatellitesInUseFromNmea = superParseSatellitesInUseFromNmea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
@@ -665,7 +787,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SuperParseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, pnrsInUse: []i32) i32 {
+    pub fn superParseSatellitesInUseFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, pnrsInUse: []i32) i32 {
         const data_Cstring = data.ptr;
         const pnrsInUse_list = qtc.libqt_list{
             .len = pnrsInUse.len,
@@ -673,6 +795,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         };
         return qtc.QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea(@ptrCast(self.ptr), data_Cstring, @bitCast(size), pnrsInUse_list);
     }
+
+    /// ### DEPRECATED: Use `parseSatellitesInUseFromNmea2` instead
+    ///
+    pub const ParseSatellitesInUseFromNmea2 = parseSatellitesInUseFromNmea2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
@@ -688,7 +814,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn ParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
+    pub fn parseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -700,6 +826,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_ParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), data_str, pnrsInUse_list);
     }
 
+    /// ### DEPRECATED: Use `onParseSatellitesInUseFromNmea2` instead
+    ///
+    pub const OnParseSatellitesInUseFromNmea2 = onParseSatellitesInUseFromNmea2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
     /// Allows for overriding the related default method
@@ -710,13 +840,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: qtc.libqt_string, pnrsInUse: qtc.libqt_list ([]i32)) callconv(.c) i32 `
     ///
-    pub fn OnParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list) callconv(.c) i32) void {
+    pub fn onParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParseSatellitesInUseFromNmea2` instead
+    /// ### DEPRECATED: Use `superParseSatellitesInUseFromNmea2` instead
     ///
-    pub const QBaseParseSatellitesInUseFromNmea2 = SuperParseSatellitesInUseFromNmea2;
+    pub const SuperParseSatellitesInUseFromNmea2 = superParseSatellitesInUseFromNmea2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatellitesInUseFromNmea)
     ///
@@ -734,7 +864,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qgeosatelliteinfo_enums.SatelliteSystem `
     ///
-    pub fn SuperParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
+    pub fn superParseSatellitesInUseFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, pnrsInUse: []i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -746,6 +876,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_SuperParseSatellitesInUseFromNmea2(@ptrCast(self.ptr), data_str, pnrsInUse_list);
     }
 
+    /// ### DEPRECATED: Use `parseSatelliteInfoFromNmea` instead
+    ///
+    pub const ParseSatelliteInfoFromNmea = parseSatelliteInfoFromNmea;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
     /// ## Parameter(s):
@@ -764,7 +898,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn ParseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, infos: []QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn parseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, infos: []QGeoSatelliteInfo, system: *i32) i32 {
         const data_Cstring = data.ptr;
         const infos_list = qtc.libqt_list{
             .len = infos.len,
@@ -772,6 +906,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         };
         return qtc.QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea(@ptrCast(self.ptr), data_Cstring, @bitCast(size), infos_list, @ptrCast(system));
     }
+
+    /// ### DEPRECATED: Use `onParseSatelliteInfoFromNmea` instead
+    ///
+    pub const OnParseSatelliteInfoFromNmea = onParseSatelliteInfoFromNmea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
@@ -783,13 +921,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: [*:0]const u8, size: i32, infos: qtc.libqt_list ([]QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
     ///
-    pub fn OnParseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, i32, qtc.libqt_list, *i32) callconv(.c) i32) void {
+    pub fn onParseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8, i32, qtc.libqt_list, *i32) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParseSatelliteInfoFromNmea` instead
+    /// ### DEPRECATED: Use `superParseSatelliteInfoFromNmea` instead
     ///
-    pub const QBaseParseSatelliteInfoFromNmea = SuperParseSatelliteInfoFromNmea;
+    pub const SuperParseSatelliteInfoFromNmea = superParseSatelliteInfoFromNmea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
@@ -811,7 +949,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn SuperParseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, infos: []QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn superParseSatelliteInfoFromNmea(self: QNmeaSatelliteInfoSource, data: [:0]const u8, size: i32, infos: []QGeoSatelliteInfo, system: *i32) i32 {
         const data_Cstring = data.ptr;
         const infos_list = qtc.libqt_list{
             .len = infos.len,
@@ -819,6 +957,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         };
         return qtc.QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea(@ptrCast(self.ptr), data_Cstring, @bitCast(size), infos_list, @ptrCast(system));
     }
+
+    /// ### DEPRECATED: Use `parseSatelliteInfoFromNmea2` instead
+    ///
+    pub const ParseSatelliteInfoFromNmea2 = parseSatelliteInfoFromNmea2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
@@ -836,7 +978,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn ParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn parseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -848,6 +990,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_ParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), data_str, infos_list, @ptrCast(system));
     }
 
+    /// ### DEPRECATED: Use `onParseSatelliteInfoFromNmea2` instead
+    ///
+    pub const OnParseSatelliteInfoFromNmea2 = onParseSatelliteInfoFromNmea2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
     /// Allows for overriding the related default method
@@ -858,13 +1004,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, data: qtc.libqt_string, infos: qtc.libqt_list ([]QGeoSatelliteInfo), system: *qgeosatelliteinfo_enums.SatelliteSystem) callconv(.c) i32 `
     ///
-    pub fn OnParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list, *i32) callconv(.c) i32) void {
+    pub fn onParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_string, qtc.libqt_list, *i32) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParseSatelliteInfoFromNmea2` instead
+    /// ### DEPRECATED: Use `superParseSatelliteInfoFromNmea2` instead
     ///
-    pub const QBaseParseSatelliteInfoFromNmea2 = SuperParseSatelliteInfoFromNmea2;
+    pub const SuperParseSatelliteInfoFromNmea2 = superParseSatelliteInfoFromNmea2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#parseSatelliteInfoFromNmea)
     ///
@@ -884,7 +1030,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` qnmeasatelliteinfosource_enums.SatelliteInfoParseStatus `
     ///
-    pub fn SuperParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
+    pub fn superParseSatelliteInfoFromNmea2(self: QNmeaSatelliteInfoSource, data: []u8, infos: []QGeoSatelliteInfo, system: *i32) i32 {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -896,6 +1042,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         return qtc.QNmeaSatelliteInfoSource_SuperParseSatelliteInfoFromNmea2(@ptrCast(self.ptr), data_str, infos_list, @ptrCast(system));
     }
 
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setError)
     ///
     /// ## Parameter(s):
@@ -904,9 +1054,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` satelliteError: qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn SetError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
+    pub fn setError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
         qtc.QNmeaSatelliteInfoSource_SetError(@ptrCast(self.ptr), @bitCast(satelliteError));
     }
+
+    /// ### DEPRECATED: Use `onSetError` instead
+    ///
+    pub const OnSetError = onSetError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setError)
     ///
@@ -918,13 +1072,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, satelliteError: qgeosatelliteinfosource_enums.Error) callconv(.c) void `
     ///
-    pub fn OnSetError(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
+    pub fn onSetError(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetError` instead
+    /// ### DEPRECATED: Use `superSetError` instead
     ///
-    pub const QBaseSetError = SuperSetError;
+    pub const SuperSetError = superSetError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#setError)
     ///
@@ -936,9 +1090,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` satelliteError: qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn SuperSetError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
+    pub fn superSetError(self: QNmeaSatelliteInfoSource, satelliteError: i32) void {
         qtc.QNmeaSatelliteInfoSource_SuperSetError(@ptrCast(self.ptr), @bitCast(satelliteError));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -950,15 +1108,19 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -972,28 +1134,36 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `createDefaultSource` instead
+    ///
+    pub const CreateDefaultSource = createDefaultSource;
+
     /// Inherited from QGeoSatelliteInfoSource
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#createDefaultSource)
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateDefaultSource(parent: anytype) QGeoSatelliteInfoSource {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateDefaultSource(@ptrCast(parent.ptr)) };
+    pub fn createDefaultSource(_parent: anytype) QGeoSatelliteInfoSource {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateDefaultSource(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createSource` instead
+    ///
+    pub const CreateSource = createSource;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1001,18 +1171,22 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sourceName: []const u8 `
+    /// ` _sourceName: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateSource(sourceName: []const u8, parent: anytype) QGeoSatelliteInfoSource {
+    pub fn createSource(_sourceName: []const u8, _parent: anytype) QGeoSatelliteInfoSource {
         const sourceName_str = qtc.libqt_string{
-            .len = sourceName.len,
-            .data = sourceName.ptr,
+            .len = _sourceName.len,
+            .data = _sourceName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateSource(sourceName_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateSource(sourceName_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createDefaultSource2` instead
+    ///
+    pub const CreateDefaultSource2 = createDefaultSource2;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1024,13 +1198,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` parameters: ArrayMap_constu8_QVariant `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateDefaultSource2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, parent: anytype) QGeoSatelliteInfoSource {
+    pub fn createDefaultSource2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, _parent: anytype) QGeoSatelliteInfoSource {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QNmeaSatelliteInfoSource.CreateDefaultSource2: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QNmeaSatelliteInfoSource.createDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QNmeaSatelliteInfoSource.CreateDefaultSource2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QNmeaSatelliteInfoSource.createDefaultSource2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -1047,9 +1221,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateDefaultSource2(parameters_map, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateDefaultSource2(parameters_map, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createSource2` instead
+    ///
+    pub const CreateSource2 = createSource2;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1059,21 +1237,21 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` sourceName: []const u8 `
+    /// ` _sourceName: []const u8 `
     ///
     /// ` parameters: ArrayMap_constu8_QVariant `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn CreateSource2(allocator: std.mem.Allocator, sourceName: []const u8, parameters: ArrayMap_constu8_QVariant, parent: anytype) QGeoSatelliteInfoSource {
+    pub fn createSource2(allocator: std.mem.Allocator, _sourceName: []const u8, parameters: ArrayMap_constu8_QVariant, _parent: anytype) QGeoSatelliteInfoSource {
         const sourceName_str = qtc.libqt_string{
-            .len = sourceName.len,
-            .data = sourceName.ptr,
+            .len = _sourceName.len,
+            .data = _sourceName.ptr,
         };
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QNmeaSatelliteInfoSource.CreateSource2: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QNmeaSatelliteInfoSource.createSource2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QNmeaSatelliteInfoSource.CreateSource2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QNmeaSatelliteInfoSource.createSource2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -1090,9 +1268,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateSource2(sourceName_str, parameters_map, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QGeoSatelliteInfoSource_CreateSource2(sourceName_str, parameters_map, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `availableSources` instead
+    ///
+    pub const AvailableSources = availableSources;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1102,7 +1284,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableSources(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableSources(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QGeoSatelliteInfoSource_AvailableSources();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1110,15 +1292,19 @@ pub const QNmeaSatelliteInfoSource = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.AvailableSources: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.availableSources: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNmeaSatelliteInfoSource.AvailableSources: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNmeaSatelliteInfoSource.availableSources: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sourceName` instead
+    ///
+    pub const SourceName = sourceName;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1130,13 +1316,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SourceName(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []const u8 {
+    pub fn sourceName(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoSatelliteInfoSource_SourceName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.SourceName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.sourceName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `updateInterval` instead
+    ///
+    pub const UpdateInterval = updateInterval;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1146,9 +1336,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn UpdateInterval(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn updateInterval(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QGeoSatelliteInfoSource_UpdateInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `satellitesInViewUpdated` instead
+    ///
+    pub const SatellitesInViewUpdated = satellitesInViewUpdated;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1160,7 +1354,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` satellites: []QGeoSatelliteInfo `
     ///
-    pub fn SatellitesInViewUpdated(self: QNmeaSatelliteInfoSource, satellites: []QGeoSatelliteInfo) void {
+    pub fn satellitesInViewUpdated(self: QNmeaSatelliteInfoSource, satellites: []QGeoSatelliteInfo) void {
         const satellites_list = qtc.libqt_list{
             .len = satellites.len,
             .data = @ptrCast(satellites.ptr),
@@ -1168,6 +1362,10 @@ pub const QNmeaSatelliteInfoSource = extern struct {
         qtc.QGeoSatelliteInfoSource_SatellitesInViewUpdated(@ptrCast(self.ptr), satellites_list);
     }
 
+    /// ### DEPRECATED: Use `onSatellitesInViewUpdated` instead
+    ///
+    pub const OnSatellitesInViewUpdated = onSatellitesInViewUpdated;
+
     /// Inherited from QGeoSatelliteInfoSource
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeosatelliteinfosource.html#satellitesInViewUpdated)
@@ -1178,9 +1376,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, satellites: qtc.libqt_list ([]QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInViewUpdated(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSatellitesInViewUpdated(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInViewUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `satellitesInUseUpdated` instead
+    ///
+    pub const SatellitesInUseUpdated = satellitesInUseUpdated;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1192,13 +1394,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` satellites: []QGeoSatelliteInfo `
     ///
-    pub fn SatellitesInUseUpdated(self: QNmeaSatelliteInfoSource, satellites: []QGeoSatelliteInfo) void {
+    pub fn satellitesInUseUpdated(self: QNmeaSatelliteInfoSource, satellites: []QGeoSatelliteInfo) void {
         const satellites_list = qtc.libqt_list{
             .len = satellites.len,
             .data = @ptrCast(satellites.ptr),
         };
         qtc.QGeoSatelliteInfoSource_SatellitesInUseUpdated(@ptrCast(self.ptr), satellites_list);
     }
+
+    /// ### DEPRECATED: Use `onSatellitesInUseUpdated` instead
+    ///
+    pub const OnSatellitesInUseUpdated = onSatellitesInUseUpdated;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1210,9 +1416,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, satellites: qtc.libqt_list ([]QGeoSatelliteInfo)) callconv(.c) void `
     ///
-    pub fn OnSatellitesInUseUpdated(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSatellitesInUseUpdated(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, qtc.libqt_list) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_SatellitesInUseUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1224,9 +1434,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param1: qgeosatelliteinfosource_enums.Error `
     ///
-    pub fn ErrorOccurred(self: QNmeaSatelliteInfoSource, param1: i32) void {
+    pub fn errorOccurred(self: QNmeaSatelliteInfoSource, param1: i32) void {
         qtc.QGeoSatelliteInfoSource_ErrorOccurred(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// Inherited from QGeoSatelliteInfoSource
     ///
@@ -1238,9 +1452,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, param1: qgeosatelliteinfosource_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, i32) callconv(.c) void) void {
         qtc.QGeoSatelliteInfoSource_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1252,13 +1470,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QNmeaSatelliteInfoSource.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1270,13 +1492,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QNmeaSatelliteInfoSource, name: []const u8) void {
+    pub fn setObjectName(self: QNmeaSatelliteInfoSource, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1286,9 +1512,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn IsWidgetType(self: QNmeaSatelliteInfoSource) bool {
+    pub fn isWidgetType(self: QNmeaSatelliteInfoSource) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1298,9 +1528,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn IsWindowType(self: QNmeaSatelliteInfoSource) bool {
+    pub fn isWindowType(self: QNmeaSatelliteInfoSource) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1310,9 +1544,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn IsQuickItemType(self: QNmeaSatelliteInfoSource) bool {
+    pub fn isQuickItemType(self: QNmeaSatelliteInfoSource) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1322,9 +1560,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SignalsBlocked(self: QNmeaSatelliteInfoSource) bool {
+    pub fn signalsBlocked(self: QNmeaSatelliteInfoSource) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1336,9 +1578,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QNmeaSatelliteInfoSource, b: bool) bool {
+    pub fn blockSignals(self: QNmeaSatelliteInfoSource, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1348,9 +1594,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Thread(self: QNmeaSatelliteInfoSource) QThread {
+    pub fn thread(self: QNmeaSatelliteInfoSource) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1360,12 +1610,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QNmeaSatelliteInfoSource, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QNmeaSatelliteInfoSource, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1377,9 +1631,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QNmeaSatelliteInfoSource, interval: i32) i32 {
+    pub fn startTimer(self: QNmeaSatelliteInfoSource, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1391,9 +1649,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QNmeaSatelliteInfoSource, time: i64) i32 {
+    pub fn startTimer2(self: QNmeaSatelliteInfoSource, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1405,9 +1667,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QNmeaSatelliteInfoSource, id: i32) void {
+    pub fn killTimer(self: QNmeaSatelliteInfoSource, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1419,9 +1685,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QNmeaSatelliteInfoSource, id: i32) void {
+    pub fn killTimer2(self: QNmeaSatelliteInfoSource, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1433,15 +1703,19 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNmeaSatelliteInfoSource.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QNmeaSatelliteInfoSource.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1451,12 +1725,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QNmeaSatelliteInfoSource, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QNmeaSatelliteInfoSource, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1468,10 +1746,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QNmeaSatelliteInfoSource, filterObj: anytype) void {
+    pub fn installEventFilter(self: QNmeaSatelliteInfoSource, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1483,10 +1765,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QNmeaSatelliteInfoSource, obj: anytype) void {
+    pub fn removeEventFilter(self: QNmeaSatelliteInfoSource, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1494,7 +1780,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1502,13 +1788,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1516,7 +1806,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1524,13 +1814,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1540,18 +1834,22 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QNmeaSatelliteInfoSource, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QNmeaSatelliteInfoSource, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1559,7 +1857,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1567,13 +1865,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1581,7 +1883,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1589,13 +1891,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1605,9 +1911,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Disconnect3(self: QNmeaSatelliteInfoSource) bool {
+    pub fn disconnect3(self: QNmeaSatelliteInfoSource) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1619,10 +1929,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QNmeaSatelliteInfoSource, receiver: anytype) bool {
+    pub fn disconnect4(self: QNmeaSatelliteInfoSource, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1632,10 +1946,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1645,9 +1963,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn DumpObjectTree(self: QNmeaSatelliteInfoSource) void {
+    pub fn dumpObjectTree(self: QNmeaSatelliteInfoSource) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1657,9 +1979,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn DumpObjectInfo(self: QNmeaSatelliteInfoSource) void {
+    pub fn dumpObjectInfo(self: QNmeaSatelliteInfoSource) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1673,11 +1999,15 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QNmeaSatelliteInfoSource, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QNmeaSatelliteInfoSource, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1689,10 +2019,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QNmeaSatelliteInfoSource, name: [:0]const u8) QVariant {
+    pub fn property(self: QNmeaSatelliteInfoSource, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1704,7 +2038,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QNmeaSatelliteInfoSource, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1712,27 +2046,19 @@ pub const QNmeaSatelliteInfoSource = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QNmeaSatelliteInfoSource.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QNmeaSatelliteInfoSource.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QNmeaSatelliteInfoSource.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QNmeaSatelliteInfoSource `
-    ///
-    pub fn BindingStorage(self: QNmeaSatelliteInfoSource) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1742,9 +2068,29 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn BindingStorage2(self: QNmeaSatelliteInfoSource) QBindingStorage {
+    pub fn bindingStorage(self: QNmeaSatelliteInfoSource) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QNmeaSatelliteInfoSource `
+    ///
+    pub fn bindingStorage2(self: QNmeaSatelliteInfoSource) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1754,9 +2100,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Destroyed(self: QNmeaSatelliteInfoSource) void {
+    pub fn destroyed(self: QNmeaSatelliteInfoSource) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1768,9 +2118,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) void) void {
+    pub fn onDestroyed(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1780,9 +2134,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Parent(self: QNmeaSatelliteInfoSource) QObject {
+    pub fn parent(self: QNmeaSatelliteInfoSource) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1794,10 +2152,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QNmeaSatelliteInfoSource, classname: [:0]const u8) bool {
+    pub fn inherits(self: QNmeaSatelliteInfoSource, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1807,9 +2169,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn DeleteLater(self: QNmeaSatelliteInfoSource) void {
+    pub fn deleteLater(self: QNmeaSatelliteInfoSource) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1823,9 +2189,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QNmeaSatelliteInfoSource, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QNmeaSatelliteInfoSource, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1839,9 +2209,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QNmeaSatelliteInfoSource, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QNmeaSatelliteInfoSource, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1849,7 +2223,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1859,13 +2233,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1873,7 +2251,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1883,13 +2261,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1899,7 +2281,7 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1907,12 +2289,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QNmeaSatelliteInfoSource, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QNmeaSatelliteInfoSource, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1924,10 +2310,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1941,11 +2331,15 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QNmeaSatelliteInfoSource, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QNmeaSatelliteInfoSource, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1961,13 +2355,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QNmeaSatelliteInfoSource, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QNmeaSatelliteInfoSource, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1980,11 +2378,15 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QNmeaSatelliteInfoSource, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QNmeaSatelliteInfoSource, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1996,10 +2398,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QNmeaSatelliteInfoSource, param1: anytype) void {
+    pub fn destroyed1(self: QNmeaSatelliteInfoSource, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2011,9 +2417,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2025,16 +2435,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QNmeaSatelliteInfoSource, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNmeaSatelliteInfoSource_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QNmeaSatelliteInfoSource, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNmeaSatelliteInfoSource_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2046,12 +2456,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QNmeaSatelliteInfoSource, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNmeaSatelliteInfoSource_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QNmeaSatelliteInfoSource, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNmeaSatelliteInfoSource_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2065,9 +2479,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QEvent) callconv(.c) bool) void {
         qtc.QNmeaSatelliteInfoSource_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2081,17 +2499,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QNmeaSatelliteInfoSource, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QNmeaSatelliteInfoSource, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNmeaSatelliteInfoSource_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNmeaSatelliteInfoSource_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2105,13 +2523,17 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QNmeaSatelliteInfoSource, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QNmeaSatelliteInfoSource, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QNmeaSatelliteInfoSource_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QNmeaSatelliteInfoSource_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2125,9 +2547,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QObject, QEvent) callconv(.c) bool) void {
         qtc.QNmeaSatelliteInfoSource_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2139,16 +2565,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNmeaSatelliteInfoSource_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNmeaSatelliteInfoSource_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2160,12 +2586,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QNmeaSatelliteInfoSource_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QNmeaSatelliteInfoSource_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2179,9 +2609,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QTimerEvent) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2193,16 +2627,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNmeaSatelliteInfoSource_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNmeaSatelliteInfoSource_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2214,12 +2648,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QNmeaSatelliteInfoSource_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QNmeaSatelliteInfoSource_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2233,9 +2671,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QChildEvent) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2247,16 +2689,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNmeaSatelliteInfoSource_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNmeaSatelliteInfoSource_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2268,12 +2710,16 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QNmeaSatelliteInfoSource, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QNmeaSatelliteInfoSource_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QNmeaSatelliteInfoSource, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QNmeaSatelliteInfoSource_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2287,9 +2733,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QEvent) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2303,14 +2753,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
+    pub fn connectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNmeaSatelliteInfoSource_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2324,11 +2774,15 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
+    pub fn superConnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNmeaSatelliteInfoSource_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2341,9 +2795,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2357,14 +2815,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
+    pub fn disconnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNmeaSatelliteInfoSource_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2378,10 +2836,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QNmeaSatelliteInfoSource, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QNmeaSatelliteInfoSource_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2395,9 +2857,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) void) void {
         qtc.QNmeaSatelliteInfoSource_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2409,13 +2875,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Sender(self: QNmeaSatelliteInfoSource) QObject {
+    pub fn sender(self: QNmeaSatelliteInfoSource) QObject {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2427,9 +2893,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperSender(self: QNmeaSatelliteInfoSource) QObject {
+    pub fn superSender(self: QNmeaSatelliteInfoSource) QObject {
         return .{ .ptr = qtc.QNmeaSatelliteInfoSource_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2443,9 +2913,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) QObject) void {
         qtc.QNmeaSatelliteInfoSource_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2457,13 +2931,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SenderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn senderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2475,9 +2949,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn SuperSenderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
+    pub fn superSenderSignalIndex(self: QNmeaSatelliteInfoSource) i32 {
         return qtc.QNmeaSatelliteInfoSource_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2491,9 +2969,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QNmeaSatelliteInfoSource, callback: *const fn () callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2507,14 +2989,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNmeaSatelliteInfoSource_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2528,10 +3010,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QNmeaSatelliteInfoSource, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QNmeaSatelliteInfoSource_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2545,9 +3031,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) i32) void {
         qtc.QNmeaSatelliteInfoSource_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2561,14 +3051,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
+    pub fn isSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNmeaSatelliteInfoSource_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2582,10 +3072,14 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QNmeaSatelliteInfoSource, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QNmeaSatelliteInfoSource_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2599,9 +3093,13 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, QMetaMethod) callconv(.c) bool) void {
         qtc.QNmeaSatelliteInfoSource_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2615,23 +3113,23 @@ pub const QNmeaSatelliteInfoSource = extern struct {
     ///
     /// ` callback: *const fn (self: QNmeaSatelliteInfoSource, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QNmeaSatelliteInfoSource, callback: *const fn (QNmeaSatelliteInfoSource, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qnmeasatelliteinfosource.html#dtor.QNmeaSatelliteInfoSource)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QNmeaSatelliteInfoSource `
     ///
-    pub fn Delete(self: QNmeaSatelliteInfoSource) void {
+    pub fn delete(self: QNmeaSatelliteInfoSource) void {
         qtc.QNmeaSatelliteInfoSource_Delete(@ptrCast(self.ptr));
     }
 };

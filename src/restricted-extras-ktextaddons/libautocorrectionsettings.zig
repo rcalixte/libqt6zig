@@ -16,161 +16,215 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
 
     pub const _is_TextAutoCorrectionCore__AutoCorrectionSettings = {};
 
-    /// New constructs a new TextAutoCorrectionCore::AutoCorrectionSettings object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() TextAutoCorrectionCore__AutoCorrectionSettings {
+    pub const New = new;
+
+    /// Allocate a new TextAutoCorrectionCore::AutoCorrectionSettings object in C++ memory
+    ///
+    pub fn new() TextAutoCorrectionCore__AutoCorrectionSettings {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_new() };
     }
 
+    /// ### DEPRECATED: Use `isEnabledAutoCorrection` instead
+    ///
+    pub const IsEnabledAutoCorrection = isEnabledAutoCorrection;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsEnabledAutoCorrection(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isEnabledAutoCorrection(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsEnabledAutoCorrection(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isUppercaseFirstCharOfSentence` instead
+    ///
+    pub const IsUppercaseFirstCharOfSentence = isUppercaseFirstCharOfSentence;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsUppercaseFirstCharOfSentence(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isUppercaseFirstCharOfSentence(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsUppercaseFirstCharOfSentence(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isFixTwoUppercaseChars` instead
+    ///
+    pub const IsFixTwoUppercaseChars = isFixTwoUppercaseChars;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsFixTwoUppercaseChars(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isFixTwoUppercaseChars(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsFixTwoUppercaseChars(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isSingleSpaces` instead
+    ///
+    pub const IsSingleSpaces = isSingleSpaces;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsSingleSpaces(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isSingleSpaces(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsSingleSpaces(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isAutoFractions` instead
+    ///
+    pub const IsAutoFractions = isAutoFractions;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsAutoFractions(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isAutoFractions(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsAutoFractions(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isCapitalizeWeekDays` instead
+    ///
+    pub const IsCapitalizeWeekDays = isCapitalizeWeekDays;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsCapitalizeWeekDays(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isCapitalizeWeekDays(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsCapitalizeWeekDays(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isReplaceDoubleQuotes` instead
+    ///
+    pub const IsReplaceDoubleQuotes = isReplaceDoubleQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsReplaceDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isReplaceDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsReplaceDoubleQuotes(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isReplaceSingleQuotes` instead
+    ///
+    pub const IsReplaceSingleQuotes = isReplaceSingleQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsReplaceSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isReplaceSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsReplaceSingleQuotes(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isAdvancedAutocorrect` instead
+    ///
+    pub const IsAdvancedAutocorrect = isAdvancedAutocorrect;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsAdvancedAutocorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isAdvancedAutocorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsAdvancedAutocorrect(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isAutoFormatUrl` instead
+    ///
+    pub const IsAutoFormatUrl = isAutoFormatUrl;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsAutoFormatUrl(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isAutoFormatUrl(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsAutoFormatUrl(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isAutoBoldUnderline` instead
+    ///
+    pub const IsAutoBoldUnderline = isAutoBoldUnderline;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsAutoBoldUnderline(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isAutoBoldUnderline(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsAutoBoldUnderline(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isSuperScript` instead
+    ///
+    pub const IsSuperScript = isSuperScript;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsSuperScript(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isSuperScript(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsSuperScript(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isAddNonBreakingSpace` instead
+    ///
+    pub const IsAddNonBreakingSpace = isAddNonBreakingSpace;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsAddNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isAddNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsAddNonBreakingSpace(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `isReplaceDoubleQuotesByFrenchQuotes` instead
+    ///
+    pub const IsReplaceDoubleQuotesByFrenchQuotes = isReplaceDoubleQuotesByFrenchQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsReplaceDoubleQuotesByFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isReplaceDoubleQuotesByFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsReplaceDoubleQuotesByFrenchQuotes(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    /// ### DEPRECATED: Use `typographicSingleQuotes` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
-    ///
-    pub fn TypographicSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
-        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TypographicSingleQuotes(@ptrCast(self.ptr)) };
-    }
+    pub const TypographicSingleQuotes = typographicSingleQuotes;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -178,9 +232,27 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn TypographicDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn typographicSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+        return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TypographicSingleQuotes(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `typographicDoubleQuotes` instead
+    ///
+    pub const TypographicDoubleQuotes = typographicDoubleQuotes;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
+    ///
+    pub fn typographicDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TypographicDoubleQuotes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTypographicSingleQuotes` instead
+    ///
+    pub const SetTypographicSingleQuotes = setTypographicSingleQuotes;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -190,10 +262,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` singleQuote: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn SetTypographicSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, singleQuote: anytype) void {
+    pub fn setTypographicSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, singleQuote: anytype) void {
         comptime _ = @TypeOf(singleQuote)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetTypographicSingleQuotes(@ptrCast(self.ptr), @ptrCast(singleQuote.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTypographicDoubleQuotes` instead
+    ///
+    pub const SetTypographicDoubleQuotes = setTypographicDoubleQuotes;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -203,11 +279,15 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` doubleQuote: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn SetTypographicDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, doubleQuote: anytype) void {
+    pub fn setTypographicDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, doubleQuote: anytype) void {
         comptime _ = @TypeOf(doubleQuote)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetTypographicDoubleQuotes(@ptrCast(self.ptr), @ptrCast(doubleQuote.ptr));
     }
 
+    /// ### DEPRECATED: Use `setAutoFormatUrl` instead
+    ///
+    pub const SetAutoFormatUrl = setAutoFormatUrl;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -216,10 +296,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAutoFormatUrl(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setAutoFormatUrl(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAutoFormatUrl(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setAutoBoldUnderline` instead
+    ///
+    pub const SetAutoBoldUnderline = setAutoBoldUnderline;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -228,10 +312,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAutoBoldUnderline(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setAutoBoldUnderline(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAutoBoldUnderline(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setSuperScript` instead
+    ///
+    pub const SetSuperScript = setSuperScript;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -240,10 +328,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetSuperScript(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setSuperScript(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetSuperScript(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setAddNonBreakingSpace` instead
+    ///
+    pub const SetAddNonBreakingSpace = setAddNonBreakingSpace;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -252,10 +344,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAddNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setAddNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAddNonBreakingSpace(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setCapitalizeWeekDays` instead
+    ///
+    pub const SetCapitalizeWeekDays = setCapitalizeWeekDays;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -264,10 +360,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetCapitalizeWeekDays(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setCapitalizeWeekDays(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetCapitalizeWeekDays(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setReplaceDoubleQuotes` instead
+    ///
+    pub const SetReplaceDoubleQuotes = setReplaceDoubleQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -276,10 +376,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReplaceDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setReplaceDoubleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetReplaceDoubleQuotes(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setReplaceSingleQuotes` instead
+    ///
+    pub const SetReplaceSingleQuotes = setReplaceSingleQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -288,10 +392,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReplaceSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setReplaceSingleQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetReplaceSingleQuotes(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setAdvancedAutocorrect` instead
+    ///
+    pub const SetAdvancedAutocorrect = setAdvancedAutocorrect;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -300,10 +408,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAdvancedAutocorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setAdvancedAutocorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAdvancedAutocorrect(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setEnabledAutoCorrection` instead
+    ///
+    pub const SetEnabledAutoCorrection = setEnabledAutoCorrection;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -312,10 +424,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetEnabledAutoCorrection(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setEnabledAutoCorrection(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetEnabledAutoCorrection(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `setReplaceDoubleQuotesByFrenchQuotes` instead
+    ///
+    pub const SetReplaceDoubleQuotesByFrenchQuotes = setReplaceDoubleQuotesByFrenchQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -324,19 +440,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetReplaceDoubleQuotesByFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
+    pub fn setReplaceDoubleQuotesByFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, b: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetReplaceDoubleQuotesByFrenchQuotes(@ptrCast(self.ptr), b);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    /// ### DEPRECATED: Use `readConfig` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
-    ///
-    pub fn ReadConfig(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
-        qtc.TextAutoCorrectionCore__AutoCorrectionSettings_ReadConfig(@ptrCast(self.ptr));
-    }
+    pub const ReadConfig = readConfig;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -344,9 +454,27 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn WriteConfig(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
+    pub fn readConfig(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
+        qtc.TextAutoCorrectionCore__AutoCorrectionSettings_ReadConfig(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `writeConfig` instead
+    ///
+    pub const WriteConfig = writeConfig;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
+    ///
+    pub fn writeConfig(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_WriteConfig(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFractions` instead
+    ///
+    pub const SetAutoFractions = setAutoFractions;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -356,9 +484,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newAutoFractions: bool `
     ///
-    pub fn SetAutoFractions(self: TextAutoCorrectionCore__AutoCorrectionSettings, newAutoFractions: bool) void {
+    pub fn setAutoFractions(self: TextAutoCorrectionCore__AutoCorrectionSettings, newAutoFractions: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAutoFractions(@ptrCast(self.ptr), newAutoFractions);
     }
+
+    /// ### DEPRECATED: Use `setSingleSpaces` instead
+    ///
+    pub const SetSingleSpaces = setSingleSpaces;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -368,9 +500,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newSingleSpaces: bool `
     ///
-    pub fn SetSingleSpaces(self: TextAutoCorrectionCore__AutoCorrectionSettings, newSingleSpaces: bool) void {
+    pub fn setSingleSpaces(self: TextAutoCorrectionCore__AutoCorrectionSettings, newSingleSpaces: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetSingleSpaces(@ptrCast(self.ptr), newSingleSpaces);
     }
+
+    /// ### DEPRECATED: Use `setFixTwoUppercaseChars` instead
+    ///
+    pub const SetFixTwoUppercaseChars = setFixTwoUppercaseChars;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -380,9 +516,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newFixTwoUppercaseChars: bool `
     ///
-    pub fn SetFixTwoUppercaseChars(self: TextAutoCorrectionCore__AutoCorrectionSettings, newFixTwoUppercaseChars: bool) void {
+    pub fn setFixTwoUppercaseChars(self: TextAutoCorrectionCore__AutoCorrectionSettings, newFixTwoUppercaseChars: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetFixTwoUppercaseChars(@ptrCast(self.ptr), newFixTwoUppercaseChars);
     }
+
+    /// ### DEPRECATED: Use `setUppercaseFirstCharOfSentence` instead
+    ///
+    pub const SetUppercaseFirstCharOfSentence = setUppercaseFirstCharOfSentence;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -392,9 +532,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newUppercaseFirstCharOfSentence: bool `
     ///
-    pub fn SetUppercaseFirstCharOfSentence(self: TextAutoCorrectionCore__AutoCorrectionSettings, newUppercaseFirstCharOfSentence: bool) void {
+    pub fn setUppercaseFirstCharOfSentence(self: TextAutoCorrectionCore__AutoCorrectionSettings, newUppercaseFirstCharOfSentence: bool) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetUppercaseFirstCharOfSentence(@ptrCast(self.ptr), newUppercaseFirstCharOfSentence);
     }
+
+    /// ### DEPRECATED: Use `setUpperCaseExceptions` instead
+    ///
+    pub const SetUpperCaseExceptions = setUpperCaseExceptions;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -406,9 +550,9 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` exceptions: Set_constu8 `
     ///
-    pub fn SetUpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
+    pub fn setUpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
         const exceptions_count = exceptions.count();
-        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetUpperCaseExceptions: Memory allocation failed");
+        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setUpperCaseExceptions: Memory allocation failed");
         defer allocator.free(exceptions_arr);
         var exceptions_it = exceptions.keyIterator();
         var exceptions_i: usize = 0;
@@ -425,6 +569,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetUpperCaseExceptions(@ptrCast(self.ptr), exceptions_set);
     }
 
+    /// ### DEPRECATED: Use `setTwoUpperLetterExceptions` instead
+    ///
+    pub const SetTwoUpperLetterExceptions = setTwoUpperLetterExceptions;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -435,9 +583,9 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` exceptions: Set_constu8 `
     ///
-    pub fn SetTwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
+    pub fn setTwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, exceptions: Set_constu8) void {
         const exceptions_count = exceptions.count();
-        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetTwoUpperLetterExceptions: Memory allocation failed");
+        const exceptions_arr = allocator.alloc(qtc.libqt_string, exceptions_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setTwoUpperLetterExceptions: Memory allocation failed");
         defer allocator.free(exceptions_arr);
         var exceptions_it = exceptions.keyIterator();
         var exceptions_i: usize = 0;
@@ -454,23 +602,9 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetTwoUpperLetterExceptions(@ptrCast(self.ptr), exceptions_set);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    /// ### DEPRECATED: Use `upperCaseExceptions` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn UpperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
-        const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_UpperCaseExceptions(@ptrCast(self.ptr));
-        var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.UpperCaseExceptions: Total capacity allocation failed");
-        const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
-        for (0.._set.len) |i|
-            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
-        return _ret;
-    }
+    pub const UpperCaseExceptions = upperCaseExceptions;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -480,15 +614,41 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TwoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
-        const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TwoUpperLetterExceptions(@ptrCast(self.ptr));
+    pub fn upperCaseExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
+        const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_UpperCaseExceptions(@ptrCast(self.ptr));
         var _ret: Set_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.TwoUpperLetterExceptions: Total capacity allocation failed");
-        const _data: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.upperCaseExceptions: Total capacity allocation failed");
+        const _data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
         for (0.._set.len) |i|
-            _ret.putAssumeCapacity(_data[i].data[0.._data[i].len], {});
+            _ret.putAssumeCapacity(_data_val[i].data[0.._data_val[i].len], {});
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `twoUpperLetterExceptions` instead
+    ///
+    pub const TwoUpperLetterExceptions = twoUpperLetterExceptions;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn twoUpperLetterExceptions(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Set_constu8 {
+        const _set: qtc.libqt_list = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_TwoUpperLetterExceptions(@ptrCast(self.ptr));
+        var _ret: Set_constu8 = .empty;
+        _ret.ensureTotalCapacity(allocator, @intCast(_set.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.twoUpperLetterExceptions: Total capacity allocation failed");
+        const _data_val: [*]qtc.libqt_string = @ptrCast(@alignCast(_set.data));
+        for (0.._set.len) |i|
+            _ret.putAssumeCapacity(_data_val[i].data[0.._data_val[i].len], {});
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `setLanguage` instead
+    ///
+    pub const SetLanguage = setLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -498,13 +658,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` lang: []const u8 `
     ///
-    pub fn SetLanguage(self: TextAutoCorrectionCore__AutoCorrectionSettings, lang: []const u8) void {
+    pub fn setLanguage(self: TextAutoCorrectionCore__AutoCorrectionSettings, lang: []const u8) void {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetLanguage(@ptrCast(self.ptr), lang_str);
     }
+
+    /// ### DEPRECATED: Use `language` instead
+    ///
+    pub const Language = language;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -514,13 +678,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Language(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn language(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_Language(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.Language: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.language: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isFrenchLanguage` instead
+    ///
+    pub const IsFrenchLanguage = isFrenchLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -528,9 +696,13 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn IsFrenchLanguage(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
+    pub fn isFrenchLanguage(self: TextAutoCorrectionCore__AutoCorrectionSettings) bool {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_IsFrenchLanguage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutocorrectEntries` instead
+    ///
+    pub const SetAutocorrectEntries = setAutocorrectEntries;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -542,11 +714,11 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` entries: Map_constu8_constu8 `
     ///
-    pub fn SetAutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, entries: Map_constu8_constu8) void {
+    pub fn setAutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, entries: Map_constu8_constu8) void {
         const entries_count = entries.count();
-        const entries_keys = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetAutocorrectEntries: Memory allocation failed");
+        const entries_keys = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setAutocorrectEntries: Memory allocation failed");
         defer allocator.free(entries_keys);
-        const entries_values = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetAutocorrectEntries: Memory allocation failed");
+        const entries_values = allocator.alloc(qtc.libqt_string, entries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setAutocorrectEntries: Memory allocation failed");
         defer allocator.free(entries_values);
         var i: usize = 0;
         var entries_it = entries.iterator();
@@ -570,6 +742,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetAutocorrectEntries(@ptrCast(self.ptr), entries_map);
     }
 
+    /// ### DEPRECATED: Use `autocorrectEntries` instead
+    ///
+    pub const AutocorrectEntries = autocorrectEntries;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -578,10 +754,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AutocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
+    pub fn autocorrectEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_AutocorrectEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.autocorrectEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -597,15 +773,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.autocorrectEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.AutocorrectEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.autocorrectEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAutoCorrect` instead
+    ///
+    pub const AddAutoCorrect = addAutoCorrect;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -617,7 +797,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` replaceWord: []const u8 `
     ///
-    pub fn AddAutoCorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings, currentWord: []const u8, replaceWord: []const u8) bool {
+    pub fn addAutoCorrect(self: TextAutoCorrectionCore__AutoCorrectionSettings, currentWord: []const u8, replaceWord: []const u8) bool {
         const currentWord_str = qtc.libqt_string{
             .len = currentWord.len,
             .data = currentWord.ptr,
@@ -629,15 +809,23 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_AddAutoCorrect(@ptrCast(self.ptr), currentWord_str, replaceWord_str);
     }
 
+    /// ### DEPRECATED: Use `nonBreakingSpace` instead
+    ///
+    pub const NonBreakingSpace = nonBreakingSpace;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn NonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings) QChar {
+    pub fn nonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings) QChar {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_NonBreakingSpace(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setNonBreakingSpace` instead
+    ///
+    pub const SetNonBreakingSpace = setNonBreakingSpace;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -647,10 +835,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newNonBreakingSpace: QChar `
     ///
-    pub fn SetNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings, newNonBreakingSpace: anytype) void {
+    pub fn setNonBreakingSpace(self: TextAutoCorrectionCore__AutoCorrectionSettings, newNonBreakingSpace: anytype) void {
         comptime _ = @TypeOf(newNonBreakingSpace)._is_QChar;
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetNonBreakingSpace(@ptrCast(self.ptr), @ptrCast(newNonBreakingSpace.ptr));
     }
+
+    /// ### DEPRECATED: Use `superScriptEntries` instead
+    ///
+    pub const SuperScriptEntries = superScriptEntries;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -660,10 +852,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
+    pub fn superScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) Map_constu8_constu8 {
         const _map: qtc.libqt_map = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SuperScriptEntries(@ptrCast(self.ptr));
         var _ret: Map_constu8_constu8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.superScriptEntries: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
@@ -679,15 +871,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.superScriptEntries: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SuperScriptEntries: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.superScriptEntries: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_entry_slice, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSuperScriptEntries` instead
+    ///
+    pub const SetSuperScriptEntries = setSuperScriptEntries;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -699,11 +895,11 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newSuperScriptEntries: Map_constu8_constu8 `
     ///
-    pub fn SetSuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, newSuperScriptEntries: Map_constu8_constu8) void {
+    pub fn setSuperScriptEntries(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator, newSuperScriptEntries: Map_constu8_constu8) void {
         const newSuperScriptEntries_count = newSuperScriptEntries.count();
-        const newSuperScriptEntries_keys = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetSuperScriptEntries: Memory allocation failed");
+        const newSuperScriptEntries_keys = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setSuperScriptEntries: Memory allocation failed");
         defer allocator.free(newSuperScriptEntries_keys);
-        const newSuperScriptEntries_values = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.SetSuperScriptEntries: Memory allocation failed");
+        const newSuperScriptEntries_values = allocator.alloc(qtc.libqt_string, newSuperScriptEntries_count) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.setSuperScriptEntries: Memory allocation failed");
         defer allocator.free(newSuperScriptEntries_values);
         var i: usize = 0;
         var newSuperScriptEntries_it = newSuperScriptEntries.iterator();
@@ -727,25 +923,23 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetSuperScriptEntries(@ptrCast(self.ptr), newSuperScriptEntries_map);
     }
 
+    /// ### DEPRECATED: Use `writeAutoCorrectionFile` instead
+    ///
+    pub const WriteAutoCorrectionFile = writeAutoCorrectionFile;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn WriteAutoCorrectionFile(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
+    pub fn writeAutoCorrectionFile(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_WriteAutoCorrectionFile(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    /// ### DEPRECATED: Use `maxFindStringLength` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
-    ///
-    pub fn MaxFindStringLength(self: TextAutoCorrectionCore__AutoCorrectionSettings) i32 {
-        return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_MaxFindStringLength(@ptrCast(self.ptr));
-    }
+    pub const MaxFindStringLength = maxFindStringLength;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -753,9 +947,27 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn MinFindStringLength(self: TextAutoCorrectionCore__AutoCorrectionSettings) i32 {
+    pub fn maxFindStringLength(self: TextAutoCorrectionCore__AutoCorrectionSettings) i32 {
+        return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_MaxFindStringLength(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `minFindStringLength` instead
+    ///
+    pub const MinFindStringLength = minFindStringLength;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
+    ///
+    pub fn minFindStringLength(self: TextAutoCorrectionCore__AutoCorrectionSettings) i32 {
         return qtc.TextAutoCorrectionCore__AutoCorrectionSettings_MinFindStringLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadLocalFileName` instead
+    ///
+    pub const LoadLocalFileName = loadLocalFileName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -767,7 +979,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` fname: []const u8 `
     ///
-    pub fn LoadLocalFileName(self: TextAutoCorrectionCore__AutoCorrectionSettings, localFileName: []const u8, fname: []const u8) void {
+    pub fn loadLocalFileName(self: TextAutoCorrectionCore__AutoCorrectionSettings, localFileName: []const u8, fname: []const u8) void {
         const localFileName_str = qtc.libqt_string{
             .len = localFileName.len,
             .data = localFileName.ptr,
@@ -779,6 +991,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_LoadLocalFileName(@ptrCast(self.ptr), localFileName_str, fname_str);
     }
 
+    /// ### DEPRECATED: Use `loadGlobalFileName` instead
+    ///
+    pub const LoadGlobalFileName = loadGlobalFileName;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -787,7 +1003,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` fname: []const u8 `
     ///
-    pub fn LoadGlobalFileName(self: TextAutoCorrectionCore__AutoCorrectionSettings, fname: []const u8) void {
+    pub fn loadGlobalFileName(self: TextAutoCorrectionCore__AutoCorrectionSettings, fname: []const u8) void {
         const fname_str = qtc.libqt_string{
             .len = fname.len,
             .data = fname.ptr,
@@ -795,15 +1011,23 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_LoadGlobalFileName(@ptrCast(self.ptr), fname_str);
     }
 
+    /// ### DEPRECATED: Use `doubleFrenchQuotes` instead
+    ///
+    pub const DoubleFrenchQuotes = doubleFrenchQuotes;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn DoubleFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
+    pub fn doubleFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings) TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes {
         return .{ .ptr = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_DoubleFrenchQuotes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDoubleFrenchQuotes` instead
+    ///
+    pub const SetDoubleFrenchQuotes = setDoubleFrenchQuotes;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -813,10 +1037,14 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` newDoubleFrenchQuotes: TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes `
     ///
-    pub fn SetDoubleFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, newDoubleFrenchQuotes: anytype) void {
+    pub fn setDoubleFrenchQuotes(self: TextAutoCorrectionCore__AutoCorrectionSettings, newDoubleFrenchQuotes: anytype) void {
         comptime _ = @TypeOf(newDoubleFrenchQuotes)._is_TextAutoCorrectionCore__AutoCorrectionUtils__TypographicQuotes;
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetDoubleFrenchQuotes(@ptrCast(self.ptr), @ptrCast(newDoubleFrenchQuotes.ptr));
     }
+
+    /// ### DEPRECATED: Use `customWritablePath` instead
+    ///
+    pub const CustomWritablePath = customWritablePath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -826,13 +1054,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomWritablePath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn customWritablePath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_CustomWritablePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.CustomWritablePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.customWritablePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCustomWritablePath` instead
+    ///
+    pub const SetCustomWritablePath = setCustomWritablePath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -842,7 +1074,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetCustomWritablePath(self: TextAutoCorrectionCore__AutoCorrectionSettings, path: []const u8) void {
+    pub fn setCustomWritablePath(self: TextAutoCorrectionCore__AutoCorrectionSettings, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -850,6 +1082,10 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetCustomWritablePath(@ptrCast(self.ptr), path_str);
     }
 
+    /// ### DEPRECATED: Use `customSystemPath` instead
+    ///
+    pub const CustomSystemPath = customSystemPath;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
     /// ## Parameter(s):
@@ -858,13 +1094,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CustomSystemPath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
+    pub fn customSystemPath(self: TextAutoCorrectionCore__AutoCorrectionSettings, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextAutoCorrectionCore__AutoCorrectionSettings_CustomSystemPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.CustomSystemPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextAutoCorrectionCore__AutoCorrectionSettings.customSystemPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCustomSystemPath` instead
+    ///
+    pub const SetCustomSystemPath = setCustomSystemPath;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -874,13 +1114,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` path: []const u8 `
     ///
-    pub fn SetCustomSystemPath(self: TextAutoCorrectionCore__AutoCorrectionSettings, path: []const u8) void {
+    pub fn setCustomSystemPath(self: TextAutoCorrectionCore__AutoCorrectionSettings, path: []const u8) void {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
         };
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetCustomSystemPath(@ptrCast(self.ptr), path_str);
     }
+
+    /// ### DEPRECATED: Use `setLanguage2` instead
+    ///
+    pub const SetLanguage2 = setLanguage2;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -892,13 +1136,17 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` forceGlobal: bool `
     ///
-    pub fn SetLanguage2(self: TextAutoCorrectionCore__AutoCorrectionSettings, lang: []const u8, forceGlobal: bool) void {
+    pub fn setLanguage2(self: TextAutoCorrectionCore__AutoCorrectionSettings, lang: []const u8, forceGlobal: bool) void {
         const lang_str = qtc.libqt_string{
             .len = lang.len,
             .data = lang.ptr,
         };
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_SetLanguage2(@ptrCast(self.ptr), lang_str, forceGlobal);
     }
+
+    /// ### DEPRECATED: Use `writeAutoCorrectionFile1` instead
+    ///
+    pub const WriteAutoCorrectionFile1 = writeAutoCorrectionFile1;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
@@ -908,7 +1156,7 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
     ///
     /// ` filename: []const u8 `
     ///
-    pub fn WriteAutoCorrectionFile1(self: TextAutoCorrectionCore__AutoCorrectionSettings, filename: []const u8) void {
+    pub fn writeAutoCorrectionFile1(self: TextAutoCorrectionCore__AutoCorrectionSettings, filename: []const u8) void {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
@@ -916,19 +1164,19 @@ pub const TextAutoCorrectionCore__AutoCorrectionSettings = extern struct {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_WriteAutoCorrectionFile1(@ptrCast(self.ptr), filename_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextAutoCorrectionCore_1_1AutoCorrectionSettings.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextAutoCorrectionCore__AutoCorrectionSettings `
     ///
-    pub fn Delete(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
+    pub fn delete(self: TextAutoCorrectionCore__AutoCorrectionSettings) void {
         qtc.TextAutoCorrectionCore__AutoCorrectionSettings_Delete(@ptrCast(self.ptr));
     }
 };

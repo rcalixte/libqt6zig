@@ -13,15 +13,23 @@ pub const KNotificationPermission = extern struct {
 
     pub const _is_KNotificationPermission = {};
 
+    /// ### DEPRECATED: Use `checkPermission` instead
+    ///
+    pub const CheckPermission = checkPermission;
+
     /// ### [Upstream resources](https://api.kde.org/knotificationpermission.html#checkPermission)
     ///
     /// ## Returns:
     ///
     /// ` qnamespace_enums.PermissionStatus `
     ///
-    pub fn CheckPermission() i32 {
+    pub fn checkPermission() i32 {
         return qtc.KNotificationPermission_CheckPermission();
     }
+
+    /// ### DEPRECATED: Use `requestPermission` instead
+    ///
+    pub const RequestPermission = requestPermission;
 
     /// ### [Upstream resources](https://api.kde.org/knotificationpermission.html#requestPermission)
     ///
@@ -31,7 +39,7 @@ pub const KNotificationPermission = extern struct {
     ///
     /// ` callback: *const fn (funcparam1: qnamespace_enums.PermissionStatus) callconv(.c) void `
     ///
-    pub fn RequestPermission(context: anytype, callback: *const fn (i32) callconv(.c) void) void {
+    pub fn requestPermission(context: anytype, callback: *const fn (i32) callconv(.c) void) void {
         comptime _ = @TypeOf(context)._is_QObject;
         qtc.KNotificationPermission_RequestPermission(@ptrCast(context.ptr), @bitCast(@intFromPtr(callback)));
     }

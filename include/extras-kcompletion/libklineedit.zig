@@ -93,24 +93,32 @@ pub const KLineEdit = extern struct {
     pub const _is_QPaintDevice = {};
     pub const _is_KCompletionBase = {};
 
-    /// New constructs a new KLineEdit object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KLineEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KLineEdit {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KLineEdit_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KLineEdit {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KLineEdit_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KLineEdit object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KLineEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` string: []const u8 `
     ///
-    pub fn New2(string: []const u8) KLineEdit {
+    pub fn new2(string: []const u8) KLineEdit {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
@@ -118,28 +126,40 @@ pub const KLineEdit = extern struct {
         return .{ .ptr = qtc.KLineEdit_new2(string_str) };
     }
 
-    /// New3 constructs a new KLineEdit object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() KLineEdit {
+    pub const New3 = new3;
+
+    /// Allocate a new KLineEdit object in C++ memory
+    ///
+    pub fn new3() KLineEdit {
         return .{ .ptr = qtc.KLineEdit_new3() };
     }
 
-    /// New4 constructs a new KLineEdit object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KLineEdit object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` string: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(string: []const u8, parent: anytype) KLineEdit {
+    pub fn new4(string: []const u8, _parent: anytype) KLineEdit {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KLineEdit_new4(string_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KLineEdit_new4(string_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -147,9 +167,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MetaObject(self: KLineEdit) QMetaObject {
+    pub fn metaObject(self: KLineEdit) QMetaObject {
         return .{ .ptr = qtc.KLineEdit_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -161,13 +185,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KLineEdit, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KLineEdit, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KLineEdit_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -177,9 +201,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperMetaObject(self: KLineEdit) QMetaObject {
+    pub fn superMetaObject(self: KLineEdit) QMetaObject {
         return .{ .ptr = qtc.KLineEdit_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -187,10 +215,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KLineEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KLineEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KLineEdit_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -200,13 +232,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KLineEdit_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -216,10 +248,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KLineEdit, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KLineEdit, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KLineEdit_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -231,9 +267,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KLineEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KLineEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KLineEdit_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -243,13 +283,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KLineEdit_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -263,9 +303,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KLineEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KLineEdit, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KLineEdit_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -275,14 +319,18 @@ pub const KLineEdit = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUrl)
     ///
@@ -292,10 +340,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` url: QUrl `
     ///
-    pub fn SetUrl(self: KLineEdit, url: anytype) void {
+    pub fn setUrl(self: KLineEdit, url: anytype) void {
         comptime _ = @TypeOf(url)._is_QUrl;
         qtc.KLineEdit_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCompletionMode` instead
+    ///
+    pub const SetCompletionMode = setCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
@@ -305,9 +357,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionMode(self: KLineEdit, mode: i32) void {
+    pub fn setCompletionMode(self: KLineEdit, mode: i32) void {
         qtc.KLineEdit_SetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionMode` instead
+    ///
+    pub const OnSetCompletionMode = onSetCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
@@ -319,13 +375,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, mode: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnSetCompletionMode(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
+    pub fn onSetCompletionMode(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
         qtc.KLineEdit_OnSetCompletionMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionMode` instead
+    /// ### DEPRECATED: Use `superSetCompletionMode` instead
     ///
-    pub const QBaseSetCompletionMode = SuperSetCompletionMode;
+    pub const SuperSetCompletionMode = superSetCompletionMode;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionMode)
     ///
@@ -337,9 +393,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SuperSetCompletionMode(self: KLineEdit, mode: i32) void {
+    pub fn superSetCompletionMode(self: KLineEdit, mode: i32) void {
         qtc.KLineEdit_SuperSetCompletionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `setCompletionModeDisabled` instead
+    ///
+    pub const SetCompletionModeDisabled = setCompletionModeDisabled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionModeDisabled)
     ///
@@ -349,9 +409,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mode: kcompletion_enums.CompletionMode `
     ///
-    pub fn SetCompletionModeDisabled(self: KLineEdit, mode: i32) void {
+    pub fn setCompletionModeDisabled(self: KLineEdit, mode: i32) void {
         qtc.KLineEdit_SetCompletionModeDisabled(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `urlDropsEnabled` instead
+    ///
+    pub const UrlDropsEnabled = urlDropsEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#urlDropsEnabled)
     ///
@@ -359,9 +423,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UrlDropsEnabled(self: KLineEdit) bool {
+    pub fn urlDropsEnabled(self: KLineEdit) bool {
         return qtc.KLineEdit_UrlDropsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTrapReturnKey` instead
+    ///
+    pub const SetTrapReturnKey = setTrapReturnKey;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setTrapReturnKey)
     ///
@@ -371,9 +439,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` trap: bool `
     ///
-    pub fn SetTrapReturnKey(self: KLineEdit, trap: bool) void {
+    pub fn setTrapReturnKey(self: KLineEdit, trap: bool) void {
         qtc.KLineEdit_SetTrapReturnKey(@ptrCast(self.ptr), trap);
     }
+
+    /// ### DEPRECATED: Use `trapReturnKey` instead
+    ///
+    pub const TrapReturnKey = trapReturnKey;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#trapReturnKey)
     ///
@@ -381,9 +453,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn TrapReturnKey(self: KLineEdit) bool {
+    pub fn trapReturnKey(self: KLineEdit) bool {
         return qtc.KLineEdit_TrapReturnKey(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `completionBox` instead
+    ///
+    pub const CompletionBox = completionBox;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBox)
     ///
@@ -391,11 +467,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` create: bool `
+    /// ` _create: bool `
     ///
-    pub fn CompletionBox(self: KLineEdit, create: bool) KCompletionBox {
-        return .{ .ptr = qtc.KLineEdit_CompletionBox(@ptrCast(self.ptr), create) };
+    pub fn completionBox(self: KLineEdit, _create: bool) KCompletionBox {
+        return .{ .ptr = qtc.KLineEdit_CompletionBox(@ptrCast(self.ptr), _create) };
     }
+
+    /// ### DEPRECATED: Use `onCompletionBox` instead
+    ///
+    pub const OnCompletionBox = onCompletionBox;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBox)
     ///
@@ -407,13 +487,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, create: bool) callconv(.c) KCompletionBox `
     ///
-    pub fn OnCompletionBox(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) KCompletionBox) void {
+    pub fn onCompletionBox(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) KCompletionBox) void {
         qtc.KLineEdit_OnCompletionBox(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCompletionBox` instead
+    /// ### DEPRECATED: Use `superCompletionBox` instead
     ///
-    pub const QBaseCompletionBox = SuperCompletionBox;
+    pub const SuperCompletionBox = superCompletionBox;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBox)
     ///
@@ -423,11 +503,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` create: bool `
+    /// ` _create: bool `
     ///
-    pub fn SuperCompletionBox(self: KLineEdit, create: bool) KCompletionBox {
-        return .{ .ptr = qtc.KLineEdit_SuperCompletionBox(@ptrCast(self.ptr), create) };
+    pub fn superCompletionBox(self: KLineEdit, _create: bool) KCompletionBox {
+        return .{ .ptr = qtc.KLineEdit_SuperCompletionBox(@ptrCast(self.ptr), _create) };
     }
+
+    /// ### DEPRECATED: Use `setCompletionObject` instead
+    ///
+    pub const SetCompletionObject = setCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
@@ -439,10 +523,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SetCompletionObject(self: KLineEdit, param1: anytype, handle: bool) void {
+    pub fn setCompletionObject(self: KLineEdit, param1: anytype, handle: bool) void {
         comptime _ = @TypeOf(param1)._is_KCompletion;
         qtc.KLineEdit_SetCompletionObject(@ptrCast(self.ptr), @ptrCast(param1.ptr), handle);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletionObject` instead
+    ///
+    pub const OnSetCompletionObject = onSetCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
@@ -454,13 +542,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: KCompletion, handle: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletionObject(self: KLineEdit, callback: *const fn (KLineEdit, KCompletion, bool) callconv(.c) void) void {
+    pub fn onSetCompletionObject(self: KLineEdit, callback: *const fn (KLineEdit, KCompletion, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetCompletionObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletionObject` instead
+    /// ### DEPRECATED: Use `superSetCompletionObject` instead
     ///
-    pub const QBaseSetCompletionObject = SuperSetCompletionObject;
+    pub const SuperSetCompletionObject = superSetCompletionObject;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionObject)
     ///
@@ -474,10 +562,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SuperSetCompletionObject(self: KLineEdit, param1: anytype, handle: bool) void {
+    pub fn superSetCompletionObject(self: KLineEdit, param1: anytype, handle: bool) void {
         comptime _ = @TypeOf(param1)._is_KCompletion;
         qtc.KLineEdit_SuperSetCompletionObject(@ptrCast(self.ptr), @ptrCast(param1.ptr), handle);
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#copy)
     ///
@@ -485,9 +577,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Copy(self: KLineEdit) void {
+    pub fn copy(self: KLineEdit) void {
         qtc.KLineEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCopy` instead
+    ///
+    pub const OnCopy = onCopy;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#copy)
     ///
@@ -499,13 +595,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCopy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCopy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
         qtc.KLineEdit_OnCopy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCopy` instead
+    /// ### DEPRECATED: Use `superCopy` instead
     ///
-    pub const QBaseCopy = SuperCopy;
+    pub const SuperCopy = superCopy;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#copy)
     ///
@@ -515,9 +611,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperCopy(self: KLineEdit) void {
+    pub fn superCopy(self: KLineEdit) void {
         qtc.KLineEdit_SuperCopy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSqueezedTextEnabled` instead
+    ///
+    pub const SetSqueezedTextEnabled = setSqueezedTextEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setSqueezedTextEnabled)
     ///
@@ -527,9 +627,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetSqueezedTextEnabled(self: KLineEdit, enable: bool) void {
+    pub fn setSqueezedTextEnabled(self: KLineEdit, enable: bool) void {
         qtc.KLineEdit_SetSqueezedTextEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isSqueezedTextEnabled` instead
+    ///
+    pub const IsSqueezedTextEnabled = isSqueezedTextEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#isSqueezedTextEnabled)
     ///
@@ -537,9 +641,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsSqueezedTextEnabled(self: KLineEdit) bool {
+    pub fn isSqueezedTextEnabled(self: KLineEdit) bool {
         return qtc.KLineEdit_IsSqueezedTextEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `originalText` instead
+    ///
+    pub const OriginalText = originalText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#originalText)
     ///
@@ -549,13 +657,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OriginalText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn originalText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KLineEdit_OriginalText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.OriginalText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.originalText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `userText` instead
+    ///
+    pub const UserText = userText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userText)
     ///
@@ -565,13 +677,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn userText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KLineEdit_UserText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.UserText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.userText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCompletionBox` instead
+    ///
+    pub const SetCompletionBox = setCompletionBox;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionBox)
     ///
@@ -581,10 +697,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` box: KCompletionBox `
     ///
-    pub fn SetCompletionBox(self: KLineEdit, box: anytype) void {
+    pub fn setCompletionBox(self: KLineEdit, box: anytype) void {
         comptime _ = @TypeOf(box)._is_KCompletionBox;
         qtc.KLineEdit_SetCompletionBox(@ptrCast(self.ptr), @ptrCast(box.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearButtonUsedSize` instead
+    ///
+    pub const ClearButtonUsedSize = clearButtonUsedSize;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#clearButtonUsedSize)
     ///
@@ -592,9 +712,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ClearButtonUsedSize(self: KLineEdit) QSize {
+    pub fn clearButtonUsedSize(self: KLineEdit) QSize {
         return .{ .ptr = qtc.KLineEdit_ClearButtonUsedSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `doCompletion` instead
+    ///
+    pub const DoCompletion = doCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#doCompletion)
     ///
@@ -602,15 +726,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn DoCompletion(self: KLineEdit, text: []const u8) void {
+    pub fn doCompletion(self: KLineEdit, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KLineEdit_DoCompletion(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `completionBoxActivated` instead
+    ///
+    pub const CompletionBoxActivated = completionBoxActivated;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBoxActivated)
     ///
@@ -620,13 +748,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CompletionBoxActivated(self: KLineEdit, param1: []const u8) void {
+    pub fn completionBoxActivated(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_CompletionBoxActivated(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCompletionBoxActivated` instead
+    ///
+    pub const OnCompletionBoxActivated = onCompletionBoxActivated;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionBoxActivated)
     ///
@@ -636,9 +768,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCompletionBoxActivated(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCompletionBoxActivated(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionBoxActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `returnKeyPressed` instead
+    ///
+    pub const ReturnKeyPressed = returnKeyPressed;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#returnKeyPressed)
     ///
@@ -646,15 +782,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn ReturnKeyPressed(self: KLineEdit, text: []const u8) void {
+    pub fn returnKeyPressed(self: KLineEdit, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KLineEdit_ReturnKeyPressed(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onReturnKeyPressed` instead
+    ///
+    pub const OnReturnKeyPressed = onReturnKeyPressed;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#returnKeyPressed)
     ///
@@ -664,9 +804,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnReturnKeyPressed(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onReturnKeyPressed(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_ReturnKeyPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completion` instead
+    ///
+    pub const Completion = completion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completion)
     ///
@@ -676,7 +820,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Completion(self: KLineEdit, param1: []const u8) void {
+    pub fn completion(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -684,6 +828,10 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_Completion(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onCompletion` instead
+    ///
+    pub const OnCompletion = onCompletion;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completion)
     ///
     /// ## Parameters:
@@ -692,9 +840,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_Completion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `substringCompletion` instead
+    ///
+    pub const SubstringCompletion = substringCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#substringCompletion)
     ///
@@ -704,13 +856,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SubstringCompletion(self: KLineEdit, param1: []const u8) void {
+    pub fn substringCompletion(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_SubstringCompletion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onSubstringCompletion` instead
+    ///
+    pub const OnSubstringCompletion = onSubstringCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#substringCompletion)
     ///
@@ -720,9 +876,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSubstringCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSubstringCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_Connect_SubstringCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textRotation` instead
+    ///
+    pub const TextRotation = textRotation;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#textRotation)
     ///
@@ -732,9 +892,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn TextRotation(self: KLineEdit, param1: i32) void {
+    pub fn textRotation(self: KLineEdit, param1: i32) void {
         qtc.KLineEdit_TextRotation(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onTextRotation` instead
+    ///
+    pub const OnTextRotation = onTextRotation;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#textRotation)
     ///
@@ -744,9 +908,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: kcompletionbase_enums.KeyBindingType) callconv(.c) void `
     ///
-    pub fn OnTextRotation(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
+    pub fn onTextRotation(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_TextRotation(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `completionModeChanged` instead
+    ///
+    pub const CompletionModeChanged = completionModeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionModeChanged)
     ///
@@ -756,9 +924,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionModeChanged(self: KLineEdit, param1: i32) void {
+    pub fn completionModeChanged(self: KLineEdit, param1: i32) void {
         qtc.KLineEdit_CompletionModeChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onCompletionModeChanged` instead
+    ///
+    pub const OnCompletionModeChanged = onCompletionModeChanged;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#completionModeChanged)
     ///
@@ -768,9 +940,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: kcompletion_enums.CompletionMode) callconv(.c) void `
     ///
-    pub fn OnCompletionModeChanged(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
+    pub fn onCompletionModeChanged(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) void) void {
         qtc.KLineEdit_Connect_CompletionModeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `aboutToShowContextMenu` instead
+    ///
+    pub const AboutToShowContextMenu = aboutToShowContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
     ///
@@ -780,10 +956,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` contextMenu: QMenu `
     ///
-    pub fn AboutToShowContextMenu(self: KLineEdit, contextMenu: anytype) void {
+    pub fn aboutToShowContextMenu(self: KLineEdit, contextMenu: anytype) void {
         comptime _ = @TypeOf(contextMenu)._is_QMenu;
         qtc.KLineEdit_AboutToShowContextMenu(@ptrCast(self.ptr), @ptrCast(contextMenu.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAboutToShowContextMenu` instead
+    ///
+    pub const OnAboutToShowContextMenu = onAboutToShowContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#aboutToShowContextMenu)
     ///
@@ -793,9 +973,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, contextMenu: QMenu) callconv(.c) void `
     ///
-    pub fn OnAboutToShowContextMenu(self: KLineEdit, callback: *const fn (KLineEdit, QMenu) callconv(.c) void) void {
+    pub fn onAboutToShowContextMenu(self: KLineEdit, callback: *const fn (KLineEdit, QMenu) callconv(.c) void) void {
         qtc.KLineEdit_Connect_AboutToShowContextMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clearButtonClicked` instead
+    ///
+    pub const ClearButtonClicked = clearButtonClicked;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#clearButtonClicked)
     ///
@@ -803,9 +987,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ClearButtonClicked(self: KLineEdit) void {
+    pub fn clearButtonClicked(self: KLineEdit) void {
         qtc.KLineEdit_ClearButtonClicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearButtonClicked` instead
+    ///
+    pub const OnClearButtonClicked = onClearButtonClicked;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#clearButtonClicked)
     ///
@@ -815,9 +1003,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnClearButtonClicked(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onClearButtonClicked(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.KLineEdit_Connect_ClearButtonClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setReadOnly)
     ///
@@ -827,9 +1019,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SetReadOnly(self: KLineEdit, readOnly: bool) void {
+    pub fn setReadOnly(self: KLineEdit, readOnly: bool) void {
         qtc.KLineEdit_SetReadOnly(@ptrCast(self.ptr), readOnly);
     }
+
+    /// ### DEPRECATED: Use `onSetReadOnly` instead
+    ///
+    pub const OnSetReadOnly = onSetReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setReadOnly)
     ///
@@ -841,13 +1037,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, readOnly: bool) callconv(.c) void `
     ///
-    pub fn OnSetReadOnly(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
+    pub fn onSetReadOnly(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetReadOnly` instead
+    /// ### DEPRECATED: Use `superSetReadOnly` instead
     ///
-    pub const QBaseSetReadOnly = SuperSetReadOnly;
+    pub const SuperSetReadOnly = superSetReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setReadOnly)
     ///
@@ -859,9 +1055,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SuperSetReadOnly(self: KLineEdit, readOnly: bool) void {
+    pub fn superSetReadOnly(self: KLineEdit, readOnly: bool) void {
         qtc.KLineEdit_SuperSetReadOnly(@ptrCast(self.ptr), readOnly);
     }
+
+    /// ### DEPRECATED: Use `rotateText` instead
+    ///
+    pub const RotateText = rotateText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#rotateText)
     ///
@@ -871,9 +1071,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn RotateText(self: KLineEdit, typeVal: i32) void {
+    pub fn rotateText(self: KLineEdit, typeVal: i32) void {
         qtc.KLineEdit_RotateText(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setCompletedText` instead
+    ///
+    pub const SetCompletedText = setCompletedText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -883,13 +1087,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` completedText: []const u8 `
     ///
-    pub fn SetCompletedText(self: KLineEdit, completedText: []const u8) void {
+    pub fn setCompletedText(self: KLineEdit, completedText: []const u8) void {
         const completedText_str = qtc.libqt_string{
             .len = completedText.len,
             .data = completedText.ptr,
         };
         qtc.KLineEdit_SetCompletedText(@ptrCast(self.ptr), completedText_str);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletedText` instead
+    ///
+    pub const OnSetCompletedText = onSetCompletedText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -901,13 +1109,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, completedText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetCompletedText(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetCompletedText(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_OnSetCompletedText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletedText` instead
+    /// ### DEPRECATED: Use `superSetCompletedText` instead
     ///
-    pub const QBaseSetCompletedText = SuperSetCompletedText;
+    pub const SuperSetCompletedText = superSetCompletedText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -919,13 +1127,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` completedText: []const u8 `
     ///
-    pub fn SuperSetCompletedText(self: KLineEdit, completedText: []const u8) void {
+    pub fn superSetCompletedText(self: KLineEdit, completedText: []const u8) void {
         const completedText_str = qtc.libqt_string{
             .len = completedText.len,
             .data = completedText.ptr,
         };
         qtc.KLineEdit_SuperSetCompletedText(@ptrCast(self.ptr), completedText_str);
     }
+
+    /// ### DEPRECATED: Use `setCompletedItems` instead
+    ///
+    pub const SetCompletedItems = setCompletedItems;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
@@ -937,22 +1149,26 @@ pub const KLineEdit = extern struct {
     ///
     /// ` items: []const []const u8 `
     ///
-    /// ` autoSuggest: bool `
+    /// ` _autoSuggest: bool `
     ///
-    pub fn SetCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.SetCompletedItems: Memory allocation failed");
+    pub fn setCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, _autoSuggest: bool) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.setCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (items, 0..items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KLineEdit_SetCompletedItems(@ptrCast(self.ptr), items_list, autoSuggest);
+        qtc.KLineEdit_SetCompletedItems(@ptrCast(self.ptr), items_list, _autoSuggest);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletedItems` instead
+    ///
+    pub const OnSetCompletedItems = onSetCompletedItems;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
@@ -964,13 +1180,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, items: ?[*:null]?[*:0]const u8, autoSuggest: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedItems(self: KLineEdit, callback: *const fn (KLineEdit, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onSetCompletedItems(self: KLineEdit, callback: *const fn (KLineEdit, ?[*:null]?[*:0]const u8, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetCompletedItems(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletedItems` instead
+    /// ### DEPRECATED: Use `superSetCompletedItems` instead
     ///
-    pub const QBaseSetCompletedItems = SuperSetCompletedItems;
+    pub const SuperSetCompletedItems = superSetCompletedItems;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedItems)
     ///
@@ -984,22 +1200,26 @@ pub const KLineEdit = extern struct {
     ///
     /// ` items: []const []const u8 `
     ///
-    /// ` autoSuggest: bool `
+    /// ` _autoSuggest: bool `
     ///
-    pub fn SuperSetCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, autoSuggest: bool) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.SetCompletedItems: Memory allocation failed");
+    pub fn superSetCompletedItems(self: KLineEdit, allocator: std.mem.Allocator, items: []const []const u8, _autoSuggest: bool) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KLineEdit.setCompletedItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (items, 0..items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
             .len = items.len,
             .data = items_arr.ptr,
         };
-        qtc.KLineEdit_SuperSetCompletedItems(@ptrCast(self.ptr), items_list, autoSuggest);
+        qtc.KLineEdit_SuperSetCompletedItems(@ptrCast(self.ptr), items_list, _autoSuggest);
     }
+
+    /// ### DEPRECATED: Use `setSqueezedText` instead
+    ///
+    pub const SetSqueezedText = setSqueezedText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setSqueezedText)
     ///
@@ -1007,15 +1227,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetSqueezedText(self: KLineEdit, text: []const u8) void {
+    pub fn setSqueezedText(self: KLineEdit, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KLineEdit_SetSqueezedText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setText)
     ///
@@ -1023,15 +1247,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KLineEdit, text: []const u8) void {
+    pub fn setText(self: KLineEdit, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KLineEdit_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onSetText` instead
+    ///
+    pub const OnSetText = onSetText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setText)
     ///
@@ -1043,13 +1271,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetText(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetText(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_OnSetText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetText` instead
+    /// ### DEPRECATED: Use `superSetText` instead
     ///
-    pub const QBaseSetText = SuperSetText;
+    pub const SuperSetText = superSetText;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setText)
     ///
@@ -1059,15 +1287,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SuperSetText(self: KLineEdit, text: []const u8) void {
+    pub fn superSetText(self: KLineEdit, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KLineEdit_SuperSetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `makeCompletion` instead
+    ///
+    pub const MakeCompletion = makeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#makeCompletion)
     ///
@@ -1077,13 +1309,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn MakeCompletion(self: KLineEdit, param1: []const u8) void {
+    pub fn makeCompletion(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_MakeCompletion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onMakeCompletion` instead
+    ///
+    pub const OnMakeCompletion = onMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#makeCompletion)
     ///
@@ -1095,13 +1331,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMakeCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onMakeCompletion(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_OnMakeCompletion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMakeCompletion` instead
+    /// ### DEPRECATED: Use `superMakeCompletion` instead
     ///
-    pub const QBaseMakeCompletion = SuperMakeCompletion;
+    pub const SuperMakeCompletion = superMakeCompletion;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#makeCompletion)
     ///
@@ -1113,13 +1349,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperMakeCompletion(self: KLineEdit, param1: []const u8) void {
+    pub fn superMakeCompletion(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_SuperMakeCompletion(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `userCancelled` instead
+    ///
+    pub const UserCancelled = userCancelled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
     ///
@@ -1129,13 +1369,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` cancelText: []const u8 `
     ///
-    pub fn UserCancelled(self: KLineEdit, cancelText: []const u8) void {
+    pub fn userCancelled(self: KLineEdit, cancelText: []const u8) void {
         const cancelText_str = qtc.libqt_string{
             .len = cancelText.len,
             .data = cancelText.ptr,
         };
         qtc.KLineEdit_UserCancelled(@ptrCast(self.ptr), cancelText_str);
     }
+
+    /// ### DEPRECATED: Use `onUserCancelled` instead
+    ///
+    pub const OnUserCancelled = onUserCancelled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
     ///
@@ -1147,13 +1391,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, cancelText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnUserCancelled(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onUserCancelled(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.KLineEdit_OnUserCancelled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUserCancelled` instead
+    /// ### DEPRECATED: Use `superUserCancelled` instead
     ///
-    pub const QBaseUserCancelled = SuperUserCancelled;
+    pub const SuperUserCancelled = superUserCancelled;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#userCancelled)
     ///
@@ -1165,13 +1409,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` cancelText: []const u8 `
     ///
-    pub fn SuperUserCancelled(self: KLineEdit, cancelText: []const u8) void {
+    pub fn superUserCancelled(self: KLineEdit, cancelText: []const u8) void {
         const cancelText_str = qtc.libqt_string{
             .len = cancelText.len,
             .data = cancelText.ptr,
         };
         qtc.KLineEdit_SuperUserCancelled(@ptrCast(self.ptr), cancelText_str);
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#event)
     ///
@@ -1181,10 +1429,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: KLineEdit, param1: anytype) bool {
+    pub fn event(self: KLineEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KLineEdit_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#event)
     ///
@@ -1196,13 +1448,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) bool) void {
         qtc.KLineEdit_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#event)
     ///
@@ -1214,10 +1466,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: KLineEdit, param1: anytype) bool {
+    pub fn superEvent(self: KLineEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KLineEdit_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#resizeEvent)
     ///
@@ -1227,10 +1483,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KLineEdit, param1: anytype) void {
+    pub fn resizeEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KLineEdit_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#resizeEvent)
     ///
@@ -1242,13 +1502,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KLineEdit, callback: *const fn (KLineEdit, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KLineEdit, callback: *const fn (KLineEdit, QResizeEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#resizeEvent)
     ///
@@ -1260,10 +1520,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superResizeEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KLineEdit_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
@@ -1273,10 +1537,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KLineEdit, param1: anytype) void {
+    pub fn keyPressEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KLineEdit_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
@@ -1288,13 +1556,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KLineEdit, callback: *const fn (KLineEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KLineEdit, callback: *const fn (KLineEdit, QKeyEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#keyPressEvent)
     ///
@@ -1306,11 +1574,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KLineEdit_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// ## Parameter(s):
@@ -1319,11 +1591,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KLineEdit, param1: anytype) void {
+    pub fn mousePressEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_MousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
     /// Allows for overriding the related default method
@@ -1334,13 +1610,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mousePressEvent)
     ///
@@ -1352,11 +1628,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superMousePressEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// ## Parameter(s):
@@ -1365,11 +1645,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KLineEdit, param1: anytype) void {
+    pub fn mouseReleaseEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
     /// Allows for overriding the related default method
@@ -1380,13 +1664,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseReleaseEvent)
     ///
@@ -1398,11 +1682,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superMouseReleaseEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
     /// ## Parameter(s):
@@ -1411,10 +1699,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KLineEdit, param1: anytype) void {
+    pub fn mouseDoubleClickEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
@@ -1426,13 +1718,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#mouseDoubleClickEvent)
     ///
@@ -1444,10 +1736,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
@@ -1457,10 +1753,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KLineEdit, param1: anytype) void {
+    pub fn contextMenuEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KLineEdit_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
@@ -1472,13 +1772,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KLineEdit, callback: *const fn (KLineEdit, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KLineEdit, callback: *const fn (KLineEdit, QContextMenuEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#contextMenuEvent)
     ///
@@ -1490,10 +1790,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KLineEdit_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
@@ -1501,9 +1805,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CreateStandardContextMenu(self: KLineEdit) QMenu {
+    pub fn createStandardContextMenu(self: KLineEdit) QMenu {
         return .{ .ptr = qtc.KLineEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateStandardContextMenu` instead
+    ///
+    pub const OnCreateStandardContextMenu = onCreateStandardContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
@@ -1515,13 +1823,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMenu `
     ///
-    pub fn OnCreateStandardContextMenu(self: KLineEdit, callback: *const fn () callconv(.c) QMenu) void {
+    pub fn onCreateStandardContextMenu(self: KLineEdit, callback: *const fn () callconv(.c) QMenu) void {
         qtc.KLineEdit_OnCreateStandardContextMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateStandardContextMenu` instead
+    /// ### DEPRECATED: Use `superCreateStandardContextMenu` instead
     ///
-    pub const QBaseCreateStandardContextMenu = SuperCreateStandardContextMenu;
+    pub const SuperCreateStandardContextMenu = superCreateStandardContextMenu;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#createStandardContextMenu)
     ///
@@ -1531,9 +1839,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperCreateStandardContextMenu(self: KLineEdit) QMenu {
+    pub fn superCreateStandardContextMenu(self: KLineEdit) QMenu {
         return .{ .ptr = qtc.KLineEdit_SuperCreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompletedText2` instead
+    ///
+    pub const SetCompletedText2 = setCompletedText2;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -1545,13 +1857,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn SetCompletedText2(self: KLineEdit, param1: []const u8, param2: bool) void {
+    pub fn setCompletedText2(self: KLineEdit, param1: []const u8, param2: bool) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_SetCompletedText2(@ptrCast(self.ptr), param1_str, param2);
     }
+
+    /// ### DEPRECATED: Use `onSetCompletedText2` instead
+    ///
+    pub const OnSetCompletedText2 = onSetCompletedText2;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -1563,13 +1879,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8, param2: bool) callconv(.c) void `
     ///
-    pub fn OnSetCompletedText2(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onSetCompletedText2(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetCompletedText2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCompletedText2` instead
+    /// ### DEPRECATED: Use `superSetCompletedText2` instead
     ///
-    pub const QBaseSetCompletedText2 = SuperSetCompletedText2;
+    pub const SuperSetCompletedText2 = superSetCompletedText2;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletedText)
     ///
@@ -1583,13 +1899,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: bool `
     ///
-    pub fn SuperSetCompletedText2(self: KLineEdit, param1: []const u8, param2: bool) void {
+    pub fn superSetCompletedText2(self: KLineEdit, param1: []const u8, param2: bool) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.KLineEdit_SuperSetCompletedText2(@ptrCast(self.ptr), param1_str, param2);
     }
+
+    /// ### DEPRECATED: Use `setUserSelection` instead
+    ///
+    pub const SetUserSelection = setUserSelection;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
     ///
@@ -1599,9 +1919,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` userSelection: bool `
     ///
-    pub fn SetUserSelection(self: KLineEdit, userSelection: bool) void {
+    pub fn setUserSelection(self: KLineEdit, userSelection: bool) void {
         qtc.KLineEdit_SetUserSelection(@ptrCast(self.ptr), userSelection);
     }
+
+    /// ### DEPRECATED: Use `onSetUserSelection` instead
+    ///
+    pub const OnSetUserSelection = onSetUserSelection;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
     ///
@@ -1613,13 +1937,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, userSelection: bool) callconv(.c) void `
     ///
-    pub fn OnSetUserSelection(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
+    pub fn onSetUserSelection(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetUserSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetUserSelection` instead
+    /// ### DEPRECATED: Use `superSetUserSelection` instead
     ///
-    pub const QBaseSetUserSelection = SuperSetUserSelection;
+    pub const SuperSetUserSelection = superSetUserSelection;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setUserSelection)
     ///
@@ -1631,9 +1955,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` userSelection: bool `
     ///
-    pub fn SuperSetUserSelection(self: KLineEdit, userSelection: bool) void {
+    pub fn superSetUserSelection(self: KLineEdit, userSelection: bool) void {
         qtc.KLineEdit_SuperSetUserSelection(@ptrCast(self.ptr), userSelection);
     }
+
+    /// ### DEPRECATED: Use `autoSuggest` instead
+    ///
+    pub const AutoSuggest = autoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
     ///
@@ -1641,9 +1969,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn AutoSuggest(self: KLineEdit) bool {
+    pub fn autoSuggest(self: KLineEdit) bool {
         return qtc.KLineEdit_AutoSuggest(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAutoSuggest` instead
+    ///
+    pub const OnAutoSuggest = onAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
     ///
@@ -1655,13 +1987,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAutoSuggest(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAutoSuggest(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.KLineEdit_OnAutoSuggest(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAutoSuggest` instead
+    /// ### DEPRECATED: Use `superAutoSuggest` instead
     ///
-    pub const QBaseAutoSuggest = SuperAutoSuggest;
+    pub const SuperAutoSuggest = superAutoSuggest;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#autoSuggest)
     ///
@@ -1671,9 +2003,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperAutoSuggest(self: KLineEdit) bool {
+    pub fn superAutoSuggest(self: KLineEdit) bool {
         return qtc.KLineEdit_SuperAutoSuggest(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#paintEvent)
     ///
@@ -1683,10 +2019,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` ev: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KLineEdit, ev: anytype) void {
+    pub fn paintEvent(self: KLineEdit, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QPaintEvent;
         qtc.KLineEdit_PaintEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#paintEvent)
     ///
@@ -1698,13 +2038,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, ev: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KLineEdit, callback: *const fn (KLineEdit, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KLineEdit, callback: *const fn (KLineEdit, QPaintEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#paintEvent)
     ///
@@ -1716,10 +2056,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` ev: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KLineEdit, ev: anytype) void {
+    pub fn superPaintEvent(self: KLineEdit, ev: anytype) void {
         comptime _ = @TypeOf(ev)._is_QPaintEvent;
         qtc.KLineEdit_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1731,15 +2075,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1753,15 +2101,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCompletionModeDisabled2` instead
+    ///
+    pub const SetCompletionModeDisabled2 = setCompletionModeDisabled2;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#setCompletionModeDisabled)
     ///
@@ -1773,9 +2125,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` disable: bool `
     ///
-    pub fn SetCompletionModeDisabled2(self: KLineEdit, mode: i32, disable: bool) void {
+    pub fn setCompletionModeDisabled2(self: KLineEdit, mode: i32, disable: bool) void {
         qtc.KLineEdit_SetCompletionModeDisabled2(@ptrCast(self.ptr), @bitCast(mode), disable);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QLineEdit
     ///
@@ -1787,13 +2143,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `displayText` instead
+    ///
+    pub const DisplayText = displayText;
 
     /// Inherited from QLineEdit
     ///
@@ -1805,13 +2165,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn displayText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_DisplayText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.DisplayText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.displayText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QLineEdit
     ///
@@ -1823,13 +2187,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QLineEdit
     ///
@@ -1839,15 +2207,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: KLineEdit, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: KLineEdit, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QLineEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `maxLength` instead
+    ///
+    pub const MaxLength = maxLength;
 
     /// Inherited from QLineEdit
     ///
@@ -1857,9 +2229,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MaxLength(self: KLineEdit) i32 {
+    pub fn maxLength(self: KLineEdit) i32 {
         return qtc.QLineEdit_MaxLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxLength` instead
+    ///
+    pub const SetMaxLength = setMaxLength;
 
     /// Inherited from QLineEdit
     ///
@@ -1869,11 +2245,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` maxLength: i32 `
+    /// ` _maxLength: i32 `
     ///
-    pub fn SetMaxLength(self: KLineEdit, maxLength: i32) void {
-        qtc.QLineEdit_SetMaxLength(@ptrCast(self.ptr), @bitCast(maxLength));
+    pub fn setMaxLength(self: KLineEdit, _maxLength: i32) void {
+        qtc.QLineEdit_SetMaxLength(@ptrCast(self.ptr), @bitCast(_maxLength));
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QLineEdit
     ///
@@ -1885,9 +2265,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: KLineEdit, frame: bool) void {
+    pub fn setFrame(self: KLineEdit, frame: bool) void {
         qtc.QLineEdit_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QLineEdit
     ///
@@ -1897,9 +2281,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasFrame(self: KLineEdit) bool {
+    pub fn hasFrame(self: KLineEdit) bool {
         return qtc.QLineEdit_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClearButtonEnabled` instead
+    ///
+    pub const SetClearButtonEnabled = setClearButtonEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -1911,9 +2299,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetClearButtonEnabled(self: KLineEdit, enable: bool) void {
+    pub fn setClearButtonEnabled(self: KLineEdit, enable: bool) void {
         qtc.QLineEdit_SetClearButtonEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `isClearButtonEnabled` instead
+    ///
+    pub const IsClearButtonEnabled = isClearButtonEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -1923,9 +2315,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsClearButtonEnabled(self: KLineEdit) bool {
+    pub fn isClearButtonEnabled(self: KLineEdit) bool {
         return qtc.QLineEdit_IsClearButtonEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `echoMode` instead
+    ///
+    pub const EchoMode = echoMode;
 
     /// Inherited from QLineEdit
     ///
@@ -1939,9 +2335,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qlineedit_enums.EchoMode `
     ///
-    pub fn EchoMode(self: KLineEdit) i32 {
+    pub fn echoMode(self: KLineEdit) i32 {
         return qtc.QLineEdit_EchoMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEchoMode` instead
+    ///
+    pub const SetEchoMode = setEchoMode;
 
     /// Inherited from QLineEdit
     ///
@@ -1951,11 +2351,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` echoMode: qlineedit_enums.EchoMode `
+    /// ` _echoMode: qlineedit_enums.EchoMode `
     ///
-    pub fn SetEchoMode(self: KLineEdit, echoMode: i32) void {
-        qtc.QLineEdit_SetEchoMode(@ptrCast(self.ptr), @bitCast(echoMode));
+    pub fn setEchoMode(self: KLineEdit, _echoMode: i32) void {
+        qtc.QLineEdit_SetEchoMode(@ptrCast(self.ptr), @bitCast(_echoMode));
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// Inherited from QLineEdit
     ///
@@ -1965,9 +2369,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsReadOnly(self: KLineEdit) bool {
+    pub fn isReadOnly(self: KLineEdit) bool {
         return qtc.QLineEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QLineEdit
     ///
@@ -1977,12 +2385,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` validator: QValidator `
+    /// ` _validator: QValidator `
     ///
-    pub fn SetValidator(self: KLineEdit, validator: anytype) void {
-        comptime _ = @TypeOf(validator)._is_QValidator;
-        qtc.QLineEdit_SetValidator(@ptrCast(self.ptr), @ptrCast(validator.ptr));
+    pub fn setValidator(self: KLineEdit, _validator: anytype) void {
+        comptime _ = @TypeOf(_validator)._is_QValidator;
+        qtc.QLineEdit_SetValidator(@ptrCast(self.ptr), @ptrCast(_validator.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QLineEdit
     ///
@@ -1992,9 +2404,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Validator(self: KLineEdit) QValidator {
+    pub fn validator(self: KLineEdit) QValidator {
         return .{ .ptr = qtc.QLineEdit_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QLineEdit
     ///
@@ -2004,12 +2420,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` completer: QCompleter `
+    /// ` _completer: QCompleter `
     ///
-    pub fn SetCompleter(self: KLineEdit, completer: anytype) void {
-        comptime _ = @TypeOf(completer)._is_QCompleter;
-        qtc.QLineEdit_SetCompleter(@ptrCast(self.ptr), @ptrCast(completer.ptr));
+    pub fn setCompleter(self: KLineEdit, _completer: anytype) void {
+        comptime _ = @TypeOf(_completer)._is_QCompleter;
+        qtc.QLineEdit_SetCompleter(@ptrCast(self.ptr), @ptrCast(_completer.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QLineEdit
     ///
@@ -2019,9 +2439,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Completer(self: KLineEdit) QCompleter {
+    pub fn completer(self: KLineEdit) QCompleter {
         return .{ .ptr = qtc.QLineEdit_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorPosition` instead
+    ///
+    pub const CursorPosition = cursorPosition;
 
     /// Inherited from QLineEdit
     ///
@@ -2031,9 +2455,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CursorPosition(self: KLineEdit) i32 {
+    pub fn cursorPosition(self: KLineEdit) i32 {
         return qtc.QLineEdit_CursorPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorPosition` instead
+    ///
+    pub const SetCursorPosition = setCursorPosition;
 
     /// Inherited from QLineEdit
     ///
@@ -2043,11 +2471,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` cursorPosition: i32 `
+    /// ` _cursorPosition: i32 `
     ///
-    pub fn SetCursorPosition(self: KLineEdit, cursorPosition: i32) void {
-        qtc.QLineEdit_SetCursorPosition(@ptrCast(self.ptr), @bitCast(cursorPosition));
+    pub fn setCursorPosition(self: KLineEdit, _cursorPosition: i32) void {
+        qtc.QLineEdit_SetCursorPosition(@ptrCast(self.ptr), @bitCast(_cursorPosition));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionAt` instead
+    ///
+    pub const CursorPositionAt = cursorPositionAt;
 
     /// Inherited from QLineEdit
     ///
@@ -2057,12 +2489,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorPositionAt(self: KLineEdit, pos: anytype) i32 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn cursorPositionAt(self: KLineEdit, _pos: anytype) i32 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return qtc.QLineEdit_CursorPositionAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QLineEdit
     ///
@@ -2074,9 +2510,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flag: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: KLineEdit, flag: i32) void {
+    pub fn setAlignment(self: KLineEdit, flag: i32) void {
         qtc.QLineEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QLineEdit
     ///
@@ -2090,9 +2530,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: KLineEdit) i32 {
+    pub fn alignment(self: KLineEdit) i32 {
         return qtc.QLineEdit_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cursorForward` instead
+    ///
+    pub const CursorForward = cursorForward;
 
     /// Inherited from QLineEdit
     ///
@@ -2104,9 +2548,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorForward(self: KLineEdit, mark: bool) void {
+    pub fn cursorForward(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_CursorForward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorBackward` instead
+    ///
+    pub const CursorBackward = cursorBackward;
 
     /// Inherited from QLineEdit
     ///
@@ -2118,9 +2566,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorBackward(self: KLineEdit, mark: bool) void {
+    pub fn cursorBackward(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_CursorBackward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorWordForward` instead
+    ///
+    pub const CursorWordForward = cursorWordForward;
 
     /// Inherited from QLineEdit
     ///
@@ -2132,9 +2584,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordForward(self: KLineEdit, mark: bool) void {
+    pub fn cursorWordForward(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_CursorWordForward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `cursorWordBackward` instead
+    ///
+    pub const CursorWordBackward = cursorWordBackward;
 
     /// Inherited from QLineEdit
     ///
@@ -2146,9 +2602,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn CursorWordBackward(self: KLineEdit, mark: bool) void {
+    pub fn cursorWordBackward(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_CursorWordBackward(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `backspace` instead
+    ///
+    pub const Backspace = backspace;
 
     /// Inherited from QLineEdit
     ///
@@ -2158,9 +2618,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Backspace(self: KLineEdit) void {
+    pub fn backspace(self: KLineEdit) void {
         qtc.QLineEdit_Backspace(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `del` instead
+    ///
+    pub const Del = del;
 
     /// Inherited from QLineEdit
     ///
@@ -2170,9 +2634,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Del(self: KLineEdit) void {
+    pub fn del(self: KLineEdit) void {
         qtc.QLineEdit_Del(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `home` instead
+    ///
+    pub const Home = home;
 
     /// Inherited from QLineEdit
     ///
@@ -2184,9 +2652,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn Home(self: KLineEdit, mark: bool) void {
+    pub fn home(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_Home(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// Inherited from QLineEdit
     ///
@@ -2198,9 +2670,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` mark: bool `
     ///
-    pub fn End(self: KLineEdit, mark: bool) void {
+    pub fn end(self: KLineEdit, mark: bool) void {
         qtc.QLineEdit_End(@ptrCast(self.ptr), mark);
     }
+
+    /// ### DEPRECATED: Use `isModified` instead
+    ///
+    pub const IsModified = isModified;
 
     /// Inherited from QLineEdit
     ///
@@ -2210,9 +2686,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsModified(self: KLineEdit) bool {
+    pub fn isModified(self: KLineEdit) bool {
         return qtc.QLineEdit_IsModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModified` instead
+    ///
+    pub const SetModified = setModified;
 
     /// Inherited from QLineEdit
     ///
@@ -2224,9 +2704,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` modified: bool `
     ///
-    pub fn SetModified(self: KLineEdit, modified: bool) void {
+    pub fn setModified(self: KLineEdit, modified: bool) void {
         qtc.QLineEdit_SetModified(@ptrCast(self.ptr), modified);
     }
+
+    /// ### DEPRECATED: Use `setSelection` instead
+    ///
+    pub const SetSelection = setSelection;
 
     /// Inherited from QLineEdit
     ///
@@ -2240,9 +2724,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn SetSelection(self: KLineEdit, param1: i32, param2: i32) void {
+    pub fn setSelection(self: KLineEdit, param1: i32, param2: i32) void {
         qtc.QLineEdit_SetSelection(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `hasSelectedText` instead
+    ///
+    pub const HasSelectedText = hasSelectedText;
 
     /// Inherited from QLineEdit
     ///
@@ -2252,9 +2740,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasSelectedText(self: KLineEdit) bool {
+    pub fn hasSelectedText(self: KLineEdit) bool {
         return qtc.QLineEdit_HasSelectedText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// Inherited from QLineEdit
     ///
@@ -2266,13 +2758,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `selectionStart` instead
+    ///
+    pub const SelectionStart = selectionStart;
 
     /// Inherited from QLineEdit
     ///
@@ -2282,9 +2778,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SelectionStart(self: KLineEdit) i32 {
+    pub fn selectionStart(self: KLineEdit) i32 {
         return qtc.QLineEdit_SelectionStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionEnd` instead
+    ///
+    pub const SelectionEnd = selectionEnd;
 
     /// Inherited from QLineEdit
     ///
@@ -2294,9 +2794,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SelectionEnd(self: KLineEdit) i32 {
+    pub fn selectionEnd(self: KLineEdit) i32 {
         return qtc.QLineEdit_SelectionEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectionLength` instead
+    ///
+    pub const SelectionLength = selectionLength;
 
     /// Inherited from QLineEdit
     ///
@@ -2306,9 +2810,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SelectionLength(self: KLineEdit) i32 {
+    pub fn selectionLength(self: KLineEdit) i32 {
         return qtc.QLineEdit_SelectionLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUndoAvailable` instead
+    ///
+    pub const IsUndoAvailable = isUndoAvailable;
 
     /// Inherited from QLineEdit
     ///
@@ -2318,9 +2826,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsUndoAvailable(self: KLineEdit) bool {
+    pub fn isUndoAvailable(self: KLineEdit) bool {
         return qtc.QLineEdit_IsUndoAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRedoAvailable` instead
+    ///
+    pub const IsRedoAvailable = isRedoAvailable;
 
     /// Inherited from QLineEdit
     ///
@@ -2330,9 +2842,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsRedoAvailable(self: KLineEdit) bool {
+    pub fn isRedoAvailable(self: KLineEdit) bool {
         return qtc.QLineEdit_IsRedoAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDragEnabled` instead
+    ///
+    pub const SetDragEnabled = setDragEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -2344,9 +2860,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetDragEnabled(self: KLineEdit, b: bool) void {
+    pub fn setDragEnabled(self: KLineEdit, b: bool) void {
         qtc.QLineEdit_SetDragEnabled(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `dragEnabled` instead
+    ///
+    pub const DragEnabled = dragEnabled;
 
     /// Inherited from QLineEdit
     ///
@@ -2356,9 +2876,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DragEnabled(self: KLineEdit) bool {
+    pub fn dragEnabled(self: KLineEdit) bool {
         return qtc.QLineEdit_DragEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorMoveStyle` instead
+    ///
+    pub const SetCursorMoveStyle = setCursorMoveStyle;
 
     /// Inherited from QLineEdit
     ///
@@ -2368,11 +2892,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` style: qnamespace_enums.CursorMoveStyle `
+    /// ` _style: qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn SetCursorMoveStyle(self: KLineEdit, style: i32) void {
-        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setCursorMoveStyle(self: KLineEdit, _style: i32) void {
+        qtc.QLineEdit_SetCursorMoveStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `cursorMoveStyle` instead
+    ///
+    pub const CursorMoveStyle = cursorMoveStyle;
 
     /// Inherited from QLineEdit
     ///
@@ -2386,9 +2914,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.CursorMoveStyle `
     ///
-    pub fn CursorMoveStyle(self: KLineEdit) i32 {
+    pub fn cursorMoveStyle(self: KLineEdit) i32 {
         return qtc.QLineEdit_CursorMoveStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMask` instead
+    ///
+    pub const InputMask = inputMask;
 
     /// Inherited from QLineEdit
     ///
@@ -2400,13 +2932,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputMask(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn inputMask(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLineEdit_InputMask(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.InputMask: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.inputMask: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setInputMask` instead
+    ///
+    pub const SetInputMask = setInputMask;
 
     /// Inherited from QLineEdit
     ///
@@ -2416,15 +2952,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` inputMask: []const u8 `
+    /// ` _inputMask: []const u8 `
     ///
-    pub fn SetInputMask(self: KLineEdit, inputMask: []const u8) void {
+    pub fn setInputMask(self: KLineEdit, _inputMask: []const u8) void {
         const inputMask_str = qtc.libqt_string{
-            .len = inputMask.len,
-            .data = inputMask.ptr,
+            .len = _inputMask.len,
+            .data = _inputMask.ptr,
         };
         qtc.QLineEdit_SetInputMask(@ptrCast(self.ptr), inputMask_str);
     }
+
+    /// ### DEPRECATED: Use `hasAcceptableInput` instead
+    ///
+    pub const HasAcceptableInput = hasAcceptableInput;
 
     /// Inherited from QLineEdit
     ///
@@ -2434,9 +2974,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasAcceptableInput(self: KLineEdit) bool {
+    pub fn hasAcceptableInput(self: KLineEdit) bool {
         return qtc.QLineEdit_HasAcceptableInput(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextMargins` instead
+    ///
+    pub const SetTextMargins = setTextMargins;
 
     /// Inherited from QLineEdit
     ///
@@ -2454,9 +2998,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetTextMargins(self: KLineEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setTextMargins(self: KLineEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QLineEdit_SetTextMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setTextMargins2` instead
+    ///
+    pub const SetTextMargins2 = setTextMargins2;
 
     /// Inherited from QLineEdit
     ///
@@ -2468,10 +3016,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetTextMargins2(self: KLineEdit, margins: anytype) void {
+    pub fn setTextMargins2(self: KLineEdit, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QLineEdit_SetTextMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `textMargins` instead
+    ///
+    pub const TextMargins = textMargins;
 
     /// Inherited from QLineEdit
     ///
@@ -2481,9 +3033,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn TextMargins(self: KLineEdit) QMargins {
+    pub fn textMargins(self: KLineEdit) QMargins {
         return .{ .ptr = qtc.QLineEdit_TextMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QLineEdit
     ///
@@ -2497,10 +3053,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction(self: KLineEdit, action: anytype, position: i32) void {
+    pub fn addAction(self: KLineEdit, action: anytype, position: i32) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QLineEdit_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QLineEdit
     ///
@@ -2514,10 +3074,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` position: qlineedit_enums.ActionPosition `
     ///
-    pub fn AddAction2(self: KLineEdit, icon: anytype, position: i32) QAction {
+    pub fn addAction2(self: KLineEdit, icon: anytype, position: i32) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return .{ .ptr = qtc.QLineEdit_AddAction2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(position)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QLineEdit
     ///
@@ -2527,9 +3091,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Clear(self: KLineEdit) void {
+    pub fn clear(self: KLineEdit) void {
         qtc.QLineEdit_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QLineEdit
     ///
@@ -2539,9 +3107,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SelectAll(self: KLineEdit) void {
+    pub fn selectAll(self: KLineEdit) void {
         qtc.QLineEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// Inherited from QLineEdit
     ///
@@ -2551,9 +3123,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Undo(self: KLineEdit) void {
+    pub fn undo(self: KLineEdit) void {
         qtc.QLineEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// Inherited from QLineEdit
     ///
@@ -2563,9 +3139,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Redo(self: KLineEdit) void {
+    pub fn redo(self: KLineEdit) void {
         qtc.QLineEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// Inherited from QLineEdit
     ///
@@ -2575,9 +3155,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Cut(self: KLineEdit) void {
+    pub fn cut(self: KLineEdit) void {
         qtc.QLineEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// Inherited from QLineEdit
     ///
@@ -2587,9 +3171,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Paste(self: KLineEdit) void {
+    pub fn paste(self: KLineEdit) void {
         qtc.QLineEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `deselect` instead
+    ///
+    pub const Deselect = deselect;
 
     /// Inherited from QLineEdit
     ///
@@ -2599,9 +3187,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Deselect(self: KLineEdit) void {
+    pub fn deselect(self: KLineEdit) void {
         qtc.QLineEdit_Deselect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// Inherited from QLineEdit
     ///
@@ -2613,7 +3205,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn Insert(self: KLineEdit, param1: []const u8) void {
+    pub fn insert(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2621,6 +3213,10 @@ pub const KLineEdit = extern struct {
         qtc.QLineEdit_Insert(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
@@ -2631,7 +3227,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextChanged(self: KLineEdit, param1: []const u8) void {
+    pub fn textChanged(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -2639,6 +3235,10 @@ pub const KLineEdit = extern struct {
         qtc.QLineEdit_TextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#textChanged)
@@ -2649,9 +3249,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textEdited` instead
+    ///
+    pub const TextEdited = textEdited;
 
     /// Inherited from QLineEdit
     ///
@@ -2663,13 +3267,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextEdited(self: KLineEdit, param1: []const u8) void {
+    pub fn textEdited(self: KLineEdit, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QLineEdit_TextEdited(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onTextEdited` instead
+    ///
+    pub const OnTextEdited = onTextEdited;
 
     /// Inherited from QLineEdit
     ///
@@ -2681,9 +3289,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextEdited(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextEdited(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QLineEdit_Connect_TextEdited(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// Inherited from QLineEdit
     ///
@@ -2697,9 +3309,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn CursorPositionChanged(self: KLineEdit, param1: i32, param2: i32) void {
+    pub fn cursorPositionChanged(self: KLineEdit, param1: i32, param2: i32) void {
         qtc.QLineEdit_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// Inherited from QLineEdit
     ///
@@ -2711,10 +3327,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: i32, param2: i32) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32) callconv(.c) void) void {
         qtc.QLineEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `returnPressed` instead
+    ///
+    pub const ReturnPressed = returnPressed;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
@@ -2723,10 +3343,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ReturnPressed(self: KLineEdit) void {
+    pub fn returnPressed(self: KLineEdit) void {
         qtc.QLineEdit_ReturnPressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReturnPressed` instead
+    ///
+    pub const OnReturnPressed = onReturnPressed;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#returnPressed)
@@ -2737,10 +3361,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnReturnPressed(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onReturnPressed(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.QLineEdit_Connect_ReturnPressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `editingFinished` instead
+    ///
+    pub const EditingFinished = editingFinished;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
@@ -2749,10 +3377,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn EditingFinished(self: KLineEdit) void {
+    pub fn editingFinished(self: KLineEdit) void {
         qtc.QLineEdit_EditingFinished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onEditingFinished` instead
+    ///
+    pub const OnEditingFinished = onEditingFinished;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#editingFinished)
@@ -2763,10 +3395,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnEditingFinished(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onEditingFinished(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.QLineEdit_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
@@ -2775,10 +3411,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SelectionChanged(self: KLineEdit) void {
+    pub fn selectionChanged(self: KLineEdit) void {
         qtc.QLineEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#selectionChanged)
@@ -2789,9 +3429,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.QLineEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputRejected` instead
+    ///
+    pub const InputRejected = inputRejected;
 
     /// Inherited from QLineEdit
     ///
@@ -2801,9 +3445,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn InputRejected(self: KLineEdit) void {
+    pub fn inputRejected(self: KLineEdit) void {
         qtc.QLineEdit_InputRejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputRejected` instead
+    ///
+    pub const OnInputRejected = onInputRejected;
 
     /// Inherited from QLineEdit
     ///
@@ -2815,9 +3463,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnInputRejected(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onInputRejected(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.QLineEdit_Connect_InputRejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QLineEdit
     ///
@@ -2827,14 +3479,18 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: KLineEdit, property: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: KLineEdit, _property: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
-        return .{ .ptr = qtc.QLineEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(property), @ptrCast(argument.ptr)) };
+        return .{ .ptr = qtc.QLineEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(_property), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForward2` instead
+    ///
+    pub const CursorForward2 = cursorForward2;
 
     /// Inherited from QLineEdit
     ///
@@ -2848,9 +3504,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorForward2(self: KLineEdit, mark: bool, steps: i32) void {
+    pub fn cursorForward2(self: KLineEdit, mark: bool, steps: i32) void {
         qtc.QLineEdit_CursorForward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `cursorBackward2` instead
+    ///
+    pub const CursorBackward2 = cursorBackward2;
 
     /// Inherited from QLineEdit
     ///
@@ -2864,9 +3524,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn CursorBackward2(self: KLineEdit, mark: bool, steps: i32) void {
+    pub fn cursorBackward2(self: KLineEdit, mark: bool, steps: i32) void {
         qtc.QLineEdit_CursorBackward2(@ptrCast(self.ptr), mark, @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -2876,9 +3540,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn WinId(self: KLineEdit) usize {
+    pub fn winId(self: KLineEdit) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -2888,9 +3556,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CreateWinId(self: KLineEdit) void {
+    pub fn createWinId(self: KLineEdit) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -2900,9 +3572,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn InternalWinId(self: KLineEdit) usize {
+    pub fn internalWinId(self: KLineEdit) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -2912,9 +3588,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn EffectiveWinId(self: KLineEdit) usize {
+    pub fn effectiveWinId(self: KLineEdit) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -2924,9 +3604,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Style(self: KLineEdit) QStyle {
+    pub fn style(self: KLineEdit) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2936,12 +3620,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KLineEdit, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KLineEdit, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2951,9 +3639,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsTopLevel(self: KLineEdit) bool {
+    pub fn isTopLevel(self: KLineEdit) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2963,9 +3655,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsWindow(self: KLineEdit) bool {
+    pub fn isWindow(self: KLineEdit) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2975,9 +3671,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsModal(self: KLineEdit) bool {
+    pub fn isModal(self: KLineEdit) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2991,9 +3691,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KLineEdit) i32 {
+    pub fn windowModality(self: KLineEdit) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3003,11 +3707,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KLineEdit, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KLineEdit, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3017,9 +3725,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsEnabled(self: KLineEdit) bool {
+    pub fn isEnabled(self: KLineEdit) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3031,10 +3743,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KLineEdit, param1: anytype) bool {
+    pub fn isEnabledTo(self: KLineEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3046,9 +3762,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KLineEdit, enabled: bool) void {
+    pub fn setEnabled(self: KLineEdit, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3060,9 +3780,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KLineEdit, disabled: bool) void {
+    pub fn setDisabled(self: KLineEdit, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3074,9 +3798,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KLineEdit, windowModified: bool) void {
+    pub fn setWindowModified(self: KLineEdit, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3086,9 +3814,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FrameGeometry(self: KLineEdit) QRect {
+    pub fn frameGeometry(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3098,9 +3830,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Geometry(self: KLineEdit) QRect {
+    pub fn geometry(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3110,9 +3846,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn NormalGeometry(self: KLineEdit) QRect {
+    pub fn normalGeometry(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3122,9 +3862,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn X(self: KLineEdit) i32 {
+    pub fn x(self: KLineEdit) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3134,9 +3878,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Y(self: KLineEdit) i32 {
+    pub fn y(self: KLineEdit) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3146,9 +3894,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Pos(self: KLineEdit) QPoint {
+    pub fn pos(self: KLineEdit) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3158,9 +3910,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FrameSize(self: KLineEdit) QSize {
+    pub fn frameSize(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3170,9 +3926,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Size(self: KLineEdit) QSize {
+    pub fn size(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3182,9 +3942,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Width(self: KLineEdit) i32 {
+    pub fn width(self: KLineEdit) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3194,9 +3958,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Height(self: KLineEdit) i32 {
+    pub fn height(self: KLineEdit) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3206,9 +3974,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Rect(self: KLineEdit) QRect {
+    pub fn rect(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3218,9 +3990,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ChildrenRect(self: KLineEdit) QRect {
+    pub fn childrenRect(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3230,9 +4006,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ChildrenRegion(self: KLineEdit) QRegion {
+    pub fn childrenRegion(self: KLineEdit) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3242,9 +4022,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MinimumSize(self: KLineEdit) QSize {
+    pub fn minimumSize(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3254,9 +4038,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MaximumSize(self: KLineEdit) QSize {
+    pub fn maximumSize(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3266,9 +4054,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MinimumWidth(self: KLineEdit) i32 {
+    pub fn minimumWidth(self: KLineEdit) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3278,9 +4070,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MinimumHeight(self: KLineEdit) i32 {
+    pub fn minimumHeight(self: KLineEdit) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3290,9 +4086,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MaximumWidth(self: KLineEdit) i32 {
+    pub fn maximumWidth(self: KLineEdit) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3302,9 +4102,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MaximumHeight(self: KLineEdit) i32 {
+    pub fn maximumHeight(self: KLineEdit) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3314,12 +4118,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KLineEdit, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KLineEdit, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3333,9 +4141,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KLineEdit, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KLineEdit, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3345,12 +4157,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KLineEdit, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KLineEdit, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3364,9 +4180,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KLineEdit, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KLineEdit, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3378,9 +4198,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KLineEdit, minw: i32) void {
+    pub fn setMinimumWidth(self: KLineEdit, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3392,9 +4216,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KLineEdit, minh: i32) void {
+    pub fn setMinimumHeight(self: KLineEdit, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3406,9 +4234,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KLineEdit, maxw: i32) void {
+    pub fn setMaximumWidth(self: KLineEdit, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3420,9 +4252,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KLineEdit, maxh: i32) void {
+    pub fn setMaximumHeight(self: KLineEdit, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3432,9 +4268,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SizeIncrement(self: KLineEdit) QSize {
+    pub fn sizeIncrement(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -3444,12 +4284,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KLineEdit, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KLineEdit, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -3463,9 +4307,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KLineEdit, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KLineEdit, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -3475,9 +4323,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn BaseSize(self: KLineEdit) QSize {
+    pub fn baseSize(self: KLineEdit) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -3487,12 +4339,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KLineEdit, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KLineEdit, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -3506,9 +4362,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KLineEdit, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KLineEdit, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -3520,10 +4380,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KLineEdit, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KLineEdit, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -3537,9 +4401,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KLineEdit, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KLineEdit, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4419,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KLineEdit, w: i32) void {
+    pub fn setFixedWidth(self: KLineEdit, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -3565,9 +4437,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KLineEdit, h: i32) void {
+    pub fn setFixedHeight(self: KLineEdit, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -3579,11 +4455,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KLineEdit, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KLineEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -3594,11 +4474,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KLineEdit, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KLineEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3609,11 +4493,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KLineEdit, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KLineEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -3624,11 +4512,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KLineEdit, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KLineEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3639,11 +4531,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KLineEdit, param1: anytype) QPointF {
+    pub fn mapToParent(self: KLineEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -3654,10 +4550,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KLineEdit, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KLineEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -3669,10 +4569,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KLineEdit, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KLineEdit, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -3684,10 +4588,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KLineEdit, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KLineEdit, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -3701,12 +4609,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KLineEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KLineEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -3719,11 +4631,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KLineEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KLineEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -3737,11 +4653,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KLineEdit, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KLineEdit, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -3755,11 +4675,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KLineEdit, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KLineEdit, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -3769,9 +4693,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Window(self: KLineEdit) QWidget {
+    pub fn window(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -3781,9 +4709,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn NativeParentWidget(self: KLineEdit) QWidget {
+    pub fn nativeParentWidget(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4725,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn TopLevelWidget(self: KLineEdit) QWidget {
+    pub fn topLevelWidget(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -3805,9 +4741,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Palette(self: KLineEdit) QPalette {
+    pub fn palette(self: KLineEdit) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -3817,12 +4757,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KLineEdit, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KLineEdit, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3832,11 +4776,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KLineEdit, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KLineEdit, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3850,9 +4798,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KLineEdit) i32 {
+    pub fn backgroundRole(self: KLineEdit) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3862,11 +4814,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KLineEdit, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KLineEdit, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -3880,9 +4836,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KLineEdit) i32 {
+    pub fn foregroundRole(self: KLineEdit) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -3892,9 +4852,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Font(self: KLineEdit) QFont {
+    pub fn font(self: KLineEdit) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -3904,12 +4868,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KLineEdit, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KLineEdit, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -3919,9 +4887,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FontMetrics(self: KLineEdit) QFontMetrics {
+    pub fn fontMetrics(self: KLineEdit) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -3931,9 +4903,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FontInfo(self: KLineEdit) QFontInfo {
+    pub fn fontInfo(self: KLineEdit) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3943,9 +4919,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Cursor(self: KLineEdit) QCursor {
+    pub fn cursor(self: KLineEdit) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3955,12 +4935,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KLineEdit, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KLineEdit, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3970,9 +4954,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UnsetCursor(self: KLineEdit) void {
+    pub fn unsetCursor(self: KLineEdit) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +4972,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KLineEdit, enable: bool) void {
+    pub fn setMouseTracking(self: KLineEdit, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3996,9 +4988,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasMouseTracking(self: KLineEdit) bool {
+    pub fn hasMouseTracking(self: KLineEdit) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4008,9 +5004,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UnderMouse(self: KLineEdit) bool {
+    pub fn underMouse(self: KLineEdit) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4022,9 +5022,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KLineEdit, enable: bool) void {
+    pub fn setTabletTracking(self: KLineEdit, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4034,24 +5038,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasTabletTracking(self: KLineEdit) bool {
+    pub fn hasTabletTracking(self: KLineEdit) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KLineEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4061,12 +5054,35 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KLineEdit, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KLineEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KLineEdit `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KLineEdit, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4076,9 +5092,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Mask(self: KLineEdit) QRegion {
+    pub fn mask(self: KLineEdit) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4088,9 +5108,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ClearMask(self: KLineEdit) void {
+    pub fn clearMask(self: KLineEdit) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4102,10 +5126,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KLineEdit, target: anytype) void {
+    pub fn render(self: KLineEdit, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4117,10 +5145,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KLineEdit, painter: anytype) void {
+    pub fn render2(self: KLineEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4130,9 +5162,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Grab(self: KLineEdit) QPixmap {
+    pub fn grab(self: KLineEdit) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4142,9 +5178,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn GraphicsEffect(self: KLineEdit) QGraphicsEffect {
+    pub fn graphicsEffect(self: KLineEdit) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4156,10 +5196,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KLineEdit, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KLineEdit, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4171,9 +5215,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KLineEdit, typeVal: i32) void {
+    pub fn grabGesture(self: KLineEdit, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4185,9 +5233,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KLineEdit, typeVal: i32) void {
+    pub fn ungrabGesture(self: KLineEdit, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4197,15 +5249,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KLineEdit, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KLineEdit, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4215,15 +5271,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KLineEdit, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KLineEdit, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4235,13 +5295,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4253,13 +5317,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4271,10 +5339,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KLineEdit, icon: anytype) void {
+    pub fn setWindowIcon(self: KLineEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4284,9 +5356,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn WindowIcon(self: KLineEdit) QIcon {
+    pub fn windowIcon(self: KLineEdit) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4296,15 +5372,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KLineEdit, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KLineEdit, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4316,13 +5396,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4332,15 +5416,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KLineEdit, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KLineEdit, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -4352,13 +5440,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4370,13 +5462,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KLineEdit, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KLineEdit, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -4388,13 +5484,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4406,9 +5506,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KLineEdit, level: f64) void {
+    pub fn setWindowOpacity(self: KLineEdit, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -4418,9 +5522,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn WindowOpacity(self: KLineEdit) f64 {
+    pub fn windowOpacity(self: KLineEdit) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -4430,9 +5538,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsWindowModified(self: KLineEdit) bool {
+    pub fn isWindowModified(self: KLineEdit) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -4442,15 +5554,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KLineEdit, toolTip: []const u8) void {
+    pub fn setToolTip(self: KLineEdit, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -4462,13 +5578,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4480,9 +5600,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KLineEdit, msec: i32) void {
+    pub fn setToolTipDuration(self: KLineEdit, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -4492,9 +5616,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ToolTipDuration(self: KLineEdit) i32 {
+    pub fn toolTipDuration(self: KLineEdit) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -4504,15 +5632,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KLineEdit, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KLineEdit, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -4524,13 +5656,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4540,15 +5676,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KLineEdit, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KLineEdit, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -4560,13 +5700,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4578,13 +5722,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -4596,13 +5744,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KLineEdit, name: []const u8) void {
+    pub fn setAccessibleName(self: KLineEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4614,13 +5766,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -4632,13 +5788,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KLineEdit, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KLineEdit, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4650,9 +5810,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KLineEdit, direction: i32) void {
+    pub fn setLayoutDirection(self: KLineEdit, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4666,9 +5830,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KLineEdit) i32 {
+    pub fn layoutDirection(self: KLineEdit) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -4678,9 +5846,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UnsetLayoutDirection(self: KLineEdit) void {
+    pub fn unsetLayoutDirection(self: KLineEdit) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -4690,12 +5862,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KLineEdit, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KLineEdit, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -4705,9 +5881,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Locale(self: KLineEdit) QLocale {
+    pub fn locale(self: KLineEdit) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -4717,9 +5897,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UnsetLocale(self: KLineEdit) void {
+    pub fn unsetLocale(self: KLineEdit) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -4729,9 +5913,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsRightToLeft(self: KLineEdit) bool {
+    pub fn isRightToLeft(self: KLineEdit) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -4741,9 +5929,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsLeftToRight(self: KLineEdit) bool {
+    pub fn isLeftToRight(self: KLineEdit) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -4753,9 +5945,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SetFocus(self: KLineEdit) void {
+    pub fn setFocus(self: KLineEdit) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -4765,9 +5961,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsActiveWindow(self: KLineEdit) bool {
+    pub fn isActiveWindow(self: KLineEdit) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -4777,9 +5977,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ActivateWindow(self: KLineEdit) void {
+    pub fn activateWindow(self: KLineEdit) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -4789,9 +5993,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ClearFocus(self: KLineEdit) void {
+    pub fn clearFocus(self: KLineEdit) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -4803,9 +6011,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KLineEdit, reason: i32) void {
+    pub fn setFocus2(self: KLineEdit, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4819,9 +6031,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KLineEdit) i32 {
+    pub fn focusPolicy(self: KLineEdit) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4833,9 +6049,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KLineEdit, policy: i32) void {
+    pub fn setFocusPolicy(self: KLineEdit, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -4845,9 +6065,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasFocus(self: KLineEdit) bool {
+    pub fn hasFocus(self: KLineEdit) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -4859,11 +6083,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4873,12 +6101,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KLineEdit, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KLineEdit, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -4888,9 +6120,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FocusProxy(self: KLineEdit) QWidget {
+    pub fn focusProxy(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4904,9 +6140,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KLineEdit) i32 {
+    pub fn contextMenuPolicy(self: KLineEdit) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -4918,9 +6158,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KLineEdit, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KLineEdit, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -4930,9 +6174,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn GrabMouse(self: KLineEdit) void {
+    pub fn grabMouse(self: KLineEdit) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4944,10 +6192,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KLineEdit, param1: anytype) void {
+    pub fn grabMouse2(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4957,9 +6209,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ReleaseMouse(self: KLineEdit) void {
+    pub fn releaseMouse(self: KLineEdit) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4969,9 +6225,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn GrabKeyboard(self: KLineEdit) void {
+    pub fn grabKeyboard(self: KLineEdit) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4981,9 +6241,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ReleaseKeyboard(self: KLineEdit) void {
+    pub fn releaseKeyboard(self: KLineEdit) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4995,10 +6259,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KLineEdit, key: anytype) i32 {
+    pub fn grabShortcut(self: KLineEdit, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5010,9 +6278,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KLineEdit, id: i32) void {
+    pub fn releaseShortcut(self: KLineEdit, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5024,9 +6296,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KLineEdit, id: i32) void {
+    pub fn setShortcutEnabled(self: KLineEdit, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5038,25 +6314,37 @@ pub const KLineEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KLineEdit, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KLineEdit, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5066,9 +6354,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UpdatesEnabled(self: KLineEdit) bool {
+    pub fn updatesEnabled(self: KLineEdit) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5080,9 +6372,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KLineEdit, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KLineEdit, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5092,9 +6388,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn GraphicsProxyWidget(self: KLineEdit) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KLineEdit) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -5104,9 +6404,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Update(self: KLineEdit) void {
+    pub fn update(self: KLineEdit) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5116,9 +6420,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Repaint(self: KLineEdit) void {
+    pub fn repaint(self: KLineEdit) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5128,17 +6436,21 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KLineEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KLineEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5150,11 +6462,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KLineEdit, param1: anytype) void {
+    pub fn update3(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5165,10 +6481,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KLineEdit, param1: anytype) void {
+    pub fn update4(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5178,17 +6498,21 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KLineEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KLineEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5200,10 +6524,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KLineEdit, param1: anytype) void {
+    pub fn repaint3(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5215,10 +6543,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KLineEdit, param1: anytype) void {
+    pub fn repaint4(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5230,9 +6562,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KLineEdit, hidden: bool) void {
+    pub fn setHidden(self: KLineEdit, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5242,9 +6578,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Show(self: KLineEdit) void {
+    pub fn show(self: KLineEdit) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5254,9 +6594,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Hide(self: KLineEdit) void {
+    pub fn hide(self: KLineEdit) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5266,9 +6610,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ShowMinimized(self: KLineEdit) void {
+    pub fn showMinimized(self: KLineEdit) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5278,9 +6626,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ShowMaximized(self: KLineEdit) void {
+    pub fn showMaximized(self: KLineEdit) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5290,9 +6642,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ShowFullScreen(self: KLineEdit) void {
+    pub fn showFullScreen(self: KLineEdit) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5302,9 +6658,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ShowNormal(self: KLineEdit) void {
+    pub fn showNormal(self: KLineEdit) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -5314,9 +6674,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Close(self: KLineEdit) bool {
+    pub fn close(self: KLineEdit) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5326,9 +6690,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Raise(self: KLineEdit) void {
+    pub fn raise(self: KLineEdit) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5338,9 +6706,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Lower(self: KLineEdit) void {
+    pub fn lower(self: KLineEdit) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -5352,10 +6724,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KLineEdit, param1: anytype) void {
+    pub fn stackUnder(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -5365,13 +6741,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KLineEdit, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KLineEdit, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -5383,10 +6763,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KLineEdit, param1: anytype) void {
+    pub fn move2(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -5400,9 +6784,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KLineEdit, w: i32, h: i32) void {
+    pub fn resize(self: KLineEdit, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -5414,10 +6802,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KLineEdit, param1: anytype) void {
+    pub fn resize2(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5427,17 +6819,21 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KLineEdit, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KLineEdit, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -5447,12 +6843,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KLineEdit, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KLineEdit, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5464,13 +6864,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KLineEdit, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KLineEdit, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLineEdit.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KLineEdit.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5480,15 +6884,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KLineEdit, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KLineEdit, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -5498,9 +6906,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn AdjustSize(self: KLineEdit) void {
+    pub fn adjustSize(self: KLineEdit) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -5510,9 +6922,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsVisible(self: KLineEdit) bool {
+    pub fn isVisible(self: KLineEdit) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -5524,10 +6940,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KLineEdit, param1: anytype) bool {
+    pub fn isVisibleTo(self: KLineEdit, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -5537,9 +6957,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsHidden(self: KLineEdit) bool {
+    pub fn isHidden(self: KLineEdit) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5549,9 +6973,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsMinimized(self: KLineEdit) bool {
+    pub fn isMinimized(self: KLineEdit) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5561,9 +6989,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsMaximized(self: KLineEdit) bool {
+    pub fn isMaximized(self: KLineEdit) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5573,9 +7005,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsFullScreen(self: KLineEdit) bool {
+    pub fn isFullScreen(self: KLineEdit) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -5589,9 +7025,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KLineEdit) i32 {
+    pub fn windowState(self: KLineEdit) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5603,9 +7043,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KLineEdit, state: i32) void {
+    pub fn setWindowState(self: KLineEdit, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -5617,9 +7061,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KLineEdit, state: i32) void {
+    pub fn overrideWindowState(self: KLineEdit, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5629,9 +7077,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SizePolicy(self: KLineEdit) QSizePolicy {
+    pub fn sizePolicy(self: KLineEdit) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -5641,12 +7093,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KLineEdit, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KLineEdit, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -5660,9 +7116,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KLineEdit, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KLineEdit, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -5672,9 +7132,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn VisibleRegion(self: KLineEdit) QRegion {
+    pub fn visibleRegion(self: KLineEdit) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5692,9 +7156,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KLineEdit, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KLineEdit, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -5706,10 +7174,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KLineEdit, margins: anytype) void {
+    pub fn setContentsMargins2(self: KLineEdit, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -5719,9 +7191,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ContentsMargins(self: KLineEdit) QMargins {
+    pub fn contentsMargins(self: KLineEdit) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -5731,9 +7207,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ContentsRect(self: KLineEdit) QRect {
+    pub fn contentsRect(self: KLineEdit) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -5743,9 +7223,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Layout(self: KLineEdit) QLayout {
+    pub fn layout(self: KLineEdit) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -5755,12 +7239,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KLineEdit, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KLineEdit, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -5770,24 +7258,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UpdateGeometry(self: KLineEdit) void {
+    pub fn updateGeometry(self: KLineEdit) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KLineEdit, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -5797,14 +7274,37 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KLineEdit, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KLineEdit `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KLineEdit, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KLineEdit, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -5818,9 +7318,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KLineEdit, dx: i32, dy: i32) void {
+    pub fn scroll(self: KLineEdit, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -5836,10 +7340,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KLineEdit, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KLineEdit, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -5849,9 +7357,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FocusWidget(self: KLineEdit) QWidget {
+    pub fn focusWidget(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5861,9 +7373,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn NextInFocusChain(self: KLineEdit) QWidget {
+    pub fn nextInFocusChain(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -5873,9 +7389,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn PreviousInFocusChain(self: KLineEdit) QWidget {
+    pub fn previousInFocusChain(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5885,9 +7405,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn AcceptDrops(self: KLineEdit) bool {
+    pub fn acceptDrops(self: KLineEdit) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -5899,9 +7423,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KLineEdit, on: bool) void {
+    pub fn setAcceptDrops(self: KLineEdit, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -5911,15 +7439,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KLineEdit, actions: []QAction) void {
+    pub fn addActions(self: KLineEdit, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5931,16 +7463,20 @@ pub const KLineEdit = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KLineEdit, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KLineEdit, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5954,11 +7490,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KLineEdit, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KLineEdit, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5970,10 +7510,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KLineEdit, action: anytype) void {
+    pub fn removeAction(self: KLineEdit, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5985,15 +7529,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KLineEdit, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KLineEdit, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KLineEdit.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KLineEdit.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6005,16 +7553,20 @@ pub const KLineEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KLineEdit, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KLineEdit, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -6024,19 +7576,23 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KLineEdit, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KLineEdit, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6047,19 +7603,23 @@ pub const KLineEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KLineEdit, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KLineEdit, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -6069,9 +7629,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ParentWidget(self: KLineEdit) QWidget {
+    pub fn parentWidget(self: KLineEdit) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6083,9 +7647,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KLineEdit, typeVal: i32) void {
+    pub fn setWindowFlags(self: KLineEdit, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6099,9 +7667,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KLineEdit) i32 {
+    pub fn windowFlags(self: KLineEdit) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6113,9 +7685,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KLineEdit, param1: i32) void {
+    pub fn setWindowFlag(self: KLineEdit, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6127,9 +7703,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KLineEdit, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KLineEdit, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6143,9 +7723,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KLineEdit) i32 {
+    pub fn windowType(self: KLineEdit) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -6155,9 +7739,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6167,13 +7755,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KLineEdit, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KLineEdit, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6185,10 +7777,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KLineEdit, p: anytype) QWidget {
+    pub fn childAt2(self: KLineEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6200,10 +7796,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KLineEdit, p: anytype) QWidget {
+    pub fn childAt3(self: KLineEdit, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6215,9 +7815,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KLineEdit, param1: i32) void {
+    pub fn setAttribute(self: KLineEdit, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6229,9 +7833,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KLineEdit, param1: i32) bool {
+    pub fn testAttribute(self: KLineEdit, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6241,9 +7849,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn EnsurePolished(self: KLineEdit) void {
+    pub fn ensurePolished(self: KLineEdit) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6255,10 +7867,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KLineEdit, child: anytype) bool {
+    pub fn isAncestorOf(self: KLineEdit, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6268,9 +7884,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn AutoFillBackground(self: KLineEdit) bool {
+    pub fn autoFillBackground(self: KLineEdit) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6282,9 +7902,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KLineEdit, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KLineEdit, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6294,9 +7918,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn BackingStore(self: KLineEdit) QBackingStore {
+    pub fn backingStore(self: KLineEdit) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6306,9 +7934,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn WindowHandle(self: KLineEdit) QWindow {
+    pub fn windowHandle(self: KLineEdit) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6318,9 +7950,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Screen(self: KLineEdit) QScreen {
+    pub fn screen(self: KLineEdit) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -6330,12 +7966,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KLineEdit, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KLineEdit, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -6343,12 +7983,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6360,13 +8004,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KLineEdit, title: []const u8) void {
+    pub fn windowTitleChanged(self: KLineEdit, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -6378,9 +8026,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6392,10 +8044,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KLineEdit, icon: anytype) void {
+    pub fn windowIconChanged(self: KLineEdit, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -6407,9 +8063,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KLineEdit, callback: *const fn (KLineEdit, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KLineEdit, callback: *const fn (KLineEdit, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6421,13 +8081,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KLineEdit, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KLineEdit, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -6439,9 +8103,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6451,12 +8119,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KLineEdit, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KLineEdit, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -6468,9 +8140,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KLineEdit, callback: *const fn (KLineEdit, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KLineEdit, callback: *const fn (KLineEdit, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6484,9 +8160,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KLineEdit) i32 {
+    pub fn inputMethodHints(self: KLineEdit) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -6498,9 +8178,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KLineEdit, hints: i32) void {
+    pub fn setInputMethodHints(self: KLineEdit, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -6514,11 +8198,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KLineEdit, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KLineEdit, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -6534,13 +8222,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KLineEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KLineEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -6557,12 +8249,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KLineEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KLineEdit, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -6576,11 +8272,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KLineEdit, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KLineEdit, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -6596,12 +8296,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KLineEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KLineEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -6619,12 +8323,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KLineEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KLineEdit, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -6636,10 +8344,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KLineEdit, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KLineEdit, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -6653,9 +8365,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KLineEdit, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KLineEdit, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -6669,10 +8385,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KLineEdit, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KLineEdit, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -6686,9 +8406,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KLineEdit, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KLineEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -6702,9 +8426,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KLineEdit, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KLineEdit, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -6718,9 +8446,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KLineEdit, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KLineEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -6734,25 +8466,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KLineEdit, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KLineEdit, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -6760,17 +8480,41 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -6782,13 +8526,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KLineEdit, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KLineEdit.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -6800,13 +8548,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KLineEdit, name: []const u8) void {
+    pub fn setObjectName(self: KLineEdit, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -6816,9 +8568,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsWidgetType(self: KLineEdit) bool {
+    pub fn isWidgetType(self: KLineEdit) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -6828,9 +8584,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsWindowType(self: KLineEdit) bool {
+    pub fn isWindowType(self: KLineEdit) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -6840,9 +8600,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsQuickItemType(self: KLineEdit) bool {
+    pub fn isQuickItemType(self: KLineEdit) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -6852,9 +8616,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SignalsBlocked(self: KLineEdit) bool {
+    pub fn signalsBlocked(self: KLineEdit) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -6866,9 +8634,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KLineEdit, b: bool) bool {
+    pub fn blockSignals(self: KLineEdit, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -6878,9 +8650,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Thread(self: KLineEdit) QThread {
+    pub fn thread(self: KLineEdit) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -6890,12 +8666,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KLineEdit, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KLineEdit, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6907,9 +8687,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KLineEdit, interval: i32) i32 {
+    pub fn startTimer(self: KLineEdit, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6921,9 +8705,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KLineEdit, time: i64) i32 {
+    pub fn startTimer2(self: KLineEdit, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6935,9 +8723,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KLineEdit, id: i32) void {
+    pub fn killTimer(self: KLineEdit, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6949,9 +8741,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KLineEdit, id: i32) void {
+    pub fn killTimer2(self: KLineEdit, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6963,15 +8759,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KLineEdit, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KLineEdit, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KLineEdit.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KLineEdit.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6983,10 +8783,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KLineEdit, filterObj: anytype) void {
+    pub fn installEventFilter(self: KLineEdit, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6998,10 +8802,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KLineEdit, obj: anytype) void {
+    pub fn removeEventFilter(self: KLineEdit, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7009,7 +8817,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7017,13 +8825,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7031,7 +8843,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7039,13 +8851,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7055,18 +8871,22 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KLineEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KLineEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7074,7 +8894,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7082,13 +8902,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7096,7 +8920,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7104,13 +8928,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7120,9 +8948,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Disconnect3(self: KLineEdit) bool {
+    pub fn disconnect3(self: KLineEdit) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7134,10 +8966,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KLineEdit, receiver: anytype) bool {
+    pub fn disconnect4(self: KLineEdit, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7147,10 +8983,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7160,9 +9000,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DumpObjectTree(self: KLineEdit) void {
+    pub fn dumpObjectTree(self: KLineEdit) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7172,9 +9016,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DumpObjectInfo(self: KLineEdit) void {
+    pub fn dumpObjectInfo(self: KLineEdit) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7188,11 +9036,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KLineEdit, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KLineEdit, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7204,10 +9056,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KLineEdit, name: [:0]const u8) QVariant {
+    pub fn property(self: KLineEdit, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7219,7 +9075,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KLineEdit, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KLineEdit, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7227,27 +9083,19 @@ pub const KLineEdit = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KLineEdit.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KLineEdit.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KLineEdit.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KLineEdit.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KLineEdit `
-    ///
-    pub fn BindingStorage(self: KLineEdit) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7257,9 +9105,29 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn BindingStorage2(self: KLineEdit) QBindingStorage {
+    pub fn bindingStorage(self: KLineEdit) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KLineEdit `
+    ///
+    pub fn bindingStorage2(self: KLineEdit) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7269,9 +9137,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Destroyed(self: KLineEdit) void {
+    pub fn destroyed(self: KLineEdit) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7283,9 +9155,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
+    pub fn onDestroyed(self: KLineEdit, callback: *const fn (KLineEdit) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7295,9 +9171,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Parent(self: KLineEdit) QObject {
+    pub fn parent(self: KLineEdit) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7309,10 +9189,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KLineEdit, classname: [:0]const u8) bool {
+    pub fn inherits(self: KLineEdit, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7322,9 +9206,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DeleteLater(self: KLineEdit) void {
+    pub fn deleteLater(self: KLineEdit) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -7338,9 +9226,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KLineEdit, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KLineEdit, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -7354,9 +9246,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KLineEdit, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KLineEdit, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -7364,7 +9260,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7374,13 +9270,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -7388,7 +9288,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7398,13 +9298,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -7414,7 +9318,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7422,12 +9326,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KLineEdit, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KLineEdit, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -7439,10 +9347,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KLineEdit, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KLineEdit, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -7456,11 +9368,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KLineEdit, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KLineEdit, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -7476,13 +9392,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KLineEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KLineEdit, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -7495,11 +9415,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KLineEdit, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KLineEdit, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -7511,10 +9435,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KLineEdit, param1: anytype) void {
+    pub fn destroyed1(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -7526,9 +9454,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KLineEdit, callback: *const fn (KLineEdit, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KLineEdit, callback: *const fn (KLineEdit, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -7538,9 +9470,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn PaintingActive(self: KLineEdit) bool {
+    pub fn paintingActive(self: KLineEdit) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7550,9 +9486,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn WidthMM(self: KLineEdit) i32 {
+    pub fn widthMM(self: KLineEdit) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -7562,9 +9502,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HeightMM(self: KLineEdit) i32 {
+    pub fn heightMM(self: KLineEdit) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7574,9 +9518,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn LogicalDpiX(self: KLineEdit) i32 {
+    pub fn logicalDpiX(self: KLineEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7586,9 +9534,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn LogicalDpiY(self: KLineEdit) i32 {
+    pub fn logicalDpiY(self: KLineEdit) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -7598,9 +9550,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn PhysicalDpiX(self: KLineEdit) i32 {
+    pub fn physicalDpiX(self: KLineEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -7610,9 +9566,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn PhysicalDpiY(self: KLineEdit) i32 {
+    pub fn physicalDpiY(self: KLineEdit) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -7622,9 +9582,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DevicePixelRatio(self: KLineEdit) f64 {
+    pub fn devicePixelRatio(self: KLineEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7634,9 +9598,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DevicePixelRatioF(self: KLineEdit) f64 {
+    pub fn devicePixelRatioF(self: KLineEdit) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -7646,9 +9614,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn ColorCount(self: KLineEdit) i32 {
+    pub fn colorCount(self: KLineEdit) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -7658,17 +9630,25 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Depth(self: KLineEdit) i32 {
+    pub fn depth(self: KLineEdit) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -7676,13 +9656,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `completionObject` instead
+    ///
+    pub const CompletionObject = completionObject;
 
     /// Inherited from KCompletionBase
     ///
@@ -7692,9 +9676,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CompletionObject(self: KLineEdit) KCompletion {
+    pub fn completionObject(self: KLineEdit) KCompletion {
         return .{ .ptr = qtc.KCompletionBase_CompletionObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isCompletionObjectAutoDeleted` instead
+    ///
+    pub const IsCompletionObjectAutoDeleted = isCompletionObjectAutoDeleted;
 
     /// Inherited from KCompletionBase
     ///
@@ -7704,9 +9692,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn IsCompletionObjectAutoDeleted(self: KLineEdit) bool {
+    pub fn isCompletionObjectAutoDeleted(self: KLineEdit) bool {
         return qtc.KCompletionBase_IsCompletionObjectAutoDeleted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDeleteCompletionObject` instead
+    ///
+    pub const SetAutoDeleteCompletionObject = setAutoDeleteCompletionObject;
 
     /// Inherited from KCompletionBase
     ///
@@ -7718,9 +9710,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` autoDelete: bool `
     ///
-    pub fn SetAutoDeleteCompletionObject(self: KLineEdit, autoDelete: bool) void {
+    pub fn setAutoDeleteCompletionObject(self: KLineEdit, autoDelete: bool) void {
         qtc.KCompletionBase_SetAutoDeleteCompletionObject(@ptrCast(self.ptr), autoDelete);
     }
+
+    /// ### DEPRECATED: Use `setEnableSignals` instead
+    ///
+    pub const SetEnableSignals = setEnableSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7732,9 +9728,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetEnableSignals(self: KLineEdit, enable: bool) void {
+    pub fn setEnableSignals(self: KLineEdit, enable: bool) void {
         qtc.KCompletionBase_SetEnableSignals(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `handleSignals` instead
+    ///
+    pub const HandleSignals = handleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7744,9 +9744,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HandleSignals(self: KLineEdit) bool {
+    pub fn handleSignals(self: KLineEdit) bool {
         return qtc.KCompletionBase_HandleSignals(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `emitSignals` instead
+    ///
+    pub const EmitSignals = emitSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7756,9 +9760,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn EmitSignals(self: KLineEdit) bool {
+    pub fn emitSignals(self: KLineEdit) bool {
         return qtc.KCompletionBase_EmitSignals(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEmitSignals` instead
+    ///
+    pub const SetEmitSignals = setEmitSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -7770,9 +9778,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` emitRotationSignals: bool `
     ///
-    pub fn SetEmitSignals(self: KLineEdit, emitRotationSignals: bool) void {
+    pub fn setEmitSignals(self: KLineEdit, emitRotationSignals: bool) void {
         qtc.KCompletionBase_SetEmitSignals(@ptrCast(self.ptr), emitRotationSignals);
     }
+
+    /// ### DEPRECATED: Use `completionMode` instead
+    ///
+    pub const CompletionMode = completionMode;
 
     /// Inherited from KCompletionBase
     ///
@@ -7786,9 +9798,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` kcompletion_enums.CompletionMode `
     ///
-    pub fn CompletionMode(self: KLineEdit) i32 {
+    pub fn completionMode(self: KLineEdit) i32 {
         return qtc.KCompletionBase_CompletionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyBinding` instead
+    ///
+    pub const SetKeyBinding = setKeyBinding;
 
     /// Inherited from KCompletionBase
     ///
@@ -7802,13 +9818,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` key: []QKeySequence `
     ///
-    pub fn SetKeyBinding(self: KLineEdit, item: i32, key: []QKeySequence) bool {
+    pub fn setKeyBinding(self: KLineEdit, item: i32, key: []QKeySequence) bool {
         const key_list = qtc.libqt_list{
             .len = key.len,
             .data = @ptrCast(key.ptr),
         };
         return qtc.KCompletionBase_SetKeyBinding(@ptrCast(self.ptr), @bitCast(item), key_list);
     }
+
+    /// ### DEPRECATED: Use `keyBinding` instead
+    ///
+    pub const KeyBinding = keyBinding;
 
     /// Inherited from KCompletionBase
     ///
@@ -7822,15 +9842,19 @@ pub const KLineEdit = extern struct {
     ///
     /// ` item: kcompletionbase_enums.KeyBindingType `
     ///
-    pub fn KeyBinding(self: KLineEdit, allocator: std.mem.Allocator, item: i32) []QKeySequence {
+    pub fn keyBinding(self: KLineEdit, allocator: std.mem.Allocator, item: i32) []QKeySequence {
         const _arr: qtc.libqt_list = qtc.KCompletionBase_KeyBinding(@ptrCast(self.ptr), @bitCast(item));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KLineEdit.KeyBinding: Memory allocation failed");
-        const _data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QKeySequence, _arr.len) catch @panic("KLineEdit.keyBinding: Memory allocation failed");
+        const _data_val: [*]QtC.QKeySequence = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `useGlobalKeyBindings` instead
+    ///
+    pub const UseGlobalKeyBindings = useGlobalKeyBindings;
 
     /// Inherited from KCompletionBase
     ///
@@ -7840,9 +9864,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UseGlobalKeyBindings(self: KLineEdit) void {
+    pub fn useGlobalKeyBindings(self: KLineEdit) void {
         qtc.KCompletionBase_UseGlobalKeyBindings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compObj` instead
+    ///
+    pub const CompObj = compObj;
 
     /// Inherited from KCompletionBase
     ///
@@ -7852,9 +9880,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CompObj(self: KLineEdit) KCompletion {
+    pub fn compObj(self: KLineEdit) KCompletion {
         return .{ .ptr = qtc.KCompletionBase_CompObj(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `completionObject1` instead
+    ///
+    pub const CompletionObject1 = completionObject1;
 
     /// Inherited from KCompletionBase
     ///
@@ -7864,11 +9896,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` handleSignals: bool `
+    /// ` _handleSignals: bool `
     ///
-    pub fn CompletionObject1(self: KLineEdit, handleSignals: bool) KCompletion {
-        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), handleSignals) };
+    pub fn completionObject1(self: KLineEdit, _handleSignals: bool) KCompletion {
+        return .{ .ptr = qtc.KCompletionBase_CompletionObject1(@ptrCast(self.ptr), _handleSignals) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7880,13 +9916,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SizeHint(self: KLineEdit) QSize {
+    pub fn sizeHint(self: KLineEdit) QSize {
         return .{ .ptr = qtc.KLineEdit_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7898,9 +9934,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperSizeHint(self: KLineEdit) QSize {
+    pub fn superSizeHint(self: KLineEdit) QSize {
         return .{ .ptr = qtc.KLineEdit_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7916,9 +9956,13 @@ pub const KLineEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLineEdit_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7930,13 +9974,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn MinimumSizeHint(self: KLineEdit) QSize {
+    pub fn minimumSizeHint(self: KLineEdit) QSize {
         return .{ .ptr = qtc.KLineEdit_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7948,9 +9992,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperMinimumSizeHint(self: KLineEdit) QSize {
+    pub fn superMinimumSizeHint(self: KLineEdit) QSize {
         return .{ .ptr = qtc.KLineEdit_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QLineEdit
     ///
@@ -7966,9 +10014,13 @@ pub const KLineEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KLineEdit, callback: *const fn () callconv(.c) QSize) void {
         qtc.KLineEdit_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -7982,14 +10034,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KLineEdit, param1: anytype) void {
+    pub fn mouseMoveEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8003,10 +10055,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superMouseMoveEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMouseEvent;
         qtc.KLineEdit_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8020,9 +10076,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMouseEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8036,14 +10096,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KLineEdit, param1: anytype) void {
+    pub fn keyReleaseEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KLineEdit_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8057,10 +10117,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superKeyReleaseEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KLineEdit_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8074,9 +10138,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QKeyEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8090,14 +10158,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KLineEdit, param1: anytype) void {
+    pub fn focusInEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KLineEdit_FocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8111,11 +10179,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superFocusInEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KLineEdit_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QLineEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlineedit.html#focusInEvent)
@@ -8128,9 +10200,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KLineEdit, callback: *const fn (KLineEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KLineEdit, callback: *const fn (KLineEdit, QFocusEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8144,14 +10220,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KLineEdit, param1: anytype) void {
+    pub fn focusOutEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KLineEdit_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8165,10 +10241,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superFocusOutEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFocusEvent;
         qtc.KLineEdit_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8182,9 +10262,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KLineEdit, callback: *const fn (KLineEdit, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KLineEdit, callback: *const fn (KLineEdit, QFocusEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8198,14 +10282,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KLineEdit, param1: anytype) void {
+    pub fn dragEnterEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KLineEdit_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8219,10 +10303,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superDragEnterEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDragEnterEvent;
         qtc.KLineEdit_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8236,9 +10324,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragEnterEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8252,14 +10344,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KLineEdit, e: anytype) void {
+    pub fn dragMoveEvent(self: KLineEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KLineEdit_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8273,10 +10365,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KLineEdit, e: anytype) void {
+    pub fn superDragMoveEvent(self: KLineEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.KLineEdit_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8290,9 +10386,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragMoveEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8306,14 +10406,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KLineEdit, e: anytype) void {
+    pub fn dragLeaveEvent(self: KLineEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KLineEdit_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8327,10 +10427,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KLineEdit, e: anytype) void {
+    pub fn superDragLeaveEvent(self: KLineEdit, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.KLineEdit_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8344,9 +10448,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8360,14 +10468,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn DropEvent(self: KLineEdit, param1: anytype) void {
+    pub fn dropEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KLineEdit_DropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8381,10 +10489,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superDropEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDropEvent;
         qtc.KLineEdit_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8398,9 +10510,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KLineEdit, callback: *const fn (KLineEdit, QDropEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8414,14 +10530,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KLineEdit, param1: anytype) void {
+    pub fn changeEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KLineEdit_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8435,10 +10551,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superChangeEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KLineEdit_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8452,9 +10572,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8468,14 +10592,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KLineEdit, param1: anytype) void {
+    pub fn inputMethodEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KLineEdit_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8489,10 +10613,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KLineEdit_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8506,9 +10634,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KLineEdit, callback: *const fn (KLineEdit, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KLineEdit, callback: *const fn (KLineEdit, QInputMethodEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -8522,14 +10654,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KLineEdit, option: anytype) void {
+    pub fn initStyleOption(self: KLineEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KLineEdit_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -8543,10 +10675,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KLineEdit, option: anytype) void {
+    pub fn superInitStyleOption(self: KLineEdit, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KLineEdit_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QLineEdit
     ///
@@ -8560,9 +10696,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KLineEdit, callback: *const fn (KLineEdit, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KLineEdit, callback: *const fn (KLineEdit, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KLineEdit_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -8576,13 +10716,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KLineEdit, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KLineEdit, param1: i32) QVariant {
         return .{ .ptr = qtc.KLineEdit_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -8596,9 +10736,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KLineEdit, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KLineEdit, param1: i32) QVariant {
         return .{ .ptr = qtc.KLineEdit_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QLineEdit
     ///
@@ -8614,9 +10758,13 @@ pub const KLineEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) QVariant) void {
         qtc.KLineEdit_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8630,14 +10778,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KLineEdit, param1: anytype) void {
+    pub fn timerEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KLineEdit_TimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8651,10 +10799,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KLineEdit, param1: anytype) void {
+    pub fn superTimerEvent(self: KLineEdit, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QTimerEvent;
         qtc.KLineEdit_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QLineEdit
     ///
@@ -8668,9 +10820,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KLineEdit, callback: *const fn (KLineEdit, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KLineEdit, callback: *const fn (KLineEdit, QTimerEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -8682,13 +10838,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn DevType(self: KLineEdit) i32 {
+    pub fn devType(self: KLineEdit) i32 {
         return qtc.KLineEdit_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -8700,9 +10856,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperDevType(self: KLineEdit) i32 {
+    pub fn superDevType(self: KLineEdit) i32 {
         return qtc.KLineEdit_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -8716,9 +10876,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.KLineEdit_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -8732,13 +10896,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KLineEdit, visible: bool) void {
+    pub fn setVisible(self: KLineEdit, visible: bool) void {
         qtc.KLineEdit_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8752,9 +10916,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KLineEdit, visible: bool) void {
+    pub fn superSetVisible(self: KLineEdit, visible: bool) void {
         qtc.KLineEdit_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -8768,9 +10936,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8784,13 +10956,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KLineEdit, param1: i32) i32 {
+    pub fn heightForWidth(self: KLineEdit, param1: i32) i32 {
         return qtc.KLineEdit_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8804,9 +10976,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KLineEdit, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KLineEdit, param1: i32) i32 {
         return qtc.KLineEdit_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8820,9 +10996,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) i32) void {
         qtc.KLineEdit_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8834,13 +11014,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn HasHeightForWidth(self: KLineEdit) bool {
+    pub fn hasHeightForWidth(self: KLineEdit) bool {
         return qtc.KLineEdit_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8852,9 +11032,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperHasHeightForWidth(self: KLineEdit) bool {
+    pub fn superHasHeightForWidth(self: KLineEdit) bool {
         return qtc.KLineEdit_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8868,9 +11052,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.KLineEdit_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8882,13 +11070,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn PaintEngine(self: KLineEdit) QPaintEngine {
+    pub fn paintEngine(self: KLineEdit) QPaintEngine {
         return .{ .ptr = qtc.KLineEdit_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8900,9 +11088,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperPaintEngine(self: KLineEdit) QPaintEngine {
+    pub fn superPaintEngine(self: KLineEdit) QPaintEngine {
         return .{ .ptr = qtc.KLineEdit_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8916,9 +11108,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KLineEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KLineEdit, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KLineEdit_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8930,16 +11126,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KLineEdit_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KLineEdit_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8951,12 +11147,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KLineEdit_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KLineEdit_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -8970,9 +11170,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KLineEdit, callback: *const fn (KLineEdit, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KLineEdit, callback: *const fn (KLineEdit, QWheelEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8984,16 +11188,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KLineEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KLineEdit_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9005,12 +11209,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KLineEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KLineEdit_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -9024,9 +11232,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEnterEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9038,16 +11250,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KLineEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KLineEdit_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9059,12 +11271,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KLineEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KLineEdit_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9078,9 +11294,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9092,16 +11312,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KLineEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KLineEdit_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9113,12 +11333,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KLineEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KLineEdit_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -9132,9 +11356,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KLineEdit, callback: *const fn (KLineEdit, QMoveEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9146,16 +11374,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KLineEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KLineEdit_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9167,12 +11395,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KLineEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KLineEdit_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -9186,9 +11418,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KLineEdit, callback: *const fn (KLineEdit, QCloseEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9200,16 +11436,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KLineEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KLineEdit_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9221,12 +11457,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KLineEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KLineEdit_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -9240,9 +11480,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KLineEdit, callback: *const fn (KLineEdit, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KLineEdit, callback: *const fn (KLineEdit, QTabletEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9254,16 +11498,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KLineEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KLineEdit_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9275,12 +11519,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KLineEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KLineEdit_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -9294,9 +11542,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KLineEdit, callback: *const fn (KLineEdit, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KLineEdit, callback: *const fn (KLineEdit, QActionEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -9308,16 +11560,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KLineEdit_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KLineEdit_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9329,12 +11581,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KLineEdit_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KLineEdit_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -9348,9 +11604,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KLineEdit, callback: *const fn (KLineEdit, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KLineEdit, callback: *const fn (KLineEdit, QShowEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9362,16 +11622,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KLineEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KLineEdit_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9383,12 +11643,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KLineEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KLineEdit_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -9402,9 +11666,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KLineEdit, callback: *const fn (KLineEdit, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KLineEdit, callback: *const fn (KLineEdit, QHideEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9422,7 +11690,7 @@ pub const KLineEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KLineEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KLineEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -9430,9 +11698,9 @@ pub const KLineEdit = extern struct {
         return qtc.KLineEdit_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9450,13 +11718,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KLineEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KLineEdit, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KLineEdit_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -9470,9 +11742,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KLineEdit, callback: *const fn (KLineEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KLineEdit, callback: *const fn (KLineEdit, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KLineEdit_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -9486,13 +11762,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KLineEdit, param1: i32) i32 {
+    pub fn metric(self: KLineEdit, param1: i32) i32 {
         return qtc.KLineEdit_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -9506,9 +11782,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KLineEdit, param1: i32) i32 {
+    pub fn superMetric(self: KLineEdit, param1: i32) i32 {
         return qtc.KLineEdit_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -9522,9 +11802,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KLineEdit, callback: *const fn (KLineEdit, i32) callconv(.c) i32) void {
         qtc.KLineEdit_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -9538,14 +11822,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KLineEdit, painter: anytype) void {
+    pub fn initPainter(self: KLineEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KLineEdit_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9559,10 +11843,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KLineEdit, painter: anytype) void {
+    pub fn superInitPainter(self: KLineEdit, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KLineEdit_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -9576,9 +11864,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KLineEdit, callback: *const fn (KLineEdit, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KLineEdit, callback: *const fn (KLineEdit, QPainter) callconv(.c) void) void {
         qtc.KLineEdit_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -9592,14 +11884,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KLineEdit, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KLineEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KLineEdit_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9613,10 +11905,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KLineEdit, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KLineEdit, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KLineEdit_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -9630,9 +11926,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KLineEdit, callback: *const fn (KLineEdit, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KLineEdit, callback: *const fn (KLineEdit, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KLineEdit_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9644,13 +11944,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SharedPainter(self: KLineEdit) QPainter {
+    pub fn sharedPainter(self: KLineEdit) QPainter {
         return .{ .ptr = qtc.KLineEdit_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9662,9 +11962,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperSharedPainter(self: KLineEdit) QPainter {
+    pub fn superSharedPainter(self: KLineEdit) QPainter {
         return .{ .ptr = qtc.KLineEdit_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9678,9 +11982,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KLineEdit, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KLineEdit, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KLineEdit_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9694,13 +12002,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KLineEdit, next: bool) bool {
+    pub fn focusNextPrevChild(self: KLineEdit, next: bool) bool {
         return qtc.KLineEdit_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9714,9 +12022,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KLineEdit, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KLineEdit, next: bool) bool {
         return qtc.KLineEdit_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9730,9 +12042,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) bool) void {
         qtc.KLineEdit_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -9746,17 +12062,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KLineEdit, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KLineEdit, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KLineEdit_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KLineEdit_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9770,13 +12086,17 @@ pub const KLineEdit = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KLineEdit, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KLineEdit, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KLineEdit_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KLineEdit_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9790,9 +12110,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KLineEdit, callback: *const fn (KLineEdit, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KLineEdit, callback: *const fn (KLineEdit, QObject, QEvent) callconv(.c) bool) void {
         qtc.KLineEdit_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9804,16 +12128,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KLineEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KLineEdit_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9825,12 +12149,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KLineEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KLineEdit_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9844,9 +12172,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KLineEdit, callback: *const fn (KLineEdit, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KLineEdit, callback: *const fn (KLineEdit, QChildEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9858,16 +12190,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KLineEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KLineEdit_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9879,12 +12211,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KLineEdit, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KLineEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KLineEdit, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KLineEdit_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9898,9 +12234,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KLineEdit, callback: *const fn (KLineEdit, QEvent) callconv(.c) void) void {
         qtc.KLineEdit_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9914,14 +12254,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KLineEdit, signal: anytype) void {
+    pub fn connectNotify(self: KLineEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KLineEdit_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9935,11 +12275,15 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KLineEdit, signal: anytype) void {
+    pub fn superConnectNotify(self: KLineEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KLineEdit_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9952,9 +12296,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) void) void {
         qtc.KLineEdit_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9968,14 +12316,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KLineEdit, signal: anytype) void {
+    pub fn disconnectNotify(self: KLineEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KLineEdit_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9989,10 +12337,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KLineEdit, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KLineEdit, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KLineEdit_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -10006,9 +12358,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) void) void {
         qtc.KLineEdit_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setHandleSignals` instead
+    ///
+    pub const SetHandleSignals = setHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10022,13 +12378,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SetHandleSignals(self: KLineEdit, handle: bool) void {
+    pub fn setHandleSignals(self: KLineEdit, handle: bool) void {
         qtc.KLineEdit_SetHandleSignals(@ptrCast(self.ptr), handle);
     }
 
-    /// ### DEPRECATED: Use `SuperSetHandleSignals` instead
+    /// ### DEPRECATED: Use `superSetHandleSignals` instead
     ///
-    pub const QBaseSetHandleSignals = SuperSetHandleSignals;
+    pub const SuperSetHandleSignals = superSetHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10042,9 +12398,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` handle: bool `
     ///
-    pub fn SuperSetHandleSignals(self: KLineEdit, handle: bool) void {
+    pub fn superSetHandleSignals(self: KLineEdit, handle: bool) void {
         qtc.KLineEdit_SuperSetHandleSignals(@ptrCast(self.ptr), handle);
     }
+
+    /// ### DEPRECATED: Use `onSetHandleSignals` instead
+    ///
+    pub const OnSetHandleSignals = onSetHandleSignals;
 
     /// Inherited from KCompletionBase
     ///
@@ -10058,9 +12418,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, handle: bool) callconv(.c) void `
     ///
-    pub fn OnSetHandleSignals(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
+    pub fn onSetHandleSignals(self: KLineEdit, callback: *const fn (KLineEdit, bool) callconv(.c) void) void {
         qtc.KLineEdit_OnSetHandleSignals(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `virtualHook` instead
+    ///
+    pub const VirtualHook = virtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10076,13 +12440,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn VirtualHook(self: KLineEdit, id: i32, data: ?*anyopaque) void {
+    pub fn virtualHook(self: KLineEdit, id: i32, data: ?*anyopaque) void {
         qtc.KLineEdit_VirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
 
-    /// ### DEPRECATED: Use `SuperVirtualHook` instead
+    /// ### DEPRECATED: Use `superVirtualHook` instead
     ///
-    pub const QBaseVirtualHook = SuperVirtualHook;
+    pub const SuperVirtualHook = superVirtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10098,9 +12462,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` data: ?*anyopaque `
     ///
-    pub fn SuperVirtualHook(self: KLineEdit, id: i32, data: ?*anyopaque) void {
+    pub fn superVirtualHook(self: KLineEdit, id: i32, data: ?*anyopaque) void {
         qtc.KLineEdit_SuperVirtualHook(@ptrCast(self.ptr), @bitCast(id), @ptrCast(data));
     }
+
+    /// ### DEPRECATED: Use `onVirtualHook` instead
+    ///
+    pub const OnVirtualHook = onVirtualHook;
 
     /// Inherited from KCompletionBase
     ///
@@ -10114,9 +12482,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, id: i32, data: ?*anyopaque) callconv(.c) void `
     ///
-    pub fn OnVirtualHook(self: KLineEdit, callback: *const fn (KLineEdit, i32, ?*anyopaque) callconv(.c) void) void {
+    pub fn onVirtualHook(self: KLineEdit, callback: *const fn (KLineEdit, i32, ?*anyopaque) callconv(.c) void) void {
         qtc.KLineEdit_OnVirtualHook(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -10128,13 +12500,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn CursorRect(self: KLineEdit) QRect {
+    pub fn cursorRect(self: KLineEdit) QRect {
         return .{ .ptr = qtc.KLineEdit_CursorRect(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCursorRect` instead
+    /// ### DEPRECATED: Use `superCursorRect` instead
     ///
-    pub const QBaseCursorRect = SuperCursorRect;
+    pub const SuperCursorRect = superCursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -10146,9 +12518,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperCursorRect(self: KLineEdit) QRect {
+    pub fn superCursorRect(self: KLineEdit) QRect {
         return .{ .ptr = qtc.KLineEdit_SuperCursorRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCursorRect` instead
+    ///
+    pub const OnCursorRect = onCursorRect;
 
     /// Inherited from QLineEdit
     ///
@@ -10164,10 +12540,14 @@ pub const KLineEdit = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCursorRect(self: KLineEdit, callback: *const fn () callconv(.c) QRect) void {
+    pub fn onCursorRect(self: KLineEdit, callback: *const fn () callconv(.c) QRect) void {
         qtc.KLineEdit_OnCursorRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10178,13 +12558,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn UpdateMicroFocus(self: KLineEdit) void {
+    pub fn updateMicroFocus(self: KLineEdit) void {
         qtc.KLineEdit_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -10196,10 +12576,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperUpdateMicroFocus(self: KLineEdit) void {
+    pub fn superUpdateMicroFocus(self: KLineEdit) void {
         qtc.KLineEdit_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -10212,10 +12596,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
         qtc.KLineEdit_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10226,13 +12614,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Create(self: KLineEdit) void {
+    pub fn create(self: KLineEdit) void {
         qtc.KLineEdit_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -10244,10 +12632,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperCreate(self: KLineEdit) void {
+    pub fn superCreate(self: KLineEdit) void {
         qtc.KLineEdit_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -10260,9 +12652,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
         qtc.KLineEdit_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -10274,13 +12670,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Destroy(self: KLineEdit) void {
+    pub fn destroy(self: KLineEdit) void {
         qtc.KLineEdit_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10292,9 +12688,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperDestroy(self: KLineEdit) void {
+    pub fn superDestroy(self: KLineEdit) void {
         qtc.KLineEdit_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -10308,10 +12708,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KLineEdit, callback: *const fn () callconv(.c) void) void {
         qtc.KLineEdit_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10322,13 +12726,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FocusNextChild(self: KLineEdit) bool {
+    pub fn focusNextChild(self: KLineEdit) bool {
         return qtc.KLineEdit_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -10340,10 +12744,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperFocusNextChild(self: KLineEdit) bool {
+    pub fn superFocusNextChild(self: KLineEdit) bool {
         return qtc.KLineEdit_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -10356,9 +12764,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.KLineEdit_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10370,13 +12782,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn FocusPreviousChild(self: KLineEdit) bool {
+    pub fn focusPreviousChild(self: KLineEdit) bool {
         return qtc.KLineEdit_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10388,9 +12800,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperFocusPreviousChild(self: KLineEdit) bool {
+    pub fn superFocusPreviousChild(self: KLineEdit) bool {
         return qtc.KLineEdit_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -10404,9 +12820,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KLineEdit, callback: *const fn () callconv(.c) bool) void {
         qtc.KLineEdit_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -10418,13 +12838,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Sender(self: KLineEdit) QObject {
+    pub fn sender(self: KLineEdit) QObject {
         return .{ .ptr = qtc.KLineEdit_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -10436,9 +12856,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperSender(self: KLineEdit) QObject {
+    pub fn superSender(self: KLineEdit) QObject {
         return .{ .ptr = qtc.KLineEdit_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -10452,9 +12876,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KLineEdit, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KLineEdit, callback: *const fn () callconv(.c) QObject) void {
         qtc.KLineEdit_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10466,13 +12894,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SenderSignalIndex(self: KLineEdit) i32 {
+    pub fn senderSignalIndex(self: KLineEdit) i32 {
         return qtc.KLineEdit_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10484,9 +12912,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperSenderSignalIndex(self: KLineEdit) i32 {
+    pub fn superSenderSignalIndex(self: KLineEdit) i32 {
         return qtc.KLineEdit_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -10500,9 +12932,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KLineEdit, callback: *const fn () callconv(.c) i32) void {
         qtc.KLineEdit_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -10516,14 +12952,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KLineEdit, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KLineEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KLineEdit_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -10537,10 +12973,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KLineEdit, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KLineEdit, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KLineEdit_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -10554,9 +12994,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) i32) void {
         qtc.KLineEdit_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10570,14 +13014,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KLineEdit, signal: anytype) bool {
+    pub fn isSignalConnected(self: KLineEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KLineEdit_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10591,10 +13035,14 @@ pub const KLineEdit = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KLineEdit, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KLineEdit, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KLineEdit_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -10608,9 +13056,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KLineEdit, callback: *const fn (KLineEdit, QMetaMethod) callconv(.c) bool) void {
         qtc.KLineEdit_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10626,13 +13078,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
         return qtc.KLineEdit_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10648,9 +13100,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KLineEdit, metricA: i32, metricB: i32) f64 {
         return qtc.KLineEdit_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -10664,9 +13120,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KLineEdit, callback: *const fn (KLineEdit, i32, i32) callconv(.c) f64) void {
         qtc.KLineEdit_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyBindingMap` instead
+    ///
+    pub const KeyBindingMap = keyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -10684,10 +13144,10 @@ pub const KLineEdit = extern struct {
     ///
     /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn KeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
+    pub fn keyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KLineEdit_KeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.keyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10702,18 +13162,18 @@ pub const KLineEdit = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.keyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |ii|
-                _value_slice[ii] = .{ .ptr = _value_data[ii] };
+            for (0.._value.len) |j|
+                _value_slice[j] = .{ .ptr = _value_data[j] };
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperKeyBindingMap` instead
+    /// ### DEPRECATED: Use `superKeyBindingMap` instead
     ///
-    pub const QBaseKeyBindingMap = SuperKeyBindingMap;
+    pub const SuperKeyBindingMap = superKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -10731,10 +13191,10 @@ pub const KLineEdit = extern struct {
     ///
     /// ` ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SuperKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
+    pub fn superKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator) ArrayMap_i32_SliceQKeySequence {
         const _map: qtc.libqt_map = qtc.KLineEdit_SuperKeyBindingMap(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_SliceQKeySequence = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.KeyBindingMap: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KLineEdit.keyBindingMap: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_list = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -10749,14 +13209,18 @@ pub const KLineEdit = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.KeyBindingMap: Memory allocation failed");
+            const _value_slice = allocator.alloc(QKeySequence, _value.len) catch @panic("KLineEdit.keyBindingMap: Memory allocation failed");
             const _value_data: [*]QtC.QKeySequence = @ptrCast(@alignCast(_value.data));
-            for (0.._value.len) |ii|
-                _value_slice[ii] = .{ .ptr = _value_data[ii] };
+            for (0.._value.len) |j|
+                _value_slice[j] = .{ .ptr = _value_data[j] };
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onKeyBindingMap` instead
+    ///
+    pub const OnKeyBindingMap = onKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -10774,9 +13238,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` C ABI representation of ArrayMap_i32_SliceQKeySequence `
     ///
-    pub fn OnKeyBindingMap(self: KLineEdit, callback: *const fn () callconv(.c) qtc.libqt_map) void {
+    pub fn onKeyBindingMap(self: KLineEdit, callback: *const fn () callconv(.c) qtc.libqt_map) void {
         qtc.KLineEdit_OnKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setKeyBindingMap` instead
+    ///
+    pub const SetKeyBindingMap = setKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -10790,16 +13258,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
+    pub fn setKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
+        const keyBindingMap_count = _keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
+        var keyBindingMap_it = _keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
             keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
@@ -10817,9 +13285,9 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_SetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
-    /// ### DEPRECATED: Use `SuperSetKeyBindingMap` instead
+    /// ### DEPRECATED: Use `superSetKeyBindingMap` instead
     ///
-    pub const QBaseSetKeyBindingMap = SuperSetKeyBindingMap;
+    pub const SuperSetKeyBindingMap = superSetKeyBindingMap;
 
     /// Inherited from KCompletionBase
     ///
@@ -10833,16 +13301,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
+    /// ` _keyBindingMap: ArrayMap_i32_SliceQKeySequence (key: kcompletionbase_enums.KeyBindingType) `
     ///
-    pub fn SuperSetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
-        const keyBindingMap_count = keyBindingMap.count();
-        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
+    pub fn superSetKeyBindingMap(self: KLineEdit, allocator: std.mem.Allocator, _keyBindingMap: ArrayMap_i32_SliceQKeySequence) void {
+        const keyBindingMap_count = _keyBindingMap.count();
+        const keyBindingMap_keys = allocator.alloc(i32, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_keys);
-        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.SetKeyBindingMap: Memory allocation failed");
+        const keyBindingMap_values = allocator.alloc(qtc.libqt_list, keyBindingMap_count) catch @panic("KLineEdit.setKeyBindingMap: Memory allocation failed");
         defer allocator.free(keyBindingMap_values);
         var i: usize = 0;
-        var keyBindingMap_it = keyBindingMap.iterator();
+        var keyBindingMap_it = _keyBindingMap.iterator();
         while (keyBindingMap_it.next()) |it_entry| : (i += 1) {
             const keyBindingMap_key = it_entry.key_ptr.*;
             keyBindingMap_keys[i] = @bitCast(keyBindingMap_key);
@@ -10860,6 +13328,10 @@ pub const KLineEdit = extern struct {
         qtc.KLineEdit_SuperSetKeyBindingMap(@ptrCast(self.ptr), keyBindingMap_map);
     }
 
+    /// ### DEPRECATED: Use `onSetKeyBindingMap` instead
+    ///
+    pub const OnSetKeyBindingMap = onSetKeyBindingMap;
+
     /// Inherited from KCompletionBase
     ///
     /// ### [Upstream resources](https://api.kde.org/kcompletionbase.html#setKeyBindingMap)
@@ -10872,9 +13344,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, keyBindingMap: qtc.libqt_map (ArrayMap_i32_SliceQKeySequence)) callconv(.c) void `
     ///
-    pub fn OnSetKeyBindingMap(self: KLineEdit, callback: *const fn (KLineEdit, qtc.libqt_map) callconv(.c) void) void {
+    pub fn onSetKeyBindingMap(self: KLineEdit, callback: *const fn (KLineEdit, qtc.libqt_map) callconv(.c) void) void {
         qtc.KLineEdit_OnSetKeyBindingMap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setDelegate` instead
+    ///
+    pub const SetDelegate = setDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10886,16 +13362,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` delegate: KCompletionBase `
+    /// ` _delegate: KCompletionBase `
     ///
-    pub fn SetDelegate(self: KLineEdit, delegate: anytype) void {
-        comptime _ = @TypeOf(delegate)._is_KCompletionBase;
-        qtc.KLineEdit_SetDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
+    pub fn setDelegate(self: KLineEdit, _delegate: anytype) void {
+        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
+        qtc.KLineEdit_SetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetDelegate` instead
+    /// ### DEPRECATED: Use `superSetDelegate` instead
     ///
-    pub const QBaseSetDelegate = SuperSetDelegate;
+    pub const SuperSetDelegate = superSetDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10907,12 +13383,16 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    /// ` delegate: KCompletionBase `
+    /// ` _delegate: KCompletionBase `
     ///
-    pub fn SuperSetDelegate(self: KLineEdit, delegate: anytype) void {
-        comptime _ = @TypeOf(delegate)._is_KCompletionBase;
-        qtc.KLineEdit_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
+    pub fn superSetDelegate(self: KLineEdit, _delegate: anytype) void {
+        comptime _ = @TypeOf(_delegate)._is_KCompletionBase;
+        qtc.KLineEdit_SuperSetDelegate(@ptrCast(self.ptr), @ptrCast(_delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetDelegate` instead
+    ///
+    pub const OnSetDelegate = onSetDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10926,9 +13406,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, delegate: KCompletionBase) callconv(.c) void `
     ///
-    pub fn OnSetDelegate(self: KLineEdit, callback: *const fn (KLineEdit, KCompletionBase) callconv(.c) void) void {
+    pub fn onSetDelegate(self: KLineEdit, callback: *const fn (KLineEdit, KCompletionBase) callconv(.c) void) void {
         qtc.KLineEdit_OnSetDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `delegate` instead
+    ///
+    pub const Delegate = delegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10940,13 +13424,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Delegate(self: KLineEdit) KCompletionBase {
+    pub fn delegate(self: KLineEdit) KCompletionBase {
         return .{ .ptr = qtc.KLineEdit_Delegate(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperDelegate` instead
+    /// ### DEPRECATED: Use `superDelegate` instead
     ///
-    pub const QBaseDelegate = SuperDelegate;
+    pub const SuperDelegate = superDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10958,9 +13442,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn SuperDelegate(self: KLineEdit) KCompletionBase {
+    pub fn superDelegate(self: KLineEdit) KCompletionBase {
         return .{ .ptr = qtc.KLineEdit_SuperDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDelegate` instead
+    ///
+    pub const OnDelegate = onDelegate;
 
     /// Inherited from KCompletionBase
     ///
@@ -10974,9 +13462,13 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) KCompletionBase `
     ///
-    pub fn OnDelegate(self: KLineEdit, callback: *const fn () callconv(.c) KCompletionBase) void {
+    pub fn onDelegate(self: KLineEdit, callback: *const fn () callconv(.c) KCompletionBase) void {
         qtc.KLineEdit_OnDelegate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -10990,23 +13482,23 @@ pub const KLineEdit = extern struct {
     ///
     /// ` callback: *const fn (self: KLineEdit, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KLineEdit, callback: *const fn (KLineEdit, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/klineedit.html#dtor.KLineEdit)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KLineEdit `
     ///
-    pub fn Delete(self: KLineEdit) void {
+    pub fn delete(self: KLineEdit) void {
         qtc.KLineEdit_Delete(@ptrCast(self.ptr));
     }
 };

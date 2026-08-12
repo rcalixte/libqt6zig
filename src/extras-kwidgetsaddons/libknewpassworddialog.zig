@@ -82,22 +82,34 @@ pub const KNewPasswordDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KNewPasswordDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KNewPasswordDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KNewPasswordDialog {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KNewPasswordDialog_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KNewPasswordDialog {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KNewPasswordDialog_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KNewPasswordDialog object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KNewPasswordDialog {
+    pub const New2 = new2;
+
+    /// Allocate a new KNewPasswordDialog object in C++ memory
+    ///
+    pub fn new2() KNewPasswordDialog {
         return .{ .ptr = qtc.KNewPasswordDialog_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -105,9 +117,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MetaObject(self: KNewPasswordDialog) QMetaObject {
+    pub fn metaObject(self: KNewPasswordDialog) QMetaObject {
         return .{ .ptr = qtc.KNewPasswordDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -119,13 +135,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KNewPasswordDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -135,9 +151,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperMetaObject(self: KNewPasswordDialog) QMetaObject {
+    pub fn superMetaObject(self: KNewPasswordDialog) QMetaObject {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -145,10 +165,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KNewPasswordDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KNewPasswordDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNewPasswordDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -158,13 +182,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KNewPasswordDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -174,10 +198,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KNewPasswordDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KNewPasswordDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KNewPasswordDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -189,9 +217,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KNewPasswordDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KNewPasswordDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -201,13 +233,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -221,9 +253,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KNewPasswordDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KNewPasswordDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KNewPasswordDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -233,14 +269,18 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrompt` instead
+    ///
+    pub const SetPrompt = setPrompt;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setPrompt)
     ///
@@ -248,15 +288,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` prompt: []const u8 `
+    /// ` _prompt: []const u8 `
     ///
-    pub fn SetPrompt(self: KNewPasswordDialog, prompt: []const u8) void {
+    pub fn setPrompt(self: KNewPasswordDialog, _prompt: []const u8) void {
         const prompt_str = qtc.libqt_string{
-            .len = prompt.len,
-            .data = prompt.ptr,
+            .len = _prompt.len,
+            .data = _prompt.ptr,
         };
         qtc.KNewPasswordDialog_SetPrompt(@ptrCast(self.ptr), prompt_str);
     }
+
+    /// ### DEPRECATED: Use `prompt` instead
+    ///
+    pub const Prompt = prompt;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#prompt)
     ///
@@ -266,13 +310,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prompt(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn prompt(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNewPasswordDialog_Prompt(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.Prompt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.prompt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setIcon)
     ///
@@ -280,12 +328,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KNewPasswordDialog, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.KNewPasswordDialog_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KNewPasswordDialog, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.KNewPasswordDialog_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#icon)
     ///
@@ -293,9 +345,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Icon(self: KNewPasswordDialog) QIcon {
+    pub fn icon(self: KNewPasswordDialog) QIcon {
         return .{ .ptr = qtc.KNewPasswordDialog_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAllowEmptyPasswords` instead
+    ///
+    pub const SetAllowEmptyPasswords = setAllowEmptyPasswords;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setAllowEmptyPasswords)
     ///
@@ -305,9 +361,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allowed: bool `
     ///
-    pub fn SetAllowEmptyPasswords(self: KNewPasswordDialog, allowed: bool) void {
+    pub fn setAllowEmptyPasswords(self: KNewPasswordDialog, allowed: bool) void {
         qtc.KNewPasswordDialog_SetAllowEmptyPasswords(@ptrCast(self.ptr), allowed);
     }
+
+    /// ### DEPRECATED: Use `allowEmptyPasswords` instead
+    ///
+    pub const AllowEmptyPasswords = allowEmptyPasswords;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#allowEmptyPasswords)
     ///
@@ -315,9 +375,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn AllowEmptyPasswords(self: KNewPasswordDialog) bool {
+    pub fn allowEmptyPasswords(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_AllowEmptyPasswords(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumPasswordLength` instead
+    ///
+    pub const SetMinimumPasswordLength = setMinimumPasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setMinimumPasswordLength)
     ///
@@ -327,9 +391,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` minLength: i32 `
     ///
-    pub fn SetMinimumPasswordLength(self: KNewPasswordDialog, minLength: i32) void {
+    pub fn setMinimumPasswordLength(self: KNewPasswordDialog, minLength: i32) void {
         qtc.KNewPasswordDialog_SetMinimumPasswordLength(@ptrCast(self.ptr), @bitCast(minLength));
     }
+
+    /// ### DEPRECATED: Use `minimumPasswordLength` instead
+    ///
+    pub const MinimumPasswordLength = minimumPasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#minimumPasswordLength)
     ///
@@ -337,9 +405,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MinimumPasswordLength(self: KNewPasswordDialog) i32 {
+    pub fn minimumPasswordLength(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_MinimumPasswordLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumPasswordLength` instead
+    ///
+    pub const SetMaximumPasswordLength = setMaximumPasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setMaximumPasswordLength)
     ///
@@ -349,9 +421,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` maxLength: i32 `
     ///
-    pub fn SetMaximumPasswordLength(self: KNewPasswordDialog, maxLength: i32) void {
+    pub fn setMaximumPasswordLength(self: KNewPasswordDialog, maxLength: i32) void {
         qtc.KNewPasswordDialog_SetMaximumPasswordLength(@ptrCast(self.ptr), @bitCast(maxLength));
     }
+
+    /// ### DEPRECATED: Use `maximumPasswordLength` instead
+    ///
+    pub const MaximumPasswordLength = maximumPasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#maximumPasswordLength)
     ///
@@ -359,9 +435,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MaximumPasswordLength(self: KNewPasswordDialog) i32 {
+    pub fn maximumPasswordLength(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_MaximumPasswordLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReasonablePasswordLength` instead
+    ///
+    pub const SetReasonablePasswordLength = setReasonablePasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setReasonablePasswordLength)
     ///
@@ -371,9 +451,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` reasonableLength: i32 `
     ///
-    pub fn SetReasonablePasswordLength(self: KNewPasswordDialog, reasonableLength: i32) void {
+    pub fn setReasonablePasswordLength(self: KNewPasswordDialog, reasonableLength: i32) void {
         qtc.KNewPasswordDialog_SetReasonablePasswordLength(@ptrCast(self.ptr), @bitCast(reasonableLength));
     }
+
+    /// ### DEPRECATED: Use `reasonablePasswordLength` instead
+    ///
+    pub const ReasonablePasswordLength = reasonablePasswordLength;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#reasonablePasswordLength)
     ///
@@ -381,9 +465,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ReasonablePasswordLength(self: KNewPasswordDialog) i32 {
+    pub fn reasonablePasswordLength(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_ReasonablePasswordLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPasswordStrengthWarningLevel` instead
+    ///
+    pub const SetPasswordStrengthWarningLevel = setPasswordStrengthWarningLevel;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setPasswordStrengthWarningLevel)
     ///
@@ -393,9 +481,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` warningLevel: i32 `
     ///
-    pub fn SetPasswordStrengthWarningLevel(self: KNewPasswordDialog, warningLevel: i32) void {
+    pub fn setPasswordStrengthWarningLevel(self: KNewPasswordDialog, warningLevel: i32) void {
         qtc.KNewPasswordDialog_SetPasswordStrengthWarningLevel(@ptrCast(self.ptr), @bitCast(warningLevel));
     }
+
+    /// ### DEPRECATED: Use `passwordStrengthWarningLevel` instead
+    ///
+    pub const PasswordStrengthWarningLevel = passwordStrengthWarningLevel;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#passwordStrengthWarningLevel)
     ///
@@ -403,9 +495,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PasswordStrengthWarningLevel(self: KNewPasswordDialog) i32 {
+    pub fn passwordStrengthWarningLevel(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_PasswordStrengthWarningLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundWarningColor` instead
+    ///
+    pub const SetBackgroundWarningColor = setBackgroundWarningColor;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setBackgroundWarningColor)
     ///
@@ -415,10 +511,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetBackgroundWarningColor(self: KNewPasswordDialog, color: anytype) void {
+    pub fn setBackgroundWarningColor(self: KNewPasswordDialog, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.KNewPasswordDialog_SetBackgroundWarningColor(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `backgroundWarningColor` instead
+    ///
+    pub const BackgroundWarningColor = backgroundWarningColor;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#backgroundWarningColor)
     ///
@@ -426,9 +526,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn BackgroundWarningColor(self: KNewPasswordDialog) QColor {
+    pub fn backgroundWarningColor(self: KNewPasswordDialog) QColor {
         return .{ .ptr = qtc.KNewPasswordDialog_BackgroundWarningColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `password` instead
+    ///
+    pub const Password = password;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#password)
     ///
@@ -438,13 +542,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Password(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn password(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KNewPasswordDialog_Password(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.Password: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.password: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setRevealPasswordAvailable` instead
+    ///
+    pub const SetRevealPasswordAvailable = setRevealPasswordAvailable;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setRevealPasswordAvailable)
     ///
@@ -454,9 +562,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` reveal: bool `
     ///
-    pub fn SetRevealPasswordAvailable(self: KNewPasswordDialog, reveal: bool) void {
+    pub fn setRevealPasswordAvailable(self: KNewPasswordDialog, reveal: bool) void {
         qtc.KNewPasswordDialog_SetRevealPasswordAvailable(@ptrCast(self.ptr), reveal);
     }
+
+    /// ### DEPRECATED: Use `isRevealPasswordAvailable` instead
+    ///
+    pub const IsRevealPasswordAvailable = isRevealPasswordAvailable;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#isRevealPasswordAvailable)
     ///
@@ -464,9 +576,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsRevealPasswordAvailable(self: KNewPasswordDialog) bool {
+    pub fn isRevealPasswordAvailable(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_IsRevealPasswordAvailable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `revealPasswordMode` instead
+    ///
+    pub const RevealPasswordMode = revealPasswordMode;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#revealPasswordMode)
     ///
@@ -478,9 +594,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` kpassword_enums.RevealMode `
     ///
-    pub fn RevealPasswordMode(self: KNewPasswordDialog) i32 {
+    pub fn revealPasswordMode(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_RevealPasswordMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRevealPasswordMode` instead
+    ///
+    pub const SetRevealPasswordMode = setRevealPasswordMode;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#setRevealPasswordMode)
     ///
@@ -488,11 +608,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` revealPasswordMode: kpassword_enums.RevealMode `
+    /// ` _revealPasswordMode: kpassword_enums.RevealMode `
     ///
-    pub fn SetRevealPasswordMode(self: KNewPasswordDialog, revealPasswordMode: i32) void {
-        qtc.KNewPasswordDialog_SetRevealPasswordMode(@ptrCast(self.ptr), @bitCast(revealPasswordMode));
+    pub fn setRevealPasswordMode(self: KNewPasswordDialog, _revealPasswordMode: i32) void {
+        qtc.KNewPasswordDialog_SetRevealPasswordMode(@ptrCast(self.ptr), @bitCast(_revealPasswordMode));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#accept)
     ///
@@ -500,9 +624,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Accept(self: KNewPasswordDialog) void {
+    pub fn accept(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#accept)
     ///
@@ -514,13 +642,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#accept)
     ///
@@ -530,9 +658,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperAccept(self: KNewPasswordDialog) void {
+    pub fn superAccept(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkPassword` instead
+    ///
+    pub const CheckPassword = checkPassword;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
@@ -542,13 +674,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CheckPassword(self: KNewPasswordDialog, param1: []const u8) bool {
+    pub fn checkPassword(self: KNewPasswordDialog, param1: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         return qtc.KNewPasswordDialog_CheckPassword(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCheckPassword` instead
+    ///
+    pub const OnCheckPassword = onCheckPassword;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
@@ -560,13 +696,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: [*:0]const u8) callconv(.c) bool `
     ///
-    pub fn OnCheckPassword(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) bool) void {
+    pub fn onCheckPassword(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnCheckPassword(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCheckPassword` instead
+    /// ### DEPRECATED: Use `superCheckPassword` instead
     ///
-    pub const QBaseCheckPassword = SuperCheckPassword;
+    pub const SuperCheckPassword = superCheckPassword;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#checkPassword)
     ///
@@ -578,7 +714,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SuperCheckPassword(self: KNewPasswordDialog, param1: []const u8) bool {
+    pub fn superCheckPassword(self: KNewPasswordDialog, param1: []const u8) bool {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -586,21 +722,29 @@ pub const KNewPasswordDialog = extern struct {
         return qtc.KNewPasswordDialog_SuperCheckPassword(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `newPassword` instead
+    ///
+    pub const NewPassword = newPassword;
+
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#newPassword)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` password: []const u8 `
+    /// ` _password: []const u8 `
     ///
-    pub fn NewPassword(self: KNewPasswordDialog, password: []const u8) void {
+    pub fn newPassword(self: KNewPasswordDialog, _password: []const u8) void {
         const password_str = qtc.libqt_string{
-            .len = password.len,
-            .data = password.ptr,
+            .len = _password.len,
+            .data = _password.ptr,
         };
         qtc.KNewPasswordDialog_NewPassword(@ptrCast(self.ptr), password_str);
     }
+
+    /// ### DEPRECATED: Use `onNewPassword` instead
+    ///
+    pub const OnNewPassword = onNewPassword;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#newPassword)
     ///
@@ -610,9 +754,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, password: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNewPassword(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onNewPassword(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.KNewPasswordDialog_Connect_NewPassword(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -624,15 +772,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -646,15 +798,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -664,9 +820,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Result(self: KNewPasswordDialog) i32 {
+    pub fn result(self: KNewPasswordDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -678,9 +838,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KNewPasswordDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KNewPasswordDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -690,9 +854,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KNewPasswordDialog) bool {
+    pub fn isSizeGripEnabled(self: KNewPasswordDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -704,9 +872,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KNewPasswordDialog, modal: bool) void {
+    pub fn setModal(self: KNewPasswordDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -718,9 +890,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KNewPasswordDialog, r: i32) void {
+    pub fn setResult(self: KNewPasswordDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -730,11 +906,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KNewPasswordDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KNewPasswordDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -746,10 +926,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -758,10 +942,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Accepted(self: KNewPasswordDialog) void {
+    pub fn accepted(self: KNewPasswordDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -772,9 +960,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -784,9 +976,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Rejected(self: KNewPasswordDialog) void {
+    pub fn rejected(self: KNewPasswordDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -798,9 +994,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -810,9 +1010,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn WinId(self: KNewPasswordDialog) usize {
+    pub fn winId(self: KNewPasswordDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -822,9 +1026,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn CreateWinId(self: KNewPasswordDialog) void {
+    pub fn createWinId(self: KNewPasswordDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -834,9 +1042,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn InternalWinId(self: KNewPasswordDialog) usize {
+    pub fn internalWinId(self: KNewPasswordDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -846,9 +1058,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn EffectiveWinId(self: KNewPasswordDialog) usize {
+    pub fn effectiveWinId(self: KNewPasswordDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -858,9 +1074,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Style(self: KNewPasswordDialog) QStyle {
+    pub fn style(self: KNewPasswordDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -870,12 +1090,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KNewPasswordDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KNewPasswordDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -885,9 +1109,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsTopLevel(self: KNewPasswordDialog) bool {
+    pub fn isTopLevel(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -897,9 +1125,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsWindow(self: KNewPasswordDialog) bool {
+    pub fn isWindow(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -909,9 +1141,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsModal(self: KNewPasswordDialog) bool {
+    pub fn isModal(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -925,9 +1161,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KNewPasswordDialog) i32 {
+    pub fn windowModality(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -937,11 +1177,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KNewPasswordDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KNewPasswordDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -951,9 +1195,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsEnabled(self: KNewPasswordDialog) bool {
+    pub fn isEnabled(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -965,10 +1213,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KNewPasswordDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KNewPasswordDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -980,9 +1232,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KNewPasswordDialog, enabled: bool) void {
+    pub fn setEnabled(self: KNewPasswordDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -994,9 +1250,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KNewPasswordDialog, disabled: bool) void {
+    pub fn setDisabled(self: KNewPasswordDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1008,9 +1268,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KNewPasswordDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KNewPasswordDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1020,9 +1284,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FrameGeometry(self: KNewPasswordDialog) QRect {
+    pub fn frameGeometry(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1032,9 +1300,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Geometry(self: KNewPasswordDialog) QRect {
+    pub fn geometry(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1044,9 +1316,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn NormalGeometry(self: KNewPasswordDialog) QRect {
+    pub fn normalGeometry(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1056,9 +1332,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn X(self: KNewPasswordDialog) i32 {
+    pub fn x(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1068,9 +1348,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Y(self: KNewPasswordDialog) i32 {
+    pub fn y(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1080,9 +1364,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Pos(self: KNewPasswordDialog) QPoint {
+    pub fn pos(self: KNewPasswordDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1092,9 +1380,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FrameSize(self: KNewPasswordDialog) QSize {
+    pub fn frameSize(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1104,9 +1396,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Size(self: KNewPasswordDialog) QSize {
+    pub fn size(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1116,9 +1412,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Width(self: KNewPasswordDialog) i32 {
+    pub fn width(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1128,9 +1428,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Height(self: KNewPasswordDialog) i32 {
+    pub fn height(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1140,9 +1444,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Rect(self: KNewPasswordDialog) QRect {
+    pub fn rect(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1152,9 +1460,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ChildrenRect(self: KNewPasswordDialog) QRect {
+    pub fn childrenRect(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1164,9 +1476,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ChildrenRegion(self: KNewPasswordDialog) QRegion {
+    pub fn childrenRegion(self: KNewPasswordDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1176,9 +1492,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MinimumSize(self: KNewPasswordDialog) QSize {
+    pub fn minimumSize(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1188,9 +1508,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MaximumSize(self: KNewPasswordDialog) QSize {
+    pub fn maximumSize(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1200,9 +1524,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MinimumWidth(self: KNewPasswordDialog) i32 {
+    pub fn minimumWidth(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1212,9 +1540,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MinimumHeight(self: KNewPasswordDialog) i32 {
+    pub fn minimumHeight(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1224,9 +1556,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MaximumWidth(self: KNewPasswordDialog) i32 {
+    pub fn maximumWidth(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1236,9 +1572,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MaximumHeight(self: KNewPasswordDialog) i32 {
+    pub fn maximumHeight(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1248,12 +1588,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KNewPasswordDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KNewPasswordDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1267,9 +1611,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KNewPasswordDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KNewPasswordDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1279,12 +1627,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KNewPasswordDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KNewPasswordDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1298,9 +1650,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KNewPasswordDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KNewPasswordDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1312,9 +1668,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KNewPasswordDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KNewPasswordDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1326,9 +1686,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KNewPasswordDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KNewPasswordDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1340,9 +1704,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KNewPasswordDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KNewPasswordDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1354,9 +1722,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KNewPasswordDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KNewPasswordDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1366,9 +1738,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SizeIncrement(self: KNewPasswordDialog) QSize {
+    pub fn sizeIncrement(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1378,12 +1754,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KNewPasswordDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KNewPasswordDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1397,9 +1777,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KNewPasswordDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KNewPasswordDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1409,9 +1793,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn BaseSize(self: KNewPasswordDialog) QSize {
+    pub fn baseSize(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1421,12 +1809,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KNewPasswordDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KNewPasswordDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1440,9 +1832,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KNewPasswordDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KNewPasswordDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1454,10 +1850,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KNewPasswordDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KNewPasswordDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1471,9 +1871,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KNewPasswordDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KNewPasswordDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1485,9 +1889,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KNewPasswordDialog, w: i32) void {
+    pub fn setFixedWidth(self: KNewPasswordDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1499,9 +1907,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KNewPasswordDialog, h: i32) void {
+    pub fn setFixedHeight(self: KNewPasswordDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1513,11 +1925,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KNewPasswordDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KNewPasswordDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1528,11 +1944,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KNewPasswordDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KNewPasswordDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1543,11 +1963,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KNewPasswordDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KNewPasswordDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1558,11 +1982,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KNewPasswordDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KNewPasswordDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1573,11 +2001,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KNewPasswordDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KNewPasswordDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1588,10 +2020,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KNewPasswordDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KNewPasswordDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1603,10 +2039,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KNewPasswordDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KNewPasswordDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1618,10 +2058,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KNewPasswordDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KNewPasswordDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1635,12 +2079,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1653,11 +2101,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1671,11 +2123,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1689,11 +2145,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KNewPasswordDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1703,9 +2163,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Window(self: KNewPasswordDialog) QWidget {
+    pub fn window(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1715,9 +2179,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn NativeParentWidget(self: KNewPasswordDialog) QWidget {
+    pub fn nativeParentWidget(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1727,9 +2195,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn TopLevelWidget(self: KNewPasswordDialog) QWidget {
+    pub fn topLevelWidget(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1739,9 +2211,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Palette(self: KNewPasswordDialog) QPalette {
+    pub fn palette(self: KNewPasswordDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1751,12 +2227,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KNewPasswordDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KNewPasswordDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1766,11 +2246,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KNewPasswordDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KNewPasswordDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1784,9 +2268,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KNewPasswordDialog) i32 {
+    pub fn backgroundRole(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1796,11 +2284,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KNewPasswordDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KNewPasswordDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1814,9 +2306,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KNewPasswordDialog) i32 {
+    pub fn foregroundRole(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1826,9 +2322,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Font(self: KNewPasswordDialog) QFont {
+    pub fn font(self: KNewPasswordDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1838,12 +2338,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KNewPasswordDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KNewPasswordDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1853,9 +2357,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FontMetrics(self: KNewPasswordDialog) QFontMetrics {
+    pub fn fontMetrics(self: KNewPasswordDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1865,9 +2373,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FontInfo(self: KNewPasswordDialog) QFontInfo {
+    pub fn fontInfo(self: KNewPasswordDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2389,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Cursor(self: KNewPasswordDialog) QCursor {
+    pub fn cursor(self: KNewPasswordDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1889,12 +2405,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KNewPasswordDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KNewPasswordDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1904,9 +2424,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UnsetCursor(self: KNewPasswordDialog) void {
+    pub fn unsetCursor(self: KNewPasswordDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1918,9 +2442,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KNewPasswordDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KNewPasswordDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1930,9 +2458,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn HasMouseTracking(self: KNewPasswordDialog) bool {
+    pub fn hasMouseTracking(self: KNewPasswordDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1942,9 +2474,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UnderMouse(self: KNewPasswordDialog) bool {
+    pub fn underMouse(self: KNewPasswordDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1956,9 +2492,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KNewPasswordDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KNewPasswordDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1968,24 +2508,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn HasTabletTracking(self: KNewPasswordDialog) bool {
+    pub fn hasTabletTracking(self: KNewPasswordDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNewPasswordDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KNewPasswordDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1995,12 +2524,35 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KNewPasswordDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KNewPasswordDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNewPasswordDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KNewPasswordDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2010,9 +2562,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Mask(self: KNewPasswordDialog) QRegion {
+    pub fn mask(self: KNewPasswordDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2022,9 +2578,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ClearMask(self: KNewPasswordDialog) void {
+    pub fn clearMask(self: KNewPasswordDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2036,10 +2596,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KNewPasswordDialog, target: anytype) void {
+    pub fn render(self: KNewPasswordDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2051,10 +2615,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KNewPasswordDialog, painter: anytype) void {
+    pub fn render2(self: KNewPasswordDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2064,9 +2632,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Grab(self: KNewPasswordDialog) QPixmap {
+    pub fn grab(self: KNewPasswordDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2076,9 +2648,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn GraphicsEffect(self: KNewPasswordDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KNewPasswordDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2090,10 +2666,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KNewPasswordDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KNewPasswordDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2105,9 +2685,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KNewPasswordDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KNewPasswordDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2119,9 +2703,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KNewPasswordDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KNewPasswordDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2131,15 +2719,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KNewPasswordDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KNewPasswordDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2149,15 +2741,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KNewPasswordDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KNewPasswordDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2169,13 +2765,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2187,13 +2787,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2203,12 +2807,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KNewPasswordDialog, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KNewPasswordDialog, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2218,9 +2826,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn WindowIcon(self: KNewPasswordDialog) QIcon {
+    pub fn windowIcon(self: KNewPasswordDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2230,15 +2842,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KNewPasswordDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KNewPasswordDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2250,13 +2866,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2266,15 +2886,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KNewPasswordDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KNewPasswordDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2286,13 +2910,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2304,13 +2932,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KNewPasswordDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KNewPasswordDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2322,13 +2954,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2340,9 +2976,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KNewPasswordDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KNewPasswordDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2352,9 +2992,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn WindowOpacity(self: KNewPasswordDialog) f64 {
+    pub fn windowOpacity(self: KNewPasswordDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2364,9 +3008,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsWindowModified(self: KNewPasswordDialog) bool {
+    pub fn isWindowModified(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2376,15 +3024,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KNewPasswordDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KNewPasswordDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2396,13 +3048,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2414,9 +3070,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KNewPasswordDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KNewPasswordDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2426,9 +3086,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ToolTipDuration(self: KNewPasswordDialog) i32 {
+    pub fn toolTipDuration(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2438,15 +3102,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KNewPasswordDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KNewPasswordDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2458,13 +3126,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2474,15 +3146,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KNewPasswordDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KNewPasswordDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2494,13 +3170,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2512,13 +3192,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2530,13 +3214,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KNewPasswordDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KNewPasswordDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2548,13 +3236,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2566,13 +3258,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KNewPasswordDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KNewPasswordDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2584,9 +3280,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KNewPasswordDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KNewPasswordDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2600,9 +3300,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KNewPasswordDialog) i32 {
+    pub fn layoutDirection(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2612,9 +3316,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KNewPasswordDialog) void {
+    pub fn unsetLayoutDirection(self: KNewPasswordDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2624,12 +3332,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KNewPasswordDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KNewPasswordDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2639,9 +3351,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Locale(self: KNewPasswordDialog) QLocale {
+    pub fn locale(self: KNewPasswordDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2651,9 +3367,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UnsetLocale(self: KNewPasswordDialog) void {
+    pub fn unsetLocale(self: KNewPasswordDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2663,9 +3383,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsRightToLeft(self: KNewPasswordDialog) bool {
+    pub fn isRightToLeft(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2675,9 +3399,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsLeftToRight(self: KNewPasswordDialog) bool {
+    pub fn isLeftToRight(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2687,9 +3415,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SetFocus(self: KNewPasswordDialog) void {
+    pub fn setFocus(self: KNewPasswordDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2699,9 +3431,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsActiveWindow(self: KNewPasswordDialog) bool {
+    pub fn isActiveWindow(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2711,9 +3447,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ActivateWindow(self: KNewPasswordDialog) void {
+    pub fn activateWindow(self: KNewPasswordDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2723,9 +3463,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ClearFocus(self: KNewPasswordDialog) void {
+    pub fn clearFocus(self: KNewPasswordDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2737,9 +3481,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KNewPasswordDialog, reason: i32) void {
+    pub fn setFocus2(self: KNewPasswordDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2753,9 +3501,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KNewPasswordDialog) i32 {
+    pub fn focusPolicy(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2767,9 +3519,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KNewPasswordDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KNewPasswordDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2779,9 +3535,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn HasFocus(self: KNewPasswordDialog) bool {
+    pub fn hasFocus(self: KNewPasswordDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2793,11 +3553,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2807,12 +3571,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KNewPasswordDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KNewPasswordDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2822,9 +3590,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FocusProxy(self: KNewPasswordDialog) QWidget {
+    pub fn focusProxy(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2838,9 +3610,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KNewPasswordDialog) i32 {
+    pub fn contextMenuPolicy(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2852,9 +3628,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KNewPasswordDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KNewPasswordDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2864,9 +3644,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn GrabMouse(self: KNewPasswordDialog) void {
+    pub fn grabMouse(self: KNewPasswordDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2878,10 +3662,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2891,9 +3679,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ReleaseMouse(self: KNewPasswordDialog) void {
+    pub fn releaseMouse(self: KNewPasswordDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2903,9 +3695,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn GrabKeyboard(self: KNewPasswordDialog) void {
+    pub fn grabKeyboard(self: KNewPasswordDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2915,9 +3711,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ReleaseKeyboard(self: KNewPasswordDialog) void {
+    pub fn releaseKeyboard(self: KNewPasswordDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2929,10 +3729,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KNewPasswordDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KNewPasswordDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3748,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KNewPasswordDialog, id: i32) void {
+    pub fn releaseShortcut(self: KNewPasswordDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2958,9 +3766,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KNewPasswordDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KNewPasswordDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2972,25 +3784,37 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KNewPasswordDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KNewPasswordDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3000,9 +3824,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UpdatesEnabled(self: KNewPasswordDialog) bool {
+    pub fn updatesEnabled(self: KNewPasswordDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3014,9 +3842,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KNewPasswordDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KNewPasswordDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3026,9 +3858,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KNewPasswordDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KNewPasswordDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3038,9 +3874,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Update(self: KNewPasswordDialog) void {
+    pub fn update(self: KNewPasswordDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3050,9 +3890,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Repaint(self: KNewPasswordDialog) void {
+    pub fn repaint(self: KNewPasswordDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3062,17 +3906,21 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KNewPasswordDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KNewPasswordDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3084,11 +3932,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn update3(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3099,10 +3951,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn update4(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3112,17 +3968,21 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KNewPasswordDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KNewPasswordDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3134,10 +3994,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn repaint3(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3149,10 +4013,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn repaint4(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3164,9 +4032,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KNewPasswordDialog, hidden: bool) void {
+    pub fn setHidden(self: KNewPasswordDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3176,9 +4048,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Show(self: KNewPasswordDialog) void {
+    pub fn show(self: KNewPasswordDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4064,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Hide(self: KNewPasswordDialog) void {
+    pub fn hide(self: KNewPasswordDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4080,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ShowMinimized(self: KNewPasswordDialog) void {
+    pub fn showMinimized(self: KNewPasswordDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3212,9 +4096,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ShowMaximized(self: KNewPasswordDialog) void {
+    pub fn showMaximized(self: KNewPasswordDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3224,9 +4112,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ShowFullScreen(self: KNewPasswordDialog) void {
+    pub fn showFullScreen(self: KNewPasswordDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3236,9 +4128,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ShowNormal(self: KNewPasswordDialog) void {
+    pub fn showNormal(self: KNewPasswordDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3248,9 +4144,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Close(self: KNewPasswordDialog) bool {
+    pub fn close(self: KNewPasswordDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3260,9 +4160,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Raise(self: KNewPasswordDialog) void {
+    pub fn raise(self: KNewPasswordDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3272,9 +4176,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Lower(self: KNewPasswordDialog) void {
+    pub fn lower(self: KNewPasswordDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3286,10 +4194,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn stackUnder(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3299,13 +4211,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KNewPasswordDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KNewPasswordDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3317,10 +4233,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn move2(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3334,9 +4254,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KNewPasswordDialog, w: i32, h: i32) void {
+    pub fn resize(self: KNewPasswordDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3348,10 +4272,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn resize2(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3361,17 +4289,21 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KNewPasswordDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KNewPasswordDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3381,12 +4313,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KNewPasswordDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KNewPasswordDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3398,13 +4334,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KNewPasswordDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KNewPasswordDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KNewPasswordDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KNewPasswordDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3414,15 +4354,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KNewPasswordDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KNewPasswordDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3432,9 +4376,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn AdjustSize(self: KNewPasswordDialog) void {
+    pub fn adjustSize(self: KNewPasswordDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3444,9 +4392,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsVisible(self: KNewPasswordDialog) bool {
+    pub fn isVisible(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3458,10 +4410,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KNewPasswordDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KNewPasswordDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3471,9 +4427,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsHidden(self: KNewPasswordDialog) bool {
+    pub fn isHidden(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3483,9 +4443,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsMinimized(self: KNewPasswordDialog) bool {
+    pub fn isMinimized(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3495,9 +4459,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsMaximized(self: KNewPasswordDialog) bool {
+    pub fn isMaximized(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3507,9 +4475,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsFullScreen(self: KNewPasswordDialog) bool {
+    pub fn isFullScreen(self: KNewPasswordDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3523,9 +4495,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KNewPasswordDialog) i32 {
+    pub fn windowState(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3537,9 +4513,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KNewPasswordDialog, state: i32) void {
+    pub fn setWindowState(self: KNewPasswordDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4531,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KNewPasswordDialog, state: i32) void {
+    pub fn overrideWindowState(self: KNewPasswordDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3563,9 +4547,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SizePolicy(self: KNewPasswordDialog) QSizePolicy {
+    pub fn sizePolicy(self: KNewPasswordDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3575,12 +4563,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KNewPasswordDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KNewPasswordDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3594,9 +4586,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KNewPasswordDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KNewPasswordDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3606,9 +4602,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn VisibleRegion(self: KNewPasswordDialog) QRegion {
+    pub fn visibleRegion(self: KNewPasswordDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3626,9 +4626,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KNewPasswordDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KNewPasswordDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3640,10 +4644,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KNewPasswordDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KNewPasswordDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3653,9 +4661,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ContentsMargins(self: KNewPasswordDialog) QMargins {
+    pub fn contentsMargins(self: KNewPasswordDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3665,9 +4677,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ContentsRect(self: KNewPasswordDialog) QRect {
+    pub fn contentsRect(self: KNewPasswordDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3677,9 +4693,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Layout(self: KNewPasswordDialog) QLayout {
+    pub fn layout(self: KNewPasswordDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3689,12 +4709,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KNewPasswordDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KNewPasswordDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3704,24 +4728,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UpdateGeometry(self: KNewPasswordDialog) void {
+    pub fn updateGeometry(self: KNewPasswordDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNewPasswordDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KNewPasswordDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3731,14 +4744,37 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KNewPasswordDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNewPasswordDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KNewPasswordDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KNewPasswordDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3752,9 +4788,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KNewPasswordDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KNewPasswordDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3770,10 +4810,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KNewPasswordDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KNewPasswordDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3783,9 +4827,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FocusWidget(self: KNewPasswordDialog) QWidget {
+    pub fn focusWidget(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3795,9 +4843,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn NextInFocusChain(self: KNewPasswordDialog) QWidget {
+    pub fn nextInFocusChain(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3807,9 +4859,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PreviousInFocusChain(self: KNewPasswordDialog) QWidget {
+    pub fn previousInFocusChain(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3819,9 +4875,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn AcceptDrops(self: KNewPasswordDialog) bool {
+    pub fn acceptDrops(self: KNewPasswordDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3833,9 +4893,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KNewPasswordDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KNewPasswordDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3847,10 +4911,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KNewPasswordDialog, action: anytype) void {
+    pub fn addAction(self: KNewPasswordDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3860,15 +4928,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KNewPasswordDialog, actions: []QAction) void {
+    pub fn addActions(self: KNewPasswordDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3880,16 +4952,20 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KNewPasswordDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KNewPasswordDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3903,11 +4979,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KNewPasswordDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KNewPasswordDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3919,10 +4999,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KNewPasswordDialog, action: anytype) void {
+    pub fn removeAction(self: KNewPasswordDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3934,15 +5018,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KNewPasswordDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KNewPasswordDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KNewPasswordDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KNewPasswordDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3954,7 +5042,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KNewPasswordDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KNewPasswordDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3962,6 +5050,10 @@ pub const KNewPasswordDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3970,18 +5062,22 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KNewPasswordDialog, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction3(self: KNewPasswordDialog, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -3995,7 +5091,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KNewPasswordDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KNewPasswordDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4004,6 +5100,10 @@ pub const KNewPasswordDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4012,21 +5112,25 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KNewPasswordDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: KNewPasswordDialog, _icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4036,9 +5140,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ParentWidget(self: KNewPasswordDialog) QWidget {
+    pub fn parentWidget(self: KNewPasswordDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4050,9 +5158,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KNewPasswordDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KNewPasswordDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4066,9 +5178,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KNewPasswordDialog) i32 {
+    pub fn windowFlags(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4080,9 +5196,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KNewPasswordDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KNewPasswordDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4094,9 +5214,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KNewPasswordDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KNewPasswordDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4110,9 +5234,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KNewPasswordDialog) i32 {
+    pub fn windowType(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4122,9 +5250,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4134,13 +5266,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KNewPasswordDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KNewPasswordDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4152,10 +5288,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KNewPasswordDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KNewPasswordDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4167,10 +5307,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KNewPasswordDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KNewPasswordDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4182,9 +5326,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KNewPasswordDialog, param1: i32) void {
+    pub fn setAttribute(self: KNewPasswordDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4196,9 +5344,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KNewPasswordDialog, param1: i32) bool {
+    pub fn testAttribute(self: KNewPasswordDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4208,9 +5360,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn EnsurePolished(self: KNewPasswordDialog) void {
+    pub fn ensurePolished(self: KNewPasswordDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4222,10 +5378,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KNewPasswordDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KNewPasswordDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4235,9 +5395,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn AutoFillBackground(self: KNewPasswordDialog) bool {
+    pub fn autoFillBackground(self: KNewPasswordDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4249,9 +5413,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KNewPasswordDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KNewPasswordDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4261,9 +5429,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn BackingStore(self: KNewPasswordDialog) QBackingStore {
+    pub fn backingStore(self: KNewPasswordDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4273,9 +5445,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn WindowHandle(self: KNewPasswordDialog) QWindow {
+    pub fn windowHandle(self: KNewPasswordDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4285,9 +5461,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Screen(self: KNewPasswordDialog) QScreen {
+    pub fn screen(self: KNewPasswordDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4297,12 +5477,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KNewPasswordDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KNewPasswordDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4310,12 +5494,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4327,13 +5515,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KNewPasswordDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KNewPasswordDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4345,9 +5537,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4357,12 +5553,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KNewPasswordDialog, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KNewPasswordDialog, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4374,9 +5574,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4388,13 +5592,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KNewPasswordDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KNewPasswordDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4406,9 +5614,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4418,12 +5630,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KNewPasswordDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KNewPasswordDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4435,9 +5651,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4451,9 +5671,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KNewPasswordDialog) i32 {
+    pub fn inputMethodHints(self: KNewPasswordDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4465,9 +5689,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KNewPasswordDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KNewPasswordDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4481,11 +5709,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KNewPasswordDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KNewPasswordDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4501,13 +5733,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KNewPasswordDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KNewPasswordDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4524,12 +5760,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KNewPasswordDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KNewPasswordDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4543,11 +5783,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4563,12 +5807,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4586,12 +5834,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KNewPasswordDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4603,10 +5855,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KNewPasswordDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KNewPasswordDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4620,9 +5876,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KNewPasswordDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KNewPasswordDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4636,10 +5896,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KNewPasswordDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KNewPasswordDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4653,9 +5917,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KNewPasswordDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KNewPasswordDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4669,9 +5937,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KNewPasswordDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KNewPasswordDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4685,9 +5957,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KNewPasswordDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KNewPasswordDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4701,25 +5977,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KNewPasswordDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KNewPasswordDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4727,17 +5991,41 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4749,13 +6037,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KNewPasswordDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KNewPasswordDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4767,13 +6059,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KNewPasswordDialog, name: []const u8) void {
+    pub fn setObjectName(self: KNewPasswordDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4783,9 +6079,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsWidgetType(self: KNewPasswordDialog) bool {
+    pub fn isWidgetType(self: KNewPasswordDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4795,9 +6095,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsWindowType(self: KNewPasswordDialog) bool {
+    pub fn isWindowType(self: KNewPasswordDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4807,9 +6111,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn IsQuickItemType(self: KNewPasswordDialog) bool {
+    pub fn isQuickItemType(self: KNewPasswordDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4819,9 +6127,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SignalsBlocked(self: KNewPasswordDialog) bool {
+    pub fn signalsBlocked(self: KNewPasswordDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4833,9 +6145,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KNewPasswordDialog, b: bool) bool {
+    pub fn blockSignals(self: KNewPasswordDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4845,9 +6161,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Thread(self: KNewPasswordDialog) QThread {
+    pub fn thread(self: KNewPasswordDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4857,12 +6177,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KNewPasswordDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KNewPasswordDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4874,9 +6198,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KNewPasswordDialog, interval: i32) i32 {
+    pub fn startTimer(self: KNewPasswordDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4888,9 +6216,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KNewPasswordDialog, time: i64) i32 {
+    pub fn startTimer2(self: KNewPasswordDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4902,9 +6234,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KNewPasswordDialog, id: i32) void {
+    pub fn killTimer(self: KNewPasswordDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4916,9 +6252,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KNewPasswordDialog, id: i32) void {
+    pub fn killTimer2(self: KNewPasswordDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4930,15 +6270,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KNewPasswordDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KNewPasswordDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNewPasswordDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KNewPasswordDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4950,10 +6294,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KNewPasswordDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KNewPasswordDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4965,10 +6313,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KNewPasswordDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KNewPasswordDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4976,7 +6328,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4984,13 +6336,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4998,7 +6354,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5006,13 +6362,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5022,18 +6382,22 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KNewPasswordDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KNewPasswordDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5041,7 +6405,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5049,13 +6413,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5063,7 +6431,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5071,13 +6439,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5087,9 +6459,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Disconnect3(self: KNewPasswordDialog) bool {
+    pub fn disconnect3(self: KNewPasswordDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5101,10 +6477,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KNewPasswordDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KNewPasswordDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5114,10 +6494,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5127,9 +6511,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DumpObjectTree(self: KNewPasswordDialog) void {
+    pub fn dumpObjectTree(self: KNewPasswordDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5139,9 +6527,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DumpObjectInfo(self: KNewPasswordDialog) void {
+    pub fn dumpObjectInfo(self: KNewPasswordDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5155,11 +6547,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KNewPasswordDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KNewPasswordDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5171,10 +6567,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KNewPasswordDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KNewPasswordDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5186,7 +6586,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KNewPasswordDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KNewPasswordDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5194,27 +6594,19 @@ pub const KNewPasswordDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNewPasswordDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KNewPasswordDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KNewPasswordDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KNewPasswordDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KNewPasswordDialog `
-    ///
-    pub fn BindingStorage(self: KNewPasswordDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5224,9 +6616,29 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn BindingStorage2(self: KNewPasswordDialog) QBindingStorage {
+    pub fn bindingStorage(self: KNewPasswordDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KNewPasswordDialog `
+    ///
+    pub fn bindingStorage2(self: KNewPasswordDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5236,9 +6648,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Destroyed(self: KNewPasswordDialog) void {
+    pub fn destroyed(self: KNewPasswordDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5250,9 +6666,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5262,9 +6682,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Parent(self: KNewPasswordDialog) QObject {
+    pub fn parent(self: KNewPasswordDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5276,10 +6700,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KNewPasswordDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KNewPasswordDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5289,9 +6717,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DeleteLater(self: KNewPasswordDialog) void {
+    pub fn deleteLater(self: KNewPasswordDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5305,9 +6737,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KNewPasswordDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KNewPasswordDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5321,9 +6757,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KNewPasswordDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KNewPasswordDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5331,7 +6771,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5341,13 +6781,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5355,7 +6799,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5365,13 +6809,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5381,7 +6829,7 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5389,12 +6837,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KNewPasswordDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KNewPasswordDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5406,10 +6858,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KNewPasswordDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KNewPasswordDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5423,11 +6879,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KNewPasswordDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KNewPasswordDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5443,13 +6903,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KNewPasswordDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KNewPasswordDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5462,11 +6926,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KNewPasswordDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KNewPasswordDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5478,10 +6946,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn destroyed1(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5493,9 +6965,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5505,9 +6981,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PaintingActive(self: KNewPasswordDialog) bool {
+    pub fn paintingActive(self: KNewPasswordDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5517,9 +6997,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn WidthMM(self: KNewPasswordDialog) i32 {
+    pub fn widthMM(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5529,9 +7013,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn HeightMM(self: KNewPasswordDialog) i32 {
+    pub fn heightMM(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5541,9 +7029,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn LogicalDpiX(self: KNewPasswordDialog) i32 {
+    pub fn logicalDpiX(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5553,9 +7045,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn LogicalDpiY(self: KNewPasswordDialog) i32 {
+    pub fn logicalDpiY(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5565,9 +7061,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PhysicalDpiX(self: KNewPasswordDialog) i32 {
+    pub fn physicalDpiX(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5577,9 +7077,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PhysicalDpiY(self: KNewPasswordDialog) i32 {
+    pub fn physicalDpiY(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5589,9 +7093,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DevicePixelRatio(self: KNewPasswordDialog) f64 {
+    pub fn devicePixelRatio(self: KNewPasswordDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5601,9 +7109,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DevicePixelRatioF(self: KNewPasswordDialog) f64 {
+    pub fn devicePixelRatioF(self: KNewPasswordDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5613,9 +7125,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn ColorCount(self: KNewPasswordDialog) i32 {
+    pub fn colorCount(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5625,17 +7141,25 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Depth(self: KNewPasswordDialog) i32 {
+    pub fn depth(self: KNewPasswordDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5643,13 +7167,17 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5663,13 +7191,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KNewPasswordDialog, visible: bool) void {
+    pub fn setVisible(self: KNewPasswordDialog, visible: bool) void {
         qtc.KNewPasswordDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5683,9 +7211,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KNewPasswordDialog, visible: bool) void {
+    pub fn superSetVisible(self: KNewPasswordDialog, visible: bool) void {
         qtc.KNewPasswordDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5699,10 +7231,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, bool) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5713,13 +7249,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SizeHint(self: KNewPasswordDialog) QSize {
+    pub fn sizeHint(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.KNewPasswordDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5731,10 +7267,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperSizeHint(self: KNewPasswordDialog) QSize {
+    pub fn superSizeHint(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5749,9 +7289,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KNewPasswordDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5763,13 +7307,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn MinimumSizeHint(self: KNewPasswordDialog) QSize {
+    pub fn minimumSizeHint(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.KNewPasswordDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5781,9 +7325,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: KNewPasswordDialog) QSize {
+    pub fn superMinimumSizeHint(self: KNewPasswordDialog) QSize {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5799,9 +7347,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.KNewPasswordDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5813,13 +7365,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Open(self: KNewPasswordDialog) void {
+    pub fn open(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5831,9 +7383,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperOpen(self: KNewPasswordDialog) void {
+    pub fn superOpen(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -5847,9 +7403,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -5861,13 +7421,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Exec(self: KNewPasswordDialog) i32 {
+    pub fn exec(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -5879,9 +7439,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperExec(self: KNewPasswordDialog) i32 {
+    pub fn superExec(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -5895,9 +7459,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -5911,13 +7479,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KNewPasswordDialog, param1: i32) void {
+    pub fn done(self: KNewPasswordDialog, param1: i32) void {
         qtc.KNewPasswordDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -5931,9 +7499,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: KNewPasswordDialog, param1: i32) void {
+    pub fn superDone(self: KNewPasswordDialog, param1: i32) void {
         qtc.KNewPasswordDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -5947,9 +7519,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -5961,13 +7537,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Reject(self: KNewPasswordDialog) void {
+    pub fn reject(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -5979,9 +7555,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperReject(self: KNewPasswordDialog) void {
+    pub fn superReject(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -5995,9 +7575,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6011,14 +7595,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KNewPasswordDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6032,10 +7616,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.KNewPasswordDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -6049,9 +7637,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6065,14 +7657,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn closeEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KNewPasswordDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6086,10 +7678,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.KNewPasswordDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -6103,9 +7699,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QCloseEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -6119,14 +7719,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn showEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KNewPasswordDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6140,10 +7740,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superShowEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.KNewPasswordDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -6157,9 +7761,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QShowEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6173,14 +7781,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn resizeEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KNewPasswordDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6194,10 +7802,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KNewPasswordDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6211,9 +7823,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QResizeEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6227,14 +7843,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KNewPasswordDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6248,10 +7864,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.KNewPasswordDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6265,9 +7885,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6283,15 +7907,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: KNewPasswordDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: KNewPasswordDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KNewPasswordDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6307,11 +7931,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: KNewPasswordDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: KNewPasswordDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.KNewPasswordDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6325,9 +7953,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6339,13 +7971,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn DevType(self: KNewPasswordDialog) i32 {
+    pub fn devType(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6357,9 +7989,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperDevType(self: KNewPasswordDialog) i32 {
+    pub fn superDevType(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6373,9 +8009,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6389,13 +8029,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KNewPasswordDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KNewPasswordDialog, param1: i32) i32 {
         return qtc.KNewPasswordDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6409,9 +8049,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KNewPasswordDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KNewPasswordDialog, param1: i32) i32 {
         return qtc.KNewPasswordDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6425,9 +8069,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6439,13 +8087,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn HasHeightForWidth(self: KNewPasswordDialog) bool {
+    pub fn hasHeightForWidth(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6457,9 +8105,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: KNewPasswordDialog) bool {
+    pub fn superHasHeightForWidth(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6473,9 +8125,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6487,13 +8143,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn PaintEngine(self: KNewPasswordDialog) QPaintEngine {
+    pub fn paintEngine(self: KNewPasswordDialog) QPaintEngine {
         return .{ .ptr = qtc.KNewPasswordDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6505,9 +8161,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperPaintEngine(self: KNewPasswordDialog) QPaintEngine {
+    pub fn superPaintEngine(self: KNewPasswordDialog) QPaintEngine {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6521,9 +8181,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KNewPasswordDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6535,16 +8199,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KNewPasswordDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNewPasswordDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KNewPasswordDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNewPasswordDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6556,12 +8220,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KNewPasswordDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KNewPasswordDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KNewPasswordDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KNewPasswordDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6575,10 +8243,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6589,16 +8261,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6610,12 +8282,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6629,10 +8305,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6643,16 +8323,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6664,12 +8344,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6683,10 +8367,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6697,16 +8385,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6718,12 +8406,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6737,10 +8429,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6751,16 +8447,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6772,12 +8468,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KNewPasswordDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KNewPasswordDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6791,9 +8491,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMouseEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6805,16 +8509,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KNewPasswordDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KNewPasswordDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6826,12 +8530,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KNewPasswordDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KNewPasswordDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6845,9 +8553,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QWheelEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6859,16 +8571,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KNewPasswordDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KNewPasswordDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6880,12 +8592,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KNewPasswordDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KNewPasswordDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6899,10 +8615,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QKeyEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6913,16 +8633,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KNewPasswordDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KNewPasswordDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6934,12 +8654,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KNewPasswordDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KNewPasswordDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6953,10 +8677,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6967,16 +8695,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KNewPasswordDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KNewPasswordDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6988,12 +8716,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KNewPasswordDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KNewPasswordDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7007,9 +8739,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QFocusEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7021,16 +8757,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KNewPasswordDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KNewPasswordDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7042,12 +8778,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KNewPasswordDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KNewPasswordDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7061,9 +8801,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEnterEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7075,16 +8819,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNewPasswordDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNewPasswordDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7096,12 +8840,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNewPasswordDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNewPasswordDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7115,9 +8863,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7129,16 +8881,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KNewPasswordDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KNewPasswordDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7150,12 +8902,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KNewPasswordDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KNewPasswordDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7169,9 +8925,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPaintEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7183,16 +8943,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KNewPasswordDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KNewPasswordDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7204,12 +8964,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KNewPasswordDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KNewPasswordDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7223,9 +8987,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMoveEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7237,16 +9005,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KNewPasswordDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KNewPasswordDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7258,12 +9026,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KNewPasswordDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KNewPasswordDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7277,9 +9049,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QTabletEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7291,16 +9067,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KNewPasswordDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KNewPasswordDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7312,12 +9088,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KNewPasswordDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KNewPasswordDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7331,9 +9111,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QActionEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7345,16 +9129,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KNewPasswordDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KNewPasswordDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7366,12 +9150,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KNewPasswordDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KNewPasswordDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7385,9 +9173,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7399,16 +9191,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KNewPasswordDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KNewPasswordDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7420,12 +9212,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KNewPasswordDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KNewPasswordDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7439,9 +9235,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7453,16 +9253,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KNewPasswordDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KNewPasswordDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7474,12 +9274,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KNewPasswordDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KNewPasswordDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7493,9 +9297,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7507,16 +9315,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KNewPasswordDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KNewPasswordDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7528,12 +9336,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KNewPasswordDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KNewPasswordDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7547,9 +9359,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QDropEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7561,16 +9377,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KNewPasswordDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KNewPasswordDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7582,12 +9398,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KNewPasswordDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KNewPasswordDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7601,9 +9421,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QHideEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7619,19 +9443,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: KNewPasswordDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KNewPasswordDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KNewPasswordDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KNewPasswordDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7647,15 +9471,19 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KNewPasswordDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KNewPasswordDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.KNewPasswordDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.KNewPasswordDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7669,9 +9497,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7685,14 +9517,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn changeEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KNewPasswordDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7706,10 +9538,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KNewPasswordDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7723,9 +9559,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7739,13 +9579,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KNewPasswordDialog, param1: i32) i32 {
+    pub fn metric(self: KNewPasswordDialog, param1: i32) i32 {
         return qtc.KNewPasswordDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7759,9 +9599,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KNewPasswordDialog, param1: i32) i32 {
+    pub fn superMetric(self: KNewPasswordDialog, param1: i32) i32 {
         return qtc.KNewPasswordDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7775,9 +9619,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7791,14 +9639,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KNewPasswordDialog, painter: anytype) void {
+    pub fn initPainter(self: KNewPasswordDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KNewPasswordDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7812,10 +9660,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KNewPasswordDialog, painter: anytype) void {
+    pub fn superInitPainter(self: KNewPasswordDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KNewPasswordDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7829,9 +9681,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPainter) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7845,14 +9701,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KNewPasswordDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KNewPasswordDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KNewPasswordDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7866,10 +9722,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KNewPasswordDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KNewPasswordDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KNewPasswordDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7883,9 +9743,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KNewPasswordDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7897,13 +9761,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SharedPainter(self: KNewPasswordDialog) QPainter {
+    pub fn sharedPainter(self: KNewPasswordDialog) QPainter {
         return .{ .ptr = qtc.KNewPasswordDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7915,9 +9779,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperSharedPainter(self: KNewPasswordDialog) QPainter {
+    pub fn superSharedPainter(self: KNewPasswordDialog) QPainter {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7931,9 +9799,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KNewPasswordDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7947,14 +9819,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KNewPasswordDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7968,10 +9840,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KNewPasswordDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7985,9 +9861,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8001,13 +9881,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KNewPasswordDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KNewPasswordDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KNewPasswordDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8021,9 +9901,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KNewPasswordDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KNewPasswordDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8039,9 +9923,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32) callconv(.c) QVariant) void {
         qtc.KNewPasswordDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8055,13 +9943,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KNewPasswordDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: KNewPasswordDialog, next: bool) bool {
         return qtc.KNewPasswordDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8075,9 +9963,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KNewPasswordDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KNewPasswordDialog, next: bool) bool {
         return qtc.KNewPasswordDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8091,9 +9983,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, bool) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8105,16 +10001,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KNewPasswordDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KNewPasswordDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8126,12 +10022,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KNewPasswordDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KNewPasswordDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8145,9 +10045,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QTimerEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8159,16 +10063,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KNewPasswordDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KNewPasswordDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8180,12 +10084,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KNewPasswordDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KNewPasswordDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8199,9 +10107,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QChildEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8213,16 +10125,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNewPasswordDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNewPasswordDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8234,12 +10146,16 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KNewPasswordDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KNewPasswordDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KNewPasswordDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KNewPasswordDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8253,9 +10169,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QEvent) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8269,14 +10189,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KNewPasswordDialog, signal: anytype) void {
+    pub fn connectNotify(self: KNewPasswordDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNewPasswordDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8290,11 +10210,15 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KNewPasswordDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: KNewPasswordDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNewPasswordDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8307,9 +10231,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8323,14 +10251,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KNewPasswordDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: KNewPasswordDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNewPasswordDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8344,10 +10272,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KNewPasswordDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KNewPasswordDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KNewPasswordDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8361,9 +10293,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8377,14 +10313,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn adjustPosition(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KNewPasswordDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8398,10 +10334,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: KNewPasswordDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: KNewPasswordDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.KNewPasswordDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8415,10 +10355,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QWidget) callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8429,13 +10373,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn UpdateMicroFocus(self: KNewPasswordDialog) void {
+    pub fn updateMicroFocus(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8447,10 +10391,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: KNewPasswordDialog) void {
+    pub fn superUpdateMicroFocus(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8463,10 +10411,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8477,13 +10429,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Create(self: KNewPasswordDialog) void {
+    pub fn create(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8495,10 +10447,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperCreate(self: KNewPasswordDialog) void {
+    pub fn superCreate(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8511,9 +10467,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8525,13 +10485,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Destroy(self: KNewPasswordDialog) void {
+    pub fn destroy(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8543,9 +10503,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperDestroy(self: KNewPasswordDialog) void {
+    pub fn superDestroy(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8559,10 +10523,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KNewPasswordDialog, callback: *const fn () callconv(.c) void) void {
         qtc.KNewPasswordDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8573,13 +10541,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FocusNextChild(self: KNewPasswordDialog) bool {
+    pub fn focusNextChild(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8591,10 +10559,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperFocusNextChild(self: KNewPasswordDialog) bool {
+    pub fn superFocusNextChild(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8607,9 +10579,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8621,13 +10597,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn FocusPreviousChild(self: KNewPasswordDialog) bool {
+    pub fn focusPreviousChild(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8639,9 +10615,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: KNewPasswordDialog) bool {
+    pub fn superFocusPreviousChild(self: KNewPasswordDialog) bool {
         return qtc.KNewPasswordDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8655,9 +10635,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KNewPasswordDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8669,13 +10653,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Sender(self: KNewPasswordDialog) QObject {
+    pub fn sender(self: KNewPasswordDialog) QObject {
         return .{ .ptr = qtc.KNewPasswordDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8687,9 +10671,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperSender(self: KNewPasswordDialog) QObject {
+    pub fn superSender(self: KNewPasswordDialog) QObject {
         return .{ .ptr = qtc.KNewPasswordDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8703,9 +10691,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KNewPasswordDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.KNewPasswordDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8717,13 +10709,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SenderSignalIndex(self: KNewPasswordDialog) i32 {
+    pub fn senderSignalIndex(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8735,9 +10727,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: KNewPasswordDialog) i32 {
+    pub fn superSenderSignalIndex(self: KNewPasswordDialog) i32 {
         return qtc.KNewPasswordDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8751,9 +10747,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KNewPasswordDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8767,14 +10767,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KNewPasswordDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KNewPasswordDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNewPasswordDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8788,10 +10788,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KNewPasswordDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KNewPasswordDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KNewPasswordDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8805,9 +10809,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.KNewPasswordDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8821,14 +10829,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KNewPasswordDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: KNewPasswordDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNewPasswordDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8842,10 +10850,14 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KNewPasswordDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KNewPasswordDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KNewPasswordDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8859,9 +10871,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.KNewPasswordDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8877,13 +10893,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KNewPasswordDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KNewPasswordDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KNewPasswordDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8899,9 +10915,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KNewPasswordDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KNewPasswordDialog, metricA: i32, metricB: i32) f64 {
         return qtc.KNewPasswordDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8915,9 +10935,13 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, i32, i32) callconv(.c) f64) void {
         qtc.KNewPasswordDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8931,23 +10955,23 @@ pub const KNewPasswordDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KNewPasswordDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KNewPasswordDialog, callback: *const fn (KNewPasswordDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/knewpassworddialog.html#dtor.KNewPasswordDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KNewPasswordDialog `
     ///
-    pub fn Delete(self: KNewPasswordDialog) void {
+    pub fn delete(self: KNewPasswordDialog) void {
         qtc.KNewPasswordDialog_Delete(@ptrCast(self.ptr));
     }
 };

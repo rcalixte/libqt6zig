@@ -14,16 +14,24 @@ pub const QCollatorSortKey = extern struct {
 
     pub const _is_QCollatorSortKey = {};
 
-    /// New constructs a new QCollatorSortKey object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCollatorSortKey object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCollatorSortKey `
     ///
-    pub fn New(other: anytype) QCollatorSortKey {
+    pub fn new(other: anytype) QCollatorSortKey {
         comptime _ = @TypeOf(other)._is_QCollatorSortKey;
         return .{ .ptr = qtc.QCollatorSortKey_new(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#operator-eq)
     ///
@@ -33,10 +41,14 @@ pub const QCollatorSortKey = extern struct {
     ///
     /// ` other: QCollatorSortKey `
     ///
-    pub fn OperatorAssign(self: QCollatorSortKey, other: anytype) void {
+    pub fn operatorAssign(self: QCollatorSortKey, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCollatorSortKey;
         qtc.QCollatorSortKey_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#swap)
     ///
@@ -46,10 +58,14 @@ pub const QCollatorSortKey = extern struct {
     ///
     /// ` other: QCollatorSortKey `
     ///
-    pub fn Swap(self: QCollatorSortKey, other: anytype) void {
+    pub fn swap(self: QCollatorSortKey, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCollatorSortKey;
         qtc.QCollatorSortKey_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#compare)
     ///
@@ -59,24 +75,24 @@ pub const QCollatorSortKey = extern struct {
     ///
     /// ` key: QCollatorSortKey `
     ///
-    pub fn Compare(self: QCollatorSortKey, key: anytype) i32 {
+    pub fn compare(self: QCollatorSortKey, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QCollatorSortKey;
         return qtc.QCollatorSortKey_Compare(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollatorsortkey.html#dtor.QCollatorSortKey)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCollatorSortKey `
     ///
-    pub fn Delete(self: QCollatorSortKey) void {
+    pub fn delete(self: QCollatorSortKey) void {
         qtc.QCollatorSortKey_Delete(@ptrCast(self.ptr));
     }
 };
@@ -91,33 +107,49 @@ pub const QCollator = extern struct {
 
     pub const _is_QCollator = {};
 
-    /// New constructs a new QCollator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCollator {
+    pub const New = new;
+
+    /// Allocate a new QCollator object in C++ memory
+    ///
+    pub fn new() QCollator {
         return .{ .ptr = qtc.QCollator_new() };
     }
 
-    /// New2 constructs a new QCollator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCollator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn New2(locale: anytype) QCollator {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        return .{ .ptr = qtc.QCollator_new2(@ptrCast(locale.ptr)) };
+    pub fn new2(_locale: anytype) QCollator {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        return .{ .ptr = qtc.QCollator_new2(@ptrCast(_locale.ptr)) };
     }
 
-    /// New3 constructs a new QCollator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCollator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QCollator `
     ///
-    pub fn New3(param1: anytype) QCollator {
+    pub fn new3(param1: anytype) QCollator {
         comptime _ = @TypeOf(param1)._is_QCollator;
         return .{ .ptr = qtc.QCollator_new3(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-eq)
     ///
@@ -127,10 +159,14 @@ pub const QCollator = extern struct {
     ///
     /// ` param1: QCollator `
     ///
-    pub fn OperatorAssign(self: QCollator, param1: anytype) void {
+    pub fn operatorAssign(self: QCollator, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCollator;
         qtc.QCollator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#swap)
     ///
@@ -140,10 +176,14 @@ pub const QCollator = extern struct {
     ///
     /// ` other: QCollator `
     ///
-    pub fn Swap(self: QCollator, other: anytype) void {
+    pub fn swap(self: QCollator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCollator;
         qtc.QCollator_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setLocale)
     ///
@@ -151,12 +191,16 @@ pub const QCollator = extern struct {
     ///
     /// ` self: QCollator `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QCollator, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QCollator_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QCollator, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QCollator_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#locale)
     ///
@@ -164,9 +208,13 @@ pub const QCollator = extern struct {
     ///
     /// ` self: QCollator `
     ///
-    pub fn Locale(self: QCollator) QLocale {
+    pub fn locale(self: QCollator) QLocale {
         return .{ .ptr = qtc.QCollator_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `caseSensitivity` instead
+    ///
+    pub const CaseSensitivity = caseSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#caseSensitivity)
     ///
@@ -178,9 +226,13 @@ pub const QCollator = extern struct {
     ///
     /// ` qnamespace_enums.CaseSensitivity `
     ///
-    pub fn CaseSensitivity(self: QCollator) i32 {
+    pub fn caseSensitivity(self: QCollator) i32 {
         return qtc.QCollator_CaseSensitivity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCaseSensitivity` instead
+    ///
+    pub const SetCaseSensitivity = setCaseSensitivity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setCaseSensitivity)
     ///
@@ -190,9 +242,13 @@ pub const QCollator = extern struct {
     ///
     /// ` cs: qnamespace_enums.CaseSensitivity `
     ///
-    pub fn SetCaseSensitivity(self: QCollator, cs: i32) void {
+    pub fn setCaseSensitivity(self: QCollator, cs: i32) void {
         qtc.QCollator_SetCaseSensitivity(@ptrCast(self.ptr), @bitCast(cs));
     }
+
+    /// ### DEPRECATED: Use `setNumericMode` instead
+    ///
+    pub const SetNumericMode = setNumericMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setNumericMode)
     ///
@@ -202,9 +258,13 @@ pub const QCollator = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetNumericMode(self: QCollator, on: bool) void {
+    pub fn setNumericMode(self: QCollator, on: bool) void {
         qtc.QCollator_SetNumericMode(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `numericMode` instead
+    ///
+    pub const NumericMode = numericMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#numericMode)
     ///
@@ -212,9 +272,13 @@ pub const QCollator = extern struct {
     ///
     /// ` self: QCollator `
     ///
-    pub fn NumericMode(self: QCollator) bool {
+    pub fn numericMode(self: QCollator) bool {
         return qtc.QCollator_NumericMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIgnorePunctuation` instead
+    ///
+    pub const SetIgnorePunctuation = setIgnorePunctuation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#setIgnorePunctuation)
     ///
@@ -224,9 +288,13 @@ pub const QCollator = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetIgnorePunctuation(self: QCollator, on: bool) void {
+    pub fn setIgnorePunctuation(self: QCollator, on: bool) void {
         qtc.QCollator_SetIgnorePunctuation(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `ignorePunctuation` instead
+    ///
+    pub const IgnorePunctuation = ignorePunctuation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#ignorePunctuation)
     ///
@@ -234,9 +302,13 @@ pub const QCollator = extern struct {
     ///
     /// ` self: QCollator `
     ///
-    pub fn IgnorePunctuation(self: QCollator) bool {
+    pub fn ignorePunctuation(self: QCollator) bool {
         return qtc.QCollator_IgnorePunctuation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `compare` instead
+    ///
+    pub const Compare = compare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
     ///
@@ -248,7 +320,7 @@ pub const QCollator = extern struct {
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn Compare(self: QCollator, s1: []const u8, s2: []const u8) i32 {
+    pub fn compare(self: QCollator, s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -259,6 +331,10 @@ pub const QCollator = extern struct {
         };
         return qtc.QCollator_Compare(@ptrCast(self.ptr), s1_str, s2_str);
     }
+
+    /// ### DEPRECATED: Use `compare2` instead
+    ///
+    pub const Compare2 = compare2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
     ///
@@ -274,11 +350,15 @@ pub const QCollator = extern struct {
     ///
     /// ` len2: isize `
     ///
-    pub fn Compare2(self: QCollator, s1: anytype, len1: isize, s2: anytype, len2: isize) i32 {
+    pub fn compare2(self: QCollator, s1: anytype, len1: isize, s2: anytype, len2: isize) i32 {
         comptime _ = @TypeOf(s1)._is_QChar;
         comptime _ = @TypeOf(s2)._is_QChar;
         return qtc.QCollator_Compare2(@ptrCast(self.ptr), @ptrCast(s1.ptr), @bitCast(len1), @ptrCast(s2.ptr), @bitCast(len2));
     }
+
+    /// ### DEPRECATED: Use `operatorCall` instead
+    ///
+    pub const OperatorCall = operatorCall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)
     ///
@@ -290,7 +370,7 @@ pub const QCollator = extern struct {
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn OperatorCall(self: QCollator, s1: []const u8, s2: []const u8) bool {
+    pub fn operatorCall(self: QCollator, s1: []const u8, s2: []const u8) bool {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -302,6 +382,10 @@ pub const QCollator = extern struct {
         return qtc.QCollator_OperatorCall(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
+    /// ### DEPRECATED: Use `compare3` instead
+    ///
+    pub const Compare3 = compare3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#compare)
     ///
     /// ## Parameter(s):
@@ -312,7 +396,7 @@ pub const QCollator = extern struct {
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn Compare3(self: QCollator, s1: []const u8, s2: []const u8) i32 {
+    pub fn compare3(self: QCollator, s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -324,6 +408,10 @@ pub const QCollator = extern struct {
         return qtc.QCollator_Compare3(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
+    /// ### DEPRECATED: Use `operatorCall2` instead
+    ///
+    pub const OperatorCall2 = operatorCall2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#operator-28-29)
     ///
     /// ## Parameter(s):
@@ -334,7 +422,7 @@ pub const QCollator = extern struct {
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn OperatorCall2(self: QCollator, s1: []const u8, s2: []const u8) bool {
+    pub fn operatorCall2(self: QCollator, s1: []const u8, s2: []const u8) bool {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -346,6 +434,10 @@ pub const QCollator = extern struct {
         return qtc.QCollator_OperatorCall2(@ptrCast(self.ptr), s1_str, s2_str);
     }
 
+    /// ### DEPRECATED: Use `sortKey` instead
+    ///
+    pub const SortKey = sortKey;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#sortKey)
     ///
     /// ## Parameter(s):
@@ -354,13 +446,17 @@ pub const QCollator = extern struct {
     ///
     /// ` string: []const u8 `
     ///
-    pub fn SortKey(self: QCollator, string: []const u8) QCollatorSortKey {
+    pub fn sortKey(self: QCollator, string: []const u8) QCollatorSortKey {
         const string_str = qtc.libqt_string{
             .len = string.len,
             .data = string.ptr,
         };
         return .{ .ptr = qtc.QCollator_SortKey(@ptrCast(self.ptr), string_str) };
     }
+
+    /// ### DEPRECATED: Use `defaultCompare` instead
+    ///
+    pub const DefaultCompare = defaultCompare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#defaultCompare)
     ///
@@ -370,7 +466,7 @@ pub const QCollator = extern struct {
     ///
     /// ` s2: []const u8 `
     ///
-    pub fn DefaultCompare(s1: []const u8, s2: []const u8) i32 {
+    pub fn defaultCompare(s1: []const u8, s2: []const u8) i32 {
         const s1_str = qtc.libqt_string{
             .len = s1.len,
             .data = s1.ptr,
@@ -382,13 +478,17 @@ pub const QCollator = extern struct {
         return qtc.QCollator_DefaultCompare(s1_str, s2_str);
     }
 
+    /// ### DEPRECATED: Use `defaultSortKey` instead
+    ///
+    pub const DefaultSortKey = defaultSortKey;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#defaultSortKey)
     ///
     /// ## Parameter(s):
     ///
     /// ` key: []const u8 `
     ///
-    pub fn DefaultSortKey(key: []const u8) QCollatorSortKey {
+    pub fn defaultSortKey(key: []const u8) QCollatorSortKey {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -396,19 +496,19 @@ pub const QCollator = extern struct {
         return .{ .ptr = qtc.QCollator_DefaultSortKey(key_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcollator.html#dtor.QCollator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCollator `
     ///
-    pub fn Delete(self: QCollator) void {
+    pub fn delete(self: QCollator) void {
         qtc.QCollator_Delete(@ptrCast(self.ptr));
     }
 };

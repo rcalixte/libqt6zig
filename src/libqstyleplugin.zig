@@ -26,22 +26,34 @@ pub const QStylePlugin = extern struct {
     pub const _is_QStylePlugin = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QStylePlugin object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStylePlugin {
+    pub const New = new;
+
+    /// Allocate a new QStylePlugin object in C++ memory
+    ///
+    pub fn new() QStylePlugin {
         return .{ .ptr = qtc.QStylePlugin_new() };
     }
 
-    /// New2 constructs a new QStylePlugin object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStylePlugin object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QStylePlugin {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QStylePlugin_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QStylePlugin {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QStylePlugin_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -49,9 +61,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn MetaObject(self: QStylePlugin) QMetaObject {
+    pub fn metaObject(self: QStylePlugin) QMetaObject {
         return .{ .ptr = qtc.QStylePlugin_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,13 +79,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QStylePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QStylePlugin, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QStylePlugin_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -79,9 +95,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn SuperMetaObject(self: QStylePlugin) QMetaObject {
+    pub fn superMetaObject(self: QStylePlugin) QMetaObject {
         return .{ .ptr = qtc.QStylePlugin_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -89,10 +109,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QStylePlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QStylePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QStylePlugin_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -102,13 +126,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QStylePlugin_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -118,10 +142,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QStylePlugin, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QStylePlugin, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QStylePlugin_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -133,9 +161,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QStylePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QStylePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QStylePlugin_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -145,13 +177,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QStylePlugin, callback: *const fn (QStylePlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QStylePlugin, callback: *const fn (QStylePlugin, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QStylePlugin_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -165,9 +197,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QStylePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QStylePlugin, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QStylePlugin_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -177,14 +213,18 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#create)
     ///
@@ -194,13 +234,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn Create(self: QStylePlugin, key: []const u8) QStyle {
+    pub fn create(self: QStylePlugin, key: []const u8) QStyle {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QStylePlugin_Create(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#create)
     ///
@@ -212,13 +256,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, key: [*:0]const u8) callconv(.c) QStyle `
     ///
-    pub fn OnCreate(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) QStyle) void {
+    pub fn onCreate(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) QStyle) void {
         qtc.QStylePlugin_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#create)
     ///
@@ -230,13 +274,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn SuperCreate(self: QStylePlugin, key: []const u8) QStyle {
+    pub fn superCreate(self: QStylePlugin, key: []const u8) QStyle {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QStylePlugin_SuperCreate(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -248,15 +296,19 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -270,15 +322,19 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -290,13 +346,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QStylePlugin, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QStylePlugin, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStylePlugin.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -308,13 +368,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QStylePlugin, name: []const u8) void {
+    pub fn setObjectName(self: QStylePlugin, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -324,9 +388,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn IsWidgetType(self: QStylePlugin) bool {
+    pub fn isWidgetType(self: QStylePlugin) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -336,9 +404,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn IsWindowType(self: QStylePlugin) bool {
+    pub fn isWindowType(self: QStylePlugin) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -348,9 +420,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn IsQuickItemType(self: QStylePlugin) bool {
+    pub fn isQuickItemType(self: QStylePlugin) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -360,9 +436,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn SignalsBlocked(self: QStylePlugin) bool {
+    pub fn signalsBlocked(self: QStylePlugin) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -374,9 +454,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QStylePlugin, b: bool) bool {
+    pub fn blockSignals(self: QStylePlugin, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -386,9 +470,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Thread(self: QStylePlugin) QThread {
+    pub fn thread(self: QStylePlugin) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -398,12 +486,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QStylePlugin, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QStylePlugin, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -415,9 +507,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QStylePlugin, interval: i32) i32 {
+    pub fn startTimer(self: QStylePlugin, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -429,9 +525,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QStylePlugin, time: i64) i32 {
+    pub fn startTimer2(self: QStylePlugin, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -443,9 +543,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QStylePlugin, id: i32) void {
+    pub fn killTimer(self: QStylePlugin, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -457,9 +561,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QStylePlugin, id: i32) void {
+    pub fn killTimer2(self: QStylePlugin, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -471,15 +579,19 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QStylePlugin, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QStylePlugin, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStylePlugin.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QStylePlugin.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -489,12 +601,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QStylePlugin, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QStylePlugin, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -506,10 +622,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QStylePlugin, filterObj: anytype) void {
+    pub fn installEventFilter(self: QStylePlugin, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -521,10 +641,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QStylePlugin, obj: anytype) void {
+    pub fn removeEventFilter(self: QStylePlugin, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -532,7 +656,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -540,13 +664,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -554,7 +682,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -562,13 +690,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -578,18 +710,22 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QStylePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QStylePlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -597,7 +733,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -605,13 +741,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -619,7 +759,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -627,13 +767,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -643,9 +787,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Disconnect3(self: QStylePlugin) bool {
+    pub fn disconnect3(self: QStylePlugin) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -657,10 +805,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QStylePlugin, receiver: anytype) bool {
+    pub fn disconnect4(self: QStylePlugin, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -670,10 +822,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -683,9 +839,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn DumpObjectTree(self: QStylePlugin) void {
+    pub fn dumpObjectTree(self: QStylePlugin) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -695,9 +855,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn DumpObjectInfo(self: QStylePlugin) void {
+    pub fn dumpObjectInfo(self: QStylePlugin) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -711,11 +875,15 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QStylePlugin, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QStylePlugin, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -727,10 +895,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QStylePlugin, name: [:0]const u8) QVariant {
+    pub fn property(self: QStylePlugin, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -742,7 +914,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QStylePlugin, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QStylePlugin, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -750,27 +922,19 @@ pub const QStylePlugin = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStylePlugin.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QStylePlugin.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QStylePlugin.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QStylePlugin.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStylePlugin `
-    ///
-    pub fn BindingStorage(self: QStylePlugin) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -780,9 +944,29 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn BindingStorage2(self: QStylePlugin) QBindingStorage {
+    pub fn bindingStorage(self: QStylePlugin) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStylePlugin `
+    ///
+    pub fn bindingStorage2(self: QStylePlugin) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -792,9 +976,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Destroyed(self: QStylePlugin) void {
+    pub fn destroyed(self: QStylePlugin) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -806,9 +994,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QStylePlugin, callback: *const fn (QStylePlugin) callconv(.c) void) void {
+    pub fn onDestroyed(self: QStylePlugin, callback: *const fn (QStylePlugin) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -818,9 +1010,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Parent(self: QStylePlugin) QObject {
+    pub fn parent(self: QStylePlugin) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -832,10 +1028,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QStylePlugin, classname: [:0]const u8) bool {
+    pub fn inherits(self: QStylePlugin, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -845,9 +1045,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn DeleteLater(self: QStylePlugin) void {
+    pub fn deleteLater(self: QStylePlugin) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -861,9 +1065,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QStylePlugin, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QStylePlugin, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -877,9 +1085,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QStylePlugin, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QStylePlugin, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -887,7 +1099,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -897,13 +1109,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -911,7 +1127,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -921,13 +1137,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -937,7 +1157,7 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -945,12 +1165,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QStylePlugin, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QStylePlugin, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -962,10 +1186,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QStylePlugin, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QStylePlugin, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -979,11 +1207,15 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QStylePlugin, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QStylePlugin, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -999,13 +1231,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QStylePlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QStylePlugin, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1018,11 +1254,15 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QStylePlugin, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QStylePlugin, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1034,10 +1274,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QStylePlugin, param1: anytype) void {
+    pub fn destroyed1(self: QStylePlugin, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1049,9 +1293,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QStylePlugin, callback: *const fn (QStylePlugin, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QStylePlugin, callback: *const fn (QStylePlugin, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1063,16 +1311,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QStylePlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStylePlugin_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QStylePlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStylePlugin_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1084,12 +1332,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QStylePlugin, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStylePlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QStylePlugin, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStylePlugin_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1103,9 +1355,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QEvent) callconv(.c) bool) void {
         qtc.QStylePlugin_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1119,17 +1375,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QStylePlugin, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QStylePlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStylePlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStylePlugin_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1143,13 +1399,17 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QStylePlugin, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QStylePlugin, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QStylePlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QStylePlugin_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1163,9 +1423,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QStylePlugin, callback: *const fn (QStylePlugin, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QStylePlugin, callback: *const fn (QStylePlugin, QObject, QEvent) callconv(.c) bool) void {
         qtc.QStylePlugin_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1177,16 +1441,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QStylePlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QStylePlugin_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1198,12 +1462,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QStylePlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QStylePlugin_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1217,9 +1485,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QTimerEvent) callconv(.c) void) void {
         qtc.QStylePlugin_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1231,16 +1503,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QStylePlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QStylePlugin_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1252,12 +1524,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QStylePlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QStylePlugin_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1271,9 +1547,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QChildEvent) callconv(.c) void) void {
         qtc.QStylePlugin_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1285,16 +1565,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStylePlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStylePlugin_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1306,12 +1586,16 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QStylePlugin, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QStylePlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QStylePlugin, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QStylePlugin_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1325,9 +1609,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QStylePlugin, callback: *const fn (QStylePlugin, QEvent) callconv(.c) void) void {
         qtc.QStylePlugin_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1341,14 +1629,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QStylePlugin, signal: anytype) void {
+    pub fn connectNotify(self: QStylePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStylePlugin_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1362,11 +1650,15 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QStylePlugin, signal: anytype) void {
+    pub fn superConnectNotify(self: QStylePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStylePlugin_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1379,9 +1671,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) void) void {
         qtc.QStylePlugin_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1395,14 +1691,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QStylePlugin, signal: anytype) void {
+    pub fn disconnectNotify(self: QStylePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStylePlugin_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1416,10 +1712,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QStylePlugin, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QStylePlugin, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QStylePlugin_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1433,9 +1733,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) void) void {
         qtc.QStylePlugin_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1447,13 +1751,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Sender(self: QStylePlugin) QObject {
+    pub fn sender(self: QStylePlugin) QObject {
         return .{ .ptr = qtc.QStylePlugin_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1465,9 +1769,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn SuperSender(self: QStylePlugin) QObject {
+    pub fn superSender(self: QStylePlugin) QObject {
         return .{ .ptr = qtc.QStylePlugin_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1481,9 +1789,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QStylePlugin, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QStylePlugin, callback: *const fn () callconv(.c) QObject) void {
         qtc.QStylePlugin_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1495,13 +1807,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn SenderSignalIndex(self: QStylePlugin) i32 {
+    pub fn senderSignalIndex(self: QStylePlugin) i32 {
         return qtc.QStylePlugin_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1513,9 +1825,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn SuperSenderSignalIndex(self: QStylePlugin) i32 {
+    pub fn superSenderSignalIndex(self: QStylePlugin) i32 {
         return qtc.QStylePlugin_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1529,9 +1845,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QStylePlugin, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QStylePlugin, callback: *const fn () callconv(.c) i32) void {
         qtc.QStylePlugin_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1545,14 +1865,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QStylePlugin, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QStylePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QStylePlugin_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1566,10 +1886,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QStylePlugin, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QStylePlugin, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QStylePlugin_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1583,9 +1907,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) i32) void {
         qtc.QStylePlugin_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1599,14 +1927,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QStylePlugin, signal: anytype) bool {
+    pub fn isSignalConnected(self: QStylePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStylePlugin_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1620,10 +1948,14 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QStylePlugin, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QStylePlugin, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QStylePlugin_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1637,9 +1969,13 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QStylePlugin, callback: *const fn (QStylePlugin, QMetaMethod) callconv(.c) bool) void {
         qtc.QStylePlugin_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1653,23 +1989,23 @@ pub const QStylePlugin = extern struct {
     ///
     /// ` callback: *const fn (self: QStylePlugin, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QStylePlugin, callback: *const fn (QStylePlugin, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleplugin.html#dtor.QStylePlugin)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStylePlugin `
     ///
-    pub fn Delete(self: QStylePlugin) void {
+    pub fn delete(self: QStylePlugin) void {
         qtc.QStylePlugin_Delete(@ptrCast(self.ptr));
     }
 };

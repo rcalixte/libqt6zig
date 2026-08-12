@@ -12,11 +12,19 @@ pub const Sonnet__GuessLanguage = extern struct {
 
     pub const _is_Sonnet__GuessLanguage = {};
 
-    /// New constructs a new Sonnet::GuessLanguage object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Sonnet__GuessLanguage {
+    pub const New = new;
+
+    /// Allocate a new Sonnet::GuessLanguage object in C++ memory
+    ///
+    pub fn new() Sonnet__GuessLanguage {
         return .{ .ptr = qtc.Sonnet__GuessLanguage_new() };
     }
+
+    /// ### DEPRECATED: Use `setLimits` instead
+    ///
+    pub const SetLimits = setLimits;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-guesslanguage.html#setLimits)
     ///
@@ -28,9 +36,13 @@ pub const Sonnet__GuessLanguage = extern struct {
     ///
     /// ` minConfidence: f64 `
     ///
-    pub fn SetLimits(self: Sonnet__GuessLanguage, maxItems: i32, minConfidence: f64) void {
+    pub fn setLimits(self: Sonnet__GuessLanguage, maxItems: i32, minConfidence: f64) void {
         qtc.Sonnet__GuessLanguage_SetLimits(@ptrCast(self.ptr), @bitCast(maxItems), @bitCast(minConfidence));
     }
+
+    /// ### DEPRECATED: Use `identify` instead
+    ///
+    pub const Identify = identify;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-guesslanguage.html#identify)
     ///
@@ -42,17 +54,21 @@ pub const Sonnet__GuessLanguage = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Identify(self: Sonnet__GuessLanguage, allocator: std.mem.Allocator, text: []const u8) []const u8 {
+    pub fn identify(self: Sonnet__GuessLanguage, allocator: std.mem.Allocator, text: []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         var _str = qtc.Sonnet__GuessLanguage_Identify(@ptrCast(self.ptr), text_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.Identify: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.identify: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `identify2` instead
+    ///
+    pub const Identify2 = identify2;
 
     /// ### [Upstream resources](https://api.kde.org/sonnet-guesslanguage.html#identify)
     ///
@@ -66,17 +82,17 @@ pub const Sonnet__GuessLanguage = extern struct {
     ///
     /// ` suggestions: []const []const u8 `
     ///
-    pub fn Identify2(self: Sonnet__GuessLanguage, allocator: std.mem.Allocator, text: []const u8, suggestions: []const []const u8) []const u8 {
+    pub fn identify2(self: Sonnet__GuessLanguage, allocator: std.mem.Allocator, text: []const u8, suggestions: []const []const u8) []const u8 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("Sonnet__GuessLanguage.Identify2: Memory allocation failed");
+        const suggestions_arr = allocator.alloc(qtc.libqt_string, suggestions.len) catch @panic("Sonnet__GuessLanguage.identify2: Memory allocation failed");
         defer allocator.free(suggestions_arr);
-        for (suggestions, 0..suggestions.len) |item, i|
+        for (suggestions, 0..suggestions.len) |str_item, i|
             suggestions_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const suggestions_list = qtc.libqt_list{
             .len = suggestions.len,
@@ -84,22 +100,22 @@ pub const Sonnet__GuessLanguage = extern struct {
         };
         var _str = qtc.Sonnet__GuessLanguage_Identify2(@ptrCast(self.ptr), text_str, suggestions_list);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.Identify2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Sonnet__GuessLanguage.identify2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Sonnet__GuessLanguage `
     ///
-    pub fn Delete(self: Sonnet__GuessLanguage) void {
+    pub fn delete(self: Sonnet__GuessLanguage) void {
         qtc.Sonnet__GuessLanguage_Delete(@ptrCast(self.ptr));
     }
 };

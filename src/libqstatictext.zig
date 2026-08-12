@@ -18,36 +18,52 @@ pub const QStaticText = extern struct {
 
     pub const _is_QStaticText = {};
 
-    /// New constructs a new QStaticText object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStaticText {
+    pub const New = new;
+
+    /// Allocate a new QStaticText object in C++ memory
+    ///
+    pub fn new() QStaticText {
         return .{ .ptr = qtc.QStaticText_new() };
     }
 
-    /// New2 constructs a new QStaticText object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStaticText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn New2(text: []const u8) QStaticText {
+    pub fn new2(_text: []const u8) QStaticText {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QStaticText_new2(text_str) };
     }
 
-    /// New3 constructs a new QStaticText object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStaticText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStaticText `
     ///
-    pub fn New3(other: anytype) QStaticText {
+    pub fn new3(other: anytype) QStaticText {
         comptime _ = @TypeOf(other)._is_QStaticText;
         return .{ .ptr = qtc.QStaticText_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq)
     ///
@@ -57,10 +73,14 @@ pub const QStaticText = extern struct {
     ///
     /// ` param1: QStaticText `
     ///
-    pub fn OperatorAssign(self: QStaticText, param1: anytype) void {
+    pub fn operatorAssign(self: QStaticText, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStaticText;
         qtc.QStaticText_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#swap)
     ///
@@ -70,10 +90,14 @@ pub const QStaticText = extern struct {
     ///
     /// ` other: QStaticText `
     ///
-    pub fn Swap(self: QStaticText, other: anytype) void {
+    pub fn swap(self: QStaticText, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QStaticText;
         qtc.QStaticText_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setText)
     ///
@@ -81,15 +105,19 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStaticText, text: []const u8) void {
+    pub fn setText(self: QStaticText, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStaticText_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#text)
     ///
@@ -99,13 +127,17 @@ pub const QStaticText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStaticText, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStaticText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QStaticText_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStaticText.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QStaticText.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextFormat` instead
+    ///
+    pub const SetTextFormat = setTextFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextFormat)
     ///
@@ -113,11 +145,15 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    /// ` textFormat: qnamespace_enums.TextFormat `
+    /// ` _textFormat: qnamespace_enums.TextFormat `
     ///
-    pub fn SetTextFormat(self: QStaticText, textFormat: i32) void {
-        qtc.QStaticText_SetTextFormat(@ptrCast(self.ptr), @bitCast(textFormat));
+    pub fn setTextFormat(self: QStaticText, _textFormat: i32) void {
+        qtc.QStaticText_SetTextFormat(@ptrCast(self.ptr), @bitCast(_textFormat));
     }
+
+    /// ### DEPRECATED: Use `textFormat` instead
+    ///
+    pub const TextFormat = textFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textFormat)
     ///
@@ -129,9 +165,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` qnamespace_enums.TextFormat `
     ///
-    pub fn TextFormat(self: QStaticText) i32 {
+    pub fn textFormat(self: QStaticText) i32 {
         return qtc.QStaticText_TextFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextWidth` instead
+    ///
+    pub const SetTextWidth = setTextWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextWidth)
     ///
@@ -139,11 +179,15 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    /// ` textWidth: f64 `
+    /// ` _textWidth: f64 `
     ///
-    pub fn SetTextWidth(self: QStaticText, textWidth: f64) void {
-        qtc.QStaticText_SetTextWidth(@ptrCast(self.ptr), @bitCast(textWidth));
+    pub fn setTextWidth(self: QStaticText, _textWidth: f64) void {
+        qtc.QStaticText_SetTextWidth(@ptrCast(self.ptr), @bitCast(_textWidth));
     }
+
+    /// ### DEPRECATED: Use `textWidth` instead
+    ///
+    pub const TextWidth = textWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textWidth)
     ///
@@ -151,9 +195,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    pub fn TextWidth(self: QStaticText) f64 {
+    pub fn textWidth(self: QStaticText) f64 {
         return qtc.QStaticText_TextWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextOption` instead
+    ///
+    pub const SetTextOption = setTextOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setTextOption)
     ///
@@ -161,12 +209,16 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    /// ` textOption: QTextOption `
+    /// ` _textOption: QTextOption `
     ///
-    pub fn SetTextOption(self: QStaticText, textOption: anytype) void {
-        comptime _ = @TypeOf(textOption)._is_QTextOption;
-        qtc.QStaticText_SetTextOption(@ptrCast(self.ptr), @ptrCast(textOption.ptr));
+    pub fn setTextOption(self: QStaticText, _textOption: anytype) void {
+        comptime _ = @TypeOf(_textOption)._is_QTextOption;
+        qtc.QStaticText_SetTextOption(@ptrCast(self.ptr), @ptrCast(_textOption.ptr));
     }
+
+    /// ### DEPRECATED: Use `textOption` instead
+    ///
+    pub const TextOption = textOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#textOption)
     ///
@@ -174,9 +226,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    pub fn TextOption(self: QStaticText) QTextOption {
+    pub fn textOption(self: QStaticText) QTextOption {
         return .{ .ptr = qtc.QStaticText_TextOption(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#size)
     ///
@@ -184,9 +240,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    pub fn Size(self: QStaticText) QSizeF {
+    pub fn size(self: QStaticText) QSizeF {
         return .{ .ptr = qtc.QStaticText_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `prepare` instead
+    ///
+    pub const Prepare = prepare;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
@@ -194,9 +254,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    pub fn Prepare(self: QStaticText) void {
+    pub fn prepare(self: QStaticText) void {
         qtc.QStaticText_Prepare(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPerformanceHint` instead
+    ///
+    pub const SetPerformanceHint = setPerformanceHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#setPerformanceHint)
     ///
@@ -204,11 +268,15 @@ pub const QStaticText = extern struct {
     ///
     /// ` self: QStaticText `
     ///
-    /// ` performanceHint: qstatictext_enums.PerformanceHint `
+    /// ` _performanceHint: qstatictext_enums.PerformanceHint `
     ///
-    pub fn SetPerformanceHint(self: QStaticText, performanceHint: i32) void {
-        qtc.QStaticText_SetPerformanceHint(@ptrCast(self.ptr), @bitCast(performanceHint));
+    pub fn setPerformanceHint(self: QStaticText, _performanceHint: i32) void {
+        qtc.QStaticText_SetPerformanceHint(@ptrCast(self.ptr), @bitCast(_performanceHint));
     }
+
+    /// ### DEPRECATED: Use `performanceHint` instead
+    ///
+    pub const PerformanceHint = performanceHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#performanceHint)
     ///
@@ -220,9 +288,13 @@ pub const QStaticText = extern struct {
     ///
     /// ` qstatictext_enums.PerformanceHint `
     ///
-    pub fn PerformanceHint(self: QStaticText) i32 {
+    pub fn performanceHint(self: QStaticText) i32 {
         return qtc.QStaticText_PerformanceHint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-eq-eq)
     ///
@@ -232,10 +304,14 @@ pub const QStaticText = extern struct {
     ///
     /// ` param1: QStaticText `
     ///
-    pub fn OperatorEqual(self: QStaticText, param1: anytype) bool {
+    pub fn operatorEqual(self: QStaticText, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QStaticText;
         return qtc.QStaticText_OperatorEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#operator-not-eq)
     ///
@@ -245,10 +321,14 @@ pub const QStaticText = extern struct {
     ///
     /// ` param1: QStaticText `
     ///
-    pub fn OperatorNotEqual(self: QStaticText, param1: anytype) bool {
+    pub fn operatorNotEqual(self: QStaticText, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QStaticText;
         return qtc.QStaticText_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepare1` instead
+    ///
+    pub const Prepare1 = prepare1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
@@ -258,10 +338,14 @@ pub const QStaticText = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn Prepare1(self: QStaticText, matrix: anytype) void {
+    pub fn prepare1(self: QStaticText, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QStaticText_Prepare1(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `prepare2` instead
+    ///
+    pub const Prepare2 = prepare2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#prepare)
     ///
@@ -273,25 +357,25 @@ pub const QStaticText = extern struct {
     ///
     /// ` font: QFont `
     ///
-    pub fn Prepare2(self: QStaticText, matrix: anytype, font: anytype) void {
+    pub fn prepare2(self: QStaticText, matrix: anytype, font: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         comptime _ = @TypeOf(font)._is_QFont;
         qtc.QStaticText_Prepare2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), @ptrCast(font.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstatictext.html#dtor.QStaticText)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStaticText `
     ///
-    pub fn Delete(self: QStaticText) void {
+    pub fn delete(self: QStaticText) void {
         qtc.QStaticText_Delete(@ptrCast(self.ptr));
     }
 };

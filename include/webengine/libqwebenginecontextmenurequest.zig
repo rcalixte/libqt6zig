@@ -26,15 +26,23 @@ pub const QWebEngineContextMenuRequest = extern struct {
     pub const _is_QWebEngineContextMenuRequest = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn MetaObject(self: QWebEngineContextMenuRequest) QMetaObject {
+    pub fn metaObject(self: QWebEngineContextMenuRequest) QMetaObject {
         return .{ .ptr = qtc.QWebEngineContextMenuRequest_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -42,10 +50,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QWebEngineContextMenuRequest, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QWebEngineContextMenuRequest, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEngineContextMenuRequest_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -57,9 +69,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QWebEngineContextMenuRequest, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QWebEngineContextMenuRequest, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebEngineContextMenuRequest_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -69,14 +85,18 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#position)
     ///
@@ -84,9 +104,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Position(self: QWebEngineContextMenuRequest) QPoint {
+    pub fn position(self: QWebEngineContextMenuRequest) QPoint {
         return .{ .ptr = qtc.QWebEngineContextMenuRequest_Position(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#selectedText)
     ///
@@ -96,13 +120,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineContextMenuRequest_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `linkText` instead
+    ///
+    pub const LinkText = linkText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#linkText)
     ///
@@ -112,13 +140,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LinkText(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
+    pub fn linkText(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineContextMenuRequest_LinkText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.LinkText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.linkText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `linkUrl` instead
+    ///
+    pub const LinkUrl = linkUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#linkUrl)
     ///
@@ -126,9 +158,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn LinkUrl(self: QWebEngineContextMenuRequest) QUrl {
+    pub fn linkUrl(self: QWebEngineContextMenuRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineContextMenuRequest_LinkUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mediaUrl` instead
+    ///
+    pub const MediaUrl = mediaUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#mediaUrl)
     ///
@@ -136,9 +172,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn MediaUrl(self: QWebEngineContextMenuRequest) QUrl {
+    pub fn mediaUrl(self: QWebEngineContextMenuRequest) QUrl {
         return .{ .ptr = qtc.QWebEngineContextMenuRequest_MediaUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mediaType` instead
+    ///
+    pub const MediaType = mediaType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#mediaType)
     ///
@@ -150,9 +190,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` qwebenginecontextmenurequest_enums.MediaType `
     ///
-    pub fn MediaType(self: QWebEngineContextMenuRequest) i32 {
+    pub fn mediaType(self: QWebEngineContextMenuRequest) i32 {
         return qtc.QWebEngineContextMenuRequest_MediaType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isContentEditable` instead
+    ///
+    pub const IsContentEditable = isContentEditable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#isContentEditable)
     ///
@@ -160,9 +204,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn IsContentEditable(self: QWebEngineContextMenuRequest) bool {
+    pub fn isContentEditable(self: QWebEngineContextMenuRequest) bool {
         return qtc.QWebEngineContextMenuRequest_IsContentEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `misspelledWord` instead
+    ///
+    pub const MisspelledWord = misspelledWord;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#misspelledWord)
     ///
@@ -172,13 +220,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MisspelledWord(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
+    pub fn misspelledWord(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineContextMenuRequest_MisspelledWord(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.MisspelledWord: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.misspelledWord: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `spellCheckerSuggestions` instead
+    ///
+    pub const SpellCheckerSuggestions = spellCheckerSuggestions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#spellCheckerSuggestions)
     ///
@@ -188,7 +240,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpellCheckerSuggestions(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn spellCheckerSuggestions(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QWebEngineContextMenuRequest_SpellCheckerSuggestions(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -196,15 +248,19 @@ pub const QWebEngineContextMenuRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEngineContextMenuRequest.SpellCheckerSuggestions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebEngineContextMenuRequest.spellCheckerSuggestions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineContextMenuRequest.SpellCheckerSuggestions: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineContextMenuRequest.spellCheckerSuggestions: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#isAccepted)
     ///
@@ -212,9 +268,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn IsAccepted(self: QWebEngineContextMenuRequest) bool {
+    pub fn isAccepted(self: QWebEngineContextMenuRequest) bool {
         return qtc.QWebEngineContextMenuRequest_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#setAccepted)
     ///
@@ -224,9 +284,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QWebEngineContextMenuRequest, accepted: bool) void {
+    pub fn setAccepted(self: QWebEngineContextMenuRequest, accepted: bool) void {
         qtc.QWebEngineContextMenuRequest_SetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `mediaFlags` instead
+    ///
+    pub const MediaFlags = mediaFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#mediaFlags)
     ///
@@ -238,9 +302,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` flag of qwebenginecontextmenurequest_enums.MediaFlag `
     ///
-    pub fn MediaFlags(self: QWebEngineContextMenuRequest) i32 {
+    pub fn mediaFlags(self: QWebEngineContextMenuRequest) i32 {
         return qtc.QWebEngineContextMenuRequest_MediaFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `editFlags` instead
+    ///
+    pub const EditFlags = editFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#editFlags)
     ///
@@ -252,9 +320,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` flag of qwebenginecontextmenurequest_enums.EditFlag `
     ///
-    pub fn EditFlags(self: QWebEngineContextMenuRequest) i32 {
+    pub fn editFlags(self: QWebEngineContextMenuRequest) i32 {
         return qtc.QWebEngineContextMenuRequest_EditFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -266,15 +338,19 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -288,15 +364,19 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -306,12 +386,16 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QWebEngineContextMenuRequest, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QWebEngineContextMenuRequest, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -323,13 +407,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QWebEngineContextMenuRequest, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QWebEngineContextMenuRequest, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -341,13 +429,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineContextMenuRequest.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -359,13 +451,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QWebEngineContextMenuRequest, name: []const u8) void {
+    pub fn setObjectName(self: QWebEngineContextMenuRequest, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -375,9 +471,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn IsWidgetType(self: QWebEngineContextMenuRequest) bool {
+    pub fn isWidgetType(self: QWebEngineContextMenuRequest) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -387,9 +487,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn IsWindowType(self: QWebEngineContextMenuRequest) bool {
+    pub fn isWindowType(self: QWebEngineContextMenuRequest) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -399,9 +503,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn IsQuickItemType(self: QWebEngineContextMenuRequest) bool {
+    pub fn isQuickItemType(self: QWebEngineContextMenuRequest) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -411,9 +519,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn SignalsBlocked(self: QWebEngineContextMenuRequest) bool {
+    pub fn signalsBlocked(self: QWebEngineContextMenuRequest) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -425,9 +537,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QWebEngineContextMenuRequest, b: bool) bool {
+    pub fn blockSignals(self: QWebEngineContextMenuRequest, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -437,9 +553,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Thread(self: QWebEngineContextMenuRequest) QThread {
+    pub fn thread(self: QWebEngineContextMenuRequest) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -449,12 +569,16 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QWebEngineContextMenuRequest, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QWebEngineContextMenuRequest, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -466,9 +590,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QWebEngineContextMenuRequest, interval: i32) i32 {
+    pub fn startTimer(self: QWebEngineContextMenuRequest, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -480,9 +608,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QWebEngineContextMenuRequest, time: i64) i32 {
+    pub fn startTimer2(self: QWebEngineContextMenuRequest, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -494,9 +626,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QWebEngineContextMenuRequest, id: i32) void {
+    pub fn killTimer(self: QWebEngineContextMenuRequest, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -508,9 +644,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QWebEngineContextMenuRequest, id: i32) void {
+    pub fn killTimer2(self: QWebEngineContextMenuRequest, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -522,15 +662,19 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineContextMenuRequest.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineContextMenuRequest.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -540,12 +684,16 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QWebEngineContextMenuRequest, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QWebEngineContextMenuRequest, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -557,10 +705,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QWebEngineContextMenuRequest, filterObj: anytype) void {
+    pub fn installEventFilter(self: QWebEngineContextMenuRequest, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -572,10 +724,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QWebEngineContextMenuRequest, obj: anytype) void {
+    pub fn removeEventFilter(self: QWebEngineContextMenuRequest, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -583,7 +739,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -591,13 +747,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -605,7 +765,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -613,13 +773,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -629,18 +793,22 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QWebEngineContextMenuRequest, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QWebEngineContextMenuRequest, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -648,7 +816,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -656,13 +824,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -670,7 +842,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -678,13 +850,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -694,9 +870,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Disconnect3(self: QWebEngineContextMenuRequest) bool {
+    pub fn disconnect3(self: QWebEngineContextMenuRequest) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -708,10 +888,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QWebEngineContextMenuRequest, receiver: anytype) bool {
+    pub fn disconnect4(self: QWebEngineContextMenuRequest, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -721,10 +905,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -734,9 +922,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn DumpObjectTree(self: QWebEngineContextMenuRequest) void {
+    pub fn dumpObjectTree(self: QWebEngineContextMenuRequest) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -746,9 +938,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn DumpObjectInfo(self: QWebEngineContextMenuRequest) void {
+    pub fn dumpObjectInfo(self: QWebEngineContextMenuRequest) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -762,11 +958,15 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QWebEngineContextMenuRequest, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QWebEngineContextMenuRequest, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -778,10 +978,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QWebEngineContextMenuRequest, name: [:0]const u8) QVariant {
+    pub fn property(self: QWebEngineContextMenuRequest, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -793,7 +997,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEngineContextMenuRequest, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -801,27 +1005,19 @@ pub const QWebEngineContextMenuRequest = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineContextMenuRequest.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineContextMenuRequest.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineContextMenuRequest.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineContextMenuRequest.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineContextMenuRequest `
-    ///
-    pub fn BindingStorage(self: QWebEngineContextMenuRequest) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -831,9 +1027,29 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn BindingStorage2(self: QWebEngineContextMenuRequest) QBindingStorage {
+    pub fn bindingStorage(self: QWebEngineContextMenuRequest) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineContextMenuRequest `
+    ///
+    pub fn bindingStorage2(self: QWebEngineContextMenuRequest) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -843,9 +1059,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Destroyed(self: QWebEngineContextMenuRequest) void {
+    pub fn destroyed(self: QWebEngineContextMenuRequest) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -857,9 +1077,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineContextMenuRequest) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest) callconv(.c) void) void {
+    pub fn onDestroyed(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -869,9 +1093,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Parent(self: QWebEngineContextMenuRequest) QObject {
+    pub fn parent(self: QWebEngineContextMenuRequest) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -883,10 +1111,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QWebEngineContextMenuRequest, classname: [:0]const u8) bool {
+    pub fn inherits(self: QWebEngineContextMenuRequest, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -896,9 +1128,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn DeleteLater(self: QWebEngineContextMenuRequest) void {
+    pub fn deleteLater(self: QWebEngineContextMenuRequest) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -912,9 +1148,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QWebEngineContextMenuRequest, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QWebEngineContextMenuRequest, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -928,9 +1168,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QWebEngineContextMenuRequest, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QWebEngineContextMenuRequest, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -938,7 +1182,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -948,13 +1192,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -962,7 +1210,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -972,13 +1220,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -988,7 +1240,7 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -996,12 +1248,16 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QWebEngineContextMenuRequest, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QWebEngineContextMenuRequest, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1013,10 +1269,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QWebEngineContextMenuRequest, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QWebEngineContextMenuRequest, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1030,11 +1290,15 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QWebEngineContextMenuRequest, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QWebEngineContextMenuRequest, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1050,13 +1314,17 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QWebEngineContextMenuRequest, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QWebEngineContextMenuRequest, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1069,11 +1337,15 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QWebEngineContextMenuRequest, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QWebEngineContextMenuRequest, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1085,10 +1357,14 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QWebEngineContextMenuRequest, param1: anytype) void {
+    pub fn destroyed1(self: QWebEngineContextMenuRequest, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1100,9 +1376,13 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineContextMenuRequest, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1116,23 +1396,23 @@ pub const QWebEngineContextMenuRequest = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineContextMenuRequest, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QWebEngineContextMenuRequest, callback: *const fn (QWebEngineContextMenuRequest, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebenginecontextmenurequest.html#dtor.QWebEngineContextMenuRequest)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineContextMenuRequest `
     ///
-    pub fn Delete(self: QWebEngineContextMenuRequest) void {
+    pub fn delete(self: QWebEngineContextMenuRequest) void {
         qtc.QWebEngineContextMenuRequest_Delete(@ptrCast(self.ptr));
     }
 };

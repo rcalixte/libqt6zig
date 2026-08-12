@@ -24,15 +24,23 @@ pub const QWebEngineClientHints = extern struct {
     pub const _is_QWebEngineClientHints = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn MetaObject(self: QWebEngineClientHints) QMetaObject {
+    pub fn metaObject(self: QWebEngineClientHints) QMetaObject {
         return .{ .ptr = qtc.QWebEngineClientHints_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -40,10 +48,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QWebEngineClientHints, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QWebEngineClientHints, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEngineClientHints_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -55,9 +67,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QWebEngineClientHints, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QWebEngineClientHints, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebEngineClientHints_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -67,14 +83,18 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `arch` instead
+    ///
+    pub const Arch = arch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#arch)
     ///
@@ -84,13 +104,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Arch(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn arch(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_Arch(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Arch: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.arch: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `platform` instead
+    ///
+    pub const Platform = platform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#platform)
     ///
@@ -100,13 +124,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Platform(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn platform(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_Platform(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Platform: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.platform: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#model)
     ///
@@ -116,13 +144,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Model(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn model(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_Model(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Model: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.model: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isMobile` instead
+    ///
+    pub const IsMobile = isMobile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isMobile)
     ///
@@ -130,9 +162,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsMobile(self: QWebEngineClientHints) bool {
+    pub fn isMobile(self: QWebEngineClientHints) bool {
         return qtc.QWebEngineClientHints_IsMobile(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fullVersion` instead
+    ///
+    pub const FullVersion = fullVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersion)
     ///
@@ -142,13 +178,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullVersion(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn fullVersion(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_FullVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.FullVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.fullVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `platformVersion` instead
+    ///
+    pub const PlatformVersion = platformVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#platformVersion)
     ///
@@ -158,13 +198,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlatformVersion(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn platformVersion(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_PlatformVersion(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.PlatformVersion: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.platformVersion: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `bitness` instead
+    ///
+    pub const Bitness = bitness;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#bitness)
     ///
@@ -174,13 +218,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Bitness(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn bitness(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineClientHints_Bitness(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Bitness: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.bitness: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fullVersionList` instead
+    ///
+    pub const FullVersionList = fullVersionList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#fullVersionList)
     ///
@@ -190,10 +238,10 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FullVersionList(self: QWebEngineClientHints, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
+    pub fn fullVersionList(self: QWebEngineClientHints, allocator: std.mem.Allocator) ArrayMap_constu8_QVariant {
         const _map: qtc.libqt_map = qtc.QWebEngineClientHints_FullVersionList(@ptrCast(self.ptr));
         var _ret: ArrayMap_constu8_QVariant = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineClientHints.FullVersionList: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("QWebEngineClientHints.fullVersionList: Total capacity allocation failed");
         defer {
             const _keys: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.keys));
             for (0.._map.len) |i| {
@@ -207,7 +255,7 @@ pub const QWebEngineClientHints = extern struct {
         var i: usize = 0;
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
-            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineClientHints.FullVersionList: Memory allocation failed");
+            const _entry_slice = allocator.alloc(u8, _key.len) catch @panic("QWebEngineClientHints.fullVersionList: Memory allocation failed");
             @memcpy(_entry_slice, _key.data);
             const _value = _values[i];
             _ret.putAssumeCapacity(_entry_slice, .{ .ptr = @ptrCast(_value) });
@@ -215,15 +263,23 @@ pub const QWebEngineClientHints = extern struct {
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `isWow64` instead
+    ///
+    pub const IsWow64 = isWow64;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isWow64)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsWow64(self: QWebEngineClientHints) bool {
+    pub fn isWow64(self: QWebEngineClientHints) bool {
         return qtc.QWebEngineClientHints_IsWow64(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArch` instead
+    ///
+    pub const SetArch = setArch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setArch)
     ///
@@ -231,15 +287,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` arch: []const u8 `
+    /// ` _arch: []const u8 `
     ///
-    pub fn SetArch(self: QWebEngineClientHints, arch: []const u8) void {
+    pub fn setArch(self: QWebEngineClientHints, _arch: []const u8) void {
         const arch_str = qtc.libqt_string{
-            .len = arch.len,
-            .data = arch.ptr,
+            .len = _arch.len,
+            .data = _arch.ptr,
         };
         qtc.QWebEngineClientHints_SetArch(@ptrCast(self.ptr), arch_str);
     }
+
+    /// ### DEPRECATED: Use `setPlatform` instead
+    ///
+    pub const SetPlatform = setPlatform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatform)
     ///
@@ -247,15 +307,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` platform: []const u8 `
+    /// ` _platform: []const u8 `
     ///
-    pub fn SetPlatform(self: QWebEngineClientHints, platform: []const u8) void {
+    pub fn setPlatform(self: QWebEngineClientHints, _platform: []const u8) void {
         const platform_str = qtc.libqt_string{
-            .len = platform.len,
-            .data = platform.ptr,
+            .len = _platform.len,
+            .data = _platform.ptr,
         };
         qtc.QWebEngineClientHints_SetPlatform(@ptrCast(self.ptr), platform_str);
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setModel)
     ///
@@ -263,15 +327,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` model: []const u8 `
+    /// ` _model: []const u8 `
     ///
-    pub fn SetModel(self: QWebEngineClientHints, model: []const u8) void {
+    pub fn setModel(self: QWebEngineClientHints, _model: []const u8) void {
         const model_str = qtc.libqt_string{
-            .len = model.len,
-            .data = model.ptr,
+            .len = _model.len,
+            .data = _model.ptr,
         };
         qtc.QWebEngineClientHints_SetModel(@ptrCast(self.ptr), model_str);
     }
+
+    /// ### DEPRECATED: Use `setIsMobile` instead
+    ///
+    pub const SetIsMobile = setIsMobile;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsMobile)
     ///
@@ -279,11 +347,15 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` isMobile: bool `
+    /// ` _isMobile: bool `
     ///
-    pub fn SetIsMobile(self: QWebEngineClientHints, isMobile: bool) void {
-        qtc.QWebEngineClientHints_SetIsMobile(@ptrCast(self.ptr), isMobile);
+    pub fn setIsMobile(self: QWebEngineClientHints, _isMobile: bool) void {
+        qtc.QWebEngineClientHints_SetIsMobile(@ptrCast(self.ptr), _isMobile);
     }
+
+    /// ### DEPRECATED: Use `setFullVersion` instead
+    ///
+    pub const SetFullVersion = setFullVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersion)
     ///
@@ -291,15 +363,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` fullVersion: []const u8 `
+    /// ` _fullVersion: []const u8 `
     ///
-    pub fn SetFullVersion(self: QWebEngineClientHints, fullVersion: []const u8) void {
+    pub fn setFullVersion(self: QWebEngineClientHints, _fullVersion: []const u8) void {
         const fullVersion_str = qtc.libqt_string{
-            .len = fullVersion.len,
-            .data = fullVersion.ptr,
+            .len = _fullVersion.len,
+            .data = _fullVersion.ptr,
         };
         qtc.QWebEngineClientHints_SetFullVersion(@ptrCast(self.ptr), fullVersion_str);
     }
+
+    /// ### DEPRECATED: Use `setPlatformVersion` instead
+    ///
+    pub const SetPlatformVersion = setPlatformVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setPlatformVersion)
     ///
@@ -307,15 +383,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` platformVersion: []const u8 `
+    /// ` _platformVersion: []const u8 `
     ///
-    pub fn SetPlatformVersion(self: QWebEngineClientHints, platformVersion: []const u8) void {
+    pub fn setPlatformVersion(self: QWebEngineClientHints, _platformVersion: []const u8) void {
         const platformVersion_str = qtc.libqt_string{
-            .len = platformVersion.len,
-            .data = platformVersion.ptr,
+            .len = _platformVersion.len,
+            .data = _platformVersion.ptr,
         };
         qtc.QWebEngineClientHints_SetPlatformVersion(@ptrCast(self.ptr), platformVersion_str);
     }
+
+    /// ### DEPRECATED: Use `setBitness` instead
+    ///
+    pub const SetBitness = setBitness;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setBitness)
     ///
@@ -323,15 +403,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` bitness: []const u8 `
+    /// ` _bitness: []const u8 `
     ///
-    pub fn SetBitness(self: QWebEngineClientHints, bitness: []const u8) void {
+    pub fn setBitness(self: QWebEngineClientHints, _bitness: []const u8) void {
         const bitness_str = qtc.libqt_string{
-            .len = bitness.len,
-            .data = bitness.ptr,
+            .len = _bitness.len,
+            .data = _bitness.ptr,
         };
         qtc.QWebEngineClientHints_SetBitness(@ptrCast(self.ptr), bitness_str);
     }
+
+    /// ### DEPRECATED: Use `setFullVersionList` instead
+    ///
+    pub const SetFullVersionList = setFullVersionList;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setFullVersionList)
     ///
@@ -341,16 +425,16 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` fullVersionList: ArrayMap_constu8_QVariant `
+    /// ` _fullVersionList: ArrayMap_constu8_QVariant `
     ///
-    pub fn SetFullVersionList(self: QWebEngineClientHints, allocator: std.mem.Allocator, fullVersionList: ArrayMap_constu8_QVariant) void {
-        const fullVersionList_count = fullVersionList.count();
-        const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList_count) catch @panic("QWebEngineClientHints.SetFullVersionList: Memory allocation failed");
+    pub fn setFullVersionList(self: QWebEngineClientHints, allocator: std.mem.Allocator, _fullVersionList: ArrayMap_constu8_QVariant) void {
+        const fullVersionList_count = _fullVersionList.count();
+        const fullVersionList_keys = allocator.alloc(qtc.libqt_string, fullVersionList_count) catch @panic("QWebEngineClientHints.setFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_keys);
-        const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList_count) catch @panic("QWebEngineClientHints.SetFullVersionList: Memory allocation failed");
+        const fullVersionList_values = allocator.alloc(QtC.QVariant, fullVersionList_count) catch @panic("QWebEngineClientHints.setFullVersionList: Memory allocation failed");
         defer allocator.free(fullVersionList_values);
         var i: usize = 0;
-        var fullVersionList_it = fullVersionList.iterator();
+        var fullVersionList_it = _fullVersionList.iterator();
         while (fullVersionList_it.next()) |it_entry| : (i += 1) {
             const fullVersionList_key = it_entry.key_ptr.*;
             fullVersionList_keys[i] = qtc.libqt_string{
@@ -367,17 +451,25 @@ pub const QWebEngineClientHints = extern struct {
         qtc.QWebEngineClientHints_SetFullVersionList(@ptrCast(self.ptr), fullVersionList_map);
     }
 
+    /// ### DEPRECATED: Use `setIsWow64` instead
+    ///
+    pub const SetIsWow64 = setIsWow64;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setIsWow64)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` isWow64: bool `
+    /// ` _isWow64: bool `
     ///
-    pub fn SetIsWow64(self: QWebEngineClientHints, isWow64: bool) void {
-        qtc.QWebEngineClientHints_SetIsWow64(@ptrCast(self.ptr), isWow64);
+    pub fn setIsWow64(self: QWebEngineClientHints, _isWow64: bool) void {
+        qtc.QWebEngineClientHints_SetIsWow64(@ptrCast(self.ptr), _isWow64);
     }
+
+    /// ### DEPRECATED: Use `isAllClientHintsEnabled` instead
+    ///
+    pub const IsAllClientHintsEnabled = isAllClientHintsEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#isAllClientHintsEnabled)
     ///
@@ -385,9 +477,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsAllClientHintsEnabled(self: QWebEngineClientHints) bool {
+    pub fn isAllClientHintsEnabled(self: QWebEngineClientHints) bool {
         return qtc.QWebEngineClientHints_IsAllClientHintsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAllClientHintsEnabled` instead
+    ///
+    pub const SetAllClientHintsEnabled = setAllClientHintsEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#setAllClientHintsEnabled)
     ///
@@ -397,9 +493,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAllClientHintsEnabled(self: QWebEngineClientHints, enabled: bool) void {
+    pub fn setAllClientHintsEnabled(self: QWebEngineClientHints, enabled: bool) void {
         qtc.QWebEngineClientHints_SetAllClientHintsEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `resetAll` instead
+    ///
+    pub const ResetAll = resetAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#resetAll)
     ///
@@ -407,9 +507,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn ResetAll(self: QWebEngineClientHints) void {
+    pub fn resetAll(self: QWebEngineClientHints) void {
         qtc.QWebEngineClientHints_ResetAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -421,15 +525,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -443,15 +551,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -461,12 +573,16 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QWebEngineClientHints, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QWebEngineClientHints, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -478,13 +594,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QWebEngineClientHints, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QWebEngineClientHints, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -496,13 +616,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QWebEngineClientHints, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineClientHints.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -514,13 +638,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QWebEngineClientHints, name: []const u8) void {
+    pub fn setObjectName(self: QWebEngineClientHints, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -530,9 +658,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsWidgetType(self: QWebEngineClientHints) bool {
+    pub fn isWidgetType(self: QWebEngineClientHints) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -542,9 +674,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsWindowType(self: QWebEngineClientHints) bool {
+    pub fn isWindowType(self: QWebEngineClientHints) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -554,9 +690,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn IsQuickItemType(self: QWebEngineClientHints) bool {
+    pub fn isQuickItemType(self: QWebEngineClientHints) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -566,9 +706,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn SignalsBlocked(self: QWebEngineClientHints) bool {
+    pub fn signalsBlocked(self: QWebEngineClientHints) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -580,9 +724,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QWebEngineClientHints, b: bool) bool {
+    pub fn blockSignals(self: QWebEngineClientHints, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -592,9 +740,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn Thread(self: QWebEngineClientHints) QThread {
+    pub fn thread(self: QWebEngineClientHints) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -604,12 +756,16 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QWebEngineClientHints, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QWebEngineClientHints, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -621,9 +777,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QWebEngineClientHints, interval: i32) i32 {
+    pub fn startTimer(self: QWebEngineClientHints, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -635,9 +795,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QWebEngineClientHints, time: i64) i32 {
+    pub fn startTimer2(self: QWebEngineClientHints, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -649,9 +813,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QWebEngineClientHints, id: i32) void {
+    pub fn killTimer(self: QWebEngineClientHints, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -663,9 +831,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QWebEngineClientHints, id: i32) void {
+    pub fn killTimer2(self: QWebEngineClientHints, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -677,15 +849,19 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QWebEngineClientHints, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QWebEngineClientHints, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineClientHints.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineClientHints.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -695,12 +871,16 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QWebEngineClientHints, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QWebEngineClientHints, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -712,10 +892,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QWebEngineClientHints, filterObj: anytype) void {
+    pub fn installEventFilter(self: QWebEngineClientHints, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -727,10 +911,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QWebEngineClientHints, obj: anytype) void {
+    pub fn removeEventFilter(self: QWebEngineClientHints, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -738,7 +926,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -746,13 +934,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -760,7 +952,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -768,13 +960,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -784,18 +980,22 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QWebEngineClientHints, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QWebEngineClientHints, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -803,7 +1003,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -811,13 +1011,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -825,7 +1029,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -833,13 +1037,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -849,9 +1057,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn Disconnect3(self: QWebEngineClientHints) bool {
+    pub fn disconnect3(self: QWebEngineClientHints) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -863,10 +1075,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QWebEngineClientHints, receiver: anytype) bool {
+    pub fn disconnect4(self: QWebEngineClientHints, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -876,10 +1092,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -889,9 +1109,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn DumpObjectTree(self: QWebEngineClientHints) void {
+    pub fn dumpObjectTree(self: QWebEngineClientHints) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -901,9 +1125,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn DumpObjectInfo(self: QWebEngineClientHints) void {
+    pub fn dumpObjectInfo(self: QWebEngineClientHints) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -917,11 +1145,15 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QWebEngineClientHints, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QWebEngineClientHints, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -933,10 +1165,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QWebEngineClientHints, name: [:0]const u8) QVariant {
+    pub fn property(self: QWebEngineClientHints, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -948,7 +1184,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QWebEngineClientHints, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEngineClientHints, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -956,27 +1192,19 @@ pub const QWebEngineClientHints = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineClientHints.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineClientHints.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineClientHints.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineClientHints.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineClientHints `
-    ///
-    pub fn BindingStorage(self: QWebEngineClientHints) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -986,9 +1214,29 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn BindingStorage2(self: QWebEngineClientHints) QBindingStorage {
+    pub fn bindingStorage(self: QWebEngineClientHints) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineClientHints `
+    ///
+    pub fn bindingStorage2(self: QWebEngineClientHints) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -998,9 +1246,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn Destroyed(self: QWebEngineClientHints) void {
+    pub fn destroyed(self: QWebEngineClientHints) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1012,9 +1264,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineClientHints) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints) callconv(.c) void) void {
+    pub fn onDestroyed(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1024,9 +1280,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn Parent(self: QWebEngineClientHints) QObject {
+    pub fn parent(self: QWebEngineClientHints) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1038,10 +1298,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QWebEngineClientHints, classname: [:0]const u8) bool {
+    pub fn inherits(self: QWebEngineClientHints, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1051,9 +1315,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn DeleteLater(self: QWebEngineClientHints) void {
+    pub fn deleteLater(self: QWebEngineClientHints) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1067,9 +1335,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QWebEngineClientHints, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QWebEngineClientHints, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1083,9 +1355,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QWebEngineClientHints, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QWebEngineClientHints, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1093,7 +1369,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1103,13 +1379,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1117,7 +1397,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1127,13 +1407,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1143,7 +1427,7 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1151,12 +1435,16 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QWebEngineClientHints, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QWebEngineClientHints, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1168,10 +1456,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QWebEngineClientHints, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QWebEngineClientHints, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1185,11 +1477,15 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QWebEngineClientHints, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QWebEngineClientHints, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1205,13 +1501,17 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QWebEngineClientHints, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QWebEngineClientHints, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1224,11 +1524,15 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QWebEngineClientHints, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QWebEngineClientHints, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1240,10 +1544,14 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QWebEngineClientHints, param1: anytype) void {
+    pub fn destroyed1(self: QWebEngineClientHints, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1255,9 +1563,13 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineClientHints, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1271,23 +1583,23 @@ pub const QWebEngineClientHints = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineClientHints, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QWebEngineClientHints, callback: *const fn (QWebEngineClientHints, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclienthints.html#dtor.QWebEngineClientHints)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineClientHints `
     ///
-    pub fn Delete(self: QWebEngineClientHints) void {
+    pub fn delete(self: QWebEngineClientHints) void {
         qtc.QWebEngineClientHints_Delete(@ptrCast(self.ptr));
     }
 };

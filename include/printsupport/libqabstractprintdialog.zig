@@ -82,30 +82,42 @@ pub const QAbstractPrintDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QAbstractPrintDialog object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAbstractPrintDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` printer: QPrinter `
+    /// ` _printer: QPrinter `
     ///
-    pub fn New(printer: anytype) QAbstractPrintDialog {
-        comptime _ = @TypeOf(printer)._is_QPrinter;
-        return .{ .ptr = qtc.QAbstractPrintDialog_new(@ptrCast(printer.ptr)) };
+    pub fn new(_printer: anytype) QAbstractPrintDialog {
+        comptime _ = @TypeOf(_printer)._is_QPrinter;
+        return .{ .ptr = qtc.QAbstractPrintDialog_new(@ptrCast(_printer.ptr)) };
     }
 
-    /// New2 constructs a new QAbstractPrintDialog object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QAbstractPrintDialog object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` printer: QPrinter `
+    /// ` _printer: QPrinter `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New2(printer: anytype, parent: anytype) QAbstractPrintDialog {
-        comptime _ = @TypeOf(printer)._is_QPrinter;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QAbstractPrintDialog_new2(@ptrCast(printer.ptr), @ptrCast(parent.ptr)) };
+    pub fn new2(_printer: anytype, _parent: anytype) QAbstractPrintDialog {
+        comptime _ = @TypeOf(_printer)._is_QPrinter;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractPrintDialog_new2(@ptrCast(_printer.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -113,9 +125,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MetaObject(self: QAbstractPrintDialog) QMetaObject {
+    pub fn metaObject(self: QAbstractPrintDialog) QMetaObject {
         return .{ .ptr = qtc.QAbstractPrintDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -127,13 +143,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QAbstractPrintDialog_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -143,9 +159,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperMetaObject(self: QAbstractPrintDialog) QMetaObject {
+    pub fn superMetaObject(self: QAbstractPrintDialog) QMetaObject {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -153,10 +173,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractPrintDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractPrintDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractPrintDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -166,13 +190,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QAbstractPrintDialog_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -182,10 +206,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QAbstractPrintDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QAbstractPrintDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractPrintDialog_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -197,9 +225,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractPrintDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractPrintDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractPrintDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -209,13 +241,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -229,9 +261,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QAbstractPrintDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QAbstractPrintDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractPrintDialog_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -241,14 +277,18 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setOptionTabs` instead
+    ///
+    pub const SetOptionTabs = setOptionTabs;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#setOptionTabs)
     ///
@@ -258,13 +298,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` tabs: []QWidget `
     ///
-    pub fn SetOptionTabs(self: QAbstractPrintDialog, tabs: []QWidget) void {
+    pub fn setOptionTabs(self: QAbstractPrintDialog, tabs: []QWidget) void {
         const tabs_list = qtc.libqt_list{
             .len = tabs.len,
             .data = @ptrCast(tabs.ptr),
         };
         qtc.QAbstractPrintDialog_SetOptionTabs(@ptrCast(self.ptr), tabs_list);
     }
+
+    /// ### DEPRECATED: Use `setPrintRange` instead
+    ///
+    pub const SetPrintRange = setPrintRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#setPrintRange)
     ///
@@ -274,9 +318,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` range: qabstractprintdialog_enums.PrintRange `
     ///
-    pub fn SetPrintRange(self: QAbstractPrintDialog, range: i32) void {
+    pub fn setPrintRange(self: QAbstractPrintDialog, range: i32) void {
         qtc.QAbstractPrintDialog_SetPrintRange(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `printRange` instead
+    ///
+    pub const PrintRange = printRange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#printRange)
     ///
@@ -288,9 +336,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qabstractprintdialog_enums.PrintRange `
     ///
-    pub fn PrintRange(self: QAbstractPrintDialog) i32 {
+    pub fn printRange(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_PrintRange(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinMax` instead
+    ///
+    pub const SetMinMax = setMinMax;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#setMinMax)
     ///
@@ -302,9 +354,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMinMax(self: QAbstractPrintDialog, min: i32, max: i32) void {
+    pub fn setMinMax(self: QAbstractPrintDialog, min: i32, max: i32) void {
         qtc.QAbstractPrintDialog_SetMinMax(@ptrCast(self.ptr), @bitCast(min), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `minPage` instead
+    ///
+    pub const MinPage = minPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#minPage)
     ///
@@ -312,9 +368,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MinPage(self: QAbstractPrintDialog) i32 {
+    pub fn minPage(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_MinPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxPage` instead
+    ///
+    pub const MaxPage = maxPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#maxPage)
     ///
@@ -322,9 +382,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MaxPage(self: QAbstractPrintDialog) i32 {
+    pub fn maxPage(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_MaxPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFromTo` instead
+    ///
+    pub const SetFromTo = setFromTo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#setFromTo)
     ///
@@ -332,13 +396,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` fromPage: i32 `
+    /// ` _fromPage: i32 `
     ///
-    /// ` toPage: i32 `
+    /// ` _toPage: i32 `
     ///
-    pub fn SetFromTo(self: QAbstractPrintDialog, fromPage: i32, toPage: i32) void {
-        qtc.QAbstractPrintDialog_SetFromTo(@ptrCast(self.ptr), @bitCast(fromPage), @bitCast(toPage));
+    pub fn setFromTo(self: QAbstractPrintDialog, _fromPage: i32, _toPage: i32) void {
+        qtc.QAbstractPrintDialog_SetFromTo(@ptrCast(self.ptr), @bitCast(_fromPage), @bitCast(_toPage));
     }
+
+    /// ### DEPRECATED: Use `fromPage` instead
+    ///
+    pub const FromPage = fromPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#fromPage)
     ///
@@ -346,9 +414,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FromPage(self: QAbstractPrintDialog) i32 {
+    pub fn fromPage(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_FromPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPage` instead
+    ///
+    pub const ToPage = toPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#toPage)
     ///
@@ -356,9 +428,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ToPage(self: QAbstractPrintDialog) i32 {
+    pub fn toPage(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_ToPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `printer` instead
+    ///
+    pub const Printer = printer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#printer)
     ///
@@ -366,9 +442,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Printer(self: QAbstractPrintDialog) QPrinter {
+    pub fn printer(self: QAbstractPrintDialog) QPrinter {
         return .{ .ptr = qtc.QAbstractPrintDialog_Printer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -380,15 +460,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -402,15 +486,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -420,9 +508,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Result(self: QAbstractPrintDialog) i32 {
+    pub fn result(self: QAbstractPrintDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -434,9 +526,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: QAbstractPrintDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: QAbstractPrintDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -446,9 +542,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsSizeGripEnabled(self: QAbstractPrintDialog) bool {
+    pub fn isSizeGripEnabled(self: QAbstractPrintDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -460,9 +560,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: QAbstractPrintDialog, modal: bool) void {
+    pub fn setModal(self: QAbstractPrintDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -474,9 +578,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: QAbstractPrintDialog, r: i32) void {
+    pub fn setResult(self: QAbstractPrintDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -486,11 +594,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: QAbstractPrintDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: QAbstractPrintDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -502,10 +614,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -514,10 +630,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Accepted(self: QAbstractPrintDialog) void {
+    pub fn accepted(self: QAbstractPrintDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -528,9 +648,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -540,9 +664,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Rejected(self: QAbstractPrintDialog) void {
+    pub fn rejected(self: QAbstractPrintDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -554,9 +682,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
+    pub fn onRejected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -566,9 +698,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn WinId(self: QAbstractPrintDialog) usize {
+    pub fn winId(self: QAbstractPrintDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -578,9 +714,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn CreateWinId(self: QAbstractPrintDialog) void {
+    pub fn createWinId(self: QAbstractPrintDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -590,9 +730,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn InternalWinId(self: QAbstractPrintDialog) usize {
+    pub fn internalWinId(self: QAbstractPrintDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -602,9 +746,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn EffectiveWinId(self: QAbstractPrintDialog) usize {
+    pub fn effectiveWinId(self: QAbstractPrintDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -614,9 +762,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Style(self: QAbstractPrintDialog) QStyle {
+    pub fn style(self: QAbstractPrintDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -626,12 +778,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QAbstractPrintDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QAbstractPrintDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -641,9 +797,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsTopLevel(self: QAbstractPrintDialog) bool {
+    pub fn isTopLevel(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -653,9 +813,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsWindow(self: QAbstractPrintDialog) bool {
+    pub fn isWindow(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -665,9 +829,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsModal(self: QAbstractPrintDialog) bool {
+    pub fn isModal(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -681,9 +849,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QAbstractPrintDialog) i32 {
+    pub fn windowModality(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -693,11 +865,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QAbstractPrintDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QAbstractPrintDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -707,9 +883,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsEnabled(self: QAbstractPrintDialog) bool {
+    pub fn isEnabled(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -721,10 +901,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QAbstractPrintDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: QAbstractPrintDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -736,9 +920,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QAbstractPrintDialog, enabled: bool) void {
+    pub fn setEnabled(self: QAbstractPrintDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -750,9 +938,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QAbstractPrintDialog, disabled: bool) void {
+    pub fn setDisabled(self: QAbstractPrintDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -764,9 +956,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QAbstractPrintDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: QAbstractPrintDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -776,9 +972,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FrameGeometry(self: QAbstractPrintDialog) QRect {
+    pub fn frameGeometry(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -788,9 +988,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Geometry(self: QAbstractPrintDialog) QRect {
+    pub fn geometry(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -800,9 +1004,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn NormalGeometry(self: QAbstractPrintDialog) QRect {
+    pub fn normalGeometry(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -812,9 +1020,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn X(self: QAbstractPrintDialog) i32 {
+    pub fn x(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -824,9 +1036,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Y(self: QAbstractPrintDialog) i32 {
+    pub fn y(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -836,9 +1052,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Pos(self: QAbstractPrintDialog) QPoint {
+    pub fn pos(self: QAbstractPrintDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -848,9 +1068,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FrameSize(self: QAbstractPrintDialog) QSize {
+    pub fn frameSize(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -860,9 +1084,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Size(self: QAbstractPrintDialog) QSize {
+    pub fn size(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -872,9 +1100,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Width(self: QAbstractPrintDialog) i32 {
+    pub fn width(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -884,9 +1116,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Height(self: QAbstractPrintDialog) i32 {
+    pub fn height(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -896,9 +1132,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Rect(self: QAbstractPrintDialog) QRect {
+    pub fn rect(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -908,9 +1148,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ChildrenRect(self: QAbstractPrintDialog) QRect {
+    pub fn childrenRect(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -920,9 +1164,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ChildrenRegion(self: QAbstractPrintDialog) QRegion {
+    pub fn childrenRegion(self: QAbstractPrintDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -932,9 +1180,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MinimumSize(self: QAbstractPrintDialog) QSize {
+    pub fn minimumSize(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -944,9 +1196,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MaximumSize(self: QAbstractPrintDialog) QSize {
+    pub fn maximumSize(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -956,9 +1212,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MinimumWidth(self: QAbstractPrintDialog) i32 {
+    pub fn minimumWidth(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -968,9 +1228,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MinimumHeight(self: QAbstractPrintDialog) i32 {
+    pub fn minimumHeight(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -980,9 +1244,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MaximumWidth(self: QAbstractPrintDialog) i32 {
+    pub fn maximumWidth(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -992,9 +1260,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MaximumHeight(self: QAbstractPrintDialog) i32 {
+    pub fn maximumHeight(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1004,12 +1276,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QAbstractPrintDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QAbstractPrintDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1023,9 +1299,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QAbstractPrintDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QAbstractPrintDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1035,12 +1315,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QAbstractPrintDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QAbstractPrintDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1054,9 +1338,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QAbstractPrintDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QAbstractPrintDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1068,9 +1356,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QAbstractPrintDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: QAbstractPrintDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1082,9 +1374,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QAbstractPrintDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: QAbstractPrintDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1096,9 +1392,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QAbstractPrintDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: QAbstractPrintDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1110,9 +1410,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QAbstractPrintDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: QAbstractPrintDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1122,9 +1426,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SizeIncrement(self: QAbstractPrintDialog) QSize {
+    pub fn sizeIncrement(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1134,12 +1442,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QAbstractPrintDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QAbstractPrintDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1153,9 +1465,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QAbstractPrintDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QAbstractPrintDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1165,9 +1481,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn BaseSize(self: QAbstractPrintDialog) QSize {
+    pub fn baseSize(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1177,12 +1497,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QAbstractPrintDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QAbstractPrintDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1196,9 +1520,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QAbstractPrintDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QAbstractPrintDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1210,10 +1538,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QAbstractPrintDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QAbstractPrintDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1227,9 +1559,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QAbstractPrintDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QAbstractPrintDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1241,9 +1577,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QAbstractPrintDialog, w: i32) void {
+    pub fn setFixedWidth(self: QAbstractPrintDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1255,9 +1595,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QAbstractPrintDialog, h: i32) void {
+    pub fn setFixedHeight(self: QAbstractPrintDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1269,11 +1613,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QAbstractPrintDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QAbstractPrintDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1284,11 +1632,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QAbstractPrintDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QAbstractPrintDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1299,11 +1651,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QAbstractPrintDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QAbstractPrintDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1314,11 +1670,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QAbstractPrintDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QAbstractPrintDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1329,11 +1689,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QAbstractPrintDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: QAbstractPrintDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1344,10 +1708,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QAbstractPrintDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QAbstractPrintDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1359,10 +1727,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QAbstractPrintDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QAbstractPrintDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1374,10 +1746,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QAbstractPrintDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QAbstractPrintDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1391,12 +1767,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1409,11 +1789,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1427,11 +1811,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1445,11 +1833,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QAbstractPrintDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1459,9 +1851,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Window(self: QAbstractPrintDialog) QWidget {
+    pub fn window(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1471,9 +1867,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn NativeParentWidget(self: QAbstractPrintDialog) QWidget {
+    pub fn nativeParentWidget(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1483,9 +1883,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn TopLevelWidget(self: QAbstractPrintDialog) QWidget {
+    pub fn topLevelWidget(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1495,9 +1899,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Palette(self: QAbstractPrintDialog) QPalette {
+    pub fn palette(self: QAbstractPrintDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1507,12 +1915,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QAbstractPrintDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QAbstractPrintDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1522,11 +1934,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QAbstractPrintDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QAbstractPrintDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1540,9 +1956,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QAbstractPrintDialog) i32 {
+    pub fn backgroundRole(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1552,11 +1972,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QAbstractPrintDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QAbstractPrintDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1570,9 +1994,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QAbstractPrintDialog) i32 {
+    pub fn foregroundRole(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1582,9 +2010,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Font(self: QAbstractPrintDialog) QFont {
+    pub fn font(self: QAbstractPrintDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1594,12 +2026,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QAbstractPrintDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QAbstractPrintDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1609,9 +2045,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FontMetrics(self: QAbstractPrintDialog) QFontMetrics {
+    pub fn fontMetrics(self: QAbstractPrintDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1621,9 +2061,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FontInfo(self: QAbstractPrintDialog) QFontInfo {
+    pub fn fontInfo(self: QAbstractPrintDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1633,9 +2077,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Cursor(self: QAbstractPrintDialog) QCursor {
+    pub fn cursor(self: QAbstractPrintDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1645,12 +2093,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QAbstractPrintDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QAbstractPrintDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1660,9 +2112,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UnsetCursor(self: QAbstractPrintDialog) void {
+    pub fn unsetCursor(self: QAbstractPrintDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1674,9 +2130,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QAbstractPrintDialog, enable: bool) void {
+    pub fn setMouseTracking(self: QAbstractPrintDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1686,9 +2146,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn HasMouseTracking(self: QAbstractPrintDialog) bool {
+    pub fn hasMouseTracking(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1698,9 +2162,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UnderMouse(self: QAbstractPrintDialog) bool {
+    pub fn underMouse(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1712,9 +2180,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QAbstractPrintDialog, enable: bool) void {
+    pub fn setTabletTracking(self: QAbstractPrintDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1724,24 +2196,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn HasTabletTracking(self: QAbstractPrintDialog) bool {
+    pub fn hasTabletTracking(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractPrintDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QAbstractPrintDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1751,12 +2212,35 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QAbstractPrintDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QAbstractPrintDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractPrintDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QAbstractPrintDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1766,9 +2250,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Mask(self: QAbstractPrintDialog) QRegion {
+    pub fn mask(self: QAbstractPrintDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1778,9 +2266,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ClearMask(self: QAbstractPrintDialog) void {
+    pub fn clearMask(self: QAbstractPrintDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1792,10 +2284,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QAbstractPrintDialog, target: anytype) void {
+    pub fn render(self: QAbstractPrintDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1807,10 +2303,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QAbstractPrintDialog, painter: anytype) void {
+    pub fn render2(self: QAbstractPrintDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1820,9 +2320,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Grab(self: QAbstractPrintDialog) QPixmap {
+    pub fn grab(self: QAbstractPrintDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1832,9 +2336,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn GraphicsEffect(self: QAbstractPrintDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: QAbstractPrintDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1846,10 +2354,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QAbstractPrintDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QAbstractPrintDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1861,9 +2373,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QAbstractPrintDialog, typeVal: i32) void {
+    pub fn grabGesture(self: QAbstractPrintDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1875,9 +2391,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QAbstractPrintDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: QAbstractPrintDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1887,15 +2407,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QAbstractPrintDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QAbstractPrintDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1905,15 +2429,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QAbstractPrintDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QAbstractPrintDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1925,13 +2453,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1943,13 +2475,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1961,10 +2497,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QAbstractPrintDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: QAbstractPrintDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1974,9 +2514,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn WindowIcon(self: QAbstractPrintDialog) QIcon {
+    pub fn windowIcon(self: QAbstractPrintDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1986,15 +2530,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QAbstractPrintDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QAbstractPrintDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2006,13 +2554,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2022,15 +2574,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QAbstractPrintDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QAbstractPrintDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2042,13 +2598,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2060,13 +2620,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QAbstractPrintDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QAbstractPrintDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2078,13 +2642,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2096,9 +2664,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QAbstractPrintDialog, level: f64) void {
+    pub fn setWindowOpacity(self: QAbstractPrintDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2108,9 +2680,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn WindowOpacity(self: QAbstractPrintDialog) f64 {
+    pub fn windowOpacity(self: QAbstractPrintDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2120,9 +2696,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsWindowModified(self: QAbstractPrintDialog) bool {
+    pub fn isWindowModified(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2132,15 +2712,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QAbstractPrintDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: QAbstractPrintDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2152,13 +2736,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2170,9 +2758,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QAbstractPrintDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: QAbstractPrintDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2182,9 +2774,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ToolTipDuration(self: QAbstractPrintDialog) i32 {
+    pub fn toolTipDuration(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2194,15 +2790,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QAbstractPrintDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QAbstractPrintDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2214,13 +2814,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2230,15 +2834,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QAbstractPrintDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QAbstractPrintDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2250,13 +2858,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2268,13 +2880,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2286,13 +2902,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QAbstractPrintDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: QAbstractPrintDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2304,13 +2924,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2322,13 +2946,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QAbstractPrintDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QAbstractPrintDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2340,9 +2968,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QAbstractPrintDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: QAbstractPrintDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2356,9 +2988,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QAbstractPrintDialog) i32 {
+    pub fn layoutDirection(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2368,9 +3004,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UnsetLayoutDirection(self: QAbstractPrintDialog) void {
+    pub fn unsetLayoutDirection(self: QAbstractPrintDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2380,12 +3020,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QAbstractPrintDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QAbstractPrintDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2395,9 +3039,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Locale(self: QAbstractPrintDialog) QLocale {
+    pub fn locale(self: QAbstractPrintDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2407,9 +3055,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UnsetLocale(self: QAbstractPrintDialog) void {
+    pub fn unsetLocale(self: QAbstractPrintDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2419,9 +3071,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsRightToLeft(self: QAbstractPrintDialog) bool {
+    pub fn isRightToLeft(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2431,9 +3087,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsLeftToRight(self: QAbstractPrintDialog) bool {
+    pub fn isLeftToRight(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2443,9 +3103,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SetFocus(self: QAbstractPrintDialog) void {
+    pub fn setFocus(self: QAbstractPrintDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2455,9 +3119,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsActiveWindow(self: QAbstractPrintDialog) bool {
+    pub fn isActiveWindow(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2467,9 +3135,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ActivateWindow(self: QAbstractPrintDialog) void {
+    pub fn activateWindow(self: QAbstractPrintDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2479,9 +3151,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ClearFocus(self: QAbstractPrintDialog) void {
+    pub fn clearFocus(self: QAbstractPrintDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2493,9 +3169,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QAbstractPrintDialog, reason: i32) void {
+    pub fn setFocus2(self: QAbstractPrintDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2509,9 +3189,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QAbstractPrintDialog) i32 {
+    pub fn focusPolicy(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2523,9 +3207,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QAbstractPrintDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: QAbstractPrintDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2535,9 +3223,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn HasFocus(self: QAbstractPrintDialog) bool {
+    pub fn hasFocus(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2549,11 +3241,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2563,12 +3259,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QAbstractPrintDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QAbstractPrintDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2578,9 +3278,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FocusProxy(self: QAbstractPrintDialog) QWidget {
+    pub fn focusProxy(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2594,9 +3298,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QAbstractPrintDialog) i32 {
+    pub fn contextMenuPolicy(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2608,9 +3316,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QAbstractPrintDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QAbstractPrintDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3332,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn GrabMouse(self: QAbstractPrintDialog) void {
+    pub fn grabMouse(self: QAbstractPrintDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2634,10 +3350,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn grabMouse2(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2647,9 +3367,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ReleaseMouse(self: QAbstractPrintDialog) void {
+    pub fn releaseMouse(self: QAbstractPrintDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2659,9 +3383,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn GrabKeyboard(self: QAbstractPrintDialog) void {
+    pub fn grabKeyboard(self: QAbstractPrintDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2671,9 +3399,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ReleaseKeyboard(self: QAbstractPrintDialog) void {
+    pub fn releaseKeyboard(self: QAbstractPrintDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2685,10 +3417,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QAbstractPrintDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: QAbstractPrintDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2700,9 +3436,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QAbstractPrintDialog, id: i32) void {
+    pub fn releaseShortcut(self: QAbstractPrintDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2714,9 +3454,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QAbstractPrintDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: QAbstractPrintDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2728,25 +3472,37 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QAbstractPrintDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QAbstractPrintDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2756,9 +3512,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UpdatesEnabled(self: QAbstractPrintDialog) bool {
+    pub fn updatesEnabled(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3530,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QAbstractPrintDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QAbstractPrintDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3546,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn GraphicsProxyWidget(self: QAbstractPrintDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QAbstractPrintDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2794,9 +3562,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Update(self: QAbstractPrintDialog) void {
+    pub fn update(self: QAbstractPrintDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2806,9 +3578,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Repaint(self: QAbstractPrintDialog) void {
+    pub fn repaint(self: QAbstractPrintDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2818,17 +3594,21 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QAbstractPrintDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QAbstractPrintDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2840,11 +3620,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn update3(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2855,10 +3639,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn update4(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2868,17 +3656,21 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QAbstractPrintDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QAbstractPrintDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2890,10 +3682,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn repaint3(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2905,10 +3701,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn repaint4(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2920,9 +3720,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QAbstractPrintDialog, hidden: bool) void {
+    pub fn setHidden(self: QAbstractPrintDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2932,9 +3736,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Show(self: QAbstractPrintDialog) void {
+    pub fn show(self: QAbstractPrintDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2944,9 +3752,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Hide(self: QAbstractPrintDialog) void {
+    pub fn hide(self: QAbstractPrintDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2956,9 +3768,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ShowMinimized(self: QAbstractPrintDialog) void {
+    pub fn showMinimized(self: QAbstractPrintDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2968,9 +3784,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ShowMaximized(self: QAbstractPrintDialog) void {
+    pub fn showMaximized(self: QAbstractPrintDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2980,9 +3800,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ShowFullScreen(self: QAbstractPrintDialog) void {
+    pub fn showFullScreen(self: QAbstractPrintDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2992,9 +3816,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ShowNormal(self: QAbstractPrintDialog) void {
+    pub fn showNormal(self: QAbstractPrintDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3004,9 +3832,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Close(self: QAbstractPrintDialog) bool {
+    pub fn close(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3016,9 +3848,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Raise(self: QAbstractPrintDialog) void {
+    pub fn raise(self: QAbstractPrintDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3028,9 +3864,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Lower(self: QAbstractPrintDialog) void {
+    pub fn lower(self: QAbstractPrintDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3042,10 +3882,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn stackUnder(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3055,13 +3899,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QAbstractPrintDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QAbstractPrintDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3073,10 +3921,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn move2(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3090,9 +3942,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QAbstractPrintDialog, w: i32, h: i32) void {
+    pub fn resize(self: QAbstractPrintDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3104,10 +3960,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn resize2(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3117,17 +3977,21 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QAbstractPrintDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QAbstractPrintDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3137,12 +4001,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QAbstractPrintDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QAbstractPrintDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3154,13 +4022,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractPrintDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractPrintDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3170,15 +4042,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QAbstractPrintDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QAbstractPrintDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4064,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn AdjustSize(self: QAbstractPrintDialog) void {
+    pub fn adjustSize(self: QAbstractPrintDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4080,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsVisible(self: QAbstractPrintDialog) bool {
+    pub fn isVisible(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3214,10 +4098,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QAbstractPrintDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: QAbstractPrintDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3227,9 +4115,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsHidden(self: QAbstractPrintDialog) bool {
+    pub fn isHidden(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3239,9 +4131,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsMinimized(self: QAbstractPrintDialog) bool {
+    pub fn isMinimized(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3251,9 +4147,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsMaximized(self: QAbstractPrintDialog) bool {
+    pub fn isMaximized(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3263,9 +4163,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsFullScreen(self: QAbstractPrintDialog) bool {
+    pub fn isFullScreen(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3279,9 +4183,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QAbstractPrintDialog) i32 {
+    pub fn windowState(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3293,9 +4201,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QAbstractPrintDialog, state: i32) void {
+    pub fn setWindowState(self: QAbstractPrintDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3307,9 +4219,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QAbstractPrintDialog, state: i32) void {
+    pub fn overrideWindowState(self: QAbstractPrintDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4235,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SizePolicy(self: QAbstractPrintDialog) QSizePolicy {
+    pub fn sizePolicy(self: QAbstractPrintDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3331,12 +4251,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QAbstractPrintDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QAbstractPrintDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3350,9 +4274,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QAbstractPrintDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QAbstractPrintDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3362,9 +4290,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn VisibleRegion(self: QAbstractPrintDialog) QRegion {
+    pub fn visibleRegion(self: QAbstractPrintDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3382,9 +4314,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QAbstractPrintDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QAbstractPrintDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3396,10 +4332,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QAbstractPrintDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: QAbstractPrintDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3409,9 +4349,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ContentsMargins(self: QAbstractPrintDialog) QMargins {
+    pub fn contentsMargins(self: QAbstractPrintDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3421,9 +4365,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ContentsRect(self: QAbstractPrintDialog) QRect {
+    pub fn contentsRect(self: QAbstractPrintDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3433,9 +4381,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Layout(self: QAbstractPrintDialog) QLayout {
+    pub fn layout(self: QAbstractPrintDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3445,12 +4397,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QAbstractPrintDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QAbstractPrintDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3460,24 +4416,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UpdateGeometry(self: QAbstractPrintDialog) void {
+    pub fn updateGeometry(self: QAbstractPrintDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractPrintDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QAbstractPrintDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3487,14 +4432,37 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QAbstractPrintDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractPrintDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QAbstractPrintDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QAbstractPrintDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3508,9 +4476,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QAbstractPrintDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: QAbstractPrintDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3526,10 +4498,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QAbstractPrintDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QAbstractPrintDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3539,9 +4515,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FocusWidget(self: QAbstractPrintDialog) QWidget {
+    pub fn focusWidget(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4531,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn NextInFocusChain(self: QAbstractPrintDialog) QWidget {
+    pub fn nextInFocusChain(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3563,9 +4547,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn PreviousInFocusChain(self: QAbstractPrintDialog) QWidget {
+    pub fn previousInFocusChain(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3575,9 +4563,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn AcceptDrops(self: QAbstractPrintDialog) bool {
+    pub fn acceptDrops(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3589,9 +4581,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QAbstractPrintDialog, on: bool) void {
+    pub fn setAcceptDrops(self: QAbstractPrintDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3603,10 +4599,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QAbstractPrintDialog, action: anytype) void {
+    pub fn addAction(self: QAbstractPrintDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3616,15 +4616,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QAbstractPrintDialog, actions: []QAction) void {
+    pub fn addActions(self: QAbstractPrintDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3636,16 +4640,20 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QAbstractPrintDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QAbstractPrintDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3659,11 +4667,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QAbstractPrintDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QAbstractPrintDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3675,10 +4687,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QAbstractPrintDialog, action: anytype) void {
+    pub fn removeAction(self: QAbstractPrintDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3690,15 +4706,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractPrintDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractPrintDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3710,13 +4730,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QAbstractPrintDialog, text: []const u8) QAction {
+    pub fn addAction2(self: QAbstractPrintDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3730,7 +4754,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QAbstractPrintDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QAbstractPrintDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3739,6 +4763,10 @@ pub const QAbstractPrintDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3751,7 +4779,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QAbstractPrintDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QAbstractPrintDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3759,6 +4787,10 @@ pub const QAbstractPrintDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3774,7 +4806,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QAbstractPrintDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QAbstractPrintDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3784,6 +4816,10 @@ pub const QAbstractPrintDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3792,9 +4828,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ParentWidget(self: QAbstractPrintDialog) QWidget {
+    pub fn parentWidget(self: QAbstractPrintDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3806,9 +4846,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QAbstractPrintDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: QAbstractPrintDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3822,9 +4866,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QAbstractPrintDialog) i32 {
+    pub fn windowFlags(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3836,9 +4884,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QAbstractPrintDialog, param1: i32) void {
+    pub fn setWindowFlag(self: QAbstractPrintDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3850,9 +4902,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QAbstractPrintDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QAbstractPrintDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3866,9 +4922,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QAbstractPrintDialog) i32 {
+    pub fn windowType(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3878,9 +4938,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3890,13 +4954,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QAbstractPrintDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QAbstractPrintDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3908,10 +4976,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QAbstractPrintDialog, p: anytype) QWidget {
+    pub fn childAt2(self: QAbstractPrintDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3923,10 +4995,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QAbstractPrintDialog, p: anytype) QWidget {
+    pub fn childAt3(self: QAbstractPrintDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3938,9 +5014,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QAbstractPrintDialog, param1: i32) void {
+    pub fn setAttribute(self: QAbstractPrintDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3952,9 +5032,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QAbstractPrintDialog, param1: i32) bool {
+    pub fn testAttribute(self: QAbstractPrintDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3964,9 +5048,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn EnsurePolished(self: QAbstractPrintDialog) void {
+    pub fn ensurePolished(self: QAbstractPrintDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3978,10 +5066,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QAbstractPrintDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: QAbstractPrintDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3991,9 +5083,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn AutoFillBackground(self: QAbstractPrintDialog) bool {
+    pub fn autoFillBackground(self: QAbstractPrintDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4005,9 +5101,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QAbstractPrintDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QAbstractPrintDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4017,9 +5117,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn BackingStore(self: QAbstractPrintDialog) QBackingStore {
+    pub fn backingStore(self: QAbstractPrintDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4029,9 +5133,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn WindowHandle(self: QAbstractPrintDialog) QWindow {
+    pub fn windowHandle(self: QAbstractPrintDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4041,9 +5149,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Screen(self: QAbstractPrintDialog) QScreen {
+    pub fn screen(self: QAbstractPrintDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4053,12 +5165,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QAbstractPrintDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QAbstractPrintDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4066,12 +5182,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4083,13 +5203,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QAbstractPrintDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: QAbstractPrintDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4101,9 +5225,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4115,10 +5243,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QAbstractPrintDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: QAbstractPrintDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4130,9 +5262,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4144,13 +5280,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QAbstractPrintDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QAbstractPrintDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4162,9 +5302,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4174,12 +5318,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QAbstractPrintDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QAbstractPrintDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4191,9 +5339,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4207,9 +5359,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QAbstractPrintDialog) i32 {
+    pub fn inputMethodHints(self: QAbstractPrintDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4221,9 +5377,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QAbstractPrintDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: QAbstractPrintDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4237,11 +5397,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4257,13 +5421,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4280,12 +5448,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QAbstractPrintDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4299,11 +5471,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4319,12 +5495,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4342,12 +5522,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QAbstractPrintDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4359,10 +5543,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QAbstractPrintDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QAbstractPrintDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4376,9 +5564,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QAbstractPrintDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QAbstractPrintDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4392,10 +5584,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QAbstractPrintDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QAbstractPrintDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4409,9 +5605,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QAbstractPrintDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QAbstractPrintDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4425,9 +5625,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QAbstractPrintDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QAbstractPrintDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4441,9 +5645,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QAbstractPrintDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QAbstractPrintDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4457,25 +5665,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QAbstractPrintDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QAbstractPrintDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4483,17 +5679,41 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4505,13 +5725,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractPrintDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4523,13 +5747,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractPrintDialog, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractPrintDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4539,9 +5767,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsWidgetType(self: QAbstractPrintDialog) bool {
+    pub fn isWidgetType(self: QAbstractPrintDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4551,9 +5783,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsWindowType(self: QAbstractPrintDialog) bool {
+    pub fn isWindowType(self: QAbstractPrintDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4563,9 +5799,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn IsQuickItemType(self: QAbstractPrintDialog) bool {
+    pub fn isQuickItemType(self: QAbstractPrintDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4575,9 +5815,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SignalsBlocked(self: QAbstractPrintDialog) bool {
+    pub fn signalsBlocked(self: QAbstractPrintDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4589,9 +5833,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractPrintDialog, b: bool) bool {
+    pub fn blockSignals(self: QAbstractPrintDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4601,9 +5849,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Thread(self: QAbstractPrintDialog) QThread {
+    pub fn thread(self: QAbstractPrintDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4613,12 +5865,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractPrintDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractPrintDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4630,9 +5886,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractPrintDialog, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractPrintDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4644,9 +5904,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractPrintDialog, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractPrintDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4658,9 +5922,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractPrintDialog, id: i32) void {
+    pub fn killTimer(self: QAbstractPrintDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4672,9 +5940,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractPrintDialog, id: i32) void {
+    pub fn killTimer2(self: QAbstractPrintDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4686,15 +5958,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractPrintDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractPrintDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractPrintDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4706,10 +5982,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractPrintDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractPrintDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4721,10 +6001,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractPrintDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractPrintDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4732,7 +6016,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4740,13 +6024,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4754,7 +6042,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4762,13 +6050,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4778,18 +6070,22 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractPrintDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractPrintDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4797,7 +6093,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4805,13 +6101,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4819,7 +6119,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4827,13 +6127,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4843,9 +6147,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Disconnect3(self: QAbstractPrintDialog) bool {
+    pub fn disconnect3(self: QAbstractPrintDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4857,10 +6165,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractPrintDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractPrintDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4870,10 +6182,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4883,9 +6199,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DumpObjectTree(self: QAbstractPrintDialog) void {
+    pub fn dumpObjectTree(self: QAbstractPrintDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4895,9 +6215,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DumpObjectInfo(self: QAbstractPrintDialog) void {
+    pub fn dumpObjectInfo(self: QAbstractPrintDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4911,11 +6235,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractPrintDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAbstractPrintDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4927,10 +6255,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractPrintDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: QAbstractPrintDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4942,7 +6274,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractPrintDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractPrintDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4950,27 +6282,19 @@ pub const QAbstractPrintDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractPrintDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractPrintDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractPrintDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractPrintDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractPrintDialog `
-    ///
-    pub fn BindingStorage(self: QAbstractPrintDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4980,9 +6304,29 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn BindingStorage2(self: QAbstractPrintDialog) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractPrintDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractPrintDialog `
+    ///
+    pub fn bindingStorage2(self: QAbstractPrintDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4992,9 +6336,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Destroyed(self: QAbstractPrintDialog) void {
+    pub fn destroyed(self: QAbstractPrintDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5006,9 +6354,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5018,9 +6370,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Parent(self: QAbstractPrintDialog) QObject {
+    pub fn parent(self: QAbstractPrintDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5032,10 +6388,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractPrintDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractPrintDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5045,9 +6405,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DeleteLater(self: QAbstractPrintDialog) void {
+    pub fn deleteLater(self: QAbstractPrintDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5061,9 +6425,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractPrintDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractPrintDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5077,9 +6445,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractPrintDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractPrintDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5087,7 +6459,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5097,13 +6469,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5111,7 +6487,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5121,13 +6497,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5137,7 +6517,7 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5145,12 +6525,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractPrintDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractPrintDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5162,10 +6546,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractPrintDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractPrintDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5179,11 +6567,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractPrintDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractPrintDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5199,13 +6591,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractPrintDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractPrintDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5218,11 +6614,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractPrintDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractPrintDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5234,10 +6634,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5249,9 +6653,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5261,9 +6669,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn PaintingActive(self: QAbstractPrintDialog) bool {
+    pub fn paintingActive(self: QAbstractPrintDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5273,9 +6685,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn WidthMM(self: QAbstractPrintDialog) i32 {
+    pub fn widthMM(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5285,9 +6701,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn HeightMM(self: QAbstractPrintDialog) i32 {
+    pub fn heightMM(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5297,9 +6717,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn LogicalDpiX(self: QAbstractPrintDialog) i32 {
+    pub fn logicalDpiX(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5309,9 +6733,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn LogicalDpiY(self: QAbstractPrintDialog) i32 {
+    pub fn logicalDpiY(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5321,9 +6749,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn PhysicalDpiX(self: QAbstractPrintDialog) i32 {
+    pub fn physicalDpiX(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5333,9 +6765,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn PhysicalDpiY(self: QAbstractPrintDialog) i32 {
+    pub fn physicalDpiY(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5345,9 +6781,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DevicePixelRatio(self: QAbstractPrintDialog) f64 {
+    pub fn devicePixelRatio(self: QAbstractPrintDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5357,9 +6797,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DevicePixelRatioF(self: QAbstractPrintDialog) f64 {
+    pub fn devicePixelRatioF(self: QAbstractPrintDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5369,9 +6813,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn ColorCount(self: QAbstractPrintDialog) i32 {
+    pub fn colorCount(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5381,17 +6829,25 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Depth(self: QAbstractPrintDialog) i32 {
+    pub fn depth(self: QAbstractPrintDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5399,13 +6855,17 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -5419,13 +6879,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QAbstractPrintDialog, visible: bool) void {
+    pub fn setVisible(self: QAbstractPrintDialog, visible: bool) void {
         qtc.QAbstractPrintDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5439,9 +6899,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QAbstractPrintDialog, visible: bool) void {
+    pub fn superSetVisible(self: QAbstractPrintDialog, visible: bool) void {
         qtc.QAbstractPrintDialog_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QDialog
     ///
@@ -5455,10 +6919,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, bool) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5469,13 +6937,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SizeHint(self: QAbstractPrintDialog) QSize {
+    pub fn sizeHint(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QAbstractPrintDialog_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5487,10 +6955,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperSizeHint(self: QAbstractPrintDialog) QSize {
+    pub fn superSizeHint(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#sizeHint)
@@ -5505,9 +6977,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractPrintDialog_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5519,13 +6995,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn MinimumSizeHint(self: QAbstractPrintDialog) QSize {
+    pub fn minimumSizeHint(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QAbstractPrintDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5537,9 +7013,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperMinimumSizeHint(self: QAbstractPrintDialog) QSize {
+    pub fn superMinimumSizeHint(self: QAbstractPrintDialog) QSize {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -5555,9 +7035,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractPrintDialog_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -5569,13 +7053,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Open(self: QAbstractPrintDialog) void {
+    pub fn open(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Open(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// Inherited from QDialog
     ///
@@ -5587,9 +7071,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperOpen(self: QAbstractPrintDialog) void {
+    pub fn superOpen(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// Inherited from QDialog
     ///
@@ -5603,9 +7091,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnOpen(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onOpen(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -5617,13 +7109,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Exec(self: QAbstractPrintDialog) i32 {
+    pub fn exec(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_Exec(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperExec` instead
+    /// ### DEPRECATED: Use `superExec` instead
     ///
-    pub const QBaseExec = SuperExec;
+    pub const SuperExec = superExec;
 
     /// Inherited from QDialog
     ///
@@ -5635,9 +7127,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperExec(self: QAbstractPrintDialog) i32 {
+    pub fn superExec(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_SuperExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onExec` instead
+    ///
+    pub const OnExec = onExec;
 
     /// Inherited from QDialog
     ///
@@ -5651,9 +7147,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnExec(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onExec(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnExec(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -5667,13 +7167,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: QAbstractPrintDialog, param1: i32) void {
+    pub fn done(self: QAbstractPrintDialog, param1: i32) void {
         qtc.QAbstractPrintDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperDone` instead
+    /// ### DEPRECATED: Use `superDone` instead
     ///
-    pub const QBaseDone = SuperDone;
+    pub const SuperDone = superDone;
 
     /// Inherited from QDialog
     ///
@@ -5687,9 +7187,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperDone(self: QAbstractPrintDialog, param1: i32) void {
+    pub fn superDone(self: QAbstractPrintDialog, param1: i32) void {
         qtc.QAbstractPrintDialog_SuperDone(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDone` instead
+    ///
+    pub const OnDone = onDone;
 
     /// Inherited from QDialog
     ///
@@ -5703,10 +7207,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: i32) callconv(.c) void `
     ///
-    pub fn OnDone(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) void) void {
+    pub fn onDone(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accept)
@@ -5717,13 +7225,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Accept(self: QAbstractPrintDialog) void {
+    pub fn accept(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Accept(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAccept` instead
+    /// ### DEPRECATED: Use `superAccept` instead
     ///
-    pub const QBaseAccept = SuperAccept;
+    pub const SuperAccept = superAccept;
 
     /// Inherited from QDialog
     ///
@@ -5735,9 +7243,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperAccept(self: QAbstractPrintDialog) void {
+    pub fn superAccept(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperAccept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAccept` instead
+    ///
+    pub const OnAccept = onAccept;
 
     /// Inherited from QDialog
     ///
@@ -5751,9 +7263,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnAccept(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onAccept(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnAccept(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -5765,13 +7281,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Reject(self: QAbstractPrintDialog) void {
+    pub fn reject(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Reject(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReject` instead
+    /// ### DEPRECATED: Use `superReject` instead
     ///
-    pub const QBaseReject = SuperReject;
+    pub const SuperReject = superReject;
 
     /// Inherited from QDialog
     ///
@@ -5783,9 +7299,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperReject(self: QAbstractPrintDialog) void {
+    pub fn superReject(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperReject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReject` instead
+    ///
+    pub const OnReject = onReject;
 
     /// Inherited from QDialog
     ///
@@ -5799,9 +7319,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnReject(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onReject(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnReject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5815,14 +7339,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn keyPressEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QAbstractPrintDialog_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5836,10 +7360,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superKeyPressEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QKeyEvent;
         qtc.QAbstractPrintDialog_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QDialog
     ///
@@ -5853,9 +7381,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5869,14 +7401,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn closeEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QAbstractPrintDialog_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5890,10 +7422,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superCloseEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QAbstractPrintDialog_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QDialog
     ///
@@ -5907,9 +7443,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QCloseEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QDialog
     ///
@@ -5923,14 +7463,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn showEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QAbstractPrintDialog_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5944,10 +7484,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superShowEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QAbstractPrintDialog_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QDialog
     ///
@@ -5961,9 +7505,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QShowEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5977,14 +7525,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn resizeEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QAbstractPrintDialog_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -5998,10 +7546,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superResizeEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.QAbstractPrintDialog_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QDialog
     ///
@@ -6015,9 +7567,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QResizeEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6031,14 +7587,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn contextMenuEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QAbstractPrintDialog_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6052,10 +7608,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QAbstractPrintDialog_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QDialog
     ///
@@ -6069,9 +7629,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QContextMenuEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6087,15 +7651,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractPrintDialog, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QAbstractPrintDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QAbstractPrintDialog_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6111,11 +7675,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QAbstractPrintDialog, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QAbstractPrintDialog, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QAbstractPrintDialog_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QDialog
     ///
@@ -6129,9 +7697,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QObject, QEvent) callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6143,13 +7715,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn DevType(self: QAbstractPrintDialog) i32 {
+    pub fn devType(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6161,9 +7733,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperDevType(self: QAbstractPrintDialog) i32 {
+    pub fn superDevType(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6177,9 +7753,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6193,13 +7773,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QAbstractPrintDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: QAbstractPrintDialog, param1: i32) i32 {
         return qtc.QAbstractPrintDialog_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6213,9 +7793,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QAbstractPrintDialog, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QAbstractPrintDialog, param1: i32) i32 {
         return qtc.QAbstractPrintDialog_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6229,9 +7813,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6243,13 +7831,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn HasHeightForWidth(self: QAbstractPrintDialog) bool {
+    pub fn hasHeightForWidth(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6261,9 +7849,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperHasHeightForWidth(self: QAbstractPrintDialog) bool {
+    pub fn superHasHeightForWidth(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6277,9 +7869,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6291,13 +7887,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn PaintEngine(self: QAbstractPrintDialog) QPaintEngine {
+    pub fn paintEngine(self: QAbstractPrintDialog) QPaintEngine {
         return .{ .ptr = qtc.QAbstractPrintDialog_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6309,9 +7905,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperPaintEngine(self: QAbstractPrintDialog) QPaintEngine {
+    pub fn superPaintEngine(self: QAbstractPrintDialog) QPaintEngine {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6325,9 +7925,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QAbstractPrintDialog_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6339,16 +7943,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAbstractPrintDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractPrintDialog_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAbstractPrintDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractPrintDialog_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6360,12 +7964,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QAbstractPrintDialog, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractPrintDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QAbstractPrintDialog, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractPrintDialog_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6379,10 +7987,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6393,16 +8005,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6414,12 +8026,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6433,10 +8049,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6447,16 +8067,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6468,12 +8088,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6487,10 +8111,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6501,16 +8129,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6522,12 +8150,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6541,10 +8173,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6555,16 +8191,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6576,12 +8212,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractPrintDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractPrintDialog_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6595,9 +8235,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6609,16 +8253,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QAbstractPrintDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QAbstractPrintDialog_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6630,12 +8274,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QAbstractPrintDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QAbstractPrintDialog_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6649,9 +8297,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QWheelEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6663,16 +8315,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractPrintDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractPrintDialog_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6684,12 +8336,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractPrintDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractPrintDialog_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6703,10 +8359,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6717,16 +8377,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractPrintDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractPrintDialog_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6738,12 +8398,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractPrintDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractPrintDialog_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6757,10 +8421,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6771,16 +8439,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractPrintDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractPrintDialog_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6792,12 +8460,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractPrintDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractPrintDialog_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6811,9 +8483,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6825,16 +8501,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractPrintDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractPrintDialog_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6846,12 +8522,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractPrintDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractPrintDialog_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6865,9 +8545,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEnterEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6879,16 +8563,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractPrintDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractPrintDialog_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6900,12 +8584,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractPrintDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractPrintDialog_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6919,9 +8607,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6933,16 +8625,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractPrintDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractPrintDialog_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6954,12 +8646,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractPrintDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractPrintDialog_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6973,9 +8669,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPaintEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6987,16 +8687,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractPrintDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractPrintDialog_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7008,12 +8708,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractPrintDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractPrintDialog_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7027,9 +8731,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMoveEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7041,16 +8749,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractPrintDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractPrintDialog_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7062,12 +8770,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractPrintDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractPrintDialog_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7081,9 +8793,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QTabletEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7095,16 +8811,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractPrintDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractPrintDialog_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7116,12 +8832,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractPrintDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractPrintDialog_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7135,9 +8855,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QActionEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7149,16 +8873,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractPrintDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractPrintDialog_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7170,12 +8894,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractPrintDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractPrintDialog_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7189,9 +8917,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragEnterEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7203,16 +8935,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractPrintDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractPrintDialog_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7224,12 +8956,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractPrintDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractPrintDialog_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7243,9 +8979,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragMoveEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7257,16 +8997,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractPrintDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractPrintDialog_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7278,12 +9018,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractPrintDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractPrintDialog_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7297,9 +9041,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7311,16 +9059,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractPrintDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractPrintDialog_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7332,12 +9080,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractPrintDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractPrintDialog_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7351,9 +9103,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QDropEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7365,16 +9121,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractPrintDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractPrintDialog_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7386,12 +9142,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractPrintDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractPrintDialog_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7405,9 +9165,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QHideEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7423,19 +9187,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn NativeEvent(self: QAbstractPrintDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QAbstractPrintDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractPrintDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractPrintDialog_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7451,15 +9215,19 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` message: ?*anyopaque `
     ///
-    /// ` result: *isize `
+    /// ` _result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QAbstractPrintDialog, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QAbstractPrintDialog, eventType: []u8, message: ?*anyopaque, _result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
-        return qtc.QAbstractPrintDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
+        return qtc.QAbstractPrintDialog_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7473,9 +9241,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7489,14 +9261,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn changeEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QAbstractPrintDialog_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7510,10 +9282,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superChangeEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QAbstractPrintDialog_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7527,9 +9303,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7543,13 +9323,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QAbstractPrintDialog, param1: i32) i32 {
+    pub fn metric(self: QAbstractPrintDialog, param1: i32) i32 {
         return qtc.QAbstractPrintDialog_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7563,9 +9343,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QAbstractPrintDialog, param1: i32) i32 {
+    pub fn superMetric(self: QAbstractPrintDialog, param1: i32) i32 {
         return qtc.QAbstractPrintDialog_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7579,9 +9363,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7595,14 +9383,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QAbstractPrintDialog, painter: anytype) void {
+    pub fn initPainter(self: QAbstractPrintDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractPrintDialog_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7616,10 +9404,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QAbstractPrintDialog, painter: anytype) void {
+    pub fn superInitPainter(self: QAbstractPrintDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractPrintDialog_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7633,9 +9425,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPainter) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7649,14 +9445,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QAbstractPrintDialog, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QAbstractPrintDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractPrintDialog_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7670,10 +9466,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QAbstractPrintDialog, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QAbstractPrintDialog, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7687,9 +9487,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QAbstractPrintDialog_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7701,13 +9505,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SharedPainter(self: QAbstractPrintDialog) QPainter {
+    pub fn sharedPainter(self: QAbstractPrintDialog) QPainter {
         return .{ .ptr = qtc.QAbstractPrintDialog_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7719,9 +9523,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperSharedPainter(self: QAbstractPrintDialog) QPainter {
+    pub fn superSharedPainter(self: QAbstractPrintDialog) QPainter {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7735,9 +9543,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QAbstractPrintDialog_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7751,14 +9563,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn inputMethodEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractPrintDialog_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7772,10 +9584,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractPrintDialog_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7789,9 +9605,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QInputMethodEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7805,13 +9625,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QAbstractPrintDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QAbstractPrintDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractPrintDialog_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7825,9 +9645,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QAbstractPrintDialog, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QAbstractPrintDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7843,9 +9667,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32) callconv(.c) QVariant) void {
         qtc.QAbstractPrintDialog_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7859,13 +9687,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QAbstractPrintDialog, next: bool) bool {
+    pub fn focusNextPrevChild(self: QAbstractPrintDialog, next: bool) bool {
         return qtc.QAbstractPrintDialog_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7879,9 +9707,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QAbstractPrintDialog, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QAbstractPrintDialog, next: bool) bool {
         return qtc.QAbstractPrintDialog_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7895,9 +9727,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, bool) callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7909,16 +9745,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAbstractPrintDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAbstractPrintDialog_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7930,12 +9766,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAbstractPrintDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAbstractPrintDialog_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7949,9 +9789,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QTimerEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7963,16 +9807,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractPrintDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractPrintDialog_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7984,12 +9828,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractPrintDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractPrintDialog_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8003,9 +9851,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QChildEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8017,16 +9869,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractPrintDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractPrintDialog_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8038,12 +9890,16 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QAbstractPrintDialog, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractPrintDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QAbstractPrintDialog, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractPrintDialog_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8057,9 +9913,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QEvent) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8073,14 +9933,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
+    pub fn connectNotify(self: QAbstractPrintDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractPrintDialog_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8094,11 +9954,15 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
+    pub fn superConnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractPrintDialog_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8111,9 +9975,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8127,14 +9995,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
+    pub fn disconnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractPrintDialog_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8148,10 +10016,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QAbstractPrintDialog, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractPrintDialog_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8165,9 +10037,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `adjustPosition` instead
+    ///
+    pub const AdjustPosition = adjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8181,14 +10057,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn AdjustPosition(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn adjustPosition(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QAbstractPrintDialog_AdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperAdjustPosition` instead
+    /// ### DEPRECATED: Use `superAdjustPosition` instead
     ///
-    pub const QBaseAdjustPosition = SuperAdjustPosition;
+    pub const SuperAdjustPosition = superAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8202,10 +10078,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn SuperAdjustPosition(self: QAbstractPrintDialog, param1: anytype) void {
+    pub fn superAdjustPosition(self: QAbstractPrintDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QAbstractPrintDialog_SuperAdjustPosition(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdjustPosition` instead
+    ///
+    pub const OnAdjustPosition = onAdjustPosition;
 
     /// Inherited from QDialog
     ///
@@ -8219,10 +10099,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, param1: QWidget) callconv(.c) void `
     ///
-    pub fn OnAdjustPosition(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QWidget) callconv(.c) void) void {
+    pub fn onAdjustPosition(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QWidget) callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnAdjustPosition(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8233,13 +10117,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn UpdateMicroFocus(self: QAbstractPrintDialog) void {
+    pub fn updateMicroFocus(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8251,10 +10135,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperUpdateMicroFocus(self: QAbstractPrintDialog) void {
+    pub fn superUpdateMicroFocus(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8267,10 +10155,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8281,13 +10173,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Create(self: QAbstractPrintDialog) void {
+    pub fn create(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8299,10 +10191,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperCreate(self: QAbstractPrintDialog) void {
+    pub fn superCreate(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8315,9 +10211,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8329,13 +10229,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Destroy(self: QAbstractPrintDialog) void {
+    pub fn destroy(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8347,9 +10247,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperDestroy(self: QAbstractPrintDialog) void {
+    pub fn superDestroy(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8363,10 +10267,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractPrintDialog_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8377,13 +10285,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FocusNextChild(self: QAbstractPrintDialog) bool {
+    pub fn focusNextChild(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8395,10 +10303,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperFocusNextChild(self: QAbstractPrintDialog) bool {
+    pub fn superFocusNextChild(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8411,9 +10323,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8425,13 +10341,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn FocusPreviousChild(self: QAbstractPrintDialog) bool {
+    pub fn focusPreviousChild(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8443,9 +10359,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperFocusPreviousChild(self: QAbstractPrintDialog) bool {
+    pub fn superFocusPreviousChild(self: QAbstractPrintDialog) bool {
         return qtc.QAbstractPrintDialog_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8459,9 +10379,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8473,13 +10397,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Sender(self: QAbstractPrintDialog) QObject {
+    pub fn sender(self: QAbstractPrintDialog) QObject {
         return .{ .ptr = qtc.QAbstractPrintDialog_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8491,9 +10415,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperSender(self: QAbstractPrintDialog) QObject {
+    pub fn superSender(self: QAbstractPrintDialog) QObject {
         return .{ .ptr = qtc.QAbstractPrintDialog_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8507,9 +10435,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) QObject) void {
         qtc.QAbstractPrintDialog_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8521,13 +10453,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SenderSignalIndex(self: QAbstractPrintDialog) i32 {
+    pub fn senderSignalIndex(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8539,9 +10471,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn SuperSenderSignalIndex(self: QAbstractPrintDialog) i32 {
+    pub fn superSenderSignalIndex(self: QAbstractPrintDialog) i32 {
         return qtc.QAbstractPrintDialog_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8555,9 +10491,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QAbstractPrintDialog, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8571,14 +10511,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QAbstractPrintDialog, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QAbstractPrintDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractPrintDialog_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8592,10 +10532,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QAbstractPrintDialog, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QAbstractPrintDialog, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractPrintDialog_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8609,9 +10553,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAbstractPrintDialog_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8625,14 +10573,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QAbstractPrintDialog, signal: anytype) bool {
+    pub fn isSignalConnected(self: QAbstractPrintDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractPrintDialog_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8646,10 +10594,14 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QAbstractPrintDialog, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QAbstractPrintDialog, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractPrintDialog_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8663,9 +10615,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, QMetaMethod) callconv(.c) bool) void {
         qtc.QAbstractPrintDialog_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8681,13 +10637,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QAbstractPrintDialog, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QAbstractPrintDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractPrintDialog_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8703,9 +10659,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QAbstractPrintDialog, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QAbstractPrintDialog, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractPrintDialog_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8719,9 +10679,13 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, i32, i32) callconv(.c) f64) void {
         qtc.QAbstractPrintDialog_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8735,23 +10699,23 @@ pub const QAbstractPrintDialog = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractPrintDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractPrintDialog, callback: *const fn (QAbstractPrintDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractprintdialog.html#dtor.QAbstractPrintDialog)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractPrintDialog `
     ///
-    pub fn Delete(self: QAbstractPrintDialog) void {
+    pub fn delete(self: QAbstractPrintDialog) void {
         qtc.QAbstractPrintDialog_Delete(@ptrCast(self.ptr));
     }
 };

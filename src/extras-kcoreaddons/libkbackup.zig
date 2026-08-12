@@ -11,6 +11,10 @@ pub const KBackup = extern struct {
 
     pub const _is_KBackup = {};
 
+    /// ### DEPRECATED: Use `simpleBackupFile` instead
+    ///
+    pub const SimpleBackupFile = simpleBackupFile;
+
     /// ### [Upstream resources](https://api.kde.org/kbackup.html#simpleBackupFile)
     ///
     /// ## Parameter(s):
@@ -21,7 +25,7 @@ pub const KBackup = extern struct {
     ///
     /// ` backupExtension: []const u8 `
     ///
-    pub fn SimpleBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8) bool {
+    pub fn simpleBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,
@@ -37,6 +41,10 @@ pub const KBackup = extern struct {
         return qtc.KBackup_SimpleBackupFile(filename_str, backupDir_str, backupExtension_str);
     }
 
+    /// ### DEPRECATED: Use `numberedBackupFile` instead
+    ///
+    pub const NumberedBackupFile = numberedBackupFile;
+
     /// ### [Upstream resources](https://api.kde.org/kbackup.html#numberedBackupFile)
     ///
     /// ## Parameter(s):
@@ -49,7 +57,7 @@ pub const KBackup = extern struct {
     ///
     /// ` maxBackups: u32 `
     ///
-    pub fn NumberedBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8, maxBackups: u32) bool {
+    pub fn numberedBackupFile(filename: []const u8, backupDir: []const u8, backupExtension: []const u8, maxBackups: u32) bool {
         const filename_str = qtc.libqt_string{
             .len = filename.len,
             .data = filename.ptr,

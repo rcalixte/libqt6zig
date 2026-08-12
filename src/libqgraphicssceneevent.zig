@@ -21,15 +21,23 @@ pub const QGraphicsSceneEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneEvent object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New(typeVal: i32) QGraphicsSceneEvent {
+    pub fn new(typeVal: i32) QGraphicsSceneEvent {
         return .{ .ptr = qtc.QGraphicsSceneEvent_new(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#widget)
     ///
@@ -37,9 +45,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setWidget)
     ///
@@ -47,12 +59,16 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#timestamp)
     ///
@@ -60,9 +76,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#setTimestamp)
     ///
@@ -72,9 +92,15 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -88,9 +114,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneEvent) i32 {
+    pub fn type0(self: QGraphicsSceneEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -100,9 +130,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -112,9 +146,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -124,9 +162,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneEvent) void {
+    pub fn accept(self: QGraphicsSceneEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -136,9 +178,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneEvent) void {
+    pub fn ignore(self: QGraphicsSceneEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -148,9 +194,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -160,9 +210,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -172,17 +226,25 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -192,9 +254,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -208,13 +274,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneEvent, accepted: bool) void {
         qtc.QGraphicsSceneEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -228,9 +294,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneEvent, accepted: bool) void {
         qtc.QGraphicsSceneEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -244,9 +314,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneEvent, callback: *const fn (QGraphicsSceneEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneEvent, callback: *const fn (QGraphicsSceneEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -258,13 +332,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -276,9 +350,13 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -292,23 +370,23 @@ pub const QGraphicsSceneEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneevent.html#dtor.QGraphicsSceneEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneEvent) void {
+    pub fn delete(self: QGraphicsSceneEvent) void {
         qtc.QGraphicsSceneEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -325,21 +403,33 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneMouseEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneMouseEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneMouseEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneMouseEvent {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneMouseEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneMouseEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneMouseEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneMouseEvent {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#pos)
     ///
@@ -347,9 +437,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Pos(self: QGraphicsSceneMouseEvent) QPointF {
+    pub fn pos(self: QGraphicsSceneMouseEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setPos)
     ///
@@ -357,12 +451,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetPos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#scenePos)
     ///
@@ -370,9 +468,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneMouseEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneMouseEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScenePos)
     ///
@@ -380,12 +482,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#screenPos)
     ///
@@ -393,9 +499,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneMouseEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneMouseEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setScreenPos)
     ///
@@ -403,12 +513,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneMouseEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneMouseEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttonDownPos` instead
+    ///
+    pub const ButtonDownPos = buttonDownPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownPos)
     ///
@@ -416,11 +530,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownPos(self: QGraphicsSceneMouseEvent, button: i32) QPointF {
-        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self.ptr), @bitCast(button)) };
+    pub fn buttonDownPos(self: QGraphicsSceneMouseEvent, _button: i32) QPointF {
+        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownPos(@ptrCast(self.ptr), @bitCast(_button)) };
     }
+
+    /// ### DEPRECATED: Use `setButtonDownPos` instead
+    ///
+    pub const SetButtonDownPos = setButtonDownPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownPos)
     ///
@@ -428,14 +546,18 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetButtonDownPos(self: QGraphicsSceneMouseEvent, button: i32, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self.ptr), @bitCast(button), @ptrCast(pos.ptr));
+    pub fn setButtonDownPos(self: QGraphicsSceneMouseEvent, _button: i32, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownPos(@ptrCast(self.ptr), @bitCast(_button), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttonDownScenePos` instead
+    ///
+    pub const ButtonDownScenePos = buttonDownScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScenePos)
     ///
@@ -443,11 +565,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownScenePos(self: QGraphicsSceneMouseEvent, button: i32) QPointF {
-        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self.ptr), @bitCast(button)) };
+    pub fn buttonDownScenePos(self: QGraphicsSceneMouseEvent, _button: i32) QPointF {
+        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownScenePos(@ptrCast(self.ptr), @bitCast(_button)) };
     }
+
+    /// ### DEPRECATED: Use `setButtonDownScenePos` instead
+    ///
+    pub const SetButtonDownScenePos = setButtonDownScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScenePos)
     ///
@@ -455,14 +581,18 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetButtonDownScenePos(self: QGraphicsSceneMouseEvent, button: i32, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self.ptr), @bitCast(button), @ptrCast(pos.ptr));
+    pub fn setButtonDownScenePos(self: QGraphicsSceneMouseEvent, _button: i32, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownScenePos(@ptrCast(self.ptr), @bitCast(_button), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttonDownScreenPos` instead
+    ///
+    pub const ButtonDownScreenPos = buttonDownScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttonDownScreenPos)
     ///
@@ -470,11 +600,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    pub fn ButtonDownScreenPos(self: QGraphicsSceneMouseEvent, button: i32) QPoint {
-        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self.ptr), @bitCast(button)) };
+    pub fn buttonDownScreenPos(self: QGraphicsSceneMouseEvent, _button: i32) QPoint {
+        return .{ .ptr = qtc.QGraphicsSceneMouseEvent_ButtonDownScreenPos(@ptrCast(self.ptr), @bitCast(_button)) };
     }
+
+    /// ### DEPRECATED: Use `setButtonDownScreenPos` instead
+    ///
+    pub const SetButtonDownScreenPos = setButtonDownScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtonDownScreenPos)
     ///
@@ -482,14 +616,18 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetButtonDownScreenPos(self: QGraphicsSceneMouseEvent, button: i32, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self.ptr), @bitCast(button), @ptrCast(pos.ptr));
+    pub fn setButtonDownScreenPos(self: QGraphicsSceneMouseEvent, _button: i32, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneMouseEvent_SetButtonDownScreenPos(@ptrCast(self.ptr), @bitCast(_button), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastPos` instead
+    ///
+    pub const LastPos = lastPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastPos)
     ///
@@ -497,9 +635,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn LastPos(self: QGraphicsSceneMouseEvent) QPointF {
+    pub fn lastPos(self: QGraphicsSceneMouseEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_LastPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastPos` instead
+    ///
+    pub const SetLastPos = setLastPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastPos)
     ///
@@ -507,12 +649,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetLastPos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetLastPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastPos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetLastPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastScenePos` instead
+    ///
+    pub const LastScenePos = lastScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScenePos)
     ///
@@ -520,9 +666,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn LastScenePos(self: QGraphicsSceneMouseEvent) QPointF {
+    pub fn lastScenePos(self: QGraphicsSceneMouseEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_LastScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastScenePos` instead
+    ///
+    pub const SetLastScenePos = setLastScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScenePos)
     ///
@@ -530,12 +680,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetLastScenePos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMouseEvent_SetLastScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastScenePos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMouseEvent_SetLastScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastScreenPos` instead
+    ///
+    pub const LastScreenPos = lastScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#lastScreenPos)
     ///
@@ -543,9 +697,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn LastScreenPos(self: QGraphicsSceneMouseEvent) QPoint {
+    pub fn lastScreenPos(self: QGraphicsSceneMouseEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_LastScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastScreenPos` instead
+    ///
+    pub const SetLastScreenPos = setLastScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setLastScreenPos)
     ///
@@ -553,12 +711,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetLastScreenPos(self: QGraphicsSceneMouseEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneMouseEvent_SetLastScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastScreenPos(self: QGraphicsSceneMouseEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneMouseEvent_SetLastScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#buttons)
     ///
@@ -570,9 +732,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn buttons(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QGraphicsSceneMouseEvent_Buttons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtons` instead
+    ///
+    pub const SetButtons = setButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButtons)
     ///
@@ -580,11 +746,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` buttons: flag of qnamespace_enums.MouseButton `
+    /// ` _buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: QGraphicsSceneMouseEvent, buttons: i32) void {
-        qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self.ptr), @bitCast(buttons));
+    pub fn setButtons(self: QGraphicsSceneMouseEvent, _buttons: i32) void {
+        qtc.QGraphicsSceneMouseEvent_SetButtons(@ptrCast(self.ptr), @bitCast(_buttons));
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#button)
     ///
@@ -596,9 +766,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` qnamespace_enums.MouseButton `
     ///
-    pub fn Button(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn button(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QGraphicsSceneMouseEvent_Button(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButton` instead
+    ///
+    pub const SetButton = setButton;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setButton)
     ///
@@ -606,11 +780,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` button: qnamespace_enums.MouseButton `
+    /// ` _button: qnamespace_enums.MouseButton `
     ///
-    pub fn SetButton(self: QGraphicsSceneMouseEvent, button: i32) void {
-        qtc.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self.ptr), @bitCast(button));
+    pub fn setButton(self: QGraphicsSceneMouseEvent, _button: i32) void {
+        qtc.QGraphicsSceneMouseEvent_SetButton(@ptrCast(self.ptr), @bitCast(_button));
     }
+
+    /// ### DEPRECATED: Use `modifiers` instead
+    ///
+    pub const Modifiers = modifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#modifiers)
     ///
@@ -622,9 +800,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn modifiers(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QGraphicsSceneMouseEvent_Modifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiers` instead
+    ///
+    pub const SetModifiers = setModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setModifiers)
     ///
@@ -632,11 +814,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: QGraphicsSceneMouseEvent, modifiers: i32) void {
-        qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(modifiers));
+    pub fn setModifiers(self: QGraphicsSceneMouseEvent, _modifiers: i32) void {
+        qtc.QGraphicsSceneMouseEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(_modifiers));
     }
+
+    /// ### DEPRECATED: Use `source` instead
+    ///
+    pub const Source = source;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#source)
     ///
@@ -648,9 +834,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` qnamespace_enums.MouseEventSource `
     ///
-    pub fn Source(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn source(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QGraphicsSceneMouseEvent_Source(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSource` instead
+    ///
+    pub const SetSource = setSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setSource)
     ///
@@ -658,11 +848,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` source: qnamespace_enums.MouseEventSource `
+    /// ` _source: qnamespace_enums.MouseEventSource `
     ///
-    pub fn SetSource(self: QGraphicsSceneMouseEvent, source: i32) void {
-        qtc.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self.ptr), @bitCast(source));
+    pub fn setSource(self: QGraphicsSceneMouseEvent, _source: i32) void {
+        qtc.QGraphicsSceneMouseEvent_SetSource(@ptrCast(self.ptr), @bitCast(_source));
     }
+
+    /// ### DEPRECATED: Use `flags` instead
+    ///
+    pub const Flags = flags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#flags)
     ///
@@ -674,9 +868,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseEventFlag `
     ///
-    pub fn Flags(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn flags(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QGraphicsSceneMouseEvent_Flags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFlags` instead
+    ///
+    pub const SetFlags = setFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#setFlags)
     ///
@@ -684,11 +882,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` flags: flag of qnamespace_enums.MouseEventFlag `
+    /// ` _flags: flag of qnamespace_enums.MouseEventFlag `
     ///
-    pub fn SetFlags(self: QGraphicsSceneMouseEvent, flags: i32) void {
-        qtc.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self.ptr), @bitCast(flags));
+    pub fn setFlags(self: QGraphicsSceneMouseEvent, _flags: i32) void {
+        qtc.QGraphicsSceneMouseEvent_SetFlags(@ptrCast(self.ptr), @bitCast(_flags));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -698,9 +900,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneMouseEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneMouseEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -710,12 +916,16 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneMouseEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneMouseEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -725,9 +935,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneMouseEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneMouseEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -739,9 +953,15 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneMouseEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneMouseEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -755,9 +975,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneMouseEvent) i32 {
+    pub fn type0(self: QGraphicsSceneMouseEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -767,9 +991,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneMouseEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneMouseEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -779,9 +1007,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneMouseEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneMouseEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -791,9 +1023,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneMouseEvent) void {
+    pub fn accept(self: QGraphicsSceneMouseEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -803,9 +1039,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneMouseEvent) void {
+    pub fn ignore(self: QGraphicsSceneMouseEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -815,9 +1055,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneMouseEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneMouseEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -827,9 +1071,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneMouseEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneMouseEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -839,17 +1087,25 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneMouseEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneMouseEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -859,9 +1115,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -875,13 +1135,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneMouseEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneMouseEvent, accepted: bool) void {
         qtc.QGraphicsSceneMouseEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -895,9 +1155,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneMouseEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneMouseEvent, accepted: bool) void {
         qtc.QGraphicsSceneMouseEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -911,9 +1175,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneMouseEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneMouseEvent, callback: *const fn (QGraphicsSceneMouseEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneMouseEvent, callback: *const fn (QGraphicsSceneMouseEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneMouseEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -925,13 +1193,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneMouseEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneMouseEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -943,9 +1211,13 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneMouseEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneMouseEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneMouseEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -959,23 +1231,23 @@ pub const QGraphicsSceneMouseEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneMouseEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneMouseEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneMouseEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemouseevent.html#dtor.QGraphicsSceneMouseEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneMouseEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneMouseEvent) void {
+    pub fn delete(self: QGraphicsSceneMouseEvent) void {
         qtc.QGraphicsSceneMouseEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -992,21 +1264,33 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneWheelEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneWheelEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneWheelEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneWheelEvent {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneWheelEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneWheelEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneWheelEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneWheelEvent {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pos)
     ///
@@ -1014,9 +1298,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Pos(self: QGraphicsSceneWheelEvent) QPointF {
+    pub fn pos(self: QGraphicsSceneWheelEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPos)
     ///
@@ -1024,12 +1312,16 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetPos(self: QGraphicsSceneWheelEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneWheelEvent_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QGraphicsSceneWheelEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneWheelEvent_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#scenePos)
     ///
@@ -1037,9 +1329,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneWheelEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneWheelEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScenePos)
     ///
@@ -1047,12 +1343,16 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneWheelEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneWheelEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneWheelEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneWheelEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#screenPos)
     ///
@@ -1060,9 +1360,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneWheelEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneWheelEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setScreenPos)
     ///
@@ -1070,12 +1374,16 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneWheelEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneWheelEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneWheelEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneWheelEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#buttons)
     ///
@@ -1087,9 +1395,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn buttons(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QGraphicsSceneWheelEvent_Buttons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtons` instead
+    ///
+    pub const SetButtons = setButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setButtons)
     ///
@@ -1097,11 +1409,15 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` buttons: flag of qnamespace_enums.MouseButton `
+    /// ` _buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: QGraphicsSceneWheelEvent, buttons: i32) void {
-        qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self.ptr), @bitCast(buttons));
+    pub fn setButtons(self: QGraphicsSceneWheelEvent, _buttons: i32) void {
+        qtc.QGraphicsSceneWheelEvent_SetButtons(@ptrCast(self.ptr), @bitCast(_buttons));
     }
+
+    /// ### DEPRECATED: Use `modifiers` instead
+    ///
+    pub const Modifiers = modifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#modifiers)
     ///
@@ -1113,9 +1429,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn modifiers(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QGraphicsSceneWheelEvent_Modifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiers` instead
+    ///
+    pub const SetModifiers = setModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setModifiers)
     ///
@@ -1123,11 +1443,15 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: QGraphicsSceneWheelEvent, modifiers: i32) void {
-        qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(modifiers));
+    pub fn setModifiers(self: QGraphicsSceneWheelEvent, _modifiers: i32) void {
+        qtc.QGraphicsSceneWheelEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(_modifiers));
     }
+
+    /// ### DEPRECATED: Use `delta` instead
+    ///
+    pub const Delta = delta;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#delta)
     ///
@@ -1135,9 +1459,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Delta(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn delta(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QGraphicsSceneWheelEvent_Delta(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDelta` instead
+    ///
+    pub const SetDelta = setDelta;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setDelta)
     ///
@@ -1145,11 +1473,15 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` delta: i32 `
+    /// ` _delta: i32 `
     ///
-    pub fn SetDelta(self: QGraphicsSceneWheelEvent, delta: i32) void {
-        qtc.QGraphicsSceneWheelEvent_SetDelta(@ptrCast(self.ptr), @bitCast(delta));
+    pub fn setDelta(self: QGraphicsSceneWheelEvent, _delta: i32) void {
+        qtc.QGraphicsSceneWheelEvent_SetDelta(@ptrCast(self.ptr), @bitCast(_delta));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#orientation)
     ///
@@ -1161,9 +1493,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn orientation(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QGraphicsSceneWheelEvent_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setOrientation)
     ///
@@ -1171,11 +1507,15 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QGraphicsSceneWheelEvent, orientation: i32) void {
-        qtc.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QGraphicsSceneWheelEvent, _orientation: i32) void {
+        qtc.QGraphicsSceneWheelEvent_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `phase` instead
+    ///
+    pub const Phase = phase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#phase)
     ///
@@ -1187,9 +1527,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` qnamespace_enums.ScrollPhase `
     ///
-    pub fn Phase(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn phase(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QGraphicsSceneWheelEvent_Phase(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPhase` instead
+    ///
+    pub const SetPhase = setPhase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPhase)
     ///
@@ -1199,9 +1543,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` scrollPhase: qnamespace_enums.ScrollPhase `
     ///
-    pub fn SetPhase(self: QGraphicsSceneWheelEvent, scrollPhase: i32) void {
+    pub fn setPhase(self: QGraphicsSceneWheelEvent, scrollPhase: i32) void {
         qtc.QGraphicsSceneWheelEvent_SetPhase(@ptrCast(self.ptr), @bitCast(scrollPhase));
     }
+
+    /// ### DEPRECATED: Use `pixelDelta` instead
+    ///
+    pub const PixelDelta = pixelDelta;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#pixelDelta)
     ///
@@ -1209,9 +1557,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn PixelDelta(self: QGraphicsSceneWheelEvent) QPoint {
+    pub fn pixelDelta(self: QGraphicsSceneWheelEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_PixelDelta(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPixelDelta` instead
+    ///
+    pub const SetPixelDelta = setPixelDelta;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setPixelDelta)
     ///
@@ -1219,12 +1571,16 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` delta: QPoint `
+    /// ` _delta: QPoint `
     ///
-    pub fn SetPixelDelta(self: QGraphicsSceneWheelEvent, delta: anytype) void {
-        comptime _ = @TypeOf(delta)._is_QPoint;
-        qtc.QGraphicsSceneWheelEvent_SetPixelDelta(@ptrCast(self.ptr), @ptrCast(delta.ptr));
+    pub fn setPixelDelta(self: QGraphicsSceneWheelEvent, _delta: anytype) void {
+        comptime _ = @TypeOf(_delta)._is_QPoint;
+        qtc.QGraphicsSceneWheelEvent_SetPixelDelta(@ptrCast(self.ptr), @ptrCast(_delta.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInverted` instead
+    ///
+    pub const IsInverted = isInverted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#isInverted)
     ///
@@ -1232,9 +1588,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn IsInverted(self: QGraphicsSceneWheelEvent) bool {
+    pub fn isInverted(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QGraphicsSceneWheelEvent_IsInverted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInverted` instead
+    ///
+    pub const SetInverted = setInverted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#setInverted)
     ///
@@ -1244,9 +1604,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` inverted: bool `
     ///
-    pub fn SetInverted(self: QGraphicsSceneWheelEvent, inverted: bool) void {
+    pub fn setInverted(self: QGraphicsSceneWheelEvent, inverted: bool) void {
         qtc.QGraphicsSceneWheelEvent_SetInverted(@ptrCast(self.ptr), inverted);
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1256,9 +1620,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneWheelEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneWheelEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1268,12 +1636,16 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneWheelEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneWheelEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1283,9 +1655,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneWheelEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneWheelEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1297,9 +1673,15 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneWheelEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneWheelEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -1313,9 +1695,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneWheelEvent) i32 {
+    pub fn type0(self: QGraphicsSceneWheelEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -1325,9 +1711,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneWheelEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1337,9 +1727,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneWheelEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -1349,9 +1743,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneWheelEvent) void {
+    pub fn accept(self: QGraphicsSceneWheelEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -1361,9 +1759,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneWheelEvent) void {
+    pub fn ignore(self: QGraphicsSceneWheelEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -1373,9 +1775,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneWheelEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -1385,9 +1791,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneWheelEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -1397,17 +1807,25 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneWheelEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneWheelEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -1417,9 +1835,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1433,13 +1855,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneWheelEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneWheelEvent, accepted: bool) void {
         qtc.QGraphicsSceneWheelEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1453,9 +1875,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneWheelEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneWheelEvent, accepted: bool) void {
         qtc.QGraphicsSceneWheelEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1469,9 +1895,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneWheelEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneWheelEvent, callback: *const fn (QGraphicsSceneWheelEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneWheelEvent, callback: *const fn (QGraphicsSceneWheelEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneWheelEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -1483,13 +1913,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneWheelEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneWheelEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -1501,9 +1931,13 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneWheelEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneWheelEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneWheelEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -1517,23 +1951,23 @@ pub const QGraphicsSceneWheelEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneWheelEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneWheelEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneWheelEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenewheelevent.html#dtor.QGraphicsSceneWheelEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneWheelEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneWheelEvent) void {
+    pub fn delete(self: QGraphicsSceneWheelEvent) void {
         qtc.QGraphicsSceneWheelEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1550,21 +1984,33 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneContextMenuEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneContextMenuEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneContextMenuEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneContextMenuEvent {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneContextMenuEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneContextMenuEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneContextMenuEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneContextMenuEvent {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#pos)
     ///
@@ -1572,9 +2018,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Pos(self: QGraphicsSceneContextMenuEvent) QPointF {
+    pub fn pos(self: QGraphicsSceneContextMenuEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setPos)
     ///
@@ -1582,12 +2032,16 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetPos(self: QGraphicsSceneContextMenuEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneContextMenuEvent_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QGraphicsSceneContextMenuEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneContextMenuEvent_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#scenePos)
     ///
@@ -1595,9 +2049,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneContextMenuEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneContextMenuEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScenePos)
     ///
@@ -1605,12 +2063,16 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneContextMenuEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneContextMenuEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneContextMenuEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneContextMenuEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#screenPos)
     ///
@@ -1618,9 +2080,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneContextMenuEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneContextMenuEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setScreenPos)
     ///
@@ -1628,12 +2094,16 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneContextMenuEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneContextMenuEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneContextMenuEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneContextMenuEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `modifiers` instead
+    ///
+    pub const Modifiers = modifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#modifiers)
     ///
@@ -1645,9 +2115,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: QGraphicsSceneContextMenuEvent) i32 {
+    pub fn modifiers(self: QGraphicsSceneContextMenuEvent) i32 {
         return qtc.QGraphicsSceneContextMenuEvent_Modifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiers` instead
+    ///
+    pub const SetModifiers = setModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setModifiers)
     ///
@@ -1655,11 +2129,15 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: QGraphicsSceneContextMenuEvent, modifiers: i32) void {
-        qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(modifiers));
+    pub fn setModifiers(self: QGraphicsSceneContextMenuEvent, _modifiers: i32) void {
+        qtc.QGraphicsSceneContextMenuEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(_modifiers));
     }
+
+    /// ### DEPRECATED: Use `reason` instead
+    ///
+    pub const Reason = reason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#reason)
     ///
@@ -1671,9 +2149,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` qgraphicssceneevent_enums.Reason `
     ///
-    pub fn Reason(self: QGraphicsSceneContextMenuEvent) i32 {
+    pub fn reason(self: QGraphicsSceneContextMenuEvent) i32 {
         return qtc.QGraphicsSceneContextMenuEvent_Reason(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReason` instead
+    ///
+    pub const SetReason = setReason;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#setReason)
     ///
@@ -1681,11 +2163,15 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` reason: qgraphicssceneevent_enums.Reason `
+    /// ` _reason: qgraphicssceneevent_enums.Reason `
     ///
-    pub fn SetReason(self: QGraphicsSceneContextMenuEvent, reason: i32) void {
-        qtc.QGraphicsSceneContextMenuEvent_SetReason(@ptrCast(self.ptr), @bitCast(reason));
+    pub fn setReason(self: QGraphicsSceneContextMenuEvent, _reason: i32) void {
+        qtc.QGraphicsSceneContextMenuEvent_SetReason(@ptrCast(self.ptr), @bitCast(_reason));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1695,9 +2181,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneContextMenuEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneContextMenuEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1707,12 +2197,16 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneContextMenuEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneContextMenuEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1722,9 +2216,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneContextMenuEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneContextMenuEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -1736,9 +2234,15 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneContextMenuEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneContextMenuEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -1752,9 +2256,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneContextMenuEvent) i32 {
+    pub fn type0(self: QGraphicsSceneContextMenuEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -1764,9 +2272,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneContextMenuEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneContextMenuEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1776,9 +2288,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneContextMenuEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneContextMenuEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -1788,9 +2304,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneContextMenuEvent) void {
+    pub fn accept(self: QGraphicsSceneContextMenuEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -1800,9 +2320,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneContextMenuEvent) void {
+    pub fn ignore(self: QGraphicsSceneContextMenuEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -1812,9 +2336,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneContextMenuEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneContextMenuEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -1824,9 +2352,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneContextMenuEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneContextMenuEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -1836,17 +2368,25 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneContextMenuEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneContextMenuEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -1856,9 +2396,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1872,13 +2416,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneContextMenuEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneContextMenuEvent, accepted: bool) void {
         qtc.QGraphicsSceneContextMenuEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1892,9 +2436,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneContextMenuEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneContextMenuEvent, accepted: bool) void {
         qtc.QGraphicsSceneContextMenuEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -1908,9 +2456,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneContextMenuEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneContextMenuEvent, callback: *const fn (QGraphicsSceneContextMenuEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneContextMenuEvent, callback: *const fn (QGraphicsSceneContextMenuEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneContextMenuEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -1922,13 +2474,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneContextMenuEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneContextMenuEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -1940,9 +2492,13 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneContextMenuEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneContextMenuEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneContextMenuEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -1956,23 +2512,23 @@ pub const QGraphicsSceneContextMenuEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneContextMenuEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneContextMenuEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneContextMenuEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenecontextmenuevent.html#dtor.QGraphicsSceneContextMenuEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneContextMenuEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneContextMenuEvent) void {
+    pub fn delete(self: QGraphicsSceneContextMenuEvent) void {
         qtc.QGraphicsSceneContextMenuEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1989,21 +2545,33 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneHoverEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneHoverEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneHoverEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneHoverEvent {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneHoverEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneHoverEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneHoverEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneHoverEvent {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#pos)
     ///
@@ -2011,9 +2579,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Pos(self: QGraphicsSceneHoverEvent) QPointF {
+    pub fn pos(self: QGraphicsSceneHoverEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setPos)
     ///
@@ -2021,12 +2593,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetPos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneHoverEvent_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneHoverEvent_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#scenePos)
     ///
@@ -2034,9 +2610,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneHoverEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneHoverEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScenePos)
     ///
@@ -2044,12 +2624,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneHoverEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneHoverEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#screenPos)
     ///
@@ -2057,9 +2641,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneHoverEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneHoverEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setScreenPos)
     ///
@@ -2067,12 +2655,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneHoverEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneHoverEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastPos` instead
+    ///
+    pub const LastPos = lastPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastPos)
     ///
@@ -2080,9 +2672,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn LastPos(self: QGraphicsSceneHoverEvent) QPointF {
+    pub fn lastPos(self: QGraphicsSceneHoverEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_LastPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastPos` instead
+    ///
+    pub const SetLastPos = setLastPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastPos)
     ///
@@ -2090,12 +2686,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetLastPos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneHoverEvent_SetLastPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastPos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneHoverEvent_SetLastPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastScenePos` instead
+    ///
+    pub const LastScenePos = lastScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScenePos)
     ///
@@ -2103,9 +2703,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn LastScenePos(self: QGraphicsSceneHoverEvent) QPointF {
+    pub fn lastScenePos(self: QGraphicsSceneHoverEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_LastScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastScenePos` instead
+    ///
+    pub const SetLastScenePos = setLastScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScenePos)
     ///
@@ -2113,12 +2717,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetLastScenePos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneHoverEvent_SetLastScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastScenePos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneHoverEvent_SetLastScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `lastScreenPos` instead
+    ///
+    pub const LastScreenPos = lastScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#lastScreenPos)
     ///
@@ -2126,9 +2734,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn LastScreenPos(self: QGraphicsSceneHoverEvent) QPoint {
+    pub fn lastScreenPos(self: QGraphicsSceneHoverEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_LastScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLastScreenPos` instead
+    ///
+    pub const SetLastScreenPos = setLastScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setLastScreenPos)
     ///
@@ -2136,12 +2748,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetLastScreenPos(self: QGraphicsSceneHoverEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneHoverEvent_SetLastScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setLastScreenPos(self: QGraphicsSceneHoverEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneHoverEvent_SetLastScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `modifiers` instead
+    ///
+    pub const Modifiers = modifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#modifiers)
     ///
@@ -2153,9 +2769,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: QGraphicsSceneHoverEvent) i32 {
+    pub fn modifiers(self: QGraphicsSceneHoverEvent) i32 {
         return qtc.QGraphicsSceneHoverEvent_Modifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiers` instead
+    ///
+    pub const SetModifiers = setModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#setModifiers)
     ///
@@ -2163,11 +2783,15 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: QGraphicsSceneHoverEvent, modifiers: i32) void {
-        qtc.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(modifiers));
+    pub fn setModifiers(self: QGraphicsSceneHoverEvent, _modifiers: i32) void {
+        qtc.QGraphicsSceneHoverEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(_modifiers));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2177,9 +2801,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneHoverEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneHoverEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2189,12 +2817,16 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneHoverEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneHoverEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2204,9 +2836,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneHoverEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneHoverEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2218,9 +2854,15 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneHoverEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneHoverEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -2234,9 +2876,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneHoverEvent) i32 {
+    pub fn type0(self: QGraphicsSceneHoverEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -2246,9 +2892,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneHoverEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneHoverEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2258,9 +2908,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneHoverEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneHoverEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -2270,9 +2924,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneHoverEvent) void {
+    pub fn accept(self: QGraphicsSceneHoverEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -2282,9 +2940,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneHoverEvent) void {
+    pub fn ignore(self: QGraphicsSceneHoverEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -2294,9 +2956,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneHoverEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneHoverEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -2306,9 +2972,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneHoverEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneHoverEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -2318,17 +2988,25 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneHoverEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneHoverEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -2338,9 +3016,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2354,13 +3036,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneHoverEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneHoverEvent, accepted: bool) void {
         qtc.QGraphicsSceneHoverEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2374,9 +3056,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneHoverEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneHoverEvent, accepted: bool) void {
         qtc.QGraphicsSceneHoverEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2390,9 +3076,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneHoverEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneHoverEvent, callback: *const fn (QGraphicsSceneHoverEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneHoverEvent, callback: *const fn (QGraphicsSceneHoverEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneHoverEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -2404,13 +3094,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneHoverEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneHoverEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -2422,9 +3112,13 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneHoverEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneHoverEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneHoverEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -2438,23 +3132,23 @@ pub const QGraphicsSceneHoverEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneHoverEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneHoverEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneHoverEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehoverevent.html#dtor.QGraphicsSceneHoverEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneHoverEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneHoverEvent) void {
+    pub fn delete(self: QGraphicsSceneHoverEvent) void {
         qtc.QGraphicsSceneHoverEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2471,21 +3165,33 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneHelpEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneHelpEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneHelpEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneHelpEvent {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneHelpEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneHelpEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneHelpEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneHelpEvent {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#scenePos)
     ///
@@ -2493,9 +3199,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneHelpEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneHelpEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScenePos)
     ///
@@ -2503,12 +3213,16 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneHelpEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneHelpEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneHelpEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneHelpEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#screenPos)
     ///
@@ -2516,9 +3230,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneHelpEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneHelpEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#setScreenPos)
     ///
@@ -2526,12 +3244,16 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneHelpEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneHelpEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneHelpEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneHelpEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2541,9 +3263,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneHelpEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneHelpEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2553,12 +3279,16 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneHelpEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneHelpEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2568,9 +3298,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneHelpEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneHelpEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -2582,9 +3316,15 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneHelpEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneHelpEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -2598,9 +3338,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneHelpEvent) i32 {
+    pub fn type0(self: QGraphicsSceneHelpEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -2610,9 +3354,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneHelpEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneHelpEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2622,9 +3370,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneHelpEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneHelpEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -2634,9 +3386,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneHelpEvent) void {
+    pub fn accept(self: QGraphicsSceneHelpEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -2646,9 +3402,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneHelpEvent) void {
+    pub fn ignore(self: QGraphicsSceneHelpEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -2658,9 +3418,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneHelpEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneHelpEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -2670,9 +3434,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneHelpEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneHelpEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -2682,17 +3450,25 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneHelpEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneHelpEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -2702,9 +3478,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2718,13 +3498,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneHelpEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneHelpEvent, accepted: bool) void {
         qtc.QGraphicsSceneHelpEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2738,9 +3518,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneHelpEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneHelpEvent, accepted: bool) void {
         qtc.QGraphicsSceneHelpEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -2754,9 +3538,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneHelpEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneHelpEvent, callback: *const fn (QGraphicsSceneHelpEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneHelpEvent, callback: *const fn (QGraphicsSceneHelpEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneHelpEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -2768,13 +3556,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneHelpEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneHelpEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -2786,9 +3574,13 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneHelpEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneHelpEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneHelpEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -2802,23 +3594,23 @@ pub const QGraphicsSceneHelpEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneHelpEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneHelpEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneHelpEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenehelpevent.html#dtor.QGraphicsSceneHelpEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneHelpEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneHelpEvent) void {
+    pub fn delete(self: QGraphicsSceneHelpEvent) void {
         qtc.QGraphicsSceneHelpEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2835,21 +3627,33 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneDragDropEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneDragDropEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneDragDropEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneDragDropEvent {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_new() };
     }
 
-    /// New2 constructs a new QGraphicsSceneDragDropEvent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGraphicsSceneDragDropEvent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qcoreevent_enums.Type `
     ///
-    pub fn New2(typeVal: i32) QGraphicsSceneDragDropEvent {
+    pub fn new2(typeVal: i32) QGraphicsSceneDragDropEvent {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_new2(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#pos)
     ///
@@ -2857,9 +3661,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Pos(self: QGraphicsSceneDragDropEvent) QPointF {
+    pub fn pos(self: QGraphicsSceneDragDropEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPos)
     ///
@@ -2867,12 +3675,16 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetPos(self: QGraphicsSceneDragDropEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneDragDropEvent_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QGraphicsSceneDragDropEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneDragDropEvent_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `scenePos` instead
+    ///
+    pub const ScenePos = scenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#scenePos)
     ///
@@ -2880,9 +3692,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn ScenePos(self: QGraphicsSceneDragDropEvent) QPointF {
+    pub fn scenePos(self: QGraphicsSceneDragDropEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_ScenePos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScenePos` instead
+    ///
+    pub const SetScenePos = setScenePos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScenePos)
     ///
@@ -2890,12 +3706,16 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetScenePos(self: QGraphicsSceneDragDropEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneDragDropEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScenePos(self: QGraphicsSceneDragDropEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneDragDropEvent_SetScenePos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `screenPos` instead
+    ///
+    pub const ScreenPos = screenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#screenPos)
     ///
@@ -2903,9 +3723,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn ScreenPos(self: QGraphicsSceneDragDropEvent) QPoint {
+    pub fn screenPos(self: QGraphicsSceneDragDropEvent) QPoint {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_ScreenPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreenPos` instead
+    ///
+    pub const SetScreenPos = setScreenPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setScreenPos)
     ///
@@ -2913,12 +3737,16 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetScreenPos(self: QGraphicsSceneDragDropEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QGraphicsSceneDragDropEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setScreenPos(self: QGraphicsSceneDragDropEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QGraphicsSceneDragDropEvent_SetScreenPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#buttons)
     ///
@@ -2930,9 +3758,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.MouseButton `
     ///
-    pub fn Buttons(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn buttons(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QGraphicsSceneDragDropEvent_Buttons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtons` instead
+    ///
+    pub const SetButtons = setButtons;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setButtons)
     ///
@@ -2940,11 +3772,15 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` buttons: flag of qnamespace_enums.MouseButton `
+    /// ` _buttons: flag of qnamespace_enums.MouseButton `
     ///
-    pub fn SetButtons(self: QGraphicsSceneDragDropEvent, buttons: i32) void {
-        qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self.ptr), @bitCast(buttons));
+    pub fn setButtons(self: QGraphicsSceneDragDropEvent, _buttons: i32) void {
+        qtc.QGraphicsSceneDragDropEvent_SetButtons(@ptrCast(self.ptr), @bitCast(_buttons));
     }
+
+    /// ### DEPRECATED: Use `modifiers` instead
+    ///
+    pub const Modifiers = modifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#modifiers)
     ///
@@ -2956,9 +3792,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn Modifiers(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn modifiers(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QGraphicsSceneDragDropEvent_Modifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModifiers` instead
+    ///
+    pub const SetModifiers = setModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setModifiers)
     ///
@@ -2966,11 +3806,15 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` modifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _modifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetModifiers(self: QGraphicsSceneDragDropEvent, modifiers: i32) void {
-        qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(modifiers));
+    pub fn setModifiers(self: QGraphicsSceneDragDropEvent, _modifiers: i32) void {
+        qtc.QGraphicsSceneDragDropEvent_SetModifiers(@ptrCast(self.ptr), @bitCast(_modifiers));
     }
+
+    /// ### DEPRECATED: Use `possibleActions` instead
+    ///
+    pub const PossibleActions = possibleActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#possibleActions)
     ///
@@ -2982,9 +3826,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` flag of qnamespace_enums.DropAction `
     ///
-    pub fn PossibleActions(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn possibleActions(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QGraphicsSceneDragDropEvent_PossibleActions(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPossibleActions` instead
+    ///
+    pub const SetPossibleActions = setPossibleActions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setPossibleActions)
     ///
@@ -2994,9 +3842,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` actions: flag of qnamespace_enums.DropAction `
     ///
-    pub fn SetPossibleActions(self: QGraphicsSceneDragDropEvent, actions: i32) void {
+    pub fn setPossibleActions(self: QGraphicsSceneDragDropEvent, actions: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetPossibleActions(@ptrCast(self.ptr), @bitCast(actions));
     }
+
+    /// ### DEPRECATED: Use `proposedAction` instead
+    ///
+    pub const ProposedAction = proposedAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#proposedAction)
     ///
@@ -3008,9 +3860,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn ProposedAction(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn proposedAction(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QGraphicsSceneDragDropEvent_ProposedAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProposedAction` instead
+    ///
+    pub const SetProposedAction = setProposedAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setProposedAction)
     ///
@@ -3020,9 +3876,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn SetProposedAction(self: QGraphicsSceneDragDropEvent, action: i32) void {
+    pub fn setProposedAction(self: QGraphicsSceneDragDropEvent, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetProposedAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `acceptProposedAction` instead
+    ///
+    pub const AcceptProposedAction = acceptProposedAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#acceptProposedAction)
     ///
@@ -3030,9 +3890,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn AcceptProposedAction(self: QGraphicsSceneDragDropEvent) void {
+    pub fn acceptProposedAction(self: QGraphicsSceneDragDropEvent) void {
         qtc.QGraphicsSceneDragDropEvent_AcceptProposedAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropAction` instead
+    ///
+    pub const DropAction = dropAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dropAction)
     ///
@@ -3044,9 +3908,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` qnamespace_enums.DropAction `
     ///
-    pub fn DropAction(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn dropAction(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QGraphicsSceneDragDropEvent_DropAction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDropAction` instead
+    ///
+    pub const SetDropAction = setDropAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setDropAction)
     ///
@@ -3056,9 +3924,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` action: qnamespace_enums.DropAction `
     ///
-    pub fn SetDropAction(self: QGraphicsSceneDragDropEvent, action: i32) void {
+    pub fn setDropAction(self: QGraphicsSceneDragDropEvent, action: i32) void {
         qtc.QGraphicsSceneDragDropEvent_SetDropAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `source` instead
+    ///
+    pub const Source = source;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#source)
     ///
@@ -3066,9 +3938,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Source(self: QGraphicsSceneDragDropEvent) QWidget {
+    pub fn source(self: QGraphicsSceneDragDropEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_Source(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSource` instead
+    ///
+    pub const SetSource = setSource;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setSource)
     ///
@@ -3076,12 +3952,16 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` source: QWidget `
+    /// ` _source: QWidget `
     ///
-    pub fn SetSource(self: QGraphicsSceneDragDropEvent, source: anytype) void {
-        comptime _ = @TypeOf(source)._is_QWidget;
-        qtc.QGraphicsSceneDragDropEvent_SetSource(@ptrCast(self.ptr), @ptrCast(source.ptr));
+    pub fn setSource(self: QGraphicsSceneDragDropEvent, _source: anytype) void {
+        comptime _ = @TypeOf(_source)._is_QWidget;
+        qtc.QGraphicsSceneDragDropEvent_SetSource(@ptrCast(self.ptr), @ptrCast(_source.ptr));
     }
+
+    /// ### DEPRECATED: Use `mimeData` instead
+    ///
+    pub const MimeData = mimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#mimeData)
     ///
@@ -3089,9 +3969,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn MimeData(self: QGraphicsSceneDragDropEvent) QMimeData {
+    pub fn mimeData(self: QGraphicsSceneDragDropEvent) QMimeData {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_MimeData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setMimeData` instead
+    ///
+    pub const SetMimeData = setMimeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#setMimeData)
     ///
@@ -3101,10 +3985,14 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` data: QMimeData `
     ///
-    pub fn SetMimeData(self: QGraphicsSceneDragDropEvent, data: anytype) void {
+    pub fn setMimeData(self: QGraphicsSceneDragDropEvent, data: anytype) void {
         comptime _ = @TypeOf(data)._is_QMimeData;
         qtc.QGraphicsSceneDragDropEvent_SetMimeData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3114,9 +4002,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneDragDropEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneDragDropEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3126,12 +4018,16 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneDragDropEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneDragDropEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3141,9 +4037,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneDragDropEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneDragDropEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3155,9 +4055,15 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneDragDropEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneDragDropEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -3171,9 +4077,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneDragDropEvent) i32 {
+    pub fn type0(self: QGraphicsSceneDragDropEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -3183,9 +4093,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneDragDropEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneDragDropEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3195,9 +4109,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneDragDropEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneDragDropEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -3207,9 +4125,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneDragDropEvent) void {
+    pub fn accept(self: QGraphicsSceneDragDropEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -3219,9 +4141,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneDragDropEvent) void {
+    pub fn ignore(self: QGraphicsSceneDragDropEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -3231,9 +4157,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneDragDropEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneDragDropEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -3243,9 +4173,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneDragDropEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneDragDropEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -3255,17 +4189,25 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneDragDropEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneDragDropEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -3275,9 +4217,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3291,13 +4237,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneDragDropEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneDragDropEvent, accepted: bool) void {
         qtc.QGraphicsSceneDragDropEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3311,9 +4257,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneDragDropEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneDragDropEvent, accepted: bool) void {
         qtc.QGraphicsSceneDragDropEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3327,9 +4277,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneDragDropEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneDragDropEvent, callback: *const fn (QGraphicsSceneDragDropEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneDragDropEvent, callback: *const fn (QGraphicsSceneDragDropEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneDragDropEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -3341,13 +4295,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneDragDropEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneDragDropEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -3359,9 +4313,13 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneDragDropEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneDragDropEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneDragDropEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -3375,23 +4333,23 @@ pub const QGraphicsSceneDragDropEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneDragDropEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneDragDropEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneDragDropEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenedragdropevent.html#dtor.QGraphicsSceneDragDropEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneDragDropEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneDragDropEvent) void {
+    pub fn delete(self: QGraphicsSceneDragDropEvent) void {
         qtc.QGraphicsSceneDragDropEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3408,11 +4366,19 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneResizeEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneResizeEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneResizeEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneResizeEvent {
         return .{ .ptr = qtc.QGraphicsSceneResizeEvent_new() };
     }
+
+    /// ### DEPRECATED: Use `oldSize` instead
+    ///
+    pub const OldSize = oldSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#oldSize)
     ///
@@ -3420,9 +4386,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn OldSize(self: QGraphicsSceneResizeEvent) QSizeF {
+    pub fn oldSize(self: QGraphicsSceneResizeEvent) QSizeF {
         return .{ .ptr = qtc.QGraphicsSceneResizeEvent_OldSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOldSize` instead
+    ///
+    pub const SetOldSize = setOldSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setOldSize)
     ///
@@ -3432,10 +4402,14 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` size: QSizeF `
     ///
-    pub fn SetOldSize(self: QGraphicsSceneResizeEvent, size: anytype) void {
+    pub fn setOldSize(self: QGraphicsSceneResizeEvent, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSizeF;
         qtc.QGraphicsSceneResizeEvent_SetOldSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `newSize` instead
+    ///
+    pub const NewSize = newSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#newSize)
     ///
@@ -3443,9 +4417,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn NewSize(self: QGraphicsSceneResizeEvent) QSizeF {
+    pub fn newSize(self: QGraphicsSceneResizeEvent) QSizeF {
         return .{ .ptr = qtc.QGraphicsSceneResizeEvent_NewSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setNewSize` instead
+    ///
+    pub const SetNewSize = setNewSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#setNewSize)
     ///
@@ -3455,10 +4433,14 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` size: QSizeF `
     ///
-    pub fn SetNewSize(self: QGraphicsSceneResizeEvent, size: anytype) void {
+    pub fn setNewSize(self: QGraphicsSceneResizeEvent, size: anytype) void {
         comptime _ = @TypeOf(size)._is_QSizeF;
         qtc.QGraphicsSceneResizeEvent_SetNewSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3468,9 +4450,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneResizeEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneResizeEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3480,12 +4466,16 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneResizeEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneResizeEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3495,9 +4485,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneResizeEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneResizeEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3509,9 +4503,15 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneResizeEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneResizeEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -3525,9 +4525,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneResizeEvent) i32 {
+    pub fn type0(self: QGraphicsSceneResizeEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -3537,9 +4541,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneResizeEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneResizeEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3549,9 +4557,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneResizeEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneResizeEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -3561,9 +4573,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneResizeEvent) void {
+    pub fn accept(self: QGraphicsSceneResizeEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -3573,9 +4589,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneResizeEvent) void {
+    pub fn ignore(self: QGraphicsSceneResizeEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -3585,9 +4605,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneResizeEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneResizeEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -3597,9 +4621,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneResizeEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneResizeEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -3609,17 +4637,25 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneResizeEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneResizeEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -3629,9 +4665,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3645,13 +4685,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneResizeEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneResizeEvent, accepted: bool) void {
         qtc.QGraphicsSceneResizeEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3665,9 +4705,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneResizeEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneResizeEvent, accepted: bool) void {
         qtc.QGraphicsSceneResizeEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3681,9 +4725,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneResizeEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneResizeEvent, callback: *const fn (QGraphicsSceneResizeEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneResizeEvent, callback: *const fn (QGraphicsSceneResizeEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneResizeEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -3695,13 +4743,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneResizeEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneResizeEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneResizeEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -3713,9 +4761,13 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneResizeEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneResizeEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneResizeEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -3729,23 +4781,23 @@ pub const QGraphicsSceneResizeEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneResizeEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneResizeEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneResizeEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicssceneresizeevent.html#dtor.QGraphicsSceneResizeEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneResizeEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneResizeEvent) void {
+    pub fn delete(self: QGraphicsSceneResizeEvent) void {
         qtc.QGraphicsSceneResizeEvent_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3762,11 +4814,19 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     pub const _is_QGraphicsSceneEvent = {};
     pub const _is_QEvent = {};
 
-    /// New constructs a new QGraphicsSceneMoveEvent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGraphicsSceneMoveEvent {
+    pub const New = new;
+
+    /// Allocate a new QGraphicsSceneMoveEvent object in C++ memory
+    ///
+    pub fn new() QGraphicsSceneMoveEvent {
         return .{ .ptr = qtc.QGraphicsSceneMoveEvent_new() };
     }
+
+    /// ### DEPRECATED: Use `oldPos` instead
+    ///
+    pub const OldPos = oldPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#oldPos)
     ///
@@ -3774,9 +4834,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn OldPos(self: QGraphicsSceneMoveEvent) QPointF {
+    pub fn oldPos(self: QGraphicsSceneMoveEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMoveEvent_OldPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setOldPos` instead
+    ///
+    pub const SetOldPos = setOldPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setOldPos)
     ///
@@ -3784,12 +4848,16 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetOldPos(self: QGraphicsSceneMoveEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMoveEvent_SetOldPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setOldPos(self: QGraphicsSceneMoveEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMoveEvent_SetOldPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `newPos` instead
+    ///
+    pub const NewPos = newPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#newPos)
     ///
@@ -3797,9 +4865,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn NewPos(self: QGraphicsSceneMoveEvent) QPointF {
+    pub fn newPos(self: QGraphicsSceneMoveEvent) QPointF {
         return .{ .ptr = qtc.QGraphicsSceneMoveEvent_NewPos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setNewPos` instead
+    ///
+    pub const SetNewPos = setNewPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#setNewPos)
     ///
@@ -3807,12 +4879,16 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    /// ` pos: QPointF `
+    /// ` _pos: QPointF `
     ///
-    pub fn SetNewPos(self: QGraphicsSceneMoveEvent, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        qtc.QGraphicsSceneMoveEvent_SetNewPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setNewPos(self: QGraphicsSceneMoveEvent, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPointF;
+        qtc.QGraphicsSceneMoveEvent_SetNewPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3822,9 +4898,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Widget(self: QGraphicsSceneMoveEvent) QWidget {
+    pub fn widget(self: QGraphicsSceneMoveEvent) QWidget {
         return .{ .ptr = qtc.QGraphicsSceneEvent_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3834,12 +4914,16 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QGraphicsSceneMoveEvent, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QGraphicsSceneMoveEvent, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QGraphicsSceneEvent_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `timestamp` instead
+    ///
+    pub const Timestamp = timestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3849,9 +4933,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Timestamp(self: QGraphicsSceneMoveEvent) u64 {
+    pub fn timestamp(self: QGraphicsSceneMoveEvent) u64 {
         return qtc.QGraphicsSceneEvent_Timestamp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTimestamp` instead
+    ///
+    pub const SetTimestamp = setTimestamp;
 
     /// Inherited from QGraphicsSceneEvent
     ///
@@ -3863,9 +4951,15 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` ts: u64 `
     ///
-    pub fn SetTimestamp(self: QGraphicsSceneMoveEvent, ts: u64) void {
+    pub fn setTimestamp(self: QGraphicsSceneMoveEvent, ts: u64) void {
         qtc.QGraphicsSceneEvent_SetTimestamp(@ptrCast(self.ptr), @bitCast(ts));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QEvent
     ///
@@ -3879,9 +4973,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` qcoreevent_enums.Type `
     ///
-    pub fn Type(self: QGraphicsSceneMoveEvent) i32 {
+    pub fn type0(self: QGraphicsSceneMoveEvent) i32 {
         return qtc.QEvent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spontaneous` instead
+    ///
+    pub const Spontaneous = spontaneous;
 
     /// Inherited from QEvent
     ///
@@ -3891,9 +4989,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Spontaneous(self: QGraphicsSceneMoveEvent) bool {
+    pub fn spontaneous(self: QGraphicsSceneMoveEvent) bool {
         return qtc.QEvent_Spontaneous(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAccepted` instead
+    ///
+    pub const IsAccepted = isAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3903,9 +5005,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn IsAccepted(self: QGraphicsSceneMoveEvent) bool {
+    pub fn isAccepted(self: QGraphicsSceneMoveEvent) bool {
         return qtc.QEvent_IsAccepted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QEvent
     ///
@@ -3915,9 +5021,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Accept(self: QGraphicsSceneMoveEvent) void {
+    pub fn accept(self: QGraphicsSceneMoveEvent) void {
         qtc.QEvent_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ignore` instead
+    ///
+    pub const Ignore = ignore;
 
     /// Inherited from QEvent
     ///
@@ -3927,9 +5037,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Ignore(self: QGraphicsSceneMoveEvent) void {
+    pub fn ignore(self: QGraphicsSceneMoveEvent) void {
         qtc.QEvent_Ignore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInputEvent` instead
+    ///
+    pub const IsInputEvent = isInputEvent;
 
     /// Inherited from QEvent
     ///
@@ -3939,9 +5053,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn IsInputEvent(self: QGraphicsSceneMoveEvent) bool {
+    pub fn isInputEvent(self: QGraphicsSceneMoveEvent) bool {
         return qtc.QEvent_IsInputEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPointerEvent` instead
+    ///
+    pub const IsPointerEvent = isPointerEvent;
 
     /// Inherited from QEvent
     ///
@@ -3951,9 +5069,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn IsPointerEvent(self: QGraphicsSceneMoveEvent) bool {
+    pub fn isPointerEvent(self: QGraphicsSceneMoveEvent) bool {
         return qtc.QEvent_IsPointerEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSinglePointEvent` instead
+    ///
+    pub const IsSinglePointEvent = isSinglePointEvent;
 
     /// Inherited from QEvent
     ///
@@ -3963,17 +5085,25 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn IsSinglePointEvent(self: QGraphicsSceneMoveEvent) bool {
+    pub fn isSinglePointEvent(self: QGraphicsSceneMoveEvent) bool {
         return qtc.QEvent_IsSinglePointEvent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `registerEventType` instead
+    ///
+    pub const RegisterEventType = registerEventType;
 
     /// Inherited from QEvent
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qevent.html#registerEventType)
     ///
-    pub fn RegisterEventType() i32 {
+    pub fn registerEventType() i32 {
         return qtc.QEvent_RegisterEventType();
     }
+
+    /// ### DEPRECATED: Use `registerEventType1` instead
+    ///
+    pub const RegisterEventType1 = registerEventType1;
 
     /// Inherited from QEvent
     ///
@@ -3983,9 +5113,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` hint: i32 `
     ///
-    pub fn RegisterEventType1(hint: i32) i32 {
+    pub fn registerEventType1(hint: i32) i32 {
         return qtc.QEvent_RegisterEventType1(@bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setAccepted` instead
+    ///
+    pub const SetAccepted = setAccepted;
 
     /// Inherited from QEvent
     ///
@@ -3999,13 +5133,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SetAccepted(self: QGraphicsSceneMoveEvent, accepted: bool) void {
+    pub fn setAccepted(self: QGraphicsSceneMoveEvent, accepted: bool) void {
         qtc.QGraphicsSceneMoveEvent_SetAccepted(@ptrCast(self.ptr), accepted);
     }
 
-    /// ### DEPRECATED: Use `SuperSetAccepted` instead
+    /// ### DEPRECATED: Use `superSetAccepted` instead
     ///
-    pub const QBaseSetAccepted = SuperSetAccepted;
+    pub const SuperSetAccepted = superSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -4019,9 +5153,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` accepted: bool `
     ///
-    pub fn SuperSetAccepted(self: QGraphicsSceneMoveEvent, accepted: bool) void {
+    pub fn superSetAccepted(self: QGraphicsSceneMoveEvent, accepted: bool) void {
         qtc.QGraphicsSceneMoveEvent_SuperSetAccepted(@ptrCast(self.ptr), accepted);
     }
+
+    /// ### DEPRECATED: Use `onSetAccepted` instead
+    ///
+    pub const OnSetAccepted = onSetAccepted;
 
     /// Inherited from QEvent
     ///
@@ -4035,9 +5173,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` callback: *const fn (self: QGraphicsSceneMoveEvent, accepted: bool) callconv(.c) void `
     ///
-    pub fn OnSetAccepted(self: QGraphicsSceneMoveEvent, callback: *const fn (QGraphicsSceneMoveEvent, bool) callconv(.c) void) void {
+    pub fn onSetAccepted(self: QGraphicsSceneMoveEvent, callback: *const fn (QGraphicsSceneMoveEvent, bool) callconv(.c) void) void {
         qtc.QGraphicsSceneMoveEvent_OnSetAccepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clone` instead
+    ///
+    pub const Clone = clone;
 
     /// Inherited from QEvent
     ///
@@ -4049,13 +5191,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Clone(self: QGraphicsSceneMoveEvent) QEvent {
+    pub fn clone(self: QGraphicsSceneMoveEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneMoveEvent_Clone(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperClone` instead
+    /// ### DEPRECATED: Use `superClone` instead
     ///
-    pub const QBaseClone = SuperClone;
+    pub const SuperClone = superClone;
 
     /// Inherited from QEvent
     ///
@@ -4067,9 +5209,13 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn SuperClone(self: QGraphicsSceneMoveEvent) QEvent {
+    pub fn superClone(self: QGraphicsSceneMoveEvent) QEvent {
         return .{ .ptr = qtc.QGraphicsSceneMoveEvent_SuperClone(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onClone` instead
+    ///
+    pub const OnClone = onClone;
 
     /// Inherited from QEvent
     ///
@@ -4083,23 +5229,23 @@ pub const QGraphicsSceneMoveEvent = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QEvent `
     ///
-    pub fn OnClone(self: QGraphicsSceneMoveEvent, callback: *const fn () callconv(.c) QEvent) void {
+    pub fn onClone(self: QGraphicsSceneMoveEvent, callback: *const fn () callconv(.c) QEvent) void {
         qtc.QGraphicsSceneMoveEvent_OnClone(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgraphicsscenemoveevent.html#dtor.QGraphicsSceneMoveEvent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGraphicsSceneMoveEvent `
     ///
-    pub fn Delete(self: QGraphicsSceneMoveEvent) void {
+    pub fn delete(self: QGraphicsSceneMoveEvent) void {
         qtc.QGraphicsSceneMoveEvent_Delete(@ptrCast(self.ptr));
     }
 };

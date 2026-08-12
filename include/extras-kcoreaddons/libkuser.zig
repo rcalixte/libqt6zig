@@ -14,29 +14,41 @@ pub const KUser = extern struct {
 
     pub const _is_KUser = {};
 
-    /// New constructs a new KUser object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KUser {
+    pub const New = new;
+
+    /// Allocate a new KUser object in C++ memory
+    ///
+    pub fn new() KUser {
         return .{ .ptr = qtc.KUser_new() };
     }
 
-    /// New2 constructs a new KUser object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` uid: u32 `
     ///
-    pub fn New2(uid: u32) KUser {
+    pub fn new2(uid: u32) KUser {
         return .{ .ptr = qtc.KUser_new2(uid) };
     }
 
-    /// New3 constructs a new KUser object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` name: []const u8 `
     ///
-    pub fn New3(name: []const u8) KUser {
+    pub fn new3(name: []const u8) KUser {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -44,37 +56,53 @@ pub const KUser = extern struct {
         return .{ .ptr = qtc.KUser_new3(name_str) };
     }
 
-    /// New4 constructs a new KUser object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn New4(name: [:0]const u8) KUser {
+    pub fn new4(name: [:0]const u8) KUser {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.KUser_new4(name_Cstring) };
     }
 
-    /// New5 constructs a new KUser object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` user: KUser `
     ///
-    pub fn New5(user: anytype) KUser {
+    pub fn new5(user: anytype) KUser {
         comptime _ = @TypeOf(user)._is_KUser;
         return .{ .ptr = qtc.KUser_new5(@ptrCast(user.ptr)) };
     }
 
-    /// New6 constructs a new KUser object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: kuser_enums.UIDMode `
     ///
-    pub fn New6(mode: i32) KUser {
+    pub fn new6(mode: i32) KUser {
         return .{ .ptr = qtc.KUser_new6(@bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-eq)
     ///
@@ -84,10 +112,14 @@ pub const KUser = extern struct {
     ///
     /// ` user: KUser `
     ///
-    pub fn OperatorAssign(self: KUser, user: anytype) void {
+    pub fn operatorAssign(self: KUser, user: anytype) void {
         comptime _ = @TypeOf(user)._is_KUser;
         qtc.KUser_OperatorAssign(@ptrCast(self.ptr), @ptrCast(user.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-eq-eq)
     ///
@@ -97,10 +129,14 @@ pub const KUser = extern struct {
     ///
     /// ` user: KUser `
     ///
-    pub fn OperatorEqual(self: KUser, user: anytype) bool {
+    pub fn operatorEqual(self: KUser, user: anytype) bool {
         comptime _ = @TypeOf(user)._is_KUser;
         return qtc.KUser_OperatorEqual(@ptrCast(self.ptr), @ptrCast(user.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#operator-not-eq)
     ///
@@ -110,10 +146,14 @@ pub const KUser = extern struct {
     ///
     /// ` user: KUser `
     ///
-    pub fn OperatorNotEqual(self: KUser, user: anytype) bool {
+    pub fn operatorNotEqual(self: KUser, user: anytype) bool {
         comptime _ = @TypeOf(user)._is_KUser;
         return qtc.KUser_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(user.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#isValid)
     ///
@@ -121,9 +161,13 @@ pub const KUser = extern struct {
     ///
     /// ` self: KUser `
     ///
-    pub fn IsValid(self: KUser) bool {
+    pub fn isValid(self: KUser) bool {
         return qtc.KUser_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuperUser` instead
+    ///
+    pub const IsSuperUser = isSuperUser;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#isSuperUser)
     ///
@@ -131,9 +175,13 @@ pub const KUser = extern struct {
     ///
     /// ` self: KUser `
     ///
-    pub fn IsSuperUser(self: KUser) bool {
+    pub fn isSuperUser(self: KUser) bool {
         return qtc.KUser_IsSuperUser(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loginName` instead
+    ///
+    pub const LoginName = loginName;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#loginName)
     ///
@@ -143,13 +191,17 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LoginName(self: KUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn loginName(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_LoginName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.LoginName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.loginName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `homeDir` instead
+    ///
+    pub const HomeDir = homeDir;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#homeDir)
     ///
@@ -159,13 +211,17 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HomeDir(self: KUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn homeDir(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_HomeDir(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.HomeDir: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.homeDir: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `faceIconPath` instead
+    ///
+    pub const FaceIconPath = faceIconPath;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#faceIconPath)
     ///
@@ -175,13 +231,17 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FaceIconPath(self: KUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn faceIconPath(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_FaceIconPath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.FaceIconPath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.faceIconPath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `shell` instead
+    ///
+    pub const Shell = shell;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#shell)
     ///
@@ -191,13 +251,17 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Shell(self: KUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn shell(self: KUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUser_Shell(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.Shell: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUser.shell: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `groups` instead
+    ///
+    pub const Groups = groups;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
@@ -207,15 +271,19 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Groups(self: KUser, allocator: std.mem.Allocator) []KUserGroup {
+    pub fn groups(self: KUser, allocator: std.mem.Allocator) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.Groups: Memory allocation failed");
-        const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.groups: Memory allocation failed");
+        const _data_val: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `groupNames` instead
+    ///
+    pub const GroupNames = groupNames;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
@@ -225,7 +293,7 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn GroupNames(self: KUser, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn groupNames(self: KUser, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -233,15 +301,19 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.GroupNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.groupNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.GroupNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUser.groupNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#property)
     ///
@@ -251,9 +323,13 @@ pub const KUser = extern struct {
     ///
     /// ` which: kuser_enums.UserProperty `
     ///
-    pub fn Property(self: KUser, which: i32) QVariant {
+    pub fn property(self: KUser, which: i32) QVariant {
         return .{ .ptr = qtc.KUser_Property(@ptrCast(self.ptr), @bitCast(which)) };
     }
+
+    /// ### DEPRECATED: Use `allUsers` instead
+    ///
+    pub const AllUsers = allUsers;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
@@ -261,15 +337,19 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUsers(allocator: std.mem.Allocator) []KUser {
+    pub fn allUsers(allocator: std.mem.Allocator) []KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.AllUsers: Memory allocation failed");
-        const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.allUsers: Memory allocation failed");
+        const _data_val: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allUserNames` instead
+    ///
+    pub const AllUserNames = allUserNames;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
@@ -277,7 +357,7 @@ pub const KUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllUserNames(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allUserNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -285,15 +365,19 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.AllUserNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.allUserNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.AllUserNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUser.allUserNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `groups1` instead
+    ///
+    pub const Groups1 = groups1;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#groups)
     ///
@@ -305,15 +389,19 @@ pub const KUser = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn Groups1(self: KUser, allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
+    pub fn groups1(self: KUser, allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUser_Groups1(@ptrCast(self.ptr), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.Groups1: Memory allocation failed");
-        const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUser.groups1: Memory allocation failed");
+        const _data_val: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `groupNames1` instead
+    ///
+    pub const GroupNames1 = groupNames1;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#groupNames)
     ///
@@ -325,7 +413,7 @@ pub const KUser = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn GroupNames1(self: KUser, allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
+    pub fn groupNames1(self: KUser, allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_GroupNames1(@ptrCast(self.ptr), @bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -333,15 +421,19 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.GroupNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.groupNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.GroupNames1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUser.groupNames1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allUsers1` instead
+    ///
+    pub const AllUsers1 = allUsers1;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#allUsers)
     ///
@@ -351,15 +443,19 @@ pub const KUser = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn AllUsers1(allocator: std.mem.Allocator, maxCount: u32) []KUser {
+    pub fn allUsers1(allocator: std.mem.Allocator, maxCount: u32) []KUser {
         const _arr: qtc.libqt_list = qtc.KUser_AllUsers1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.AllUsers1: Memory allocation failed");
-        const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUser.allUsers1: Memory allocation failed");
+        const _data_val: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allUserNames1` instead
+    ///
+    pub const AllUserNames1 = allUserNames1;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#allUserNames)
     ///
@@ -369,7 +465,7 @@ pub const KUser = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn AllUserNames1(allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
+    pub fn allUserNames1(allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUser_AllUserNames1(@bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -377,29 +473,29 @@ pub const KUser = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.AllUserNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUser.allUserNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUser.AllUserNames1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUser.allUserNames1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kuser.html#dtor.KUser)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUser `
     ///
-    pub fn Delete(self: KUser) void {
+    pub fn delete(self: KUser) void {
         qtc.KUser_Delete(@ptrCast(self.ptr));
     }
 };
@@ -414,67 +510,95 @@ pub const KUserGroup = extern struct {
 
     pub const _is_KUserGroup = {};
 
-    /// New constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KUserGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New(name: []const u8) KUserGroup {
+    pub fn new(_name: []const u8) KUserGroup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.KUserGroup_new(name_str) };
     }
 
-    /// New2 constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KUserGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn New2(name: [:0]const u8) KUserGroup {
-        const name_Cstring = name.ptr;
+    pub fn new2(_name: [:0]const u8) KUserGroup {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.KUserGroup_new2(name_Cstring) };
     }
 
-    /// New3 constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() KUserGroup {
+    pub const New3 = new3;
+
+    /// Allocate a new KUserGroup object in C++ memory
+    ///
+    pub fn new3() KUserGroup {
         return .{ .ptr = qtc.KUserGroup_new3() };
     }
 
-    /// New4 constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KUserGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` gid: u32 `
     ///
-    pub fn New4(gid: u32) KUserGroup {
+    pub fn new4(gid: u32) KUserGroup {
         return .{ .ptr = qtc.KUserGroup_new4(gid) };
     }
 
-    /// New5 constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KUserGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` group: KUserGroup `
     ///
-    pub fn New5(group: anytype) KUserGroup {
+    pub fn new5(group: anytype) KUserGroup {
         comptime _ = @TypeOf(group)._is_KUserGroup;
         return .{ .ptr = qtc.KUserGroup_new5(@ptrCast(group.ptr)) };
     }
 
-    /// New6 constructs a new KUserGroup object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KUserGroup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` mode: kuser_enums.UIDMode `
     ///
-    pub fn New6(mode: i32) KUserGroup {
+    pub fn new6(mode: i32) KUserGroup {
         return .{ .ptr = qtc.KUserGroup_new6(@bitCast(mode)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq)
     ///
@@ -484,10 +608,14 @@ pub const KUserGroup = extern struct {
     ///
     /// ` group: KUserGroup `
     ///
-    pub fn OperatorAssign(self: KUserGroup, group: anytype) void {
+    pub fn operatorAssign(self: KUserGroup, group: anytype) void {
         comptime _ = @TypeOf(group)._is_KUserGroup;
         qtc.KUserGroup_OperatorAssign(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-eq-eq)
     ///
@@ -497,10 +625,14 @@ pub const KUserGroup = extern struct {
     ///
     /// ` group: KUserGroup `
     ///
-    pub fn OperatorEqual(self: KUserGroup, group: anytype) bool {
+    pub fn operatorEqual(self: KUserGroup, group: anytype) bool {
         comptime _ = @TypeOf(group)._is_KUserGroup;
         return qtc.KUserGroup_OperatorEqual(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#operator-not-eq)
     ///
@@ -510,10 +642,14 @@ pub const KUserGroup = extern struct {
     ///
     /// ` group: KUserGroup `
     ///
-    pub fn OperatorNotEqual(self: KUserGroup, group: anytype) bool {
+    pub fn operatorNotEqual(self: KUserGroup, group: anytype) bool {
         comptime _ = @TypeOf(group)._is_KUserGroup;
         return qtc.KUserGroup_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(group.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#isValid)
     ///
@@ -521,9 +657,13 @@ pub const KUserGroup = extern struct {
     ///
     /// ` self: KUserGroup `
     ///
-    pub fn IsValid(self: KUserGroup) bool {
+    pub fn isValid(self: KUserGroup) bool {
         return qtc.KUserGroup_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#name)
     ///
@@ -533,13 +673,17 @@ pub const KUserGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KUserGroup, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KUserGroup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KUserGroup_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUserGroup.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KUserGroup.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `users` instead
+    ///
+    pub const Users = users;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
@@ -549,15 +693,19 @@ pub const KUserGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Users(self: KUserGroup, allocator: std.mem.Allocator) []KUser {
+    pub fn users(self: KUserGroup, allocator: std.mem.Allocator) []KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.Users: Memory allocation failed");
-        const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.users: Memory allocation failed");
+        const _data_val: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `userNames` instead
+    ///
+    pub const UserNames = userNames;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
@@ -567,7 +715,7 @@ pub const KUserGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserNames(self: KUserGroup, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn userNames(self: KUserGroup, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -575,15 +723,19 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.UserNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.userNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.UserNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUserGroup.userNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allGroups` instead
+    ///
+    pub const AllGroups = allGroups;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
@@ -591,15 +743,19 @@ pub const KUserGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllGroups(allocator: std.mem.Allocator) []KUserGroup {
+    pub fn allGroups(allocator: std.mem.Allocator) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups();
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.AllGroups: Memory allocation failed");
-        const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.allGroups: Memory allocation failed");
+        const _data_val: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allGroupNames` instead
+    ///
+    pub const AllGroupNames = allGroupNames;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
@@ -607,7 +763,7 @@ pub const KUserGroup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllGroupNames(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allGroupNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -615,15 +771,19 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.AllGroupNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.allGroupNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.AllGroupNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUserGroup.allGroupNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `users1` instead
+    ///
+    pub const Users1 = users1;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#users)
     ///
@@ -635,15 +795,19 @@ pub const KUserGroup = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn Users1(self: KUserGroup, allocator: std.mem.Allocator, maxCount: u32) []KUser {
+    pub fn users1(self: KUserGroup, allocator: std.mem.Allocator, maxCount: u32) []KUser {
         const _arr: qtc.libqt_list = qtc.KUserGroup_Users1(@ptrCast(self.ptr), @bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.Users1: Memory allocation failed");
-        const _data: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUser, _arr.len) catch @panic("KUserGroup.users1: Memory allocation failed");
+        const _data_val: [*]QtC.KUser = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `userNames1` instead
+    ///
+    pub const UserNames1 = userNames1;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#userNames)
     ///
@@ -655,7 +819,7 @@ pub const KUserGroup = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn UserNames1(self: KUserGroup, allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
+    pub fn userNames1(self: KUserGroup, allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_UserNames1(@ptrCast(self.ptr), @bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -663,15 +827,19 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.UserNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.userNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.UserNames1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUserGroup.userNames1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allGroups1` instead
+    ///
+    pub const AllGroups1 = allGroups1;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroups)
     ///
@@ -681,15 +849,19 @@ pub const KUserGroup = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn AllGroups1(allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
+    pub fn allGroups1(allocator: std.mem.Allocator, maxCount: u32) []KUserGroup {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroups1(@bitCast(maxCount));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.AllGroups1: Memory allocation failed");
-        const _data: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KUserGroup, _arr.len) catch @panic("KUserGroup.allGroups1: Memory allocation failed");
+        const _data_val: [*]QtC.KUserGroup = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `allGroupNames1` instead
+    ///
+    pub const AllGroupNames1 = allGroupNames1;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#allGroupNames)
     ///
@@ -699,7 +871,7 @@ pub const KUserGroup = extern struct {
     ///
     /// ` maxCount: u32 `
     ///
-    pub fn AllGroupNames1(allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
+    pub fn allGroupNames1(allocator: std.mem.Allocator, maxCount: u32) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KUserGroup_AllGroupNames1(@bitCast(maxCount));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -707,29 +879,29 @@ pub const KUserGroup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.AllGroupNames1: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KUserGroup.allGroupNames1: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KUserGroup.AllGroupNames1: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KUserGroup.allGroupNames1: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kusergroup.html#dtor.KUserGroup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KUserGroup `
     ///
-    pub fn Delete(self: KUserGroup) void {
+    pub fn delete(self: KUserGroup) void {
         qtc.KUserGroup_Delete(@ptrCast(self.ptr));
     }
 };

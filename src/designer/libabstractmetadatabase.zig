@@ -26,11 +26,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
 
     pub const _is_QDesignerMetaDataBaseItemInterface = {};
 
-    /// New constructs a new QDesignerMetaDataBaseItemInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerMetaDataBaseItemInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerMetaDataBaseItemInterface object in C++ memory
+    ///
+    pub fn new() QDesignerMetaDataBaseItemInterface {
         return .{ .ptr = qtc.QDesignerMetaDataBaseItemInterface_new() };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#name)
     ///
@@ -40,13 +48,17 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerMetaDataBaseItemInterface_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseItemInterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseItemInterface.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onName` instead
+    ///
+    pub const OnName = onName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#name)
     ///
@@ -58,13 +70,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnName(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onName(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperName` instead
+    /// ### DEPRECATED: Use `superName` instead
     ///
-    pub const QBaseName = SuperName;
+    pub const SuperName = superName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#name)
     ///
@@ -76,13 +88,17 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperName(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn superName(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerMetaDataBaseItemInterface_SuperName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseItemInterface.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseItemInterface.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setName)
     ///
@@ -90,15 +106,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QDesignerMetaDataBaseItemInterface, name: []const u8) void {
+    pub fn setName(self: QDesignerMetaDataBaseItemInterface, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDesignerMetaDataBaseItemInterface_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onSetName` instead
+    ///
+    pub const OnSetName = onSetName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setName)
     ///
@@ -110,13 +130,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseItemInterface, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetName(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetName(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnSetName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetName` instead
+    /// ### DEPRECATED: Use `superSetName` instead
     ///
-    pub const QBaseSetName = SuperSetName;
+    pub const SuperSetName = superSetName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setName)
     ///
@@ -126,15 +146,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SuperSetName(self: QDesignerMetaDataBaseItemInterface, name: []const u8) void {
+    pub fn superSetName(self: QDesignerMetaDataBaseItemInterface, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDesignerMetaDataBaseItemInterface_SuperSetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `tabOrder` instead
+    ///
+    pub const TabOrder = tabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#tabOrder)
     ///
@@ -144,15 +168,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TabOrder(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []QWidget {
+    pub fn tabOrder(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QDesignerMetaDataBaseItemInterface_TabOrder(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerMetaDataBaseItemInterface.TabOrder: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerMetaDataBaseItemInterface.tabOrder: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onTabOrder` instead
+    ///
+    pub const OnTabOrder = onTabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#tabOrder)
     ///
@@ -170,13 +198,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` C ABI representation of []QWidget `
     ///
-    pub fn OnTabOrder(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onTabOrder(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnTabOrder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTabOrder` instead
+    /// ### DEPRECATED: Use `superTabOrder` instead
     ///
-    pub const QBaseTabOrder = SuperTabOrder;
+    pub const SuperTabOrder = superTabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#tabOrder)
     ///
@@ -188,15 +216,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperTabOrder(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []QWidget {
+    pub fn superTabOrder(self: QDesignerMetaDataBaseItemInterface, allocator: std.mem.Allocator) []QWidget {
         const _arr: qtc.libqt_list = qtc.QDesignerMetaDataBaseItemInterface_SuperTabOrder(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerMetaDataBaseItemInterface.TabOrder: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("QDesignerMetaDataBaseItemInterface.tabOrder: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setTabOrder)
     ///
@@ -204,15 +236,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` tabOrder: []QWidget `
+    /// ` _tabOrder: []QWidget `
     ///
-    pub fn SetTabOrder(self: QDesignerMetaDataBaseItemInterface, tabOrder: []QWidget) void {
+    pub fn setTabOrder(self: QDesignerMetaDataBaseItemInterface, _tabOrder: []QWidget) void {
         const tabOrder_list = qtc.libqt_list{
-            .len = tabOrder.len,
-            .data = @ptrCast(tabOrder.ptr),
+            .len = _tabOrder.len,
+            .data = @ptrCast(_tabOrder.ptr),
         };
         qtc.QDesignerMetaDataBaseItemInterface_SetTabOrder(@ptrCast(self.ptr), tabOrder_list);
     }
+
+    /// ### DEPRECATED: Use `onSetTabOrder` instead
+    ///
+    pub const OnSetTabOrder = onSetTabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setTabOrder)
     ///
@@ -224,13 +260,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseItemInterface, tabOrder: qtc.libqt_list ([]QWidget)) callconv(.c) void `
     ///
-    pub fn OnSetTabOrder(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSetTabOrder(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, qtc.libqt_list) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnSetTabOrder(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTabOrder` instead
+    /// ### DEPRECATED: Use `superSetTabOrder` instead
     ///
-    pub const QBaseSetTabOrder = SuperSetTabOrder;
+    pub const SuperSetTabOrder = superSetTabOrder;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setTabOrder)
     ///
@@ -240,15 +276,19 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    /// ` tabOrder: []QWidget `
+    /// ` _tabOrder: []QWidget `
     ///
-    pub fn SuperSetTabOrder(self: QDesignerMetaDataBaseItemInterface, tabOrder: []QWidget) void {
+    pub fn superSetTabOrder(self: QDesignerMetaDataBaseItemInterface, _tabOrder: []QWidget) void {
         const tabOrder_list = qtc.libqt_list{
-            .len = tabOrder.len,
-            .data = @ptrCast(tabOrder.ptr),
+            .len = _tabOrder.len,
+            .data = @ptrCast(_tabOrder.ptr),
         };
         qtc.QDesignerMetaDataBaseItemInterface_SuperSetTabOrder(@ptrCast(self.ptr), tabOrder_list);
     }
+
+    /// ### DEPRECATED: Use `enabled` instead
+    ///
+    pub const Enabled = enabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#enabled)
     ///
@@ -256,9 +296,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    pub fn Enabled(self: QDesignerMetaDataBaseItemInterface) bool {
+    pub fn enabled(self: QDesignerMetaDataBaseItemInterface) bool {
         return qtc.QDesignerMetaDataBaseItemInterface_Enabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnabled` instead
+    ///
+    pub const OnEnabled = onEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#enabled)
     ///
@@ -270,13 +314,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnEnabled(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onEnabled(self: QDesignerMetaDataBaseItemInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEnabled` instead
+    /// ### DEPRECATED: Use `superEnabled` instead
     ///
-    pub const QBaseEnabled = SuperEnabled;
+    pub const SuperEnabled = superEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#enabled)
     ///
@@ -286,9 +330,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    pub fn SuperEnabled(self: QDesignerMetaDataBaseItemInterface) bool {
+    pub fn superEnabled(self: QDesignerMetaDataBaseItemInterface) bool {
         return qtc.QDesignerMetaDataBaseItemInterface_SuperEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setEnabled)
     ///
@@ -298,9 +346,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetEnabled(self: QDesignerMetaDataBaseItemInterface, b: bool) void {
+    pub fn setEnabled(self: QDesignerMetaDataBaseItemInterface, b: bool) void {
         qtc.QDesignerMetaDataBaseItemInterface_SetEnabled(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onSetEnabled` instead
+    ///
+    pub const OnSetEnabled = onSetEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setEnabled)
     ///
@@ -312,13 +364,13 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseItemInterface, b: bool) callconv(.c) void `
     ///
-    pub fn OnSetEnabled(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, bool) callconv(.c) void) void {
+    pub fn onSetEnabled(self: QDesignerMetaDataBaseItemInterface, callback: *const fn (QDesignerMetaDataBaseItemInterface, bool) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseItemInterface_OnSetEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEnabled` instead
+    /// ### DEPRECATED: Use `superSetEnabled` instead
     ///
-    pub const QBaseSetEnabled = SuperSetEnabled;
+    pub const SuperSetEnabled = superSetEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#setEnabled)
     ///
@@ -330,23 +382,23 @@ pub const QDesignerMetaDataBaseItemInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperSetEnabled(self: QDesignerMetaDataBaseItemInterface, b: bool) void {
+    pub fn superSetEnabled(self: QDesignerMetaDataBaseItemInterface, b: bool) void {
         qtc.QDesignerMetaDataBaseItemInterface_SuperSetEnabled(@ptrCast(self.ptr), b);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseiteminterface.html#dtor.QDesignerMetaDataBaseItemInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerMetaDataBaseItemInterface `
     ///
-    pub fn Delete(self: QDesignerMetaDataBaseItemInterface) void {
+    pub fn delete(self: QDesignerMetaDataBaseItemInterface) void {
         qtc.QDesignerMetaDataBaseItemInterface_Delete(@ptrCast(self.ptr));
     }
 };
@@ -362,22 +414,34 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     pub const _is_QDesignerMetaDataBaseInterface = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDesignerMetaDataBaseInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerMetaDataBaseInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerMetaDataBaseInterface object in C++ memory
+    ///
+    pub fn new() QDesignerMetaDataBaseInterface {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_new() };
     }
 
-    /// New2 constructs a new QDesignerMetaDataBaseInterface object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDesignerMetaDataBaseInterface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QDesignerMetaDataBaseInterface {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QDesignerMetaDataBaseInterface {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -385,9 +449,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn MetaObject(self: QDesignerMetaDataBaseInterface) QMetaObject {
+    pub fn metaObject(self: QDesignerMetaDataBaseInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -399,13 +467,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDesignerMetaDataBaseInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -415,9 +483,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SuperMetaObject(self: QDesignerMetaDataBaseInterface) QMetaObject {
+    pub fn superMetaObject(self: QDesignerMetaDataBaseInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -425,10 +497,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDesignerMetaDataBaseInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDesignerMetaDataBaseInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerMetaDataBaseInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -438,13 +514,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDesignerMetaDataBaseInterface_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -454,10 +530,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDesignerMetaDataBaseInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDesignerMetaDataBaseInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerMetaDataBaseInterface_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -469,9 +549,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDesignerMetaDataBaseInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDesignerMetaDataBaseInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerMetaDataBaseInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -481,13 +565,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDesignerMetaDataBaseInterface_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -501,9 +585,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDesignerMetaDataBaseInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDesignerMetaDataBaseInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerMetaDataBaseInterface_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -513,14 +601,18 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#item)
     ///
@@ -530,10 +622,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn Item(self: QDesignerMetaDataBaseInterface, object: anytype) QDesignerMetaDataBaseItemInterface {
+    pub fn item(self: QDesignerMetaDataBaseInterface, object: anytype) QDesignerMetaDataBaseItemInterface {
         comptime _ = @TypeOf(object)._is_QObject;
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_Item(@ptrCast(self.ptr), @ptrCast(object.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onItem` instead
+    ///
+    pub const OnItem = onItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#item)
     ///
@@ -545,13 +641,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, object: QObject) callconv(.c) QDesignerMetaDataBaseItemInterface `
     ///
-    pub fn OnItem(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) QDesignerMetaDataBaseItemInterface) void {
+    pub fn onItem(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) QDesignerMetaDataBaseItemInterface) void {
         qtc.QDesignerMetaDataBaseInterface_OnItem(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperItem` instead
+    /// ### DEPRECATED: Use `superItem` instead
     ///
-    pub const QBaseItem = SuperItem;
+    pub const SuperItem = superItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#item)
     ///
@@ -563,11 +659,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SuperItem(self: QDesignerMetaDataBaseInterface, object: anytype) QDesignerMetaDataBaseItemInterface {
+    pub fn superItem(self: QDesignerMetaDataBaseInterface, object: anytype) QDesignerMetaDataBaseItemInterface {
         comptime _ = @TypeOf(object)._is_QObject;
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_SuperItem(@ptrCast(self.ptr), @ptrCast(object.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `add` instead
+    ///
+    pub const Add = add;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#add)
     ///
     /// ## Parameter(s):
@@ -576,11 +676,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn Add(self: QDesignerMetaDataBaseInterface, object: anytype) void {
+    pub fn add(self: QDesignerMetaDataBaseInterface, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QDesignerMetaDataBaseInterface_Add(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAdd` instead
+    ///
+    pub const OnAdd = onAdd;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#add)
     ///
     /// Allows for overriding the related default method
@@ -591,13 +695,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, object: QObject) callconv(.c) void `
     ///
-    pub fn OnAdd(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
+    pub fn onAdd(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnAdd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAdd` instead
+    /// ### DEPRECATED: Use `superAdd` instead
     ///
-    pub const QBaseAdd = SuperAdd;
+    pub const SuperAdd = superAdd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#add)
     ///
@@ -609,11 +713,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SuperAdd(self: QDesignerMetaDataBaseInterface, object: anytype) void {
+    pub fn superAdd(self: QDesignerMetaDataBaseInterface, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QDesignerMetaDataBaseInterface_SuperAdd(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
 
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#remove)
     ///
     /// ## Parameter(s):
@@ -622,10 +730,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn Remove(self: QDesignerMetaDataBaseInterface, object: anytype) void {
+    pub fn remove(self: QDesignerMetaDataBaseInterface, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QDesignerMetaDataBaseInterface_Remove(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRemove` instead
+    ///
+    pub const OnRemove = onRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#remove)
     ///
@@ -637,13 +749,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, object: QObject) callconv(.c) void `
     ///
-    pub fn OnRemove(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
+    pub fn onRemove(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnRemove(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemove` instead
+    /// ### DEPRECATED: Use `superRemove` instead
     ///
-    pub const QBaseRemove = SuperRemove;
+    pub const SuperRemove = superRemove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#remove)
     ///
@@ -655,10 +767,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn SuperRemove(self: QDesignerMetaDataBaseInterface, object: anytype) void {
+    pub fn superRemove(self: QDesignerMetaDataBaseInterface, object: anytype) void {
         comptime _ = @TypeOf(object)._is_QObject;
         qtc.QDesignerMetaDataBaseInterface_SuperRemove(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `objects` instead
+    ///
+    pub const Objects = objects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#objects)
     ///
@@ -668,15 +784,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Objects(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn objects(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QDesignerMetaDataBaseInterface_Objects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.Objects: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.objects: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onObjects` instead
+    ///
+    pub const OnObjects = onObjects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#objects)
     ///
@@ -694,13 +814,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` C ABI representation of []QObject `
     ///
-    pub fn OnObjects(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onObjects(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QDesignerMetaDataBaseInterface_OnObjects(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperObjects` instead
+    /// ### DEPRECATED: Use `superObjects` instead
     ///
-    pub const QBaseObjects = SuperObjects;
+    pub const SuperObjects = superObjects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#objects)
     ///
@@ -712,15 +832,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperObjects(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn superObjects(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QDesignerMetaDataBaseInterface_SuperObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.Objects: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.objects: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `core` instead
+    ///
+    pub const Core = core;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#core)
     ///
@@ -728,9 +852,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Core(self: QDesignerMetaDataBaseInterface) QDesignerFormEditorInterface {
+    pub fn core(self: QDesignerMetaDataBaseInterface) QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_Core(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCore` instead
+    ///
+    pub const OnCore = onCore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#core)
     ///
@@ -742,13 +870,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QDesignerFormEditorInterface `
     ///
-    pub fn OnCore(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
+    pub fn onCore(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QDesignerFormEditorInterface) void {
         qtc.QDesignerMetaDataBaseInterface_OnCore(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCore` instead
+    /// ### DEPRECATED: Use `superCore` instead
     ///
-    pub const QBaseCore = SuperCore;
+    pub const SuperCore = superCore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#core)
     ///
@@ -758,9 +886,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SuperCore(self: QDesignerMetaDataBaseInterface) QDesignerFormEditorInterface {
+    pub fn superCore(self: QDesignerMetaDataBaseInterface) QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_SuperCore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#changed)
     ///
@@ -768,9 +900,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Changed(self: QDesignerMetaDataBaseInterface) void {
+    pub fn changed(self: QDesignerMetaDataBaseInterface) void {
         qtc.QDesignerMetaDataBaseInterface_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#changed)
     ///
@@ -780,9 +916,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface) callconv(.c) void `
     ///
-    pub fn OnChanged(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface) callconv(.c) void) void {
+    pub fn onChanged(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -794,15 +934,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -816,15 +960,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -836,13 +984,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMetaDataBaseInterface.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -852,15 +1004,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDesignerMetaDataBaseInterface, name: []const u8) void {
+    pub fn setObjectName(self: QDesignerMetaDataBaseInterface, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -870,9 +1026,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn IsWidgetType(self: QDesignerMetaDataBaseInterface) bool {
+    pub fn isWidgetType(self: QDesignerMetaDataBaseInterface) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -882,9 +1042,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn IsWindowType(self: QDesignerMetaDataBaseInterface) bool {
+    pub fn isWindowType(self: QDesignerMetaDataBaseInterface) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -894,9 +1058,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn IsQuickItemType(self: QDesignerMetaDataBaseInterface) bool {
+    pub fn isQuickItemType(self: QDesignerMetaDataBaseInterface) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -906,9 +1074,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SignalsBlocked(self: QDesignerMetaDataBaseInterface) bool {
+    pub fn signalsBlocked(self: QDesignerMetaDataBaseInterface) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -920,9 +1092,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDesignerMetaDataBaseInterface, b: bool) bool {
+    pub fn blockSignals(self: QDesignerMetaDataBaseInterface, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -932,9 +1108,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Thread(self: QDesignerMetaDataBaseInterface) QThread {
+    pub fn thread(self: QDesignerMetaDataBaseInterface) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -944,12 +1124,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDesignerMetaDataBaseInterface, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDesignerMetaDataBaseInterface, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -961,9 +1145,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDesignerMetaDataBaseInterface, interval: i32) i32 {
+    pub fn startTimer(self: QDesignerMetaDataBaseInterface, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -975,9 +1163,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDesignerMetaDataBaseInterface, time: i64) i32 {
+    pub fn startTimer2(self: QDesignerMetaDataBaseInterface, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -989,9 +1181,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDesignerMetaDataBaseInterface, id: i32) void {
+    pub fn killTimer(self: QDesignerMetaDataBaseInterface, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1003,9 +1199,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDesignerMetaDataBaseInterface, id: i32) void {
+    pub fn killTimer2(self: QDesignerMetaDataBaseInterface, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1017,15 +1217,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1035,12 +1239,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDesignerMetaDataBaseInterface, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDesignerMetaDataBaseInterface, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1052,10 +1260,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDesignerMetaDataBaseInterface, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDesignerMetaDataBaseInterface, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1067,10 +1279,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDesignerMetaDataBaseInterface, obj: anytype) void {
+    pub fn removeEventFilter(self: QDesignerMetaDataBaseInterface, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1078,7 +1294,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1086,13 +1302,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1100,7 +1320,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1108,13 +1328,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1124,18 +1348,22 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDesignerMetaDataBaseInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDesignerMetaDataBaseInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1143,7 +1371,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1151,13 +1379,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1165,7 +1397,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1173,13 +1405,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1189,9 +1425,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Disconnect3(self: QDesignerMetaDataBaseInterface) bool {
+    pub fn disconnect3(self: QDesignerMetaDataBaseInterface) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1203,10 +1443,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDesignerMetaDataBaseInterface, receiver: anytype) bool {
+    pub fn disconnect4(self: QDesignerMetaDataBaseInterface, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1216,10 +1460,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1229,9 +1477,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn DumpObjectTree(self: QDesignerMetaDataBaseInterface) void {
+    pub fn dumpObjectTree(self: QDesignerMetaDataBaseInterface) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1241,9 +1493,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn DumpObjectInfo(self: QDesignerMetaDataBaseInterface) void {
+    pub fn dumpObjectInfo(self: QDesignerMetaDataBaseInterface) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1253,15 +1509,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDesignerMetaDataBaseInterface, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: QDesignerMetaDataBaseInterface, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1271,12 +1531,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: QDesignerMetaDataBaseInterface, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: QDesignerMetaDataBaseInterface, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1288,7 +1552,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDesignerMetaDataBaseInterface, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1296,27 +1560,19 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMetaDataBaseInterface.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMetaDataBaseInterface.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMetaDataBaseInterface.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerMetaDataBaseInterface `
-    ///
-    pub fn BindingStorage(self: QDesignerMetaDataBaseInterface) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1326,9 +1582,29 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn BindingStorage2(self: QDesignerMetaDataBaseInterface) QBindingStorage {
+    pub fn bindingStorage(self: QDesignerMetaDataBaseInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerMetaDataBaseInterface `
+    ///
+    pub fn bindingStorage2(self: QDesignerMetaDataBaseInterface) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1338,9 +1614,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Destroyed(self: QDesignerMetaDataBaseInterface) void {
+    pub fn destroyed(self: QDesignerMetaDataBaseInterface) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1352,9 +1632,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1364,9 +1648,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Parent(self: QDesignerMetaDataBaseInterface) QObject {
+    pub fn parent(self: QDesignerMetaDataBaseInterface) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1378,10 +1666,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDesignerMetaDataBaseInterface, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDesignerMetaDataBaseInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1391,9 +1683,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn DeleteLater(self: QDesignerMetaDataBaseInterface) void {
+    pub fn deleteLater(self: QDesignerMetaDataBaseInterface) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1407,9 +1703,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDesignerMetaDataBaseInterface, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDesignerMetaDataBaseInterface, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1423,9 +1723,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDesignerMetaDataBaseInterface, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDesignerMetaDataBaseInterface, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1433,7 +1737,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1443,13 +1747,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1457,7 +1765,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1467,13 +1775,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1483,7 +1795,7 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1491,12 +1803,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDesignerMetaDataBaseInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDesignerMetaDataBaseInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1508,10 +1824,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1525,11 +1845,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1545,13 +1869,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1564,11 +1892,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDesignerMetaDataBaseInterface, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDesignerMetaDataBaseInterface, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1580,10 +1912,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDesignerMetaDataBaseInterface, param1: anytype) void {
+    pub fn destroyed1(self: QDesignerMetaDataBaseInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1595,9 +1931,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1609,16 +1949,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDesignerMetaDataBaseInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerMetaDataBaseInterface_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDesignerMetaDataBaseInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerMetaDataBaseInterface_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1630,12 +1970,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDesignerMetaDataBaseInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerMetaDataBaseInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerMetaDataBaseInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1649,9 +1993,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QEvent) callconv(.c) bool) void {
         qtc.QDesignerMetaDataBaseInterface_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1665,17 +2013,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDesignerMetaDataBaseInterface, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDesignerMetaDataBaseInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerMetaDataBaseInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerMetaDataBaseInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1689,13 +2037,17 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDesignerMetaDataBaseInterface, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDesignerMetaDataBaseInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerMetaDataBaseInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerMetaDataBaseInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1709,9 +2061,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDesignerMetaDataBaseInterface_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1723,16 +2079,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerMetaDataBaseInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerMetaDataBaseInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1744,12 +2100,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerMetaDataBaseInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerMetaDataBaseInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1763,9 +2123,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QTimerEvent) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1777,16 +2141,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerMetaDataBaseInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerMetaDataBaseInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1798,12 +2162,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerMetaDataBaseInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerMetaDataBaseInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1817,9 +2185,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QChildEvent) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1831,16 +2203,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerMetaDataBaseInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerMetaDataBaseInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1852,12 +2224,16 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDesignerMetaDataBaseInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerMetaDataBaseInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDesignerMetaDataBaseInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerMetaDataBaseInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1871,9 +2247,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QEvent) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1887,14 +2267,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
+    pub fn connectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerMetaDataBaseInterface_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1908,11 +2288,15 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
+    pub fn superConnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerMetaDataBaseInterface_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1925,9 +2309,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1941,14 +2329,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
+    pub fn disconnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerMetaDataBaseInterface_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1962,10 +2350,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDesignerMetaDataBaseInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerMetaDataBaseInterface_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1979,9 +2371,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerMetaDataBaseInterface_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1993,13 +2389,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Sender(self: QDesignerMetaDataBaseInterface) QObject {
+    pub fn sender(self: QDesignerMetaDataBaseInterface) QObject {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2011,9 +2407,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SuperSender(self: QDesignerMetaDataBaseInterface) QObject {
+    pub fn superSender(self: QDesignerMetaDataBaseInterface) QObject {
         return .{ .ptr = qtc.QDesignerMetaDataBaseInterface_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2027,9 +2427,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDesignerMetaDataBaseInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2041,13 +2445,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SenderSignalIndex(self: QDesignerMetaDataBaseInterface) i32 {
+    pub fn senderSignalIndex(self: QDesignerMetaDataBaseInterface) i32 {
         return qtc.QDesignerMetaDataBaseInterface_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2059,9 +2463,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SuperSenderSignalIndex(self: QDesignerMetaDataBaseInterface) i32 {
+    pub fn superSenderSignalIndex(self: QDesignerMetaDataBaseInterface) i32 {
         return qtc.QDesignerMetaDataBaseInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2075,9 +2483,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDesignerMetaDataBaseInterface, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerMetaDataBaseInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2091,14 +2503,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerMetaDataBaseInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2112,10 +2524,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDesignerMetaDataBaseInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerMetaDataBaseInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2129,9 +2545,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDesignerMetaDataBaseInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2145,14 +2565,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDesignerMetaDataBaseInterface, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDesignerMetaDataBaseInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerMetaDataBaseInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2166,10 +2586,14 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDesignerMetaDataBaseInterface, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDesignerMetaDataBaseInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerMetaDataBaseInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2183,9 +2607,13 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, QMetaMethod) callconv(.c) bool) void {
         qtc.QDesignerMetaDataBaseInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2199,23 +2627,23 @@ pub const QDesignerMetaDataBaseInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMetaDataBaseInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDesignerMetaDataBaseInterface, callback: *const fn (QDesignerMetaDataBaseInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermetadatabaseinterface.html#dtor.QDesignerMetaDataBaseInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerMetaDataBaseInterface `
     ///
-    pub fn Delete(self: QDesignerMetaDataBaseInterface) void {
+    pub fn delete(self: QDesignerMetaDataBaseInterface) void {
         qtc.QDesignerMetaDataBaseInterface_Delete(@ptrCast(self.ptr));
     }
 };

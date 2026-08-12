@@ -13,22 +13,34 @@ pub const QScrollerProperties = extern struct {
 
     pub const _is_QScrollerProperties = {};
 
-    /// New constructs a new QScrollerProperties object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QScrollerProperties {
+    pub const New = new;
+
+    /// Allocate a new QScrollerProperties object in C++ memory
+    ///
+    pub fn new() QScrollerProperties {
         return .{ .ptr = qtc.QScrollerProperties_new() };
     }
 
-    /// New2 constructs a new QScrollerProperties object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QScrollerProperties object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` sp: QScrollerProperties `
     ///
-    pub fn New2(sp: anytype) QScrollerProperties {
+    pub fn new2(sp: anytype) QScrollerProperties {
         comptime _ = @TypeOf(sp)._is_QScrollerProperties;
         return .{ .ptr = qtc.QScrollerProperties_new2(@ptrCast(sp.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorAssign(self: QScrollerProperties, sp: anytype) void {
+    pub fn operatorAssign(self: QScrollerProperties, sp: anytype) void {
         comptime _ = @TypeOf(sp)._is_QScrollerProperties;
         qtc.QScrollerProperties_OperatorAssign(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-eq-eq)
     ///
@@ -51,10 +67,14 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorEqual(self: QScrollerProperties, sp: anytype) bool {
+    pub fn operatorEqual(self: QScrollerProperties, sp: anytype) bool {
         comptime _ = @TypeOf(sp)._is_QScrollerProperties;
         return qtc.QScrollerProperties_OperatorEqual(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#operator-not-eq)
     ///
@@ -64,10 +84,14 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` sp: QScrollerProperties `
     ///
-    pub fn OperatorNotEqual(self: QScrollerProperties, sp: anytype) bool {
+    pub fn operatorNotEqual(self: QScrollerProperties, sp: anytype) bool {
         comptime _ = @TypeOf(sp)._is_QScrollerProperties;
         return qtc.QScrollerProperties_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(sp.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefaultScrollerProperties` instead
+    ///
+    pub const SetDefaultScrollerProperties = setDefaultScrollerProperties;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setDefaultScrollerProperties)
     ///
@@ -75,16 +99,24 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` sp: QScrollerProperties `
     ///
-    pub fn SetDefaultScrollerProperties(sp: anytype) void {
+    pub fn setDefaultScrollerProperties(sp: anytype) void {
         comptime _ = @TypeOf(sp)._is_QScrollerProperties;
         qtc.QScrollerProperties_SetDefaultScrollerProperties(@ptrCast(sp.ptr));
     }
 
+    /// ### DEPRECATED: Use `unsetDefaultScrollerProperties` instead
+    ///
+    pub const UnsetDefaultScrollerProperties = unsetDefaultScrollerProperties;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#unsetDefaultScrollerProperties)
     ///
-    pub fn UnsetDefaultScrollerProperties() void {
+    pub fn unsetDefaultScrollerProperties() void {
         qtc.QScrollerProperties_UnsetDefaultScrollerProperties();
     }
+
+    /// ### DEPRECATED: Use `scrollMetric` instead
+    ///
+    pub const ScrollMetric = scrollMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#scrollMetric)
     ///
@@ -94,9 +126,13 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` metric: qscrollerproperties_enums.ScrollMetric `
     ///
-    pub fn ScrollMetric(self: QScrollerProperties, metric: i32) QVariant {
+    pub fn scrollMetric(self: QScrollerProperties, metric: i32) QVariant {
         return .{ .ptr = qtc.QScrollerProperties_ScrollMetric(@ptrCast(self.ptr), @bitCast(metric)) };
     }
+
+    /// ### DEPRECATED: Use `setScrollMetric` instead
+    ///
+    pub const SetScrollMetric = setScrollMetric;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#setScrollMetric)
     ///
@@ -108,24 +144,24 @@ pub const QScrollerProperties = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetScrollMetric(self: QScrollerProperties, metric: i32, value: anytype) void {
+    pub fn setScrollMetric(self: QScrollerProperties, metric: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QScrollerProperties_SetScrollMetric(@ptrCast(self.ptr), @bitCast(metric), @ptrCast(value.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qscrollerproperties.html#dtor.QScrollerProperties)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QScrollerProperties `
     ///
-    pub fn Delete(self: QScrollerProperties) void {
+    pub fn delete(self: QScrollerProperties) void {
         qtc.QScrollerProperties_Delete(@ptrCast(self.ptr));
     }
 };

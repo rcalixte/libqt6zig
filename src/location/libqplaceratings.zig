@@ -11,22 +11,34 @@ pub const QPlaceRatings = extern struct {
 
     pub const _is_QPlaceRatings = {};
 
-    /// New constructs a new QPlaceRatings object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceRatings {
+    pub const New = new;
+
+    /// Allocate a new QPlaceRatings object in C++ memory
+    ///
+    pub fn new() QPlaceRatings {
         return .{ .ptr = qtc.QPlaceRatings_new() };
     }
 
-    /// New2 constructs a new QPlaceRatings object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceRatings object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceRatings `
     ///
-    pub fn New2(other: anytype) QPlaceRatings {
+    pub fn new2(other: anytype) QPlaceRatings {
         comptime _ = @TypeOf(other)._is_QPlaceRatings;
         return .{ .ptr = qtc.QPlaceRatings_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#operator-eq)
     ///
@@ -36,10 +48,14 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` other: QPlaceRatings `
     ///
-    pub fn OperatorAssign(self: QPlaceRatings, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceRatings, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceRatings;
         qtc.QPlaceRatings_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#swap)
     ///
@@ -49,10 +65,14 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` other: QPlaceRatings `
     ///
-    pub fn Swap(self: QPlaceRatings, other: anytype) void {
+    pub fn swap(self: QPlaceRatings, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceRatings;
         qtc.QPlaceRatings_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `average` instead
+    ///
+    pub const Average = average;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#average)
     ///
@@ -60,9 +80,13 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    pub fn Average(self: QPlaceRatings) f64 {
+    pub fn average(self: QPlaceRatings) f64 {
         return qtc.QPlaceRatings_Average(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAverage` instead
+    ///
+    pub const SetAverage = setAverage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#setAverage)
     ///
@@ -70,11 +94,15 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    /// ` average: f64 `
+    /// ` _average: f64 `
     ///
-    pub fn SetAverage(self: QPlaceRatings, average: f64) void {
-        qtc.QPlaceRatings_SetAverage(@ptrCast(self.ptr), @bitCast(average));
+    pub fn setAverage(self: QPlaceRatings, _average: f64) void {
+        qtc.QPlaceRatings_SetAverage(@ptrCast(self.ptr), @bitCast(_average));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#count)
     ///
@@ -82,9 +110,13 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    pub fn Count(self: QPlaceRatings) i32 {
+    pub fn count(self: QPlaceRatings) i32 {
         return qtc.QPlaceRatings_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCount` instead
+    ///
+    pub const SetCount = setCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#setCount)
     ///
@@ -92,11 +124,15 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    /// ` count: i32 `
+    /// ` _count: i32 `
     ///
-    pub fn SetCount(self: QPlaceRatings, count: i32) void {
-        qtc.QPlaceRatings_SetCount(@ptrCast(self.ptr), @bitCast(count));
+    pub fn setCount(self: QPlaceRatings, _count: i32) void {
+        qtc.QPlaceRatings_SetCount(@ptrCast(self.ptr), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#maximum)
     ///
@@ -104,9 +140,13 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    pub fn Maximum(self: QPlaceRatings) f64 {
+    pub fn maximum(self: QPlaceRatings) f64 {
         return qtc.QPlaceRatings_Maximum(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#setMaximum)
     ///
@@ -116,9 +156,13 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` max: f64 `
     ///
-    pub fn SetMaximum(self: QPlaceRatings, max: f64) void {
+    pub fn setMaximum(self: QPlaceRatings, max: f64) void {
         qtc.QPlaceRatings_SetMaximum(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#isEmpty)
     ///
@@ -126,23 +170,23 @@ pub const QPlaceRatings = extern struct {
     ///
     /// ` self: QPlaceRatings `
     ///
-    pub fn IsEmpty(self: QPlaceRatings) bool {
+    pub fn isEmpty(self: QPlaceRatings) bool {
         return qtc.QPlaceRatings_IsEmpty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceratings.html#dtor.QPlaceRatings)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceRatings `
     ///
-    pub fn Delete(self: QPlaceRatings) void {
+    pub fn delete(self: QPlaceRatings) void {
         qtc.QPlaceRatings_Delete(@ptrCast(self.ptr));
     }
 };

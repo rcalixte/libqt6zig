@@ -81,35 +81,51 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QDesignerWidgetBoxInterface object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QDesignerWidgetBoxInterface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QDesignerWidgetBoxInterface {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QDesignerWidgetBoxInterface {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QDesignerWidgetBoxInterface object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QDesignerWidgetBoxInterface {
+    pub const New2 = new2;
+
+    /// Allocate a new QDesignerWidgetBoxInterface object in C++ memory
+    ///
+    pub fn new2() QDesignerWidgetBoxInterface {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_new2() };
     }
 
-    /// New3 constructs a new QDesignerWidgetBoxInterface object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDesignerWidgetBoxInterface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn New3(parent: anytype, flags: i32) QDesignerWidgetBoxInterface {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_new3(@ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn new3(_parent: anytype, flags: i32) QDesignerWidgetBoxInterface {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QDesignerWidgetBoxInterface_new3(@ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,9 +133,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MetaObject(self: QDesignerWidgetBoxInterface) QMetaObject {
+    pub fn metaObject(self: QDesignerWidgetBoxInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -131,13 +151,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDesignerWidgetBoxInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -147,9 +167,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperMetaObject(self: QDesignerWidgetBoxInterface) QMetaObject {
+    pub fn superMetaObject(self: QDesignerWidgetBoxInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -157,10 +181,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDesignerWidgetBoxInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDesignerWidgetBoxInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerWidgetBoxInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -170,13 +198,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDesignerWidgetBoxInterface_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -186,10 +214,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDesignerWidgetBoxInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDesignerWidgetBoxInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerWidgetBoxInterface_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -201,9 +233,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDesignerWidgetBoxInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDesignerWidgetBoxInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerWidgetBoxInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -213,13 +249,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -233,9 +269,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDesignerWidgetBoxInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDesignerWidgetBoxInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -245,14 +285,18 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `categoryCount` instead
+    ///
+    pub const CategoryCount = categoryCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#categoryCount)
     ///
@@ -260,9 +304,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn CategoryCount(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn categoryCount(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_CategoryCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCategoryCount` instead
+    ///
+    pub const OnCategoryCount = onCategoryCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#categoryCount)
     ///
@@ -274,13 +322,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCategoryCount(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCategoryCount(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnCategoryCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCategoryCount` instead
+    /// ### DEPRECATED: Use `superCategoryCount` instead
     ///
-    pub const QBaseCategoryCount = SuperCategoryCount;
+    pub const SuperCategoryCount = superCategoryCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#categoryCount)
     ///
@@ -290,9 +338,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperCategoryCount(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn superCategoryCount(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperCategoryCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `category` instead
+    ///
+    pub const Category = category;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#category)
     ///
@@ -302,9 +354,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn Category(self: QDesignerWidgetBoxInterface, cat_idx: i32) QDesignerWidgetBoxInterface__Category {
+    pub fn category(self: QDesignerWidgetBoxInterface, cat_idx: i32) QDesignerWidgetBoxInterface__Category {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_Category(@ptrCast(self.ptr), @bitCast(cat_idx)) };
     }
+
+    /// ### DEPRECATED: Use `onCategory` instead
+    ///
+    pub const OnCategory = onCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#category)
     ///
@@ -318,13 +374,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QDesignerWidgetBoxInterface__Category) void {
+    pub fn onCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QDesignerWidgetBoxInterface__Category) void {
         qtc.QDesignerWidgetBoxInterface_OnCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCategory` instead
+    /// ### DEPRECATED: Use `superCategory` instead
     ///
-    pub const QBaseCategory = SuperCategory;
+    pub const SuperCategory = superCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#category)
     ///
@@ -336,9 +392,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn SuperCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) QDesignerWidgetBoxInterface__Category {
+    pub fn superCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) QDesignerWidgetBoxInterface__Category {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperCategory(@ptrCast(self.ptr), @bitCast(cat_idx)) };
     }
+
+    /// ### DEPRECATED: Use `addCategory` instead
+    ///
+    pub const AddCategory = addCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addCategory)
     ///
@@ -348,10 +408,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn AddCategory(self: QDesignerWidgetBoxInterface, cat: anytype) void {
+    pub fn addCategory(self: QDesignerWidgetBoxInterface, cat: anytype) void {
         comptime _ = @TypeOf(cat)._is_QDesignerWidgetBoxInterface__Category;
         qtc.QDesignerWidgetBoxInterface_AddCategory(@ptrCast(self.ptr), @ptrCast(cat.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddCategory` instead
+    ///
+    pub const OnAddCategory = onAddCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addCategory)
     ///
@@ -363,13 +427,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat: QDesignerWidgetBoxInterface__Category) callconv(.c) void `
     ///
-    pub fn OnAddCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDesignerWidgetBoxInterface__Category) callconv(.c) void) void {
+    pub fn onAddCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDesignerWidgetBoxInterface__Category) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnAddCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddCategory` instead
+    /// ### DEPRECATED: Use `superAddCategory` instead
     ///
-    pub const QBaseAddCategory = SuperAddCategory;
+    pub const SuperAddCategory = superAddCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addCategory)
     ///
@@ -381,10 +445,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn SuperAddCategory(self: QDesignerWidgetBoxInterface, cat: anytype) void {
+    pub fn superAddCategory(self: QDesignerWidgetBoxInterface, cat: anytype) void {
         comptime _ = @TypeOf(cat)._is_QDesignerWidgetBoxInterface__Category;
         qtc.QDesignerWidgetBoxInterface_SuperAddCategory(@ptrCast(self.ptr), @ptrCast(cat.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCategory` instead
+    ///
+    pub const RemoveCategory = removeCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeCategory)
     ///
@@ -394,9 +462,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn RemoveCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) void {
+    pub fn removeCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) void {
         qtc.QDesignerWidgetBoxInterface_RemoveCategory(@ptrCast(self.ptr), @bitCast(cat_idx));
     }
+
+    /// ### DEPRECATED: Use `onRemoveCategory` instead
+    ///
+    pub const OnRemoveCategory = onRemoveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeCategory)
     ///
@@ -408,13 +480,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32) callconv(.c) void `
     ///
-    pub fn OnRemoveCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) void) void {
+    pub fn onRemoveCategory(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnRemoveCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveCategory` instead
+    /// ### DEPRECATED: Use `superRemoveCategory` instead
     ///
-    pub const QBaseRemoveCategory = SuperRemoveCategory;
+    pub const SuperRemoveCategory = superRemoveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeCategory)
     ///
@@ -426,9 +498,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn SuperRemoveCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) void {
+    pub fn superRemoveCategory(self: QDesignerWidgetBoxInterface, cat_idx: i32) void {
         qtc.QDesignerWidgetBoxInterface_SuperRemoveCategory(@ptrCast(self.ptr), @bitCast(cat_idx));
     }
+
+    /// ### DEPRECATED: Use `widgetCount` instead
+    ///
+    pub const WidgetCount = widgetCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widgetCount)
     ///
@@ -438,9 +514,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn WidgetCount(self: QDesignerWidgetBoxInterface, cat_idx: i32) i32 {
+    pub fn widgetCount(self: QDesignerWidgetBoxInterface, cat_idx: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_WidgetCount(@ptrCast(self.ptr), @bitCast(cat_idx));
     }
+
+    /// ### DEPRECATED: Use `onWidgetCount` instead
+    ///
+    pub const OnWidgetCount = onWidgetCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widgetCount)
     ///
@@ -452,13 +532,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32) callconv(.c) i32 `
     ///
-    pub fn OnWidgetCount(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
+    pub fn onWidgetCount(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnWidgetCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWidgetCount` instead
+    /// ### DEPRECATED: Use `superWidgetCount` instead
     ///
-    pub const QBaseWidgetCount = SuperWidgetCount;
+    pub const SuperWidgetCount = superWidgetCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widgetCount)
     ///
@@ -470,9 +550,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` cat_idx: i32 `
     ///
-    pub fn SuperWidgetCount(self: QDesignerWidgetBoxInterface, cat_idx: i32) i32 {
+    pub fn superWidgetCount(self: QDesignerWidgetBoxInterface, cat_idx: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperWidgetCount(@ptrCast(self.ptr), @bitCast(cat_idx));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widget)
     ///
@@ -484,9 +568,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt_idx: i32 `
     ///
-    pub fn Widget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) QDesignerWidgetBoxInterface__Widget {
+    pub fn widget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) QDesignerWidgetBoxInterface__Widget {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_Widget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx)) };
     }
+
+    /// ### DEPRECATED: Use `onWidget` instead
+    ///
+    pub const OnWidget = onWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widget)
     ///
@@ -500,13 +588,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) QDesignerWidgetBoxInterface__Widget) void {
+    pub fn onWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) QDesignerWidgetBoxInterface__Widget) void {
         qtc.QDesignerWidgetBoxInterface_OnWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWidget` instead
+    /// ### DEPRECATED: Use `superWidget` instead
     ///
-    pub const QBaseWidget = SuperWidget;
+    pub const SuperWidget = superWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#widget)
     ///
@@ -520,9 +608,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt_idx: i32 `
     ///
-    pub fn SuperWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) QDesignerWidgetBoxInterface__Widget {
+    pub fn superWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) QDesignerWidgetBoxInterface__Widget {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx)) };
     }
+
+    /// ### DEPRECATED: Use `addWidget` instead
+    ///
+    pub const AddWidget = addWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addWidget)
     ///
@@ -534,10 +626,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn AddWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: anytype) void {
+    pub fn addWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: anytype) void {
         comptime _ = @TypeOf(wgt)._is_QDesignerWidgetBoxInterface__Widget;
         qtc.QDesignerWidgetBoxInterface_AddWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @ptrCast(wgt.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddWidget` instead
+    ///
+    pub const OnAddWidget = onAddWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addWidget)
     ///
@@ -549,13 +645,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: QDesignerWidgetBoxInterface__Widget) callconv(.c) void `
     ///
-    pub fn OnAddWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, QDesignerWidgetBoxInterface__Widget) callconv(.c) void) void {
+    pub fn onAddWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, QDesignerWidgetBoxInterface__Widget) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnAddWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddWidget` instead
+    /// ### DEPRECATED: Use `superAddWidget` instead
     ///
-    pub const QBaseAddWidget = SuperAddWidget;
+    pub const SuperAddWidget = superAddWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#addWidget)
     ///
@@ -569,10 +665,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn SuperAddWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: anytype) void {
+    pub fn superAddWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt: anytype) void {
         comptime _ = @TypeOf(wgt)._is_QDesignerWidgetBoxInterface__Widget;
         qtc.QDesignerWidgetBoxInterface_SuperAddWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @ptrCast(wgt.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeWidget` instead
+    ///
+    pub const RemoveWidget = removeWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeWidget)
     ///
@@ -584,9 +684,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt_idx: i32 `
     ///
-    pub fn RemoveWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) void {
+    pub fn removeWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) void {
         qtc.QDesignerWidgetBoxInterface_RemoveWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx));
     }
+
+    /// ### DEPRECATED: Use `onRemoveWidget` instead
+    ///
+    pub const OnRemoveWidget = onRemoveWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeWidget)
     ///
@@ -598,13 +702,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) callconv(.c) void `
     ///
-    pub fn OnRemoveWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) void) void {
+    pub fn onRemoveWidget(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnRemoveWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveWidget` instead
+    /// ### DEPRECATED: Use `superRemoveWidget` instead
     ///
-    pub const QBaseRemoveWidget = SuperRemoveWidget;
+    pub const SuperRemoveWidget = superRemoveWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#removeWidget)
     ///
@@ -618,9 +722,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` wgt_idx: i32 `
     ///
-    pub fn SuperRemoveWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) void {
+    pub fn superRemoveWidget(self: QDesignerWidgetBoxInterface, cat_idx: i32, wgt_idx: i32) void {
         qtc.QDesignerWidgetBoxInterface_SuperRemoveWidget(@ptrCast(self.ptr), @bitCast(cat_idx), @bitCast(wgt_idx));
     }
+
+    /// ### DEPRECATED: Use `findOrInsertCategory` instead
+    ///
+    pub const FindOrInsertCategory = findOrInsertCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#findOrInsertCategory)
     ///
@@ -630,13 +738,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` categoryName: []const u8 `
     ///
-    pub fn FindOrInsertCategory(self: QDesignerWidgetBoxInterface, categoryName: []const u8) i32 {
+    pub fn findOrInsertCategory(self: QDesignerWidgetBoxInterface, categoryName: []const u8) i32 {
         const categoryName_str = qtc.libqt_string{
             .len = categoryName.len,
             .data = categoryName.ptr,
         };
         return qtc.QDesignerWidgetBoxInterface_FindOrInsertCategory(@ptrCast(self.ptr), categoryName_str);
     }
+
+    /// ### DEPRECATED: Use `dropWidgets` instead
+    ///
+    pub const DropWidgets = dropWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dropWidgets)
     ///
@@ -648,7 +760,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` global_mouse_pos: QPoint `
     ///
-    pub fn DropWidgets(self: QDesignerWidgetBoxInterface, item_list: []QDesignerDnDItemInterface, global_mouse_pos: anytype) void {
+    pub fn dropWidgets(self: QDesignerWidgetBoxInterface, item_list: []QDesignerDnDItemInterface, global_mouse_pos: anytype) void {
         const item_list_list = qtc.libqt_list{
             .len = item_list.len,
             .data = @ptrCast(item_list.ptr),
@@ -656,6 +768,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         comptime _ = @TypeOf(global_mouse_pos)._is_QPoint;
         qtc.QDesignerWidgetBoxInterface_DropWidgets(@ptrCast(self.ptr), item_list_list, @ptrCast(global_mouse_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropWidgets` instead
+    ///
+    pub const OnDropWidgets = onDropWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dropWidgets)
     ///
@@ -667,13 +783,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, item_list: qtc.libqt_list ([]QDesignerDnDItemInterface), global_mouse_pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnDropWidgets(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, qtc.libqt_list, QPoint) callconv(.c) void) void {
+    pub fn onDropWidgets(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, qtc.libqt_list, QPoint) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDropWidgets(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropWidgets` instead
+    /// ### DEPRECATED: Use `superDropWidgets` instead
     ///
-    pub const QBaseDropWidgets = SuperDropWidgets;
+    pub const SuperDropWidgets = superDropWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dropWidgets)
     ///
@@ -687,7 +803,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` global_mouse_pos: QPoint `
     ///
-    pub fn SuperDropWidgets(self: QDesignerWidgetBoxInterface, item_list: []QDesignerDnDItemInterface, global_mouse_pos: anytype) void {
+    pub fn superDropWidgets(self: QDesignerWidgetBoxInterface, item_list: []QDesignerDnDItemInterface, global_mouse_pos: anytype) void {
         const item_list_list = qtc.libqt_list{
             .len = item_list.len,
             .data = @ptrCast(item_list.ptr),
@@ -695,6 +811,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         comptime _ = @TypeOf(global_mouse_pos)._is_QPoint;
         qtc.QDesignerWidgetBoxInterface_SuperDropWidgets(@ptrCast(self.ptr), item_list_list, @ptrCast(global_mouse_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFileName` instead
+    ///
+    pub const SetFileName = setFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#setFileName)
     ///
@@ -704,13 +824,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` file_name: []const u8 `
     ///
-    pub fn SetFileName(self: QDesignerWidgetBoxInterface, file_name: []const u8) void {
+    pub fn setFileName(self: QDesignerWidgetBoxInterface, file_name: []const u8) void {
         const file_name_str = qtc.libqt_string{
             .len = file_name.len,
             .data = file_name.ptr,
         };
         qtc.QDesignerWidgetBoxInterface_SetFileName(@ptrCast(self.ptr), file_name_str);
     }
+
+    /// ### DEPRECATED: Use `onSetFileName` instead
+    ///
+    pub const OnSetFileName = onSetFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#setFileName)
     ///
@@ -722,13 +846,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, file_name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetFileName(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetFileName(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnSetFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFileName` instead
+    /// ### DEPRECATED: Use `superSetFileName` instead
     ///
-    pub const QBaseSetFileName = SuperSetFileName;
+    pub const SuperSetFileName = superSetFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#setFileName)
     ///
@@ -740,13 +864,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` file_name: []const u8 `
     ///
-    pub fn SuperSetFileName(self: QDesignerWidgetBoxInterface, file_name: []const u8) void {
+    pub fn superSetFileName(self: QDesignerWidgetBoxInterface, file_name: []const u8) void {
         const file_name_str = qtc.libqt_string{
             .len = file_name.len,
             .data = file_name.ptr,
         };
         qtc.QDesignerWidgetBoxInterface_SuperSetFileName(@ptrCast(self.ptr), file_name_str);
     }
+
+    /// ### DEPRECATED: Use `fileName` instead
+    ///
+    pub const FileName = fileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#fileName)
     ///
@@ -756,13 +884,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn fileName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface_FileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onFileName` instead
+    ///
+    pub const OnFileName = onFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#fileName)
     ///
@@ -774,13 +906,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnFileName(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onFileName(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.QDesignerWidgetBoxInterface_OnFileName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFileName` instead
+    /// ### DEPRECATED: Use `superFileName` instead
     ///
-    pub const QBaseFileName = SuperFileName;
+    pub const SuperFileName = superFileName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#fileName)
     ///
@@ -792,24 +924,32 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperFileName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn superFileName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface_SuperFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.FileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.fileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#load)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Load(self: QDesignerWidgetBoxInterface) bool {
+    pub fn load(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_Load(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLoad` instead
+    ///
+    pub const OnLoad = onLoad;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#load)
     ///
     /// Allows for overriding the related default method
@@ -820,13 +960,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnLoad(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onLoad(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnLoad(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLoad` instead
+    /// ### DEPRECATED: Use `superLoad` instead
     ///
-    pub const QBaseLoad = SuperLoad;
+    pub const SuperLoad = superLoad;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#load)
     ///
@@ -836,9 +976,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperLoad(self: QDesignerWidgetBoxInterface) bool {
+    pub fn superLoad(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperLoad(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#save)
     ///
@@ -846,9 +990,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Save(self: QDesignerWidgetBoxInterface) bool {
+    pub fn save(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSave` instead
+    ///
+    pub const OnSave = onSave;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#save)
     ///
@@ -860,13 +1008,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnSave(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onSave(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnSave(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSave` instead
+    /// ### DEPRECATED: Use `superSave` instead
     ///
-    pub const QBaseSave = SuperSave;
+    pub const SuperSave = superSave;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#save)
     ///
@@ -876,9 +1024,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperSave(self: QDesignerWidgetBoxInterface) bool {
+    pub fn superSave(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperSave(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -890,15 +1042,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -912,15 +1068,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -930,9 +1090,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn WinId(self: QDesignerWidgetBoxInterface) usize {
+    pub fn winId(self: QDesignerWidgetBoxInterface) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -942,9 +1106,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn CreateWinId(self: QDesignerWidgetBoxInterface) void {
+    pub fn createWinId(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -954,9 +1122,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn InternalWinId(self: QDesignerWidgetBoxInterface) usize {
+    pub fn internalWinId(self: QDesignerWidgetBoxInterface) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -966,9 +1138,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn EffectiveWinId(self: QDesignerWidgetBoxInterface) usize {
+    pub fn effectiveWinId(self: QDesignerWidgetBoxInterface) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -978,9 +1154,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Style(self: QDesignerWidgetBoxInterface) QStyle {
+    pub fn style(self: QDesignerWidgetBoxInterface) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -990,12 +1170,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QDesignerWidgetBoxInterface, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QDesignerWidgetBoxInterface, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1005,9 +1189,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsTopLevel(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isTopLevel(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1017,9 +1205,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsWindow(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isWindow(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1029,9 +1221,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsModal(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isModal(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1045,9 +1241,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn windowModality(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1057,11 +1257,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QDesignerWidgetBoxInterface, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QDesignerWidgetBoxInterface, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1071,9 +1275,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsEnabled(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isEnabled(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1085,10 +1293,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QDesignerWidgetBoxInterface, param1: anytype) bool {
+    pub fn isEnabledTo(self: QDesignerWidgetBoxInterface, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1100,9 +1312,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QDesignerWidgetBoxInterface, enabled: bool) void {
+    pub fn setEnabled(self: QDesignerWidgetBoxInterface, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1114,9 +1330,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QDesignerWidgetBoxInterface, disabled: bool) void {
+    pub fn setDisabled(self: QDesignerWidgetBoxInterface, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1128,9 +1348,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QDesignerWidgetBoxInterface, windowModified: bool) void {
+    pub fn setWindowModified(self: QDesignerWidgetBoxInterface, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1140,9 +1364,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FrameGeometry(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn frameGeometry(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1152,9 +1380,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Geometry(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn geometry(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1164,9 +1396,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn NormalGeometry(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn normalGeometry(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1176,9 +1412,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn X(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn x(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1188,9 +1428,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Y(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn y(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1200,9 +1444,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Pos(self: QDesignerWidgetBoxInterface) QPoint {
+    pub fn pos(self: QDesignerWidgetBoxInterface) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1212,9 +1460,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FrameSize(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn frameSize(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1224,9 +1476,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Size(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn size(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1236,9 +1492,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Width(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn width(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1248,9 +1508,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Height(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn height(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1260,9 +1524,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Rect(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn rect(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1272,9 +1540,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ChildrenRect(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn childrenRect(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1284,9 +1556,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ChildrenRegion(self: QDesignerWidgetBoxInterface) QRegion {
+    pub fn childrenRegion(self: QDesignerWidgetBoxInterface) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1296,9 +1572,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MinimumSize(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn minimumSize(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1308,9 +1588,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MaximumSize(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn maximumSize(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1320,9 +1604,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MinimumWidth(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn minimumWidth(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1332,9 +1620,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MinimumHeight(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn minimumHeight(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1344,9 +1636,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MaximumWidth(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn maximumWidth(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1356,9 +1652,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MaximumHeight(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn maximumHeight(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1368,12 +1668,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QDesignerWidgetBoxInterface, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QDesignerWidgetBoxInterface, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1387,9 +1691,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QDesignerWidgetBoxInterface, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QDesignerWidgetBoxInterface, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1399,12 +1707,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QDesignerWidgetBoxInterface, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QDesignerWidgetBoxInterface, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1418,9 +1730,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QDesignerWidgetBoxInterface, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QDesignerWidgetBoxInterface, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1432,9 +1748,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QDesignerWidgetBoxInterface, minw: i32) void {
+    pub fn setMinimumWidth(self: QDesignerWidgetBoxInterface, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1446,9 +1766,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QDesignerWidgetBoxInterface, minh: i32) void {
+    pub fn setMinimumHeight(self: QDesignerWidgetBoxInterface, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1460,9 +1784,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QDesignerWidgetBoxInterface, maxw: i32) void {
+    pub fn setMaximumWidth(self: QDesignerWidgetBoxInterface, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1474,9 +1802,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QDesignerWidgetBoxInterface, maxh: i32) void {
+    pub fn setMaximumHeight(self: QDesignerWidgetBoxInterface, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1486,9 +1818,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SizeIncrement(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn sizeIncrement(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1498,12 +1834,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QDesignerWidgetBoxInterface, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QDesignerWidgetBoxInterface, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1517,9 +1857,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1529,9 +1873,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn BaseSize(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn baseSize(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1541,12 +1889,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QDesignerWidgetBoxInterface, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QDesignerWidgetBoxInterface, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1912,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QDesignerWidgetBoxInterface, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QDesignerWidgetBoxInterface, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1574,10 +1930,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QDesignerWidgetBoxInterface, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QDesignerWidgetBoxInterface, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1591,9 +1951,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1605,9 +1969,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QDesignerWidgetBoxInterface, w: i32) void {
+    pub fn setFixedWidth(self: QDesignerWidgetBoxInterface, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1619,9 +1987,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QDesignerWidgetBoxInterface, h: i32) void {
+    pub fn setFixedHeight(self: QDesignerWidgetBoxInterface, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1633,11 +2005,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1648,11 +2024,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1663,11 +2043,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1678,11 +2062,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1693,11 +2081,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
+    pub fn mapToParent(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1708,10 +2100,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1723,10 +2119,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QDesignerWidgetBoxInterface, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1738,10 +2138,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QDesignerWidgetBoxInterface, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1755,12 +2159,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1773,11 +2181,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1791,11 +2203,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1809,11 +2225,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QDesignerWidgetBoxInterface, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1823,9 +2243,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Window(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn window(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1835,9 +2259,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn NativeParentWidget(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn nativeParentWidget(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1847,9 +2275,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn TopLevelWidget(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn topLevelWidget(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1859,9 +2291,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Palette(self: QDesignerWidgetBoxInterface) QPalette {
+    pub fn palette(self: QDesignerWidgetBoxInterface) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1871,12 +2307,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QDesignerWidgetBoxInterface, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QDesignerWidgetBoxInterface, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1886,11 +2326,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QDesignerWidgetBoxInterface, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QDesignerWidgetBoxInterface, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1904,9 +2348,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn backgroundRole(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1916,11 +2364,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QDesignerWidgetBoxInterface, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QDesignerWidgetBoxInterface, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1934,9 +2386,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn foregroundRole(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1946,9 +2402,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Font(self: QDesignerWidgetBoxInterface) QFont {
+    pub fn font(self: QDesignerWidgetBoxInterface) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1958,12 +2418,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QDesignerWidgetBoxInterface, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QDesignerWidgetBoxInterface, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2437,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FontMetrics(self: QDesignerWidgetBoxInterface) QFontMetrics {
+    pub fn fontMetrics(self: QDesignerWidgetBoxInterface) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1985,9 +2453,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FontInfo(self: QDesignerWidgetBoxInterface) QFontInfo {
+    pub fn fontInfo(self: QDesignerWidgetBoxInterface) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1997,9 +2469,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Cursor(self: QDesignerWidgetBoxInterface) QCursor {
+    pub fn cursor(self: QDesignerWidgetBoxInterface) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2009,12 +2485,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QDesignerWidgetBoxInterface, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QDesignerWidgetBoxInterface, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2024,9 +2504,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UnsetCursor(self: QDesignerWidgetBoxInterface) void {
+    pub fn unsetCursor(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2038,9 +2522,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QDesignerWidgetBoxInterface, enable: bool) void {
+    pub fn setMouseTracking(self: QDesignerWidgetBoxInterface, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2050,9 +2538,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn HasMouseTracking(self: QDesignerWidgetBoxInterface) bool {
+    pub fn hasMouseTracking(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2062,9 +2554,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UnderMouse(self: QDesignerWidgetBoxInterface) bool {
+    pub fn underMouse(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2076,9 +2572,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QDesignerWidgetBoxInterface, enable: bool) void {
+    pub fn setTabletTracking(self: QDesignerWidgetBoxInterface, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2088,24 +2588,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn HasTabletTracking(self: QDesignerWidgetBoxInterface) bool {
+    pub fn hasTabletTracking(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QDesignerWidgetBoxInterface, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2115,12 +2604,35 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QDesignerWidgetBoxInterface, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QDesignerWidgetBoxInterface, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerWidgetBoxInterface `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QDesignerWidgetBoxInterface, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2130,9 +2642,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Mask(self: QDesignerWidgetBoxInterface) QRegion {
+    pub fn mask(self: QDesignerWidgetBoxInterface) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2142,9 +2658,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ClearMask(self: QDesignerWidgetBoxInterface) void {
+    pub fn clearMask(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2156,10 +2676,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QDesignerWidgetBoxInterface, target: anytype) void {
+    pub fn render(self: QDesignerWidgetBoxInterface, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2171,10 +2695,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QDesignerWidgetBoxInterface, painter: anytype) void {
+    pub fn render2(self: QDesignerWidgetBoxInterface, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2184,9 +2712,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Grab(self: QDesignerWidgetBoxInterface) QPixmap {
+    pub fn grab(self: QDesignerWidgetBoxInterface) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2196,9 +2728,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn GraphicsEffect(self: QDesignerWidgetBoxInterface) QGraphicsEffect {
+    pub fn graphicsEffect(self: QDesignerWidgetBoxInterface) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2210,10 +2746,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QDesignerWidgetBoxInterface, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QDesignerWidgetBoxInterface, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2225,9 +2765,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
+    pub fn grabGesture(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2239,9 +2783,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
+    pub fn ungrabGesture(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2251,15 +2799,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QDesignerWidgetBoxInterface, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QDesignerWidgetBoxInterface, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2269,15 +2821,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QDesignerWidgetBoxInterface, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QDesignerWidgetBoxInterface, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2289,13 +2845,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2307,13 +2867,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2325,10 +2889,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QDesignerWidgetBoxInterface, icon: anytype) void {
+    pub fn setWindowIcon(self: QDesignerWidgetBoxInterface, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2338,9 +2906,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn WindowIcon(self: QDesignerWidgetBoxInterface) QIcon {
+    pub fn windowIcon(self: QDesignerWidgetBoxInterface) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2350,15 +2922,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QDesignerWidgetBoxInterface, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QDesignerWidgetBoxInterface, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2370,13 +2946,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2386,15 +2966,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QDesignerWidgetBoxInterface, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QDesignerWidgetBoxInterface, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2406,13 +2990,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2424,13 +3012,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QDesignerWidgetBoxInterface, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QDesignerWidgetBoxInterface, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2442,13 +3034,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2460,9 +3056,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QDesignerWidgetBoxInterface, level: f64) void {
+    pub fn setWindowOpacity(self: QDesignerWidgetBoxInterface, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3072,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn WindowOpacity(self: QDesignerWidgetBoxInterface) f64 {
+    pub fn windowOpacity(self: QDesignerWidgetBoxInterface) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2484,9 +3088,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsWindowModified(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isWindowModified(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2496,15 +3104,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QDesignerWidgetBoxInterface, toolTip: []const u8) void {
+    pub fn setToolTip(self: QDesignerWidgetBoxInterface, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2516,13 +3128,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2534,9 +3150,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QDesignerWidgetBoxInterface, msec: i32) void {
+    pub fn setToolTipDuration(self: QDesignerWidgetBoxInterface, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2546,9 +3166,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ToolTipDuration(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn toolTipDuration(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2558,15 +3182,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QDesignerWidgetBoxInterface, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QDesignerWidgetBoxInterface, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2578,13 +3206,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2594,15 +3226,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QDesignerWidgetBoxInterface, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QDesignerWidgetBoxInterface, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2614,13 +3250,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2632,13 +3272,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2650,13 +3294,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QDesignerWidgetBoxInterface, name: []const u8) void {
+    pub fn setAccessibleName(self: QDesignerWidgetBoxInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2668,13 +3316,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2686,13 +3338,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QDesignerWidgetBoxInterface, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QDesignerWidgetBoxInterface, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2704,9 +3360,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QDesignerWidgetBoxInterface, direction: i32) void {
+    pub fn setLayoutDirection(self: QDesignerWidgetBoxInterface, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2720,9 +3380,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn layoutDirection(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2732,9 +3396,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UnsetLayoutDirection(self: QDesignerWidgetBoxInterface) void {
+    pub fn unsetLayoutDirection(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2744,12 +3412,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QDesignerWidgetBoxInterface, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QDesignerWidgetBoxInterface, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2759,9 +3431,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Locale(self: QDesignerWidgetBoxInterface) QLocale {
+    pub fn locale(self: QDesignerWidgetBoxInterface) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2771,9 +3447,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UnsetLocale(self: QDesignerWidgetBoxInterface) void {
+    pub fn unsetLocale(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2783,9 +3463,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsRightToLeft(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isRightToLeft(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2795,9 +3479,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsLeftToRight(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isLeftToRight(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2807,9 +3495,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SetFocus(self: QDesignerWidgetBoxInterface) void {
+    pub fn setFocus(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2819,9 +3511,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsActiveWindow(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isActiveWindow(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2831,9 +3527,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ActivateWindow(self: QDesignerWidgetBoxInterface) void {
+    pub fn activateWindow(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2843,9 +3543,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ClearFocus(self: QDesignerWidgetBoxInterface) void {
+    pub fn clearFocus(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2857,9 +3561,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QDesignerWidgetBoxInterface, reason: i32) void {
+    pub fn setFocus2(self: QDesignerWidgetBoxInterface, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3581,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn focusPolicy(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2887,9 +3599,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QDesignerWidgetBoxInterface, policy: i32) void {
+    pub fn setFocusPolicy(self: QDesignerWidgetBoxInterface, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2899,9 +3615,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn HasFocus(self: QDesignerWidgetBoxInterface) bool {
+    pub fn hasFocus(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2913,11 +3633,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2927,12 +3651,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QDesignerWidgetBoxInterface, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QDesignerWidgetBoxInterface, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2942,9 +3670,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FocusProxy(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn focusProxy(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2958,9 +3690,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn contextMenuPolicy(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2972,9 +3708,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QDesignerWidgetBoxInterface, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QDesignerWidgetBoxInterface, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2984,9 +3724,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn GrabMouse(self: QDesignerWidgetBoxInterface) void {
+    pub fn grabMouse(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2998,10 +3742,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn grabMouse2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3011,9 +3759,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ReleaseMouse(self: QDesignerWidgetBoxInterface) void {
+    pub fn releaseMouse(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3023,9 +3775,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn GrabKeyboard(self: QDesignerWidgetBoxInterface) void {
+    pub fn grabKeyboard(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3791,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ReleaseKeyboard(self: QDesignerWidgetBoxInterface) void {
+    pub fn releaseKeyboard(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3049,10 +3809,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QDesignerWidgetBoxInterface, key: anytype) i32 {
+    pub fn grabShortcut(self: QDesignerWidgetBoxInterface, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3064,9 +3828,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QDesignerWidgetBoxInterface, id: i32) void {
+    pub fn releaseShortcut(self: QDesignerWidgetBoxInterface, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3078,9 +3846,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QDesignerWidgetBoxInterface, id: i32) void {
+    pub fn setShortcutEnabled(self: QDesignerWidgetBoxInterface, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3092,25 +3864,37 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QDesignerWidgetBoxInterface, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QDesignerWidgetBoxInterface, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3904,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UpdatesEnabled(self: QDesignerWidgetBoxInterface) bool {
+    pub fn updatesEnabled(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3134,9 +3922,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QDesignerWidgetBoxInterface, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QDesignerWidgetBoxInterface, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3146,9 +3938,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn GraphicsProxyWidget(self: QDesignerWidgetBoxInterface) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QDesignerWidgetBoxInterface) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3158,9 +3954,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Update(self: QDesignerWidgetBoxInterface) void {
+    pub fn update(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3170,9 +3970,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Repaint(self: QDesignerWidgetBoxInterface) void {
+    pub fn repaint(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3182,17 +3986,21 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QDesignerWidgetBoxInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QDesignerWidgetBoxInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3204,11 +4012,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn update3(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3219,10 +4031,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn update4(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3232,17 +4048,21 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QDesignerWidgetBoxInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QDesignerWidgetBoxInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3254,10 +4074,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn repaint3(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3269,10 +4093,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn repaint4(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3284,9 +4112,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QDesignerWidgetBoxInterface, hidden: bool) void {
+    pub fn setHidden(self: QDesignerWidgetBoxInterface, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3296,9 +4128,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Show(self: QDesignerWidgetBoxInterface) void {
+    pub fn show(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3308,9 +4144,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Hide(self: QDesignerWidgetBoxInterface) void {
+    pub fn hide(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3320,9 +4160,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ShowMinimized(self: QDesignerWidgetBoxInterface) void {
+    pub fn showMinimized(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3332,9 +4176,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ShowMaximized(self: QDesignerWidgetBoxInterface) void {
+    pub fn showMaximized(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3344,9 +4192,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ShowFullScreen(self: QDesignerWidgetBoxInterface) void {
+    pub fn showFullScreen(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3356,9 +4208,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ShowNormal(self: QDesignerWidgetBoxInterface) void {
+    pub fn showNormal(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3368,9 +4224,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Close(self: QDesignerWidgetBoxInterface) bool {
+    pub fn close(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3380,9 +4240,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Raise(self: QDesignerWidgetBoxInterface) void {
+    pub fn raise(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3392,9 +4256,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Lower(self: QDesignerWidgetBoxInterface) void {
+    pub fn lower(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3406,10 +4274,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn stackUnder(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3419,13 +4291,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QDesignerWidgetBoxInterface, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QDesignerWidgetBoxInterface, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3437,10 +4313,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn move2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3454,9 +4334,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
+    pub fn resize(self: QDesignerWidgetBoxInterface, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3468,10 +4352,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn resize2(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3481,17 +4369,21 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QDesignerWidgetBoxInterface, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QDesignerWidgetBoxInterface, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3501,12 +4393,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QDesignerWidgetBoxInterface, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QDesignerWidgetBoxInterface, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3518,13 +4414,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDesignerWidgetBoxInterface.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDesignerWidgetBoxInterface.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3534,15 +4434,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QDesignerWidgetBoxInterface, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QDesignerWidgetBoxInterface, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3552,9 +4456,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn AdjustSize(self: QDesignerWidgetBoxInterface) void {
+    pub fn adjustSize(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3564,9 +4472,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsVisible(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isVisible(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3578,10 +4490,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QDesignerWidgetBoxInterface, param1: anytype) bool {
+    pub fn isVisibleTo(self: QDesignerWidgetBoxInterface, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3591,9 +4507,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsHidden(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isHidden(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3603,9 +4523,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsMinimized(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isMinimized(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3615,9 +4539,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsMaximized(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isMaximized(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3627,9 +4555,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsFullScreen(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isFullScreen(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3643,9 +4575,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn windowState(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3657,9 +4593,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QDesignerWidgetBoxInterface, state: i32) void {
+    pub fn setWindowState(self: QDesignerWidgetBoxInterface, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3671,9 +4611,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QDesignerWidgetBoxInterface, state: i32) void {
+    pub fn overrideWindowState(self: QDesignerWidgetBoxInterface, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3683,9 +4627,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SizePolicy(self: QDesignerWidgetBoxInterface) QSizePolicy {
+    pub fn sizePolicy(self: QDesignerWidgetBoxInterface) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3695,12 +4643,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QDesignerWidgetBoxInterface, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QDesignerWidgetBoxInterface, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3714,9 +4666,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QDesignerWidgetBoxInterface, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QDesignerWidgetBoxInterface, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3726,9 +4682,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn VisibleRegion(self: QDesignerWidgetBoxInterface) QRegion {
+    pub fn visibleRegion(self: QDesignerWidgetBoxInterface) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3746,9 +4706,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QDesignerWidgetBoxInterface, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QDesignerWidgetBoxInterface, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3760,10 +4724,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QDesignerWidgetBoxInterface, margins: anytype) void {
+    pub fn setContentsMargins2(self: QDesignerWidgetBoxInterface, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3773,9 +4741,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ContentsMargins(self: QDesignerWidgetBoxInterface) QMargins {
+    pub fn contentsMargins(self: QDesignerWidgetBoxInterface) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3785,9 +4757,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ContentsRect(self: QDesignerWidgetBoxInterface) QRect {
+    pub fn contentsRect(self: QDesignerWidgetBoxInterface) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3797,9 +4773,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Layout(self: QDesignerWidgetBoxInterface) QLayout {
+    pub fn layout(self: QDesignerWidgetBoxInterface) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3809,12 +4789,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QDesignerWidgetBoxInterface, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QDesignerWidgetBoxInterface, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3824,24 +4808,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UpdateGeometry(self: QDesignerWidgetBoxInterface) void {
+    pub fn updateGeometry(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QDesignerWidgetBoxInterface, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3851,14 +4824,37 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QDesignerWidgetBoxInterface, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerWidgetBoxInterface `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QDesignerWidgetBoxInterface, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QDesignerWidgetBoxInterface, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3872,9 +4868,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QDesignerWidgetBoxInterface, dx: i32, dy: i32) void {
+    pub fn scroll(self: QDesignerWidgetBoxInterface, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3890,10 +4890,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QDesignerWidgetBoxInterface, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QDesignerWidgetBoxInterface, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3903,9 +4907,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FocusWidget(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn focusWidget(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3915,9 +4923,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn NextInFocusChain(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn nextInFocusChain(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4939,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn PreviousInFocusChain(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn previousInFocusChain(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3939,9 +4955,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn AcceptDrops(self: QDesignerWidgetBoxInterface) bool {
+    pub fn acceptDrops(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3953,9 +4973,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QDesignerWidgetBoxInterface, on: bool) void {
+    pub fn setAcceptDrops(self: QDesignerWidgetBoxInterface, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3967,10 +4991,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QDesignerWidgetBoxInterface, action: anytype) void {
+    pub fn addAction(self: QDesignerWidgetBoxInterface, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3980,15 +5008,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QDesignerWidgetBoxInterface, actions: []QAction) void {
+    pub fn addActions(self: QDesignerWidgetBoxInterface, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4000,16 +5032,20 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QDesignerWidgetBoxInterface, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QDesignerWidgetBoxInterface, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4023,11 +5059,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QDesignerWidgetBoxInterface, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QDesignerWidgetBoxInterface, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4039,10 +5079,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QDesignerWidgetBoxInterface, action: anytype) void {
+    pub fn removeAction(self: QDesignerWidgetBoxInterface, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4054,15 +5098,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerWidgetBoxInterface.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QDesignerWidgetBoxInterface.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4074,13 +5122,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QDesignerWidgetBoxInterface, text: []const u8) QAction {
+    pub fn addAction2(self: QDesignerWidgetBoxInterface, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4094,7 +5146,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QDesignerWidgetBoxInterface, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QDesignerWidgetBoxInterface, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4103,6 +5155,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4115,7 +5171,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QDesignerWidgetBoxInterface, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QDesignerWidgetBoxInterface, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4123,6 +5179,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4138,7 +5198,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QDesignerWidgetBoxInterface, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QDesignerWidgetBoxInterface, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4148,6 +5208,10 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4156,9 +5220,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ParentWidget(self: QDesignerWidgetBoxInterface) QWidget {
+    pub fn parentWidget(self: QDesignerWidgetBoxInterface) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4170,9 +5238,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
+    pub fn setWindowFlags(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4186,9 +5258,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn windowFlags(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4200,9 +5276,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QDesignerWidgetBoxInterface, param1: i32) void {
+    pub fn setWindowFlag(self: QDesignerWidgetBoxInterface, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4214,9 +5294,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QDesignerWidgetBoxInterface, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4230,9 +5314,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn windowType(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4242,9 +5330,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4254,13 +5346,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QDesignerWidgetBoxInterface, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QDesignerWidgetBoxInterface, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4272,10 +5368,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QDesignerWidgetBoxInterface, p: anytype) QWidget {
+    pub fn childAt2(self: QDesignerWidgetBoxInterface, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4287,10 +5387,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QDesignerWidgetBoxInterface, p: anytype) QWidget {
+    pub fn childAt3(self: QDesignerWidgetBoxInterface, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4302,9 +5406,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QDesignerWidgetBoxInterface, param1: i32) void {
+    pub fn setAttribute(self: QDesignerWidgetBoxInterface, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4316,9 +5424,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QDesignerWidgetBoxInterface, param1: i32) bool {
+    pub fn testAttribute(self: QDesignerWidgetBoxInterface, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4328,9 +5440,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn EnsurePolished(self: QDesignerWidgetBoxInterface) void {
+    pub fn ensurePolished(self: QDesignerWidgetBoxInterface) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4342,10 +5458,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QDesignerWidgetBoxInterface, child: anytype) bool {
+    pub fn isAncestorOf(self: QDesignerWidgetBoxInterface, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4355,9 +5475,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn AutoFillBackground(self: QDesignerWidgetBoxInterface) bool {
+    pub fn autoFillBackground(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4369,9 +5493,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QDesignerWidgetBoxInterface, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QDesignerWidgetBoxInterface, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4381,9 +5509,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn BackingStore(self: QDesignerWidgetBoxInterface) QBackingStore {
+    pub fn backingStore(self: QDesignerWidgetBoxInterface) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4393,9 +5525,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn WindowHandle(self: QDesignerWidgetBoxInterface) QWindow {
+    pub fn windowHandle(self: QDesignerWidgetBoxInterface) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4405,9 +5541,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Screen(self: QDesignerWidgetBoxInterface) QScreen {
+    pub fn screen(self: QDesignerWidgetBoxInterface) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4417,12 +5557,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QDesignerWidgetBoxInterface, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QDesignerWidgetBoxInterface, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4430,12 +5574,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4447,13 +5595,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QDesignerWidgetBoxInterface, title: []const u8) void {
+    pub fn windowTitleChanged(self: QDesignerWidgetBoxInterface, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4465,9 +5617,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4479,10 +5635,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QDesignerWidgetBoxInterface, icon: anytype) void {
+    pub fn windowIconChanged(self: QDesignerWidgetBoxInterface, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4494,9 +5654,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4508,13 +5672,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QDesignerWidgetBoxInterface, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QDesignerWidgetBoxInterface, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4526,9 +5694,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4538,12 +5710,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QDesignerWidgetBoxInterface, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QDesignerWidgetBoxInterface, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4555,9 +5731,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4571,9 +5751,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn inputMethodHints(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4585,9 +5769,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QDesignerWidgetBoxInterface, hints: i32) void {
+    pub fn setInputMethodHints(self: QDesignerWidgetBoxInterface, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4601,11 +5789,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4621,13 +5813,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4644,12 +5840,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QDesignerWidgetBoxInterface, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4663,11 +5863,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4683,12 +5887,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4706,12 +5914,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QDesignerWidgetBoxInterface, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4723,10 +5935,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QDesignerWidgetBoxInterface, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QDesignerWidgetBoxInterface, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4740,9 +5956,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QDesignerWidgetBoxInterface, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QDesignerWidgetBoxInterface, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4756,10 +5976,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QDesignerWidgetBoxInterface, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QDesignerWidgetBoxInterface, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4773,9 +5997,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QDesignerWidgetBoxInterface, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QDesignerWidgetBoxInterface, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4789,9 +6017,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QDesignerWidgetBoxInterface, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QDesignerWidgetBoxInterface, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4805,9 +6037,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QDesignerWidgetBoxInterface, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QDesignerWidgetBoxInterface, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4821,25 +6057,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QDesignerWidgetBoxInterface, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QDesignerWidgetBoxInterface, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4847,17 +6071,41 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4869,13 +6117,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4887,13 +6139,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDesignerWidgetBoxInterface, name: []const u8) void {
+    pub fn setObjectName(self: QDesignerWidgetBoxInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4903,9 +6159,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsWidgetType(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isWidgetType(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4915,9 +6175,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsWindowType(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isWindowType(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4927,9 +6191,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn IsQuickItemType(self: QDesignerWidgetBoxInterface) bool {
+    pub fn isQuickItemType(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4939,9 +6207,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SignalsBlocked(self: QDesignerWidgetBoxInterface) bool {
+    pub fn signalsBlocked(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4953,9 +6225,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDesignerWidgetBoxInterface, b: bool) bool {
+    pub fn blockSignals(self: QDesignerWidgetBoxInterface, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4965,9 +6241,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Thread(self: QDesignerWidgetBoxInterface) QThread {
+    pub fn thread(self: QDesignerWidgetBoxInterface) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4977,12 +6257,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDesignerWidgetBoxInterface, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDesignerWidgetBoxInterface, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4994,9 +6278,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDesignerWidgetBoxInterface, interval: i32) i32 {
+    pub fn startTimer(self: QDesignerWidgetBoxInterface, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5008,9 +6296,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDesignerWidgetBoxInterface, time: i64) i32 {
+    pub fn startTimer2(self: QDesignerWidgetBoxInterface, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5022,9 +6314,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDesignerWidgetBoxInterface, id: i32) void {
+    pub fn killTimer(self: QDesignerWidgetBoxInterface, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5036,9 +6332,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDesignerWidgetBoxInterface, id: i32) void {
+    pub fn killTimer2(self: QDesignerWidgetBoxInterface, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5050,15 +6350,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerWidgetBoxInterface.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerWidgetBoxInterface.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5070,10 +6374,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDesignerWidgetBoxInterface, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDesignerWidgetBoxInterface, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5085,10 +6393,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDesignerWidgetBoxInterface, obj: anytype) void {
+    pub fn removeEventFilter(self: QDesignerWidgetBoxInterface, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5096,7 +6408,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5104,13 +6416,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5118,7 +6434,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5126,13 +6442,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5142,18 +6462,22 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDesignerWidgetBoxInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDesignerWidgetBoxInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5161,7 +6485,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5169,13 +6493,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5183,7 +6511,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5191,13 +6519,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5207,9 +6539,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Disconnect3(self: QDesignerWidgetBoxInterface) bool {
+    pub fn disconnect3(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5221,10 +6557,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDesignerWidgetBoxInterface, receiver: anytype) bool {
+    pub fn disconnect4(self: QDesignerWidgetBoxInterface, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5234,10 +6574,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5247,9 +6591,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DumpObjectTree(self: QDesignerWidgetBoxInterface) void {
+    pub fn dumpObjectTree(self: QDesignerWidgetBoxInterface) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5259,9 +6607,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DumpObjectInfo(self: QDesignerWidgetBoxInterface) void {
+    pub fn dumpObjectInfo(self: QDesignerWidgetBoxInterface) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5275,11 +6627,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDesignerWidgetBoxInterface, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDesignerWidgetBoxInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5291,10 +6647,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDesignerWidgetBoxInterface, name: [:0]const u8) QVariant {
+    pub fn property(self: QDesignerWidgetBoxInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5306,7 +6666,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDesignerWidgetBoxInterface, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5314,27 +6674,19 @@ pub const QDesignerWidgetBoxInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerWidgetBoxInterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerWidgetBoxInterface.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerWidgetBoxInterface.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerWidgetBoxInterface.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerWidgetBoxInterface `
-    ///
-    pub fn BindingStorage(self: QDesignerWidgetBoxInterface) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5344,9 +6696,29 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn BindingStorage2(self: QDesignerWidgetBoxInterface) QBindingStorage {
+    pub fn bindingStorage(self: QDesignerWidgetBoxInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerWidgetBoxInterface `
+    ///
+    pub fn bindingStorage2(self: QDesignerWidgetBoxInterface) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5356,9 +6728,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Destroyed(self: QDesignerWidgetBoxInterface) void {
+    pub fn destroyed(self: QDesignerWidgetBoxInterface) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5370,9 +6746,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5382,9 +6762,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Parent(self: QDesignerWidgetBoxInterface) QObject {
+    pub fn parent(self: QDesignerWidgetBoxInterface) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5396,10 +6780,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDesignerWidgetBoxInterface, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDesignerWidgetBoxInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5409,9 +6797,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DeleteLater(self: QDesignerWidgetBoxInterface) void {
+    pub fn deleteLater(self: QDesignerWidgetBoxInterface) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5425,9 +6817,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDesignerWidgetBoxInterface, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDesignerWidgetBoxInterface, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5441,9 +6837,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDesignerWidgetBoxInterface, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDesignerWidgetBoxInterface, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5451,7 +6851,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5461,13 +6861,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5475,7 +6879,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5485,13 +6889,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5501,7 +6909,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5509,12 +6917,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDesignerWidgetBoxInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDesignerWidgetBoxInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5526,10 +6938,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5543,11 +6959,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDesignerWidgetBoxInterface, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDesignerWidgetBoxInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5563,13 +6983,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDesignerWidgetBoxInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDesignerWidgetBoxInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5582,11 +7006,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDesignerWidgetBoxInterface, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDesignerWidgetBoxInterface, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5598,10 +7026,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn destroyed1(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5613,9 +7045,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5625,9 +7061,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn PaintingActive(self: QDesignerWidgetBoxInterface) bool {
+    pub fn paintingActive(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5637,9 +7077,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn WidthMM(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn widthMM(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5649,9 +7093,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn HeightMM(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn heightMM(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5661,9 +7109,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn LogicalDpiX(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn logicalDpiX(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5673,9 +7125,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn LogicalDpiY(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn logicalDpiY(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5685,9 +7141,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn PhysicalDpiX(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn physicalDpiX(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5697,9 +7157,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn PhysicalDpiY(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn physicalDpiY(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5709,9 +7173,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DevicePixelRatio(self: QDesignerWidgetBoxInterface) f64 {
+    pub fn devicePixelRatio(self: QDesignerWidgetBoxInterface) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5721,9 +7189,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DevicePixelRatioF(self: QDesignerWidgetBoxInterface) f64 {
+    pub fn devicePixelRatioF(self: QDesignerWidgetBoxInterface) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5733,9 +7205,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn ColorCount(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn colorCount(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5745,17 +7221,25 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Depth(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn depth(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5763,13 +7247,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5781,13 +7269,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn DevType(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn devType(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5799,9 +7287,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperDevType(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn superDevType(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5815,9 +7307,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5831,13 +7327,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QDesignerWidgetBoxInterface, visible: bool) void {
+    pub fn setVisible(self: QDesignerWidgetBoxInterface, visible: bool) void {
         qtc.QDesignerWidgetBoxInterface_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5851,9 +7347,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QDesignerWidgetBoxInterface, visible: bool) void {
+    pub fn superSetVisible(self: QDesignerWidgetBoxInterface, visible: bool) void {
         qtc.QDesignerWidgetBoxInterface_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5867,10 +7367,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, bool) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5881,13 +7385,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SizeHint(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn sizeHint(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5899,10 +7403,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperSizeHint(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn superSizeHint(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5917,9 +7425,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5931,13 +7443,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn MinimumSizeHint(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn minimumSizeHint(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5949,9 +7461,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperMinimumSizeHint(self: QDesignerWidgetBoxInterface) QSize {
+    pub fn superMinimumSizeHint(self: QDesignerWidgetBoxInterface) QSize {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5967,9 +7483,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QSize) void {
         qtc.QDesignerWidgetBoxInterface_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5983,13 +7503,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
+    pub fn heightForWidth(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6003,9 +7523,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6019,9 +7543,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6033,13 +7561,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn HasHeightForWidth(self: QDesignerWidgetBoxInterface) bool {
+    pub fn hasHeightForWidth(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6051,9 +7579,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperHasHeightForWidth(self: QDesignerWidgetBoxInterface) bool {
+    pub fn superHasHeightForWidth(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6067,9 +7599,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6081,13 +7617,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn PaintEngine(self: QDesignerWidgetBoxInterface) QPaintEngine {
+    pub fn paintEngine(self: QDesignerWidgetBoxInterface) QPaintEngine {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6099,9 +7635,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperPaintEngine(self: QDesignerWidgetBoxInterface) QPaintEngine {
+    pub fn superPaintEngine(self: QDesignerWidgetBoxInterface) QPaintEngine {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6115,9 +7655,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QDesignerWidgetBoxInterface_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6129,16 +7673,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDesignerWidgetBoxInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerWidgetBoxInterface_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDesignerWidgetBoxInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerWidgetBoxInterface_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6150,12 +7694,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDesignerWidgetBoxInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerWidgetBoxInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDesignerWidgetBoxInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerWidgetBoxInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6169,10 +7717,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6183,16 +7735,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6204,12 +7756,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6223,10 +7779,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6237,16 +7797,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6258,12 +7818,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6277,10 +7841,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6291,16 +7859,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6312,12 +7880,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6331,10 +7903,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6345,16 +7921,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6366,12 +7942,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6385,9 +7965,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMouseEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6399,16 +7983,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QDesignerWidgetBoxInterface_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QDesignerWidgetBoxInterface_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6420,12 +8004,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6439,10 +8027,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QWheelEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6453,16 +8045,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDesignerWidgetBoxInterface_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDesignerWidgetBoxInterface_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6474,12 +8066,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6493,10 +8089,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QKeyEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6507,16 +8107,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDesignerWidgetBoxInterface_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDesignerWidgetBoxInterface_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6528,12 +8128,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6547,10 +8151,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QKeyEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6561,16 +8169,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDesignerWidgetBoxInterface_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDesignerWidgetBoxInterface_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6582,12 +8190,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6601,10 +8213,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QFocusEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6615,16 +8231,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDesignerWidgetBoxInterface_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDesignerWidgetBoxInterface_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6636,12 +8252,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6655,9 +8275,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QFocusEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6669,16 +8293,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QDesignerWidgetBoxInterface_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QDesignerWidgetBoxInterface_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6690,12 +8314,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6709,9 +8337,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEnterEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6723,16 +8355,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerWidgetBoxInterface_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerWidgetBoxInterface_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6744,12 +8376,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6763,9 +8399,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6777,16 +8417,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QDesignerWidgetBoxInterface_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QDesignerWidgetBoxInterface_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6798,12 +8438,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6817,9 +8461,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPaintEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6831,16 +8479,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QDesignerWidgetBoxInterface_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QDesignerWidgetBoxInterface_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6852,12 +8500,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6871,9 +8523,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMoveEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6885,16 +8541,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QDesignerWidgetBoxInterface_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QDesignerWidgetBoxInterface_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6906,12 +8562,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6925,9 +8585,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QResizeEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6939,16 +8603,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QDesignerWidgetBoxInterface_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QDesignerWidgetBoxInterface_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6960,12 +8624,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6979,9 +8647,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QCloseEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6993,16 +8665,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QDesignerWidgetBoxInterface_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QDesignerWidgetBoxInterface_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7014,12 +8686,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7033,9 +8709,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QContextMenuEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7047,16 +8727,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QDesignerWidgetBoxInterface_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QDesignerWidgetBoxInterface_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7068,12 +8748,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7087,9 +8771,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QTabletEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7101,16 +8789,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QDesignerWidgetBoxInterface_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QDesignerWidgetBoxInterface_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7122,12 +8810,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7141,9 +8833,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QActionEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7155,16 +8851,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QDesignerWidgetBoxInterface_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QDesignerWidgetBoxInterface_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7176,12 +8872,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7195,9 +8895,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragEnterEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7209,16 +8913,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QDesignerWidgetBoxInterface_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QDesignerWidgetBoxInterface_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7230,12 +8934,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7249,9 +8957,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragMoveEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7263,16 +8975,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QDesignerWidgetBoxInterface_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QDesignerWidgetBoxInterface_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7284,12 +8996,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7303,9 +9019,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7317,16 +9037,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QDesignerWidgetBoxInterface_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QDesignerWidgetBoxInterface_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7338,12 +9058,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7357,9 +9081,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QDropEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7371,16 +9099,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QDesignerWidgetBoxInterface_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QDesignerWidgetBoxInterface_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7392,12 +9120,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7411,9 +9143,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QShowEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7425,16 +9161,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QDesignerWidgetBoxInterface_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QDesignerWidgetBoxInterface_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7446,12 +9182,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7465,9 +9205,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QHideEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7485,7 +9229,7 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QDesignerWidgetBoxInterface, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QDesignerWidgetBoxInterface, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7493,9 +9237,9 @@ pub const QDesignerWidgetBoxInterface = extern struct {
         return qtc.QDesignerWidgetBoxInterface_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7513,13 +9257,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QDesignerWidgetBoxInterface, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QDesignerWidgetBoxInterface, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QDesignerWidgetBoxInterface_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7533,9 +9281,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7549,14 +9301,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn changeEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QDesignerWidgetBoxInterface_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7570,10 +9322,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn superChangeEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QDesignerWidgetBoxInterface_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7587,9 +9343,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7603,13 +9363,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
+    pub fn metric(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7623,9 +9383,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
+    pub fn superMetric(self: QDesignerWidgetBoxInterface, param1: i32) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7639,9 +9403,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7655,14 +9423,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QDesignerWidgetBoxInterface, painter: anytype) void {
+    pub fn initPainter(self: QDesignerWidgetBoxInterface, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QDesignerWidgetBoxInterface_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7676,10 +9444,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QDesignerWidgetBoxInterface, painter: anytype) void {
+    pub fn superInitPainter(self: QDesignerWidgetBoxInterface, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QDesignerWidgetBoxInterface_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7693,9 +9465,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPainter) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7709,14 +9485,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QDesignerWidgetBoxInterface, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QDesignerWidgetBoxInterface, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7730,10 +9506,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QDesignerWidgetBoxInterface, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QDesignerWidgetBoxInterface, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7747,9 +9527,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QDesignerWidgetBoxInterface_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7761,13 +9545,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SharedPainter(self: QDesignerWidgetBoxInterface) QPainter {
+    pub fn sharedPainter(self: QDesignerWidgetBoxInterface) QPainter {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7779,9 +9563,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperSharedPainter(self: QDesignerWidgetBoxInterface) QPainter {
+    pub fn superSharedPainter(self: QDesignerWidgetBoxInterface) QPainter {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7795,9 +9583,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QDesignerWidgetBoxInterface_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7811,14 +9603,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn inputMethodEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QDesignerWidgetBoxInterface_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7832,10 +9624,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QDesignerWidgetBoxInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QDesignerWidgetBoxInterface_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7849,9 +9645,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QInputMethodEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7865,13 +9665,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QDesignerWidgetBoxInterface, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QDesignerWidgetBoxInterface, param1: i32) QVariant {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7885,9 +9685,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QDesignerWidgetBoxInterface, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QDesignerWidgetBoxInterface, param1: i32) QVariant {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7903,9 +9707,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32) callconv(.c) QVariant) void {
         qtc.QDesignerWidgetBoxInterface_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7919,13 +9727,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QDesignerWidgetBoxInterface, next: bool) bool {
+    pub fn focusNextPrevChild(self: QDesignerWidgetBoxInterface, next: bool) bool {
         return qtc.QDesignerWidgetBoxInterface_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7939,9 +9747,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QDesignerWidgetBoxInterface, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QDesignerWidgetBoxInterface, next: bool) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7955,9 +9767,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, bool) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7971,17 +9787,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDesignerWidgetBoxInterface, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDesignerWidgetBoxInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerWidgetBoxInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerWidgetBoxInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7995,13 +9811,17 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDesignerWidgetBoxInterface, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDesignerWidgetBoxInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerWidgetBoxInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerWidgetBoxInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8015,9 +9835,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8029,16 +9853,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerWidgetBoxInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerWidgetBoxInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8050,12 +9874,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8069,9 +9897,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QTimerEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8083,16 +9915,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerWidgetBoxInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerWidgetBoxInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8104,12 +9936,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8123,9 +9959,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QChildEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8137,16 +9977,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerWidgetBoxInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerWidgetBoxInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8158,12 +9998,16 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDesignerWidgetBoxInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerWidgetBoxInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDesignerWidgetBoxInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerWidgetBoxInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8177,9 +10021,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QEvent) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8193,14 +10041,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
+    pub fn connectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerWidgetBoxInterface_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8214,11 +10062,15 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
+    pub fn superConnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerWidgetBoxInterface_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8231,9 +10083,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8247,14 +10103,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
+    pub fn disconnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerWidgetBoxInterface_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8268,10 +10124,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDesignerWidgetBoxInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerWidgetBoxInterface_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8285,10 +10145,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8299,13 +10163,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn UpdateMicroFocus(self: QDesignerWidgetBoxInterface) void {
+    pub fn updateMicroFocus(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8317,10 +10181,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperUpdateMicroFocus(self: QDesignerWidgetBoxInterface) void {
+    pub fn superUpdateMicroFocus(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8333,10 +10201,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8347,13 +10219,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Create(self: QDesignerWidgetBoxInterface) void {
+    pub fn create(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8365,10 +10237,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperCreate(self: QDesignerWidgetBoxInterface) void {
+    pub fn superCreate(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8381,9 +10257,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8395,13 +10275,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Destroy(self: QDesignerWidgetBoxInterface) void {
+    pub fn destroy(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8413,9 +10293,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperDestroy(self: QDesignerWidgetBoxInterface) void {
+    pub fn superDestroy(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8429,10 +10313,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) void) void {
         qtc.QDesignerWidgetBoxInterface_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8443,13 +10331,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FocusNextChild(self: QDesignerWidgetBoxInterface) bool {
+    pub fn focusNextChild(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8461,10 +10349,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperFocusNextChild(self: QDesignerWidgetBoxInterface) bool {
+    pub fn superFocusNextChild(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8477,9 +10369,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8491,13 +10387,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn FocusPreviousChild(self: QDesignerWidgetBoxInterface) bool {
+    pub fn focusPreviousChild(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8509,9 +10405,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperFocusPreviousChild(self: QDesignerWidgetBoxInterface) bool {
+    pub fn superFocusPreviousChild(self: QDesignerWidgetBoxInterface) bool {
         return qtc.QDesignerWidgetBoxInterface_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8525,9 +10425,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8539,13 +10443,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Sender(self: QDesignerWidgetBoxInterface) QObject {
+    pub fn sender(self: QDesignerWidgetBoxInterface) QObject {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8557,9 +10461,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperSender(self: QDesignerWidgetBoxInterface) QObject {
+    pub fn superSender(self: QDesignerWidgetBoxInterface) QObject {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8573,9 +10481,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDesignerWidgetBoxInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8587,13 +10499,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SenderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn senderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8605,9 +10517,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn SuperSenderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
+    pub fn superSenderSignalIndex(self: QDesignerWidgetBoxInterface) i32 {
         return qtc.QDesignerWidgetBoxInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8621,9 +10537,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDesignerWidgetBoxInterface, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8637,14 +10557,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerWidgetBoxInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8658,10 +10578,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDesignerWidgetBoxInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerWidgetBoxInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8675,9 +10599,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDesignerWidgetBoxInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8691,14 +10619,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerWidgetBoxInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8712,10 +10640,14 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDesignerWidgetBoxInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerWidgetBoxInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8729,9 +10661,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, QMetaMethod) callconv(.c) bool) void {
         qtc.QDesignerWidgetBoxInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8747,13 +10683,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerWidgetBoxInterface_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8769,9 +10705,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QDesignerWidgetBoxInterface, metricA: i32, metricB: i32) f64 {
         return qtc.QDesignerWidgetBoxInterface_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8785,9 +10725,13 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, i32, i32) callconv(.c) f64) void {
         qtc.QDesignerWidgetBoxInterface_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8801,23 +10745,23 @@ pub const QDesignerWidgetBoxInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerWidgetBoxInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDesignerWidgetBoxInterface, callback: *const fn (QDesignerWidgetBoxInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface.html#dtor.QDesignerWidgetBoxInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerWidgetBoxInterface `
     ///
-    pub fn Delete(self: QDesignerWidgetBoxInterface) void {
+    pub fn delete(self: QDesignerWidgetBoxInterface) void {
         qtc.QDesignerWidgetBoxInterface_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8832,30 +10776,42 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
 
     pub const _is_QDesignerWidgetBoxInterface__Widget = {};
 
-    /// New constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerWidgetBoxInterface__Widget {
+    pub const New = new;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
+    ///
+    pub fn new() QDesignerWidgetBoxInterface__Widget {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new() };
     }
 
-    /// New2 constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` w: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn New2(w: anytype) QDesignerWidgetBoxInterface__Widget {
+    pub fn new2(w: anytype) QDesignerWidgetBoxInterface__Widget {
         comptime _ = @TypeOf(w)._is_QDesignerWidgetBoxInterface__Widget;
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new2(@ptrCast(w.ptr)) };
     }
 
-    /// New3 constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aname: []const u8 `
     ///
-    pub fn New3(aname: []const u8) QDesignerWidgetBoxInterface__Widget {
+    pub fn new3(aname: []const u8) QDesignerWidgetBoxInterface__Widget {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -8863,7 +10819,11 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new3(aname_str) };
     }
 
-    /// New4 constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8871,7 +10831,7 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` xml: []const u8 `
     ///
-    pub fn New4(aname: []const u8, xml: []const u8) QDesignerWidgetBoxInterface__Widget {
+    pub fn new4(aname: []const u8, xml: []const u8) QDesignerWidgetBoxInterface__Widget {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -8883,7 +10843,11 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new4(aname_str, xml_str) };
     }
 
-    /// New5 constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8893,7 +10857,7 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` icon_name: []const u8 `
     ///
-    pub fn New5(aname: []const u8, xml: []const u8, icon_name: []const u8) QDesignerWidgetBoxInterface__Widget {
+    pub fn new5(aname: []const u8, xml: []const u8, icon_name: []const u8) QDesignerWidgetBoxInterface__Widget {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -8909,7 +10873,11 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new5(aname_str, xml_str, icon_name_str) };
     }
 
-    /// New6 constructs a new QDesignerWidgetBoxInterface::Widget object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Widget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8921,7 +10889,7 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` atype: abstractwidgetbox_enums.Type `
     ///
-    pub fn New6(aname: []const u8, xml: []const u8, icon_name: []const u8, atype: i32) QDesignerWidgetBoxInterface__Widget {
+    pub fn new6(aname: []const u8, xml: []const u8, icon_name: []const u8, atype: i32) QDesignerWidgetBoxInterface__Widget {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -8937,6 +10905,10 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Widget_new6(aname_str, xml_str, icon_name_str, @bitCast(atype)) };
     }
 
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#operator-eq)
     ///
     /// ## Parameter(s):
@@ -8945,10 +10917,14 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` w: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn OperatorAssign(self: QDesignerWidgetBoxInterface__Widget, w: anytype) void {
+    pub fn operatorAssign(self: QDesignerWidgetBoxInterface__Widget, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QDesignerWidgetBoxInterface__Widget;
         qtc.QDesignerWidgetBoxInterface__Widget_OperatorAssign(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#name)
     ///
@@ -8958,13 +10934,17 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#setName)
     ///
@@ -8974,13 +10954,17 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` aname: []const u8 `
     ///
-    pub fn SetName(self: QDesignerWidgetBoxInterface__Widget, aname: []const u8) void {
+    pub fn setName(self: QDesignerWidgetBoxInterface__Widget, aname: []const u8) void {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
         };
         qtc.QDesignerWidgetBoxInterface__Widget_SetName(@ptrCast(self.ptr), aname_str);
     }
+
+    /// ### DEPRECATED: Use `domXml` instead
+    ///
+    pub const DomXml = domXml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#domXml)
     ///
@@ -8990,13 +10974,17 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DomXml(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
+    pub fn domXml(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_DomXml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.DomXml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.domXml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDomXml` instead
+    ///
+    pub const SetDomXml = setDomXml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#setDomXml)
     ///
@@ -9006,13 +10994,17 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` xml: []const u8 `
     ///
-    pub fn SetDomXml(self: QDesignerWidgetBoxInterface__Widget, xml: []const u8) void {
+    pub fn setDomXml(self: QDesignerWidgetBoxInterface__Widget, xml: []const u8) void {
         const xml_str = qtc.libqt_string{
             .len = xml.len,
             .data = xml.ptr,
         };
         qtc.QDesignerWidgetBoxInterface__Widget_SetDomXml(@ptrCast(self.ptr), xml_str);
     }
+
+    /// ### DEPRECATED: Use `iconName` instead
+    ///
+    pub const IconName = iconName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#iconName)
     ///
@@ -9022,13 +11014,17 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IconName(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
+    pub fn iconName(self: QDesignerWidgetBoxInterface__Widget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Widget_IconName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.IconName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Widget.iconName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIconName` instead
+    ///
+    pub const SetIconName = setIconName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#setIconName)
     ///
@@ -9038,13 +11034,19 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` icon_name: []const u8 `
     ///
-    pub fn SetIconName(self: QDesignerWidgetBoxInterface__Widget, icon_name: []const u8) void {
+    pub fn setIconName(self: QDesignerWidgetBoxInterface__Widget, icon_name: []const u8) void {
         const icon_name_str = qtc.libqt_string{
             .len = icon_name.len,
             .data = icon_name.ptr,
         };
         qtc.QDesignerWidgetBoxInterface__Widget_SetIconName(@ptrCast(self.ptr), icon_name_str);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#type)
     ///
@@ -9056,9 +11058,13 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` abstractwidgetbox_enums.Type `
     ///
-    pub fn Type(self: QDesignerWidgetBoxInterface__Widget) i32 {
+    pub fn type0(self: QDesignerWidgetBoxInterface__Widget) i32 {
         return qtc.QDesignerWidgetBoxInterface__Widget_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#setType)
     ///
@@ -9068,9 +11074,13 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` atype: abstractwidgetbox_enums.Type `
     ///
-    pub fn SetType(self: QDesignerWidgetBoxInterface__Widget, atype: i32) void {
+    pub fn setType(self: QDesignerWidgetBoxInterface__Widget, atype: i32) void {
         qtc.QDesignerWidgetBoxInterface__Widget_SetType(@ptrCast(self.ptr), @bitCast(atype));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-widget.html#isNull)
     ///
@@ -9078,21 +11088,21 @@ pub const QDesignerWidgetBoxInterface__Widget = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn IsNull(self: QDesignerWidgetBoxInterface__Widget) bool {
+    pub fn isNull(self: QDesignerWidgetBoxInterface__Widget) bool {
         return qtc.QDesignerWidgetBoxInterface__Widget_IsNull(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn Delete(self: QDesignerWidgetBoxInterface__Widget) void {
+    pub fn delete(self: QDesignerWidgetBoxInterface__Widget) void {
         qtc.QDesignerWidgetBoxInterface__Widget_Delete(@ptrCast(self.ptr));
     }
 };
@@ -9107,30 +11117,42 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
 
     pub const _is_QDesignerWidgetBoxInterface__Category = {};
 
-    /// New constructs a new QDesignerWidgetBoxInterface::Category object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerWidgetBoxInterface__Category {
+    pub const New = new;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Category object in C++ memory
+    ///
+    pub fn new() QDesignerWidgetBoxInterface__Category {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Category_new() };
     }
 
-    /// New2 constructs a new QDesignerWidgetBoxInterface::Category object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Category object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn New2(param1: anytype) QDesignerWidgetBoxInterface__Category {
+    pub fn new2(param1: anytype) QDesignerWidgetBoxInterface__Category {
         comptime _ = @TypeOf(param1)._is_QDesignerWidgetBoxInterface__Category;
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Category_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QDesignerWidgetBoxInterface::Category object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Category object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` aname: []const u8 `
     ///
-    pub fn New3(aname: []const u8) QDesignerWidgetBoxInterface__Category {
+    pub fn new3(aname: []const u8) QDesignerWidgetBoxInterface__Category {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -9138,7 +11160,11 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Category_new3(aname_str) };
     }
 
-    /// New4 constructs a new QDesignerWidgetBoxInterface::Category object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDesignerWidgetBoxInterface::Category object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -9146,13 +11172,17 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` atype: abstractwidgetbox_enums.Type `
     ///
-    pub fn New4(aname: []const u8, atype: i32) QDesignerWidgetBoxInterface__Category {
+    pub fn new4(aname: []const u8, atype: i32) QDesignerWidgetBoxInterface__Category {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
         };
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Category_new4(aname_str, @bitCast(atype)) };
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#name)
     ///
@@ -9162,13 +11192,17 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDesignerWidgetBoxInterface__Category, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDesignerWidgetBoxInterface__Category, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerWidgetBoxInterface__Category_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Category.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerWidgetBoxInterface__Category.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#setName)
     ///
@@ -9178,7 +11212,7 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` aname: []const u8 `
     ///
-    pub fn SetName(self: QDesignerWidgetBoxInterface__Category, aname: []const u8) void {
+    pub fn setName(self: QDesignerWidgetBoxInterface__Category, aname: []const u8) void {
         const aname_str = qtc.libqt_string{
             .len = aname.len,
             .data = aname.ptr,
@@ -9186,15 +11220,23 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
         qtc.QDesignerWidgetBoxInterface__Category_SetName(@ptrCast(self.ptr), aname_str);
     }
 
+    /// ### DEPRECATED: Use `widgetCount` instead
+    ///
+    pub const WidgetCount = widgetCount;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#widgetCount)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn WidgetCount(self: QDesignerWidgetBoxInterface__Category) i32 {
+    pub fn widgetCount(self: QDesignerWidgetBoxInterface__Category) i32 {
         return qtc.QDesignerWidgetBoxInterface__Category_WidgetCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#widget)
     ///
@@ -9204,9 +11246,13 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` idx: i32 `
     ///
-    pub fn Widget(self: QDesignerWidgetBoxInterface__Category, idx: i32) QDesignerWidgetBoxInterface__Widget {
+    pub fn widget(self: QDesignerWidgetBoxInterface__Category, idx: i32) QDesignerWidgetBoxInterface__Widget {
         return .{ .ptr = qtc.QDesignerWidgetBoxInterface__Category_Widget(@ptrCast(self.ptr), @bitCast(idx)) };
     }
+
+    /// ### DEPRECATED: Use `removeWidget` instead
+    ///
+    pub const RemoveWidget = removeWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#removeWidget)
     ///
@@ -9216,9 +11262,13 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` idx: i32 `
     ///
-    pub fn RemoveWidget(self: QDesignerWidgetBoxInterface__Category, idx: i32) void {
+    pub fn removeWidget(self: QDesignerWidgetBoxInterface__Category, idx: i32) void {
         qtc.QDesignerWidgetBoxInterface__Category_RemoveWidget(@ptrCast(self.ptr), @bitCast(idx));
     }
+
+    /// ### DEPRECATED: Use `addWidget` instead
+    ///
+    pub const AddWidget = addWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#addWidget)
     ///
@@ -9228,10 +11278,16 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` awidget: QDesignerWidgetBoxInterface__Widget `
     ///
-    pub fn AddWidget(self: QDesignerWidgetBoxInterface__Category, awidget: anytype) void {
+    pub fn addWidget(self: QDesignerWidgetBoxInterface__Category, awidget: anytype) void {
         comptime _ = @TypeOf(awidget)._is_QDesignerWidgetBoxInterface__Widget;
         qtc.QDesignerWidgetBoxInterface__Category_AddWidget(@ptrCast(self.ptr), @ptrCast(awidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#type)
     ///
@@ -9243,9 +11299,13 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` abstractwidgetbox_enums.Type `
     ///
-    pub fn Type(self: QDesignerWidgetBoxInterface__Category) i32 {
+    pub fn type0(self: QDesignerWidgetBoxInterface__Category) i32 {
         return qtc.QDesignerWidgetBoxInterface__Category_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#setType)
     ///
@@ -9255,9 +11315,13 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` atype: abstractwidgetbox_enums.Type `
     ///
-    pub fn SetType(self: QDesignerWidgetBoxInterface__Category, atype: i32) void {
+    pub fn setType(self: QDesignerWidgetBoxInterface__Category, atype: i32) void {
         qtc.QDesignerWidgetBoxInterface__Category_SetType(@ptrCast(self.ptr), @bitCast(atype));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerwidgetboxinterface-category.html#isNull)
     ///
@@ -9265,21 +11329,21 @@ pub const QDesignerWidgetBoxInterface__Category = extern struct {
     ///
     /// ` self: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn IsNull(self: QDesignerWidgetBoxInterface__Category) bool {
+    pub fn isNull(self: QDesignerWidgetBoxInterface__Category) bool {
         return qtc.QDesignerWidgetBoxInterface__Category_IsNull(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerWidgetBoxInterface__Category `
     ///
-    pub fn Delete(self: QDesignerWidgetBoxInterface__Category) void {
+    pub fn delete(self: QDesignerWidgetBoxInterface__Category) void {
         qtc.QDesignerWidgetBoxInterface__Category_Delete(@ptrCast(self.ptr));
     }
 };

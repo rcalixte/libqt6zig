@@ -29,15 +29,23 @@ pub const QAbstractBarSeries = extern struct {
     pub const _is_QAbstractSeries = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn MetaObject(self: QAbstractBarSeries) QMetaObject {
+    pub fn metaObject(self: QAbstractBarSeries) QMetaObject {
         return .{ .ptr = qtc.QAbstractBarSeries_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -45,10 +53,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractBarSeries, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractBarSeries, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractBarSeries_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -60,9 +72,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractBarSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractBarSeries, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractBarSeries_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -72,14 +88,18 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setBarWidth` instead
+    ///
+    pub const SetBarWidth = setBarWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setBarWidth)
     ///
@@ -89,9 +109,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` width: f64 `
     ///
-    pub fn SetBarWidth(self: QAbstractBarSeries, width: f64) void {
+    pub fn setBarWidth(self: QAbstractBarSeries, width: f64) void {
         qtc.QAbstractBarSeries_SetBarWidth(@ptrCast(self.ptr), @bitCast(width));
     }
+
+    /// ### DEPRECATED: Use `barWidth` instead
+    ///
+    pub const BarWidth = barWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barWidth)
     ///
@@ -99,9 +123,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn BarWidth(self: QAbstractBarSeries) f64 {
+    pub fn barWidth(self: QAbstractBarSeries) f64 {
         return qtc.QAbstractBarSeries_BarWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#append)
     ///
@@ -111,10 +139,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` set: QBarSet `
     ///
-    pub fn Append(self: QAbstractBarSeries, set: anytype) bool {
+    pub fn append(self: QAbstractBarSeries, set: anytype) bool {
         comptime _ = @TypeOf(set)._is_QBarSet;
         return qtc.QAbstractBarSeries_Append(@ptrCast(self.ptr), @ptrCast(set.ptr));
     }
+
+    /// ### DEPRECATED: Use `remove` instead
+    ///
+    pub const Remove = remove;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#remove)
     ///
@@ -124,10 +156,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` set: QBarSet `
     ///
-    pub fn Remove(self: QAbstractBarSeries, set: anytype) bool {
+    pub fn remove(self: QAbstractBarSeries, set: anytype) bool {
         comptime _ = @TypeOf(set)._is_QBarSet;
         return qtc.QAbstractBarSeries_Remove(@ptrCast(self.ptr), @ptrCast(set.ptr));
     }
+
+    /// ### DEPRECATED: Use `take` instead
+    ///
+    pub const Take = take;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#take)
     ///
@@ -137,10 +173,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` set: QBarSet `
     ///
-    pub fn Take(self: QAbstractBarSeries, set: anytype) bool {
+    pub fn take(self: QAbstractBarSeries, set: anytype) bool {
         comptime _ = @TypeOf(set)._is_QBarSet;
         return qtc.QAbstractBarSeries_Take(@ptrCast(self.ptr), @ptrCast(set.ptr));
     }
+
+    /// ### DEPRECATED: Use `append2` instead
+    ///
+    pub const Append2 = append2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#append)
     ///
@@ -150,13 +190,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` sets: []QBarSet `
     ///
-    pub fn Append2(self: QAbstractBarSeries, sets: []QBarSet) bool {
+    pub fn append2(self: QAbstractBarSeries, sets: []QBarSet) bool {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
         return qtc.QAbstractBarSeries_Append2(@ptrCast(self.ptr), sets_list);
     }
+
+    /// ### DEPRECATED: Use `insert` instead
+    ///
+    pub const Insert = insert;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#insert)
     ///
@@ -168,10 +212,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` set: QBarSet `
     ///
-    pub fn Insert(self: QAbstractBarSeries, index: i32, set: anytype) bool {
+    pub fn insert(self: QAbstractBarSeries, index: i32, set: anytype) bool {
         comptime _ = @TypeOf(set)._is_QBarSet;
         return qtc.QAbstractBarSeries_Insert(@ptrCast(self.ptr), @bitCast(index), @ptrCast(set.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#count)
     ///
@@ -179,9 +227,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Count(self: QAbstractBarSeries) i32 {
+    pub fn count(self: QAbstractBarSeries) i32 {
         return qtc.QAbstractBarSeries_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `barSets` instead
+    ///
+    pub const BarSets = barSets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barSets)
     ///
@@ -191,15 +243,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn BarSets(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QBarSet {
+    pub fn barSets(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QBarSet {
         const _arr: qtc.libqt_list = qtc.QAbstractBarSeries_BarSets(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QBarSet, _arr.len) catch @panic("QAbstractBarSeries.BarSets: Memory allocation failed");
-        const _data: [*]QtC.QBarSet = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QBarSet, _arr.len) catch @panic("QAbstractBarSeries.barSets: Memory allocation failed");
+        const _data_val: [*]QtC.QBarSet = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#clear)
     ///
@@ -207,9 +263,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Clear(self: QAbstractBarSeries) void {
+    pub fn clear(self: QAbstractBarSeries) void {
         qtc.QAbstractBarSeries_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible` instead
+    ///
+    pub const SetLabelsVisible = setLabelsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsVisible)
     ///
@@ -217,9 +277,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn SetLabelsVisible(self: QAbstractBarSeries) void {
+    pub fn setLabelsVisible(self: QAbstractBarSeries) void {
         qtc.QAbstractBarSeries_SetLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLabelsVisible` instead
+    ///
+    pub const IsLabelsVisible = isLabelsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#isLabelsVisible)
     ///
@@ -227,9 +291,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn IsLabelsVisible(self: QAbstractBarSeries) bool {
+    pub fn isLabelsVisible(self: QAbstractBarSeries) bool {
         return qtc.QAbstractBarSeries_IsLabelsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsFormat` instead
+    ///
+    pub const SetLabelsFormat = setLabelsFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsFormat)
     ///
@@ -239,13 +307,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` format: []const u8 `
     ///
-    pub fn SetLabelsFormat(self: QAbstractBarSeries, format: []const u8) void {
+    pub fn setLabelsFormat(self: QAbstractBarSeries, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         qtc.QAbstractBarSeries_SetLabelsFormat(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `labelsFormat` instead
+    ///
+    pub const LabelsFormat = labelsFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsFormat)
     ///
@@ -255,13 +327,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LabelsFormat(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn labelsFormat(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractBarSeries_LabelsFormat(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.LabelsFormat: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.labelsFormat: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabelsAngle` instead
+    ///
+    pub const SetLabelsAngle = setLabelsAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsAngle)
     ///
@@ -271,9 +347,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn SetLabelsAngle(self: QAbstractBarSeries, angle: f64) void {
+    pub fn setLabelsAngle(self: QAbstractBarSeries, angle: f64) void {
         qtc.QAbstractBarSeries_SetLabelsAngle(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `labelsAngle` instead
+    ///
+    pub const LabelsAngle = labelsAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngle)
     ///
@@ -281,9 +361,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn LabelsAngle(self: QAbstractBarSeries) f64 {
+    pub fn labelsAngle(self: QAbstractBarSeries) f64 {
         return qtc.QAbstractBarSeries_LabelsAngle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsPosition` instead
+    ///
+    pub const SetLabelsPosition = setLabelsPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsPosition)
     ///
@@ -293,9 +377,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` position: qabstractbarseries_enums.LabelsPosition `
     ///
-    pub fn SetLabelsPosition(self: QAbstractBarSeries, position: i32) void {
+    pub fn setLabelsPosition(self: QAbstractBarSeries, position: i32) void {
         qtc.QAbstractBarSeries_SetLabelsPosition(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `labelsPosition` instead
+    ///
+    pub const LabelsPosition = labelsPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPosition)
     ///
@@ -307,9 +395,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` qabstractbarseries_enums.LabelsPosition `
     ///
-    pub fn LabelsPosition(self: QAbstractBarSeries) i32 {
+    pub fn labelsPosition(self: QAbstractBarSeries) i32 {
         return qtc.QAbstractBarSeries_LabelsPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLabelsPrecision` instead
+    ///
+    pub const SetLabelsPrecision = setLabelsPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsPrecision)
     ///
@@ -319,9 +411,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` precision: i32 `
     ///
-    pub fn SetLabelsPrecision(self: QAbstractBarSeries, precision: i32) void {
+    pub fn setLabelsPrecision(self: QAbstractBarSeries, precision: i32) void {
         qtc.QAbstractBarSeries_SetLabelsPrecision(@ptrCast(self.ptr), @bitCast(precision));
     }
+
+    /// ### DEPRECATED: Use `labelsPrecision` instead
+    ///
+    pub const LabelsPrecision = labelsPrecision;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecision)
     ///
@@ -329,9 +425,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn LabelsPrecision(self: QAbstractBarSeries) i32 {
+    pub fn labelsPrecision(self: QAbstractBarSeries) i32 {
         return qtc.QAbstractBarSeries_LabelsPrecision(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#clicked)
     ///
@@ -343,10 +443,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` barset: QBarSet `
     ///
-    pub fn Clicked(self: QAbstractBarSeries, index: i32, barset: anytype) void {
+    pub fn clicked(self: QAbstractBarSeries, index: i32, barset: anytype) void {
         comptime _ = @TypeOf(barset)._is_QBarSet;
         qtc.QAbstractBarSeries_Clicked(@ptrCast(self.ptr), @bitCast(index), @ptrCast(barset.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#clicked)
     ///
@@ -356,9 +460,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, index: i32, barset: QBarSet) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
+    pub fn onClicked(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#hovered)
     ///
@@ -372,10 +480,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` barset: QBarSet `
     ///
-    pub fn Hovered(self: QAbstractBarSeries, status: bool, index: i32, barset: anytype) void {
+    pub fn hovered(self: QAbstractBarSeries, status: bool, index: i32, barset: anytype) void {
         comptime _ = @TypeOf(barset)._is_QBarSet;
         qtc.QAbstractBarSeries_Hovered(@ptrCast(self.ptr), status, @bitCast(index), @ptrCast(barset.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#hovered)
     ///
@@ -385,9 +497,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, status: bool, index: i32, barset: QBarSet) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, bool, i32, QBarSet) callconv(.c) void) void {
+    pub fn onHovered(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, bool, i32, QBarSet) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#pressed)
     ///
@@ -399,11 +515,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` barset: QBarSet `
     ///
-    pub fn Pressed(self: QAbstractBarSeries, index: i32, barset: anytype) void {
+    pub fn pressed(self: QAbstractBarSeries, index: i32, barset: anytype) void {
         comptime _ = @TypeOf(barset)._is_QBarSet;
         qtc.QAbstractBarSeries_Pressed(@ptrCast(self.ptr), @bitCast(index), @ptrCast(barset.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#pressed)
     ///
     /// ## Parameters:
@@ -412,9 +532,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, index: i32, barset: QBarSet) callconv(.c) void `
     ///
-    pub fn OnPressed(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
+    pub fn onPressed(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#released)
     ///
@@ -426,11 +550,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` barset: QBarSet `
     ///
-    pub fn Released(self: QAbstractBarSeries, index: i32, barset: anytype) void {
+    pub fn released(self: QAbstractBarSeries, index: i32, barset: anytype) void {
         comptime _ = @TypeOf(barset)._is_QBarSet;
         qtc.QAbstractBarSeries_Released(@ptrCast(self.ptr), @bitCast(index), @ptrCast(barset.ptr));
     }
 
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#released)
     ///
     /// ## Parameters:
@@ -439,9 +567,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, index: i32, barset: QBarSet) callconv(.c) void `
     ///
-    pub fn OnReleased(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
+    pub fn onReleased(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doubleClicked` instead
+    ///
+    pub const DoubleClicked = doubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#doubleClicked)
     ///
@@ -453,10 +585,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` barset: QBarSet `
     ///
-    pub fn DoubleClicked(self: QAbstractBarSeries, index: i32, barset: anytype) void {
+    pub fn doubleClicked(self: QAbstractBarSeries, index: i32, barset: anytype) void {
         comptime _ = @TypeOf(barset)._is_QBarSet;
         qtc.QAbstractBarSeries_DoubleClicked(@ptrCast(self.ptr), @bitCast(index), @ptrCast(barset.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoubleClicked` instead
+    ///
+    pub const OnDoubleClicked = onDoubleClicked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#doubleClicked)
     ///
@@ -466,20 +602,28 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, index: i32, barset: QBarSet) callconv(.c) void `
     ///
-    pub fn OnDoubleClicked(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
+    pub fn onDoubleClicked(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32, QBarSet) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_DoubleClicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `countChanged` instead
+    ///
+    pub const CountChanged = countChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#countChanged)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn CountChanged(self: QAbstractBarSeries) void {
+    pub fn countChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractBarSeries_CountChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCountChanged` instead
+    ///
+    pub const OnCountChanged = onCountChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#countChanged)
     ///
     /// ## Parameters:
@@ -488,9 +632,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnCountChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onCountChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_CountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsVisibleChanged` instead
+    ///
+    pub const LabelsVisibleChanged = labelsVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsVisibleChanged)
     ///
@@ -498,9 +646,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn LabelsVisibleChanged(self: QAbstractBarSeries) void {
+    pub fn labelsVisibleChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractBarSeries_LabelsVisibleChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLabelsVisibleChanged` instead
+    ///
+    pub const OnLabelsVisibleChanged = onLabelsVisibleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsVisibleChanged)
     ///
@@ -510,9 +662,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnLabelsVisibleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onLabelsVisibleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsVisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsFormatChanged` instead
+    ///
+    pub const LabelsFormatChanged = labelsFormatChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsFormatChanged)
     ///
@@ -522,13 +678,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` format: []const u8 `
     ///
-    pub fn LabelsFormatChanged(self: QAbstractBarSeries, format: []const u8) void {
+    pub fn labelsFormatChanged(self: QAbstractBarSeries, format: []const u8) void {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
         };
         qtc.QAbstractBarSeries_LabelsFormatChanged(@ptrCast(self.ptr), format_str);
     }
+
+    /// ### DEPRECATED: Use `onLabelsFormatChanged` instead
+    ///
+    pub const OnLabelsFormatChanged = onLabelsFormatChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsFormatChanged)
     ///
@@ -538,9 +698,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, format: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLabelsFormatChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLabelsFormatChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsPositionChanged` instead
+    ///
+    pub const LabelsPositionChanged = labelsPositionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPositionChanged)
     ///
@@ -550,9 +714,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` position: qabstractbarseries_enums.LabelsPosition `
     ///
-    pub fn LabelsPositionChanged(self: QAbstractBarSeries, position: i32) void {
+    pub fn labelsPositionChanged(self: QAbstractBarSeries, position: i32) void {
         qtc.QAbstractBarSeries_LabelsPositionChanged(@ptrCast(self.ptr), @bitCast(position));
     }
+
+    /// ### DEPRECATED: Use `onLabelsPositionChanged` instead
+    ///
+    pub const OnLabelsPositionChanged = onLabelsPositionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPositionChanged)
     ///
@@ -562,9 +730,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, position: qabstractbarseries_enums.LabelsPosition) callconv(.c) void `
     ///
-    pub fn OnLabelsPositionChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32) callconv(.c) void) void {
+    pub fn onLabelsPositionChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsAngleChanged` instead
+    ///
+    pub const LabelsAngleChanged = labelsAngleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngleChanged)
     ///
@@ -574,9 +746,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` angle: f64 `
     ///
-    pub fn LabelsAngleChanged(self: QAbstractBarSeries, angle: f64) void {
+    pub fn labelsAngleChanged(self: QAbstractBarSeries, angle: f64) void {
         qtc.QAbstractBarSeries_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(angle));
     }
+
+    /// ### DEPRECATED: Use `onLabelsAngleChanged` instead
+    ///
+    pub const OnLabelsAngleChanged = onLabelsAngleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsAngleChanged)
     ///
@@ -586,9 +762,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, angle: f64) callconv(.c) void `
     ///
-    pub fn OnLabelsAngleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, f64) callconv(.c) void) void {
+    pub fn onLabelsAngleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, f64) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsAngleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `labelsPrecisionChanged` instead
+    ///
+    pub const LabelsPrecisionChanged = labelsPrecisionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecisionChanged)
     ///
@@ -598,9 +778,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` precision: i32 `
     ///
-    pub fn LabelsPrecisionChanged(self: QAbstractBarSeries, precision: i32) void {
+    pub fn labelsPrecisionChanged(self: QAbstractBarSeries, precision: i32) void {
         qtc.QAbstractBarSeries_LabelsPrecisionChanged(@ptrCast(self.ptr), @bitCast(precision));
     }
+
+    /// ### DEPRECATED: Use `onLabelsPrecisionChanged` instead
+    ///
+    pub const OnLabelsPrecisionChanged = onLabelsPrecisionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#labelsPrecisionChanged)
     ///
@@ -610,9 +794,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, precision: i32) callconv(.c) void `
     ///
-    pub fn OnLabelsPrecisionChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32) callconv(.c) void) void {
+    pub fn onLabelsPrecisionChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, i32) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_LabelsPrecisionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `barsetsAdded` instead
+    ///
+    pub const BarsetsAdded = barsetsAdded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsAdded)
     ///
@@ -622,7 +810,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` sets: []QBarSet `
     ///
-    pub fn BarsetsAdded(self: QAbstractBarSeries, sets: []QBarSet) void {
+    pub fn barsetsAdded(self: QAbstractBarSeries, sets: []QBarSet) void {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
@@ -630,6 +818,10 @@ pub const QAbstractBarSeries = extern struct {
         qtc.QAbstractBarSeries_BarsetsAdded(@ptrCast(self.ptr), sets_list);
     }
 
+    /// ### DEPRECATED: Use `onBarsetsAdded` instead
+    ///
+    pub const OnBarsetsAdded = onBarsetsAdded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsAdded)
     ///
     /// ## Parameters:
@@ -638,9 +830,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, sets: qtc.libqt_list ([]QBarSet)) callconv(.c) void `
     ///
-    pub fn OnBarsetsAdded(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onBarsetsAdded(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `barsetsRemoved` instead
+    ///
+    pub const BarsetsRemoved = barsetsRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsRemoved)
     ///
@@ -650,13 +846,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` sets: []QBarSet `
     ///
-    pub fn BarsetsRemoved(self: QAbstractBarSeries, sets: []QBarSet) void {
+    pub fn barsetsRemoved(self: QAbstractBarSeries, sets: []QBarSet) void {
         const sets_list = qtc.libqt_list{
             .len = sets.len,
             .data = @ptrCast(sets.ptr),
         };
         qtc.QAbstractBarSeries_BarsetsRemoved(@ptrCast(self.ptr), sets_list);
     }
+
+    /// ### DEPRECATED: Use `onBarsetsRemoved` instead
+    ///
+    pub const OnBarsetsRemoved = onBarsetsRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#barsetsRemoved)
     ///
@@ -666,9 +866,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, sets: qtc.libqt_list ([]QBarSet)) callconv(.c) void `
     ///
-    pub fn OnBarsetsRemoved(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onBarsetsRemoved(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, qtc.libqt_list) callconv(.c) void) void {
         qtc.QAbstractBarSeries_Connect_BarsetsRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -680,15 +884,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -702,15 +910,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabelsVisible1` instead
+    ///
+    pub const SetLabelsVisible1 = setLabelsVisible1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#setLabelsVisible)
     ///
@@ -720,9 +932,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetLabelsVisible1(self: QAbstractBarSeries, visible: bool) void {
+    pub fn setLabelsVisible1(self: QAbstractBarSeries, visible: bool) void {
         qtc.QAbstractBarSeries_SetLabelsVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QAbstractSeries
     ///
@@ -736,9 +954,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` qabstractseries_enums.SeriesType `
     ///
-    pub fn Type(self: QAbstractBarSeries) i32 {
+    pub fn type0(self: QAbstractBarSeries) i32 {
         return qtc.QAbstractSeries_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// Inherited from QAbstractSeries
     ///
@@ -748,15 +970,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QAbstractBarSeries, name: []const u8) void {
+    pub fn setName(self: QAbstractBarSeries, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QAbstractSeries_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// Inherited from QAbstractSeries
     ///
@@ -768,13 +994,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSeries_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QAbstractSeries
     ///
@@ -784,9 +1014,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn SetVisible(self: QAbstractBarSeries) void {
+    pub fn setVisible(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_SetVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QAbstractSeries
     ///
@@ -796,9 +1030,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn IsVisible(self: QAbstractBarSeries) bool {
+    pub fn isVisible(self: QAbstractBarSeries) bool {
         return qtc.QAbstractSeries_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// Inherited from QAbstractSeries
     ///
@@ -808,9 +1046,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Opacity(self: QAbstractBarSeries) f64 {
+    pub fn opacity(self: QAbstractBarSeries) f64 {
         return qtc.QAbstractSeries_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// Inherited from QAbstractSeries
     ///
@@ -820,11 +1062,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QAbstractBarSeries, opacity: f64) void {
-        qtc.QAbstractSeries_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QAbstractBarSeries, _opacity: f64) void {
+        qtc.QAbstractSeries_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `setUseOpenGL` instead
+    ///
+    pub const SetUseOpenGL = setUseOpenGL;
 
     /// Inherited from QAbstractSeries
     ///
@@ -834,9 +1080,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn SetUseOpenGL(self: QAbstractBarSeries) void {
+    pub fn setUseOpenGL(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_SetUseOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `useOpenGL` instead
+    ///
+    pub const UseOpenGL = useOpenGL;
 
     /// Inherited from QAbstractSeries
     ///
@@ -846,9 +1096,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn UseOpenGL(self: QAbstractBarSeries) bool {
+    pub fn useOpenGL(self: QAbstractBarSeries) bool {
         return qtc.QAbstractSeries_UseOpenGL(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `chart` instead
+    ///
+    pub const Chart = chart;
 
     /// Inherited from QAbstractSeries
     ///
@@ -858,9 +1112,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Chart(self: QAbstractBarSeries) QChart {
+    pub fn chart(self: QAbstractBarSeries) QChart {
         return .{ .ptr = qtc.QAbstractSeries_Chart(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attachAxis` instead
+    ///
+    pub const AttachAxis = attachAxis;
 
     /// Inherited from QAbstractSeries
     ///
@@ -872,10 +1130,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` axis: QAbstractAxis `
     ///
-    pub fn AttachAxis(self: QAbstractBarSeries, axis: anytype) bool {
+    pub fn attachAxis(self: QAbstractBarSeries, axis: anytype) bool {
         comptime _ = @TypeOf(axis)._is_QAbstractAxis;
         return qtc.QAbstractSeries_AttachAxis(@ptrCast(self.ptr), @ptrCast(axis.ptr));
     }
+
+    /// ### DEPRECATED: Use `detachAxis` instead
+    ///
+    pub const DetachAxis = detachAxis;
 
     /// Inherited from QAbstractSeries
     ///
@@ -887,10 +1149,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` axis: QAbstractAxis `
     ///
-    pub fn DetachAxis(self: QAbstractBarSeries, axis: anytype) bool {
+    pub fn detachAxis(self: QAbstractBarSeries, axis: anytype) bool {
         comptime _ = @TypeOf(axis)._is_QAbstractAxis;
         return qtc.QAbstractSeries_DetachAxis(@ptrCast(self.ptr), @ptrCast(axis.ptr));
     }
+
+    /// ### DEPRECATED: Use `attachedAxes` instead
+    ///
+    pub const AttachedAxes = attachedAxes;
 
     /// Inherited from QAbstractSeries
     ///
@@ -902,15 +1168,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AttachedAxes(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QAbstractAxis {
+    pub fn attachedAxes(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QAbstractAxis {
         const _arr: qtc.libqt_list = qtc.QAbstractSeries_AttachedAxes(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QAbstractBarSeries.AttachedAxes: Memory allocation failed");
-        const _data: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAbstractAxis, _arr.len) catch @panic("QAbstractBarSeries.attachedAxes: Memory allocation failed");
+        const _data_val: [*]QtC.QAbstractAxis = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QAbstractSeries
     ///
@@ -920,9 +1190,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Show(self: QAbstractBarSeries) void {
+    pub fn show(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QAbstractSeries
     ///
@@ -932,10 +1206,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Hide(self: QAbstractBarSeries) void {
+    pub fn hide(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_Hide(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `nameChanged` instead
+    ///
+    pub const NameChanged = nameChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
@@ -944,10 +1222,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn NameChanged(self: QAbstractBarSeries) void {
+    pub fn nameChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_NameChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onNameChanged` instead
+    ///
+    pub const OnNameChanged = onNameChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#nameChanged)
@@ -958,10 +1240,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnNameChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onNameChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_NameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
@@ -970,10 +1256,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn VisibleChanged(self: QAbstractBarSeries) void {
+    pub fn visibleChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#visibleChanged)
@@ -984,10 +1274,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `opacityChanged` instead
+    ///
+    pub const OpacityChanged = opacityChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
@@ -996,10 +1290,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn OpacityChanged(self: QAbstractBarSeries) void {
+    pub fn opacityChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_OpacityChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onOpacityChanged` instead
+    ///
+    pub const OnOpacityChanged = onOpacityChanged;
+
     /// Inherited from QAbstractSeries
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractseries.html#opacityChanged)
@@ -1010,9 +1308,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnOpacityChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onOpacityChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_OpacityChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `useOpenGLChanged` instead
+    ///
+    pub const UseOpenGLChanged = useOpenGLChanged;
 
     /// Inherited from QAbstractSeries
     ///
@@ -1022,9 +1324,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn UseOpenGLChanged(self: QAbstractBarSeries) void {
+    pub fn useOpenGLChanged(self: QAbstractBarSeries) void {
         qtc.QAbstractSeries_UseOpenGLChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUseOpenGLChanged` instead
+    ///
+    pub const OnUseOpenGLChanged = onUseOpenGLChanged;
 
     /// Inherited from QAbstractSeries
     ///
@@ -1036,9 +1342,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnUseOpenGLChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onUseOpenGLChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QAbstractSeries_Connect_UseOpenGLChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible1` instead
+    ///
+    pub const SetVisible1 = setVisible1;
 
     /// Inherited from QAbstractSeries
     ///
@@ -1050,9 +1360,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible1(self: QAbstractBarSeries, visible: bool) void {
+    pub fn setVisible1(self: QAbstractBarSeries, visible: bool) void {
         qtc.QAbstractSeries_SetVisible1(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setUseOpenGL1` instead
+    ///
+    pub const SetUseOpenGL1 = setUseOpenGL1;
 
     /// Inherited from QAbstractSeries
     ///
@@ -1064,9 +1378,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUseOpenGL1(self: QAbstractBarSeries, enable: bool) void {
+    pub fn setUseOpenGL1(self: QAbstractBarSeries, enable: bool) void {
         qtc.QAbstractSeries_SetUseOpenGL1(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1076,12 +1394,16 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAbstractBarSeries, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAbstractBarSeries, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1093,13 +1415,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractBarSeries, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAbstractBarSeries, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1111,13 +1437,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractBarSeries, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractBarSeries.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1127,15 +1457,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractBarSeries, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractBarSeries, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1145,9 +1479,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn IsWidgetType(self: QAbstractBarSeries) bool {
+    pub fn isWidgetType(self: QAbstractBarSeries) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1157,9 +1495,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn IsWindowType(self: QAbstractBarSeries) bool {
+    pub fn isWindowType(self: QAbstractBarSeries) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1169,9 +1511,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn IsQuickItemType(self: QAbstractBarSeries) bool {
+    pub fn isQuickItemType(self: QAbstractBarSeries) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1181,9 +1527,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn SignalsBlocked(self: QAbstractBarSeries) bool {
+    pub fn signalsBlocked(self: QAbstractBarSeries) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1195,9 +1545,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractBarSeries, b: bool) bool {
+    pub fn blockSignals(self: QAbstractBarSeries, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1207,9 +1561,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Thread(self: QAbstractBarSeries) QThread {
+    pub fn thread(self: QAbstractBarSeries) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1219,12 +1577,16 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractBarSeries, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractBarSeries, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1236,9 +1598,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractBarSeries, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractBarSeries, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1250,9 +1616,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractBarSeries, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractBarSeries, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1264,9 +1634,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractBarSeries, id: i32) void {
+    pub fn killTimer(self: QAbstractBarSeries, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1278,9 +1652,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractBarSeries, id: i32) void {
+    pub fn killTimer2(self: QAbstractBarSeries, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1292,15 +1670,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractBarSeries, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractBarSeries.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractBarSeries.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1310,12 +1692,16 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QAbstractBarSeries, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QAbstractBarSeries, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1327,10 +1713,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractBarSeries, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractBarSeries, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1342,10 +1732,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractBarSeries, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractBarSeries, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1353,7 +1747,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1361,13 +1755,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1375,7 +1773,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1383,13 +1781,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1399,18 +1801,22 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractBarSeries, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractBarSeries, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1418,7 +1824,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1426,13 +1832,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1440,7 +1850,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1448,13 +1858,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1464,9 +1878,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Disconnect3(self: QAbstractBarSeries) bool {
+    pub fn disconnect3(self: QAbstractBarSeries) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1478,10 +1896,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractBarSeries, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractBarSeries, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1491,10 +1913,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1504,9 +1930,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn DumpObjectTree(self: QAbstractBarSeries) void {
+    pub fn dumpObjectTree(self: QAbstractBarSeries) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1516,9 +1946,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn DumpObjectInfo(self: QAbstractBarSeries) void {
+    pub fn dumpObjectInfo(self: QAbstractBarSeries) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1528,15 +1962,19 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractBarSeries, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
+    pub fn setProperty(self: QAbstractBarSeries, _name: [:0]const u8, value: anytype) bool {
+        const name_Cstring = _name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1546,12 +1984,16 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractBarSeries, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: QAbstractBarSeries, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1563,7 +2005,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractBarSeries, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractBarSeries, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1571,27 +2013,19 @@ pub const QAbstractBarSeries = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractBarSeries.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractBarSeries.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractBarSeries.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractBarSeries.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractBarSeries `
-    ///
-    pub fn BindingStorage(self: QAbstractBarSeries) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1601,9 +2035,29 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn BindingStorage2(self: QAbstractBarSeries) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractBarSeries) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractBarSeries `
+    ///
+    pub fn bindingStorage2(self: QAbstractBarSeries) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1613,9 +2067,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Destroyed(self: QAbstractBarSeries) void {
+    pub fn destroyed(self: QAbstractBarSeries) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1627,9 +2085,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1639,9 +2101,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Parent(self: QAbstractBarSeries) QObject {
+    pub fn parent(self: QAbstractBarSeries) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1653,10 +2119,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractBarSeries, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractBarSeries, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1666,9 +2136,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn DeleteLater(self: QAbstractBarSeries) void {
+    pub fn deleteLater(self: QAbstractBarSeries) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1682,9 +2156,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractBarSeries, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractBarSeries, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1698,9 +2176,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractBarSeries, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractBarSeries, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1708,7 +2190,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1718,13 +2200,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1732,7 +2218,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1742,13 +2228,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1758,7 +2248,7 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1766,12 +2256,16 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractBarSeries, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractBarSeries, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1783,10 +2277,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractBarSeries, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractBarSeries, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1800,11 +2298,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractBarSeries, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractBarSeries, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1820,13 +2322,17 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractBarSeries, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractBarSeries, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1839,11 +2345,15 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractBarSeries, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractBarSeries, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1855,10 +2365,14 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractBarSeries, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractBarSeries, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1870,9 +2384,13 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1886,23 +2404,23 @@ pub const QAbstractBarSeries = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractBarSeries, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractBarSeries, callback: *const fn (QAbstractBarSeries, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbarseries-qtcharts.html#dtor.QAbstractBarSeries)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractBarSeries `
     ///
-    pub fn Delete(self: QAbstractBarSeries) void {
+    pub fn delete(self: QAbstractBarSeries) void {
         qtc.QAbstractBarSeries_Delete(@ptrCast(self.ptr));
     }
 };

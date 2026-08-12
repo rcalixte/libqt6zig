@@ -14,15 +14,23 @@ pub const QBluetooth = extern struct {
 
     pub const _is_QBluetooth = {};
 
+    /// ### DEPRECATED: Use `getEnumMetaObject` instead
+    ///
+    pub const GetEnumMetaObject = getEnumMetaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetooth.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qbluetooth_enums.Security `
     ///
-    pub fn GetEnumMetaObject(param1: i32) QMetaObject {
+    pub fn getEnumMetaObject(param1: i32) QMetaObject {
         return .{ .ptr = qtc.QBluetooth_GetEnumMetaObject(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `getEnumName` instead
+    ///
+    pub const GetEnumName = getEnumName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetooth.html#qt_getEnumName)
     ///
@@ -30,20 +38,28 @@ pub const QBluetooth = extern struct {
     ///
     /// ` param1: qbluetooth_enums.Security `
     ///
-    pub fn GetEnumName(param1: i32) [:0]const u8 {
+    pub fn getEnumName(param1: i32) [:0]const u8 {
         const _ret = qtc.QBluetooth_GetEnumName(@bitCast(param1));
         return std.mem.span(_ret);
     }
 
+    /// ### DEPRECATED: Use `getEnumMetaObject2` instead
+    ///
+    pub const GetEnumMetaObject2 = getEnumMetaObject2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetooth.html#qt_getEnumMetaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn GetEnumMetaObject2(param1: i32) QMetaObject {
+    pub fn getEnumMetaObject2(param1: i32) QMetaObject {
         return .{ .ptr = qtc.QBluetooth_GetEnumMetaObject2(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `getEnumName2` instead
+    ///
+    pub const GetEnumName2 = getEnumName2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetooth.html#qt_getEnumName)
     ///
@@ -51,7 +67,7 @@ pub const QBluetooth = extern struct {
     ///
     /// ` param1: qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn GetEnumName2(param1: i32) [:0]const u8 {
+    pub fn getEnumName2(param1: i32) [:0]const u8 {
         const _ret = qtc.QBluetooth_GetEnumName2(@bitCast(param1));
         return std.mem.span(_ret);
     }

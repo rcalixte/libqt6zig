@@ -83,22 +83,34 @@ pub const QAbstractSpinBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QAbstractSpinBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QAbstractSpinBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QAbstractSpinBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QAbstractSpinBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QAbstractSpinBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QAbstractSpinBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QAbstractSpinBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QAbstractSpinBox {
+    pub const New2 = new2;
+
+    /// Allocate a new QAbstractSpinBox object in C++ memory
+    ///
+    pub fn new2() QAbstractSpinBox {
         return .{ .ptr = qtc.QAbstractSpinBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -106,9 +118,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MetaObject(self: QAbstractSpinBox) QMetaObject {
+    pub fn metaObject(self: QAbstractSpinBox) QMetaObject {
         return .{ .ptr = qtc.QAbstractSpinBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -120,13 +136,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QAbstractSpinBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -136,9 +152,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperMetaObject(self: QAbstractSpinBox) QMetaObject {
+    pub fn superMetaObject(self: QAbstractSpinBox) QMetaObject {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -146,10 +166,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QAbstractSpinBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QAbstractSpinBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractSpinBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +183,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QAbstractSpinBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -175,10 +199,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QAbstractSpinBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QAbstractSpinBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QAbstractSpinBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -190,9 +218,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QAbstractSpinBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QAbstractSpinBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -202,13 +234,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -222,9 +254,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QAbstractSpinBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QAbstractSpinBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QAbstractSpinBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -234,14 +270,18 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `buttonSymbols` instead
+    ///
+    pub const ButtonSymbols = buttonSymbols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#buttonSymbols)
     ///
@@ -253,9 +293,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qabstractspinbox_enums.ButtonSymbols `
     ///
-    pub fn ButtonSymbols(self: QAbstractSpinBox) i32 {
+    pub fn buttonSymbols(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_ButtonSymbols(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtonSymbols` instead
+    ///
+    pub const SetButtonSymbols = setButtonSymbols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setButtonSymbols)
     ///
@@ -265,9 +309,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` bs: qabstractspinbox_enums.ButtonSymbols `
     ///
-    pub fn SetButtonSymbols(self: QAbstractSpinBox, bs: i32) void {
+    pub fn setButtonSymbols(self: QAbstractSpinBox, bs: i32) void {
         qtc.QAbstractSpinBox_SetButtonSymbols(@ptrCast(self.ptr), @bitCast(bs));
     }
+
+    /// ### DEPRECATED: Use `setCorrectionMode` instead
+    ///
+    pub const SetCorrectionMode = setCorrectionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setCorrectionMode)
     ///
@@ -277,9 +325,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` cm: qabstractspinbox_enums.CorrectionMode `
     ///
-    pub fn SetCorrectionMode(self: QAbstractSpinBox, cm: i32) void {
+    pub fn setCorrectionMode(self: QAbstractSpinBox, cm: i32) void {
         qtc.QAbstractSpinBox_SetCorrectionMode(@ptrCast(self.ptr), @bitCast(cm));
     }
+
+    /// ### DEPRECATED: Use `correctionMode` instead
+    ///
+    pub const CorrectionMode = correctionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#correctionMode)
     ///
@@ -291,9 +343,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qabstractspinbox_enums.CorrectionMode `
     ///
-    pub fn CorrectionMode(self: QAbstractSpinBox) i32 {
+    pub fn correctionMode(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_CorrectionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasAcceptableInput` instead
+    ///
+    pub const HasAcceptableInput = hasAcceptableInput;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hasAcceptableInput)
     ///
@@ -301,9 +357,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasAcceptableInput(self: QAbstractSpinBox) bool {
+    pub fn hasAcceptableInput(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_HasAcceptableInput(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#text)
     ///
@@ -313,13 +373,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSpinBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `specialValueText` instead
+    ///
+    pub const SpecialValueText = specialValueText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#specialValueText)
     ///
@@ -329,13 +393,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpecialValueText(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn specialValueText(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractSpinBox_SpecialValueText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.SpecialValueText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.specialValueText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSpecialValueText` instead
+    ///
+    pub const SetSpecialValueText = setSpecialValueText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setSpecialValueText)
     ///
@@ -345,7 +413,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` txt: []const u8 `
     ///
-    pub fn SetSpecialValueText(self: QAbstractSpinBox, txt: []const u8) void {
+    pub fn setSpecialValueText(self: QAbstractSpinBox, txt: []const u8) void {
         const txt_str = qtc.libqt_string{
             .len = txt.len,
             .data = txt.ptr,
@@ -353,15 +421,23 @@ pub const QAbstractSpinBox = extern struct {
         qtc.QAbstractSpinBox_SetSpecialValueText(@ptrCast(self.ptr), txt_str);
     }
 
+    /// ### DEPRECATED: Use `wrapping` instead
+    ///
+    pub const Wrapping = wrapping;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wrapping)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Wrapping(self: QAbstractSpinBox) bool {
+    pub fn wrapping(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_Wrapping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWrapping` instead
+    ///
+    pub const SetWrapping = setWrapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setWrapping)
     ///
@@ -371,9 +447,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` w: bool `
     ///
-    pub fn SetWrapping(self: QAbstractSpinBox, w: bool) void {
+    pub fn setWrapping(self: QAbstractSpinBox, w: bool) void {
         qtc.QAbstractSpinBox_SetWrapping(@ptrCast(self.ptr), w);
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setReadOnly)
     ///
@@ -383,9 +463,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` r: bool `
     ///
-    pub fn SetReadOnly(self: QAbstractSpinBox, r: bool) void {
+    pub fn setReadOnly(self: QAbstractSpinBox, r: bool) void {
         qtc.QAbstractSpinBox_SetReadOnly(@ptrCast(self.ptr), r);
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#isReadOnly)
     ///
@@ -393,9 +477,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsReadOnly(self: QAbstractSpinBox) bool {
+    pub fn isReadOnly(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyboardTracking` instead
+    ///
+    pub const SetKeyboardTracking = setKeyboardTracking;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setKeyboardTracking)
     ///
@@ -405,9 +493,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` kt: bool `
     ///
-    pub fn SetKeyboardTracking(self: QAbstractSpinBox, kt: bool) void {
+    pub fn setKeyboardTracking(self: QAbstractSpinBox, kt: bool) void {
         qtc.QAbstractSpinBox_SetKeyboardTracking(@ptrCast(self.ptr), kt);
     }
+
+    /// ### DEPRECATED: Use `keyboardTracking` instead
+    ///
+    pub const KeyboardTracking = keyboardTracking;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyboardTracking)
     ///
@@ -415,9 +507,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn KeyboardTracking(self: QAbstractSpinBox) bool {
+    pub fn keyboardTracking(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_KeyboardTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setAlignment)
     ///
@@ -427,9 +523,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: QAbstractSpinBox, flag: i32) void {
+    pub fn setAlignment(self: QAbstractSpinBox, flag: i32) void {
         qtc.QAbstractSpinBox_SetAlignment(@ptrCast(self.ptr), @bitCast(flag));
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#alignment)
     ///
@@ -441,9 +541,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: QAbstractSpinBox) i32 {
+    pub fn alignment(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setFrame)
     ///
@@ -453,9 +557,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: QAbstractSpinBox, frame: bool) void {
+    pub fn setFrame(self: QAbstractSpinBox, frame: bool) void {
         qtc.QAbstractSpinBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hasFrame)
     ///
@@ -463,9 +571,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasFrame(self: QAbstractSpinBox) bool {
+    pub fn hasFrame(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAccelerated` instead
+    ///
+    pub const SetAccelerated = setAccelerated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setAccelerated)
     ///
@@ -475,9 +587,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAccelerated(self: QAbstractSpinBox, on: bool) void {
+    pub fn setAccelerated(self: QAbstractSpinBox, on: bool) void {
         qtc.QAbstractSpinBox_SetAccelerated(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `isAccelerated` instead
+    ///
+    pub const IsAccelerated = isAccelerated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#isAccelerated)
     ///
@@ -485,9 +601,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsAccelerated(self: QAbstractSpinBox) bool {
+    pub fn isAccelerated(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_IsAccelerated(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGroupSeparatorShown` instead
+    ///
+    pub const SetGroupSeparatorShown = setGroupSeparatorShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setGroupSeparatorShown)
     ///
@@ -497,9 +617,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` shown: bool `
     ///
-    pub fn SetGroupSeparatorShown(self: QAbstractSpinBox, shown: bool) void {
+    pub fn setGroupSeparatorShown(self: QAbstractSpinBox, shown: bool) void {
         qtc.QAbstractSpinBox_SetGroupSeparatorShown(@ptrCast(self.ptr), shown);
     }
+
+    /// ### DEPRECATED: Use `isGroupSeparatorShown` instead
+    ///
+    pub const IsGroupSeparatorShown = isGroupSeparatorShown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#isGroupSeparatorShown)
     ///
@@ -507,20 +631,28 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsGroupSeparatorShown(self: QAbstractSpinBox) bool {
+    pub fn isGroupSeparatorShown(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_IsGroupSeparatorShown(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SizeHint(self: QAbstractSpinBox) QSize {
+    pub fn sizeHint(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QAbstractSpinBox_SizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#sizeHint)
     ///
     /// Allows for overriding the related default method
@@ -533,13 +665,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractSpinBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#sizeHint)
     ///
@@ -549,9 +681,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperSizeHint(self: QAbstractSpinBox) QSize {
+    pub fn superSizeHint(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#minimumSizeHint)
     ///
@@ -559,9 +695,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MinimumSizeHint(self: QAbstractSpinBox) QSize {
+    pub fn minimumSizeHint(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QAbstractSpinBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#minimumSizeHint)
     ///
@@ -575,13 +715,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QAbstractSpinBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#minimumSizeHint)
     ///
@@ -591,9 +731,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperMinimumSizeHint(self: QAbstractSpinBox) QSize {
+    pub fn superMinimumSizeHint(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `interpretText` instead
+    ///
+    pub const InterpretText = interpretText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#interpretText)
     ///
@@ -601,9 +745,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn InterpretText(self: QAbstractSpinBox) void {
+    pub fn interpretText(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_InterpretText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#event)
     ///
@@ -611,12 +759,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QAbstractSpinBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSpinBox_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QAbstractSpinBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSpinBox_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#event)
     ///
@@ -628,13 +780,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#event)
     ///
@@ -644,12 +796,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QAbstractSpinBox, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSpinBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QAbstractSpinBox, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSpinBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#inputMethodQuery)
     ///
@@ -659,9 +815,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QAbstractSpinBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QAbstractSpinBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractSpinBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#inputMethodQuery)
     ///
@@ -675,13 +835,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) QVariant) void {
         qtc.QAbstractSpinBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#inputMethodQuery)
     ///
@@ -693,9 +853,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QAbstractSpinBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QAbstractSpinBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `validate` instead
+    ///
+    pub const Validate = validate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
@@ -705,19 +869,23 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    /// ` pos: *i32 `
+    /// ` _pos: *i32 `
     ///
     /// ## Returns:
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn Validate(self: QAbstractSpinBox, input: []const u8, pos: *i32) i32 {
+    pub fn validate(self: QAbstractSpinBox, input: []const u8, _pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QAbstractSpinBox_Validate(@ptrCast(self.ptr), input_str, @ptrCast(pos));
+        return qtc.QAbstractSpinBox_Validate(@ptrCast(self.ptr), input_str, @ptrCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `onValidate` instead
+    ///
+    pub const OnValidate = onValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
@@ -729,13 +897,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, input: [*:0]const u8, pos: *i32) callconv(.c) i32 `
     ///
-    pub fn OnValidate(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8, *i32) callconv(.c) i32) void {
+    pub fn onValidate(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8, *i32) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnValidate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperValidate` instead
+    /// ### DEPRECATED: Use `superValidate` instead
     ///
-    pub const QBaseValidate = SuperValidate;
+    pub const SuperValidate = superValidate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#validate)
     ///
@@ -747,19 +915,23 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    /// ` pos: *i32 `
+    /// ` _pos: *i32 `
     ///
     /// ## Returns:
     ///
     /// ` qvalidator_enums.State `
     ///
-    pub fn SuperValidate(self: QAbstractSpinBox, input: []const u8, pos: *i32) i32 {
+    pub fn superValidate(self: QAbstractSpinBox, input: []const u8, _pos: *i32) i32 {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
-        return qtc.QAbstractSpinBox_SuperValidate(@ptrCast(self.ptr), input_str, @ptrCast(pos));
+        return qtc.QAbstractSpinBox_SuperValidate(@ptrCast(self.ptr), input_str, @ptrCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `fixup` instead
+    ///
+    pub const Fixup = fixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
     ///
@@ -769,13 +941,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn Fixup(self: QAbstractSpinBox, input: []const u8) void {
+    pub fn fixup(self: QAbstractSpinBox, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
         qtc.QAbstractSpinBox_Fixup(@ptrCast(self.ptr), input_str);
     }
+
+    /// ### DEPRECATED: Use `onFixup` instead
+    ///
+    pub const OnFixup = onFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
     ///
@@ -787,13 +963,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, input: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnFixup(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onFixup(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnFixup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFixup` instead
+    /// ### DEPRECATED: Use `superFixup` instead
     ///
-    pub const QBaseFixup = SuperFixup;
+    pub const SuperFixup = superFixup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#fixup)
     ///
@@ -805,13 +981,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` input: []const u8 `
     ///
-    pub fn SuperFixup(self: QAbstractSpinBox, input: []const u8) void {
+    pub fn superFixup(self: QAbstractSpinBox, input: []const u8) void {
         const input_str = qtc.libqt_string{
             .len = input.len,
             .data = input.ptr,
         };
         qtc.QAbstractSpinBox_SuperFixup(@ptrCast(self.ptr), input_str);
     }
+
+    /// ### DEPRECATED: Use `stepBy` instead
+    ///
+    pub const StepBy = stepBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepBy)
     ///
@@ -821,9 +1001,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn StepBy(self: QAbstractSpinBox, steps: i32) void {
+    pub fn stepBy(self: QAbstractSpinBox, steps: i32) void {
         qtc.QAbstractSpinBox_StepBy(@ptrCast(self.ptr), @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `onStepBy` instead
+    ///
+    pub const OnStepBy = onStepBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepBy)
     ///
@@ -835,13 +1019,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, steps: i32) callconv(.c) void `
     ///
-    pub fn OnStepBy(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) void) void {
+    pub fn onStepBy(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnStepBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStepBy` instead
+    /// ### DEPRECATED: Use `superStepBy` instead
     ///
-    pub const QBaseStepBy = SuperStepBy;
+    pub const SuperStepBy = superStepBy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepBy)
     ///
@@ -853,9 +1037,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` steps: i32 `
     ///
-    pub fn SuperStepBy(self: QAbstractSpinBox, steps: i32) void {
+    pub fn superStepBy(self: QAbstractSpinBox, steps: i32) void {
         qtc.QAbstractSpinBox_SuperStepBy(@ptrCast(self.ptr), @bitCast(steps));
     }
+
+    /// ### DEPRECATED: Use `stepUp` instead
+    ///
+    pub const StepUp = stepUp;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepUp)
     ///
@@ -863,9 +1051,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn StepUp(self: QAbstractSpinBox) void {
+    pub fn stepUp(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_StepUp(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stepDown` instead
+    ///
+    pub const StepDown = stepDown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepDown)
     ///
@@ -873,9 +1065,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn StepDown(self: QAbstractSpinBox) void {
+    pub fn stepDown(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_StepDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#selectAll)
     ///
@@ -883,9 +1079,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SelectAll(self: QAbstractSpinBox) void {
+    pub fn selectAll(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#clear)
     ///
@@ -893,9 +1093,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Clear(self: QAbstractSpinBox) void {
+    pub fn clear(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClear` instead
+    ///
+    pub const OnClear = onClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#clear)
     ///
@@ -907,13 +1111,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClear(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onClear(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnClear(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClear` instead
+    /// ### DEPRECATED: Use `superClear` instead
     ///
-    pub const QBaseClear = SuperClear;
+    pub const SuperClear = superClear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#clear)
     ///
@@ -923,9 +1127,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperClear(self: QAbstractSpinBox) void {
+    pub fn superClear(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_SuperClear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent)
     ///
@@ -933,12 +1141,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QAbstractSpinBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QAbstractSpinBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent)
     ///
@@ -950,13 +1162,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QResizeEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#resizeEvent)
     ///
@@ -966,12 +1178,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QAbstractSpinBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QAbstractSpinBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent)
     ///
@@ -979,12 +1195,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSpinBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSpinBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent)
     ///
@@ -996,13 +1216,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyPressEvent)
     ///
@@ -1012,12 +1232,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSpinBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSpinBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent)
     ///
@@ -1025,12 +1249,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSpinBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSpinBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent)
     ///
@@ -1042,13 +1270,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QKeyEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#keyReleaseEvent)
     ///
@@ -1058,12 +1286,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QAbstractSpinBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QAbstractSpinBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent)
     ///
@@ -1071,12 +1303,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QAbstractSpinBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QAbstractSpinBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent)
     ///
@@ -1088,13 +1324,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QWheelEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#wheelEvent)
     ///
@@ -1104,12 +1340,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QAbstractSpinBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QAbstractSpinBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent)
     ///
@@ -1117,12 +1357,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSpinBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSpinBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent)
     ///
@@ -1134,13 +1378,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusInEvent)
     ///
@@ -1150,12 +1394,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSpinBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSpinBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent)
     ///
@@ -1163,12 +1411,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSpinBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSpinBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent)
     ///
@@ -1180,13 +1432,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QFocusEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#focusOutEvent)
     ///
@@ -1196,12 +1448,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QAbstractSpinBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QAbstractSpinBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent)
     ///
@@ -1209,12 +1465,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QAbstractSpinBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QAbstractSpinBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent)
     ///
@@ -1226,13 +1486,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#contextMenuEvent)
     ///
@@ -1242,12 +1502,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QAbstractSpinBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QAbstractSpinBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent)
     ///
@@ -1255,12 +1519,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn ChangeEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn changeEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent)
     ///
@@ -1272,13 +1540,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#changeEvent)
     ///
@@ -1288,12 +1556,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChangeEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent)
     ///
@@ -1301,12 +1573,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QAbstractSpinBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QAbstractSpinBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent)
     ///
@@ -1318,13 +1594,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QCloseEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#closeEvent)
     ///
@@ -1334,12 +1610,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QAbstractSpinBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QAbstractSpinBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent)
     ///
@@ -1347,12 +1627,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractSpinBox_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractSpinBox_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent)
     ///
@@ -1364,13 +1648,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QHideEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#hideEvent)
     ///
@@ -1380,12 +1664,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QAbstractSpinBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QAbstractSpinBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent)
     ///
@@ -1393,12 +1681,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent)
     ///
@@ -1410,13 +1702,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mousePressEvent)
     ///
@@ -1426,12 +1718,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent)
     ///
@@ -1439,12 +1735,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent)
     ///
@@ -1456,13 +1756,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseReleaseEvent)
     ///
@@ -1472,12 +1772,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent)
     ///
@@ -1485,12 +1789,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent)
     ///
@@ -1502,13 +1810,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#mouseMoveEvent)
     ///
@@ -1518,12 +1826,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent)
     ///
@@ -1531,12 +1843,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAbstractSpinBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAbstractSpinBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent)
     ///
@@ -1548,13 +1864,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QTimerEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#timerEvent)
     ///
@@ -1564,12 +1880,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QAbstractSpinBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QAbstractSpinBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent)
     ///
@@ -1577,12 +1897,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractSpinBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractSpinBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent)
     ///
@@ -1594,13 +1918,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPaintEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#paintEvent)
     ///
@@ -1610,12 +1934,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QAbstractSpinBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QAbstractSpinBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent)
     ///
@@ -1623,12 +1951,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QAbstractSpinBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QAbstractSpinBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent)
     ///
@@ -1640,13 +1972,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QShowEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#showEvent)
     ///
@@ -1656,12 +1988,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QAbstractSpinBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QAbstractSpinBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption)
     ///
@@ -1671,10 +2007,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` option: QStyleOptionSpinBox `
     ///
-    pub fn InitStyleOption(self: QAbstractSpinBox, option: anytype) void {
+    pub fn initStyleOption(self: QAbstractSpinBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionSpinBox;
         qtc.QAbstractSpinBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption)
     ///
@@ -1686,13 +2026,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, option: QStyleOptionSpinBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QStyleOptionSpinBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QStyleOptionSpinBox) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#initStyleOption)
     ///
@@ -1704,10 +2044,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` option: QStyleOptionSpinBox `
     ///
-    pub fn SuperInitStyleOption(self: QAbstractSpinBox, option: anytype) void {
+    pub fn superInitStyleOption(self: QAbstractSpinBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionSpinBox;
         qtc.QAbstractSpinBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
     ///
@@ -1715,9 +2059,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn LineEdit(self: QAbstractSpinBox) QLineEdit {
+    pub fn lineEdit(self: QAbstractSpinBox) QLineEdit {
         return .{ .ptr = qtc.QAbstractSpinBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLineEdit` instead
+    ///
+    pub const OnLineEdit = onLineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
     ///
@@ -1729,13 +2077,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLineEdit `
     ///
-    pub fn OnLineEdit(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QLineEdit) void {
+    pub fn onLineEdit(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QLineEdit) void {
         qtc.QAbstractSpinBox_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLineEdit` instead
+    /// ### DEPRECATED: Use `superLineEdit` instead
     ///
-    pub const QBaseLineEdit = SuperLineEdit;
+    pub const SuperLineEdit = superLineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#lineEdit)
     ///
@@ -1745,9 +2093,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperLineEdit(self: QAbstractSpinBox) QLineEdit {
+    pub fn superLineEdit(self: QAbstractSpinBox) QLineEdit {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperLineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
     ///
@@ -1757,10 +2109,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: QAbstractSpinBox, edit: anytype) void {
+    pub fn setLineEdit(self: QAbstractSpinBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QAbstractSpinBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetLineEdit` instead
+    ///
+    pub const OnSetLineEdit = onSetLineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
     ///
@@ -1772,13 +2128,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, edit: QLineEdit) callconv(.c) void `
     ///
-    pub fn OnSetLineEdit(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QLineEdit) callconv(.c) void) void {
+    pub fn onSetLineEdit(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QLineEdit) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnSetLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLineEdit` instead
+    /// ### DEPRECATED: Use `superSetLineEdit` instead
     ///
-    pub const QBaseSetLineEdit = SuperSetLineEdit;
+    pub const SuperSetLineEdit = superSetLineEdit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#setLineEdit)
     ///
@@ -1790,10 +2146,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SuperSetLineEdit(self: QAbstractSpinBox, edit: anytype) void {
+    pub fn superSetLineEdit(self: QAbstractSpinBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QAbstractSpinBox_SuperSetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `stepEnabled` instead
+    ///
+    pub const StepEnabled = stepEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled)
     ///
@@ -1805,9 +2165,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
-    pub fn StepEnabled(self: QAbstractSpinBox) i32 {
+    pub fn stepEnabled(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_StepEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStepEnabled` instead
+    ///
+    pub const OnStepEnabled = onStepEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled)
     ///
@@ -1819,13 +2183,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnStepEnabled(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onStepEnabled(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnStepEnabled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStepEnabled` instead
+    /// ### DEPRECATED: Use `superStepEnabled` instead
     ///
-    pub const QBaseStepEnabled = SuperStepEnabled;
+    pub const SuperStepEnabled = superStepEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#stepEnabled)
     ///
@@ -1839,9 +2203,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
-    pub fn SuperStepEnabled(self: QAbstractSpinBox) i32 {
+    pub fn superStepEnabled(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_SuperStepEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `editingFinished` instead
+    ///
+    pub const EditingFinished = editingFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
@@ -1849,9 +2217,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn EditingFinished(self: QAbstractSpinBox) void {
+    pub fn editingFinished(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_EditingFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditingFinished` instead
+    ///
+    pub const OnEditingFinished = onEditingFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#editingFinished)
     ///
@@ -1861,9 +2233,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox) callconv(.c) void `
     ///
-    pub fn OnEditingFinished(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox) callconv(.c) void) void {
+    pub fn onEditingFinished(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox) callconv(.c) void) void {
         qtc.QAbstractSpinBox_Connect_EditingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1875,15 +2251,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1897,15 +2277,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1915,9 +2299,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn WinId(self: QAbstractSpinBox) usize {
+    pub fn winId(self: QAbstractSpinBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1927,9 +2315,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn CreateWinId(self: QAbstractSpinBox) void {
+    pub fn createWinId(self: QAbstractSpinBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1939,9 +2331,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn InternalWinId(self: QAbstractSpinBox) usize {
+    pub fn internalWinId(self: QAbstractSpinBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1951,9 +2347,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn EffectiveWinId(self: QAbstractSpinBox) usize {
+    pub fn effectiveWinId(self: QAbstractSpinBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1963,9 +2363,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Style(self: QAbstractSpinBox) QStyle {
+    pub fn style(self: QAbstractSpinBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1975,12 +2379,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QAbstractSpinBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QAbstractSpinBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1990,9 +2398,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsTopLevel(self: QAbstractSpinBox) bool {
+    pub fn isTopLevel(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2002,9 +2414,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsWindow(self: QAbstractSpinBox) bool {
+    pub fn isWindow(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2014,9 +2430,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsModal(self: QAbstractSpinBox) bool {
+    pub fn isModal(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2030,9 +2450,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QAbstractSpinBox) i32 {
+    pub fn windowModality(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2042,11 +2466,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QAbstractSpinBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QAbstractSpinBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2056,9 +2484,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsEnabled(self: QAbstractSpinBox) bool {
+    pub fn isEnabled(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2070,10 +2502,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QAbstractSpinBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: QAbstractSpinBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2085,9 +2521,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QAbstractSpinBox, enabled: bool) void {
+    pub fn setEnabled(self: QAbstractSpinBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2099,9 +2539,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QAbstractSpinBox, disabled: bool) void {
+    pub fn setDisabled(self: QAbstractSpinBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2113,9 +2557,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QAbstractSpinBox, windowModified: bool) void {
+    pub fn setWindowModified(self: QAbstractSpinBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2125,9 +2573,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FrameGeometry(self: QAbstractSpinBox) QRect {
+    pub fn frameGeometry(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2137,9 +2589,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Geometry(self: QAbstractSpinBox) QRect {
+    pub fn geometry(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2149,9 +2605,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn NormalGeometry(self: QAbstractSpinBox) QRect {
+    pub fn normalGeometry(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2161,9 +2621,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn X(self: QAbstractSpinBox) i32 {
+    pub fn x(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2173,9 +2637,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Y(self: QAbstractSpinBox) i32 {
+    pub fn y(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2185,9 +2653,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Pos(self: QAbstractSpinBox) QPoint {
+    pub fn pos(self: QAbstractSpinBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2197,9 +2669,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FrameSize(self: QAbstractSpinBox) QSize {
+    pub fn frameSize(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2209,9 +2685,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Size(self: QAbstractSpinBox) QSize {
+    pub fn size(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2221,9 +2701,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Width(self: QAbstractSpinBox) i32 {
+    pub fn width(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2233,9 +2717,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Height(self: QAbstractSpinBox) i32 {
+    pub fn height(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2245,9 +2733,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Rect(self: QAbstractSpinBox) QRect {
+    pub fn rect(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2257,9 +2749,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ChildrenRect(self: QAbstractSpinBox) QRect {
+    pub fn childrenRect(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2765,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ChildrenRegion(self: QAbstractSpinBox) QRegion {
+    pub fn childrenRegion(self: QAbstractSpinBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2781,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MinimumSize(self: QAbstractSpinBox) QSize {
+    pub fn minimumSize(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2797,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MaximumSize(self: QAbstractSpinBox) QSize {
+    pub fn maximumSize(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2305,9 +2813,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MinimumWidth(self: QAbstractSpinBox) i32 {
+    pub fn minimumWidth(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2317,9 +2829,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MinimumHeight(self: QAbstractSpinBox) i32 {
+    pub fn minimumHeight(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2329,9 +2845,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MaximumWidth(self: QAbstractSpinBox) i32 {
+    pub fn maximumWidth(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2341,9 +2861,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn MaximumHeight(self: QAbstractSpinBox) i32 {
+    pub fn maximumHeight(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2353,12 +2877,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QAbstractSpinBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QAbstractSpinBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2372,9 +2900,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QAbstractSpinBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QAbstractSpinBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2384,12 +2916,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QAbstractSpinBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QAbstractSpinBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2403,9 +2939,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QAbstractSpinBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QAbstractSpinBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2417,9 +2957,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QAbstractSpinBox, minw: i32) void {
+    pub fn setMinimumWidth(self: QAbstractSpinBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2431,9 +2975,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QAbstractSpinBox, minh: i32) void {
+    pub fn setMinimumHeight(self: QAbstractSpinBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2445,9 +2993,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QAbstractSpinBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: QAbstractSpinBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2459,9 +3011,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QAbstractSpinBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: QAbstractSpinBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2471,9 +3027,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SizeIncrement(self: QAbstractSpinBox) QSize {
+    pub fn sizeIncrement(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2483,12 +3043,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QAbstractSpinBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QAbstractSpinBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2502,9 +3066,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QAbstractSpinBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QAbstractSpinBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2514,9 +3082,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn BaseSize(self: QAbstractSpinBox) QSize {
+    pub fn baseSize(self: QAbstractSpinBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2526,12 +3098,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QAbstractSpinBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QAbstractSpinBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2545,9 +3121,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QAbstractSpinBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QAbstractSpinBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2559,10 +3139,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QAbstractSpinBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QAbstractSpinBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3160,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QAbstractSpinBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QAbstractSpinBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2590,9 +3178,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QAbstractSpinBox, w: i32) void {
+    pub fn setFixedWidth(self: QAbstractSpinBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2604,9 +3196,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QAbstractSpinBox, h: i32) void {
+    pub fn setFixedHeight(self: QAbstractSpinBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2618,11 +3214,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QAbstractSpinBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QAbstractSpinBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2633,11 +3233,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QAbstractSpinBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QAbstractSpinBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2648,11 +3252,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QAbstractSpinBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QAbstractSpinBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2663,11 +3271,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QAbstractSpinBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QAbstractSpinBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2678,11 +3290,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QAbstractSpinBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: QAbstractSpinBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2693,10 +3309,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QAbstractSpinBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QAbstractSpinBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2708,10 +3328,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QAbstractSpinBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QAbstractSpinBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2723,10 +3347,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QAbstractSpinBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QAbstractSpinBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2740,12 +3368,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2758,11 +3390,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2776,11 +3412,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2794,11 +3434,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QAbstractSpinBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2808,9 +3452,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Window(self: QAbstractSpinBox) QWidget {
+    pub fn window(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2820,9 +3468,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn NativeParentWidget(self: QAbstractSpinBox) QWidget {
+    pub fn nativeParentWidget(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2832,9 +3484,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn TopLevelWidget(self: QAbstractSpinBox) QWidget {
+    pub fn topLevelWidget(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2844,9 +3500,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Palette(self: QAbstractSpinBox) QPalette {
+    pub fn palette(self: QAbstractSpinBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2856,12 +3516,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QAbstractSpinBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QAbstractSpinBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2871,11 +3535,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QAbstractSpinBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QAbstractSpinBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2889,9 +3557,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QAbstractSpinBox) i32 {
+    pub fn backgroundRole(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2901,11 +3573,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QAbstractSpinBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QAbstractSpinBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2919,9 +3595,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QAbstractSpinBox) i32 {
+    pub fn foregroundRole(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2931,9 +3611,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Font(self: QAbstractSpinBox) QFont {
+    pub fn font(self: QAbstractSpinBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2943,12 +3627,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QAbstractSpinBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QAbstractSpinBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2958,9 +3646,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FontMetrics(self: QAbstractSpinBox) QFontMetrics {
+    pub fn fontMetrics(self: QAbstractSpinBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2970,9 +3662,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FontInfo(self: QAbstractSpinBox) QFontInfo {
+    pub fn fontInfo(self: QAbstractSpinBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2982,9 +3678,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Cursor(self: QAbstractSpinBox) QCursor {
+    pub fn cursor(self: QAbstractSpinBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2994,12 +3694,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QAbstractSpinBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QAbstractSpinBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3713,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UnsetCursor(self: QAbstractSpinBox) void {
+    pub fn unsetCursor(self: QAbstractSpinBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3023,9 +3731,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QAbstractSpinBox, enable: bool) void {
+    pub fn setMouseTracking(self: QAbstractSpinBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3747,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasMouseTracking(self: QAbstractSpinBox) bool {
+    pub fn hasMouseTracking(self: QAbstractSpinBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3047,9 +3763,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UnderMouse(self: QAbstractSpinBox) bool {
+    pub fn underMouse(self: QAbstractSpinBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3061,9 +3781,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QAbstractSpinBox, enable: bool) void {
+    pub fn setTabletTracking(self: QAbstractSpinBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3073,24 +3797,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasTabletTracking(self: QAbstractSpinBox) bool {
+    pub fn hasTabletTracking(self: QAbstractSpinBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSpinBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QAbstractSpinBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3100,12 +3813,35 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QAbstractSpinBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QAbstractSpinBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSpinBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QAbstractSpinBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3115,9 +3851,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Mask(self: QAbstractSpinBox) QRegion {
+    pub fn mask(self: QAbstractSpinBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3127,9 +3867,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ClearMask(self: QAbstractSpinBox) void {
+    pub fn clearMask(self: QAbstractSpinBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3141,10 +3885,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QAbstractSpinBox, target: anytype) void {
+    pub fn render(self: QAbstractSpinBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3156,10 +3904,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QAbstractSpinBox, painter: anytype) void {
+    pub fn render2(self: QAbstractSpinBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3169,9 +3921,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Grab(self: QAbstractSpinBox) QPixmap {
+    pub fn grab(self: QAbstractSpinBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3181,9 +3937,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn GraphicsEffect(self: QAbstractSpinBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: QAbstractSpinBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3195,10 +3955,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QAbstractSpinBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QAbstractSpinBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3210,9 +3974,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QAbstractSpinBox, typeVal: i32) void {
+    pub fn grabGesture(self: QAbstractSpinBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3224,9 +3992,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QAbstractSpinBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: QAbstractSpinBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3236,15 +4008,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QAbstractSpinBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QAbstractSpinBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3254,15 +4030,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QAbstractSpinBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QAbstractSpinBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3274,13 +4054,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3292,13 +4076,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3310,10 +4098,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QAbstractSpinBox, icon: anytype) void {
+    pub fn setWindowIcon(self: QAbstractSpinBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3323,9 +4115,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn WindowIcon(self: QAbstractSpinBox) QIcon {
+    pub fn windowIcon(self: QAbstractSpinBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3335,15 +4131,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QAbstractSpinBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QAbstractSpinBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3355,13 +4155,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3371,15 +4175,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QAbstractSpinBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QAbstractSpinBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3391,13 +4199,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3409,13 +4221,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QAbstractSpinBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QAbstractSpinBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3427,13 +4243,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3445,9 +4265,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QAbstractSpinBox, level: f64) void {
+    pub fn setWindowOpacity(self: QAbstractSpinBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3457,9 +4281,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn WindowOpacity(self: QAbstractSpinBox) f64 {
+    pub fn windowOpacity(self: QAbstractSpinBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3469,9 +4297,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsWindowModified(self: QAbstractSpinBox) bool {
+    pub fn isWindowModified(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3481,15 +4313,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QAbstractSpinBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: QAbstractSpinBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3501,13 +4337,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3519,9 +4359,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QAbstractSpinBox, msec: i32) void {
+    pub fn setToolTipDuration(self: QAbstractSpinBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3531,9 +4375,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ToolTipDuration(self: QAbstractSpinBox) i32 {
+    pub fn toolTipDuration(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3543,15 +4391,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QAbstractSpinBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QAbstractSpinBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3563,13 +4415,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3579,15 +4435,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QAbstractSpinBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QAbstractSpinBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3599,13 +4459,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3617,13 +4481,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3635,13 +4503,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QAbstractSpinBox, name: []const u8) void {
+    pub fn setAccessibleName(self: QAbstractSpinBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3653,13 +4525,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3671,13 +4547,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QAbstractSpinBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QAbstractSpinBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3689,9 +4569,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QAbstractSpinBox, direction: i32) void {
+    pub fn setLayoutDirection(self: QAbstractSpinBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3705,9 +4589,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QAbstractSpinBox) i32 {
+    pub fn layoutDirection(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3717,9 +4605,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UnsetLayoutDirection(self: QAbstractSpinBox) void {
+    pub fn unsetLayoutDirection(self: QAbstractSpinBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3729,12 +4621,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QAbstractSpinBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QAbstractSpinBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3744,9 +4640,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Locale(self: QAbstractSpinBox) QLocale {
+    pub fn locale(self: QAbstractSpinBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3756,9 +4656,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UnsetLocale(self: QAbstractSpinBox) void {
+    pub fn unsetLocale(self: QAbstractSpinBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3768,9 +4672,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsRightToLeft(self: QAbstractSpinBox) bool {
+    pub fn isRightToLeft(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3780,9 +4688,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsLeftToRight(self: QAbstractSpinBox) bool {
+    pub fn isLeftToRight(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3792,9 +4704,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SetFocus(self: QAbstractSpinBox) void {
+    pub fn setFocus(self: QAbstractSpinBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3804,9 +4720,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsActiveWindow(self: QAbstractSpinBox) bool {
+    pub fn isActiveWindow(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3816,9 +4736,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ActivateWindow(self: QAbstractSpinBox) void {
+    pub fn activateWindow(self: QAbstractSpinBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4752,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ClearFocus(self: QAbstractSpinBox) void {
+    pub fn clearFocus(self: QAbstractSpinBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3842,9 +4770,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QAbstractSpinBox, reason: i32) void {
+    pub fn setFocus2(self: QAbstractSpinBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3858,9 +4790,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QAbstractSpinBox) i32 {
+    pub fn focusPolicy(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3872,9 +4808,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QAbstractSpinBox, policy: i32) void {
+    pub fn setFocusPolicy(self: QAbstractSpinBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3884,9 +4824,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasFocus(self: QAbstractSpinBox) bool {
+    pub fn hasFocus(self: QAbstractSpinBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3898,11 +4842,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3912,12 +4860,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QAbstractSpinBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QAbstractSpinBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3927,9 +4879,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FocusProxy(self: QAbstractSpinBox) QWidget {
+    pub fn focusProxy(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3943,9 +4899,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QAbstractSpinBox) i32 {
+    pub fn contextMenuPolicy(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3957,9 +4917,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QAbstractSpinBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QAbstractSpinBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3969,9 +4933,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn GrabMouse(self: QAbstractSpinBox) void {
+    pub fn grabMouse(self: QAbstractSpinBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3983,10 +4951,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn grabMouse2(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3996,9 +4968,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ReleaseMouse(self: QAbstractSpinBox) void {
+    pub fn releaseMouse(self: QAbstractSpinBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4008,9 +4984,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn GrabKeyboard(self: QAbstractSpinBox) void {
+    pub fn grabKeyboard(self: QAbstractSpinBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4020,9 +5000,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ReleaseKeyboard(self: QAbstractSpinBox) void {
+    pub fn releaseKeyboard(self: QAbstractSpinBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4034,10 +5018,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QAbstractSpinBox, key: anytype) i32 {
+    pub fn grabShortcut(self: QAbstractSpinBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5037,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QAbstractSpinBox, id: i32) void {
+    pub fn releaseShortcut(self: QAbstractSpinBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4063,9 +5055,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QAbstractSpinBox, id: i32) void {
+    pub fn setShortcutEnabled(self: QAbstractSpinBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4077,25 +5073,37 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QAbstractSpinBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QAbstractSpinBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5113,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UpdatesEnabled(self: QAbstractSpinBox) bool {
+    pub fn updatesEnabled(self: QAbstractSpinBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4119,9 +5131,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QAbstractSpinBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QAbstractSpinBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4131,9 +5147,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn GraphicsProxyWidget(self: QAbstractSpinBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QAbstractSpinBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4143,9 +5163,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Update(self: QAbstractSpinBox) void {
+    pub fn update(self: QAbstractSpinBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4155,9 +5179,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Repaint(self: QAbstractSpinBox) void {
+    pub fn repaint(self: QAbstractSpinBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4167,17 +5195,21 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QAbstractSpinBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QAbstractSpinBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4189,11 +5221,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn update3(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4204,10 +5240,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn update4(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4217,17 +5257,21 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QAbstractSpinBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QAbstractSpinBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4239,10 +5283,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn repaint3(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4254,10 +5302,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn repaint4(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4269,9 +5321,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QAbstractSpinBox, hidden: bool) void {
+    pub fn setHidden(self: QAbstractSpinBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4281,9 +5337,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Show(self: QAbstractSpinBox) void {
+    pub fn show(self: QAbstractSpinBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4293,9 +5353,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Hide(self: QAbstractSpinBox) void {
+    pub fn hide(self: QAbstractSpinBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4305,9 +5369,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ShowMinimized(self: QAbstractSpinBox) void {
+    pub fn showMinimized(self: QAbstractSpinBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4317,9 +5385,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ShowMaximized(self: QAbstractSpinBox) void {
+    pub fn showMaximized(self: QAbstractSpinBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4329,9 +5401,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ShowFullScreen(self: QAbstractSpinBox) void {
+    pub fn showFullScreen(self: QAbstractSpinBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4341,9 +5417,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ShowNormal(self: QAbstractSpinBox) void {
+    pub fn showNormal(self: QAbstractSpinBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4353,9 +5433,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Close(self: QAbstractSpinBox) bool {
+    pub fn close(self: QAbstractSpinBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4365,9 +5449,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Raise(self: QAbstractSpinBox) void {
+    pub fn raise(self: QAbstractSpinBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4377,9 +5465,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Lower(self: QAbstractSpinBox) void {
+    pub fn lower(self: QAbstractSpinBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4391,10 +5483,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn stackUnder(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4404,13 +5500,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QAbstractSpinBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QAbstractSpinBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4422,10 +5522,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn move2(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4439,9 +5543,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QAbstractSpinBox, w: i32, h: i32) void {
+    pub fn resize(self: QAbstractSpinBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4453,10 +5561,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn resize2(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4466,17 +5578,21 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QAbstractSpinBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QAbstractSpinBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4486,12 +5602,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QAbstractSpinBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QAbstractSpinBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4503,13 +5623,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QAbstractSpinBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QAbstractSpinBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSpinBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QAbstractSpinBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4519,15 +5643,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QAbstractSpinBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QAbstractSpinBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4537,9 +5665,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn AdjustSize(self: QAbstractSpinBox) void {
+    pub fn adjustSize(self: QAbstractSpinBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4549,9 +5681,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsVisible(self: QAbstractSpinBox) bool {
+    pub fn isVisible(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4563,10 +5699,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QAbstractSpinBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: QAbstractSpinBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4576,9 +5716,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsHidden(self: QAbstractSpinBox) bool {
+    pub fn isHidden(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4588,9 +5732,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsMinimized(self: QAbstractSpinBox) bool {
+    pub fn isMinimized(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4600,9 +5748,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsMaximized(self: QAbstractSpinBox) bool {
+    pub fn isMaximized(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4612,9 +5764,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsFullScreen(self: QAbstractSpinBox) bool {
+    pub fn isFullScreen(self: QAbstractSpinBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4628,9 +5784,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QAbstractSpinBox) i32 {
+    pub fn windowState(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4642,9 +5802,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QAbstractSpinBox, state: i32) void {
+    pub fn setWindowState(self: QAbstractSpinBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4656,9 +5820,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QAbstractSpinBox, state: i32) void {
+    pub fn overrideWindowState(self: QAbstractSpinBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4668,9 +5836,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SizePolicy(self: QAbstractSpinBox) QSizePolicy {
+    pub fn sizePolicy(self: QAbstractSpinBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4680,12 +5852,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QAbstractSpinBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QAbstractSpinBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4699,9 +5875,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QAbstractSpinBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QAbstractSpinBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4711,9 +5891,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn VisibleRegion(self: QAbstractSpinBox) QRegion {
+    pub fn visibleRegion(self: QAbstractSpinBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4731,9 +5915,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QAbstractSpinBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QAbstractSpinBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4745,10 +5933,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QAbstractSpinBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: QAbstractSpinBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4758,9 +5950,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ContentsMargins(self: QAbstractSpinBox) QMargins {
+    pub fn contentsMargins(self: QAbstractSpinBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4770,9 +5966,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ContentsRect(self: QAbstractSpinBox) QRect {
+    pub fn contentsRect(self: QAbstractSpinBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4782,9 +5982,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Layout(self: QAbstractSpinBox) QLayout {
+    pub fn layout(self: QAbstractSpinBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4794,12 +5998,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QAbstractSpinBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QAbstractSpinBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4809,24 +6017,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UpdateGeometry(self: QAbstractSpinBox) void {
+    pub fn updateGeometry(self: QAbstractSpinBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSpinBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QAbstractSpinBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4836,14 +6033,37 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QAbstractSpinBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSpinBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QAbstractSpinBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QAbstractSpinBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4857,9 +6077,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QAbstractSpinBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: QAbstractSpinBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4875,10 +6099,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QAbstractSpinBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QAbstractSpinBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4888,9 +6116,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FocusWidget(self: QAbstractSpinBox) QWidget {
+    pub fn focusWidget(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4900,9 +6132,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn NextInFocusChain(self: QAbstractSpinBox) QWidget {
+    pub fn nextInFocusChain(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4912,9 +6148,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn PreviousInFocusChain(self: QAbstractSpinBox) QWidget {
+    pub fn previousInFocusChain(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4924,9 +6164,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn AcceptDrops(self: QAbstractSpinBox) bool {
+    pub fn acceptDrops(self: QAbstractSpinBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4938,9 +6182,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QAbstractSpinBox, on: bool) void {
+    pub fn setAcceptDrops(self: QAbstractSpinBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4952,10 +6200,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QAbstractSpinBox, action: anytype) void {
+    pub fn addAction(self: QAbstractSpinBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4965,15 +6217,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QAbstractSpinBox, actions: []QAction) void {
+    pub fn addActions(self: QAbstractSpinBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4985,16 +6241,20 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QAbstractSpinBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QAbstractSpinBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5008,11 +6268,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QAbstractSpinBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QAbstractSpinBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5024,10 +6288,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QAbstractSpinBox, action: anytype) void {
+    pub fn removeAction(self: QAbstractSpinBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5039,15 +6307,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QAbstractSpinBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QAbstractSpinBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractSpinBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QAbstractSpinBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5057,15 +6329,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: QAbstractSpinBox, text: []const u8) QAction {
+    pub fn addAction2(self: QAbstractSpinBox, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5077,16 +6353,20 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: QAbstractSpinBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QAbstractSpinBox, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -5096,19 +6376,23 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QAbstractSpinBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QAbstractSpinBox, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5119,19 +6403,23 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QAbstractSpinBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QAbstractSpinBox, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -5141,9 +6429,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ParentWidget(self: QAbstractSpinBox) QWidget {
+    pub fn parentWidget(self: QAbstractSpinBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5155,9 +6447,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QAbstractSpinBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: QAbstractSpinBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5171,9 +6467,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QAbstractSpinBox) i32 {
+    pub fn windowFlags(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5185,9 +6485,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QAbstractSpinBox, param1: i32) void {
+    pub fn setWindowFlag(self: QAbstractSpinBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5199,9 +6503,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QAbstractSpinBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QAbstractSpinBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5215,9 +6523,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QAbstractSpinBox) i32 {
+    pub fn windowType(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5227,9 +6539,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5239,13 +6555,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QAbstractSpinBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QAbstractSpinBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5257,10 +6577,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QAbstractSpinBox, p: anytype) QWidget {
+    pub fn childAt2(self: QAbstractSpinBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5272,10 +6596,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QAbstractSpinBox, p: anytype) QWidget {
+    pub fn childAt3(self: QAbstractSpinBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5287,9 +6615,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QAbstractSpinBox, param1: i32) void {
+    pub fn setAttribute(self: QAbstractSpinBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5301,9 +6633,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QAbstractSpinBox, param1: i32) bool {
+    pub fn testAttribute(self: QAbstractSpinBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5313,9 +6649,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn EnsurePolished(self: QAbstractSpinBox) void {
+    pub fn ensurePolished(self: QAbstractSpinBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5327,10 +6667,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QAbstractSpinBox, child: anytype) bool {
+    pub fn isAncestorOf(self: QAbstractSpinBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5340,9 +6684,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn AutoFillBackground(self: QAbstractSpinBox) bool {
+    pub fn autoFillBackground(self: QAbstractSpinBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5354,9 +6702,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QAbstractSpinBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QAbstractSpinBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5366,9 +6718,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn BackingStore(self: QAbstractSpinBox) QBackingStore {
+    pub fn backingStore(self: QAbstractSpinBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5378,9 +6734,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn WindowHandle(self: QAbstractSpinBox) QWindow {
+    pub fn windowHandle(self: QAbstractSpinBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5390,9 +6750,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Screen(self: QAbstractSpinBox) QScreen {
+    pub fn screen(self: QAbstractSpinBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5402,12 +6766,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QAbstractSpinBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QAbstractSpinBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5415,12 +6783,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5432,13 +6804,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QAbstractSpinBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: QAbstractSpinBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5450,9 +6826,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5464,10 +6844,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QAbstractSpinBox, icon: anytype) void {
+    pub fn windowIconChanged(self: QAbstractSpinBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5479,9 +6863,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5493,13 +6881,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QAbstractSpinBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QAbstractSpinBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5511,9 +6903,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5523,12 +6919,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QAbstractSpinBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QAbstractSpinBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5540,9 +6940,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5556,9 +6960,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QAbstractSpinBox) i32 {
+    pub fn inputMethodHints(self: QAbstractSpinBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5570,9 +6978,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QAbstractSpinBox, hints: i32) void {
+    pub fn setInputMethodHints(self: QAbstractSpinBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5586,11 +6998,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QAbstractSpinBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QAbstractSpinBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5606,13 +7022,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QAbstractSpinBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QAbstractSpinBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5629,12 +7049,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QAbstractSpinBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QAbstractSpinBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5648,11 +7072,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5668,12 +7096,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5691,12 +7123,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QAbstractSpinBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5708,10 +7144,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QAbstractSpinBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QAbstractSpinBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5725,9 +7165,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QAbstractSpinBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QAbstractSpinBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5741,10 +7185,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QAbstractSpinBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QAbstractSpinBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5758,9 +7206,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QAbstractSpinBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QAbstractSpinBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5774,9 +7226,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QAbstractSpinBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QAbstractSpinBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5790,9 +7246,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QAbstractSpinBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QAbstractSpinBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5806,25 +7266,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QAbstractSpinBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QAbstractSpinBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5832,17 +7280,41 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5854,13 +7326,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QAbstractSpinBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QAbstractSpinBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5872,13 +7348,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QAbstractSpinBox, name: []const u8) void {
+    pub fn setObjectName(self: QAbstractSpinBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5888,9 +7368,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsWidgetType(self: QAbstractSpinBox) bool {
+    pub fn isWidgetType(self: QAbstractSpinBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5900,9 +7384,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsWindowType(self: QAbstractSpinBox) bool {
+    pub fn isWindowType(self: QAbstractSpinBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5912,9 +7400,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn IsQuickItemType(self: QAbstractSpinBox) bool {
+    pub fn isQuickItemType(self: QAbstractSpinBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5924,9 +7416,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SignalsBlocked(self: QAbstractSpinBox) bool {
+    pub fn signalsBlocked(self: QAbstractSpinBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5938,9 +7434,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QAbstractSpinBox, b: bool) bool {
+    pub fn blockSignals(self: QAbstractSpinBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5950,9 +7450,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Thread(self: QAbstractSpinBox) QThread {
+    pub fn thread(self: QAbstractSpinBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5962,12 +7466,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QAbstractSpinBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QAbstractSpinBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5979,9 +7487,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QAbstractSpinBox, interval: i32) i32 {
+    pub fn startTimer(self: QAbstractSpinBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5993,9 +7505,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QAbstractSpinBox, time: i64) i32 {
+    pub fn startTimer2(self: QAbstractSpinBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6007,9 +7523,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QAbstractSpinBox, id: i32) void {
+    pub fn killTimer(self: QAbstractSpinBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6021,9 +7541,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QAbstractSpinBox, id: i32) void {
+    pub fn killTimer2(self: QAbstractSpinBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6035,15 +7559,19 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QAbstractSpinBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QAbstractSpinBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractSpinBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QAbstractSpinBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6055,10 +7583,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QAbstractSpinBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: QAbstractSpinBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6070,10 +7602,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QAbstractSpinBox, obj: anytype) void {
+    pub fn removeEventFilter(self: QAbstractSpinBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6081,7 +7617,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6089,13 +7625,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6103,7 +7643,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6111,13 +7651,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6127,18 +7671,22 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QAbstractSpinBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QAbstractSpinBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6146,7 +7694,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6154,13 +7702,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6168,7 +7720,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6176,13 +7728,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6192,9 +7748,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Disconnect3(self: QAbstractSpinBox) bool {
+    pub fn disconnect3(self: QAbstractSpinBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6206,10 +7766,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QAbstractSpinBox, receiver: anytype) bool {
+    pub fn disconnect4(self: QAbstractSpinBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6219,10 +7783,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6232,9 +7800,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DumpObjectTree(self: QAbstractSpinBox) void {
+    pub fn dumpObjectTree(self: QAbstractSpinBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6244,9 +7816,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DumpObjectInfo(self: QAbstractSpinBox) void {
+    pub fn dumpObjectInfo(self: QAbstractSpinBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6260,11 +7836,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QAbstractSpinBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QAbstractSpinBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6276,10 +7856,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QAbstractSpinBox, name: [:0]const u8) QVariant {
+    pub fn property(self: QAbstractSpinBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6291,7 +7875,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QAbstractSpinBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QAbstractSpinBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6299,27 +7883,19 @@ pub const QAbstractSpinBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractSpinBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QAbstractSpinBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QAbstractSpinBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QAbstractSpinBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QAbstractSpinBox `
-    ///
-    pub fn BindingStorage(self: QAbstractSpinBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6329,9 +7905,29 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn BindingStorage2(self: QAbstractSpinBox) QBindingStorage {
+    pub fn bindingStorage(self: QAbstractSpinBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QAbstractSpinBox `
+    ///
+    pub fn bindingStorage2(self: QAbstractSpinBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6341,9 +7937,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Destroyed(self: QAbstractSpinBox) void {
+    pub fn destroyed(self: QAbstractSpinBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6355,9 +7955,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6367,9 +7971,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Parent(self: QAbstractSpinBox) QObject {
+    pub fn parent(self: QAbstractSpinBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6381,10 +7989,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QAbstractSpinBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: QAbstractSpinBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6394,9 +8006,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DeleteLater(self: QAbstractSpinBox) void {
+    pub fn deleteLater(self: QAbstractSpinBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6410,9 +8026,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QAbstractSpinBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QAbstractSpinBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6426,9 +8046,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QAbstractSpinBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QAbstractSpinBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6436,7 +8060,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6446,13 +8070,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6460,7 +8088,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6470,13 +8098,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6486,7 +8118,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6494,12 +8126,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QAbstractSpinBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QAbstractSpinBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6511,10 +8147,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QAbstractSpinBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QAbstractSpinBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6528,11 +8168,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QAbstractSpinBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QAbstractSpinBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6548,13 +8192,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QAbstractSpinBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QAbstractSpinBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6567,11 +8215,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QAbstractSpinBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QAbstractSpinBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6583,10 +8235,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn destroyed1(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6598,9 +8254,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6610,9 +8270,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn PaintingActive(self: QAbstractSpinBox) bool {
+    pub fn paintingActive(self: QAbstractSpinBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6622,9 +8286,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn WidthMM(self: QAbstractSpinBox) i32 {
+    pub fn widthMM(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6634,9 +8302,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HeightMM(self: QAbstractSpinBox) i32 {
+    pub fn heightMM(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6646,9 +8318,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn LogicalDpiX(self: QAbstractSpinBox) i32 {
+    pub fn logicalDpiX(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6658,9 +8334,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn LogicalDpiY(self: QAbstractSpinBox) i32 {
+    pub fn logicalDpiY(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6670,9 +8350,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn PhysicalDpiX(self: QAbstractSpinBox) i32 {
+    pub fn physicalDpiX(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6682,9 +8366,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn PhysicalDpiY(self: QAbstractSpinBox) i32 {
+    pub fn physicalDpiY(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6694,9 +8382,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DevicePixelRatio(self: QAbstractSpinBox) f64 {
+    pub fn devicePixelRatio(self: QAbstractSpinBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6706,9 +8398,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DevicePixelRatioF(self: QAbstractSpinBox) f64 {
+    pub fn devicePixelRatioF(self: QAbstractSpinBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6718,9 +8414,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn ColorCount(self: QAbstractSpinBox) i32 {
+    pub fn colorCount(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6730,17 +8430,25 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Depth(self: QAbstractSpinBox) i32 {
+    pub fn depth(self: QAbstractSpinBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6748,13 +8456,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6766,13 +8478,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn DevType(self: QAbstractSpinBox) i32 {
+    pub fn devType(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6784,9 +8496,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperDevType(self: QAbstractSpinBox) i32 {
+    pub fn superDevType(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6800,9 +8516,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6816,13 +8536,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QAbstractSpinBox, visible: bool) void {
+    pub fn setVisible(self: QAbstractSpinBox, visible: bool) void {
         qtc.QAbstractSpinBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6836,9 +8556,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QAbstractSpinBox, visible: bool) void {
+    pub fn superSetVisible(self: QAbstractSpinBox, visible: bool) void {
         qtc.QAbstractSpinBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6852,9 +8576,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, bool) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6868,13 +8596,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QAbstractSpinBox, param1: i32) i32 {
+    pub fn heightForWidth(self: QAbstractSpinBox, param1: i32) i32 {
         return qtc.QAbstractSpinBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6888,9 +8616,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QAbstractSpinBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QAbstractSpinBox, param1: i32) i32 {
         return qtc.QAbstractSpinBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6904,9 +8636,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6918,13 +8654,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn HasHeightForWidth(self: QAbstractSpinBox) bool {
+    pub fn hasHeightForWidth(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6936,9 +8672,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperHasHeightForWidth(self: QAbstractSpinBox) bool {
+    pub fn superHasHeightForWidth(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6952,9 +8692,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6966,13 +8710,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn PaintEngine(self: QAbstractSpinBox) QPaintEngine {
+    pub fn paintEngine(self: QAbstractSpinBox) QPaintEngine {
         return .{ .ptr = qtc.QAbstractSpinBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6984,9 +8728,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperPaintEngine(self: QAbstractSpinBox) QPaintEngine {
+    pub fn superPaintEngine(self: QAbstractSpinBox) QPaintEngine {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -7000,9 +8748,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QAbstractSpinBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7014,16 +8766,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7035,12 +8787,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QAbstractSpinBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QAbstractSpinBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7054,9 +8810,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMouseEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7068,16 +8828,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractSpinBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractSpinBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7089,12 +8849,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QAbstractSpinBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QAbstractSpinBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7108,9 +8872,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEnterEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7122,16 +8890,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7143,12 +8911,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7162,9 +8934,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7176,16 +8952,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractSpinBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractSpinBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7197,12 +8973,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QAbstractSpinBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QAbstractSpinBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7216,9 +8996,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMoveEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7230,16 +9014,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractSpinBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractSpinBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7251,12 +9035,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QAbstractSpinBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QAbstractSpinBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7270,9 +9058,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QTabletEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7284,16 +9076,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractSpinBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractSpinBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7305,12 +9097,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QAbstractSpinBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QAbstractSpinBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7324,9 +9120,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QActionEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7338,16 +9138,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractSpinBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractSpinBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7359,12 +9159,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QAbstractSpinBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QAbstractSpinBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7378,9 +9182,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7392,16 +9200,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractSpinBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractSpinBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7413,12 +9221,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QAbstractSpinBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QAbstractSpinBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7432,9 +9244,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7446,16 +9262,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractSpinBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractSpinBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7467,12 +9283,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QAbstractSpinBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QAbstractSpinBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7486,9 +9306,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7500,16 +9324,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractSpinBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractSpinBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7521,12 +9345,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QAbstractSpinBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QAbstractSpinBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7540,9 +9368,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QDropEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7560,7 +9392,7 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7568,9 +9400,9 @@ pub const QAbstractSpinBox = extern struct {
         return qtc.QAbstractSpinBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7588,13 +9420,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QAbstractSpinBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QAbstractSpinBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7608,9 +9444,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7624,13 +9464,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QAbstractSpinBox, param1: i32) i32 {
+    pub fn metric(self: QAbstractSpinBox, param1: i32) i32 {
         return qtc.QAbstractSpinBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7644,9 +9484,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QAbstractSpinBox, param1: i32) i32 {
+    pub fn superMetric(self: QAbstractSpinBox, param1: i32) i32 {
         return qtc.QAbstractSpinBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7660,9 +9504,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7676,14 +9524,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QAbstractSpinBox, painter: anytype) void {
+    pub fn initPainter(self: QAbstractSpinBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractSpinBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7697,10 +9545,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QAbstractSpinBox, painter: anytype) void {
+    pub fn superInitPainter(self: QAbstractSpinBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QAbstractSpinBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7714,9 +9566,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPainter) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7730,14 +9586,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QAbstractSpinBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QAbstractSpinBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractSpinBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7751,10 +9607,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QAbstractSpinBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QAbstractSpinBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QAbstractSpinBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7768,9 +9628,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QAbstractSpinBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7782,13 +9646,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SharedPainter(self: QAbstractSpinBox) QPainter {
+    pub fn sharedPainter(self: QAbstractSpinBox) QPainter {
         return .{ .ptr = qtc.QAbstractSpinBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7800,9 +9664,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperSharedPainter(self: QAbstractSpinBox) QPainter {
+    pub fn superSharedPainter(self: QAbstractSpinBox) QPainter {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7816,9 +9684,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QAbstractSpinBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7832,14 +9704,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractSpinBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7853,10 +9725,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QAbstractSpinBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QAbstractSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QAbstractSpinBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7870,9 +9746,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7886,13 +9766,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QAbstractSpinBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: QAbstractSpinBox, next: bool) bool {
         return qtc.QAbstractSpinBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7906,9 +9786,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QAbstractSpinBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QAbstractSpinBox, next: bool) bool {
         return qtc.QAbstractSpinBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7922,9 +9806,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, bool) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7938,17 +9826,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QAbstractSpinBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QAbstractSpinBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSpinBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSpinBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7962,13 +9850,17 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QAbstractSpinBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QAbstractSpinBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QAbstractSpinBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QAbstractSpinBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7982,9 +9874,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7996,16 +9892,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractSpinBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractSpinBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8017,12 +9913,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QAbstractSpinBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QAbstractSpinBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8036,9 +9936,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QChildEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8050,16 +9954,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8071,12 +9975,16 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QAbstractSpinBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QAbstractSpinBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QAbstractSpinBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QAbstractSpinBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8090,9 +9998,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QEvent) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8106,14 +10018,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QAbstractSpinBox, signal: anytype) void {
+    pub fn connectNotify(self: QAbstractSpinBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSpinBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8127,11 +10039,15 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QAbstractSpinBox, signal: anytype) void {
+    pub fn superConnectNotify(self: QAbstractSpinBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSpinBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8144,9 +10060,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8160,14 +10080,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QAbstractSpinBox, signal: anytype) void {
+    pub fn disconnectNotify(self: QAbstractSpinBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSpinBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8181,10 +10101,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QAbstractSpinBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QAbstractSpinBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QAbstractSpinBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8198,10 +10122,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8212,13 +10140,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn UpdateMicroFocus(self: QAbstractSpinBox) void {
+    pub fn updateMicroFocus(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8230,10 +10158,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: QAbstractSpinBox) void {
+    pub fn superUpdateMicroFocus(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8246,10 +10178,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8260,13 +10196,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Create(self: QAbstractSpinBox) void {
+    pub fn create(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8278,10 +10214,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperCreate(self: QAbstractSpinBox) void {
+    pub fn superCreate(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8294,9 +10234,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8308,13 +10252,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Destroy(self: QAbstractSpinBox) void {
+    pub fn destroy(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8326,9 +10270,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperDestroy(self: QAbstractSpinBox) void {
+    pub fn superDestroy(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8342,10 +10290,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QAbstractSpinBox, callback: *const fn () callconv(.c) void) void {
         qtc.QAbstractSpinBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8356,13 +10308,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FocusNextChild(self: QAbstractSpinBox) bool {
+    pub fn focusNextChild(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8374,10 +10326,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperFocusNextChild(self: QAbstractSpinBox) bool {
+    pub fn superFocusNextChild(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8390,9 +10346,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8404,13 +10364,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn FocusPreviousChild(self: QAbstractSpinBox) bool {
+    pub fn focusPreviousChild(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8422,9 +10382,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperFocusPreviousChild(self: QAbstractSpinBox) bool {
+    pub fn superFocusPreviousChild(self: QAbstractSpinBox) bool {
         return qtc.QAbstractSpinBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8438,9 +10402,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QAbstractSpinBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8452,13 +10420,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Sender(self: QAbstractSpinBox) QObject {
+    pub fn sender(self: QAbstractSpinBox) QObject {
         return .{ .ptr = qtc.QAbstractSpinBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8470,9 +10438,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperSender(self: QAbstractSpinBox) QObject {
+    pub fn superSender(self: QAbstractSpinBox) QObject {
         return .{ .ptr = qtc.QAbstractSpinBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8486,9 +10458,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QAbstractSpinBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.QAbstractSpinBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8500,13 +10476,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SenderSignalIndex(self: QAbstractSpinBox) i32 {
+    pub fn senderSignalIndex(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8518,9 +10494,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn SuperSenderSignalIndex(self: QAbstractSpinBox) i32 {
+    pub fn superSenderSignalIndex(self: QAbstractSpinBox) i32 {
         return qtc.QAbstractSpinBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8534,9 +10514,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QAbstractSpinBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8550,14 +10534,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QAbstractSpinBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QAbstractSpinBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractSpinBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8571,10 +10555,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QAbstractSpinBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QAbstractSpinBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QAbstractSpinBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8588,9 +10576,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.QAbstractSpinBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8604,14 +10596,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QAbstractSpinBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: QAbstractSpinBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSpinBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8625,10 +10617,14 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QAbstractSpinBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QAbstractSpinBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QAbstractSpinBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8642,9 +10638,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, QMetaMethod) callconv(.c) bool) void {
         qtc.QAbstractSpinBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8660,13 +10660,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QAbstractSpinBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QAbstractSpinBox, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractSpinBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8682,9 +10682,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QAbstractSpinBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QAbstractSpinBox, metricA: i32, metricB: i32) f64 {
         return qtc.QAbstractSpinBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8698,9 +10702,13 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, i32, i32) callconv(.c) f64) void {
         qtc.QAbstractSpinBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8714,23 +10722,23 @@ pub const QAbstractSpinBox = extern struct {
     ///
     /// ` callback: *const fn (self: QAbstractSpinBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QAbstractSpinBox, callback: *const fn (QAbstractSpinBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractspinbox.html#dtor.QAbstractSpinBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QAbstractSpinBox `
     ///
-    pub fn Delete(self: QAbstractSpinBox) void {
+    pub fn delete(self: QAbstractSpinBox) void {
         qtc.QAbstractSpinBox_Delete(@ptrCast(self.ptr));
     }
 };

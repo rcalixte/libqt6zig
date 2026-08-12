@@ -12,7 +12,11 @@ pub const KNSCore__TagsFilterChecker = extern struct {
 
     pub const _is_KNSCore__TagsFilterChecker = {};
 
-    /// New constructs a new KNSCore::TagsFilterChecker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KNSCore::TagsFilterChecker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -20,13 +24,13 @@ pub const KNSCore__TagsFilterChecker = extern struct {
     ///
     /// ` tagFilter: []const []const u8 `
     ///
-    pub fn New(allocator: std.mem.Allocator, tagFilter: []const []const u8) KNSCore__TagsFilterChecker {
-        const tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("KNSCore__TagsFilterChecker.New: Memory allocation failed");
+    pub fn new(allocator: std.mem.Allocator, tagFilter: []const []const u8) KNSCore__TagsFilterChecker {
+        const tagFilter_arr = allocator.alloc(qtc.libqt_string, tagFilter.len) catch @panic("KNSCore__TagsFilterChecker.new: Memory allocation failed");
         defer allocator.free(tagFilter_arr);
-        for (tagFilter, 0..tagFilter.len) |item, i|
+        for (tagFilter, 0..tagFilter.len) |str_item, i|
             tagFilter_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const tagFilter_list = qtc.libqt_list{
             .len = tagFilter.len,
@@ -34,6 +38,10 @@ pub const KNSCore__TagsFilterChecker = extern struct {
         };
         return .{ .ptr = qtc.KNSCore__TagsFilterChecker_new(tagFilter_list) };
     }
+
+    /// ### DEPRECATED: Use `filterAccepts` instead
+    ///
+    pub const FilterAccepts = filterAccepts;
 
     /// ### [Upstream resources](https://api.kde.org/knscore-tagsfilterchecker.html#filterAccepts)
     ///
@@ -45,13 +53,13 @@ pub const KNSCore__TagsFilterChecker = extern struct {
     ///
     /// ` tags: []const []const u8 `
     ///
-    pub fn FilterAccepts(self: KNSCore__TagsFilterChecker, allocator: std.mem.Allocator, tags: []const []const u8) bool {
-        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("KNSCore__TagsFilterChecker.FilterAccepts: Memory allocation failed");
+    pub fn filterAccepts(self: KNSCore__TagsFilterChecker, allocator: std.mem.Allocator, tags: []const []const u8) bool {
+        const tags_arr = allocator.alloc(qtc.libqt_string, tags.len) catch @panic("KNSCore__TagsFilterChecker.filterAccepts: Memory allocation failed");
         defer allocator.free(tags_arr);
-        for (tags, 0..tags.len) |item, i|
+        for (tags, 0..tags.len) |str_item, i|
             tags_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const tags_list = qtc.libqt_list{
             .len = tags.len,
@@ -60,17 +68,17 @@ pub const KNSCore__TagsFilterChecker = extern struct {
         return qtc.KNSCore__TagsFilterChecker_FilterAccepts(@ptrCast(self.ptr), tags_list);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KNSCore__TagsFilterChecker `
     ///
-    pub fn Delete(self: KNSCore__TagsFilterChecker) void {
+    pub fn delete(self: KNSCore__TagsFilterChecker) void {
         qtc.KNSCore__TagsFilterChecker_Delete(@ptrCast(self.ptr));
     }
 };

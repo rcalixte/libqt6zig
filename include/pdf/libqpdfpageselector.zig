@@ -80,22 +80,34 @@ pub const QPdfPageSelector = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QPdfPageSelector object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPdfPageSelector object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QPdfPageSelector {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QPdfPageSelector_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QPdfPageSelector {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QPdfPageSelector_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QPdfPageSelector object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QPdfPageSelector {
+    pub const New2 = new2;
+
+    /// Allocate a new QPdfPageSelector object in C++ memory
+    ///
+    pub fn new2() QPdfPageSelector {
         return .{ .ptr = qtc.QPdfPageSelector_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +115,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MetaObject(self: QPdfPageSelector) QMetaObject {
+    pub fn metaObject(self: QPdfPageSelector) QMetaObject {
         return .{ .ptr = qtc.QPdfPageSelector_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,13 +133,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPdfPageSelector, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPdfPageSelector, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPdfPageSelector_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,9 +149,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperMetaObject(self: QPdfPageSelector) QMetaObject {
+    pub fn superMetaObject(self: QPdfPageSelector) QMetaObject {
         return .{ .ptr = qtc.QPdfPageSelector_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -143,10 +163,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPdfPageSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPdfPageSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPdfPageSelector_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -156,13 +180,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPdfPageSelector_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -172,10 +196,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPdfPageSelector, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPdfPageSelector, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPdfPageSelector_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -187,9 +215,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPdfPageSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPdfPageSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPdfPageSelector_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -199,13 +231,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -219,9 +251,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPdfPageSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPdfPageSelector, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPdfPageSelector_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -231,14 +267,18 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocument` instead
+    ///
+    pub const SetDocument = setDocument;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#setDocument)
     ///
@@ -246,12 +286,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` document: QPdfDocument `
+    /// ` _document: QPdfDocument `
     ///
-    pub fn SetDocument(self: QPdfPageSelector, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QPdfDocument;
-        qtc.QPdfPageSelector_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn setDocument(self: QPdfPageSelector, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QPdfDocument;
+        qtc.QPdfPageSelector_SetDocument(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#document)
     ///
@@ -259,9 +303,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Document(self: QPdfPageSelector) QPdfDocument {
+    pub fn document(self: QPdfPageSelector) QPdfDocument {
         return .{ .ptr = qtc.QPdfPageSelector_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentPage` instead
+    ///
+    pub const CurrentPage = currentPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPage)
     ///
@@ -269,9 +317,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn CurrentPage(self: QPdfPageSelector) i32 {
+    pub fn currentPage(self: QPdfPageSelector) i32 {
         return qtc.QPdfPageSelector_CurrentPage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentPageLabel` instead
+    ///
+    pub const CurrentPageLabel = currentPageLabel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPageLabel)
     ///
@@ -281,13 +333,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentPageLabel(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentPageLabel(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPdfPageSelector_CurrentPageLabel(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.CurrentPageLabel: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.currentPageLabel: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setCurrentPage` instead
+    ///
+    pub const SetCurrentPage = setCurrentPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#setCurrentPage)
     ///
@@ -297,9 +353,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentPage(self: QPdfPageSelector, index: i32) void {
+    pub fn setCurrentPage(self: QPdfPageSelector, index: i32) void {
         qtc.QPdfPageSelector_SetCurrentPage(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `documentChanged` instead
+    ///
+    pub const DocumentChanged = documentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#documentChanged)
     ///
@@ -307,12 +367,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` document: QPdfDocument `
+    /// ` _document: QPdfDocument `
     ///
-    pub fn DocumentChanged(self: QPdfPageSelector, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QPdfDocument;
-        qtc.QPdfPageSelector_DocumentChanged(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn documentChanged(self: QPdfPageSelector, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QPdfDocument;
+        qtc.QPdfPageSelector_DocumentChanged(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDocumentChanged` instead
+    ///
+    pub const OnDocumentChanged = onDocumentChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#documentChanged)
     ///
@@ -322,9 +386,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, document: QPdfDocument) callconv(.c) void `
     ///
-    pub fn OnDocumentChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPdfDocument) callconv(.c) void) void {
+    pub fn onDocumentChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPdfDocument) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_DocumentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentPageChanged` instead
+    ///
+    pub const CurrentPageChanged = currentPageChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPageChanged)
     ///
@@ -334,9 +402,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentPageChanged(self: QPdfPageSelector, index: i32) void {
+    pub fn currentPageChanged(self: QPdfPageSelector, index: i32) void {
         qtc.QPdfPageSelector_CurrentPageChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentPageChanged` instead
+    ///
+    pub const OnCurrentPageChanged = onCurrentPageChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPageChanged)
     ///
@@ -346,9 +418,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentPageChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) void) void {
+    pub fn onCurrentPageChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_CurrentPageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentPageLabelChanged` instead
+    ///
+    pub const CurrentPageLabelChanged = currentPageLabelChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPageLabelChanged)
     ///
@@ -358,13 +434,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` label: []const u8 `
     ///
-    pub fn CurrentPageLabelChanged(self: QPdfPageSelector, label: []const u8) void {
+    pub fn currentPageLabelChanged(self: QPdfPageSelector, label: []const u8) void {
         const label_str = qtc.libqt_string{
             .len = label.len,
             .data = label.ptr,
         };
         qtc.QPdfPageSelector_CurrentPageLabelChanged(@ptrCast(self.ptr), label_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentPageLabelChanged` instead
+    ///
+    pub const OnCurrentPageLabelChanged = onCurrentPageLabelChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#currentPageLabelChanged)
     ///
@@ -374,9 +454,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, label: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentPageLabelChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentPageLabelChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QPdfPageSelector_Connect_CurrentPageLabelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -388,15 +472,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -410,15 +498,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -428,9 +520,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn WinId(self: QPdfPageSelector) usize {
+    pub fn winId(self: QPdfPageSelector) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -440,9 +536,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn CreateWinId(self: QPdfPageSelector) void {
+    pub fn createWinId(self: QPdfPageSelector) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -452,9 +552,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn InternalWinId(self: QPdfPageSelector) usize {
+    pub fn internalWinId(self: QPdfPageSelector) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -464,9 +568,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn EffectiveWinId(self: QPdfPageSelector) usize {
+    pub fn effectiveWinId(self: QPdfPageSelector) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -476,9 +584,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Style(self: QPdfPageSelector) QStyle {
+    pub fn style(self: QPdfPageSelector) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -488,12 +600,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QPdfPageSelector, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QPdfPageSelector, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -503,9 +619,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsTopLevel(self: QPdfPageSelector) bool {
+    pub fn isTopLevel(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -515,9 +635,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsWindow(self: QPdfPageSelector) bool {
+    pub fn isWindow(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -527,9 +651,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsModal(self: QPdfPageSelector) bool {
+    pub fn isModal(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -543,9 +671,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QPdfPageSelector) i32 {
+    pub fn windowModality(self: QPdfPageSelector) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -555,11 +687,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QPdfPageSelector, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QPdfPageSelector, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -569,9 +705,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsEnabled(self: QPdfPageSelector) bool {
+    pub fn isEnabled(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -583,10 +723,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QPdfPageSelector, param1: anytype) bool {
+    pub fn isEnabledTo(self: QPdfPageSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -598,9 +742,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QPdfPageSelector, enabled: bool) void {
+    pub fn setEnabled(self: QPdfPageSelector, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -612,9 +760,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QPdfPageSelector, disabled: bool) void {
+    pub fn setDisabled(self: QPdfPageSelector, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -626,9 +778,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QPdfPageSelector, windowModified: bool) void {
+    pub fn setWindowModified(self: QPdfPageSelector, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -638,9 +794,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FrameGeometry(self: QPdfPageSelector) QRect {
+    pub fn frameGeometry(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -650,9 +810,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Geometry(self: QPdfPageSelector) QRect {
+    pub fn geometry(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -662,9 +826,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn NormalGeometry(self: QPdfPageSelector) QRect {
+    pub fn normalGeometry(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -674,9 +842,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn X(self: QPdfPageSelector) i32 {
+    pub fn x(self: QPdfPageSelector) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -686,9 +858,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Y(self: QPdfPageSelector) i32 {
+    pub fn y(self: QPdfPageSelector) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -698,9 +874,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Pos(self: QPdfPageSelector) QPoint {
+    pub fn pos(self: QPdfPageSelector) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -710,9 +890,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FrameSize(self: QPdfPageSelector) QSize {
+    pub fn frameSize(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -722,9 +906,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Size(self: QPdfPageSelector) QSize {
+    pub fn size(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -734,9 +922,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Width(self: QPdfPageSelector) i32 {
+    pub fn width(self: QPdfPageSelector) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -746,9 +938,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Height(self: QPdfPageSelector) i32 {
+    pub fn height(self: QPdfPageSelector) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -758,9 +954,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Rect(self: QPdfPageSelector) QRect {
+    pub fn rect(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -770,9 +970,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ChildrenRect(self: QPdfPageSelector) QRect {
+    pub fn childrenRect(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -782,9 +986,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ChildrenRegion(self: QPdfPageSelector) QRegion {
+    pub fn childrenRegion(self: QPdfPageSelector) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -794,9 +1002,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MinimumSize(self: QPdfPageSelector) QSize {
+    pub fn minimumSize(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -806,9 +1018,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MaximumSize(self: QPdfPageSelector) QSize {
+    pub fn maximumSize(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -818,9 +1034,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MinimumWidth(self: QPdfPageSelector) i32 {
+    pub fn minimumWidth(self: QPdfPageSelector) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -830,9 +1050,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MinimumHeight(self: QPdfPageSelector) i32 {
+    pub fn minimumHeight(self: QPdfPageSelector) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -842,9 +1066,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MaximumWidth(self: QPdfPageSelector) i32 {
+    pub fn maximumWidth(self: QPdfPageSelector) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -854,9 +1082,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MaximumHeight(self: QPdfPageSelector) i32 {
+    pub fn maximumHeight(self: QPdfPageSelector) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -866,12 +1098,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QPdfPageSelector, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QPdfPageSelector, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -885,9 +1121,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QPdfPageSelector, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QPdfPageSelector, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -897,12 +1137,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QPdfPageSelector, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QPdfPageSelector, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -916,9 +1160,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QPdfPageSelector, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QPdfPageSelector, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -930,9 +1178,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QPdfPageSelector, minw: i32) void {
+    pub fn setMinimumWidth(self: QPdfPageSelector, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -944,9 +1196,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QPdfPageSelector, minh: i32) void {
+    pub fn setMinimumHeight(self: QPdfPageSelector, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -958,9 +1214,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QPdfPageSelector, maxw: i32) void {
+    pub fn setMaximumWidth(self: QPdfPageSelector, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -972,9 +1232,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QPdfPageSelector, maxh: i32) void {
+    pub fn setMaximumHeight(self: QPdfPageSelector, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -984,9 +1248,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SizeIncrement(self: QPdfPageSelector) QSize {
+    pub fn sizeIncrement(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -996,12 +1264,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QPdfPageSelector, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QPdfPageSelector, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1015,9 +1287,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QPdfPageSelector, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QPdfPageSelector, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1027,9 +1303,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn BaseSize(self: QPdfPageSelector) QSize {
+    pub fn baseSize(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1039,12 +1319,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QPdfPageSelector, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QPdfPageSelector, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1058,9 +1342,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QPdfPageSelector, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QPdfPageSelector, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1072,10 +1360,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QPdfPageSelector, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QPdfPageSelector, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1089,9 +1381,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QPdfPageSelector, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QPdfPageSelector, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1103,9 +1399,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QPdfPageSelector, w: i32) void {
+    pub fn setFixedWidth(self: QPdfPageSelector, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1117,9 +1417,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QPdfPageSelector, h: i32) void {
+    pub fn setFixedHeight(self: QPdfPageSelector, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1131,11 +1435,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QPdfPageSelector, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QPdfPageSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1146,11 +1454,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QPdfPageSelector, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QPdfPageSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1161,11 +1473,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QPdfPageSelector, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QPdfPageSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1176,11 +1492,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QPdfPageSelector, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QPdfPageSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1191,11 +1511,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QPdfPageSelector, param1: anytype) QPointF {
+    pub fn mapToParent(self: QPdfPageSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1206,10 +1530,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QPdfPageSelector, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QPdfPageSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1221,10 +1549,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QPdfPageSelector, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QPdfPageSelector, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1236,10 +1568,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QPdfPageSelector, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QPdfPageSelector, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1253,12 +1589,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QPdfPageSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QPdfPageSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1271,11 +1611,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QPdfPageSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QPdfPageSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1289,11 +1633,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QPdfPageSelector, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QPdfPageSelector, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1307,11 +1655,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QPdfPageSelector, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QPdfPageSelector, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1321,9 +1673,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Window(self: QPdfPageSelector) QWidget {
+    pub fn window(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1333,9 +1689,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn NativeParentWidget(self: QPdfPageSelector) QWidget {
+    pub fn nativeParentWidget(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1345,9 +1705,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn TopLevelWidget(self: QPdfPageSelector) QWidget {
+    pub fn topLevelWidget(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1357,9 +1721,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Palette(self: QPdfPageSelector) QPalette {
+    pub fn palette(self: QPdfPageSelector) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1369,12 +1737,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QPdfPageSelector, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QPdfPageSelector, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1384,11 +1756,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QPdfPageSelector, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QPdfPageSelector, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1402,9 +1778,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QPdfPageSelector) i32 {
+    pub fn backgroundRole(self: QPdfPageSelector) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1414,11 +1794,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QPdfPageSelector, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QPdfPageSelector, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1432,9 +1816,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QPdfPageSelector) i32 {
+    pub fn foregroundRole(self: QPdfPageSelector) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1444,9 +1832,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Font(self: QPdfPageSelector) QFont {
+    pub fn font(self: QPdfPageSelector) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1456,12 +1848,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QPdfPageSelector, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QPdfPageSelector, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1471,9 +1867,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FontMetrics(self: QPdfPageSelector) QFontMetrics {
+    pub fn fontMetrics(self: QPdfPageSelector) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1483,9 +1883,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FontInfo(self: QPdfPageSelector) QFontInfo {
+    pub fn fontInfo(self: QPdfPageSelector) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1495,9 +1899,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Cursor(self: QPdfPageSelector) QCursor {
+    pub fn cursor(self: QPdfPageSelector) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1507,12 +1915,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QPdfPageSelector, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QPdfPageSelector, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1522,9 +1934,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UnsetCursor(self: QPdfPageSelector) void {
+    pub fn unsetCursor(self: QPdfPageSelector) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1536,9 +1952,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QPdfPageSelector, enable: bool) void {
+    pub fn setMouseTracking(self: QPdfPageSelector, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1548,9 +1968,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn HasMouseTracking(self: QPdfPageSelector) bool {
+    pub fn hasMouseTracking(self: QPdfPageSelector) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1560,9 +1984,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UnderMouse(self: QPdfPageSelector) bool {
+    pub fn underMouse(self: QPdfPageSelector) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1574,9 +2002,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QPdfPageSelector, enable: bool) void {
+    pub fn setTabletTracking(self: QPdfPageSelector, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1586,24 +2018,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn HasTabletTracking(self: QPdfPageSelector) bool {
+    pub fn hasTabletTracking(self: QPdfPageSelector) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageSelector `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QPdfPageSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1613,12 +2034,35 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QPdfPageSelector, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QPdfPageSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfPageSelector `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QPdfPageSelector, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1628,9 +2072,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Mask(self: QPdfPageSelector) QRegion {
+    pub fn mask(self: QPdfPageSelector) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1640,9 +2088,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ClearMask(self: QPdfPageSelector) void {
+    pub fn clearMask(self: QPdfPageSelector) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1654,10 +2106,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QPdfPageSelector, target: anytype) void {
+    pub fn render(self: QPdfPageSelector, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1669,10 +2125,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QPdfPageSelector, painter: anytype) void {
+    pub fn render2(self: QPdfPageSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1682,9 +2142,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Grab(self: QPdfPageSelector) QPixmap {
+    pub fn grab(self: QPdfPageSelector) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1694,9 +2158,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn GraphicsEffect(self: QPdfPageSelector) QGraphicsEffect {
+    pub fn graphicsEffect(self: QPdfPageSelector) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1708,10 +2176,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QPdfPageSelector, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QPdfPageSelector, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1723,9 +2195,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QPdfPageSelector, typeVal: i32) void {
+    pub fn grabGesture(self: QPdfPageSelector, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1737,9 +2213,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QPdfPageSelector, typeVal: i32) void {
+    pub fn ungrabGesture(self: QPdfPageSelector, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1749,15 +2229,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QPdfPageSelector, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QPdfPageSelector, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1767,15 +2251,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QPdfPageSelector, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QPdfPageSelector, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1787,13 +2275,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1805,13 +2297,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1823,10 +2319,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QPdfPageSelector, icon: anytype) void {
+    pub fn setWindowIcon(self: QPdfPageSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1836,9 +2336,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn WindowIcon(self: QPdfPageSelector) QIcon {
+    pub fn windowIcon(self: QPdfPageSelector) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1848,15 +2352,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QPdfPageSelector, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QPdfPageSelector, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1868,13 +2376,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1884,15 +2396,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QPdfPageSelector, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QPdfPageSelector, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1904,13 +2420,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1922,13 +2442,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QPdfPageSelector, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QPdfPageSelector, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1940,13 +2464,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1958,9 +2486,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QPdfPageSelector, level: f64) void {
+    pub fn setWindowOpacity(self: QPdfPageSelector, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -1970,9 +2502,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn WindowOpacity(self: QPdfPageSelector) f64 {
+    pub fn windowOpacity(self: QPdfPageSelector) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1982,9 +2518,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsWindowModified(self: QPdfPageSelector) bool {
+    pub fn isWindowModified(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -1994,15 +2534,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QPdfPageSelector, toolTip: []const u8) void {
+    pub fn setToolTip(self: QPdfPageSelector, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2014,13 +2558,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2032,9 +2580,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QPdfPageSelector, msec: i32) void {
+    pub fn setToolTipDuration(self: QPdfPageSelector, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2044,9 +2596,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ToolTipDuration(self: QPdfPageSelector) i32 {
+    pub fn toolTipDuration(self: QPdfPageSelector) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2056,15 +2612,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QPdfPageSelector, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QPdfPageSelector, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2076,13 +2636,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2092,15 +2656,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QPdfPageSelector, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QPdfPageSelector, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2112,13 +2680,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2130,13 +2702,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2148,13 +2724,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QPdfPageSelector, name: []const u8) void {
+    pub fn setAccessibleName(self: QPdfPageSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2166,13 +2746,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2184,13 +2768,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QPdfPageSelector, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QPdfPageSelector, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2202,9 +2790,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QPdfPageSelector, direction: i32) void {
+    pub fn setLayoutDirection(self: QPdfPageSelector, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2218,9 +2810,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QPdfPageSelector) i32 {
+    pub fn layoutDirection(self: QPdfPageSelector) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2230,9 +2826,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UnsetLayoutDirection(self: QPdfPageSelector) void {
+    pub fn unsetLayoutDirection(self: QPdfPageSelector) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2242,12 +2842,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QPdfPageSelector, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QPdfPageSelector, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2257,9 +2861,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Locale(self: QPdfPageSelector) QLocale {
+    pub fn locale(self: QPdfPageSelector) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2269,9 +2877,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UnsetLocale(self: QPdfPageSelector) void {
+    pub fn unsetLocale(self: QPdfPageSelector) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2893,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsRightToLeft(self: QPdfPageSelector) bool {
+    pub fn isRightToLeft(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2909,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsLeftToRight(self: QPdfPageSelector) bool {
+    pub fn isLeftToRight(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2305,9 +2925,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SetFocus(self: QPdfPageSelector) void {
+    pub fn setFocus(self: QPdfPageSelector) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2317,9 +2941,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsActiveWindow(self: QPdfPageSelector) bool {
+    pub fn isActiveWindow(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2329,9 +2957,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ActivateWindow(self: QPdfPageSelector) void {
+    pub fn activateWindow(self: QPdfPageSelector) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2341,9 +2973,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ClearFocus(self: QPdfPageSelector) void {
+    pub fn clearFocus(self: QPdfPageSelector) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2355,9 +2991,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QPdfPageSelector, reason: i32) void {
+    pub fn setFocus2(self: QPdfPageSelector, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2371,9 +3011,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QPdfPageSelector) i32 {
+    pub fn focusPolicy(self: QPdfPageSelector) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2385,9 +3029,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QPdfPageSelector, policy: i32) void {
+    pub fn setFocusPolicy(self: QPdfPageSelector, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2397,9 +3045,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn HasFocus(self: QPdfPageSelector) bool {
+    pub fn hasFocus(self: QPdfPageSelector) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2411,11 +3063,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2425,12 +3081,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QPdfPageSelector, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QPdfPageSelector, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2440,9 +3100,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FocusProxy(self: QPdfPageSelector) QWidget {
+    pub fn focusProxy(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2456,9 +3120,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QPdfPageSelector) i32 {
+    pub fn contextMenuPolicy(self: QPdfPageSelector) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2470,9 +3138,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QPdfPageSelector, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QPdfPageSelector, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2482,9 +3154,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn GrabMouse(self: QPdfPageSelector) void {
+    pub fn grabMouse(self: QPdfPageSelector) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2496,10 +3172,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QPdfPageSelector, param1: anytype) void {
+    pub fn grabMouse2(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2509,9 +3189,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ReleaseMouse(self: QPdfPageSelector) void {
+    pub fn releaseMouse(self: QPdfPageSelector) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2521,9 +3205,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn GrabKeyboard(self: QPdfPageSelector) void {
+    pub fn grabKeyboard(self: QPdfPageSelector) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2533,9 +3221,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ReleaseKeyboard(self: QPdfPageSelector) void {
+    pub fn releaseKeyboard(self: QPdfPageSelector) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2547,10 +3239,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QPdfPageSelector, key: anytype) i32 {
+    pub fn grabShortcut(self: QPdfPageSelector, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2562,9 +3258,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QPdfPageSelector, id: i32) void {
+    pub fn releaseShortcut(self: QPdfPageSelector, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2576,9 +3276,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QPdfPageSelector, id: i32) void {
+    pub fn setShortcutEnabled(self: QPdfPageSelector, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2590,25 +3294,37 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QPdfPageSelector, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QPdfPageSelector, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2618,9 +3334,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UpdatesEnabled(self: QPdfPageSelector) bool {
+    pub fn updatesEnabled(self: QPdfPageSelector) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2632,9 +3352,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QPdfPageSelector, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QPdfPageSelector, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2644,9 +3368,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn GraphicsProxyWidget(self: QPdfPageSelector) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QPdfPageSelector) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2656,9 +3384,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Update(self: QPdfPageSelector) void {
+    pub fn update(self: QPdfPageSelector) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2668,9 +3400,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Repaint(self: QPdfPageSelector) void {
+    pub fn repaint(self: QPdfPageSelector) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2680,17 +3416,21 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QPdfPageSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QPdfPageSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2702,11 +3442,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QPdfPageSelector, param1: anytype) void {
+    pub fn update3(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2717,10 +3461,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QPdfPageSelector, param1: anytype) void {
+    pub fn update4(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2730,17 +3478,21 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QPdfPageSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QPdfPageSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2752,10 +3504,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QPdfPageSelector, param1: anytype) void {
+    pub fn repaint3(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2767,10 +3523,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QPdfPageSelector, param1: anytype) void {
+    pub fn repaint4(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3542,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QPdfPageSelector, hidden: bool) void {
+    pub fn setHidden(self: QPdfPageSelector, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2794,9 +3558,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Show(self: QPdfPageSelector) void {
+    pub fn show(self: QPdfPageSelector) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2806,9 +3574,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Hide(self: QPdfPageSelector) void {
+    pub fn hide(self: QPdfPageSelector) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2818,9 +3590,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ShowMinimized(self: QPdfPageSelector) void {
+    pub fn showMinimized(self: QPdfPageSelector) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2830,9 +3606,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ShowMaximized(self: QPdfPageSelector) void {
+    pub fn showMaximized(self: QPdfPageSelector) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2842,9 +3622,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ShowFullScreen(self: QPdfPageSelector) void {
+    pub fn showFullScreen(self: QPdfPageSelector) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2854,9 +3638,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ShowNormal(self: QPdfPageSelector) void {
+    pub fn showNormal(self: QPdfPageSelector) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2866,9 +3654,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Close(self: QPdfPageSelector) bool {
+    pub fn close(self: QPdfPageSelector) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2878,9 +3670,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Raise(self: QPdfPageSelector) void {
+    pub fn raise(self: QPdfPageSelector) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2890,9 +3686,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Lower(self: QPdfPageSelector) void {
+    pub fn lower(self: QPdfPageSelector) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2904,10 +3704,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QPdfPageSelector, param1: anytype) void {
+    pub fn stackUnder(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2917,13 +3721,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QPdfPageSelector, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QPdfPageSelector, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -2935,10 +3743,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QPdfPageSelector, param1: anytype) void {
+    pub fn move2(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -2952,9 +3764,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QPdfPageSelector, w: i32, h: i32) void {
+    pub fn resize(self: QPdfPageSelector, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -2966,10 +3782,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QPdfPageSelector, param1: anytype) void {
+    pub fn resize2(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2979,17 +3799,21 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QPdfPageSelector, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QPdfPageSelector, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -2999,12 +3823,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QPdfPageSelector, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QPdfPageSelector, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3016,13 +3844,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QPdfPageSelector, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QPdfPageSelector, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPdfPageSelector.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPdfPageSelector.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3032,15 +3864,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QPdfPageSelector, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QPdfPageSelector, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3050,9 +3886,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn AdjustSize(self: QPdfPageSelector) void {
+    pub fn adjustSize(self: QPdfPageSelector) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3062,9 +3902,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsVisible(self: QPdfPageSelector) bool {
+    pub fn isVisible(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3076,10 +3920,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QPdfPageSelector, param1: anytype) bool {
+    pub fn isVisibleTo(self: QPdfPageSelector, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3089,9 +3937,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsHidden(self: QPdfPageSelector) bool {
+    pub fn isHidden(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3101,9 +3953,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsMinimized(self: QPdfPageSelector) bool {
+    pub fn isMinimized(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3113,9 +3969,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsMaximized(self: QPdfPageSelector) bool {
+    pub fn isMaximized(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3125,9 +3985,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsFullScreen(self: QPdfPageSelector) bool {
+    pub fn isFullScreen(self: QPdfPageSelector) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3141,9 +4005,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QPdfPageSelector) i32 {
+    pub fn windowState(self: QPdfPageSelector) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3155,9 +4023,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QPdfPageSelector, state: i32) void {
+    pub fn setWindowState(self: QPdfPageSelector, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3169,9 +4041,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QPdfPageSelector, state: i32) void {
+    pub fn overrideWindowState(self: QPdfPageSelector, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3181,9 +4057,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SizePolicy(self: QPdfPageSelector) QSizePolicy {
+    pub fn sizePolicy(self: QPdfPageSelector) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3193,12 +4073,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QPdfPageSelector, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QPdfPageSelector, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3212,9 +4096,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QPdfPageSelector, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QPdfPageSelector, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3224,9 +4112,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn VisibleRegion(self: QPdfPageSelector) QRegion {
+    pub fn visibleRegion(self: QPdfPageSelector) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3244,9 +4136,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QPdfPageSelector, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QPdfPageSelector, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3258,10 +4154,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QPdfPageSelector, margins: anytype) void {
+    pub fn setContentsMargins2(self: QPdfPageSelector, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3271,9 +4171,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ContentsMargins(self: QPdfPageSelector) QMargins {
+    pub fn contentsMargins(self: QPdfPageSelector) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3283,9 +4187,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ContentsRect(self: QPdfPageSelector) QRect {
+    pub fn contentsRect(self: QPdfPageSelector) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3295,9 +4203,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Layout(self: QPdfPageSelector) QLayout {
+    pub fn layout(self: QPdfPageSelector) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3307,12 +4219,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QPdfPageSelector, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QPdfPageSelector, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3322,24 +4238,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UpdateGeometry(self: QPdfPageSelector) void {
+    pub fn updateGeometry(self: QPdfPageSelector) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageSelector `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QPdfPageSelector, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3349,14 +4254,37 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QPdfPageSelector, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfPageSelector `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QPdfPageSelector, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QPdfPageSelector, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3370,9 +4298,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QPdfPageSelector, dx: i32, dy: i32) void {
+    pub fn scroll(self: QPdfPageSelector, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3388,10 +4320,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QPdfPageSelector, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QPdfPageSelector, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3401,9 +4337,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FocusWidget(self: QPdfPageSelector) QWidget {
+    pub fn focusWidget(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3413,9 +4353,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn NextInFocusChain(self: QPdfPageSelector) QWidget {
+    pub fn nextInFocusChain(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3425,9 +4369,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn PreviousInFocusChain(self: QPdfPageSelector) QWidget {
+    pub fn previousInFocusChain(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3437,9 +4385,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn AcceptDrops(self: QPdfPageSelector) bool {
+    pub fn acceptDrops(self: QPdfPageSelector) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3451,9 +4403,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QPdfPageSelector, on: bool) void {
+    pub fn setAcceptDrops(self: QPdfPageSelector, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3465,10 +4421,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QPdfPageSelector, action: anytype) void {
+    pub fn addAction(self: QPdfPageSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3478,15 +4438,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QPdfPageSelector, actions: []QAction) void {
+    pub fn addActions(self: QPdfPageSelector, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3498,16 +4462,20 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QPdfPageSelector, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QPdfPageSelector, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3521,11 +4489,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QPdfPageSelector, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QPdfPageSelector, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3537,10 +4509,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QPdfPageSelector, action: anytype) void {
+    pub fn removeAction(self: QPdfPageSelector, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3552,15 +4528,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QPdfPageSelector, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QPdfPageSelector, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QPdfPageSelector.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QPdfPageSelector.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3572,13 +4552,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QPdfPageSelector, text: []const u8) QAction {
+    pub fn addAction2(self: QPdfPageSelector, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3592,7 +4576,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QPdfPageSelector, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QPdfPageSelector, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3601,6 +4585,10 @@ pub const QPdfPageSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3613,7 +4601,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QPdfPageSelector, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QPdfPageSelector, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3621,6 +4609,10 @@ pub const QPdfPageSelector = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3636,7 +4628,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QPdfPageSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QPdfPageSelector, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3646,6 +4638,10 @@ pub const QPdfPageSelector = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3654,9 +4650,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ParentWidget(self: QPdfPageSelector) QWidget {
+    pub fn parentWidget(self: QPdfPageSelector) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3668,9 +4668,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QPdfPageSelector, typeVal: i32) void {
+    pub fn setWindowFlags(self: QPdfPageSelector, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3684,9 +4688,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QPdfPageSelector) i32 {
+    pub fn windowFlags(self: QPdfPageSelector) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3698,9 +4706,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QPdfPageSelector, param1: i32) void {
+    pub fn setWindowFlag(self: QPdfPageSelector, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3712,9 +4724,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QPdfPageSelector, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QPdfPageSelector, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3728,9 +4744,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QPdfPageSelector) i32 {
+    pub fn windowType(self: QPdfPageSelector) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3740,9 +4760,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3752,13 +4776,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QPdfPageSelector, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QPdfPageSelector, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3770,10 +4798,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QPdfPageSelector, p: anytype) QWidget {
+    pub fn childAt2(self: QPdfPageSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3785,10 +4817,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QPdfPageSelector, p: anytype) QWidget {
+    pub fn childAt3(self: QPdfPageSelector, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3800,9 +4836,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QPdfPageSelector, param1: i32) void {
+    pub fn setAttribute(self: QPdfPageSelector, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4854,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QPdfPageSelector, param1: i32) bool {
+    pub fn testAttribute(self: QPdfPageSelector, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3826,9 +4870,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn EnsurePolished(self: QPdfPageSelector) void {
+    pub fn ensurePolished(self: QPdfPageSelector) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3840,10 +4888,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QPdfPageSelector, child: anytype) bool {
+    pub fn isAncestorOf(self: QPdfPageSelector, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3853,9 +4905,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn AutoFillBackground(self: QPdfPageSelector) bool {
+    pub fn autoFillBackground(self: QPdfPageSelector) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3867,9 +4923,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QPdfPageSelector, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QPdfPageSelector, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3879,9 +4939,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn BackingStore(self: QPdfPageSelector) QBackingStore {
+    pub fn backingStore(self: QPdfPageSelector) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3891,9 +4955,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn WindowHandle(self: QPdfPageSelector) QWindow {
+    pub fn windowHandle(self: QPdfPageSelector) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3903,9 +4971,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Screen(self: QPdfPageSelector) QScreen {
+    pub fn screen(self: QPdfPageSelector) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3915,12 +4987,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QPdfPageSelector, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QPdfPageSelector, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -3928,12 +5004,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3945,13 +5025,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QPdfPageSelector, title: []const u8) void {
+    pub fn windowTitleChanged(self: QPdfPageSelector, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -3963,9 +5047,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3977,10 +5065,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QPdfPageSelector, icon: anytype) void {
+    pub fn windowIconChanged(self: QPdfPageSelector, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -3992,9 +5084,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4006,13 +5102,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QPdfPageSelector, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QPdfPageSelector, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4024,9 +5124,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4036,12 +5140,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QPdfPageSelector, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QPdfPageSelector, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4053,9 +5161,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4069,9 +5181,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QPdfPageSelector) i32 {
+    pub fn inputMethodHints(self: QPdfPageSelector) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4083,9 +5199,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QPdfPageSelector, hints: i32) void {
+    pub fn setInputMethodHints(self: QPdfPageSelector, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4099,11 +5219,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QPdfPageSelector, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QPdfPageSelector, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4119,13 +5243,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QPdfPageSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QPdfPageSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4142,12 +5270,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QPdfPageSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QPdfPageSelector, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4161,11 +5293,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QPdfPageSelector, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QPdfPageSelector, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4181,12 +5317,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QPdfPageSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QPdfPageSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4204,12 +5344,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QPdfPageSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QPdfPageSelector, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4221,10 +5365,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QPdfPageSelector, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QPdfPageSelector, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4238,9 +5386,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QPdfPageSelector, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QPdfPageSelector, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4254,10 +5406,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QPdfPageSelector, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QPdfPageSelector, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4271,9 +5427,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QPdfPageSelector, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QPdfPageSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4287,9 +5447,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QPdfPageSelector, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QPdfPageSelector, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4303,9 +5467,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QPdfPageSelector, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QPdfPageSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4319,25 +5487,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QPdfPageSelector, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QPdfPageSelector, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4345,17 +5501,41 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4367,13 +5547,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPdfPageSelector, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPdfPageSelector.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4385,13 +5569,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPdfPageSelector, name: []const u8) void {
+    pub fn setObjectName(self: QPdfPageSelector, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4401,9 +5589,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsWidgetType(self: QPdfPageSelector) bool {
+    pub fn isWidgetType(self: QPdfPageSelector) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4413,9 +5605,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsWindowType(self: QPdfPageSelector) bool {
+    pub fn isWindowType(self: QPdfPageSelector) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4425,9 +5621,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn IsQuickItemType(self: QPdfPageSelector) bool {
+    pub fn isQuickItemType(self: QPdfPageSelector) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4437,9 +5637,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SignalsBlocked(self: QPdfPageSelector) bool {
+    pub fn signalsBlocked(self: QPdfPageSelector) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4451,9 +5655,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPdfPageSelector, b: bool) bool {
+    pub fn blockSignals(self: QPdfPageSelector, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4463,9 +5671,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Thread(self: QPdfPageSelector) QThread {
+    pub fn thread(self: QPdfPageSelector) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4475,12 +5687,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPdfPageSelector, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPdfPageSelector, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4492,9 +5708,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPdfPageSelector, interval: i32) i32 {
+    pub fn startTimer(self: QPdfPageSelector, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4506,9 +5726,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPdfPageSelector, time: i64) i32 {
+    pub fn startTimer2(self: QPdfPageSelector, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4520,9 +5744,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPdfPageSelector, id: i32) void {
+    pub fn killTimer(self: QPdfPageSelector, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4534,9 +5762,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPdfPageSelector, id: i32) void {
+    pub fn killTimer2(self: QPdfPageSelector, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4548,15 +5780,19 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPdfPageSelector, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPdfPageSelector, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPdfPageSelector.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPdfPageSelector.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4568,10 +5804,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPdfPageSelector, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPdfPageSelector, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4583,10 +5823,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPdfPageSelector, obj: anytype) void {
+    pub fn removeEventFilter(self: QPdfPageSelector, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4594,7 +5838,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4602,13 +5846,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4616,7 +5864,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4624,13 +5872,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4640,18 +5892,22 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPdfPageSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPdfPageSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4659,7 +5915,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4667,13 +5923,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4681,7 +5941,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4689,13 +5949,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4705,9 +5969,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Disconnect3(self: QPdfPageSelector) bool {
+    pub fn disconnect3(self: QPdfPageSelector) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4719,10 +5987,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPdfPageSelector, receiver: anytype) bool {
+    pub fn disconnect4(self: QPdfPageSelector, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4732,10 +6004,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4745,9 +6021,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DumpObjectTree(self: QPdfPageSelector) void {
+    pub fn dumpObjectTree(self: QPdfPageSelector) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4757,9 +6037,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DumpObjectInfo(self: QPdfPageSelector) void {
+    pub fn dumpObjectInfo(self: QPdfPageSelector) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4773,11 +6057,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPdfPageSelector, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPdfPageSelector, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4789,10 +6077,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPdfPageSelector, name: [:0]const u8) QVariant {
+    pub fn property(self: QPdfPageSelector, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4804,7 +6096,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPdfPageSelector, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPdfPageSelector, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4812,27 +6104,19 @@ pub const QPdfPageSelector = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPdfPageSelector.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPdfPageSelector.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPdfPageSelector.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPdfPageSelector.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPdfPageSelector `
-    ///
-    pub fn BindingStorage(self: QPdfPageSelector) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4842,9 +6126,29 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn BindingStorage2(self: QPdfPageSelector) QBindingStorage {
+    pub fn bindingStorage(self: QPdfPageSelector) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPdfPageSelector `
+    ///
+    pub fn bindingStorage2(self: QPdfPageSelector) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4854,9 +6158,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Destroyed(self: QPdfPageSelector) void {
+    pub fn destroyed(self: QPdfPageSelector) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4868,9 +6176,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4880,9 +6192,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Parent(self: QPdfPageSelector) QObject {
+    pub fn parent(self: QPdfPageSelector) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4894,10 +6210,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPdfPageSelector, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPdfPageSelector, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4907,9 +6227,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DeleteLater(self: QPdfPageSelector) void {
+    pub fn deleteLater(self: QPdfPageSelector) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4923,9 +6247,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPdfPageSelector, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPdfPageSelector, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -4939,9 +6267,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPdfPageSelector, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPdfPageSelector, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -4949,7 +6281,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4959,13 +6291,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -4973,7 +6309,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4983,13 +6319,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -4999,7 +6339,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5007,12 +6347,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPdfPageSelector, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPdfPageSelector, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5024,10 +6368,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPdfPageSelector, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPdfPageSelector, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5041,11 +6389,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPdfPageSelector, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPdfPageSelector, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5061,13 +6413,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPdfPageSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPdfPageSelector, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5080,11 +6436,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPdfPageSelector, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPdfPageSelector, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5096,10 +6456,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPdfPageSelector, param1: anytype) void {
+    pub fn destroyed1(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5111,9 +6475,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5123,9 +6491,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn PaintingActive(self: QPdfPageSelector) bool {
+    pub fn paintingActive(self: QPdfPageSelector) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5135,9 +6507,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn WidthMM(self: QPdfPageSelector) i32 {
+    pub fn widthMM(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5147,9 +6523,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn HeightMM(self: QPdfPageSelector) i32 {
+    pub fn heightMM(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5159,9 +6539,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn LogicalDpiX(self: QPdfPageSelector) i32 {
+    pub fn logicalDpiX(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5171,9 +6555,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn LogicalDpiY(self: QPdfPageSelector) i32 {
+    pub fn logicalDpiY(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5183,9 +6571,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn PhysicalDpiX(self: QPdfPageSelector) i32 {
+    pub fn physicalDpiX(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5195,9 +6587,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn PhysicalDpiY(self: QPdfPageSelector) i32 {
+    pub fn physicalDpiY(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5207,9 +6603,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DevicePixelRatio(self: QPdfPageSelector) f64 {
+    pub fn devicePixelRatio(self: QPdfPageSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5219,9 +6619,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DevicePixelRatioF(self: QPdfPageSelector) f64 {
+    pub fn devicePixelRatioF(self: QPdfPageSelector) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5231,9 +6635,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn ColorCount(self: QPdfPageSelector) i32 {
+    pub fn colorCount(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5243,17 +6651,25 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Depth(self: QPdfPageSelector) i32 {
+    pub fn depth(self: QPdfPageSelector) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5261,13 +6677,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5279,13 +6699,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn DevType(self: QPdfPageSelector) i32 {
+    pub fn devType(self: QPdfPageSelector) i32 {
         return qtc.QPdfPageSelector_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5297,9 +6717,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperDevType(self: QPdfPageSelector) i32 {
+    pub fn superDevType(self: QPdfPageSelector) i32 {
         return qtc.QPdfPageSelector_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5313,9 +6737,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QPdfPageSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QPdfPageSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5329,13 +6757,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QPdfPageSelector, visible: bool) void {
+    pub fn setVisible(self: QPdfPageSelector, visible: bool) void {
         qtc.QPdfPageSelector_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5349,9 +6777,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QPdfPageSelector, visible: bool) void {
+    pub fn superSetVisible(self: QPdfPageSelector, visible: bool) void {
         qtc.QPdfPageSelector_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5365,10 +6797,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, bool) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5379,13 +6815,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SizeHint(self: QPdfPageSelector) QSize {
+    pub fn sizeHint(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QPdfPageSelector_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5397,10 +6833,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperSizeHint(self: QPdfPageSelector) QSize {
+    pub fn superSizeHint(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QPdfPageSelector_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5415,9 +6855,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfPageSelector_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5429,13 +6873,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn MinimumSizeHint(self: QPdfPageSelector) QSize {
+    pub fn minimumSizeHint(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QPdfPageSelector_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5447,9 +6891,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperMinimumSizeHint(self: QPdfPageSelector) QSize {
+    pub fn superMinimumSizeHint(self: QPdfPageSelector) QSize {
         return .{ .ptr = qtc.QPdfPageSelector_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5465,9 +6913,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QPdfPageSelector, callback: *const fn () callconv(.c) QSize) void {
         qtc.QPdfPageSelector_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5481,13 +6933,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QPdfPageSelector, param1: i32) i32 {
+    pub fn heightForWidth(self: QPdfPageSelector, param1: i32) i32 {
         return qtc.QPdfPageSelector_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5501,9 +6953,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QPdfPageSelector, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QPdfPageSelector, param1: i32) i32 {
         return qtc.QPdfPageSelector_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5517,9 +6973,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5531,13 +6991,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn HasHeightForWidth(self: QPdfPageSelector) bool {
+    pub fn hasHeightForWidth(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5549,9 +7009,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperHasHeightForWidth(self: QPdfPageSelector) bool {
+    pub fn superHasHeightForWidth(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5565,9 +7029,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5579,13 +7047,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn PaintEngine(self: QPdfPageSelector) QPaintEngine {
+    pub fn paintEngine(self: QPdfPageSelector) QPaintEngine {
         return .{ .ptr = qtc.QPdfPageSelector_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5597,9 +7065,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperPaintEngine(self: QPdfPageSelector) QPaintEngine {
+    pub fn superPaintEngine(self: QPdfPageSelector) QPaintEngine {
         return .{ .ptr = qtc.QPdfPageSelector_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5613,9 +7085,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QPdfPageSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QPdfPageSelector, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QPdfPageSelector_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5627,16 +7103,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPdfPageSelector, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfPageSelector_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPdfPageSelector, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfPageSelector_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5648,12 +7124,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPdfPageSelector, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfPageSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPdfPageSelector, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfPageSelector_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5667,10 +7147,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5681,16 +7165,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5702,12 +7186,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5721,10 +7209,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5735,16 +7227,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5756,12 +7248,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5775,10 +7271,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5789,16 +7289,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5810,12 +7310,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5829,10 +7333,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5843,16 +7351,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5864,12 +7372,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QPdfPageSelector_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QPdfPageSelector_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5883,9 +7395,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMouseEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5897,16 +7413,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QPdfPageSelector_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QPdfPageSelector_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5918,12 +7434,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QPdfPageSelector_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QPdfPageSelector_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5937,10 +7457,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QWheelEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5951,16 +7475,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QPdfPageSelector_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QPdfPageSelector_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5972,12 +7496,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QPdfPageSelector_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QPdfPageSelector_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5991,10 +7519,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QKeyEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6005,16 +7537,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QPdfPageSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QPdfPageSelector_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6026,12 +7558,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QPdfPageSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QPdfPageSelector_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6045,10 +7581,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QKeyEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6059,16 +7599,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QPdfPageSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QPdfPageSelector_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6080,12 +7620,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QPdfPageSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QPdfPageSelector_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6099,10 +7643,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QFocusEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6113,16 +7661,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QPdfPageSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QPdfPageSelector_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6134,12 +7682,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QPdfPageSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QPdfPageSelector_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6153,9 +7705,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QFocusEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6167,16 +7723,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QPdfPageSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QPdfPageSelector_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6188,12 +7744,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QPdfPageSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QPdfPageSelector_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6207,9 +7767,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEnterEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6221,16 +7785,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfPageSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfPageSelector_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6242,12 +7806,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfPageSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfPageSelector_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6261,9 +7829,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6275,16 +7847,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QPdfPageSelector_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QPdfPageSelector_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6296,12 +7868,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QPdfPageSelector_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QPdfPageSelector_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6315,9 +7891,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPaintEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6329,16 +7909,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QPdfPageSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QPdfPageSelector_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6350,12 +7930,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QPdfPageSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QPdfPageSelector_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6369,9 +7953,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMoveEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6383,16 +7971,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QPdfPageSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QPdfPageSelector_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6404,12 +7992,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QPdfPageSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QPdfPageSelector_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6423,9 +8015,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QResizeEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6437,16 +8033,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QPdfPageSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QPdfPageSelector_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6458,12 +8054,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QPdfPageSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QPdfPageSelector_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6477,9 +8077,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QCloseEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6491,16 +8095,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QPdfPageSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QPdfPageSelector_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6512,12 +8116,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QPdfPageSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QPdfPageSelector_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6531,9 +8139,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QContextMenuEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6545,16 +8157,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QPdfPageSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QPdfPageSelector_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6566,12 +8178,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QPdfPageSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QPdfPageSelector_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6585,9 +8201,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QTabletEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6599,16 +8219,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QPdfPageSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QPdfPageSelector_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6620,12 +8240,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QPdfPageSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QPdfPageSelector_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6639,9 +8263,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QActionEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6653,16 +8281,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QPdfPageSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QPdfPageSelector_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6674,12 +8302,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QPdfPageSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QPdfPageSelector_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6693,9 +8325,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragEnterEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6707,16 +8343,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QPdfPageSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QPdfPageSelector_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6728,12 +8364,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QPdfPageSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QPdfPageSelector_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6747,9 +8387,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragMoveEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6761,16 +8405,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QPdfPageSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QPdfPageSelector_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6782,12 +8426,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QPdfPageSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QPdfPageSelector_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6801,9 +8449,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6815,16 +8467,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QPdfPageSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QPdfPageSelector_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6836,12 +8488,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QPdfPageSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QPdfPageSelector_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6855,9 +8511,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QDropEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6869,16 +8529,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QPdfPageSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QPdfPageSelector_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6890,12 +8550,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QPdfPageSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QPdfPageSelector_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6909,9 +8573,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QShowEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6923,16 +8591,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QPdfPageSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QPdfPageSelector_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6944,12 +8612,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QPdfPageSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QPdfPageSelector_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6963,9 +8635,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QHideEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6983,7 +8659,7 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QPdfPageSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QPdfPageSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6991,9 +8667,9 @@ pub const QPdfPageSelector = extern struct {
         return qtc.QPdfPageSelector_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7011,13 +8687,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QPdfPageSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QPdfPageSelector, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QPdfPageSelector_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7031,9 +8711,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7047,14 +8731,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QPdfPageSelector, param1: anytype) void {
+    pub fn changeEvent(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QPdfPageSelector_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7068,10 +8752,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QPdfPageSelector, param1: anytype) void {
+    pub fn superChangeEvent(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QPdfPageSelector_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7085,9 +8773,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7101,13 +8793,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QPdfPageSelector, param1: i32) i32 {
+    pub fn metric(self: QPdfPageSelector, param1: i32) i32 {
         return qtc.QPdfPageSelector_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7121,9 +8813,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QPdfPageSelector, param1: i32) i32 {
+    pub fn superMetric(self: QPdfPageSelector, param1: i32) i32 {
         return qtc.QPdfPageSelector_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7137,9 +8833,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7153,14 +8853,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QPdfPageSelector, painter: anytype) void {
+    pub fn initPainter(self: QPdfPageSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPdfPageSelector_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7174,10 +8874,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QPdfPageSelector, painter: anytype) void {
+    pub fn superInitPainter(self: QPdfPageSelector, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QPdfPageSelector_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7191,9 +8895,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPainter) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7207,14 +8915,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QPdfPageSelector, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QPdfPageSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPdfPageSelector_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7228,10 +8936,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QPdfPageSelector, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QPdfPageSelector, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QPdfPageSelector_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7245,9 +8957,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QPdfPageSelector_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7259,13 +8975,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SharedPainter(self: QPdfPageSelector) QPainter {
+    pub fn sharedPainter(self: QPdfPageSelector) QPainter {
         return .{ .ptr = qtc.QPdfPageSelector_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7277,9 +8993,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperSharedPainter(self: QPdfPageSelector) QPainter {
+    pub fn superSharedPainter(self: QPdfPageSelector) QPainter {
         return .{ .ptr = qtc.QPdfPageSelector_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7293,9 +9013,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QPdfPageSelector, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QPdfPageSelector, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QPdfPageSelector_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7309,14 +9033,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QPdfPageSelector, param1: anytype) void {
+    pub fn inputMethodEvent(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QPdfPageSelector_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7330,10 +9054,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QPdfPageSelector, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QPdfPageSelector, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QPdfPageSelector_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7347,9 +9075,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QInputMethodEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7363,13 +9095,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QPdfPageSelector, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QPdfPageSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.QPdfPageSelector_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7383,9 +9115,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QPdfPageSelector, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QPdfPageSelector, param1: i32) QVariant {
         return .{ .ptr = qtc.QPdfPageSelector_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7401,9 +9137,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32) callconv(.c) QVariant) void {
         qtc.QPdfPageSelector_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7417,13 +9157,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QPdfPageSelector, next: bool) bool {
+    pub fn focusNextPrevChild(self: QPdfPageSelector, next: bool) bool {
         return qtc.QPdfPageSelector_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7437,9 +9177,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QPdfPageSelector, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QPdfPageSelector, next: bool) bool {
         return qtc.QPdfPageSelector_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7453,9 +9197,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, bool) callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7469,17 +9217,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPdfPageSelector, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPdfPageSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfPageSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfPageSelector_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7493,13 +9241,17 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPdfPageSelector, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPdfPageSelector, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPdfPageSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPdfPageSelector_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7513,9 +9265,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7527,16 +9283,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPdfPageSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPdfPageSelector_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7548,12 +9304,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPdfPageSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPdfPageSelector_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7567,9 +9327,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QTimerEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7581,16 +9345,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPdfPageSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPdfPageSelector_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7602,12 +9366,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPdfPageSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPdfPageSelector_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7621,9 +9389,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QChildEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7635,16 +9407,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfPageSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfPageSelector_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7656,12 +9428,16 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPdfPageSelector, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPdfPageSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPdfPageSelector, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPdfPageSelector_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7675,9 +9451,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QEvent) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7691,14 +9471,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPdfPageSelector, signal: anytype) void {
+    pub fn connectNotify(self: QPdfPageSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfPageSelector_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7712,11 +9492,15 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPdfPageSelector, signal: anytype) void {
+    pub fn superConnectNotify(self: QPdfPageSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfPageSelector_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7729,9 +9513,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7745,14 +9533,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPdfPageSelector, signal: anytype) void {
+    pub fn disconnectNotify(self: QPdfPageSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfPageSelector_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7766,10 +9554,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPdfPageSelector, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPdfPageSelector, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPdfPageSelector_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7783,10 +9575,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7797,13 +9593,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn UpdateMicroFocus(self: QPdfPageSelector) void {
+    pub fn updateMicroFocus(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7815,10 +9611,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperUpdateMicroFocus(self: QPdfPageSelector) void {
+    pub fn superUpdateMicroFocus(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7831,10 +9631,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
         qtc.QPdfPageSelector_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7845,13 +9649,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Create(self: QPdfPageSelector) void {
+    pub fn create(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7863,10 +9667,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperCreate(self: QPdfPageSelector) void {
+    pub fn superCreate(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7879,9 +9687,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
         qtc.QPdfPageSelector_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7893,13 +9705,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Destroy(self: QPdfPageSelector) void {
+    pub fn destroy(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7911,9 +9723,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperDestroy(self: QPdfPageSelector) void {
+    pub fn superDestroy(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7927,10 +9743,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QPdfPageSelector, callback: *const fn () callconv(.c) void) void {
         qtc.QPdfPageSelector_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7941,13 +9761,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FocusNextChild(self: QPdfPageSelector) bool {
+    pub fn focusNextChild(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7959,10 +9779,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperFocusNextChild(self: QPdfPageSelector) bool {
+    pub fn superFocusNextChild(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7975,9 +9799,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7989,13 +9817,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn FocusPreviousChild(self: QPdfPageSelector) bool {
+    pub fn focusPreviousChild(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8007,9 +9835,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperFocusPreviousChild(self: QPdfPageSelector) bool {
+    pub fn superFocusPreviousChild(self: QPdfPageSelector) bool {
         return qtc.QPdfPageSelector_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8023,9 +9855,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QPdfPageSelector, callback: *const fn () callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8037,13 +9873,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Sender(self: QPdfPageSelector) QObject {
+    pub fn sender(self: QPdfPageSelector) QObject {
         return .{ .ptr = qtc.QPdfPageSelector_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8055,9 +9891,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperSender(self: QPdfPageSelector) QObject {
+    pub fn superSender(self: QPdfPageSelector) QObject {
         return .{ .ptr = qtc.QPdfPageSelector_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8071,9 +9911,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPdfPageSelector, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPdfPageSelector, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPdfPageSelector_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8085,13 +9929,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SenderSignalIndex(self: QPdfPageSelector) i32 {
+    pub fn senderSignalIndex(self: QPdfPageSelector) i32 {
         return qtc.QPdfPageSelector_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8103,9 +9947,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn SuperSenderSignalIndex(self: QPdfPageSelector) i32 {
+    pub fn superSenderSignalIndex(self: QPdfPageSelector) i32 {
         return qtc.QPdfPageSelector_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8119,9 +9967,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPdfPageSelector, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPdfPageSelector, callback: *const fn () callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8135,14 +9987,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPdfPageSelector, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPdfPageSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPdfPageSelector_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8156,10 +10008,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPdfPageSelector, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPdfPageSelector, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPdfPageSelector_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8173,9 +10029,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPdfPageSelector_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8189,14 +10049,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPdfPageSelector, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPdfPageSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfPageSelector_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8210,10 +10070,14 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPdfPageSelector, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPdfPageSelector, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPdfPageSelector_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8227,9 +10091,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, QMetaMethod) callconv(.c) bool) void {
         qtc.QPdfPageSelector_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8245,13 +10113,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QPdfPageSelector, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QPdfPageSelector, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfPageSelector_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8267,9 +10135,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QPdfPageSelector, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QPdfPageSelector, metricA: i32, metricB: i32) f64 {
         return qtc.QPdfPageSelector_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8283,9 +10155,13 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, i32, i32) callconv(.c) f64) void {
         qtc.QPdfPageSelector_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8299,23 +10175,23 @@ pub const QPdfPageSelector = extern struct {
     ///
     /// ` callback: *const fn (self: QPdfPageSelector, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPdfPageSelector, callback: *const fn (QPdfPageSelector, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpdfpageselector.html#dtor.QPdfPageSelector)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPdfPageSelector `
     ///
-    pub fn Delete(self: QPdfPageSelector) void {
+    pub fn delete(self: QPdfPageSelector) void {
         qtc.QPdfPageSelector_Delete(@ptrCast(self.ptr));
     }
 };

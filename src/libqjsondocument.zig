@@ -17,35 +17,50 @@ pub const QJsonParseError = extern struct {
 
     pub const _is_QJsonParseError = {};
 
-    /// New constructs a new QJsonParseError object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QJsonParseError {
+    pub const New = new;
+
+    /// Allocate a new QJsonParseError object in C++ memory
+    ///
+    pub fn new() QJsonParseError {
         return .{ .ptr = qtc.QJsonParseError_new() };
     }
 
-    /// New2 constructs a new QJsonParseError object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonParseError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonParseError `
     ///
-    pub fn New2(other: anytype) QJsonParseError {
+    pub fn new2(other: anytype) QJsonParseError {
         comptime _ = @TypeOf(other)._is_QJsonParseError;
         return .{ .ptr = qtc.QJsonParseError_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QJsonParseError object and invalidates the source QJsonParseError object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonParseError object and invalidate the source QJsonParseError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonParseError `
     ///
-    pub fn New3(other: anytype) QJsonParseError {
+    pub fn new3(other: anytype) QJsonParseError {
         comptime _ = @TypeOf(other)._is_QJsonParseError;
         return .{ .ptr = qtc.QJsonParseError_new3(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -53,11 +68,14 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` other: QJsonParseError `
     ///
-    pub fn CopyAssign(self: QJsonParseError, other: QJsonParseError) void {
+    pub fn copyAssign(self: QJsonParseError, other: QJsonParseError) void {
         qtc.QJsonParseError_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -65,9 +83,13 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` other: QJsonParseError `
     ///
-    pub fn MoveAssign(self: QJsonParseError, other: QJsonParseError) void {
+    pub fn moveAssign(self: QJsonParseError, other: QJsonParseError) void {
         qtc.QJsonParseError_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#errorString)
     ///
@@ -77,23 +99,17 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QJsonParseError, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QJsonParseError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QJsonParseError_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonParseError.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QJsonParseError.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#offset-var)
+    /// ### DEPRECATED: Use `offset` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QJsonParseError `
-    ///
-    pub fn Offset(self: QJsonParseError) i32 {
-        return qtc.QJsonParseError_Offset(@ptrCast(self.ptr));
-    }
+    pub const Offset = offset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#offset-var)
     ///
@@ -101,11 +117,31 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` self: QJsonParseError `
     ///
-    /// ` offset: i32 `
-    ///
-    pub fn SetOffset(self: QJsonParseError, offset: i32) void {
-        qtc.QJsonParseError_SetOffset(@ptrCast(self.ptr), @bitCast(offset));
+    pub fn offset(self: QJsonParseError) i32 {
+        return qtc.QJsonParseError_Offset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOffset` instead
+    ///
+    pub const SetOffset = setOffset;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#offset-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QJsonParseError `
+    ///
+    /// ` _offset: i32 `
+    ///
+    pub fn setOffset(self: QJsonParseError, _offset: i32) void {
+        qtc.QJsonParseError_SetOffset(@ptrCast(self.ptr), @bitCast(_offset));
+    }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#error-var)
     ///
@@ -117,9 +153,13 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` qjsondocument_enums.ParseError `
     ///
-    pub fn Error(self: QJsonParseError) i32 {
+    pub fn error0(self: QJsonParseError) i32 {
         return qtc.QJsonParseError_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#error-var)
     ///
@@ -127,25 +167,25 @@ pub const QJsonParseError = extern struct {
     ///
     /// ` self: QJsonParseError `
     ///
-    /// ` error: qjsondocument_enums.ParseError `
+    /// ` _error: qjsondocument_enums.ParseError `
     ///
-    pub fn SetError(self: QJsonParseError, _error: i32) void {
+    pub fn setError(self: QJsonParseError, _error: i32) void {
         qtc.QJsonParseError_SetError(@ptrCast(self.ptr), @bitCast(_error));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsonparseerror.html#dtor.QJsonParseError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonParseError `
     ///
-    pub fn Delete(self: QJsonParseError) void {
+    pub fn delete(self: QJsonParseError) void {
         qtc.QJsonParseError_Delete(@ptrCast(self.ptr));
     }
 };
@@ -160,44 +200,64 @@ pub const QJsonDocument = extern struct {
 
     pub const _is_QJsonDocument = {};
 
-    /// New constructs a new QJsonDocument object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QJsonDocument {
+    pub const New = new;
+
+    /// Allocate a new QJsonDocument object in C++ memory
+    ///
+    pub fn new() QJsonDocument {
         return .{ .ptr = qtc.QJsonDocument_new() };
     }
 
-    /// New2 constructs a new QJsonDocument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QJsonDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` object: QJsonObject `
+    /// ` _object: QJsonObject `
     ///
-    pub fn New2(object: anytype) QJsonDocument {
-        comptime _ = @TypeOf(object)._is_QJsonObject;
-        return .{ .ptr = qtc.QJsonDocument_new2(@ptrCast(object.ptr)) };
+    pub fn new2(_object: anytype) QJsonDocument {
+        comptime _ = @TypeOf(_object)._is_QJsonObject;
+        return .{ .ptr = qtc.QJsonDocument_new2(@ptrCast(_object.ptr)) };
     }
 
-    /// New3 constructs a new QJsonDocument object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QJsonDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` array: QJsonArray `
+    /// ` _array: QJsonArray `
     ///
-    pub fn New3(array: anytype) QJsonDocument {
-        comptime _ = @TypeOf(array)._is_QJsonArray;
-        return .{ .ptr = qtc.QJsonDocument_new3(@ptrCast(array.ptr)) };
+    pub fn new3(_array: anytype) QJsonDocument {
+        comptime _ = @TypeOf(_array)._is_QJsonArray;
+        return .{ .ptr = qtc.QJsonDocument_new3(@ptrCast(_array.ptr)) };
     }
 
-    /// New4 constructs a new QJsonDocument object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QJsonDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QJsonDocument `
     ///
-    pub fn New4(other: anytype) QJsonDocument {
+    pub fn new4(other: anytype) QJsonDocument {
         comptime _ = @TypeOf(other)._is_QJsonDocument;
         return .{ .ptr = qtc.QJsonDocument_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-eq)
     ///
@@ -207,10 +267,14 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` other: QJsonDocument `
     ///
-    pub fn OperatorAssign(self: QJsonDocument, other: anytype) void {
+    pub fn operatorAssign(self: QJsonDocument, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonDocument;
         qtc.QJsonDocument_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#swap)
     ///
@@ -220,10 +284,14 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` other: QJsonDocument `
     ///
-    pub fn Swap(self: QJsonDocument, other: anytype) void {
+    pub fn swap(self: QJsonDocument, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QJsonDocument;
         qtc.QJsonDocument_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromVariant` instead
+    ///
+    pub const FromVariant = fromVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#fromVariant)
     ///
@@ -231,10 +299,14 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn FromVariant(variant: anytype) QJsonDocument {
+    pub fn fromVariant(variant: anytype) QJsonDocument {
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QJsonDocument_FromVariant(@ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toVariant` instead
+    ///
+    pub const ToVariant = toVariant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#toVariant)
     ///
@@ -242,9 +314,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn ToVariant(self: QJsonDocument) QVariant {
+    pub fn toVariant(self: QJsonDocument) QVariant {
         return .{ .ptr = qtc.QJsonDocument_ToVariant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fromJson` instead
+    ///
+    pub const FromJson = fromJson;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#fromJson)
     ///
@@ -252,13 +328,17 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` json: []u8 `
     ///
-    pub fn FromJson(json: []u8) QJsonDocument {
+    pub fn fromJson(json: []u8) QJsonDocument {
         const json_str = qtc.libqt_string{
             .len = json.len,
             .data = json.ptr,
         };
         return .{ .ptr = qtc.QJsonDocument_FromJson(json_str) };
     }
+
+    /// ### DEPRECATED: Use `toJson` instead
+    ///
+    pub const ToJson = toJson;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#toJson)
     ///
@@ -268,13 +348,17 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToJson(self: QJsonDocument, allocator: std.mem.Allocator) []u8 {
+    pub fn toJson(self: QJsonDocument, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QJsonDocument_ToJson(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.ToJson: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.toJson: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#isEmpty)
     ///
@@ -282,9 +366,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn IsEmpty(self: QJsonDocument) bool {
+    pub fn isEmpty(self: QJsonDocument) bool {
         return qtc.QJsonDocument_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isArray` instead
+    ///
+    pub const IsArray = isArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#isArray)
     ///
@@ -292,9 +380,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn IsArray(self: QJsonDocument) bool {
+    pub fn isArray(self: QJsonDocument) bool {
         return qtc.QJsonDocument_IsArray(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isObject` instead
+    ///
+    pub const IsObject = isObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#isObject)
     ///
@@ -302,9 +394,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn IsObject(self: QJsonDocument) bool {
+    pub fn isObject(self: QJsonDocument) bool {
         return qtc.QJsonDocument_IsObject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `object` instead
+    ///
+    pub const Object = object;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#object)
     ///
@@ -312,9 +408,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn Object(self: QJsonDocument) QJsonObject {
+    pub fn object(self: QJsonDocument) QJsonObject {
         return .{ .ptr = qtc.QJsonDocument_Object(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `array` instead
+    ///
+    pub const Array = array;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#array)
     ///
@@ -322,9 +422,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn Array(self: QJsonDocument) QJsonArray {
+    pub fn array(self: QJsonDocument) QJsonArray {
         return .{ .ptr = qtc.QJsonDocument_Array(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setObject` instead
+    ///
+    pub const SetObject = setObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#setObject)
     ///
@@ -332,12 +436,16 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    /// ` object: QJsonObject `
+    /// ` _object: QJsonObject `
     ///
-    pub fn SetObject(self: QJsonDocument, object: anytype) void {
-        comptime _ = @TypeOf(object)._is_QJsonObject;
-        qtc.QJsonDocument_SetObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
+    pub fn setObject(self: QJsonDocument, _object: anytype) void {
+        comptime _ = @TypeOf(_object)._is_QJsonObject;
+        qtc.QJsonDocument_SetObject(@ptrCast(self.ptr), @ptrCast(_object.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArray` instead
+    ///
+    pub const SetArray = setArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#setArray)
     ///
@@ -345,12 +453,16 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    /// ` array: QJsonArray `
+    /// ` _array: QJsonArray `
     ///
-    pub fn SetArray(self: QJsonDocument, array: anytype) void {
-        comptime _ = @TypeOf(array)._is_QJsonArray;
-        qtc.QJsonDocument_SetArray(@ptrCast(self.ptr), @ptrCast(array.ptr));
+    pub fn setArray(self: QJsonDocument, _array: anytype) void {
+        comptime _ = @TypeOf(_array)._is_QJsonArray;
+        qtc.QJsonDocument_SetArray(@ptrCast(self.ptr), @ptrCast(_array.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
@@ -360,7 +472,7 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript(self: QJsonDocument, key: []const u8) QJsonValue {
+    pub fn operatorSubscript(self: QJsonDocument, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
@@ -368,6 +480,10 @@ pub const QJsonDocument = extern struct {
         return .{ .ptr = qtc.QJsonDocument_OperatorSubscript(@ptrCast(self.ptr), key_str) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -376,13 +492,17 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` key: []const u8 `
     ///
-    pub fn OperatorSubscript2(self: QJsonDocument, key: []const u8) QJsonValue {
+    pub fn operatorSubscript2(self: QJsonDocument, key: []const u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonDocument_OperatorSubscript2(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript3` instead
+    ///
+    pub const OperatorSubscript3 = operatorSubscript3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
@@ -392,13 +512,17 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` key: []u8 `
     ///
-    pub fn OperatorSubscript3(self: QJsonDocument, key: []u8) QJsonValue {
+    pub fn operatorSubscript3(self: QJsonDocument, key: []u8) QJsonValue {
         const key_str = qtc.libqt_string{
             .len = key.len,
             .data = key.ptr,
         };
         return .{ .ptr = qtc.QJsonDocument_OperatorSubscript3(@ptrCast(self.ptr), key_str) };
     }
+
+    /// ### DEPRECATED: Use `operatorSubscript4` instead
+    ///
+    pub const OperatorSubscript4 = operatorSubscript4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#operator-5b-5d)
     ///
@@ -408,9 +532,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript4(self: QJsonDocument, i: isize) QJsonValue {
+    pub fn operatorSubscript4(self: QJsonDocument, i: isize) QJsonValue {
         return .{ .ptr = qtc.QJsonDocument_OperatorSubscript4(@ptrCast(self.ptr), @bitCast(i)) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#isNull)
     ///
@@ -418,9 +546,13 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn IsNull(self: QJsonDocument) bool {
+    pub fn isNull(self: QJsonDocument) bool {
         return qtc.QJsonDocument_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fromJson2` instead
+    ///
+    pub const FromJson2 = fromJson2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#fromJson)
     ///
@@ -430,7 +562,7 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` errorVal: QJsonParseError `
     ///
-    pub fn FromJson2(json: []u8, errorVal: anytype) QJsonDocument {
+    pub fn fromJson2(json: []u8, errorVal: anytype) QJsonDocument {
         const json_str = qtc.libqt_string{
             .len = json.len,
             .data = json.ptr,
@@ -438,6 +570,10 @@ pub const QJsonDocument = extern struct {
         comptime _ = @TypeOf(errorVal)._is_QJsonParseError;
         return .{ .ptr = qtc.QJsonDocument_FromJson2(json_str, @ptrCast(errorVal.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toJson1` instead
+    ///
+    pub const ToJson1 = toJson1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#toJson)
     ///
@@ -449,27 +585,27 @@ pub const QJsonDocument = extern struct {
     ///
     /// ` format: qjsondocument_enums.JsonFormat `
     ///
-    pub fn ToJson1(self: QJsonDocument, allocator: std.mem.Allocator, format: i32) []u8 {
+    pub fn toJson1(self: QJsonDocument, allocator: std.mem.Allocator, format: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QJsonDocument_ToJson1(@ptrCast(self.ptr), @bitCast(format));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.ToJson1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QJsonDocument.toJson1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qjsondocument.html#dtor.QJsonDocument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QJsonDocument `
     ///
-    pub fn Delete(self: QJsonDocument) void {
+    pub fn delete(self: QJsonDocument) void {
         qtc.QJsonDocument_Delete(@ptrCast(self.ptr));
     }
 };

@@ -39,22 +39,34 @@ pub const QPainter = extern struct {
 
     pub const _is_QPainter = {};
 
-    /// New constructs a new QPainter object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPainter {
+    pub const New = new;
+
+    /// Allocate a new QPainter object in C++ memory
+    ///
+    pub fn new() QPainter {
         return .{ .ptr = qtc.QPainter_new() };
     }
 
-    /// New2 constructs a new QPainter object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPainter object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPaintDevice `
     ///
-    pub fn New2(param1: anytype) QPainter {
+    pub fn new2(param1: anytype) QPainter {
         comptime _ = @TypeOf(param1)._is_QPaintDevice;
         return .{ .ptr = qtc.QPainter_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `device` instead
+    ///
+    pub const Device = device;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#device)
     ///
@@ -62,9 +74,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Device(self: QPainter) QPaintDevice {
+    pub fn device(self: QPainter) QPaintDevice {
         return .{ .ptr = qtc.QPainter_Device(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `begin` instead
+    ///
+    pub const Begin = begin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#begin)
     ///
@@ -74,10 +90,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QPaintDevice `
     ///
-    pub fn Begin(self: QPainter, param1: anytype) bool {
+    pub fn begin(self: QPainter, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QPaintDevice;
         return qtc.QPainter_Begin(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `end` instead
+    ///
+    pub const End = end;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#end)
     ///
@@ -85,9 +105,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn End(self: QPainter) bool {
+    pub fn end(self: QPainter) bool {
         return qtc.QPainter_End(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActive` instead
+    ///
+    pub const IsActive = isActive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#isActive)
     ///
@@ -95,9 +119,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn IsActive(self: QPainter) bool {
+    pub fn isActive(self: QPainter) bool {
         return qtc.QPainter_IsActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCompositionMode` instead
+    ///
+    pub const SetCompositionMode = setCompositionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setCompositionMode)
     ///
@@ -107,9 +135,13 @@ pub const QPainter = extern struct {
     ///
     /// ` mode: qpainter_enums.CompositionMode `
     ///
-    pub fn SetCompositionMode(self: QPainter, mode: i32) void {
+    pub fn setCompositionMode(self: QPainter, mode: i32) void {
         qtc.QPainter_SetCompositionMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `compositionMode` instead
+    ///
+    pub const CompositionMode = compositionMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#compositionMode)
     ///
@@ -121,9 +153,13 @@ pub const QPainter = extern struct {
     ///
     /// ` qpainter_enums.CompositionMode `
     ///
-    pub fn CompositionMode(self: QPainter) i32 {
+    pub fn compositionMode(self: QPainter) i32 {
         return qtc.QPainter_CompositionMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#font)
     ///
@@ -131,9 +167,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Font(self: QPainter) QFont {
+    pub fn font(self: QPainter) QFont {
         return .{ .ptr = qtc.QPainter_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setFont)
     ///
@@ -143,10 +183,14 @@ pub const QPainter = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn SetFont(self: QPainter, f: anytype) void {
+    pub fn setFont(self: QPainter, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QPainter_SetFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fontMetrics)
     ///
@@ -154,9 +198,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn FontMetrics(self: QPainter) QFontMetrics {
+    pub fn fontMetrics(self: QPainter) QFontMetrics {
         return .{ .ptr = qtc.QPainter_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fontInfo)
     ///
@@ -164,9 +212,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn FontInfo(self: QPainter) QFontInfo {
+    pub fn fontInfo(self: QPainter) QFontInfo {
         return .{ .ptr = qtc.QPainter_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
@@ -176,10 +228,14 @@ pub const QPainter = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn SetPen(self: QPainter, color: anytype) void {
+    pub fn setPen(self: QPainter, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QPainter_SetPen(@ptrCast(self.ptr), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPen2` instead
+    ///
+    pub const SetPen2 = setPen2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
@@ -187,12 +243,16 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetPen2(self: QPainter, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QPainter_SetPen2(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setPen2(self: QPainter, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QPainter_SetPen2(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPen3` instead
+    ///
+    pub const SetPen3 = setPen3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setPen)
     ///
@@ -202,9 +262,13 @@ pub const QPainter = extern struct {
     ///
     /// ` style: qnamespace_enums.PenStyle `
     ///
-    pub fn SetPen3(self: QPainter, style: i32) void {
+    pub fn setPen3(self: QPainter, style: i32) void {
         qtc.QPainter_SetPen3(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#pen)
     ///
@@ -212,9 +276,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Pen(self: QPainter) QPen {
+    pub fn pen(self: QPainter) QPen {
         return .{ .ptr = qtc.QPainter_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
@@ -222,12 +290,16 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QPainter, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QPainter_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QPainter, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QPainter_SetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBrush2` instead
+    ///
+    pub const SetBrush2 = setBrush2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrush)
     ///
@@ -237,9 +309,13 @@ pub const QPainter = extern struct {
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn SetBrush2(self: QPainter, style: i32) void {
+    pub fn setBrush2(self: QPainter, style: i32) void {
         qtc.QPainter_SetBrush2(@ptrCast(self.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#brush)
     ///
@@ -247,9 +323,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Brush(self: QPainter) QBrush {
+    pub fn brush(self: QPainter) QBrush {
         return .{ .ptr = qtc.QPainter_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundMode` instead
+    ///
+    pub const SetBackgroundMode = setBackgroundMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBackgroundMode)
     ///
@@ -259,9 +339,13 @@ pub const QPainter = extern struct {
     ///
     /// ` mode: qnamespace_enums.BGMode `
     ///
-    pub fn SetBackgroundMode(self: QPainter, mode: i32) void {
+    pub fn setBackgroundMode(self: QPainter, mode: i32) void {
         qtc.QPainter_SetBackgroundMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `backgroundMode` instead
+    ///
+    pub const BackgroundMode = backgroundMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#backgroundMode)
     ///
@@ -273,9 +357,13 @@ pub const QPainter = extern struct {
     ///
     /// ` qnamespace_enums.BGMode `
     ///
-    pub fn BackgroundMode(self: QPainter) i32 {
+    pub fn backgroundMode(self: QPainter) i32 {
         return qtc.QPainter_BackgroundMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `brushOrigin` instead
+    ///
+    pub const BrushOrigin = brushOrigin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#brushOrigin)
     ///
@@ -283,9 +371,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn BrushOrigin(self: QPainter) QPoint {
+    pub fn brushOrigin(self: QPainter) QPoint {
         return .{ .ptr = qtc.QPainter_BrushOrigin(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBrushOrigin` instead
+    ///
+    pub const SetBrushOrigin = setBrushOrigin;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
@@ -297,22 +389,13 @@ pub const QPainter = extern struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn SetBrushOrigin(self: QPainter, x: i32, y: i32) void {
+    pub fn setBrushOrigin(self: QPainter, x: i32, y: i32) void {
         qtc.QPainter_SetBrushOrigin(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
+    /// ### DEPRECATED: Use `setBrushOrigin2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPainter `
-    ///
-    /// ` brushOrigin: QPoint `
-    ///
-    pub fn SetBrushOrigin2(self: QPainter, brushOrigin: anytype) void {
-        comptime _ = @TypeOf(brushOrigin)._is_QPoint;
-        qtc.QPainter_SetBrushOrigin2(@ptrCast(self.ptr), @ptrCast(brushOrigin.ptr));
-    }
+    pub const SetBrushOrigin2 = setBrushOrigin2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
     ///
@@ -320,12 +403,33 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` brushOrigin: QPointF `
+    /// ` _brushOrigin: QPoint `
     ///
-    pub fn SetBrushOrigin3(self: QPainter, brushOrigin: anytype) void {
-        comptime _ = @TypeOf(brushOrigin)._is_QPointF;
-        qtc.QPainter_SetBrushOrigin3(@ptrCast(self.ptr), @ptrCast(brushOrigin.ptr));
+    pub fn setBrushOrigin2(self: QPainter, _brushOrigin: anytype) void {
+        comptime _ = @TypeOf(_brushOrigin)._is_QPoint;
+        qtc.QPainter_SetBrushOrigin2(@ptrCast(self.ptr), @ptrCast(_brushOrigin.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBrushOrigin3` instead
+    ///
+    pub const SetBrushOrigin3 = setBrushOrigin3;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBrushOrigin)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPainter `
+    ///
+    /// ` _brushOrigin: QPointF `
+    ///
+    pub fn setBrushOrigin3(self: QPainter, _brushOrigin: anytype) void {
+        comptime _ = @TypeOf(_brushOrigin)._is_QPointF;
+        qtc.QPainter_SetBrushOrigin3(@ptrCast(self.ptr), @ptrCast(_brushOrigin.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setBackground` instead
+    ///
+    pub const SetBackground = setBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setBackground)
     ///
@@ -335,10 +439,14 @@ pub const QPainter = extern struct {
     ///
     /// ` bg: QBrush `
     ///
-    pub fn SetBackground(self: QPainter, bg: anytype) void {
+    pub fn setBackground(self: QPainter, bg: anytype) void {
         comptime _ = @TypeOf(bg)._is_QBrush;
         qtc.QPainter_SetBackground(@ptrCast(self.ptr), @ptrCast(bg.ptr));
     }
+
+    /// ### DEPRECATED: Use `background` instead
+    ///
+    pub const Background = background;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#background)
     ///
@@ -346,9 +454,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Background(self: QPainter) QBrush {
+    pub fn background(self: QPainter) QBrush {
         return .{ .ptr = qtc.QPainter_Background(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#opacity)
     ///
@@ -356,9 +468,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Opacity(self: QPainter) f64 {
+    pub fn opacity(self: QPainter) f64 {
         return qtc.QPainter_Opacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setOpacity)
     ///
@@ -366,11 +482,15 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QPainter, opacity: f64) void {
-        qtc.QPainter_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QPainter, _opacity: f64) void {
+        qtc.QPainter_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `clipRegion` instead
+    ///
+    pub const ClipRegion = clipRegion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipRegion)
     ///
@@ -378,9 +498,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn ClipRegion(self: QPainter) QRegion {
+    pub fn clipRegion(self: QPainter) QRegion {
         return .{ .ptr = qtc.QPainter_ClipRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clipPath` instead
+    ///
+    pub const ClipPath = clipPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipPath)
     ///
@@ -388,9 +512,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn ClipPath(self: QPainter) QPainterPath {
+    pub fn clipPath(self: QPainter) QPainterPath {
         return .{ .ptr = qtc.QPainter_ClipPath(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setClipRect` instead
+    ///
+    pub const SetClipRect = setClipRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -400,10 +528,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QRectF `
     ///
-    pub fn SetClipRect(self: QPainter, param1: anytype) void {
+    pub fn setClipRect(self: QPainter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         qtc.QPainter_SetClipRect(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipRect2` instead
+    ///
+    pub const SetClipRect2 = setClipRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -413,10 +545,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn SetClipRect2(self: QPainter, param1: anytype) void {
+    pub fn setClipRect2(self: QPainter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_SetClipRect2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipRect3` instead
+    ///
+    pub const SetClipRect3 = setClipRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -432,9 +568,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetClipRect3(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn setClipRect3(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QPainter_SetClipRect3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setClipRegion` instead
+    ///
+    pub const SetClipRegion = setClipRegion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
     ///
@@ -444,10 +584,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn SetClipRegion(self: QPainter, param1: anytype) void {
+    pub fn setClipRegion(self: QPainter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QPainter_SetClipRegion(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipPath` instead
+    ///
+    pub const SetClipPath = setClipPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
     ///
@@ -457,10 +601,14 @@ pub const QPainter = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn SetClipPath(self: QPainter, path: anytype) void {
+    pub fn setClipPath(self: QPainter, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPainter_SetClipPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipping` instead
+    ///
+    pub const SetClipping = setClipping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipping)
     ///
@@ -470,9 +618,13 @@ pub const QPainter = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetClipping(self: QPainter, enable: bool) void {
+    pub fn setClipping(self: QPainter, enable: bool) void {
         qtc.QPainter_SetClipping(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasClipping` instead
+    ///
+    pub const HasClipping = hasClipping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#hasClipping)
     ///
@@ -480,9 +632,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn HasClipping(self: QPainter) bool {
+    pub fn hasClipping(self: QPainter) bool {
         return qtc.QPainter_HasClipping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clipBoundingRect` instead
+    ///
+    pub const ClipBoundingRect = clipBoundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#clipBoundingRect)
     ///
@@ -490,9 +646,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn ClipBoundingRect(self: QPainter) QRectF {
+    pub fn clipBoundingRect(self: QPainter) QRectF {
         return .{ .ptr = qtc.QPainter_ClipBoundingRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#save)
     ///
@@ -500,9 +660,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Save(self: QPainter) void {
+    pub fn save(self: QPainter) void {
         qtc.QPainter_Save(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `restore` instead
+    ///
+    pub const Restore = restore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#restore)
     ///
@@ -510,9 +674,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Restore(self: QPainter) void {
+    pub fn restore(self: QPainter) void {
         qtc.QPainter_Restore(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTransform` instead
+    ///
+    pub const SetTransform = setTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setTransform)
     ///
@@ -520,12 +688,16 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` transform: QTransform `
+    /// ` _transform: QTransform `
     ///
-    pub fn SetTransform(self: QPainter, transform: anytype) void {
-        comptime _ = @TypeOf(transform)._is_QTransform;
-        qtc.QPainter_SetTransform(@ptrCast(self.ptr), @ptrCast(transform.ptr));
+    pub fn setTransform(self: QPainter, _transform: anytype) void {
+        comptime _ = @TypeOf(_transform)._is_QTransform;
+        qtc.QPainter_SetTransform(@ptrCast(self.ptr), @ptrCast(_transform.ptr));
     }
+
+    /// ### DEPRECATED: Use `transform` instead
+    ///
+    pub const Transform = transform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#transform)
     ///
@@ -533,9 +705,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Transform(self: QPainter) QTransform {
+    pub fn transform(self: QPainter) QTransform {
         return .{ .ptr = qtc.QPainter_Transform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `deviceTransform` instead
+    ///
+    pub const DeviceTransform = deviceTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#deviceTransform)
     ///
@@ -543,9 +719,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn DeviceTransform(self: QPainter) QTransform {
+    pub fn deviceTransform(self: QPainter) QTransform {
         return .{ .ptr = qtc.QPainter_DeviceTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resetTransform` instead
+    ///
+    pub const ResetTransform = resetTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#resetTransform)
     ///
@@ -553,9 +733,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn ResetTransform(self: QPainter) void {
+    pub fn resetTransform(self: QPainter) void {
         qtc.QPainter_ResetTransform(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWorldTransform` instead
+    ///
+    pub const SetWorldTransform = setWorldTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
     ///
@@ -565,10 +749,14 @@ pub const QPainter = extern struct {
     ///
     /// ` matrix: QTransform `
     ///
-    pub fn SetWorldTransform(self: QPainter, matrix: anytype) void {
+    pub fn setWorldTransform(self: QPainter, matrix: anytype) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QPainter_SetWorldTransform(@ptrCast(self.ptr), @ptrCast(matrix.ptr));
     }
+
+    /// ### DEPRECATED: Use `worldTransform` instead
+    ///
+    pub const WorldTransform = worldTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#worldTransform)
     ///
@@ -576,9 +764,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn WorldTransform(self: QPainter) QTransform {
+    pub fn worldTransform(self: QPainter) QTransform {
         return .{ .ptr = qtc.QPainter_WorldTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `combinedTransform` instead
+    ///
+    pub const CombinedTransform = combinedTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#combinedTransform)
     ///
@@ -586,9 +778,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn CombinedTransform(self: QPainter) QTransform {
+    pub fn combinedTransform(self: QPainter) QTransform {
         return .{ .ptr = qtc.QPainter_CombinedTransform(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWorldMatrixEnabled` instead
+    ///
+    pub const SetWorldMatrixEnabled = setWorldMatrixEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldMatrixEnabled)
     ///
@@ -598,9 +794,13 @@ pub const QPainter = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetWorldMatrixEnabled(self: QPainter, enabled: bool) void {
+    pub fn setWorldMatrixEnabled(self: QPainter, enabled: bool) void {
         qtc.QPainter_SetWorldMatrixEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `worldMatrixEnabled` instead
+    ///
+    pub const WorldMatrixEnabled = worldMatrixEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#worldMatrixEnabled)
     ///
@@ -608,9 +808,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn WorldMatrixEnabled(self: QPainter) bool {
+    pub fn worldMatrixEnabled(self: QPainter) bool {
         return qtc.QPainter_WorldMatrixEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `scale` instead
+    ///
+    pub const Scale = scale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#scale)
     ///
@@ -622,9 +826,13 @@ pub const QPainter = extern struct {
     ///
     /// ` sy: f64 `
     ///
-    pub fn Scale(self: QPainter, sx: f64, sy: f64) void {
+    pub fn scale(self: QPainter, sx: f64, sy: f64) void {
         qtc.QPainter_Scale(@ptrCast(self.ptr), @bitCast(sx), @bitCast(sy));
     }
+
+    /// ### DEPRECATED: Use `shear` instead
+    ///
+    pub const Shear = shear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#shear)
     ///
@@ -636,9 +844,13 @@ pub const QPainter = extern struct {
     ///
     /// ` sv: f64 `
     ///
-    pub fn Shear(self: QPainter, sh: f64, sv: f64) void {
+    pub fn shear(self: QPainter, sh: f64, sv: f64) void {
         qtc.QPainter_Shear(@ptrCast(self.ptr), @bitCast(sh), @bitCast(sv));
     }
+
+    /// ### DEPRECATED: Use `rotate` instead
+    ///
+    pub const Rotate = rotate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#rotate)
     ///
@@ -648,9 +860,13 @@ pub const QPainter = extern struct {
     ///
     /// ` a: f64 `
     ///
-    pub fn Rotate(self: QPainter, a: f64) void {
+    pub fn rotate(self: QPainter, a: f64) void {
         qtc.QPainter_Rotate(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
@@ -660,10 +876,14 @@ pub const QPainter = extern struct {
     ///
     /// ` offset: QPointF `
     ///
-    pub fn Translate(self: QPainter, offset: anytype) void {
+    pub fn translate(self: QPainter, offset: anytype) void {
         comptime _ = @TypeOf(offset)._is_QPointF;
         qtc.QPainter_Translate(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate2` instead
+    ///
+    pub const Translate2 = translate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
@@ -673,10 +893,14 @@ pub const QPainter = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Translate2(self: QPainter, offset: anytype) void {
+    pub fn translate2(self: QPainter, offset: anytype) void {
         comptime _ = @TypeOf(offset)._is_QPoint;
         qtc.QPainter_Translate2(@ptrCast(self.ptr), @ptrCast(offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate3` instead
+    ///
+    pub const Translate3 = translate3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#translate)
     ///
@@ -688,9 +912,13 @@ pub const QPainter = extern struct {
     ///
     /// ` dy: f64 `
     ///
-    pub fn Translate3(self: QPainter, dx: f64, dy: f64) void {
+    pub fn translate3(self: QPainter, dx: f64, dy: f64) void {
         qtc.QPainter_Translate3(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#window)
     ///
@@ -698,9 +926,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Window(self: QPainter) QRect {
+    pub fn window(self: QPainter) QRect {
         return .{ .ptr = qtc.QPainter_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindow` instead
+    ///
+    pub const SetWindow = setWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWindow)
     ///
@@ -708,12 +940,16 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` window: QRect `
+    /// ` _window: QRect `
     ///
-    pub fn SetWindow(self: QPainter, window: anytype) void {
-        comptime _ = @TypeOf(window)._is_QRect;
-        qtc.QPainter_SetWindow(@ptrCast(self.ptr), @ptrCast(window.ptr));
+    pub fn setWindow(self: QPainter, _window: anytype) void {
+        comptime _ = @TypeOf(_window)._is_QRect;
+        qtc.QPainter_SetWindow(@ptrCast(self.ptr), @ptrCast(_window.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindow2` instead
+    ///
+    pub const SetWindow2 = setWindow2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWindow)
     ///
@@ -729,9 +965,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetWindow2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn setWindow2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QPainter_SetWindow2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#viewport)
     ///
@@ -739,9 +979,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn Viewport(self: QPainter) QRect {
+    pub fn viewport(self: QPainter) QRect {
         return .{ .ptr = qtc.QPainter_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewport)
     ///
@@ -749,12 +993,16 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` viewport: QRect `
+    /// ` _viewport: QRect `
     ///
-    pub fn SetViewport(self: QPainter, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QRect;
-        qtc.QPainter_SetViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setViewport(self: QPainter, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QRect;
+        qtc.QPainter_SetViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `setViewport2` instead
+    ///
+    pub const SetViewport2 = setViewport2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewport)
     ///
@@ -770,9 +1018,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetViewport2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn setViewport2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QPainter_SetViewport2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setViewTransformEnabled` instead
+    ///
+    pub const SetViewTransformEnabled = setViewTransformEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setViewTransformEnabled)
     ///
@@ -782,9 +1034,13 @@ pub const QPainter = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetViewTransformEnabled(self: QPainter, enable: bool) void {
+    pub fn setViewTransformEnabled(self: QPainter, enable: bool) void {
         qtc.QPainter_SetViewTransformEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `viewTransformEnabled` instead
+    ///
+    pub const ViewTransformEnabled = viewTransformEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#viewTransformEnabled)
     ///
@@ -792,9 +1048,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn ViewTransformEnabled(self: QPainter) bool {
+    pub fn viewTransformEnabled(self: QPainter) bool {
         return qtc.QPainter_ViewTransformEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `strokePath` instead
+    ///
+    pub const StrokePath = strokePath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#strokePath)
     ///
@@ -804,13 +1064,17 @@ pub const QPainter = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn StrokePath(self: QPainter, path: anytype, pen: anytype) void {
+    pub fn strokePath(self: QPainter, path: anytype, _pen: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QPainter_StrokePath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(pen.ptr));
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QPainter_StrokePath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `fillPath` instead
+    ///
+    pub const FillPath = fillPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillPath)
     ///
@@ -820,13 +1084,17 @@ pub const QPainter = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn FillPath(self: QPainter, path: anytype, brush: anytype) void {
+    pub fn fillPath(self: QPainter, path: anytype, _brush: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QPainter_FillPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(brush.ptr));
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QPainter_FillPath(@ptrCast(self.ptr), @ptrCast(path.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPath` instead
+    ///
+    pub const DrawPath = drawPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPath)
     ///
@@ -836,10 +1104,14 @@ pub const QPainter = extern struct {
     ///
     /// ` path: QPainterPath `
     ///
-    pub fn DrawPath(self: QPainter, path: anytype) void {
+    pub fn drawPath(self: QPainter, path: anytype) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPainter_DrawPath(@ptrCast(self.ptr), @ptrCast(path.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPoint` instead
+    ///
+    pub const DrawPoint = drawPoint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
@@ -849,10 +1121,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pt: QPointF `
     ///
-    pub fn DrawPoint(self: QPainter, pt: anytype) void {
+    pub fn drawPoint(self: QPainter, pt: anytype) void {
         comptime _ = @TypeOf(pt)._is_QPointF;
         qtc.QPainter_DrawPoint(@ptrCast(self.ptr), @ptrCast(pt.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPoint2` instead
+    ///
+    pub const DrawPoint2 = drawPoint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
@@ -862,10 +1138,14 @@ pub const QPainter = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn DrawPoint2(self: QPainter, p: anytype) void {
+    pub fn drawPoint2(self: QPainter, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         qtc.QPainter_DrawPoint2(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPoint3` instead
+    ///
+    pub const DrawPoint3 = drawPoint3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoint)
     ///
@@ -877,9 +1157,13 @@ pub const QPainter = extern struct {
     ///
     /// ` y: i32 `
     ///
-    pub fn DrawPoint3(self: QPainter, x: i32, y: i32) void {
+    pub fn drawPoint3(self: QPainter, x: i32, y: i32) void {
         qtc.QPainter_DrawPoint3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
     }
+
+    /// ### DEPRECATED: Use `drawPoints` instead
+    ///
+    pub const DrawPoints = drawPoints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
     ///
@@ -891,10 +1175,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPoints(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPainter_DrawPoints(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawPoints3` instead
+    ///
+    pub const DrawPoints3 = drawPoints3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPoints)
     ///
@@ -906,10 +1194,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPoints3(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPoints3(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPoints3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawLine` instead
+    ///
+    pub const DrawLine = drawLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
@@ -919,10 +1211,14 @@ pub const QPainter = extern struct {
     ///
     /// ` line: QLineF `
     ///
-    pub fn DrawLine(self: QPainter, line: anytype) void {
+    pub fn drawLine(self: QPainter, line: anytype) void {
         comptime _ = @TypeOf(line)._is_QLineF;
         qtc.QPainter_DrawLine(@ptrCast(self.ptr), @ptrCast(line.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawLine2` instead
+    ///
+    pub const DrawLine2 = drawLine2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
@@ -932,10 +1228,14 @@ pub const QPainter = extern struct {
     ///
     /// ` line: QLine `
     ///
-    pub fn DrawLine2(self: QPainter, line: anytype) void {
+    pub fn drawLine2(self: QPainter, line: anytype) void {
         comptime _ = @TypeOf(line)._is_QLine;
         qtc.QPainter_DrawLine2(@ptrCast(self.ptr), @ptrCast(line.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawLine3` instead
+    ///
+    pub const DrawLine3 = drawLine3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
@@ -951,9 +1251,13 @@ pub const QPainter = extern struct {
     ///
     /// ` y2: i32 `
     ///
-    pub fn DrawLine3(self: QPainter, x1: i32, y1: i32, x2: i32, y2: i32) void {
+    pub fn drawLine3(self: QPainter, x1: i32, y1: i32, x2: i32, y2: i32) void {
         qtc.QPainter_DrawLine3(@ptrCast(self.ptr), @bitCast(x1), @bitCast(y1), @bitCast(x2), @bitCast(y2));
     }
+
+    /// ### DEPRECATED: Use `drawLine4` instead
+    ///
+    pub const DrawLine4 = drawLine4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
@@ -965,11 +1269,15 @@ pub const QPainter = extern struct {
     ///
     /// ` p2: QPoint `
     ///
-    pub fn DrawLine4(self: QPainter, p1: anytype, p2: anytype) void {
+    pub fn drawLine4(self: QPainter, p1: anytype, p2: anytype) void {
         comptime _ = @TypeOf(p1)._is_QPoint;
         comptime _ = @TypeOf(p2)._is_QPoint;
         qtc.QPainter_DrawLine4(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawLine5` instead
+    ///
+    pub const DrawLine5 = drawLine5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLine)
     ///
@@ -981,11 +1289,15 @@ pub const QPainter = extern struct {
     ///
     /// ` p2: QPointF `
     ///
-    pub fn DrawLine5(self: QPainter, p1: anytype, p2: anytype) void {
+    pub fn drawLine5(self: QPainter, p1: anytype, p2: anytype) void {
         comptime _ = @TypeOf(p1)._is_QPointF;
         comptime _ = @TypeOf(p2)._is_QPointF;
         qtc.QPainter_DrawLine5(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawLines` instead
+    ///
+    pub const DrawLines = drawLines;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -997,10 +1309,14 @@ pub const QPainter = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines(self: QPainter, lines: anytype, lineCount: i32) void {
+    pub fn drawLines(self: QPainter, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLineF;
         qtc.QPainter_DrawLines(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines2` instead
+    ///
+    pub const DrawLines2 = drawLines2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1010,13 +1326,17 @@ pub const QPainter = extern struct {
     ///
     /// ` lines: []QLineF `
     ///
-    pub fn DrawLines2(self: QPainter, lines: []QLineF) void {
+    pub fn drawLines2(self: QPainter, lines: []QLineF) void {
         const lines_list = qtc.libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
         qtc.QPainter_DrawLines2(@ptrCast(self.ptr), lines_list);
     }
+
+    /// ### DEPRECATED: Use `drawLines3` instead
+    ///
+    pub const DrawLines3 = drawLines3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1028,10 +1348,14 @@ pub const QPainter = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines3(self: QPainter, pointPairs: anytype, lineCount: i32) void {
+    pub fn drawLines3(self: QPainter, pointPairs: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(pointPairs)._is_QPointF;
         qtc.QPainter_DrawLines3(@ptrCast(self.ptr), @ptrCast(pointPairs.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines4` instead
+    ///
+    pub const DrawLines4 = drawLines4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1041,13 +1365,17 @@ pub const QPainter = extern struct {
     ///
     /// ` pointPairs: []QPointF `
     ///
-    pub fn DrawLines4(self: QPainter, pointPairs: []QPointF) void {
+    pub fn drawLines4(self: QPainter, pointPairs: []QPointF) void {
         const pointPairs_list = qtc.libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
         qtc.QPainter_DrawLines4(@ptrCast(self.ptr), pointPairs_list);
     }
+
+    /// ### DEPRECATED: Use `drawLines5` instead
+    ///
+    pub const DrawLines5 = drawLines5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1059,10 +1387,14 @@ pub const QPainter = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines5(self: QPainter, lines: anytype, lineCount: i32) void {
+    pub fn drawLines5(self: QPainter, lines: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(lines)._is_QLine;
         qtc.QPainter_DrawLines5(@ptrCast(self.ptr), @ptrCast(lines.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines6` instead
+    ///
+    pub const DrawLines6 = drawLines6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1072,13 +1404,17 @@ pub const QPainter = extern struct {
     ///
     /// ` lines: []QLine `
     ///
-    pub fn DrawLines6(self: QPainter, lines: []QLine) void {
+    pub fn drawLines6(self: QPainter, lines: []QLine) void {
         const lines_list = qtc.libqt_list{
             .len = lines.len,
             .data = @ptrCast(lines.ptr),
         };
         qtc.QPainter_DrawLines6(@ptrCast(self.ptr), lines_list);
     }
+
+    /// ### DEPRECATED: Use `drawLines7` instead
+    ///
+    pub const DrawLines7 = drawLines7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1090,10 +1426,14 @@ pub const QPainter = extern struct {
     ///
     /// ` lineCount: i32 `
     ///
-    pub fn DrawLines7(self: QPainter, pointPairs: anytype, lineCount: i32) void {
+    pub fn drawLines7(self: QPainter, pointPairs: anytype, lineCount: i32) void {
         comptime _ = @TypeOf(pointPairs)._is_QPoint;
         qtc.QPainter_DrawLines7(@ptrCast(self.ptr), @ptrCast(pointPairs.ptr), @bitCast(lineCount));
     }
+
+    /// ### DEPRECATED: Use `drawLines8` instead
+    ///
+    pub const DrawLines8 = drawLines8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawLines)
     ///
@@ -1103,13 +1443,17 @@ pub const QPainter = extern struct {
     ///
     /// ` pointPairs: []QPoint `
     ///
-    pub fn DrawLines8(self: QPainter, pointPairs: []QPoint) void {
+    pub fn drawLines8(self: QPainter, pointPairs: []QPoint) void {
         const pointPairs_list = qtc.libqt_list{
             .len = pointPairs.len,
             .data = @ptrCast(pointPairs.ptr),
         };
         qtc.QPainter_DrawLines8(@ptrCast(self.ptr), pointPairs_list);
     }
+
+    /// ### DEPRECATED: Use `drawRect` instead
+    ///
+    pub const DrawRect = drawRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
@@ -1119,10 +1463,14 @@ pub const QPainter = extern struct {
     ///
     /// ` rect: QRectF `
     ///
-    pub fn DrawRect(self: QPainter, rect: anytype) void {
+    pub fn drawRect(self: QPainter, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawRect2` instead
+    ///
+    pub const DrawRect2 = drawRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
@@ -1138,9 +1486,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn DrawRect2(self: QPainter, x1: i32, y1: i32, w: i32, h: i32) void {
+    pub fn drawRect2(self: QPainter, x1: i32, y1: i32, w: i32, h: i32) void {
         qtc.QPainter_DrawRect2(@ptrCast(self.ptr), @bitCast(x1), @bitCast(y1), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `drawRect3` instead
+    ///
+    pub const DrawRect3 = drawRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRect)
     ///
@@ -1150,10 +1502,14 @@ pub const QPainter = extern struct {
     ///
     /// ` rect: QRect `
     ///
-    pub fn DrawRect3(self: QPainter, rect: anytype) void {
+    pub fn drawRect3(self: QPainter, rect: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QPainter_DrawRect3(@ptrCast(self.ptr), @ptrCast(rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawRects` instead
+    ///
+    pub const DrawRects = drawRects;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
@@ -1165,10 +1521,14 @@ pub const QPainter = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects(self: QPainter, rects: anytype, rectCount: i32) void {
+    pub fn drawRects(self: QPainter, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRectF;
         qtc.QPainter_DrawRects(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `drawRects2` instead
+    ///
+    pub const DrawRects2 = drawRects2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
@@ -1178,13 +1538,17 @@ pub const QPainter = extern struct {
     ///
     /// ` rectangles: []QRectF `
     ///
-    pub fn DrawRects2(self: QPainter, rectangles: []QRectF) void {
+    pub fn drawRects2(self: QPainter, rectangles: []QRectF) void {
         const rectangles_list = qtc.libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
         qtc.QPainter_DrawRects2(@ptrCast(self.ptr), rectangles_list);
     }
+
+    /// ### DEPRECATED: Use `drawRects3` instead
+    ///
+    pub const DrawRects3 = drawRects3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
@@ -1196,10 +1560,14 @@ pub const QPainter = extern struct {
     ///
     /// ` rectCount: i32 `
     ///
-    pub fn DrawRects3(self: QPainter, rects: anytype, rectCount: i32) void {
+    pub fn drawRects3(self: QPainter, rects: anytype, rectCount: i32) void {
         comptime _ = @TypeOf(rects)._is_QRect;
         qtc.QPainter_DrawRects3(@ptrCast(self.ptr), @ptrCast(rects.ptr), @bitCast(rectCount));
     }
+
+    /// ### DEPRECATED: Use `drawRects4` instead
+    ///
+    pub const DrawRects4 = drawRects4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRects)
     ///
@@ -1209,13 +1577,17 @@ pub const QPainter = extern struct {
     ///
     /// ` rectangles: []QRect `
     ///
-    pub fn DrawRects4(self: QPainter, rectangles: []QRect) void {
+    pub fn drawRects4(self: QPainter, rectangles: []QRect) void {
         const rectangles_list = qtc.libqt_list{
             .len = rectangles.len,
             .data = @ptrCast(rectangles.ptr),
         };
         qtc.QPainter_DrawRects4(@ptrCast(self.ptr), rectangles_list);
     }
+
+    /// ### DEPRECATED: Use `drawEllipse` instead
+    ///
+    pub const DrawEllipse = drawEllipse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
@@ -1225,10 +1597,14 @@ pub const QPainter = extern struct {
     ///
     /// ` r: QRectF `
     ///
-    pub fn DrawEllipse(self: QPainter, r: anytype) void {
+    pub fn drawEllipse(self: QPainter, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPainter_DrawEllipse(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse2` instead
+    ///
+    pub const DrawEllipse2 = drawEllipse2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
@@ -1238,10 +1614,14 @@ pub const QPainter = extern struct {
     ///
     /// ` r: QRect `
     ///
-    pub fn DrawEllipse2(self: QPainter, r: anytype) void {
+    pub fn drawEllipse2(self: QPainter, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPainter_DrawEllipse2(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse3` instead
+    ///
+    pub const DrawEllipse3 = drawEllipse3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
@@ -1257,9 +1637,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn DrawEllipse3(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn drawEllipse3(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QPainter_DrawEllipse3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse4` instead
+    ///
+    pub const DrawEllipse4 = drawEllipse4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
@@ -1273,10 +1657,14 @@ pub const QPainter = extern struct {
     ///
     /// ` ry: f64 `
     ///
-    pub fn DrawEllipse4(self: QPainter, center: anytype, rx: f64, ry: f64) void {
+    pub fn drawEllipse4(self: QPainter, center: anytype, rx: f64, ry: f64) void {
         comptime _ = @TypeOf(center)._is_QPointF;
         qtc.QPainter_DrawEllipse4(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
+
+    /// ### DEPRECATED: Use `drawEllipse5` instead
+    ///
+    pub const DrawEllipse5 = drawEllipse5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawEllipse)
     ///
@@ -1290,11 +1678,15 @@ pub const QPainter = extern struct {
     ///
     /// ` ry: i32 `
     ///
-    pub fn DrawEllipse5(self: QPainter, center: anytype, rx: i32, ry: i32) void {
+    pub fn drawEllipse5(self: QPainter, center: anytype, rx: i32, ry: i32) void {
         comptime _ = @TypeOf(center)._is_QPoint;
         qtc.QPainter_DrawEllipse5(@ptrCast(self.ptr), @ptrCast(center.ptr), @bitCast(rx), @bitCast(ry));
     }
 
+    /// ### DEPRECATED: Use `drawPolyline` instead
+    ///
+    pub const DrawPolyline = drawPolyline;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
     ///
     /// ## Parameter(s):
@@ -1305,11 +1697,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolyline(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPolyline(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPainter_DrawPolyline(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPolyline3` instead
+    ///
+    pub const DrawPolyline3 = drawPolyline3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolyline)
     ///
     /// ## Parameter(s):
@@ -1320,11 +1716,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolyline3(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPolyline3(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolyline3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPolygon` instead
+    ///
+    pub const DrawPolygon = drawPolygon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ## Parameter(s):
@@ -1335,11 +1735,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolygon(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPolygon(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPainter_DrawPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawPolygon3` instead
+    ///
+    pub const DrawPolygon3 = drawPolygon3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
     /// ## Parameter(s):
@@ -1350,10 +1754,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawPolygon3(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawPolygon3(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawConvexPolygon` instead
+    ///
+    pub const DrawConvexPolygon = drawConvexPolygon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
     ///
@@ -1365,10 +1773,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawConvexPolygon(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawConvexPolygon(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPainter_DrawConvexPolygon(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
+
+    /// ### DEPRECATED: Use `drawConvexPolygon3` instead
+    ///
+    pub const DrawConvexPolygon3 = drawConvexPolygon3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawConvexPolygon)
     ///
@@ -1380,11 +1792,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pointCount: i32 `
     ///
-    pub fn DrawConvexPolygon3(self: QPainter, points: anytype, pointCount: i32) void {
+    pub fn drawConvexPolygon3(self: QPainter, points: anytype, pointCount: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawConvexPolygon3(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount));
     }
 
+    /// ### DEPRECATED: Use `drawArc` instead
+    ///
+    pub const DrawArc = drawArc;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ## Parameter(s):
@@ -1397,11 +1813,15 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc(self: QPainter, rect: anytype, a: i32, alen: i32) void {
+    pub fn drawArc(self: QPainter, rect: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawArc(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
 
+    /// ### DEPRECATED: Use `drawArc2` instead
+    ///
+    pub const DrawArc2 = drawArc2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ## Parameter(s):
@@ -1414,11 +1834,15 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc2(self: QPainter, param1: anytype, a: i32, alen: i32) void {
+    pub fn drawArc2(self: QPainter, param1: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_DrawArc2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
 
+    /// ### DEPRECATED: Use `drawArc3` instead
+    ///
+    pub const DrawArc3 = drawArc3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawArc)
     ///
     /// ## Parameter(s):
@@ -1437,9 +1861,13 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawArc3(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+    pub fn drawArc3(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
         qtc.QPainter_DrawArc3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
+
+    /// ### DEPRECATED: Use `drawPie` instead
+    ///
+    pub const DrawPie = drawPie;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
@@ -1453,11 +1881,15 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie(self: QPainter, rect: anytype, a: i32, alen: i32) void {
+    pub fn drawPie(self: QPainter, rect: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawPie(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
 
+    /// ### DEPRECATED: Use `drawPie2` instead
+    ///
+    pub const DrawPie2 = drawPie2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
     /// ## Parameter(s):
@@ -1476,9 +1908,13 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie2(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+    pub fn drawPie2(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
         qtc.QPainter_DrawPie2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
+
+    /// ### DEPRECATED: Use `drawPie3` instead
+    ///
+    pub const DrawPie3 = drawPie3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPie)
     ///
@@ -1492,11 +1928,15 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawPie3(self: QPainter, param1: anytype, a: i32, alen: i32) void {
+    pub fn drawPie3(self: QPainter, param1: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_DrawPie3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
 
+    /// ### DEPRECATED: Use `drawChord` instead
+    ///
+    pub const DrawChord = drawChord;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
     /// ## Parameter(s):
@@ -1509,10 +1949,14 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord(self: QPainter, rect: anytype, a: i32, alen: i32) void {
+    pub fn drawChord(self: QPainter, rect: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawChord(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(a), @bitCast(alen));
     }
+
+    /// ### DEPRECATED: Use `drawChord2` instead
+    ///
+    pub const DrawChord2 = drawChord2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
@@ -1532,9 +1976,13 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord2(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
+    pub fn drawChord2(self: QPainter, x: i32, y: i32, w: i32, h: i32, a: i32, alen: i32) void {
         qtc.QPainter_DrawChord2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(a), @bitCast(alen));
     }
+
+    /// ### DEPRECATED: Use `drawChord3` instead
+    ///
+    pub const DrawChord3 = drawChord3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawChord)
     ///
@@ -1548,10 +1996,14 @@ pub const QPainter = extern struct {
     ///
     /// ` alen: i32 `
     ///
-    pub fn DrawChord3(self: QPainter, param1: anytype, a: i32, alen: i32) void {
+    pub fn drawChord3(self: QPainter, param1: anytype, a: i32, alen: i32) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_DrawChord3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(a), @bitCast(alen));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect` instead
+    ///
+    pub const DrawRoundedRect = drawRoundedRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -1565,10 +2017,14 @@ pub const QPainter = extern struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64) void {
+    pub fn drawRoundedRect(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawRoundedRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect2` instead
+    ///
+    pub const DrawRoundedRect2 = drawRoundedRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -1588,9 +2044,13 @@ pub const QPainter = extern struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64) void {
+    pub fn drawRoundedRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64) void {
         qtc.QPainter_DrawRoundedRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect3` instead
+    ///
+    pub const DrawRoundedRect3 = drawRoundedRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -1604,10 +2064,14 @@ pub const QPainter = extern struct {
     ///
     /// ` yRadius: f64 `
     ///
-    pub fn DrawRoundedRect3(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64) void {
+    pub fn drawRoundedRect3(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QPainter_DrawRoundedRect3(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap` instead
+    ///
+    pub const DrawTiledPixmap = drawTiledPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -1619,11 +2083,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawTiledPixmap(self: QPainter, rect: anytype, pm: anytype) void {
+    pub fn drawTiledPixmap(self: QPainter, rect: anytype, pm: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawTiledPixmap(@ptrCast(self.ptr), @ptrCast(rect.ptr), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap2` instead
+    ///
+    pub const DrawTiledPixmap2 = drawTiledPixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -1641,10 +2109,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param5: QPixmap `
     ///
-    pub fn DrawTiledPixmap2(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
+    pub fn drawTiledPixmap2(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
         comptime _ = @TypeOf(param5)._is_QPixmap;
         qtc.QPainter_DrawTiledPixmap2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap3` instead
+    ///
+    pub const DrawTiledPixmap3 = drawTiledPixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -1656,11 +2128,15 @@ pub const QPainter = extern struct {
     ///
     /// ` param2: QPixmap `
     ///
-    pub fn DrawTiledPixmap3(self: QPainter, param1: anytype, param2: anytype) void {
+    pub fn drawTiledPixmap3(self: QPainter, param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         comptime _ = @TypeOf(param2)._is_QPixmap;
         qtc.QPainter_DrawTiledPixmap3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPicture` instead
+    ///
+    pub const DrawPicture = drawPicture;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
@@ -1672,11 +2148,15 @@ pub const QPainter = extern struct {
     ///
     /// ` picture: QPicture `
     ///
-    pub fn DrawPicture(self: QPainter, p: anytype, picture: anytype) void {
+    pub fn drawPicture(self: QPainter, p: anytype, picture: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(picture)._is_QPicture;
         qtc.QPainter_DrawPicture(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(picture.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPicture2` instead
+    ///
+    pub const DrawPicture2 = drawPicture2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
@@ -1690,10 +2170,14 @@ pub const QPainter = extern struct {
     ///
     /// ` picture: QPicture `
     ///
-    pub fn DrawPicture2(self: QPainter, x: i32, y: i32, picture: anytype) void {
+    pub fn drawPicture2(self: QPainter, x: i32, y: i32, picture: anytype) void {
         comptime _ = @TypeOf(picture)._is_QPicture;
         qtc.QPainter_DrawPicture2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(picture.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPicture3` instead
+    ///
+    pub const DrawPicture3 = drawPicture3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPicture)
     ///
@@ -1705,11 +2189,15 @@ pub const QPainter = extern struct {
     ///
     /// ` picture: QPicture `
     ///
-    pub fn DrawPicture3(self: QPainter, p: anytype, picture: anytype) void {
+    pub fn drawPicture3(self: QPainter, p: anytype, picture: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(picture)._is_QPicture;
         qtc.QPainter_DrawPicture3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(picture.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap` instead
+    ///
+    pub const DrawPixmap = drawPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1723,12 +2211,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn DrawPixmap(self: QPainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
+    pub fn drawPixmap(self: QPainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
         comptime _ = @TypeOf(targetRect)._is_QRectF;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         qtc.QPainter_DrawPixmap(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(pixmap.ptr), @ptrCast(sourceRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap2` instead
+    ///
+    pub const DrawPixmap2 = drawPixmap2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1742,12 +2234,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sourceRect: QRect `
     ///
-    pub fn DrawPixmap2(self: QPainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
+    pub fn drawPixmap2(self: QPainter, targetRect: anytype, pixmap: anytype, sourceRect: anytype) void {
         comptime _ = @TypeOf(targetRect)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(sourceRect)._is_QRect;
         qtc.QPainter_DrawPixmap2(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(pixmap.ptr), @ptrCast(sourceRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap3` instead
+    ///
+    pub const DrawPixmap3 = drawPixmap3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1773,10 +2269,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sh: i32 `
     ///
-    pub fn DrawPixmap3(self: QPainter, x: i32, y: i32, w: i32, h: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+    pub fn drawPixmap3(self: QPainter, x: i32, y: i32, w: i32, h: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap4` instead
+    ///
+    pub const DrawPixmap4 = drawPixmap4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1798,10 +2298,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sh: i32 `
     ///
-    pub fn DrawPixmap4(self: QPainter, x: i32, y: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+    pub fn drawPixmap4(self: QPainter, x: i32, y: i32, pm: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap4(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(pm.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap5` instead
+    ///
+    pub const DrawPixmap5 = drawPixmap5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1815,12 +2319,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sr: QRectF `
     ///
-    pub fn DrawPixmap5(self: QPainter, p: anytype, pm: anytype, sr: anytype) void {
+    pub fn drawPixmap5(self: QPainter, p: anytype, pm: anytype, sr: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPainter_DrawPixmap5(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap6` instead
+    ///
+    pub const DrawPixmap6 = drawPixmap6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1834,12 +2342,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sr: QRect `
     ///
-    pub fn DrawPixmap6(self: QPainter, p: anytype, pm: anytype, sr: anytype) void {
+    pub fn drawPixmap6(self: QPainter, p: anytype, pm: anytype, sr: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         comptime _ = @TypeOf(sr)._is_QRect;
         qtc.QPainter_DrawPixmap6(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap7` instead
+    ///
+    pub const DrawPixmap7 = drawPixmap7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1851,11 +2363,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap7(self: QPainter, p: anytype, pm: anytype) void {
+    pub fn drawPixmap7(self: QPainter, p: anytype, pm: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap7(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap8` instead
+    ///
+    pub const DrawPixmap8 = drawPixmap8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1867,11 +2383,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap8(self: QPainter, p: anytype, pm: anytype) void {
+    pub fn drawPixmap8(self: QPainter, p: anytype, pm: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap8(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap9` instead
+    ///
+    pub const DrawPixmap9 = drawPixmap9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1885,10 +2405,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap9(self: QPainter, x: i32, y: i32, pm: anytype) void {
+    pub fn drawPixmap9(self: QPainter, x: i32, y: i32, pm: anytype) void {
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap9(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap10` instead
+    ///
+    pub const DrawPixmap10 = drawPixmap10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1900,11 +2424,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap10(self: QPainter, r: anytype, pm: anytype) void {
+    pub fn drawPixmap10(self: QPainter, r: anytype, pm: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap10(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmap11` instead
+    ///
+    pub const DrawPixmap11 = drawPixmap11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmap)
     ///
@@ -1922,10 +2450,14 @@ pub const QPainter = extern struct {
     ///
     /// ` pm: QPixmap `
     ///
-    pub fn DrawPixmap11(self: QPainter, x: i32, y: i32, w: i32, h: i32, pm: anytype) void {
+    pub fn drawPixmap11(self: QPainter, x: i32, y: i32, w: i32, h: i32, pm: anytype) void {
         comptime _ = @TypeOf(pm)._is_QPixmap;
         qtc.QPainter_DrawPixmap11(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(pm.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmapFragments` instead
+    ///
+    pub const DrawPixmapFragments = drawPixmapFragments;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
     ///
@@ -1939,11 +2471,15 @@ pub const QPainter = extern struct {
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn DrawPixmapFragments(self: QPainter, fragments: anytype, fragmentCount: i32, pixmap: anytype) void {
+    pub fn drawPixmapFragments(self: QPainter, fragments: anytype, fragmentCount: i32, pixmap: anytype) void {
         comptime _ = @TypeOf(fragments)._is_QPainter__PixmapFragment;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.QPainter_DrawPixmapFragments(@ptrCast(self.ptr), @ptrCast(fragments.ptr), @bitCast(fragmentCount), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage` instead
+    ///
+    pub const DrawImage = drawImage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -1957,12 +2493,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn DrawImage(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
+    pub fn drawImage(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
         comptime _ = @TypeOf(targetRect)._is_QRectF;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         qtc.QPainter_DrawImage(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage2` instead
+    ///
+    pub const DrawImage2 = drawImage2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -1976,12 +2516,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sourceRect: QRect `
     ///
-    pub fn DrawImage2(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
+    pub fn drawImage2(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype) void {
         comptime _ = @TypeOf(targetRect)._is_QRect;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sourceRect)._is_QRect;
         qtc.QPainter_DrawImage2(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage3` instead
+    ///
+    pub const DrawImage3 = drawImage3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -1995,12 +2539,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sr: QRectF `
     ///
-    pub fn DrawImage3(self: QPainter, p: anytype, image: anytype, sr: anytype) void {
+    pub fn drawImage3(self: QPainter, p: anytype, image: anytype, sr: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPainter_DrawImage3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage4` instead
+    ///
+    pub const DrawImage4 = drawImage4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2014,12 +2562,16 @@ pub const QPainter = extern struct {
     ///
     /// ` sr: QRect `
     ///
-    pub fn DrawImage4(self: QPainter, p: anytype, image: anytype, sr: anytype) void {
+    pub fn drawImage4(self: QPainter, p: anytype, image: anytype, sr: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRect;
         qtc.QPainter_DrawImage4(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage5` instead
+    ///
+    pub const DrawImage5 = drawImage5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2031,11 +2583,15 @@ pub const QPainter = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn DrawImage5(self: QPainter, r: anytype, image: anytype) void {
+    pub fn drawImage5(self: QPainter, r: anytype, image: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage5(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage6` instead
+    ///
+    pub const DrawImage6 = drawImage6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2047,11 +2603,15 @@ pub const QPainter = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn DrawImage6(self: QPainter, r: anytype, image: anytype) void {
+    pub fn drawImage6(self: QPainter, r: anytype, image: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage6(@ptrCast(self.ptr), @ptrCast(r.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage7` instead
+    ///
+    pub const DrawImage7 = drawImage7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2063,11 +2623,15 @@ pub const QPainter = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn DrawImage7(self: QPainter, p: anytype, image: anytype) void {
+    pub fn drawImage7(self: QPainter, p: anytype, image: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage7(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage8` instead
+    ///
+    pub const DrawImage8 = drawImage8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2079,11 +2643,15 @@ pub const QPainter = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn DrawImage8(self: QPainter, p: anytype, image: anytype) void {
+    pub fn drawImage8(self: QPainter, p: anytype, image: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage8(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawImage9` instead
+    ///
+    pub const DrawImage9 = drawImage9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -2097,10 +2665,14 @@ pub const QPainter = extern struct {
     ///
     /// ` image: QImage `
     ///
-    pub fn DrawImage9(self: QPainter, x: i32, y: i32, image: anytype) void {
+    pub fn drawImage9(self: QPainter, x: i32, y: i32, image: anytype) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage9(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setLayoutDirection)
     ///
@@ -2110,9 +2682,13 @@ pub const QPainter = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QPainter, direction: i32) void {
+    pub fn setLayoutDirection(self: QPainter, direction: i32) void {
         qtc.QPainter_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#layoutDirection)
     ///
@@ -2124,9 +2700,13 @@ pub const QPainter = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QPainter) i32 {
+    pub fn layoutDirection(self: QPainter) i32 {
         return qtc.QPainter_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawGlyphRun` instead
+    ///
+    pub const DrawGlyphRun = drawGlyphRun;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawGlyphRun)
     ///
@@ -2138,11 +2718,15 @@ pub const QPainter = extern struct {
     ///
     /// ` glyphRun: QGlyphRun `
     ///
-    pub fn DrawGlyphRun(self: QPainter, position: anytype, glyphRun: anytype) void {
+    pub fn drawGlyphRun(self: QPainter, position: anytype, glyphRun: anytype) void {
         comptime _ = @TypeOf(position)._is_QPointF;
         comptime _ = @TypeOf(glyphRun)._is_QGlyphRun;
         qtc.QPainter_DrawGlyphRun(@ptrCast(self.ptr), @ptrCast(position.ptr), @ptrCast(glyphRun.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawStaticText` instead
+    ///
+    pub const DrawStaticText = drawStaticText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
@@ -2154,11 +2738,15 @@ pub const QPainter = extern struct {
     ///
     /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText(self: QPainter, topLeftPosition: anytype, staticText: anytype) void {
+    pub fn drawStaticText(self: QPainter, topLeftPosition: anytype, staticText: anytype) void {
         comptime _ = @TypeOf(topLeftPosition)._is_QPointF;
         comptime _ = @TypeOf(staticText)._is_QStaticText;
         qtc.QPainter_DrawStaticText(@ptrCast(self.ptr), @ptrCast(topLeftPosition.ptr), @ptrCast(staticText.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawStaticText2` instead
+    ///
+    pub const DrawStaticText2 = drawStaticText2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
@@ -2170,11 +2758,15 @@ pub const QPainter = extern struct {
     ///
     /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText2(self: QPainter, topLeftPosition: anytype, staticText: anytype) void {
+    pub fn drawStaticText2(self: QPainter, topLeftPosition: anytype, staticText: anytype) void {
         comptime _ = @TypeOf(topLeftPosition)._is_QPoint;
         comptime _ = @TypeOf(staticText)._is_QStaticText;
         qtc.QPainter_DrawStaticText2(@ptrCast(self.ptr), @ptrCast(topLeftPosition.ptr), @ptrCast(staticText.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawStaticText3` instead
+    ///
+    pub const DrawStaticText3 = drawStaticText3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawStaticText)
     ///
@@ -2188,10 +2780,14 @@ pub const QPainter = extern struct {
     ///
     /// ` staticText: QStaticText `
     ///
-    pub fn DrawStaticText3(self: QPainter, left: i32, top: i32, staticText: anytype) void {
+    pub fn drawStaticText3(self: QPainter, left: i32, top: i32, staticText: anytype) void {
         comptime _ = @TypeOf(staticText)._is_QStaticText;
         qtc.QPainter_DrawStaticText3(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @ptrCast(staticText.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawText` instead
+    ///
+    pub const DrawText = drawText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2203,7 +2799,7 @@ pub const QPainter = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText(self: QPainter, p: anytype, s: []const u8) void {
+    pub fn drawText(self: QPainter, p: anytype, s: []const u8) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         const s_str = qtc.libqt_string{
             .len = s.len,
@@ -2211,6 +2807,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText(@ptrCast(self.ptr), @ptrCast(p.ptr), s_str);
     }
+
+    /// ### DEPRECATED: Use `drawText2` instead
+    ///
+    pub const DrawText2 = drawText2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2222,7 +2822,7 @@ pub const QPainter = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText2(self: QPainter, p: anytype, s: []const u8) void {
+    pub fn drawText2(self: QPainter, p: anytype, s: []const u8) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         const s_str = qtc.libqt_string{
             .len = s.len,
@@ -2230,6 +2830,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText2(@ptrCast(self.ptr), @ptrCast(p.ptr), s_str);
     }
+
+    /// ### DEPRECATED: Use `drawText3` instead
+    ///
+    pub const DrawText3 = drawText3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2243,13 +2847,17 @@ pub const QPainter = extern struct {
     ///
     /// ` s: []const u8 `
     ///
-    pub fn DrawText3(self: QPainter, x: i32, y: i32, s: []const u8) void {
+    pub fn drawText3(self: QPainter, x: i32, y: i32, s: []const u8) void {
         const s_str = qtc.libqt_string{
             .len = s.len,
             .data = s.ptr,
         };
         qtc.QPainter_DrawText3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), s_str);
     }
+
+    /// ### DEPRECATED: Use `drawText4` instead
+    ///
+    pub const DrawText4 = drawText4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2265,7 +2873,7 @@ pub const QPainter = extern struct {
     ///
     /// ` justificationPadding: i32 `
     ///
-    pub fn DrawText4(self: QPainter, p: anytype, str: []const u8, tf: i32, justificationPadding: i32) void {
+    pub fn drawText4(self: QPainter, p: anytype, str: []const u8, tf: i32, justificationPadding: i32) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         const str_str = qtc.libqt_string{
             .len = str.len,
@@ -2273,6 +2881,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText4(@ptrCast(self.ptr), @ptrCast(p.ptr), str_str, @bitCast(tf), @bitCast(justificationPadding));
     }
+
+    /// ### DEPRECATED: Use `drawText5` instead
+    ///
+    pub const DrawText5 = drawText5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2286,7 +2898,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText5(self: QPainter, r: anytype, flags: i32, text: []const u8) void {
+    pub fn drawText5(self: QPainter, r: anytype, flags: i32, text: []const u8) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2294,6 +2906,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText5(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str);
     }
+
+    /// ### DEPRECATED: Use `drawText6` instead
+    ///
+    pub const DrawText6 = drawText6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2307,7 +2923,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText6(self: QPainter, r: anytype, flags: i32, text: []const u8) void {
+    pub fn drawText6(self: QPainter, r: anytype, flags: i32, text: []const u8) void {
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2315,6 +2931,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText6(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str);
     }
+
+    /// ### DEPRECATED: Use `drawText7` instead
+    ///
+    pub const DrawText7 = drawText7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2334,13 +2954,17 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText7(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
+    pub fn drawText7(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QPainter_DrawText7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str);
     }
+
+    /// ### DEPRECATED: Use `drawText8` instead
+    ///
+    pub const DrawText8 = drawText8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -2352,7 +2976,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawText8(self: QPainter, r: anytype, text: []const u8) void {
+    pub fn drawText8(self: QPainter, r: anytype, text: []const u8) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2360,6 +2984,10 @@ pub const QPainter = extern struct {
         };
         qtc.QPainter_DrawText8(@ptrCast(self.ptr), @ptrCast(r.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `boundingRect` instead
+    ///
+    pub const BoundingRect = boundingRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
@@ -2373,7 +3001,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect(self: QPainter, rect: anytype, flags: i32, text: []const u8) QRectF {
+    pub fn boundingRect(self: QPainter, rect: anytype, flags: i32, text: []const u8) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2381,6 +3009,10 @@ pub const QPainter = extern struct {
         };
         return .{ .ptr = qtc.QPainter_BoundingRect(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags), text_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect2` instead
+    ///
+    pub const BoundingRect2 = boundingRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
@@ -2394,7 +3026,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect2(self: QPainter, rect: anytype, flags: i32, text: []const u8) QRect {
+    pub fn boundingRect2(self: QPainter, rect: anytype, flags: i32, text: []const u8) QRect {
         comptime _ = @TypeOf(rect)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2402,6 +3034,10 @@ pub const QPainter = extern struct {
         };
         return .{ .ptr = qtc.QPainter_BoundingRect2(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(flags), text_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect3` instead
+    ///
+    pub const BoundingRect3 = boundingRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
@@ -2421,13 +3057,17 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect3(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QRect {
+    pub fn boundingRect3(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8) QRect {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QPainter_BoundingRect3(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str) };
     }
+
+    /// ### DEPRECATED: Use `boundingRect4` instead
+    ///
+    pub const BoundingRect4 = boundingRect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
@@ -2439,7 +3079,7 @@ pub const QPainter = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn BoundingRect4(self: QPainter, rect: anytype, text: []const u8) QRectF {
+    pub fn boundingRect4(self: QPainter, rect: anytype, text: []const u8) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -2447,6 +3087,10 @@ pub const QPainter = extern struct {
         };
         return .{ .ptr = qtc.QPainter_BoundingRect4(@ptrCast(self.ptr), @ptrCast(rect.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `drawTextItem` instead
+    ///
+    pub const DrawTextItem = drawTextItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
@@ -2458,11 +3102,15 @@ pub const QPainter = extern struct {
     ///
     /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem(self: QPainter, p: anytype, ti: anytype) void {
+    pub fn drawTextItem(self: QPainter, p: anytype, ti: anytype) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(ti)._is_QTextItem;
         qtc.QPainter_DrawTextItem(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(ti.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTextItem2` instead
+    ///
+    pub const DrawTextItem2 = drawTextItem2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
@@ -2476,10 +3124,14 @@ pub const QPainter = extern struct {
     ///
     /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem2(self: QPainter, x: i32, y: i32, ti: anytype) void {
+    pub fn drawTextItem2(self: QPainter, x: i32, y: i32, ti: anytype) void {
         comptime _ = @TypeOf(ti)._is_QTextItem;
         qtc.QPainter_DrawTextItem2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(ti.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTextItem3` instead
+    ///
+    pub const DrawTextItem3 = drawTextItem3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTextItem)
     ///
@@ -2491,11 +3143,15 @@ pub const QPainter = extern struct {
     ///
     /// ` ti: QTextItem `
     ///
-    pub fn DrawTextItem3(self: QPainter, p: anytype, ti: anytype) void {
+    pub fn drawTextItem3(self: QPainter, p: anytype, ti: anytype) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(ti)._is_QTextItem;
         qtc.QPainter_DrawTextItem3(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(ti.ptr));
     }
+
+    /// ### DEPRECATED: Use `fillRect` instead
+    ///
+    pub const FillRect = fillRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2507,11 +3163,15 @@ pub const QPainter = extern struct {
     ///
     /// ` param2: QBrush `
     ///
-    pub fn FillRect(self: QPainter, param1: anytype, param2: anytype) void {
+    pub fn fillRect(self: QPainter, param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         comptime _ = @TypeOf(param2)._is_QBrush;
         qtc.QPainter_FillRect(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `fillRect2` instead
+    ///
+    pub const FillRect2 = fillRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2529,10 +3189,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param5: QBrush `
     ///
-    pub fn FillRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
+    pub fn fillRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype) void {
         comptime _ = @TypeOf(param5)._is_QBrush;
         qtc.QPainter_FillRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr));
     }
+
+    /// ### DEPRECATED: Use `fillRect3` instead
+    ///
+    pub const FillRect3 = fillRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2544,12 +3208,16 @@ pub const QPainter = extern struct {
     ///
     /// ` param2: QBrush `
     ///
-    pub fn FillRect3(self: QPainter, param1: anytype, param2: anytype) void {
+    pub fn fillRect3(self: QPainter, param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         comptime _ = @TypeOf(param2)._is_QBrush;
         qtc.QPainter_FillRect3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
+    /// ### DEPRECATED: Use `fillRect4` instead
+    ///
+    pub const FillRect4 = fillRect4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2560,12 +3228,16 @@ pub const QPainter = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn FillRect4(self: QPainter, param1: anytype, color: anytype) void {
+    pub fn fillRect4(self: QPainter, param1: anytype, color: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QPainter_FillRect4(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `fillRect5` instead
+    ///
+    pub const FillRect5 = fillRect5;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2582,10 +3254,14 @@ pub const QPainter = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn FillRect5(self: QPainter, x: i32, y: i32, w: i32, h: i32, color: anytype) void {
+    pub fn fillRect5(self: QPainter, x: i32, y: i32, w: i32, h: i32, color: anytype) void {
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QPainter_FillRect5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(color.ptr));
     }
+
+    /// ### DEPRECATED: Use `fillRect6` instead
+    ///
+    pub const FillRect6 = fillRect6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2597,12 +3273,16 @@ pub const QPainter = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn FillRect6(self: QPainter, param1: anytype, color: anytype) void {
+    pub fn fillRect6(self: QPainter, param1: anytype, color: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         comptime _ = @TypeOf(color)._is_QColor;
         qtc.QPainter_FillRect6(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(color.ptr));
     }
 
+    /// ### DEPRECATED: Use `fillRect7` instead
+    ///
+    pub const FillRect7 = fillRect7;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2619,9 +3299,13 @@ pub const QPainter = extern struct {
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect7(self: QPainter, x: i32, y: i32, w: i32, h: i32, c: i32) void {
+    pub fn fillRect7(self: QPainter, x: i32, y: i32, w: i32, h: i32, c: i32) void {
         qtc.QPainter_FillRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `fillRect8` instead
+    ///
+    pub const FillRect8 = fillRect8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2633,11 +3317,15 @@ pub const QPainter = extern struct {
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect8(self: QPainter, r: anytype, c: i32) void {
+    pub fn fillRect8(self: QPainter, r: anytype, c: i32) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPainter_FillRect8(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(c));
     }
 
+    /// ### DEPRECATED: Use `fillRect9` instead
+    ///
+    pub const FillRect9 = fillRect9;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2648,11 +3336,15 @@ pub const QPainter = extern struct {
     ///
     /// ` c: qnamespace_enums.GlobalColor `
     ///
-    pub fn FillRect9(self: QPainter, r: anytype, c: i32) void {
+    pub fn fillRect9(self: QPainter, r: anytype, c: i32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPainter_FillRect9(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(c));
     }
 
+    /// ### DEPRECATED: Use `fillRect10` instead
+    ///
+    pub const FillRect10 = fillRect10;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2669,9 +3361,13 @@ pub const QPainter = extern struct {
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect10(self: QPainter, x: i32, y: i32, w: i32, h: i32, style: i32) void {
+    pub fn fillRect10(self: QPainter, x: i32, y: i32, w: i32, h: i32, style: i32) void {
         qtc.QPainter_FillRect10(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `fillRect11` instead
+    ///
+    pub const FillRect11 = fillRect11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2683,11 +3379,15 @@ pub const QPainter = extern struct {
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect11(self: QPainter, r: anytype, style: i32) void {
+    pub fn fillRect11(self: QPainter, r: anytype, style: i32) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPainter_FillRect11(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(style));
     }
 
+    /// ### DEPRECATED: Use `fillRect12` instead
+    ///
+    pub const FillRect12 = fillRect12;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
     /// ## Parameter(s):
@@ -2698,10 +3398,14 @@ pub const QPainter = extern struct {
     ///
     /// ` style: qnamespace_enums.BrushStyle `
     ///
-    pub fn FillRect12(self: QPainter, r: anytype, style: i32) void {
+    pub fn fillRect12(self: QPainter, r: anytype, style: i32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPainter_FillRect12(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(style));
     }
+
+    /// ### DEPRECATED: Use `fillRect13` instead
+    ///
+    pub const FillRect13 = fillRect13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2719,9 +3423,13 @@ pub const QPainter = extern struct {
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect13(self: QPainter, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
+    pub fn fillRect13(self: QPainter, x: i32, y: i32, w: i32, h: i32, preset: i32) void {
         qtc.QPainter_FillRect13(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(preset));
     }
+
+    /// ### DEPRECATED: Use `fillRect14` instead
+    ///
+    pub const FillRect14 = fillRect14;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2733,10 +3441,14 @@ pub const QPainter = extern struct {
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect14(self: QPainter, r: anytype, preset: i32) void {
+    pub fn fillRect14(self: QPainter, r: anytype, preset: i32) void {
         comptime _ = @TypeOf(r)._is_QRect;
         qtc.QPainter_FillRect14(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(preset));
     }
+
+    /// ### DEPRECATED: Use `fillRect15` instead
+    ///
+    pub const FillRect15 = fillRect15;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#fillRect)
     ///
@@ -2748,10 +3460,14 @@ pub const QPainter = extern struct {
     ///
     /// ` preset: qbrush_enums.Preset `
     ///
-    pub fn FillRect15(self: QPainter, r: anytype, preset: i32) void {
+    pub fn fillRect15(self: QPainter, r: anytype, preset: i32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.QPainter_FillRect15(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(preset));
     }
+
+    /// ### DEPRECATED: Use `eraseRect` instead
+    ///
+    pub const EraseRect = eraseRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
@@ -2761,10 +3477,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QRectF `
     ///
-    pub fn EraseRect(self: QPainter, param1: anytype) void {
+    pub fn eraseRect(self: QPainter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         qtc.QPainter_EraseRect(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `eraseRect2` instead
+    ///
+    pub const EraseRect2 = eraseRect2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
@@ -2780,9 +3500,13 @@ pub const QPainter = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn EraseRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
+    pub fn eraseRect2(self: QPainter, x: i32, y: i32, w: i32, h: i32) void {
         qtc.QPainter_EraseRect2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `eraseRect3` instead
+    ///
+    pub const EraseRect3 = eraseRect3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#eraseRect)
     ///
@@ -2792,10 +3516,14 @@ pub const QPainter = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn EraseRect3(self: QPainter, param1: anytype) void {
+    pub fn eraseRect3(self: QPainter, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_EraseRect3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRenderHint` instead
+    ///
+    pub const SetRenderHint = setRenderHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
@@ -2805,9 +3533,13 @@ pub const QPainter = extern struct {
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHint(self: QPainter, hint: i32) void {
+    pub fn setRenderHint(self: QPainter, hint: i32) void {
         qtc.QPainter_SetRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `setRenderHints` instead
+    ///
+    pub const SetRenderHints = setRenderHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
@@ -2817,9 +3549,13 @@ pub const QPainter = extern struct {
     ///
     /// ` hints: flag of qpainter_enums.RenderHint `
     ///
-    pub fn SetRenderHints(self: QPainter, hints: i32) void {
+    pub fn setRenderHints(self: QPainter, hints: i32) void {
         qtc.QPainter_SetRenderHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `renderHints` instead
+    ///
+    pub const RenderHints = renderHints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#renderHints)
     ///
@@ -2831,9 +3567,13 @@ pub const QPainter = extern struct {
     ///
     /// ` flag of qpainter_enums.RenderHint `
     ///
-    pub fn RenderHints(self: QPainter) i32 {
+    pub fn renderHints(self: QPainter) i32 {
         return qtc.QPainter_RenderHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `testRenderHint` instead
+    ///
+    pub const TestRenderHint = testRenderHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#testRenderHint)
     ///
@@ -2843,9 +3583,13 @@ pub const QPainter = extern struct {
     ///
     /// ` hint: qpainter_enums.RenderHint `
     ///
-    pub fn TestRenderHint(self: QPainter, hint: i32) bool {
+    pub fn testRenderHint(self: QPainter, hint: i32) bool {
         return qtc.QPainter_TestRenderHint(@ptrCast(self.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#paintEngine)
     ///
@@ -2853,9 +3597,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn PaintEngine(self: QPainter) QPaintEngine {
+    pub fn paintEngine(self: QPainter) QPaintEngine {
         return .{ .ptr = qtc.QPainter_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `beginNativePainting` instead
+    ///
+    pub const BeginNativePainting = beginNativePainting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#beginNativePainting)
     ///
@@ -2863,9 +3611,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn BeginNativePainting(self: QPainter) void {
+    pub fn beginNativePainting(self: QPainter) void {
         qtc.QPainter_BeginNativePainting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `endNativePainting` instead
+    ///
+    pub const EndNativePainting = endNativePainting;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#endNativePainting)
     ///
@@ -2873,9 +3625,13 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    pub fn EndNativePainting(self: QPainter) void {
+    pub fn endNativePainting(self: QPainter) void {
         qtc.QPainter_EndNativePainting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipRect22` instead
+    ///
+    pub const SetClipRect22 = setClipRect22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -2887,10 +3643,14 @@ pub const QPainter = extern struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect22(self: QPainter, param1: anytype, op: i32) void {
+    pub fn setClipRect22(self: QPainter, param1: anytype, op: i32) void {
         comptime _ = @TypeOf(param1)._is_QRectF;
         qtc.QPainter_SetClipRect22(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `setClipRect23` instead
+    ///
+    pub const SetClipRect23 = setClipRect23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -2902,10 +3662,14 @@ pub const QPainter = extern struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect23(self: QPainter, param1: anytype, op: i32) void {
+    pub fn setClipRect23(self: QPainter, param1: anytype, op: i32) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QPainter_SetClipRect23(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `setClipRect5` instead
+    ///
+    pub const SetClipRect5 = setClipRect5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRect)
     ///
@@ -2923,9 +3687,13 @@ pub const QPainter = extern struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRect5(self: QPainter, x: i32, y: i32, w: i32, h: i32, op: i32) void {
+    pub fn setClipRect5(self: QPainter, x: i32, y: i32, w: i32, h: i32, op: i32) void {
         qtc.QPainter_SetClipRect5(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `setClipRegion2` instead
+    ///
+    pub const SetClipRegion2 = setClipRegion2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipRegion)
     ///
@@ -2937,10 +3705,14 @@ pub const QPainter = extern struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipRegion2(self: QPainter, param1: anytype, op: i32) void {
+    pub fn setClipRegion2(self: QPainter, param1: anytype, op: i32) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QPainter_SetClipRegion2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `setClipPath2` instead
+    ///
+    pub const SetClipPath2 = setClipPath2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setClipPath)
     ///
@@ -2952,10 +3724,14 @@ pub const QPainter = extern struct {
     ///
     /// ` op: qnamespace_enums.ClipOperation `
     ///
-    pub fn SetClipPath2(self: QPainter, path: anytype, op: i32) void {
+    pub fn setClipPath2(self: QPainter, path: anytype, op: i32) void {
         comptime _ = @TypeOf(path)._is_QPainterPath;
         qtc.QPainter_SetClipPath2(@ptrCast(self.ptr), @ptrCast(path.ptr), @bitCast(op));
     }
+
+    /// ### DEPRECATED: Use `setTransform2` instead
+    ///
+    pub const SetTransform2 = setTransform2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setTransform)
     ///
@@ -2963,14 +3739,18 @@ pub const QPainter = extern struct {
     ///
     /// ` self: QPainter `
     ///
-    /// ` transform: QTransform `
+    /// ` _transform: QTransform `
     ///
     /// ` combine: bool `
     ///
-    pub fn SetTransform2(self: QPainter, transform: anytype, combine: bool) void {
-        comptime _ = @TypeOf(transform)._is_QTransform;
-        qtc.QPainter_SetTransform2(@ptrCast(self.ptr), @ptrCast(transform.ptr), combine);
+    pub fn setTransform2(self: QPainter, _transform: anytype, combine: bool) void {
+        comptime _ = @TypeOf(_transform)._is_QTransform;
+        qtc.QPainter_SetTransform2(@ptrCast(self.ptr), @ptrCast(_transform.ptr), combine);
     }
+
+    /// ### DEPRECATED: Use `setWorldTransform2` instead
+    ///
+    pub const SetWorldTransform2 = setWorldTransform2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setWorldTransform)
     ///
@@ -2982,10 +3762,14 @@ pub const QPainter = extern struct {
     ///
     /// ` combine: bool `
     ///
-    pub fn SetWorldTransform2(self: QPainter, matrix: anytype, combine: bool) void {
+    pub fn setWorldTransform2(self: QPainter, matrix: anytype, combine: bool) void {
         comptime _ = @TypeOf(matrix)._is_QTransform;
         qtc.QPainter_SetWorldTransform2(@ptrCast(self.ptr), @ptrCast(matrix.ptr), combine);
     }
+
+    /// ### DEPRECATED: Use `drawPolygon32` instead
+    ///
+    pub const DrawPolygon32 = drawPolygon32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
@@ -2999,10 +3783,14 @@ pub const QPainter = extern struct {
     ///
     /// ` fillRule: qnamespace_enums.FillRule `
     ///
-    pub fn DrawPolygon32(self: QPainter, points: anytype, pointCount: i32, fillRule: i32) void {
+    pub fn drawPolygon32(self: QPainter, points: anytype, pointCount: i32, fillRule: i32) void {
         comptime _ = @TypeOf(points)._is_QPointF;
         qtc.QPainter_DrawPolygon32(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
     }
+
+    /// ### DEPRECATED: Use `drawPolygon33` instead
+    ///
+    pub const DrawPolygon33 = drawPolygon33;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPolygon)
     ///
@@ -3016,10 +3804,14 @@ pub const QPainter = extern struct {
     ///
     /// ` fillRule: qnamespace_enums.FillRule `
     ///
-    pub fn DrawPolygon33(self: QPainter, points: anytype, pointCount: i32, fillRule: i32) void {
+    pub fn drawPolygon33(self: QPainter, points: anytype, pointCount: i32, fillRule: i32) void {
         comptime _ = @TypeOf(points)._is_QPoint;
         qtc.QPainter_DrawPolygon33(@ptrCast(self.ptr), @ptrCast(points.ptr), @bitCast(pointCount), @bitCast(fillRule));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect4` instead
+    ///
+    pub const DrawRoundedRect4 = drawRoundedRect4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -3035,10 +3827,14 @@ pub const QPainter = extern struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect4(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
+    pub fn drawRoundedRect4(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         qtc.QPainter_DrawRoundedRect4(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect7` instead
+    ///
+    pub const DrawRoundedRect7 = drawRoundedRect7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -3060,9 +3856,13 @@ pub const QPainter = extern struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect7(self: QPainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
+    pub fn drawRoundedRect7(self: QPainter, x: i32, y: i32, w: i32, h: i32, xRadius: f64, yRadius: f64, mode: i32) void {
         qtc.QPainter_DrawRoundedRect7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `drawRoundedRect42` instead
+    ///
+    pub const DrawRoundedRect42 = drawRoundedRect42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawRoundedRect)
     ///
@@ -3078,10 +3878,14 @@ pub const QPainter = extern struct {
     ///
     /// ` mode: qnamespace_enums.SizeMode `
     ///
-    pub fn DrawRoundedRect42(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
+    pub fn drawRoundedRect42(self: QPainter, rect: anytype, xRadius: f64, yRadius: f64, mode: i32) void {
         comptime _ = @TypeOf(rect)._is_QRect;
         qtc.QPainter_DrawRoundedRect42(@ptrCast(self.ptr), @ptrCast(rect.ptr), @bitCast(xRadius), @bitCast(yRadius), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap32` instead
+    ///
+    pub const DrawTiledPixmap32 = drawTiledPixmap32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -3095,12 +3899,16 @@ pub const QPainter = extern struct {
     ///
     /// ` offset: QPointF `
     ///
-    pub fn DrawTiledPixmap32(self: QPainter, rect: anytype, pm: anytype, offset: anytype) void {
+    pub fn drawTiledPixmap32(self: QPainter, rect: anytype, pm: anytype, offset: anytype) void {
         comptime _ = @TypeOf(rect)._is_QRectF;
         comptime _ = @TypeOf(pm)._is_QPixmap;
         comptime _ = @TypeOf(offset)._is_QPointF;
         qtc.QPainter_DrawTiledPixmap32(@ptrCast(self.ptr), @ptrCast(rect.ptr), @ptrCast(pm.ptr), @ptrCast(offset.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap6` instead
+    ///
+    pub const DrawTiledPixmap6 = drawTiledPixmap6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -3120,10 +3928,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sx: i32 `
     ///
-    pub fn DrawTiledPixmap6(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32) void {
+    pub fn drawTiledPixmap6(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32) void {
         comptime _ = @TypeOf(param5)._is_QPixmap;
         qtc.QPainter_DrawTiledPixmap6(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr), @bitCast(sx));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap7` instead
+    ///
+    pub const DrawTiledPixmap7 = drawTiledPixmap7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -3145,10 +3957,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sy: i32 `
     ///
-    pub fn DrawTiledPixmap7(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32, sy: i32) void {
+    pub fn drawTiledPixmap7(self: QPainter, x: i32, y: i32, w: i32, h: i32, param5: anytype, sx: i32, sy: i32) void {
         comptime _ = @TypeOf(param5)._is_QPixmap;
         qtc.QPainter_DrawTiledPixmap7(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @ptrCast(param5.ptr), @bitCast(sx), @bitCast(sy));
     }
+
+    /// ### DEPRECATED: Use `drawTiledPixmap33` instead
+    ///
+    pub const DrawTiledPixmap33 = drawTiledPixmap33;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawTiledPixmap)
     ///
@@ -3162,12 +3978,16 @@ pub const QPainter = extern struct {
     ///
     /// ` param3: QPoint `
     ///
-    pub fn DrawTiledPixmap33(self: QPainter, param1: anytype, param2: anytype, param3: anytype) void {
+    pub fn drawTiledPixmap33(self: QPainter, param1: anytype, param2: anytype, param3: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         comptime _ = @TypeOf(param2)._is_QPixmap;
         comptime _ = @TypeOf(param3)._is_QPoint;
         qtc.QPainter_DrawTiledPixmap33(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawPixmapFragments4` instead
+    ///
+    pub const DrawPixmapFragments4 = drawPixmapFragments4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawPixmapFragments)
     ///
@@ -3183,11 +4003,15 @@ pub const QPainter = extern struct {
     ///
     /// ` hints: flag of qpainter_enums.PixmapFragmentHint `
     ///
-    pub fn DrawPixmapFragments4(self: QPainter, fragments: anytype, fragmentCount: i32, pixmap: anytype, hints: i32) void {
+    pub fn drawPixmapFragments4(self: QPainter, fragments: anytype, fragmentCount: i32, pixmap: anytype, hints: i32) void {
         comptime _ = @TypeOf(fragments)._is_QPainter__PixmapFragment;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         qtc.QPainter_DrawPixmapFragments4(@ptrCast(self.ptr), @ptrCast(fragments.ptr), @bitCast(fragmentCount), @ptrCast(pixmap.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `drawImage42` instead
+    ///
+    pub const DrawImage42 = drawImage42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3203,12 +4027,16 @@ pub const QPainter = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage42(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
+    pub fn drawImage42(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
         comptime _ = @TypeOf(targetRect)._is_QRectF;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         qtc.QPainter_DrawImage42(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `drawImage43` instead
+    ///
+    pub const DrawImage43 = drawImage43;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3224,12 +4052,16 @@ pub const QPainter = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage43(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
+    pub fn drawImage43(self: QPainter, targetRect: anytype, image: anytype, sourceRect: anytype, flags: i32) void {
         comptime _ = @TypeOf(targetRect)._is_QRect;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sourceRect)._is_QRect;
         qtc.QPainter_DrawImage43(@ptrCast(self.ptr), @ptrCast(targetRect.ptr), @ptrCast(image.ptr), @ptrCast(sourceRect.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `drawImage44` instead
+    ///
+    pub const DrawImage44 = drawImage44;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3245,12 +4077,16 @@ pub const QPainter = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage44(self: QPainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
+    pub fn drawImage44(self: QPainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
         comptime _ = @TypeOf(p)._is_QPointF;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRectF;
         qtc.QPainter_DrawImage44(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `drawImage45` instead
+    ///
+    pub const DrawImage45 = drawImage45;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3266,12 +4102,16 @@ pub const QPainter = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage45(self: QPainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
+    pub fn drawImage45(self: QPainter, p: anytype, image: anytype, sr: anytype, flags: i32) void {
         comptime _ = @TypeOf(p)._is_QPoint;
         comptime _ = @TypeOf(image)._is_QImage;
         comptime _ = @TypeOf(sr)._is_QRect;
         qtc.QPainter_DrawImage45(@ptrCast(self.ptr), @ptrCast(p.ptr), @ptrCast(image.ptr), @ptrCast(sr.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `drawImage46` instead
+    ///
+    pub const DrawImage46 = drawImage46;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3287,10 +4127,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sx: i32 `
     ///
-    pub fn DrawImage46(self: QPainter, x: i32, y: i32, image: anytype, sx: i32) void {
+    pub fn drawImage46(self: QPainter, x: i32, y: i32, image: anytype, sx: i32) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage46(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx));
     }
+
+    /// ### DEPRECATED: Use `drawImage52` instead
+    ///
+    pub const DrawImage52 = drawImage52;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3308,10 +4152,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sy: i32 `
     ///
-    pub fn DrawImage52(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32) void {
+    pub fn drawImage52(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage52(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy));
     }
+
+    /// ### DEPRECATED: Use `drawImage62` instead
+    ///
+    pub const DrawImage62 = drawImage62;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3331,10 +4179,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sw: i32 `
     ///
-    pub fn DrawImage62(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32) void {
+    pub fn drawImage62(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage62(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw));
     }
+
+    /// ### DEPRECATED: Use `drawImage72` instead
+    ///
+    pub const DrawImage72 = drawImage72;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3356,10 +4208,14 @@ pub const QPainter = extern struct {
     ///
     /// ` sh: i32 `
     ///
-    pub fn DrawImage72(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
+    pub fn drawImage72(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage72(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh));
     }
+
+    /// ### DEPRECATED: Use `drawImage82` instead
+    ///
+    pub const DrawImage82 = drawImage82;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawImage)
     ///
@@ -3383,10 +4239,14 @@ pub const QPainter = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.ImageConversionFlag `
     ///
-    pub fn DrawImage82(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
+    pub fn drawImage82(self: QPainter, x: i32, y: i32, image: anytype, sx: i32, sy: i32, sw: i32, sh: i32, flags: i32) void {
         comptime _ = @TypeOf(image)._is_QImage;
         qtc.QPainter_DrawImage82(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @ptrCast(image.ptr), @bitCast(sx), @bitCast(sy), @bitCast(sw), @bitCast(sh), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `drawText42` instead
+    ///
+    pub const DrawText42 = drawText42;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -3402,7 +4262,7 @@ pub const QPainter = extern struct {
     ///
     /// ` br: QRectF `
     ///
-    pub fn DrawText42(self: QPainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
+    pub fn drawText42(self: QPainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3411,6 +4271,10 @@ pub const QPainter = extern struct {
         comptime _ = @TypeOf(br)._is_QRectF;
         qtc.QPainter_DrawText42(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawText43` instead
+    ///
+    pub const DrawText43 = drawText43;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -3426,7 +4290,7 @@ pub const QPainter = extern struct {
     ///
     /// ` br: QRect `
     ///
-    pub fn DrawText43(self: QPainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
+    pub fn drawText43(self: QPainter, r: anytype, flags: i32, text: []const u8, br: anytype) void {
         comptime _ = @TypeOf(r)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3435,6 +4299,10 @@ pub const QPainter = extern struct {
         comptime _ = @TypeOf(br)._is_QRect;
         qtc.QPainter_DrawText43(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawText72` instead
+    ///
+    pub const DrawText72 = drawText72;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -3456,7 +4324,7 @@ pub const QPainter = extern struct {
     ///
     /// ` br: QRect `
     ///
-    pub fn DrawText72(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: anytype) void {
+    pub fn drawText72(self: QPainter, x: i32, y: i32, w: i32, h: i32, flags: i32, text: []const u8, br: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3464,6 +4332,10 @@ pub const QPainter = extern struct {
         comptime _ = @TypeOf(br)._is_QRect;
         qtc.QPainter_DrawText72(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h), @bitCast(flags), text_str, @ptrCast(br.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawText32` instead
+    ///
+    pub const DrawText32 = drawText32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#drawText)
     ///
@@ -3477,7 +4349,7 @@ pub const QPainter = extern struct {
     ///
     /// ` o: QTextOption `
     ///
-    pub fn DrawText32(self: QPainter, r: anytype, text: []const u8, o: anytype) void {
+    pub fn drawText32(self: QPainter, r: anytype, text: []const u8, o: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3486,6 +4358,10 @@ pub const QPainter = extern struct {
         comptime _ = @TypeOf(o)._is_QTextOption;
         qtc.QPainter_DrawText32(@ptrCast(self.ptr), @ptrCast(r.ptr), text_str, @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingRect32` instead
+    ///
+    pub const BoundingRect32 = boundingRect32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#boundingRect)
     ///
@@ -3499,7 +4375,7 @@ pub const QPainter = extern struct {
     ///
     /// ` o: QTextOption `
     ///
-    pub fn BoundingRect32(self: QPainter, rect: anytype, text: []const u8, o: anytype) QRectF {
+    pub fn boundingRect32(self: QPainter, rect: anytype, text: []const u8, o: anytype) QRectF {
         comptime _ = @TypeOf(rect)._is_QRectF;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3508,6 +4384,10 @@ pub const QPainter = extern struct {
         comptime _ = @TypeOf(o)._is_QTextOption;
         return .{ .ptr = qtc.QPainter_BoundingRect32(@ptrCast(self.ptr), @ptrCast(rect.ptr), text_str, @ptrCast(o.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRenderHint2` instead
+    ///
+    pub const SetRenderHint2 = setRenderHint2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHint)
     ///
@@ -3519,9 +4399,13 @@ pub const QPainter = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetRenderHint2(self: QPainter, hint: i32, on: bool) void {
+    pub fn setRenderHint2(self: QPainter, hint: i32, on: bool) void {
         qtc.QPainter_SetRenderHint2(@ptrCast(self.ptr), @bitCast(hint), on);
     }
+
+    /// ### DEPRECATED: Use `setRenderHints2` instead
+    ///
+    pub const SetRenderHints2 = setRenderHints2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#setRenderHints)
     ///
@@ -3533,23 +4417,23 @@ pub const QPainter = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetRenderHints2(self: QPainter, hints: i32, on: bool) void {
+    pub fn setRenderHints2(self: QPainter, hints: i32, on: bool) void {
         qtc.QPainter_SetRenderHints2(@ptrCast(self.ptr), @bitCast(hints), on);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter.html#dtor.QPainter)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPainter `
     ///
-    pub fn Delete(self: QPainter) void {
+    pub fn delete(self: QPainter) void {
         qtc.QPainter_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3564,44 +4448,64 @@ pub const QPainter__PixmapFragment = extern struct {
 
     pub const _is_QPainter__PixmapFragment = {};
 
-    /// New constructs a new QPainter::PixmapFragment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPainter__PixmapFragment {
+    pub const New = new;
+
+    /// Allocate a new QPainter::PixmapFragment object in C++ memory
+    ///
+    pub fn new() QPainter__PixmapFragment {
         return .{ .ptr = qtc.QPainter__PixmapFragment_new() };
     }
 
-    /// New2 constructs a new QPainter::PixmapFragment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPainter::PixmapFragment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QPainter__PixmapFragment `
     ///
-    pub fn New2(param1: anytype) QPainter__PixmapFragment {
+    pub fn new2(param1: anytype) QPainter__PixmapFragment {
         comptime _ = @TypeOf(param1)._is_QPainter__PixmapFragment;
         return .{ .ptr = qtc.QPainter__PixmapFragment_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn X(self: QPainter__PixmapFragment) f64 {
+    pub fn x(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_X(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setX` instead
+    ///
+    pub const SetX = setX;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#x-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` x: f64 `
+    /// ` _x: f64 `
     ///
-    pub fn SetX(self: QPainter__PixmapFragment, x: f64) void {
-        qtc.QPainter__PixmapFragment_SetX(@ptrCast(self.ptr), @bitCast(x));
+    pub fn setX(self: QPainter__PixmapFragment, _x: f64) void {
+        qtc.QPainter__PixmapFragment_SetX(@ptrCast(self.ptr), @bitCast(_x));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#y-var)
     ///
@@ -3609,21 +4513,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Y(self: QPainter__PixmapFragment) f64 {
+    pub fn y(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_Y(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setY` instead
+    ///
+    pub const SetY = setY;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#y-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` y: f64 `
+    /// ` _y: f64 `
     ///
-    pub fn SetY(self: QPainter__PixmapFragment, y: f64) void {
-        qtc.QPainter__PixmapFragment_SetY(@ptrCast(self.ptr), @bitCast(y));
+    pub fn setY(self: QPainter__PixmapFragment, _y: f64) void {
+        qtc.QPainter__PixmapFragment_SetY(@ptrCast(self.ptr), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `sourceLeft` instead
+    ///
+    pub const SourceLeft = sourceLeft;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceLeft-var)
     ///
@@ -3631,21 +4543,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn SourceLeft(self: QPainter__PixmapFragment) f64 {
+    pub fn sourceLeft(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_SourceLeft(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSourceLeft` instead
+    ///
+    pub const SetSourceLeft = setSourceLeft;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceLeft-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` sourceLeft: f64 `
+    /// ` _sourceLeft: f64 `
     ///
-    pub fn SetSourceLeft(self: QPainter__PixmapFragment, sourceLeft: f64) void {
-        qtc.QPainter__PixmapFragment_SetSourceLeft(@ptrCast(self.ptr), @bitCast(sourceLeft));
+    pub fn setSourceLeft(self: QPainter__PixmapFragment, _sourceLeft: f64) void {
+        qtc.QPainter__PixmapFragment_SetSourceLeft(@ptrCast(self.ptr), @bitCast(_sourceLeft));
     }
+
+    /// ### DEPRECATED: Use `sourceTop` instead
+    ///
+    pub const SourceTop = sourceTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceTop-var)
     ///
@@ -3653,21 +4573,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn SourceTop(self: QPainter__PixmapFragment) f64 {
+    pub fn sourceTop(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_SourceTop(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSourceTop` instead
+    ///
+    pub const SetSourceTop = setSourceTop;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#sourceTop-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` sourceTop: f64 `
+    /// ` _sourceTop: f64 `
     ///
-    pub fn SetSourceTop(self: QPainter__PixmapFragment, sourceTop: f64) void {
-        qtc.QPainter__PixmapFragment_SetSourceTop(@ptrCast(self.ptr), @bitCast(sourceTop));
+    pub fn setSourceTop(self: QPainter__PixmapFragment, _sourceTop: f64) void {
+        qtc.QPainter__PixmapFragment_SetSourceTop(@ptrCast(self.ptr), @bitCast(_sourceTop));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#width-var)
     ///
@@ -3675,21 +4603,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Width(self: QPainter__PixmapFragment) f64 {
+    pub fn width(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_Width(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#width-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` width: f64 `
+    /// ` _width: f64 `
     ///
-    pub fn SetWidth(self: QPainter__PixmapFragment, width: f64) void {
-        qtc.QPainter__PixmapFragment_SetWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setWidth(self: QPainter__PixmapFragment, _width: f64) void {
+        qtc.QPainter__PixmapFragment_SetWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#height-var)
     ///
@@ -3697,21 +4633,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Height(self: QPainter__PixmapFragment) f64 {
+    pub fn height(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_Height(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setHeight` instead
+    ///
+    pub const SetHeight = setHeight;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#height-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` height: f64 `
+    /// ` _height: f64 `
     ///
-    pub fn SetHeight(self: QPainter__PixmapFragment, height: f64) void {
-        qtc.QPainter__PixmapFragment_SetHeight(@ptrCast(self.ptr), @bitCast(height));
+    pub fn setHeight(self: QPainter__PixmapFragment, _height: f64) void {
+        qtc.QPainter__PixmapFragment_SetHeight(@ptrCast(self.ptr), @bitCast(_height));
     }
+
+    /// ### DEPRECATED: Use `scaleX` instead
+    ///
+    pub const ScaleX = scaleX;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleX-var)
     ///
@@ -3719,21 +4663,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn ScaleX(self: QPainter__PixmapFragment) f64 {
+    pub fn scaleX(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_ScaleX(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setScaleX` instead
+    ///
+    pub const SetScaleX = setScaleX;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleX-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` scaleX: f64 `
+    /// ` _scaleX: f64 `
     ///
-    pub fn SetScaleX(self: QPainter__PixmapFragment, scaleX: f64) void {
-        qtc.QPainter__PixmapFragment_SetScaleX(@ptrCast(self.ptr), @bitCast(scaleX));
+    pub fn setScaleX(self: QPainter__PixmapFragment, _scaleX: f64) void {
+        qtc.QPainter__PixmapFragment_SetScaleX(@ptrCast(self.ptr), @bitCast(_scaleX));
     }
+
+    /// ### DEPRECATED: Use `scaleY` instead
+    ///
+    pub const ScaleY = scaleY;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleY-var)
     ///
@@ -3741,21 +4693,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn ScaleY(self: QPainter__PixmapFragment) f64 {
+    pub fn scaleY(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_ScaleY(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setScaleY` instead
+    ///
+    pub const SetScaleY = setScaleY;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#scaleY-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` scaleY: f64 `
+    /// ` _scaleY: f64 `
     ///
-    pub fn SetScaleY(self: QPainter__PixmapFragment, scaleY: f64) void {
-        qtc.QPainter__PixmapFragment_SetScaleY(@ptrCast(self.ptr), @bitCast(scaleY));
+    pub fn setScaleY(self: QPainter__PixmapFragment, _scaleY: f64) void {
+        qtc.QPainter__PixmapFragment_SetScaleY(@ptrCast(self.ptr), @bitCast(_scaleY));
     }
+
+    /// ### DEPRECATED: Use `rotation` instead
+    ///
+    pub const Rotation = rotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#rotation-var)
     ///
@@ -3763,21 +4723,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Rotation(self: QPainter__PixmapFragment) f64 {
+    pub fn rotation(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_Rotation(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRotation` instead
+    ///
+    pub const SetRotation = setRotation;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#rotation-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` rotation: f64 `
+    /// ` _rotation: f64 `
     ///
-    pub fn SetRotation(self: QPainter__PixmapFragment, rotation: f64) void {
-        qtc.QPainter__PixmapFragment_SetRotation(@ptrCast(self.ptr), @bitCast(rotation));
+    pub fn setRotation(self: QPainter__PixmapFragment, _rotation: f64) void {
+        qtc.QPainter__PixmapFragment_SetRotation(@ptrCast(self.ptr), @bitCast(_rotation));
     }
+
+    /// ### DEPRECATED: Use `opacity` instead
+    ///
+    pub const Opacity = opacity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#opacity-var)
     ///
@@ -3785,21 +4753,29 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Opacity(self: QPainter__PixmapFragment) f64 {
+    pub fn opacity(self: QPainter__PixmapFragment) f64 {
         return qtc.QPainter__PixmapFragment_Opacity(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setOpacity` instead
+    ///
+    pub const SetOpacity = setOpacity;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#opacity-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    /// ` opacity: f64 `
+    /// ` _opacity: f64 `
     ///
-    pub fn SetOpacity(self: QPainter__PixmapFragment, opacity: f64) void {
-        qtc.QPainter__PixmapFragment_SetOpacity(@ptrCast(self.ptr), @bitCast(opacity));
+    pub fn setOpacity(self: QPainter__PixmapFragment, _opacity: f64) void {
+        qtc.QPainter__PixmapFragment_SetOpacity(@ptrCast(self.ptr), @bitCast(_opacity));
     }
+
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
     ///
@@ -3809,27 +4785,15 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    pub fn Create(pos: anytype, sourceRect: anytype) QPainter__PixmapFragment {
+    pub fn create(pos: anytype, sourceRect: anytype) QPainter__PixmapFragment {
         comptime _ = @TypeOf(pos)._is_QPointF;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
         return .{ .ptr = qtc.QPainter__PixmapFragment_Create(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
+    /// ### DEPRECATED: Use `create3` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` pos: QPointF `
-    ///
-    /// ` sourceRect: QRectF `
-    ///
-    /// ` scaleX: f64 `
-    ///
-    pub fn Create3(pos: anytype, sourceRect: anytype, scaleX: f64) QPainter__PixmapFragment {
-        comptime _ = @TypeOf(pos)._is_QPointF;
-        comptime _ = @TypeOf(sourceRect)._is_QRectF;
-        return .{ .ptr = qtc.QPainter__PixmapFragment_Create3(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(scaleX)) };
-    }
+    pub const Create3 = create3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
     ///
@@ -3839,15 +4803,17 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    /// ` scaleX: f64 `
+    /// ` _scaleX: f64 `
     ///
-    /// ` scaleY: f64 `
-    ///
-    pub fn Create4(pos: anytype, sourceRect: anytype, scaleX: f64, scaleY: f64) QPainter__PixmapFragment {
+    pub fn create3(pos: anytype, sourceRect: anytype, _scaleX: f64) QPainter__PixmapFragment {
         comptime _ = @TypeOf(pos)._is_QPointF;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
-        return .{ .ptr = qtc.QPainter__PixmapFragment_Create4(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(scaleX), @bitCast(scaleY)) };
+        return .{ .ptr = qtc.QPainter__PixmapFragment_Create3(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(_scaleX)) };
     }
+
+    /// ### DEPRECATED: Use `create4` instead
+    ///
+    pub const Create4 = create4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
     ///
@@ -3857,17 +4823,19 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    /// ` scaleX: f64 `
+    /// ` _scaleX: f64 `
     ///
-    /// ` scaleY: f64 `
+    /// ` _scaleY: f64 `
     ///
-    /// ` rotation: f64 `
-    ///
-    pub fn Create5(pos: anytype, sourceRect: anytype, scaleX: f64, scaleY: f64, rotation: f64) QPainter__PixmapFragment {
+    pub fn create4(pos: anytype, sourceRect: anytype, _scaleX: f64, _scaleY: f64) QPainter__PixmapFragment {
         comptime _ = @TypeOf(pos)._is_QPointF;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
-        return .{ .ptr = qtc.QPainter__PixmapFragment_Create5(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(scaleX), @bitCast(scaleY), @bitCast(rotation)) };
+        return .{ .ptr = qtc.QPainter__PixmapFragment_Create4(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(_scaleX), @bitCast(_scaleY)) };
     }
+
+    /// ### DEPRECATED: Use `create5` instead
+    ///
+    pub const Create5 = create5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
     ///
@@ -3877,31 +4845,55 @@ pub const QPainter__PixmapFragment = extern struct {
     ///
     /// ` sourceRect: QRectF `
     ///
-    /// ` scaleX: f64 `
+    /// ` _scaleX: f64 `
     ///
-    /// ` scaleY: f64 `
+    /// ` _scaleY: f64 `
     ///
-    /// ` rotation: f64 `
+    /// ` _rotation: f64 `
     ///
-    /// ` opacity: f64 `
-    ///
-    pub fn Create6(pos: anytype, sourceRect: anytype, scaleX: f64, scaleY: f64, rotation: f64, opacity: f64) QPainter__PixmapFragment {
+    pub fn create5(pos: anytype, sourceRect: anytype, _scaleX: f64, _scaleY: f64, _rotation: f64) QPainter__PixmapFragment {
         comptime _ = @TypeOf(pos)._is_QPointF;
         comptime _ = @TypeOf(sourceRect)._is_QRectF;
-        return .{ .ptr = qtc.QPainter__PixmapFragment_Create6(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(scaleX), @bitCast(scaleY), @bitCast(rotation), @bitCast(opacity)) };
+        return .{ .ptr = qtc.QPainter__PixmapFragment_Create5(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(_scaleX), @bitCast(_scaleY), @bitCast(_rotation)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `create6` instead
     ///
-    pub const QDelete = Delete;
+    pub const Create6 = create6;
 
-    /// Delete this object from C++ memory.
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qpainter-pixmapfragment.html#create)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` pos: QPointF `
+    ///
+    /// ` sourceRect: QRectF `
+    ///
+    /// ` _scaleX: f64 `
+    ///
+    /// ` _scaleY: f64 `
+    ///
+    /// ` _rotation: f64 `
+    ///
+    /// ` _opacity: f64 `
+    ///
+    pub fn create6(pos: anytype, sourceRect: anytype, _scaleX: f64, _scaleY: f64, _rotation: f64, _opacity: f64) QPainter__PixmapFragment {
+        comptime _ = @TypeOf(pos)._is_QPointF;
+        comptime _ = @TypeOf(sourceRect)._is_QRectF;
+        return .{ .ptr = qtc.QPainter__PixmapFragment_Create6(@ptrCast(pos.ptr), @ptrCast(sourceRect.ptr), @bitCast(_scaleX), @bitCast(_scaleY), @bitCast(_rotation), @bitCast(_opacity)) };
+    }
+
+    /// ### DEPRECATED: Use `delete` instead
+    ///
+    pub const Delete = delete;
+
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPainter__PixmapFragment `
     ///
-    pub fn Delete(self: QPainter__PixmapFragment) void {
+    pub fn delete(self: QPainter__PixmapFragment) void {
         qtc.QPainter__PixmapFragment_Delete(@ptrCast(self.ptr));
     }
 };

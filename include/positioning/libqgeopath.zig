@@ -18,63 +18,87 @@ pub const QGeoPath = extern struct {
     pub const _is_QGeoPath = {};
     pub const _is_QGeoShape = {};
 
-    /// New constructs a new QGeoPath object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QGeoPath {
+    pub const New = new;
+
+    /// Allocate a new QGeoPath object in C++ memory
+    ///
+    pub fn new() QGeoPath {
         return .{ .ptr = qtc.QGeoPath_new() };
     }
 
-    /// New2 constructs a new QGeoPath object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QGeoPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []QGeoCoordinate `
+    /// ` _path: []QGeoCoordinate `
     ///
-    pub fn New2(path: []QGeoCoordinate) QGeoPath {
+    pub fn new2(_path: []QGeoCoordinate) QGeoPath {
         const path_list = qtc.libqt_list{
-            .len = path.len,
-            .data = @ptrCast(path.ptr),
+            .len = _path.len,
+            .data = @ptrCast(_path.ptr),
         };
         return .{ .ptr = qtc.QGeoPath_new2(path_list) };
     }
 
-    /// New3 constructs a new QGeoPath object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QGeoPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoPath `
     ///
-    pub fn New3(other: anytype) QGeoPath {
+    pub fn new3(other: anytype) QGeoPath {
         comptime _ = @TypeOf(other)._is_QGeoPath;
         return .{ .ptr = qtc.QGeoPath_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QGeoPath object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QGeoPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QGeoShape `
     ///
-    pub fn New4(other: anytype) QGeoPath {
+    pub fn new4(other: anytype) QGeoPath {
         comptime _ = @TypeOf(other)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoPath_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QGeoPath object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QGeoPath object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` path: []QGeoCoordinate `
+    /// ` _path: []QGeoCoordinate `
     ///
-    /// ` width: *const f64 `
+    /// ` _width: *const f64 `
     ///
-    pub fn New5(path: []QGeoCoordinate, width: *const f64) QGeoPath {
+    pub fn new5(_path: []QGeoCoordinate, _width: *const f64) QGeoPath {
         const path_list = qtc.libqt_list{
-            .len = path.len,
-            .data = @ptrCast(path.ptr),
+            .len = _path.len,
+            .data = @ptrCast(_path.ptr),
         };
-        return .{ .ptr = qtc.QGeoPath_new5(path_list, @ptrCast(width)) };
+        return .{ .ptr = qtc.QGeoPath_new5(path_list, @ptrCast(_width)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#operator-eq)
     ///
@@ -84,10 +108,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` other: QGeoPath `
     ///
-    pub fn OperatorAssign(self: QGeoPath, other: anytype) void {
+    pub fn operatorAssign(self: QGeoPath, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QGeoPath;
         qtc.QGeoPath_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPath` instead
+    ///
+    pub const SetPath = setPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#setPath)
     ///
@@ -95,15 +123,19 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    /// ` path: []QGeoCoordinate `
+    /// ` _path: []QGeoCoordinate `
     ///
-    pub fn SetPath(self: QGeoPath, path: []QGeoCoordinate) void {
+    pub fn setPath(self: QGeoPath, _path: []QGeoCoordinate) void {
         const path_list = qtc.libqt_list{
-            .len = path.len,
-            .data = @ptrCast(path.ptr),
+            .len = _path.len,
+            .data = @ptrCast(_path.ptr),
         };
         qtc.QGeoPath_SetPath(@ptrCast(self.ptr), path_list);
     }
+
+    /// ### DEPRECATED: Use `path` instead
+    ///
+    pub const Path = path;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#path)
     ///
@@ -113,15 +145,19 @@ pub const QGeoPath = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Path(self: QGeoPath, allocator: std.mem.Allocator) []QGeoCoordinate {
+    pub fn path(self: QGeoPath, allocator: std.mem.Allocator) []QGeoCoordinate {
         const _arr: qtc.libqt_list = qtc.QGeoPath_Path(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPath.Path: Memory allocation failed");
-        const _data: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QGeoCoordinate, _arr.len) catch @panic("QGeoPath.path: Memory allocation failed");
+        const _data_val: [*]QtC.QGeoCoordinate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `clearPath` instead
+    ///
+    pub const ClearPath = clearPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#clearPath)
     ///
@@ -129,9 +165,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn ClearPath(self: QGeoPath) void {
+    pub fn clearPath(self: QGeoPath) void {
         qtc.QGeoPath_ClearPath(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVariantPath` instead
+    ///
+    pub const SetVariantPath = setVariantPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#setVariantPath)
     ///
@@ -139,15 +179,19 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    /// ` path: []QVariant `
+    /// ` _path: []QVariant `
     ///
-    pub fn SetVariantPath(self: QGeoPath, path: []QVariant) void {
+    pub fn setVariantPath(self: QGeoPath, _path: []QVariant) void {
         const path_list = qtc.libqt_list{
-            .len = path.len,
-            .data = @ptrCast(path.ptr),
+            .len = _path.len,
+            .data = @ptrCast(_path.ptr),
         };
         qtc.QGeoPath_SetVariantPath(@ptrCast(self.ptr), path_list);
     }
+
+    /// ### DEPRECATED: Use `variantPath` instead
+    ///
+    pub const VariantPath = variantPath;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#variantPath)
     ///
@@ -157,15 +201,19 @@ pub const QGeoPath = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VariantPath(self: QGeoPath, allocator: std.mem.Allocator) []QVariant {
+    pub fn variantPath(self: QGeoPath, allocator: std.mem.Allocator) []QVariant {
         const _arr: qtc.libqt_list = qtc.QGeoPath_VariantPath(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QGeoPath.VariantPath: Memory allocation failed");
-        const _data: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QVariant, _arr.len) catch @panic("QGeoPath.variantPath: Memory allocation failed");
+        const _data_val: [*]QtC.QVariant = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWidth` instead
+    ///
+    pub const SetWidth = setWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#setWidth)
     ///
@@ -173,11 +221,15 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    /// ` width: *const f64 `
+    /// ` _width: *const f64 `
     ///
-    pub fn SetWidth(self: QGeoPath, width: *const f64) void {
-        qtc.QGeoPath_SetWidth(@ptrCast(self.ptr), @ptrCast(width));
+    pub fn setWidth(self: QGeoPath, _width: *const f64) void {
+        qtc.QGeoPath_SetWidth(@ptrCast(self.ptr), @ptrCast(_width));
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#width)
     ///
@@ -185,9 +237,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn Width(self: QGeoPath) f64 {
+    pub fn width(self: QGeoPath) f64 {
         return qtc.QGeoPath_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `translate` instead
+    ///
+    pub const Translate = translate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#translate)
     ///
@@ -199,9 +255,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translate(self: QGeoPath, degreesLatitude: f64, degreesLongitude: f64) void {
+    pub fn translate(self: QGeoPath, degreesLatitude: f64, degreesLongitude: f64) void {
         qtc.QGeoPath_Translate(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude));
     }
+
+    /// ### DEPRECATED: Use `translated` instead
+    ///
+    pub const Translated = translated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#translated)
     ///
@@ -213,9 +273,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` degreesLongitude: f64 `
     ///
-    pub fn Translated(self: QGeoPath, degreesLatitude: f64, degreesLongitude: f64) QGeoPath {
+    pub fn translated(self: QGeoPath, degreesLatitude: f64, degreesLongitude: f64) QGeoPath {
         return .{ .ptr = qtc.QGeoPath_Translated(@ptrCast(self.ptr), @bitCast(degreesLatitude), @bitCast(degreesLongitude)) };
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#length)
     ///
@@ -223,9 +287,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn Length(self: QGeoPath) f64 {
+    pub fn length(self: QGeoPath) f64 {
         return qtc.QGeoPath_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#size)
     ///
@@ -233,9 +301,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn Size(self: QGeoPath) isize {
+    pub fn size(self: QGeoPath) isize {
         return qtc.QGeoPath_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addCoordinate` instead
+    ///
+    pub const AddCoordinate = addCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#addCoordinate)
     ///
@@ -245,10 +317,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn AddCoordinate(self: QGeoPath, coordinate: anytype) void {
+    pub fn addCoordinate(self: QGeoPath, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPath_AddCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertCoordinate` instead
+    ///
+    pub const InsertCoordinate = insertCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#insertCoordinate)
     ///
@@ -260,10 +336,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn InsertCoordinate(self: QGeoPath, index: isize, coordinate: anytype) void {
+    pub fn insertCoordinate(self: QGeoPath, index: isize, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPath_InsertCoordinate(@ptrCast(self.ptr), @bitCast(index), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `replaceCoordinate` instead
+    ///
+    pub const ReplaceCoordinate = replaceCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#replaceCoordinate)
     ///
@@ -275,10 +355,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ReplaceCoordinate(self: QGeoPath, index: isize, coordinate: anytype) void {
+    pub fn replaceCoordinate(self: QGeoPath, index: isize, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPath_ReplaceCoordinate(@ptrCast(self.ptr), @bitCast(index), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `coordinateAt` instead
+    ///
+    pub const CoordinateAt = coordinateAt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#coordinateAt)
     ///
@@ -288,9 +372,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn CoordinateAt(self: QGeoPath, index: isize) QGeoCoordinate {
+    pub fn coordinateAt(self: QGeoPath, index: isize) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoPath_CoordinateAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `containsCoordinate` instead
+    ///
+    pub const ContainsCoordinate = containsCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#containsCoordinate)
     ///
@@ -300,10 +388,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ContainsCoordinate(self: QGeoPath, coordinate: anytype) bool {
+    pub fn containsCoordinate(self: QGeoPath, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoPath_ContainsCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCoordinate` instead
+    ///
+    pub const RemoveCoordinate = removeCoordinate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#removeCoordinate)
     ///
@@ -313,10 +405,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn RemoveCoordinate(self: QGeoPath, coordinate: anytype) void {
+    pub fn removeCoordinate(self: QGeoPath, coordinate: anytype) void {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         qtc.QGeoPath_RemoveCoordinate(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeCoordinate2` instead
+    ///
+    pub const RemoveCoordinate2 = removeCoordinate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#removeCoordinate)
     ///
@@ -326,9 +422,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` index: isize `
     ///
-    pub fn RemoveCoordinate2(self: QGeoPath, index: isize) void {
+    pub fn removeCoordinate2(self: QGeoPath, index: isize) void {
         qtc.QGeoPath_RemoveCoordinate2(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#toString)
     ///
@@ -338,13 +438,17 @@ pub const QGeoPath = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QGeoPath, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QGeoPath, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoPath_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoPath.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoPath.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `length1` instead
+    ///
+    pub const Length1 = length1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#length)
     ///
@@ -354,9 +458,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` indexFrom: isize `
     ///
-    pub fn Length1(self: QGeoPath, indexFrom: isize) f64 {
+    pub fn length1(self: QGeoPath, indexFrom: isize) f64 {
         return qtc.QGeoPath_Length1(@ptrCast(self.ptr), @bitCast(indexFrom));
     }
+
+    /// ### DEPRECATED: Use `length2` instead
+    ///
+    pub const Length2 = length2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#length)
     ///
@@ -368,9 +476,15 @@ pub const QGeoPath = extern struct {
     ///
     /// ` indexTo: isize `
     ///
-    pub fn Length2(self: QGeoPath, indexFrom: isize, indexTo: isize) f64 {
+    pub fn length2(self: QGeoPath, indexFrom: isize, indexTo: isize) f64 {
         return qtc.QGeoPath_Length2(@ptrCast(self.ptr), @bitCast(indexFrom), @bitCast(indexTo));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QGeoShape
     ///
@@ -384,9 +498,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` qgeoshape_enums.ShapeType `
     ///
-    pub fn Type(self: QGeoPath) i32 {
+    pub fn type0(self: QGeoPath) i32 {
         return qtc.QGeoShape_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// Inherited from QGeoShape
     ///
@@ -396,9 +514,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn IsValid(self: QGeoPath) bool {
+    pub fn isValid(self: QGeoPath) bool {
         return qtc.QGeoShape_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// Inherited from QGeoShape
     ///
@@ -408,9 +530,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn IsEmpty(self: QGeoPath) bool {
+    pub fn isEmpty(self: QGeoPath) bool {
         return qtc.QGeoShape_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// Inherited from QGeoShape
     ///
@@ -422,10 +548,14 @@ pub const QGeoPath = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn Contains(self: QGeoPath, coordinate: anytype) bool {
+    pub fn contains(self: QGeoPath, coordinate: anytype) bool {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return qtc.QGeoShape_Contains(@ptrCast(self.ptr), @ptrCast(coordinate.ptr));
     }
+
+    /// ### DEPRECATED: Use `boundingGeoRectangle` instead
+    ///
+    pub const BoundingGeoRectangle = boundingGeoRectangle;
 
     /// Inherited from QGeoShape
     ///
@@ -435,9 +565,13 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn BoundingGeoRectangle(self: QGeoPath) QGeoRectangle {
+    pub fn boundingGeoRectangle(self: QGeoPath) QGeoRectangle {
         return .{ .ptr = qtc.QGeoShape_BoundingGeoRectangle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `center` instead
+    ///
+    pub const Center = center;
 
     /// Inherited from QGeoShape
     ///
@@ -447,23 +581,23 @@ pub const QGeoPath = extern struct {
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn Center(self: QGeoPath) QGeoCoordinate {
+    pub fn center(self: QGeoPath) QGeoCoordinate {
         return .{ .ptr = qtc.QGeoShape_Center(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeopath.html#dtor.QGeoPath)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoPath `
     ///
-    pub fn Delete(self: QGeoPath) void {
+    pub fn delete(self: QGeoPath) void {
         qtc.QGeoPath_Delete(@ptrCast(self.ptr));
     }
 };

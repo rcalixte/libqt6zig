@@ -91,22 +91,34 @@ pub const QFontComboBox = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QFontComboBox object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFontComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QFontComboBox {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QFontComboBox_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QFontComboBox {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QFontComboBox_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QFontComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QFontComboBox {
+    pub const New2 = new2;
+
+    /// Allocate a new QFontComboBox object in C++ memory
+    ///
+    pub fn new2() QFontComboBox {
         return .{ .ptr = qtc.QFontComboBox_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -114,9 +126,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MetaObject(self: QFontComboBox) QMetaObject {
+    pub fn metaObject(self: QFontComboBox) QMetaObject {
         return .{ .ptr = qtc.QFontComboBox_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -128,13 +144,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QFontComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFontComboBox, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QFontComboBox_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -144,9 +160,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperMetaObject(self: QFontComboBox) QMetaObject {
+    pub fn superMetaObject(self: QFontComboBox) QMetaObject {
         return .{ .ptr = qtc.QFontComboBox_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -154,10 +174,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QFontComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QFontComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFontComboBox_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -167,13 +191,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QFontComboBox_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -183,10 +207,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QFontComboBox, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QFontComboBox, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFontComboBox_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -198,9 +226,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QFontComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QFontComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFontComboBox_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -210,13 +242,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QFontComboBox, callback: *const fn (QFontComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QFontComboBox, callback: *const fn (QFontComboBox, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QFontComboBox_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -230,9 +262,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QFontComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QFontComboBox, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFontComboBox_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -242,14 +278,18 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWritingSystem` instead
+    ///
+    pub const SetWritingSystem = setWritingSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setWritingSystem)
     ///
@@ -257,11 +297,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    /// ` _writingSystem: qfontdatabase_enums.WritingSystem `
     ///
-    pub fn SetWritingSystem(self: QFontComboBox, writingSystem: i32) void {
-        qtc.QFontComboBox_SetWritingSystem(@ptrCast(self.ptr), @bitCast(writingSystem));
+    pub fn setWritingSystem(self: QFontComboBox, _writingSystem: i32) void {
+        qtc.QFontComboBox_SetWritingSystem(@ptrCast(self.ptr), @bitCast(_writingSystem));
     }
+
+    /// ### DEPRECATED: Use `writingSystem` instead
+    ///
+    pub const WritingSystem = writingSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#writingSystem)
     ///
@@ -273,9 +317,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qfontdatabase_enums.WritingSystem `
     ///
-    pub fn WritingSystem(self: QFontComboBox) i32 {
+    pub fn writingSystem(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_WritingSystem(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFontFilters` instead
+    ///
+    pub const SetFontFilters = setFontFilters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setFontFilters)
     ///
@@ -285,9 +333,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` filters: flag of qfontcombobox_enums.FontFilter `
     ///
-    pub fn SetFontFilters(self: QFontComboBox, filters: i32) void {
+    pub fn setFontFilters(self: QFontComboBox, filters: i32) void {
         qtc.QFontComboBox_SetFontFilters(@ptrCast(self.ptr), @bitCast(filters));
     }
+
+    /// ### DEPRECATED: Use `fontFilters` instead
+    ///
+    pub const FontFilters = fontFilters;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#fontFilters)
     ///
@@ -299,9 +351,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flag of qfontcombobox_enums.FontFilter `
     ///
-    pub fn FontFilters(self: QFontComboBox) i32 {
+    pub fn fontFilters(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_FontFilters(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentFont` instead
+    ///
+    pub const CurrentFont = currentFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#currentFont)
     ///
@@ -309,9 +365,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn CurrentFont(self: QFontComboBox) QFont {
+    pub fn currentFont(self: QFontComboBox) QFont {
         return .{ .ptr = qtc.QFontComboBox_CurrentFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#sizeHint)
     ///
@@ -319,9 +379,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SizeHint(self: QFontComboBox) QSize {
+    pub fn sizeHint(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QFontComboBox_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#sizeHint)
     ///
@@ -335,13 +399,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QFontComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QFontComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFontComboBox_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#sizeHint)
     ///
@@ -351,9 +415,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperSizeHint(self: QFontComboBox) QSize {
+    pub fn superSizeHint(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QFontComboBox_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSampleTextForSystem` instead
+    ///
+    pub const SetSampleTextForSystem = setSampleTextForSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setSampleTextForSystem)
     ///
@@ -361,17 +429,21 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    /// ` _writingSystem: qfontdatabase_enums.WritingSystem `
     ///
     /// ` sampleText: []const u8 `
     ///
-    pub fn SetSampleTextForSystem(self: QFontComboBox, writingSystem: i32, sampleText: []const u8) void {
+    pub fn setSampleTextForSystem(self: QFontComboBox, _writingSystem: i32, sampleText: []const u8) void {
         const sampleText_str = qtc.libqt_string{
             .len = sampleText.len,
             .data = sampleText.ptr,
         };
-        qtc.QFontComboBox_SetSampleTextForSystem(@ptrCast(self.ptr), @bitCast(writingSystem), sampleText_str);
+        qtc.QFontComboBox_SetSampleTextForSystem(@ptrCast(self.ptr), @bitCast(_writingSystem), sampleText_str);
     }
+
+    /// ### DEPRECATED: Use `sampleTextForSystem` instead
+    ///
+    pub const SampleTextForSystem = sampleTextForSystem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#sampleTextForSystem)
     ///
@@ -381,15 +453,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` writingSystem: qfontdatabase_enums.WritingSystem `
+    /// ` _writingSystem: qfontdatabase_enums.WritingSystem `
     ///
-    pub fn SampleTextForSystem(self: QFontComboBox, allocator: std.mem.Allocator, writingSystem: i32) []const u8 {
-        var _str = qtc.QFontComboBox_SampleTextForSystem(@ptrCast(self.ptr), @bitCast(writingSystem));
+    pub fn sampleTextForSystem(self: QFontComboBox, allocator: std.mem.Allocator, _writingSystem: i32) []const u8 {
+        var _str = qtc.QFontComboBox_SampleTextForSystem(@ptrCast(self.ptr), @bitCast(_writingSystem));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.SampleTextForSystem: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.sampleTextForSystem: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSampleTextForFont` instead
+    ///
+    pub const SetSampleTextForFont = setSampleTextForFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setSampleTextForFont)
     ///
@@ -401,7 +477,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` sampleText: []const u8 `
     ///
-    pub fn SetSampleTextForFont(self: QFontComboBox, fontFamily: []const u8, sampleText: []const u8) void {
+    pub fn setSampleTextForFont(self: QFontComboBox, fontFamily: []const u8, sampleText: []const u8) void {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
@@ -413,6 +489,10 @@ pub const QFontComboBox = extern struct {
         qtc.QFontComboBox_SetSampleTextForFont(@ptrCast(self.ptr), fontFamily_str, sampleText_str);
     }
 
+    /// ### DEPRECATED: Use `sampleTextForFont` instead
+    ///
+    pub const SampleTextForFont = sampleTextForFont;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#sampleTextForFont)
     ///
     /// ## Parameter(s):
@@ -423,17 +503,21 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` fontFamily: []const u8 `
     ///
-    pub fn SampleTextForFont(self: QFontComboBox, allocator: std.mem.Allocator, fontFamily: []const u8) []const u8 {
+    pub fn sampleTextForFont(self: QFontComboBox, allocator: std.mem.Allocator, fontFamily: []const u8) []const u8 {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
         };
         var _str = qtc.QFontComboBox_SampleTextForFont(@ptrCast(self.ptr), fontFamily_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.SampleTextForFont: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.sampleTextForFont: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDisplayFont` instead
+    ///
+    pub const SetDisplayFont = setDisplayFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setDisplayFont)
     ///
@@ -443,16 +527,20 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` fontFamily: []const u8 `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetDisplayFont(self: QFontComboBox, fontFamily: []const u8, font: anytype) void {
+    pub fn setDisplayFont(self: QFontComboBox, fontFamily: []const u8, _font: anytype) void {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
         };
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QFontComboBox_SetDisplayFont(@ptrCast(self.ptr), fontFamily_str, @ptrCast(font.ptr));
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QFontComboBox_SetDisplayFont(@ptrCast(self.ptr), fontFamily_str, @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `displayFont` instead
+    ///
+    pub const DisplayFont = displayFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#displayFont)
     ///
@@ -466,13 +554,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` QFont ` (NOTE: The `ptr` field could be `null`.)
     ///
-    pub fn DisplayFont(self: QFontComboBox, fontFamily: []const u8) QFont {
+    pub fn displayFont(self: QFontComboBox, fontFamily: []const u8) QFont {
         const fontFamily_str = qtc.libqt_string{
             .len = fontFamily.len,
             .data = fontFamily.ptr,
         };
         return .{ .ptr = qtc.QFontComboBox_DisplayFont(@ptrCast(self.ptr), fontFamily_str) };
     }
+
+    /// ### DEPRECATED: Use `setCurrentFont` instead
+    ///
+    pub const SetCurrentFont = setCurrentFont;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#setCurrentFont)
     ///
@@ -482,10 +574,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn SetCurrentFont(self: QFontComboBox, f: anytype) void {
+    pub fn setCurrentFont(self: QFontComboBox, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QFontComboBox_SetCurrentFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentFontChanged` instead
+    ///
+    pub const CurrentFontChanged = currentFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#currentFontChanged)
     ///
@@ -495,10 +591,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn CurrentFontChanged(self: QFontComboBox, f: anytype) void {
+    pub fn currentFontChanged(self: QFontComboBox, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QFontComboBox_CurrentFontChanged(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentFontChanged` instead
+    ///
+    pub const OnCurrentFontChanged = onCurrentFontChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#currentFontChanged)
     ///
@@ -508,9 +608,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, f: QFont) callconv(.c) void `
     ///
-    pub fn OnCurrentFontChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, QFont) callconv(.c) void) void {
+    pub fn onCurrentFontChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, QFont) callconv(.c) void) void {
         qtc.QFontComboBox_Connect_CurrentFontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#event)
     ///
@@ -520,10 +624,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QFontComboBox, e: anytype) bool {
+    pub fn event(self: QFontComboBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QFontComboBox_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#event)
     ///
@@ -535,13 +643,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) bool) void {
         qtc.QFontComboBox_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#event)
     ///
@@ -553,10 +661,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QFontComboBox, e: anytype) bool {
+    pub fn superEvent(self: QFontComboBox, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QFontComboBox_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -568,15 +680,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -590,15 +706,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maxVisibleItems` instead
+    ///
+    pub const MaxVisibleItems = maxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -608,9 +728,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MaxVisibleItems(self: QFontComboBox) i32 {
+    pub fn maxVisibleItems(self: QFontComboBox) i32 {
         return qtc.QComboBox_MaxVisibleItems(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxVisibleItems` instead
+    ///
+    pub const SetMaxVisibleItems = setMaxVisibleItems;
 
     /// Inherited from QComboBox
     ///
@@ -622,9 +746,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` maxItems: i32 `
     ///
-    pub fn SetMaxVisibleItems(self: QFontComboBox, maxItems: i32) void {
+    pub fn setMaxVisibleItems(self: QFontComboBox, maxItems: i32) void {
         qtc.QComboBox_SetMaxVisibleItems(@ptrCast(self.ptr), @bitCast(maxItems));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// Inherited from QComboBox
     ///
@@ -634,9 +762,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Count(self: QFontComboBox) i32 {
+    pub fn count(self: QFontComboBox) i32 {
         return qtc.QComboBox_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaxCount` instead
+    ///
+    pub const SetMaxCount = setMaxCount;
 
     /// Inherited from QComboBox
     ///
@@ -648,9 +780,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` max: i32 `
     ///
-    pub fn SetMaxCount(self: QFontComboBox, max: i32) void {
+    pub fn setMaxCount(self: QFontComboBox, max: i32) void {
         qtc.QComboBox_SetMaxCount(@ptrCast(self.ptr), @bitCast(max));
     }
+
+    /// ### DEPRECATED: Use `maxCount` instead
+    ///
+    pub const MaxCount = maxCount;
 
     /// Inherited from QComboBox
     ///
@@ -660,9 +796,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MaxCount(self: QFontComboBox) i32 {
+    pub fn maxCount(self: QFontComboBox) i32 {
         return qtc.QComboBox_MaxCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `duplicatesEnabled` instead
+    ///
+    pub const DuplicatesEnabled = duplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -672,9 +812,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DuplicatesEnabled(self: QFontComboBox) bool {
+    pub fn duplicatesEnabled(self: QFontComboBox) bool {
         return qtc.QComboBox_DuplicatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDuplicatesEnabled` instead
+    ///
+    pub const SetDuplicatesEnabled = setDuplicatesEnabled;
 
     /// Inherited from QComboBox
     ///
@@ -686,9 +830,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetDuplicatesEnabled(self: QFontComboBox, enable: bool) void {
+    pub fn setDuplicatesEnabled(self: QFontComboBox, enable: bool) void {
         qtc.QComboBox_SetDuplicatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
 
     /// Inherited from QComboBox
     ///
@@ -700,9 +848,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` frame: bool `
     ///
-    pub fn SetFrame(self: QFontComboBox, frame: bool) void {
+    pub fn setFrame(self: QFontComboBox, frame: bool) void {
         qtc.QComboBox_SetFrame(@ptrCast(self.ptr), frame);
     }
+
+    /// ### DEPRECATED: Use `hasFrame` instead
+    ///
+    pub const HasFrame = hasFrame;
 
     /// Inherited from QComboBox
     ///
@@ -712,9 +864,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HasFrame(self: QFontComboBox) bool {
+    pub fn hasFrame(self: QFontComboBox) bool {
         return qtc.QComboBox_HasFrame(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// Inherited from QComboBox
     ///
@@ -726,13 +882,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn FindText(self: QFontComboBox, text: []const u8) i32 {
+    pub fn findText(self: QFontComboBox, text: []const u8) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `findData` instead
+    ///
+    pub const FindData = findData;
 
     /// Inherited from QComboBox
     ///
@@ -744,10 +904,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` data: QVariant `
     ///
-    pub fn FindData(self: QFontComboBox, data: anytype) i32 {
+    pub fn findData(self: QFontComboBox, data: anytype) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData(@ptrCast(self.ptr), @ptrCast(data.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPolicy` instead
+    ///
+    pub const InsertPolicy = insertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -761,9 +925,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qcombobox_enums.InsertPolicy `
     ///
-    pub fn InsertPolicy(self: QFontComboBox) i32 {
+    pub fn insertPolicy(self: QFontComboBox) i32 {
         return qtc.QComboBox_InsertPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInsertPolicy` instead
+    ///
+    pub const SetInsertPolicy = setInsertPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -775,9 +943,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.InsertPolicy `
     ///
-    pub fn SetInsertPolicy(self: QFontComboBox, policy: i32) void {
+    pub fn setInsertPolicy(self: QFontComboBox, policy: i32) void {
         qtc.QComboBox_SetInsertPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -791,9 +963,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: QFontComboBox) i32 {
+    pub fn sizeAdjustPolicy(self: QFontComboBox) i32 {
         return qtc.QComboBox_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QComboBox
     ///
@@ -805,9 +981,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` policy: qcombobox_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: QFontComboBox, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: QFontComboBox, policy: i32) void {
         qtc.QComboBox_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `minimumContentsLength` instead
+    ///
+    pub const MinimumContentsLength = minimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -817,9 +997,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MinimumContentsLength(self: QFontComboBox) i32 {
+    pub fn minimumContentsLength(self: QFontComboBox) i32 {
         return qtc.QComboBox_MinimumContentsLength(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumContentsLength` instead
+    ///
+    pub const SetMinimumContentsLength = setMinimumContentsLength;
 
     /// Inherited from QComboBox
     ///
@@ -831,9 +1015,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` characters: i32 `
     ///
-    pub fn SetMinimumContentsLength(self: QFontComboBox, characters: i32) void {
+    pub fn setMinimumContentsLength(self: QFontComboBox, characters: i32) void {
         qtc.QComboBox_SetMinimumContentsLength(@ptrCast(self.ptr), @bitCast(characters));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QComboBox
     ///
@@ -843,9 +1031,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IconSize(self: QFontComboBox) QSize {
+    pub fn iconSize(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QComboBox_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QComboBox
     ///
@@ -855,12 +1047,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: QFontComboBox, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: QFontComboBox, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QComboBox
     ///
@@ -870,15 +1066,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: QFontComboBox, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: QFontComboBox, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QComboBox_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QComboBox
     ///
@@ -890,13 +1090,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isEditable` instead
+    ///
+    pub const IsEditable = isEditable;
 
     /// Inherited from QComboBox
     ///
@@ -906,9 +1110,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsEditable(self: QFontComboBox) bool {
+    pub fn isEditable(self: QFontComboBox) bool {
         return qtc.QComboBox_IsEditable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
 
     /// Inherited from QComboBox
     ///
@@ -920,9 +1128,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` editable: bool `
     ///
-    pub fn SetEditable(self: QFontComboBox, editable: bool) void {
+    pub fn setEditable(self: QFontComboBox, editable: bool) void {
         qtc.QComboBox_SetEditable(@ptrCast(self.ptr), editable);
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -934,10 +1146,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: QFontComboBox, edit: anytype) void {
+    pub fn setLineEdit(self: QFontComboBox, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.QComboBox_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// Inherited from QComboBox
     ///
@@ -947,9 +1163,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn LineEdit(self: QFontComboBox) QLineEdit {
+    pub fn lineEdit(self: QFontComboBox) QLineEdit {
         return .{ .ptr = qtc.QComboBox_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setValidator` instead
+    ///
+    pub const SetValidator = setValidator;
 
     /// Inherited from QComboBox
     ///
@@ -961,10 +1181,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` v: QValidator `
     ///
-    pub fn SetValidator(self: QFontComboBox, v: anytype) void {
+    pub fn setValidator(self: QFontComboBox, v: anytype) void {
         comptime _ = @TypeOf(v)._is_QValidator;
         qtc.QComboBox_SetValidator(@ptrCast(self.ptr), @ptrCast(v.ptr));
     }
+
+    /// ### DEPRECATED: Use `validator` instead
+    ///
+    pub const Validator = validator;
 
     /// Inherited from QComboBox
     ///
@@ -974,9 +1198,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Validator(self: QFontComboBox) QValidator {
+    pub fn validator(self: QFontComboBox) QValidator {
         return .{ .ptr = qtc.QComboBox_Validator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCompleter` instead
+    ///
+    pub const SetCompleter = setCompleter;
 
     /// Inherited from QComboBox
     ///
@@ -988,10 +1216,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` c: QCompleter `
     ///
-    pub fn SetCompleter(self: QFontComboBox, c: anytype) void {
+    pub fn setCompleter(self: QFontComboBox, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QCompleter;
         qtc.QComboBox_SetCompleter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `completer` instead
+    ///
+    pub const Completer = completer;
 
     /// Inherited from QComboBox
     ///
@@ -1001,9 +1233,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Completer(self: QFontComboBox) QCompleter {
+    pub fn completer(self: QFontComboBox) QCompleter {
         return .{ .ptr = qtc.QComboBox_Completer(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemDelegate` instead
+    ///
+    pub const ItemDelegate = itemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1013,9 +1249,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ItemDelegate(self: QFontComboBox) QAbstractItemDelegate {
+    pub fn itemDelegate(self: QFontComboBox) QAbstractItemDelegate {
         return .{ .ptr = qtc.QComboBox_ItemDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemDelegate` instead
+    ///
+    pub const SetItemDelegate = setItemDelegate;
 
     /// Inherited from QComboBox
     ///
@@ -1027,10 +1267,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` delegate: QAbstractItemDelegate `
     ///
-    pub fn SetItemDelegate(self: QFontComboBox, delegate: anytype) void {
+    pub fn setItemDelegate(self: QFontComboBox, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_QAbstractItemDelegate;
         qtc.QComboBox_SetItemDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `model` instead
+    ///
+    pub const Model = model;
 
     /// Inherited from QComboBox
     ///
@@ -1040,9 +1284,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Model(self: QFontComboBox) QAbstractItemModel {
+    pub fn model(self: QFontComboBox) QAbstractItemModel {
         return .{ .ptr = qtc.QComboBox_Model(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `rootModelIndex` instead
+    ///
+    pub const RootModelIndex = rootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1052,9 +1300,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn RootModelIndex(self: QFontComboBox) QModelIndex {
+    pub fn rootModelIndex(self: QFontComboBox) QModelIndex {
         return .{ .ptr = qtc.QComboBox_RootModelIndex(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRootModelIndex` instead
+    ///
+    pub const SetRootModelIndex = setRootModelIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1066,10 +1318,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetRootModelIndex(self: QFontComboBox, index: anytype) void {
+    pub fn setRootModelIndex(self: QFontComboBox, index: anytype) void {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QComboBox_SetRootModelIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `modelColumn` instead
+    ///
+    pub const ModelColumn = modelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1079,9 +1335,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ModelColumn(self: QFontComboBox) i32 {
+    pub fn modelColumn(self: QFontComboBox) i32 {
         return qtc.QComboBox_ModelColumn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelColumn` instead
+    ///
+    pub const SetModelColumn = setModelColumn;
 
     /// Inherited from QComboBox
     ///
@@ -1093,9 +1353,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` visibleColumn: i32 `
     ///
-    pub fn SetModelColumn(self: QFontComboBox, visibleColumn: i32) void {
+    pub fn setModelColumn(self: QFontComboBox, visibleColumn: i32) void {
         qtc.QComboBox_SetModelColumn(@ptrCast(self.ptr), @bitCast(visibleColumn));
     }
+
+    /// ### DEPRECATED: Use `currentIndex` instead
+    ///
+    pub const CurrentIndex = currentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1105,9 +1369,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn CurrentIndex(self: QFontComboBox) i32 {
+    pub fn currentIndex(self: QFontComboBox) i32 {
         return qtc.QComboBox_CurrentIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// Inherited from QComboBox
     ///
@@ -1119,13 +1387,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentData` instead
+    ///
+    pub const CurrentData = currentData;
 
     /// Inherited from QComboBox
     ///
@@ -1135,9 +1407,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn CurrentData(self: QFontComboBox) QVariant {
+    pub fn currentData(self: QFontComboBox) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `itemText` instead
+    ///
+    pub const ItemText = itemText;
 
     /// Inherited from QComboBox
     ///
@@ -1151,13 +1427,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemText(self: QFontComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn itemText(self: QFontComboBox, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QComboBox_ItemText(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ItemText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.itemText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `itemIcon` instead
+    ///
+    pub const ItemIcon = itemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1169,9 +1449,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemIcon(self: QFontComboBox, index: i32) QIcon {
+    pub fn itemIcon(self: QFontComboBox, index: i32) QIcon {
         return .{ .ptr = qtc.QComboBox_ItemIcon(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `itemData` instead
+    ///
+    pub const ItemData = itemData;
 
     /// Inherited from QComboBox
     ///
@@ -1183,9 +1467,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ItemData(self: QFontComboBox, index: i32) QVariant {
+    pub fn itemData(self: QFontComboBox, index: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `addItem` instead
+    ///
+    pub const AddItem = addItem;
 
     /// Inherited from QComboBox
     ///
@@ -1197,13 +1485,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem(self: QFontComboBox, text: []const u8) void {
+    pub fn addItem(self: QFontComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_AddItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItem2` instead
+    ///
+    pub const AddItem2 = addItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1217,7 +1509,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddItem2(self: QFontComboBox, icon: anytype, text: []const u8) void {
+    pub fn addItem2(self: QFontComboBox, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1225,6 +1517,10 @@ pub const QFontComboBox = extern struct {
         };
         qtc.QComboBox_AddItem2(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `addItems` instead
+    ///
+    pub const AddItems = addItems;
 
     /// Inherited from QComboBox
     ///
@@ -1238,13 +1534,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn AddItems(self: QFontComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.AddItems: Memory allocation failed");
+    pub fn addItems(self: QFontComboBox, allocator: std.mem.Allocator, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.addItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1252,6 +1548,10 @@ pub const QFontComboBox = extern struct {
         };
         qtc.QComboBox_AddItems(@ptrCast(self.ptr), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
 
     /// Inherited from QComboBox
     ///
@@ -1265,13 +1565,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem(self: QFontComboBox, index: i32, text: []const u8) void {
+    pub fn insertItem(self: QFontComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_InsertItem(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
 
     /// Inherited from QComboBox
     ///
@@ -1287,7 +1591,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertItem2(self: QFontComboBox, index: i32, icon: anytype, text: []const u8) void {
+    pub fn insertItem2(self: QFontComboBox, index: i32, icon: anytype, text: []const u8) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1295,6 +1599,10 @@ pub const QFontComboBox = extern struct {
         };
         qtc.QComboBox_InsertItem2(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertItems` instead
+    ///
+    pub const InsertItems = insertItems;
 
     /// Inherited from QComboBox
     ///
@@ -1310,13 +1618,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` texts: []const []const u8 `
     ///
-    pub fn InsertItems(self: QFontComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
-        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.InsertItems: Memory allocation failed");
+    pub fn insertItems(self: QFontComboBox, allocator: std.mem.Allocator, index: i32, texts: []const []const u8) void {
+        const texts_arr = allocator.alloc(qtc.libqt_string, texts.len) catch @panic("QFontComboBox.insertItems: Memory allocation failed");
         defer allocator.free(texts_arr);
-        for (texts, 0..texts.len) |item, i|
+        for (texts, 0..texts.len) |str_item, i|
             texts_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const texts_list = qtc.libqt_list{
             .len = texts.len,
@@ -1324,6 +1632,10 @@ pub const QFontComboBox = extern struct {
         };
         qtc.QComboBox_InsertItems(@ptrCast(self.ptr), @bitCast(index), texts_list);
     }
+
+    /// ### DEPRECATED: Use `insertSeparator` instead
+    ///
+    pub const InsertSeparator = insertSeparator;
 
     /// Inherited from QComboBox
     ///
@@ -1335,9 +1647,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertSeparator(self: QFontComboBox, index: i32) void {
+    pub fn insertSeparator(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_InsertSeparator(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `removeItem` instead
+    ///
+    pub const RemoveItem = removeItem;
 
     /// Inherited from QComboBox
     ///
@@ -1349,9 +1665,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn RemoveItem(self: QFontComboBox, index: i32) void {
+    pub fn removeItem(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_RemoveItem(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setItemText` instead
+    ///
+    pub const SetItemText = setItemText;
 
     /// Inherited from QComboBox
     ///
@@ -1365,13 +1685,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetItemText(self: QFontComboBox, index: i32, text: []const u8) void {
+    pub fn setItemText(self: QFontComboBox, index: i32, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetItemText(@ptrCast(self.ptr), @bitCast(index), text_str);
     }
+
+    /// ### DEPRECATED: Use `setItemIcon` instead
+    ///
+    pub const SetItemIcon = setItemIcon;
 
     /// Inherited from QComboBox
     ///
@@ -1385,10 +1709,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetItemIcon(self: QFontComboBox, index: i32, icon: anytype) void {
+    pub fn setItemIcon(self: QFontComboBox, index: i32, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QComboBox_SetItemIcon(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData` instead
+    ///
+    pub const SetItemData = setItemData;
 
     /// Inherited from QComboBox
     ///
@@ -1402,10 +1730,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetItemData(self: QFontComboBox, index: i32, value: anytype) void {
+    pub fn setItemData(self: QFontComboBox, index: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `view` instead
+    ///
+    pub const View = view;
 
     /// Inherited from QComboBox
     ///
@@ -1415,9 +1747,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn View(self: QFontComboBox) QAbstractItemView {
+    pub fn view(self: QFontComboBox) QAbstractItemView {
         return .{ .ptr = qtc.QComboBox_View(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setView` instead
+    ///
+    pub const SetView = setView;
 
     /// Inherited from QComboBox
     ///
@@ -1429,10 +1765,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` itemView: QAbstractItemView `
     ///
-    pub fn SetView(self: QFontComboBox, itemView: anytype) void {
+    pub fn setView(self: QFontComboBox, itemView: anytype) void {
         comptime _ = @TypeOf(itemView)._is_QAbstractItemView;
         qtc.QComboBox_SetView(@ptrCast(self.ptr), @ptrCast(itemView.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QComboBox
     ///
@@ -1446,10 +1786,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: QFontComboBox, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: QFontComboBox, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QComboBox_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QComboBox
     ///
@@ -1459,9 +1803,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Clear(self: QFontComboBox) void {
+    pub fn clear(self: QFontComboBox) void {
         qtc.QComboBox_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearEditText` instead
+    ///
+    pub const ClearEditText = clearEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1471,9 +1819,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ClearEditText(self: QFontComboBox) void {
+    pub fn clearEditText(self: QFontComboBox) void {
         qtc.QComboBox_ClearEditText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEditText` instead
+    ///
+    pub const SetEditText = setEditText;
 
     /// Inherited from QComboBox
     ///
@@ -1485,13 +1837,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetEditText(self: QFontComboBox, text: []const u8) void {
+    pub fn setEditText(self: QFontComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QComboBox_SetEditText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setCurrentIndex` instead
+    ///
+    pub const SetCurrentIndex = setCurrentIndex;
 
     /// Inherited from QComboBox
     ///
@@ -1503,9 +1859,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SetCurrentIndex(self: QFontComboBox, index: i32) void {
+    pub fn setCurrentIndex(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_SetCurrentIndex(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// Inherited from QComboBox
     ///
@@ -1517,7 +1877,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetCurrentText(self: QFontComboBox, text: []const u8) void {
+    pub fn setCurrentText(self: QFontComboBox, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1525,6 +1885,10 @@ pub const QFontComboBox = extern struct {
         qtc.QComboBox_SetCurrentText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `editTextChanged` instead
+    ///
+    pub const EditTextChanged = editTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1535,7 +1899,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn EditTextChanged(self: QFontComboBox, param1: []const u8) void {
+    pub fn editTextChanged(self: QFontComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1543,6 +1907,10 @@ pub const QFontComboBox = extern struct {
         qtc.QComboBox_EditTextChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onEditTextChanged` instead
+    ///
+    pub const OnEditTextChanged = onEditTextChanged;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#editTextChanged)
@@ -1553,9 +1921,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnEditTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onEditTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_EditTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `activated` instead
+    ///
+    pub const Activated = activated;
 
     /// Inherited from QComboBox
     ///
@@ -1567,9 +1939,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Activated(self: QFontComboBox, index: i32) void {
+    pub fn activated(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_Activated(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onActivated` instead
+    ///
+    pub const OnActivated = onActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1581,9 +1957,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnActivated(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
+    pub fn onActivated(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Activated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textActivated` instead
+    ///
+    pub const TextActivated = textActivated;
 
     /// Inherited from QComboBox
     ///
@@ -1595,7 +1975,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextActivated(self: QFontComboBox, param1: []const u8) void {
+    pub fn textActivated(self: QFontComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1603,6 +1983,10 @@ pub const QFontComboBox = extern struct {
         qtc.QComboBox_TextActivated(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextActivated` instead
+    ///
+    pub const OnTextActivated = onTextActivated;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textActivated)
@@ -1613,9 +1997,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextActivated(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextActivated(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextActivated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `highlighted` instead
+    ///
+    pub const Highlighted = highlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1627,9 +2015,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Highlighted(self: QFontComboBox, index: i32) void {
+    pub fn highlighted(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_Highlighted(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onHighlighted` instead
+    ///
+    pub const OnHighlighted = onHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1641,9 +2033,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnHighlighted(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
+    pub fn onHighlighted(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_Highlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `textHighlighted` instead
+    ///
+    pub const TextHighlighted = textHighlighted;
 
     /// Inherited from QComboBox
     ///
@@ -1655,7 +2051,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn TextHighlighted(self: QFontComboBox, param1: []const u8) void {
+    pub fn textHighlighted(self: QFontComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1663,6 +2059,10 @@ pub const QFontComboBox = extern struct {
         qtc.QComboBox_TextHighlighted(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onTextHighlighted` instead
+    ///
+    pub const OnTextHighlighted = onTextHighlighted;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#textHighlighted)
@@ -1673,9 +2073,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTextHighlighted(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTextHighlighted(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_TextHighlighted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentIndexChanged` instead
+    ///
+    pub const CurrentIndexChanged = currentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1687,9 +2091,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn CurrentIndexChanged(self: QFontComboBox, index: i32) void {
+    pub fn currentIndexChanged(self: QFontComboBox, index: i32) void {
         qtc.QComboBox_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onCurrentIndexChanged` instead
+    ///
+    pub const OnCurrentIndexChanged = onCurrentIndexChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1701,9 +2109,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, index: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentIndexChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
+    pub fn onCurrentIndexChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentIndexChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentTextChanged` instead
+    ///
+    pub const CurrentTextChanged = currentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1715,13 +2127,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn CurrentTextChanged(self: QFontComboBox, param1: []const u8) void {
+    pub fn currentTextChanged(self: QFontComboBox, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QComboBox_CurrentTextChanged(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onCurrentTextChanged` instead
+    ///
+    pub const OnCurrentTextChanged = onCurrentTextChanged;
 
     /// Inherited from QComboBox
     ///
@@ -1733,9 +2149,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCurrentTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCurrentTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QComboBox_Connect_CurrentTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// Inherited from QComboBox
     ///
@@ -1749,13 +2169,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindText2(self: QFontComboBox, text: []const u8, flags: i32) i32 {
+    pub fn findText2(self: QFontComboBox, text: []const u8, flags: i32) i32 {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QComboBox_FindText2(@ptrCast(self.ptr), text_str, @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `findData2` instead
+    ///
+    pub const FindData2 = findData2;
 
     /// Inherited from QComboBox
     ///
@@ -1769,10 +2193,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn FindData2(self: QFontComboBox, data: anytype, role: i32) i32 {
+    pub fn findData2(self: QFontComboBox, data: anytype, role: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData2(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `findData3` instead
+    ///
+    pub const FindData3 = findData3;
 
     /// Inherited from QComboBox
     ///
@@ -1788,10 +2216,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.MatchFlag `
     ///
-    pub fn FindData3(self: QFontComboBox, data: anytype, role: i32, flags: i32) i32 {
+    pub fn findData3(self: QFontComboBox, data: anytype, role: i32, flags: i32) i32 {
         comptime _ = @TypeOf(data)._is_QVariant;
         return qtc.QComboBox_FindData3(@ptrCast(self.ptr), @ptrCast(data.ptr), @bitCast(role), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `currentData1` instead
+    ///
+    pub const CurrentData1 = currentData1;
 
     /// Inherited from QComboBox
     ///
@@ -1803,9 +2235,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn CurrentData1(self: QFontComboBox, role: i32) QVariant {
+    pub fn currentData1(self: QFontComboBox, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_CurrentData1(@ptrCast(self.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `itemData2` instead
+    ///
+    pub const ItemData2 = itemData2;
 
     /// Inherited from QComboBox
     ///
@@ -1819,9 +2255,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn ItemData2(self: QFontComboBox, index: i32, role: i32) QVariant {
+    pub fn itemData2(self: QFontComboBox, index: i32, role: i32) QVariant {
         return .{ .ptr = qtc.QComboBox_ItemData2(@ptrCast(self.ptr), @bitCast(index), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `addItem22` instead
+    ///
+    pub const AddItem22 = addItem22;
 
     /// Inherited from QComboBox
     ///
@@ -1835,7 +2275,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem22(self: QFontComboBox, text: []const u8, userData: anytype) void {
+    pub fn addItem22(self: QFontComboBox, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1843,6 +2283,10 @@ pub const QFontComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_AddItem22(@ptrCast(self.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `addItem3` instead
+    ///
+    pub const AddItem3 = addItem3;
 
     /// Inherited from QComboBox
     ///
@@ -1858,7 +2302,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn AddItem3(self: QFontComboBox, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn addItem3(self: QFontComboBox, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1868,6 +2312,10 @@ pub const QFontComboBox = extern struct {
         qtc.QComboBox_AddItem3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
 
+    /// ### DEPRECATED: Use `insertItem3` instead
+    ///
+    pub const InsertItem3 = insertItem3;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#insertItem)
@@ -1882,7 +2330,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem3(self: QFontComboBox, index: i32, text: []const u8, userData: anytype) void {
+    pub fn insertItem3(self: QFontComboBox, index: i32, text: []const u8, userData: anytype) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -1890,6 +2338,10 @@ pub const QFontComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem3(@ptrCast(self.ptr), @bitCast(index), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertItem4` instead
+    ///
+    pub const InsertItem4 = insertItem4;
 
     /// Inherited from QComboBox
     ///
@@ -1907,7 +2359,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` userData: QVariant `
     ///
-    pub fn InsertItem4(self: QFontComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
+    pub fn insertItem4(self: QFontComboBox, index: i32, icon: anytype, text: []const u8, userData: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -1916,6 +2368,10 @@ pub const QFontComboBox = extern struct {
         comptime _ = @TypeOf(userData)._is_QVariant;
         qtc.QComboBox_InsertItem4(@ptrCast(self.ptr), @bitCast(index), @ptrCast(icon.ptr), text_str, @ptrCast(userData.ptr));
     }
+
+    /// ### DEPRECATED: Use `setItemData3` instead
+    ///
+    pub const SetItemData3 = setItemData3;
 
     /// Inherited from QComboBox
     ///
@@ -1931,10 +2387,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SetItemData3(self: QFontComboBox, index: i32, value: anytype, role: i32) void {
+    pub fn setItemData3(self: QFontComboBox, index: i32, value: anytype, role: i32) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QComboBox_SetItemData3(@ptrCast(self.ptr), @bitCast(index), @ptrCast(value.ptr), @bitCast(role));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1944,9 +2404,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn WinId(self: QFontComboBox) usize {
+    pub fn winId(self: QFontComboBox) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1956,9 +2420,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn CreateWinId(self: QFontComboBox) void {
+    pub fn createWinId(self: QFontComboBox) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1968,9 +2436,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn InternalWinId(self: QFontComboBox) usize {
+    pub fn internalWinId(self: QFontComboBox) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1980,9 +2452,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn EffectiveWinId(self: QFontComboBox) usize {
+    pub fn effectiveWinId(self: QFontComboBox) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1992,9 +2468,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Style(self: QFontComboBox) QStyle {
+    pub fn style(self: QFontComboBox) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -2004,12 +2484,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QFontComboBox, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QFontComboBox, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -2019,9 +2503,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsTopLevel(self: QFontComboBox) bool {
+    pub fn isTopLevel(self: QFontComboBox) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -2031,9 +2519,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsWindow(self: QFontComboBox) bool {
+    pub fn isWindow(self: QFontComboBox) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -2043,9 +2535,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsModal(self: QFontComboBox) bool {
+    pub fn isModal(self: QFontComboBox) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -2059,9 +2555,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QFontComboBox) i32 {
+    pub fn windowModality(self: QFontComboBox) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -2071,11 +2571,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QFontComboBox, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QFontComboBox, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2085,9 +2589,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsEnabled(self: QFontComboBox) bool {
+    pub fn isEnabled(self: QFontComboBox) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -2099,10 +2607,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QFontComboBox, param1: anytype) bool {
+    pub fn isEnabledTo(self: QFontComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2114,9 +2626,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QFontComboBox, enabled: bool) void {
+    pub fn setEnabled(self: QFontComboBox, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -2128,9 +2644,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QFontComboBox, disabled: bool) void {
+    pub fn setDisabled(self: QFontComboBox, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2142,9 +2662,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QFontComboBox, windowModified: bool) void {
+    pub fn setWindowModified(self: QFontComboBox, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2154,9 +2678,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FrameGeometry(self: QFontComboBox) QRect {
+    pub fn frameGeometry(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -2166,9 +2694,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Geometry(self: QFontComboBox) QRect {
+    pub fn geometry(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -2178,9 +2710,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn NormalGeometry(self: QFontComboBox) QRect {
+    pub fn normalGeometry(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -2190,9 +2726,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn X(self: QFontComboBox) i32 {
+    pub fn x(self: QFontComboBox) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -2202,9 +2742,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Y(self: QFontComboBox) i32 {
+    pub fn y(self: QFontComboBox) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -2214,9 +2758,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Pos(self: QFontComboBox) QPoint {
+    pub fn pos(self: QFontComboBox) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2226,9 +2774,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FrameSize(self: QFontComboBox) QSize {
+    pub fn frameSize(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2238,9 +2790,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Size(self: QFontComboBox) QSize {
+    pub fn size(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2250,9 +2806,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Width(self: QFontComboBox) i32 {
+    pub fn width(self: QFontComboBox) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2262,9 +2822,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Height(self: QFontComboBox) i32 {
+    pub fn height(self: QFontComboBox) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2274,9 +2838,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Rect(self: QFontComboBox) QRect {
+    pub fn rect(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2286,9 +2854,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ChildrenRect(self: QFontComboBox) QRect {
+    pub fn childrenRect(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2298,9 +2870,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ChildrenRegion(self: QFontComboBox) QRegion {
+    pub fn childrenRegion(self: QFontComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2310,9 +2886,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MinimumSize(self: QFontComboBox) QSize {
+    pub fn minimumSize(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2322,9 +2902,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MaximumSize(self: QFontComboBox) QSize {
+    pub fn maximumSize(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2334,9 +2918,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MinimumWidth(self: QFontComboBox) i32 {
+    pub fn minimumWidth(self: QFontComboBox) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2346,9 +2934,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MinimumHeight(self: QFontComboBox) i32 {
+    pub fn minimumHeight(self: QFontComboBox) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2358,9 +2950,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MaximumWidth(self: QFontComboBox) i32 {
+    pub fn maximumWidth(self: QFontComboBox) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2370,9 +2966,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MaximumHeight(self: QFontComboBox) i32 {
+    pub fn maximumHeight(self: QFontComboBox) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2382,12 +2982,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QFontComboBox, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QFontComboBox, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2401,9 +3005,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QFontComboBox, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QFontComboBox, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2413,12 +3021,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QFontComboBox, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QFontComboBox, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2432,9 +3044,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QFontComboBox, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QFontComboBox, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2446,9 +3062,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QFontComboBox, minw: i32) void {
+    pub fn setMinimumWidth(self: QFontComboBox, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2460,9 +3080,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QFontComboBox, minh: i32) void {
+    pub fn setMinimumHeight(self: QFontComboBox, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2474,9 +3098,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QFontComboBox, maxw: i32) void {
+    pub fn setMaximumWidth(self: QFontComboBox, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2488,9 +3116,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QFontComboBox, maxh: i32) void {
+    pub fn setMaximumHeight(self: QFontComboBox, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2500,9 +3132,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SizeIncrement(self: QFontComboBox) QSize {
+    pub fn sizeIncrement(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2512,12 +3148,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QFontComboBox, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QFontComboBox, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2531,9 +3171,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QFontComboBox, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QFontComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2543,9 +3187,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn BaseSize(self: QFontComboBox) QSize {
+    pub fn baseSize(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2555,12 +3203,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QFontComboBox, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QFontComboBox, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2574,9 +3226,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QFontComboBox, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QFontComboBox, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2588,10 +3244,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QFontComboBox, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QFontComboBox, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2605,9 +3265,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QFontComboBox, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QFontComboBox, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2619,9 +3283,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QFontComboBox, w: i32) void {
+    pub fn setFixedWidth(self: QFontComboBox, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2633,9 +3301,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QFontComboBox, h: i32) void {
+    pub fn setFixedHeight(self: QFontComboBox, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2647,11 +3319,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QFontComboBox, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QFontComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2662,11 +3338,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QFontComboBox, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QFontComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2677,11 +3357,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QFontComboBox, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QFontComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2692,11 +3376,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QFontComboBox, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QFontComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2707,11 +3395,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QFontComboBox, param1: anytype) QPointF {
+    pub fn mapToParent(self: QFontComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2722,10 +3414,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QFontComboBox, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QFontComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2737,10 +3433,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QFontComboBox, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QFontComboBox, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2752,10 +3452,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QFontComboBox, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QFontComboBox, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2769,12 +3473,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QFontComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QFontComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2787,11 +3495,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QFontComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QFontComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2805,11 +3517,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QFontComboBox, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QFontComboBox, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2823,11 +3539,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QFontComboBox, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QFontComboBox, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2837,9 +3557,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Window(self: QFontComboBox) QWidget {
+    pub fn window(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2849,9 +3573,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn NativeParentWidget(self: QFontComboBox) QWidget {
+    pub fn nativeParentWidget(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2861,9 +3589,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn TopLevelWidget(self: QFontComboBox) QWidget {
+    pub fn topLevelWidget(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3605,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Palette(self: QFontComboBox) QPalette {
+    pub fn palette(self: QFontComboBox) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2885,12 +3621,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QFontComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QFontComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2900,11 +3640,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QFontComboBox, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QFontComboBox, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2918,9 +3662,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QFontComboBox) i32 {
+    pub fn backgroundRole(self: QFontComboBox) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2930,11 +3678,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QFontComboBox, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QFontComboBox, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2948,9 +3700,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QFontComboBox) i32 {
+    pub fn foregroundRole(self: QFontComboBox) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2960,9 +3716,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Font(self: QFontComboBox) QFont {
+    pub fn font(self: QFontComboBox) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2972,12 +3732,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QFontComboBox, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QFontComboBox, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2987,9 +3751,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FontMetrics(self: QFontComboBox) QFontMetrics {
+    pub fn fontMetrics(self: QFontComboBox) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2999,9 +3767,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FontInfo(self: QFontComboBox) QFontInfo {
+    pub fn fontInfo(self: QFontComboBox) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -3011,9 +3783,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Cursor(self: QFontComboBox) QCursor {
+    pub fn cursor(self: QFontComboBox) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -3023,12 +3799,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QFontComboBox, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QFontComboBox, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -3038,9 +3818,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UnsetCursor(self: QFontComboBox) void {
+    pub fn unsetCursor(self: QFontComboBox) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3052,9 +3836,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QFontComboBox, enable: bool) void {
+    pub fn setMouseTracking(self: QFontComboBox, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -3064,9 +3852,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HasMouseTracking(self: QFontComboBox) bool {
+    pub fn hasMouseTracking(self: QFontComboBox) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -3076,9 +3868,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UnderMouse(self: QFontComboBox) bool {
+    pub fn underMouse(self: QFontComboBox) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3090,9 +3886,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QFontComboBox, enable: bool) void {
+    pub fn setTabletTracking(self: QFontComboBox, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -3102,24 +3902,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HasTabletTracking(self: QFontComboBox) bool {
+    pub fn hasTabletTracking(self: QFontComboBox) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFontComboBox `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QFontComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -3129,12 +3918,35 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QFontComboBox, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QFontComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFontComboBox `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QFontComboBox, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -3144,9 +3956,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Mask(self: QFontComboBox) QRegion {
+    pub fn mask(self: QFontComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -3156,9 +3972,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ClearMask(self: QFontComboBox) void {
+    pub fn clearMask(self: QFontComboBox) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -3170,10 +3990,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QFontComboBox, target: anytype) void {
+    pub fn render(self: QFontComboBox, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -3185,10 +4009,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QFontComboBox, painter: anytype) void {
+    pub fn render2(self: QFontComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -3198,9 +4026,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Grab(self: QFontComboBox) QPixmap {
+    pub fn grab(self: QFontComboBox) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3210,9 +4042,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn GraphicsEffect(self: QFontComboBox) QGraphicsEffect {
+    pub fn graphicsEffect(self: QFontComboBox) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3224,10 +4060,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QFontComboBox, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QFontComboBox, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3239,9 +4079,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QFontComboBox, typeVal: i32) void {
+    pub fn grabGesture(self: QFontComboBox, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3253,9 +4097,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QFontComboBox, typeVal: i32) void {
+    pub fn ungrabGesture(self: QFontComboBox, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3265,15 +4113,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QFontComboBox, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QFontComboBox, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3283,15 +4135,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QFontComboBox, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QFontComboBox, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3303,13 +4159,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3321,13 +4181,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3339,10 +4203,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QFontComboBox, icon: anytype) void {
+    pub fn setWindowIcon(self: QFontComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3352,9 +4220,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn WindowIcon(self: QFontComboBox) QIcon {
+    pub fn windowIcon(self: QFontComboBox) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3364,15 +4236,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QFontComboBox, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QFontComboBox, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3384,13 +4260,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3400,15 +4280,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QFontComboBox, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QFontComboBox, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3420,13 +4304,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3438,13 +4326,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QFontComboBox, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QFontComboBox, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3456,13 +4348,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3474,9 +4370,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QFontComboBox, level: f64) void {
+    pub fn setWindowOpacity(self: QFontComboBox, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3486,9 +4386,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn WindowOpacity(self: QFontComboBox) f64 {
+    pub fn windowOpacity(self: QFontComboBox) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3498,9 +4402,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsWindowModified(self: QFontComboBox) bool {
+    pub fn isWindowModified(self: QFontComboBox) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3510,15 +4418,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QFontComboBox, toolTip: []const u8) void {
+    pub fn setToolTip(self: QFontComboBox, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3530,13 +4442,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3548,9 +4464,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QFontComboBox, msec: i32) void {
+    pub fn setToolTipDuration(self: QFontComboBox, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3560,9 +4480,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ToolTipDuration(self: QFontComboBox) i32 {
+    pub fn toolTipDuration(self: QFontComboBox) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3572,15 +4496,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QFontComboBox, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QFontComboBox, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3592,13 +4520,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3608,15 +4540,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QFontComboBox, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QFontComboBox, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3628,13 +4564,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3646,13 +4586,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3664,13 +4608,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QFontComboBox, name: []const u8) void {
+    pub fn setAccessibleName(self: QFontComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3682,13 +4630,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3700,13 +4652,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QFontComboBox, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QFontComboBox, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3718,9 +4674,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QFontComboBox, direction: i32) void {
+    pub fn setLayoutDirection(self: QFontComboBox, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3734,9 +4694,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QFontComboBox) i32 {
+    pub fn layoutDirection(self: QFontComboBox) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3746,9 +4710,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UnsetLayoutDirection(self: QFontComboBox) void {
+    pub fn unsetLayoutDirection(self: QFontComboBox) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3758,12 +4726,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QFontComboBox, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QFontComboBox, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3773,9 +4745,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Locale(self: QFontComboBox) QLocale {
+    pub fn locale(self: QFontComboBox) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3785,9 +4761,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UnsetLocale(self: QFontComboBox) void {
+    pub fn unsetLocale(self: QFontComboBox) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3797,9 +4777,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsRightToLeft(self: QFontComboBox) bool {
+    pub fn isRightToLeft(self: QFontComboBox) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3809,9 +4793,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsLeftToRight(self: QFontComboBox) bool {
+    pub fn isLeftToRight(self: QFontComboBox) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3821,9 +4809,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SetFocus(self: QFontComboBox) void {
+    pub fn setFocus(self: QFontComboBox) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3833,9 +4825,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsActiveWindow(self: QFontComboBox) bool {
+    pub fn isActiveWindow(self: QFontComboBox) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3845,9 +4841,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ActivateWindow(self: QFontComboBox) void {
+    pub fn activateWindow(self: QFontComboBox) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3857,9 +4857,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ClearFocus(self: QFontComboBox) void {
+    pub fn clearFocus(self: QFontComboBox) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3871,9 +4875,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QFontComboBox, reason: i32) void {
+    pub fn setFocus2(self: QFontComboBox, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3887,9 +4895,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QFontComboBox) i32 {
+    pub fn focusPolicy(self: QFontComboBox) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4913,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QFontComboBox, policy: i32) void {
+    pub fn setFocusPolicy(self: QFontComboBox, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3913,9 +4929,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HasFocus(self: QFontComboBox) bool {
+    pub fn hasFocus(self: QFontComboBox) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3927,11 +4947,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3941,12 +4965,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QFontComboBox, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QFontComboBox, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3956,9 +4984,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FocusProxy(self: QFontComboBox) QWidget {
+    pub fn focusProxy(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3972,9 +5004,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QFontComboBox) i32 {
+    pub fn contextMenuPolicy(self: QFontComboBox) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3986,9 +5022,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QFontComboBox, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QFontComboBox, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3998,9 +5038,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn GrabMouse(self: QFontComboBox) void {
+    pub fn grabMouse(self: QFontComboBox) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -4012,10 +5056,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QFontComboBox, param1: anytype) void {
+    pub fn grabMouse2(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -4025,9 +5073,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ReleaseMouse(self: QFontComboBox) void {
+    pub fn releaseMouse(self: QFontComboBox) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4037,9 +5089,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn GrabKeyboard(self: QFontComboBox) void {
+    pub fn grabKeyboard(self: QFontComboBox) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5105,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ReleaseKeyboard(self: QFontComboBox) void {
+    pub fn releaseKeyboard(self: QFontComboBox) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4063,10 +5123,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QFontComboBox, key: anytype) i32 {
+    pub fn grabShortcut(self: QFontComboBox, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -4078,9 +5142,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QFontComboBox, id: i32) void {
+    pub fn releaseShortcut(self: QFontComboBox, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4092,9 +5160,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QFontComboBox, id: i32) void {
+    pub fn setShortcutEnabled(self: QFontComboBox, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -4106,25 +5178,37 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QFontComboBox, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QFontComboBox, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4134,9 +5218,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UpdatesEnabled(self: QFontComboBox) bool {
+    pub fn updatesEnabled(self: QFontComboBox) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -4148,9 +5236,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QFontComboBox, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QFontComboBox, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -4160,9 +5252,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn GraphicsProxyWidget(self: QFontComboBox) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QFontComboBox) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -4172,9 +5268,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Update(self: QFontComboBox) void {
+    pub fn update(self: QFontComboBox) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -4184,9 +5284,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Repaint(self: QFontComboBox) void {
+    pub fn repaint(self: QFontComboBox) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -4196,17 +5300,21 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QFontComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QFontComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4218,11 +5326,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QFontComboBox, param1: anytype) void {
+    pub fn update3(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4233,10 +5345,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QFontComboBox, param1: anytype) void {
+    pub fn update4(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4246,17 +5362,21 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QFontComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QFontComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4268,10 +5388,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QFontComboBox, param1: anytype) void {
+    pub fn repaint3(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4283,10 +5407,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QFontComboBox, param1: anytype) void {
+    pub fn repaint4(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4298,9 +5426,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QFontComboBox, hidden: bool) void {
+    pub fn setHidden(self: QFontComboBox, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4310,9 +5442,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Show(self: QFontComboBox) void {
+    pub fn show(self: QFontComboBox) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4322,9 +5458,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Hide(self: QFontComboBox) void {
+    pub fn hide(self: QFontComboBox) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4334,9 +5474,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ShowMinimized(self: QFontComboBox) void {
+    pub fn showMinimized(self: QFontComboBox) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4346,9 +5490,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ShowMaximized(self: QFontComboBox) void {
+    pub fn showMaximized(self: QFontComboBox) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4358,9 +5506,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ShowFullScreen(self: QFontComboBox) void {
+    pub fn showFullScreen(self: QFontComboBox) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4370,9 +5522,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ShowNormal(self: QFontComboBox) void {
+    pub fn showNormal(self: QFontComboBox) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4382,9 +5538,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Close(self: QFontComboBox) bool {
+    pub fn close(self: QFontComboBox) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4394,9 +5554,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Raise(self: QFontComboBox) void {
+    pub fn raise(self: QFontComboBox) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4406,9 +5570,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Lower(self: QFontComboBox) void {
+    pub fn lower(self: QFontComboBox) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4420,10 +5588,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QFontComboBox, param1: anytype) void {
+    pub fn stackUnder(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4433,13 +5605,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QFontComboBox, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QFontComboBox, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4451,10 +5627,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QFontComboBox, param1: anytype) void {
+    pub fn move2(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4468,9 +5648,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QFontComboBox, w: i32, h: i32) void {
+    pub fn resize(self: QFontComboBox, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4482,10 +5666,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QFontComboBox, param1: anytype) void {
+    pub fn resize2(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4495,17 +5683,21 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QFontComboBox, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QFontComboBox, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4515,12 +5707,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QFontComboBox, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QFontComboBox, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4532,13 +5728,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QFontComboBox, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QFontComboBox, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFontComboBox.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFontComboBox.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4548,15 +5748,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QFontComboBox, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QFontComboBox, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4566,9 +5770,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn AdjustSize(self: QFontComboBox) void {
+    pub fn adjustSize(self: QFontComboBox) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4578,9 +5786,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsVisible(self: QFontComboBox) bool {
+    pub fn isVisible(self: QFontComboBox) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4592,10 +5804,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QFontComboBox, param1: anytype) bool {
+    pub fn isVisibleTo(self: QFontComboBox, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4605,9 +5821,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsHidden(self: QFontComboBox) bool {
+    pub fn isHidden(self: QFontComboBox) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4617,9 +5837,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsMinimized(self: QFontComboBox) bool {
+    pub fn isMinimized(self: QFontComboBox) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4629,9 +5853,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsMaximized(self: QFontComboBox) bool {
+    pub fn isMaximized(self: QFontComboBox) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4641,9 +5869,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsFullScreen(self: QFontComboBox) bool {
+    pub fn isFullScreen(self: QFontComboBox) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4657,9 +5889,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QFontComboBox) i32 {
+    pub fn windowState(self: QFontComboBox) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4671,9 +5907,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QFontComboBox, state: i32) void {
+    pub fn setWindowState(self: QFontComboBox, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4685,9 +5925,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QFontComboBox, state: i32) void {
+    pub fn overrideWindowState(self: QFontComboBox, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4697,9 +5941,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SizePolicy(self: QFontComboBox) QSizePolicy {
+    pub fn sizePolicy(self: QFontComboBox) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4709,12 +5957,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QFontComboBox, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QFontComboBox, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4728,9 +5980,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QFontComboBox, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QFontComboBox, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4740,9 +5996,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn VisibleRegion(self: QFontComboBox) QRegion {
+    pub fn visibleRegion(self: QFontComboBox) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4760,9 +6020,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QFontComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QFontComboBox, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4774,10 +6038,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QFontComboBox, margins: anytype) void {
+    pub fn setContentsMargins2(self: QFontComboBox, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4787,9 +6055,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ContentsMargins(self: QFontComboBox) QMargins {
+    pub fn contentsMargins(self: QFontComboBox) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4799,9 +6071,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ContentsRect(self: QFontComboBox) QRect {
+    pub fn contentsRect(self: QFontComboBox) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4811,9 +6087,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Layout(self: QFontComboBox) QLayout {
+    pub fn layout(self: QFontComboBox) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4823,12 +6103,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QFontComboBox, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QFontComboBox, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4838,24 +6122,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UpdateGeometry(self: QFontComboBox) void {
+    pub fn updateGeometry(self: QFontComboBox) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFontComboBox `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QFontComboBox, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4865,14 +6138,37 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QFontComboBox, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFontComboBox `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QFontComboBox, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QFontComboBox, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4886,9 +6182,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QFontComboBox, dx: i32, dy: i32) void {
+    pub fn scroll(self: QFontComboBox, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4904,10 +6204,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QFontComboBox, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QFontComboBox, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4917,9 +6221,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FocusWidget(self: QFontComboBox) QWidget {
+    pub fn focusWidget(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4929,9 +6237,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn NextInFocusChain(self: QFontComboBox) QWidget {
+    pub fn nextInFocusChain(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4941,9 +6253,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn PreviousInFocusChain(self: QFontComboBox) QWidget {
+    pub fn previousInFocusChain(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4953,9 +6269,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn AcceptDrops(self: QFontComboBox) bool {
+    pub fn acceptDrops(self: QFontComboBox) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4967,9 +6287,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QFontComboBox, on: bool) void {
+    pub fn setAcceptDrops(self: QFontComboBox, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4981,10 +6305,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QFontComboBox, action: anytype) void {
+    pub fn addAction(self: QFontComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4994,15 +6322,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QFontComboBox, actions: []QAction) void {
+    pub fn addActions(self: QFontComboBox, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -5014,16 +6346,20 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QFontComboBox, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QFontComboBox, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -5037,11 +6373,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QFontComboBox, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QFontComboBox, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -5053,10 +6393,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QFontComboBox, action: anytype) void {
+    pub fn removeAction(self: QFontComboBox, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -5068,15 +6412,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QFontComboBox, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QFontComboBox, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFontComboBox.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFontComboBox.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -5088,13 +6436,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QFontComboBox, text: []const u8) QAction {
+    pub fn addAction2(self: QFontComboBox, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -5108,7 +6460,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QFontComboBox, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QFontComboBox, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5117,6 +6469,10 @@ pub const QFontComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -5129,7 +6485,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QFontComboBox, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QFontComboBox, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -5137,6 +6493,10 @@ pub const QFontComboBox = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -5152,7 +6512,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QFontComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QFontComboBox, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -5162,6 +6522,10 @@ pub const QFontComboBox = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -5170,9 +6534,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ParentWidget(self: QFontComboBox) QWidget {
+    pub fn parentWidget(self: QFontComboBox) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5184,9 +6552,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QFontComboBox, typeVal: i32) void {
+    pub fn setWindowFlags(self: QFontComboBox, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5200,9 +6572,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QFontComboBox) i32 {
+    pub fn windowFlags(self: QFontComboBox) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -5214,9 +6590,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QFontComboBox, param1: i32) void {
+    pub fn setWindowFlag(self: QFontComboBox, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5228,9 +6608,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QFontComboBox, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QFontComboBox, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5244,9 +6628,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QFontComboBox) i32 {
+    pub fn windowType(self: QFontComboBox) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5256,9 +6644,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5268,13 +6660,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QFontComboBox, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QFontComboBox, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5286,10 +6682,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QFontComboBox, p: anytype) QWidget {
+    pub fn childAt2(self: QFontComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5301,10 +6701,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QFontComboBox, p: anytype) QWidget {
+    pub fn childAt3(self: QFontComboBox, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5316,9 +6720,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QFontComboBox, param1: i32) void {
+    pub fn setAttribute(self: QFontComboBox, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5330,9 +6738,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QFontComboBox, param1: i32) bool {
+    pub fn testAttribute(self: QFontComboBox, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5342,9 +6754,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn EnsurePolished(self: QFontComboBox) void {
+    pub fn ensurePolished(self: QFontComboBox) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5356,10 +6772,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QFontComboBox, child: anytype) bool {
+    pub fn isAncestorOf(self: QFontComboBox, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5369,9 +6789,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn AutoFillBackground(self: QFontComboBox) bool {
+    pub fn autoFillBackground(self: QFontComboBox) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5383,9 +6807,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QFontComboBox, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QFontComboBox, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5395,9 +6823,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn BackingStore(self: QFontComboBox) QBackingStore {
+    pub fn backingStore(self: QFontComboBox) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5407,9 +6839,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn WindowHandle(self: QFontComboBox) QWindow {
+    pub fn windowHandle(self: QFontComboBox) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5419,9 +6855,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Screen(self: QFontComboBox) QScreen {
+    pub fn screen(self: QFontComboBox) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5431,12 +6871,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QFontComboBox, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QFontComboBox, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5444,12 +6888,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5461,13 +6909,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QFontComboBox, title: []const u8) void {
+    pub fn windowTitleChanged(self: QFontComboBox, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5479,9 +6931,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5493,10 +6949,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QFontComboBox, icon: anytype) void {
+    pub fn windowIconChanged(self: QFontComboBox, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5508,9 +6968,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5522,13 +6986,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QFontComboBox, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QFontComboBox, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5540,9 +7008,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5552,12 +7024,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QFontComboBox, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QFontComboBox, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5569,9 +7045,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QFontComboBox, callback: *const fn (QFontComboBox, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QFontComboBox, callback: *const fn (QFontComboBox, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5585,9 +7065,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QFontComboBox) i32 {
+    pub fn inputMethodHints(self: QFontComboBox) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5599,9 +7083,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QFontComboBox, hints: i32) void {
+    pub fn setInputMethodHints(self: QFontComboBox, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5615,11 +7103,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QFontComboBox, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QFontComboBox, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5635,13 +7127,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QFontComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QFontComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5658,12 +7154,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QFontComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QFontComboBox, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5677,11 +7177,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QFontComboBox, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QFontComboBox, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5697,12 +7201,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QFontComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QFontComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5720,12 +7228,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QFontComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QFontComboBox, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5737,10 +7249,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QFontComboBox, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QFontComboBox, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5754,9 +7270,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QFontComboBox, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QFontComboBox, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5770,10 +7290,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QFontComboBox, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QFontComboBox, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5787,9 +7311,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QFontComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QFontComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5803,9 +7331,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QFontComboBox, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QFontComboBox, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5819,9 +7351,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QFontComboBox, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QFontComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5835,25 +7371,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QFontComboBox, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QFontComboBox, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5861,17 +7385,41 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5883,13 +7431,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QFontComboBox, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFontComboBox.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5901,13 +7453,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QFontComboBox, name: []const u8) void {
+    pub fn setObjectName(self: QFontComboBox, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5917,9 +7473,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsWidgetType(self: QFontComboBox) bool {
+    pub fn isWidgetType(self: QFontComboBox) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5929,9 +7489,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsWindowType(self: QFontComboBox) bool {
+    pub fn isWindowType(self: QFontComboBox) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5941,9 +7505,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn IsQuickItemType(self: QFontComboBox) bool {
+    pub fn isQuickItemType(self: QFontComboBox) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5953,9 +7521,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SignalsBlocked(self: QFontComboBox) bool {
+    pub fn signalsBlocked(self: QFontComboBox) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5967,9 +7539,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QFontComboBox, b: bool) bool {
+    pub fn blockSignals(self: QFontComboBox, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5979,9 +7555,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Thread(self: QFontComboBox) QThread {
+    pub fn thread(self: QFontComboBox) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5991,12 +7571,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QFontComboBox, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QFontComboBox, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -6008,9 +7592,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QFontComboBox, interval: i32) i32 {
+    pub fn startTimer(self: QFontComboBox, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -6022,9 +7610,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QFontComboBox, time: i64) i32 {
+    pub fn startTimer2(self: QFontComboBox, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -6036,9 +7628,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QFontComboBox, id: i32) void {
+    pub fn killTimer(self: QFontComboBox, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -6050,9 +7646,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QFontComboBox, id: i32) void {
+    pub fn killTimer2(self: QFontComboBox, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -6064,15 +7664,19 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QFontComboBox, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QFontComboBox, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFontComboBox.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFontComboBox.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6084,10 +7688,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QFontComboBox, filterObj: anytype) void {
+    pub fn installEventFilter(self: QFontComboBox, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -6099,10 +7707,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QFontComboBox, obj: anytype) void {
+    pub fn removeEventFilter(self: QFontComboBox, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -6110,7 +7722,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6118,13 +7730,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -6132,7 +7748,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6140,13 +7756,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -6156,18 +7776,22 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QFontComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QFontComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -6175,7 +7799,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6183,13 +7807,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -6197,7 +7825,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6205,13 +7833,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6221,9 +7853,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Disconnect3(self: QFontComboBox) bool {
+    pub fn disconnect3(self: QFontComboBox) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6235,10 +7871,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QFontComboBox, receiver: anytype) bool {
+    pub fn disconnect4(self: QFontComboBox, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6248,10 +7888,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6261,9 +7905,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DumpObjectTree(self: QFontComboBox) void {
+    pub fn dumpObjectTree(self: QFontComboBox) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6273,9 +7921,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DumpObjectInfo(self: QFontComboBox) void {
+    pub fn dumpObjectInfo(self: QFontComboBox) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6289,11 +7941,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QFontComboBox, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QFontComboBox, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6305,10 +7961,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QFontComboBox, name: [:0]const u8) QVariant {
+    pub fn property(self: QFontComboBox, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6320,7 +7980,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QFontComboBox, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QFontComboBox, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6328,27 +7988,19 @@ pub const QFontComboBox = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFontComboBox.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFontComboBox.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFontComboBox.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFontComboBox.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFontComboBox `
-    ///
-    pub fn BindingStorage(self: QFontComboBox) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6358,9 +8010,29 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn BindingStorage2(self: QFontComboBox) QBindingStorage {
+    pub fn bindingStorage(self: QFontComboBox) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFontComboBox `
+    ///
+    pub fn bindingStorage2(self: QFontComboBox) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6370,9 +8042,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Destroyed(self: QFontComboBox) void {
+    pub fn destroyed(self: QFontComboBox) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6384,9 +8060,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QFontComboBox, callback: *const fn (QFontComboBox) callconv(.c) void) void {
+    pub fn onDestroyed(self: QFontComboBox, callback: *const fn (QFontComboBox) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6396,9 +8076,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Parent(self: QFontComboBox) QObject {
+    pub fn parent(self: QFontComboBox) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6410,10 +8094,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QFontComboBox, classname: [:0]const u8) bool {
+    pub fn inherits(self: QFontComboBox, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6423,9 +8111,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DeleteLater(self: QFontComboBox) void {
+    pub fn deleteLater(self: QFontComboBox) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6439,9 +8131,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QFontComboBox, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QFontComboBox, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6455,9 +8151,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QFontComboBox, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QFontComboBox, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6465,7 +8165,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6475,13 +8175,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6489,7 +8193,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6499,13 +8203,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6515,7 +8223,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6523,12 +8231,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QFontComboBox, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QFontComboBox, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6540,10 +8252,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QFontComboBox, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QFontComboBox, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6557,11 +8273,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QFontComboBox, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QFontComboBox, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6577,13 +8297,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QFontComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QFontComboBox, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6596,11 +8320,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QFontComboBox, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QFontComboBox, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6612,10 +8340,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QFontComboBox, param1: anytype) void {
+    pub fn destroyed1(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6627,9 +8359,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QFontComboBox, callback: *const fn (QFontComboBox, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QFontComboBox, callback: *const fn (QFontComboBox, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6639,9 +8375,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn PaintingActive(self: QFontComboBox) bool {
+    pub fn paintingActive(self: QFontComboBox) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6651,9 +8391,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn WidthMM(self: QFontComboBox) i32 {
+    pub fn widthMM(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6663,9 +8407,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HeightMM(self: QFontComboBox) i32 {
+    pub fn heightMM(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6675,9 +8423,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn LogicalDpiX(self: QFontComboBox) i32 {
+    pub fn logicalDpiX(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6687,9 +8439,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn LogicalDpiY(self: QFontComboBox) i32 {
+    pub fn logicalDpiY(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6699,9 +8455,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn PhysicalDpiX(self: QFontComboBox) i32 {
+    pub fn physicalDpiX(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6711,9 +8471,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn PhysicalDpiY(self: QFontComboBox) i32 {
+    pub fn physicalDpiY(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6723,9 +8487,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DevicePixelRatio(self: QFontComboBox) f64 {
+    pub fn devicePixelRatio(self: QFontComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6735,9 +8503,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DevicePixelRatioF(self: QFontComboBox) f64 {
+    pub fn devicePixelRatioF(self: QFontComboBox) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6747,9 +8519,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ColorCount(self: QFontComboBox) i32 {
+    pub fn colorCount(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6759,17 +8535,25 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Depth(self: QFontComboBox) i32 {
+    pub fn depth(self: QFontComboBox) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6777,13 +8561,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `setModel` instead
+    ///
+    pub const SetModel = setModel;
 
     /// Inherited from QComboBox
     ///
@@ -6795,16 +8583,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SetModel(self: QFontComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QFontComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn setModel(self: QFontComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QFontComboBox_SetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModel` instead
+    /// ### DEPRECATED: Use `superSetModel` instead
     ///
-    pub const QBaseSetModel = SuperSetModel;
+    pub const SuperSetModel = superSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6816,12 +8604,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` model: QAbstractItemModel `
+    /// ` _model: QAbstractItemModel `
     ///
-    pub fn SuperSetModel(self: QFontComboBox, model: anytype) void {
-        comptime _ = @TypeOf(model)._is_QAbstractItemModel;
-        qtc.QFontComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(model.ptr));
+    pub fn superSetModel(self: QFontComboBox, _model: anytype) void {
+        comptime _ = @TypeOf(_model)._is_QAbstractItemModel;
+        qtc.QFontComboBox_SuperSetModel(@ptrCast(self.ptr), @ptrCast(_model.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModel` instead
+    ///
+    pub const OnSetModel = onSetModel;
 
     /// Inherited from QComboBox
     ///
@@ -6835,9 +8627,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, model: QAbstractItemModel) callconv(.c) void `
     ///
-    pub fn OnSetModel(self: QFontComboBox, callback: *const fn (QFontComboBox, QAbstractItemModel) callconv(.c) void) void {
+    pub fn onSetModel(self: QFontComboBox, callback: *const fn (QFontComboBox, QAbstractItemModel) callconv(.c) void) void {
         qtc.QFontComboBox_OnSetModel(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6849,13 +8645,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn MinimumSizeHint(self: QFontComboBox) QSize {
+    pub fn minimumSizeHint(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QFontComboBox_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6867,9 +8663,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperMinimumSizeHint(self: QFontComboBox) QSize {
+    pub fn superMinimumSizeHint(self: QFontComboBox) QSize {
         return .{ .ptr = qtc.QFontComboBox_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QComboBox
     ///
@@ -6885,10 +8685,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QFontComboBox, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QFontComboBox, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFontComboBox_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `showPopup` instead
+    ///
+    pub const ShowPopup = showPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6899,13 +8703,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn ShowPopup(self: QFontComboBox) void {
+    pub fn showPopup(self: QFontComboBox) void {
         qtc.QFontComboBox_ShowPopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowPopup` instead
+    /// ### DEPRECATED: Use `superShowPopup` instead
     ///
-    pub const QBaseShowPopup = SuperShowPopup;
+    pub const SuperShowPopup = superShowPopup;
 
     /// Inherited from QComboBox
     ///
@@ -6917,10 +8721,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperShowPopup(self: QFontComboBox) void {
+    pub fn superShowPopup(self: QFontComboBox) void {
         qtc.QFontComboBox_SuperShowPopup(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onShowPopup` instead
+    ///
+    pub const OnShowPopup = onShowPopup;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#showPopup)
@@ -6933,9 +8741,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnShowPopup(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onShowPopup(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.QFontComboBox_OnShowPopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hidePopup` instead
+    ///
+    pub const HidePopup = hidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6947,13 +8759,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HidePopup(self: QFontComboBox) void {
+    pub fn hidePopup(self: QFontComboBox) void {
         qtc.QFontComboBox_HidePopup(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHidePopup` instead
+    /// ### DEPRECATED: Use `superHidePopup` instead
     ///
-    pub const QBaseHidePopup = SuperHidePopup;
+    pub const SuperHidePopup = superHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6965,9 +8777,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperHidePopup(self: QFontComboBox) void {
+    pub fn superHidePopup(self: QFontComboBox) void {
         qtc.QFontComboBox_SuperHidePopup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHidePopup` instead
+    ///
+    pub const OnHidePopup = onHidePopup;
 
     /// Inherited from QComboBox
     ///
@@ -6981,9 +8797,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnHidePopup(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onHidePopup(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.QFontComboBox_OnHidePopup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -6997,13 +8817,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QFontComboBox, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QFontComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QFontComboBox_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -7017,9 +8837,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QFontComboBox, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QFontComboBox, param1: i32) QVariant {
         return .{ .ptr = qtc.QFontComboBox_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QComboBox
     ///
@@ -7035,9 +8859,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) QVariant) void {
         qtc.QFontComboBox_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7051,14 +8879,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QFontComboBox, e: anytype) void {
+    pub fn focusInEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QFontComboBox_FocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7072,11 +8900,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superFocusInEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QFontComboBox_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#focusInEvent)
@@ -7089,9 +8921,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7105,14 +8941,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QFontComboBox, e: anytype) void {
+    pub fn focusOutEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QFontComboBox_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7126,10 +8962,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superFocusOutEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.QFontComboBox_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7143,9 +8983,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QFocusEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7159,14 +9003,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: QFontComboBox, e: anytype) void {
+    pub fn changeEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QFontComboBox_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7180,10 +9024,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superChangeEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.QFontComboBox_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7197,9 +9045,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7213,14 +9065,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QFontComboBox, e: anytype) void {
+    pub fn resizeEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QFontComboBox_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7234,10 +9086,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superResizeEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.QFontComboBox_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7251,9 +9107,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QResizeEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7267,14 +9127,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QFontComboBox, e: anytype) void {
+    pub fn paintEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QFontComboBox_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7288,10 +9148,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superPaintEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.QFontComboBox_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7305,9 +9169,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QPaintEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7321,14 +9189,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn ShowEvent(self: QFontComboBox, e: anytype) void {
+    pub fn showEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.QFontComboBox_ShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7342,10 +9210,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superShowEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QShowEvent;
         qtc.QFontComboBox_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7359,9 +9231,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QShowEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7375,14 +9251,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn HideEvent(self: QFontComboBox, e: anytype) void {
+    pub fn hideEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.QFontComboBox_HideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7396,10 +9272,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superHideEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QHideEvent;
         qtc.QFontComboBox_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7413,9 +9293,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QHideEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7429,14 +9313,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QFontComboBox, e: anytype) void {
+    pub fn mousePressEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QFontComboBox_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7450,11 +9334,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superMousePressEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QFontComboBox_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#mousePressEvent)
@@ -7467,9 +9355,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7483,14 +9375,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QFontComboBox, e: anytype) void {
+    pub fn mouseReleaseEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QFontComboBox_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7504,10 +9396,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.QFontComboBox_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7521,9 +9417,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7537,14 +9437,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QFontComboBox, e: anytype) void {
+    pub fn keyPressEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QFontComboBox_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7558,11 +9458,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superKeyPressEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QFontComboBox_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
+
     /// Inherited from QComboBox
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcombobox.html#keyPressEvent)
@@ -7575,9 +9479,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7591,14 +9499,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QFontComboBox, e: anytype) void {
+    pub fn keyReleaseEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QFontComboBox_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7612,10 +9520,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.QFontComboBox_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7629,9 +9541,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QKeyEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7645,14 +9561,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QFontComboBox, e: anytype) void {
+    pub fn wheelEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QFontComboBox_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7666,10 +9582,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superWheelEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.QFontComboBox_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7683,9 +9603,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QWheelEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7699,14 +9623,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QFontComboBox, e: anytype) void {
+    pub fn contextMenuEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.QFontComboBox_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7720,10 +9644,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` e: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QFontComboBox, e: anytype) void {
+    pub fn superContextMenuEvent(self: QFontComboBox, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QContextMenuEvent;
         qtc.QFontComboBox_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7737,9 +9665,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, e: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QContextMenuEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7753,14 +9685,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QFontComboBox, param1: anytype) void {
+    pub fn inputMethodEvent(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QFontComboBox_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7774,10 +9706,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QFontComboBox, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QFontComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QFontComboBox_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QComboBox
     ///
@@ -7791,9 +9727,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QInputMethodEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7807,14 +9747,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn InitStyleOption(self: QFontComboBox, option: anytype) void {
+    pub fn initStyleOption(self: QFontComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.QFontComboBox_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7828,10 +9768,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` option: QStyleOptionComboBox `
     ///
-    pub fn SuperInitStyleOption(self: QFontComboBox, option: anytype) void {
+    pub fn superInitStyleOption(self: QFontComboBox, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionComboBox;
         qtc.QFontComboBox_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QComboBox
     ///
@@ -7845,9 +9789,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, option: QStyleOptionComboBox) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QFontComboBox, callback: *const fn (QFontComboBox, QStyleOptionComboBox) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QFontComboBox, callback: *const fn (QFontComboBox, QStyleOptionComboBox) callconv(.c) void) void {
         qtc.QFontComboBox_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -7859,13 +9807,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn DevType(self: QFontComboBox) i32 {
+    pub fn devType(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -7877,9 +9825,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperDevType(self: QFontComboBox) i32 {
+    pub fn superDevType(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -7893,9 +9845,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QFontComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QFontComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QFontComboBox_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -7909,13 +9865,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QFontComboBox, visible: bool) void {
+    pub fn setVisible(self: QFontComboBox, visible: bool) void {
         qtc.QFontComboBox_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7929,9 +9885,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QFontComboBox, visible: bool) void {
+    pub fn superSetVisible(self: QFontComboBox, visible: bool) void {
         qtc.QFontComboBox_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -7945,9 +9905,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QFontComboBox, callback: *const fn (QFontComboBox, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QFontComboBox, callback: *const fn (QFontComboBox, bool) callconv(.c) void) void {
         qtc.QFontComboBox_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7961,13 +9925,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QFontComboBox, param1: i32) i32 {
+    pub fn heightForWidth(self: QFontComboBox, param1: i32) i32 {
         return qtc.QFontComboBox_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7981,9 +9945,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QFontComboBox, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QFontComboBox, param1: i32) i32 {
         return qtc.QFontComboBox_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -7997,9 +9965,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) i32) void {
         qtc.QFontComboBox_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8011,13 +9983,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn HasHeightForWidth(self: QFontComboBox) bool {
+    pub fn hasHeightForWidth(self: QFontComboBox) bool {
         return qtc.QFontComboBox_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8029,9 +10001,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperHasHeightForWidth(self: QFontComboBox) bool {
+    pub fn superHasHeightForWidth(self: QFontComboBox) bool {
         return qtc.QFontComboBox_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -8045,9 +10021,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QFontComboBox_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8059,13 +10039,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn PaintEngine(self: QFontComboBox) QPaintEngine {
+    pub fn paintEngine(self: QFontComboBox) QPaintEngine {
         return .{ .ptr = qtc.QFontComboBox_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8077,9 +10057,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperPaintEngine(self: QFontComboBox) QPaintEngine {
+    pub fn superPaintEngine(self: QFontComboBox) QPaintEngine {
         return .{ .ptr = qtc.QFontComboBox_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -8093,10 +10077,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QFontComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QFontComboBox, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QFontComboBox_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -8107,16 +10095,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFontComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFontComboBox_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8128,12 +10116,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFontComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFontComboBox_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -8147,10 +10139,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -8161,16 +10157,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFontComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFontComboBox_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8182,12 +10178,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFontComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFontComboBox_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8201,9 +10201,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMouseEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8215,16 +10219,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QFontComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QFontComboBox_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8236,12 +10240,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QFontComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QFontComboBox_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8255,9 +10263,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEnterEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8269,16 +10281,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFontComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFontComboBox_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8290,12 +10302,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFontComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFontComboBox_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8309,9 +10325,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8323,16 +10343,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QFontComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QFontComboBox_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8344,12 +10364,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QFontComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QFontComboBox_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8363,9 +10387,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QMoveEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8377,16 +10405,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QFontComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QFontComboBox_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8398,12 +10426,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QFontComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QFontComboBox_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -8417,9 +10449,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QCloseEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8431,16 +10467,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QFontComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QFontComboBox_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8452,12 +10488,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QFontComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QFontComboBox_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -8471,9 +10511,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QTabletEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8485,16 +10529,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QFontComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QFontComboBox_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8506,12 +10550,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QFontComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QFontComboBox_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -8525,9 +10573,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QActionEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8539,16 +10591,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QFontComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QFontComboBox_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8560,12 +10612,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QFontComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QFontComboBox_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -8579,9 +10635,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragEnterEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8593,16 +10653,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QFontComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QFontComboBox_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8614,12 +10674,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QFontComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QFontComboBox_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8633,9 +10697,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragMoveEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8647,16 +10715,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QFontComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QFontComboBox_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8668,12 +10736,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QFontComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QFontComboBox_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -8687,9 +10759,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8701,16 +10777,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QFontComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QFontComboBox_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8722,12 +10798,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QFontComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QFontComboBox_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -8741,9 +10821,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QDropEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8761,7 +10845,7 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QFontComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QFontComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -8769,9 +10853,9 @@ pub const QFontComboBox = extern struct {
         return qtc.QFontComboBox_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8789,13 +10873,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QFontComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QFontComboBox, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QFontComboBox_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -8809,9 +10897,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFontComboBox_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -8825,13 +10917,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QFontComboBox, param1: i32) i32 {
+    pub fn metric(self: QFontComboBox, param1: i32) i32 {
         return qtc.QFontComboBox_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -8845,9 +10937,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QFontComboBox, param1: i32) i32 {
+    pub fn superMetric(self: QFontComboBox, param1: i32) i32 {
         return qtc.QFontComboBox_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -8861,9 +10957,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QFontComboBox, callback: *const fn (QFontComboBox, i32) callconv(.c) i32) void {
         qtc.QFontComboBox_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -8877,14 +10977,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QFontComboBox, painter: anytype) void {
+    pub fn initPainter(self: QFontComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QFontComboBox_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8898,10 +10998,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QFontComboBox, painter: anytype) void {
+    pub fn superInitPainter(self: QFontComboBox, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QFontComboBox_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -8915,9 +11019,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QFontComboBox, callback: *const fn (QFontComboBox, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QFontComboBox, callback: *const fn (QFontComboBox, QPainter) callconv(.c) void) void {
         qtc.QFontComboBox_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -8931,14 +11039,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QFontComboBox, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QFontComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QFontComboBox_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8952,10 +11060,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QFontComboBox, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QFontComboBox, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QFontComboBox_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8969,9 +11081,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QFontComboBox, callback: *const fn (QFontComboBox, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QFontComboBox, callback: *const fn (QFontComboBox, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QFontComboBox_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8983,13 +11099,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SharedPainter(self: QFontComboBox) QPainter {
+    pub fn sharedPainter(self: QFontComboBox) QPainter {
         return .{ .ptr = qtc.QFontComboBox_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9001,9 +11117,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperSharedPainter(self: QFontComboBox) QPainter {
+    pub fn superSharedPainter(self: QFontComboBox) QPainter {
         return .{ .ptr = qtc.QFontComboBox_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -9017,9 +11137,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QFontComboBox, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QFontComboBox, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QFontComboBox_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9033,13 +11157,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QFontComboBox, next: bool) bool {
+    pub fn focusNextPrevChild(self: QFontComboBox, next: bool) bool {
         return qtc.QFontComboBox_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9053,9 +11177,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QFontComboBox, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QFontComboBox, next: bool) bool {
         return qtc.QFontComboBox_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -9069,9 +11197,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QFontComboBox, callback: *const fn (QFontComboBox, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QFontComboBox, callback: *const fn (QFontComboBox, bool) callconv(.c) bool) void {
         qtc.QFontComboBox_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -9085,17 +11217,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QFontComboBox, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QFontComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFontComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFontComboBox_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9109,13 +11241,17 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QFontComboBox, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QFontComboBox, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QFontComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QFontComboBox_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -9129,9 +11265,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QFontComboBox, callback: *const fn (QFontComboBox, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QFontComboBox, callback: *const fn (QFontComboBox, QObject, QEvent) callconv(.c) bool) void {
         qtc.QFontComboBox_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -9143,16 +11283,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFontComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFontComboBox_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9164,12 +11304,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFontComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFontComboBox_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -9183,9 +11327,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QTimerEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -9197,16 +11345,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QFontComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QFontComboBox_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9218,12 +11366,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QFontComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QFontComboBox_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -9237,9 +11389,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QChildEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -9251,16 +11407,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFontComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFontComboBox_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9272,12 +11428,16 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QFontComboBox, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFontComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QFontComboBox, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFontComboBox_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -9291,9 +11451,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QFontComboBox, callback: *const fn (QFontComboBox, QEvent) callconv(.c) void) void {
         qtc.QFontComboBox_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -9307,14 +11471,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QFontComboBox, signal: anytype) void {
+    pub fn connectNotify(self: QFontComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFontComboBox_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9328,11 +11492,15 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QFontComboBox, signal: anytype) void {
+    pub fn superConnectNotify(self: QFontComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFontComboBox_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -9345,9 +11513,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.QFontComboBox_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9361,14 +11533,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QFontComboBox, signal: anytype) void {
+    pub fn disconnectNotify(self: QFontComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFontComboBox_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9382,10 +11554,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QFontComboBox, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QFontComboBox, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFontComboBox_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -9399,10 +11575,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) void) void {
         qtc.QFontComboBox_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9413,13 +11593,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn UpdateMicroFocus(self: QFontComboBox) void {
+    pub fn updateMicroFocus(self: QFontComboBox) void {
         qtc.QFontComboBox_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -9431,10 +11611,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperUpdateMicroFocus(self: QFontComboBox) void {
+    pub fn superUpdateMicroFocus(self: QFontComboBox) void {
         qtc.QFontComboBox_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -9447,10 +11631,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.QFontComboBox_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9461,13 +11649,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Create(self: QFontComboBox) void {
+    pub fn create(self: QFontComboBox) void {
         qtc.QFontComboBox_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -9479,10 +11667,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperCreate(self: QFontComboBox) void {
+    pub fn superCreate(self: QFontComboBox) void {
         qtc.QFontComboBox_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -9495,9 +11687,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.QFontComboBox_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -9509,13 +11705,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Destroy(self: QFontComboBox) void {
+    pub fn destroy(self: QFontComboBox) void {
         qtc.QFontComboBox_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9527,9 +11723,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperDestroy(self: QFontComboBox) void {
+    pub fn superDestroy(self: QFontComboBox) void {
         qtc.QFontComboBox_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -9543,10 +11743,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QFontComboBox, callback: *const fn () callconv(.c) void) void {
         qtc.QFontComboBox_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9557,13 +11761,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FocusNextChild(self: QFontComboBox) bool {
+    pub fn focusNextChild(self: QFontComboBox) bool {
         return qtc.QFontComboBox_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -9575,10 +11779,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperFocusNextChild(self: QFontComboBox) bool {
+    pub fn superFocusNextChild(self: QFontComboBox) bool {
         return qtc.QFontComboBox_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -9591,9 +11799,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QFontComboBox_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9605,13 +11817,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn FocusPreviousChild(self: QFontComboBox) bool {
+    pub fn focusPreviousChild(self: QFontComboBox) bool {
         return qtc.QFontComboBox_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9623,9 +11835,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperFocusPreviousChild(self: QFontComboBox) bool {
+    pub fn superFocusPreviousChild(self: QFontComboBox) bool {
         return qtc.QFontComboBox_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -9639,9 +11855,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QFontComboBox, callback: *const fn () callconv(.c) bool) void {
         qtc.QFontComboBox_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -9653,13 +11873,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Sender(self: QFontComboBox) QObject {
+    pub fn sender(self: QFontComboBox) QObject {
         return .{ .ptr = qtc.QFontComboBox_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -9671,9 +11891,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperSender(self: QFontComboBox) QObject {
+    pub fn superSender(self: QFontComboBox) QObject {
         return .{ .ptr = qtc.QFontComboBox_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -9687,9 +11911,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QFontComboBox, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QFontComboBox, callback: *const fn () callconv(.c) QObject) void {
         qtc.QFontComboBox_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9701,13 +11929,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SenderSignalIndex(self: QFontComboBox) i32 {
+    pub fn senderSignalIndex(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9719,9 +11947,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn SuperSenderSignalIndex(self: QFontComboBox) i32 {
+    pub fn superSenderSignalIndex(self: QFontComboBox) i32 {
         return qtc.QFontComboBox_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -9735,9 +11967,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QFontComboBox, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QFontComboBox, callback: *const fn () callconv(.c) i32) void {
         qtc.QFontComboBox_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -9751,14 +11987,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QFontComboBox, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QFontComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFontComboBox_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -9772,10 +12008,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QFontComboBox, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QFontComboBox, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFontComboBox_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -9789,9 +12029,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFontComboBox_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9805,14 +12049,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QFontComboBox, signal: anytype) bool {
+    pub fn isSignalConnected(self: QFontComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFontComboBox_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9826,10 +12070,14 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QFontComboBox, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QFontComboBox, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFontComboBox_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9843,9 +12091,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QFontComboBox, callback: *const fn (QFontComboBox, QMetaMethod) callconv(.c) bool) void {
         qtc.QFontComboBox_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9861,13 +12113,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QFontComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QFontComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.QFontComboBox_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9883,9 +12135,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QFontComboBox, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QFontComboBox, metricA: i32, metricB: i32) f64 {
         return qtc.QFontComboBox_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9899,9 +12155,13 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QFontComboBox, callback: *const fn (QFontComboBox, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QFontComboBox, callback: *const fn (QFontComboBox, i32, i32) callconv(.c) f64) void {
         qtc.QFontComboBox_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9915,23 +12175,23 @@ pub const QFontComboBox = extern struct {
     ///
     /// ` callback: *const fn (self: QFontComboBox, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QFontComboBox, callback: *const fn (QFontComboBox, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfontcombobox.html#dtor.QFontComboBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFontComboBox `
     ///
-    pub fn Delete(self: QFontComboBox) void {
+    pub fn delete(self: QFontComboBox) void {
         qtc.QFontComboBox_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,6 +13,10 @@ pub const KFileSystemType = extern struct {
 
     pub const _is_KFileSystemType = {};
 
+    /// ### DEPRECATED: Use `fileSystemType` instead
+    ///
+    pub const FileSystemType = fileSystemType;
+
     /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemType)
     ///
     /// ## Parameter(s):
@@ -23,7 +27,7 @@ pub const KFileSystemType = extern struct {
     ///
     /// ` kfilesystemtype_enums.Type `
     ///
-    pub fn FileSystemType(path: []const u8) i32 {
+    pub fn fileSystemType(path: []const u8) i32 {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -31,18 +35,22 @@ pub const KFileSystemType = extern struct {
         return qtc.KFileSystemType_FileSystemType(path_str);
     }
 
+    /// ### DEPRECATED: Use `fileSystemName` instead
+    ///
+    pub const FileSystemName = fileSystemName;
+
     /// ### [Upstream resources](https://api.kde.org/kfilesystemtype.html#fileSystemName)
     ///
     /// ## Parameter(s):
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` type: kfilesystemtype_enums.Type `
+    /// ` _type: kfilesystemtype_enums.Type `
     ///
-    pub fn FileSystemName(allocator: std.mem.Allocator, _type: i32) []const u8 {
+    pub fn fileSystemName(allocator: std.mem.Allocator, _type: i32) []const u8 {
         var _str = qtc.KFileSystemType_FileSystemName(@bitCast(_type));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileSystemType.FileSystemName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileSystemType.fileSystemName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }

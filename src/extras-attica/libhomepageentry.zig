@@ -13,22 +13,34 @@ pub const Attica__HomePageEntry = extern struct {
 
     pub const _is_Attica__HomePageEntry = {};
 
-    /// New constructs a new Attica::HomePageEntry object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() Attica__HomePageEntry {
+    pub const New = new;
+
+    /// Allocate a new Attica::HomePageEntry object in C++ memory
+    ///
+    pub fn new() Attica__HomePageEntry {
         return .{ .ptr = qtc.Attica__HomePageEntry_new() };
     }
 
-    /// New2 constructs a new Attica::HomePageEntry object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new Attica::HomePageEntry object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: Attica__HomePageEntry `
     ///
-    pub fn New2(other: anytype) Attica__HomePageEntry {
+    pub fn new2(other: anytype) Attica__HomePageEntry {
         comptime _ = @TypeOf(other)._is_Attica__HomePageEntry;
         return .{ .ptr = qtc.Attica__HomePageEntry_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#operator-eq)
     ///
@@ -38,10 +50,16 @@ pub const Attica__HomePageEntry = extern struct {
     ///
     /// ` other: Attica__HomePageEntry `
     ///
-    pub fn OperatorAssign(self: Attica__HomePageEntry, other: anytype) void {
+    pub fn operatorAssign(self: Attica__HomePageEntry, other: anytype) void {
         comptime _ = @TypeOf(other)._is_Attica__HomePageEntry;
         qtc.Attica__HomePageEntry_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#type)
     ///
@@ -51,13 +69,17 @@ pub const Attica__HomePageEntry = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Type(self: Attica__HomePageEntry, allocator: std.mem.Allocator) []const u8 {
+    pub fn type0(self: Attica__HomePageEntry, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.Attica__HomePageEntry_Type(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__HomePageEntry.Type: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("Attica__HomePageEntry.type0: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#setType)
     ///
@@ -67,7 +89,7 @@ pub const Attica__HomePageEntry = extern struct {
     ///
     /// ` typeVal: []const u8 `
     ///
-    pub fn SetType(self: Attica__HomePageEntry, typeVal: []const u8) void {
+    pub fn setType(self: Attica__HomePageEntry, typeVal: []const u8) void {
         const typeVal_str = qtc.libqt_string{
             .len = typeVal.len,
             .data = typeVal.ptr,
@@ -75,15 +97,23 @@ pub const Attica__HomePageEntry = extern struct {
         qtc.Attica__HomePageEntry_SetType(@ptrCast(self.ptr), typeVal_str);
     }
 
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
+
     /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#url)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: Attica__HomePageEntry `
     ///
-    pub fn Url(self: Attica__HomePageEntry) QUrl {
+    pub fn url(self: Attica__HomePageEntry) QUrl {
         return .{ .ptr = qtc.Attica__HomePageEntry_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://api.kde.org/attica-homepageentry.html#setUrl)
     ///
@@ -91,24 +121,24 @@ pub const Attica__HomePageEntry = extern struct {
     ///
     /// ` self: Attica__HomePageEntry `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: Attica__HomePageEntry, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.Attica__HomePageEntry_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: Attica__HomePageEntry, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.Attica__HomePageEntry_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: Attica__HomePageEntry `
     ///
-    pub fn Delete(self: Attica__HomePageEntry) void {
+    pub fn delete(self: Attica__HomePageEntry) void {
         qtc.Attica__HomePageEntry_Delete(@ptrCast(self.ptr));
     }
 };

@@ -11,22 +11,34 @@ pub const QHttp1Configuration = extern struct {
 
     pub const _is_QHttp1Configuration = {};
 
-    /// New constructs a new QHttp1Configuration object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QHttp1Configuration {
+    pub const New = new;
+
+    /// Allocate a new QHttp1Configuration object in C++ memory
+    ///
+    pub fn new() QHttp1Configuration {
         return .{ .ptr = qtc.QHttp1Configuration_new() };
     }
 
-    /// New2 constructs a new QHttp1Configuration object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHttp1Configuration object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QHttp1Configuration `
     ///
-    pub fn New2(other: anytype) QHttp1Configuration {
+    pub fn new2(other: anytype) QHttp1Configuration {
         comptime _ = @TypeOf(other)._is_QHttp1Configuration;
         return .{ .ptr = qtc.QHttp1Configuration_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#operator-eq)
     ///
@@ -36,10 +48,14 @@ pub const QHttp1Configuration = extern struct {
     ///
     /// ` other: QHttp1Configuration `
     ///
-    pub fn OperatorAssign(self: QHttp1Configuration, other: anytype) void {
+    pub fn operatorAssign(self: QHttp1Configuration, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHttp1Configuration;
         qtc.QHttp1Configuration_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNumberOfConnectionsPerHost` instead
+    ///
+    pub const SetNumberOfConnectionsPerHost = setNumberOfConnectionsPerHost;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#setNumberOfConnectionsPerHost)
     ///
@@ -49,9 +65,13 @@ pub const QHttp1Configuration = extern struct {
     ///
     /// ` amount: isize `
     ///
-    pub fn SetNumberOfConnectionsPerHost(self: QHttp1Configuration, amount: isize) void {
+    pub fn setNumberOfConnectionsPerHost(self: QHttp1Configuration, amount: isize) void {
         qtc.QHttp1Configuration_SetNumberOfConnectionsPerHost(@ptrCast(self.ptr), @bitCast(amount));
     }
+
+    /// ### DEPRECATED: Use `numberOfConnectionsPerHost` instead
+    ///
+    pub const NumberOfConnectionsPerHost = numberOfConnectionsPerHost;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#numberOfConnectionsPerHost)
     ///
@@ -59,9 +79,13 @@ pub const QHttp1Configuration = extern struct {
     ///
     /// ` self: QHttp1Configuration `
     ///
-    pub fn NumberOfConnectionsPerHost(self: QHttp1Configuration) isize {
+    pub fn numberOfConnectionsPerHost(self: QHttp1Configuration) isize {
         return qtc.QHttp1Configuration_NumberOfConnectionsPerHost(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#swap)
     ///
@@ -71,24 +95,24 @@ pub const QHttp1Configuration = extern struct {
     ///
     /// ` other: QHttp1Configuration `
     ///
-    pub fn Swap(self: QHttp1Configuration, other: anytype) void {
+    pub fn swap(self: QHttp1Configuration, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHttp1Configuration;
         qtc.QHttp1Configuration_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhttp1configuration.html#dtor.QHttp1Configuration)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHttp1Configuration `
     ///
-    pub fn Delete(self: QHttp1Configuration) void {
+    pub fn delete(self: QHttp1Configuration) void {
         qtc.QHttp1Configuration_Delete(@ptrCast(self.ptr));
     }
 };

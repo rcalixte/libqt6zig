@@ -13,32 +13,48 @@ pub const KFileMetaData__TypeInfo = extern struct {
 
     pub const _is_KFileMetaData__TypeInfo = {};
 
-    /// New constructs a new KFileMetaData::TypeInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KFileMetaData__TypeInfo {
+    pub const New = new;
+
+    /// Allocate a new KFileMetaData::TypeInfo object in C++ memory
+    ///
+    pub fn new() KFileMetaData__TypeInfo {
         return .{ .ptr = qtc.KFileMetaData__TypeInfo_new() };
     }
 
-    /// New2 constructs a new KFileMetaData::TypeInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileMetaData::TypeInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: types_enums.Type `
     ///
-    pub fn New2(typeVal: i32) KFileMetaData__TypeInfo {
+    pub fn new2(typeVal: i32) KFileMetaData__TypeInfo {
         return .{ .ptr = qtc.KFileMetaData__TypeInfo_new2(@bitCast(typeVal)) };
     }
 
-    /// New3 constructs a new KFileMetaData::TypeInfo object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KFileMetaData::TypeInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ti: KFileMetaData__TypeInfo `
     ///
-    pub fn New3(ti: anytype) KFileMetaData__TypeInfo {
+    pub fn new3(ti: anytype) KFileMetaData__TypeInfo {
         comptime _ = @TypeOf(ti)._is_KFileMetaData__TypeInfo;
         return .{ .ptr = qtc.KFileMetaData__TypeInfo_new3(@ptrCast(ti.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#operator-eq)
     ///
@@ -48,10 +64,14 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` rhs: KFileMetaData__TypeInfo `
     ///
-    pub fn OperatorAssign(self: KFileMetaData__TypeInfo, rhs: anytype) void {
+    pub fn operatorAssign(self: KFileMetaData__TypeInfo, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_KFileMetaData__TypeInfo;
         qtc.KFileMetaData__TypeInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#operator-eq-eq)
     ///
@@ -61,10 +81,16 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` rhs: KFileMetaData__TypeInfo `
     ///
-    pub fn OperatorEqual(self: KFileMetaData__TypeInfo, rhs: anytype) bool {
+    pub fn operatorEqual(self: KFileMetaData__TypeInfo, rhs: anytype) bool {
         comptime _ = @TypeOf(rhs)._is_KFileMetaData__TypeInfo;
         return qtc.KFileMetaData__TypeInfo_OperatorEqual(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#type)
     ///
@@ -76,9 +102,13 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` types_enums.Type `
     ///
-    pub fn Type(self: KFileMetaData__TypeInfo) i32 {
+    pub fn type0(self: KFileMetaData__TypeInfo) i32 {
         return qtc.KFileMetaData__TypeInfo_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#name)
     ///
@@ -88,13 +118,17 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KFileMetaData__TypeInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KFileMetaData__TypeInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__TypeInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__TypeInfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__TypeInfo.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `displayName` instead
+    ///
+    pub const DisplayName = displayName;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#displayName)
     ///
@@ -104,27 +138,35 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DisplayName(self: KFileMetaData__TypeInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn displayName(self: KFileMetaData__TypeInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__TypeInfo_DisplayName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__TypeInfo.DisplayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__TypeInfo.displayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fromName` instead
+    ///
+    pub const FromName = fromName;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#fromName)
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn FromName(name: []const u8) KFileMetaData__TypeInfo {
+    pub fn fromName(_name: []const u8) KFileMetaData__TypeInfo {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.KFileMetaData__TypeInfo_FromName(name_str) };
     }
+
+    /// ### DEPRECATED: Use `allNames` instead
+    ///
+    pub const AllNames = allNames;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-typeinfo.html#allNames)
     ///
@@ -132,7 +174,7 @@ pub const KFileMetaData__TypeInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AllNames(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn allNames(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KFileMetaData__TypeInfo_AllNames();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -140,27 +182,27 @@ pub const KFileMetaData__TypeInfo = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__TypeInfo.AllNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KFileMetaData__TypeInfo.allNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KFileMetaData__TypeInfo.AllNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KFileMetaData__TypeInfo.allNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileMetaData__TypeInfo `
     ///
-    pub fn Delete(self: KFileMetaData__TypeInfo) void {
+    pub fn delete(self: KFileMetaData__TypeInfo) void {
         qtc.KFileMetaData__TypeInfo_Delete(@ptrCast(self.ptr));
     }
 };

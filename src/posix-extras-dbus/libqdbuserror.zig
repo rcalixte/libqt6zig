@@ -14,49 +14,69 @@ pub const QDBusError = extern struct {
 
     pub const _is_QDBusError = {};
 
-    /// New constructs a new QDBusError object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDBusError {
+    pub const New = new;
+
+    /// Allocate a new QDBusError object in C++ memory
+    ///
+    pub fn new() QDBusError {
         return .{ .ptr = qtc.QDBusError_new() };
     }
 
-    /// New2 constructs a new QDBusError object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDBusError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` msg: QDBusMessage `
     ///
-    pub fn New2(msg: anytype) QDBusError {
+    pub fn new2(msg: anytype) QDBusError {
         comptime _ = @TypeOf(msg)._is_QDBusMessage;
         return .{ .ptr = qtc.QDBusError_new2(@ptrCast(msg.ptr)) };
     }
 
-    /// New3 constructs a new QDBusError object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDBusError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` errorVal: qdbuserror_enums.ErrorType `
     ///
-    /// ` message: []const u8 `
+    /// ` _message: []const u8 `
     ///
-    pub fn New3(errorVal: i32, message: []const u8) QDBusError {
+    pub fn new3(errorVal: i32, _message: []const u8) QDBusError {
         const message_str = qtc.libqt_string{
-            .len = message.len,
-            .data = message.ptr,
+            .len = _message.len,
+            .data = _message.ptr,
         };
         return .{ .ptr = qtc.QDBusError_new3(@bitCast(errorVal), message_str) };
     }
 
-    /// New4 constructs a new QDBusError object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDBusError object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDBusError `
     ///
-    pub fn New4(other: anytype) QDBusError {
+    pub fn new4(other: anytype) QDBusError {
         comptime _ = @TypeOf(other)._is_QDBusError;
         return .{ .ptr = qtc.QDBusError_new4(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
@@ -66,10 +86,14 @@ pub const QDBusError = extern struct {
     ///
     /// ` other: QDBusError `
     ///
-    pub fn OperatorAssign(self: QDBusError, other: anytype) void {
+    pub fn operatorAssign(self: QDBusError, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusError;
         qtc.QDBusError_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#operator-eq)
     ///
@@ -79,10 +103,14 @@ pub const QDBusError = extern struct {
     ///
     /// ` msg: QDBusMessage `
     ///
-    pub fn OperatorAssign2(self: QDBusError, msg: anytype) void {
+    pub fn operatorAssign2(self: QDBusError, msg: anytype) void {
         comptime _ = @TypeOf(msg)._is_QDBusMessage;
         qtc.QDBusError_OperatorAssign2(@ptrCast(self.ptr), @ptrCast(msg.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#swap)
     ///
@@ -92,10 +120,16 @@ pub const QDBusError = extern struct {
     ///
     /// ` other: QDBusError `
     ///
-    pub fn Swap(self: QDBusError, other: anytype) void {
+    pub fn swap(self: QDBusError, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDBusError;
         qtc.QDBusError_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#type)
     ///
@@ -107,9 +141,13 @@ pub const QDBusError = extern struct {
     ///
     /// ` qdbuserror_enums.ErrorType `
     ///
-    pub fn Type(self: QDBusError) i32 {
+    pub fn type0(self: QDBusError) i32 {
         return qtc.QDBusError_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#name)
     ///
@@ -119,13 +157,17 @@ pub const QDBusError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusError_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `message` instead
+    ///
+    pub const Message = message;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#message)
     ///
@@ -135,13 +177,17 @@ pub const QDBusError = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Message(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
+    pub fn message(self: QDBusError, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDBusError_Message(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.Message: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.message: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#isValid)
     ///
@@ -149,9 +195,13 @@ pub const QDBusError = extern struct {
     ///
     /// ` self: QDBusError `
     ///
-    pub fn IsValid(self: QDBusError) bool {
+    pub fn isValid(self: QDBusError) bool {
         return qtc.QDBusError_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#errorString)
     ///
@@ -161,27 +211,27 @@ pub const QDBusError = extern struct {
     ///
     /// ` errorVal: qdbuserror_enums.ErrorType `
     ///
-    pub fn ErrorString(allocator: std.mem.Allocator, errorVal: i32) []const u8 {
+    pub fn errorString(allocator: std.mem.Allocator, errorVal: i32) []const u8 {
         var _str = qtc.QDBusError_ErrorString(@bitCast(errorVal));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDBusError.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdbuserror.html#dtor.QDBusError)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDBusError `
     ///
-    pub fn Delete(self: QDBusError) void {
+    pub fn delete(self: QDBusError) void {
         qtc.QDBusError_Delete(@ptrCast(self.ptr));
     }
 };

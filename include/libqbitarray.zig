@@ -13,44 +13,64 @@ pub const QBitArray = extern struct {
 
     pub const _is_QBitArray = {};
 
-    /// New constructs a new QBitArray object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBitArray {
+    pub const New = new;
+
+    /// Allocate a new QBitArray object in C++ memory
+    ///
+    pub fn new() QBitArray {
         return .{ .ptr = qtc.QBitArray_new() };
     }
 
-    /// New2 constructs a new QBitArray object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBitArray object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: isize `
+    /// ` _size: isize `
     ///
-    pub fn New2(size: isize) QBitArray {
-        return .{ .ptr = qtc.QBitArray_new2(@bitCast(size)) };
+    pub fn new2(_size: isize) QBitArray {
+        return .{ .ptr = qtc.QBitArray_new2(@bitCast(_size)) };
     }
 
-    /// New3 constructs a new QBitArray object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QBitArray object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBitArray `
     ///
-    pub fn New3(other: anytype) QBitArray {
+    pub fn new3(other: anytype) QBitArray {
         comptime _ = @TypeOf(other)._is_QBitArray;
         return .{ .ptr = qtc.QBitArray_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QBitArray object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QBitArray object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` size: isize `
+    /// ` _size: isize `
     ///
     /// ` val: bool `
     ///
-    pub fn New4(size: isize, val: bool) QBitArray {
-        return .{ .ptr = qtc.QBitArray_new4(@bitCast(size), val) };
+    pub fn new4(_size: isize, val: bool) QBitArray {
+        return .{ .ptr = qtc.QBitArray_new4(@bitCast(_size), val) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-eq)
     ///
@@ -60,10 +80,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` other: QBitArray `
     ///
-    pub fn OperatorAssign(self: QBitArray, other: anytype) void {
+    pub fn operatorAssign(self: QBitArray, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBitArray;
         qtc.QBitArray_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#swap)
     ///
@@ -73,10 +97,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` other: QBitArray `
     ///
-    pub fn Swap(self: QBitArray, other: anytype) void {
+    pub fn swap(self: QBitArray, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBitArray;
         qtc.QBitArray_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#size)
     ///
@@ -84,9 +112,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Size(self: QBitArray) isize {
+    pub fn size(self: QBitArray) isize {
         return qtc.QBitArray_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#count)
     ///
@@ -94,9 +126,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Count(self: QBitArray) isize {
+    pub fn count(self: QBitArray) isize {
         return qtc.QBitArray_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count2` instead
+    ///
+    pub const Count2 = count2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#count)
     ///
@@ -106,9 +142,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn Count2(self: QBitArray, on: bool) isize {
+    pub fn count2(self: QBitArray, on: bool) isize {
         return qtc.QBitArray_Count2(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#isEmpty)
     ///
@@ -116,9 +156,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn IsEmpty(self: QBitArray) bool {
+    pub fn isEmpty(self: QBitArray) bool {
         return qtc.QBitArray_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#isNull)
     ///
@@ -126,9 +170,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn IsNull(self: QBitArray) bool {
+    pub fn isNull(self: QBitArray) bool {
         return qtc.QBitArray_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#resize)
     ///
@@ -136,11 +184,15 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    /// ` size: isize `
+    /// ` _size: isize `
     ///
-    pub fn Resize(self: QBitArray, size: isize) void {
-        qtc.QBitArray_Resize(@ptrCast(self.ptr), @bitCast(size));
+    pub fn resize(self: QBitArray, _size: isize) void {
+        qtc.QBitArray_Resize(@ptrCast(self.ptr), @bitCast(_size));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#detach)
     ///
@@ -148,9 +200,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Detach(self: QBitArray) void {
+    pub fn detach(self: QBitArray) void {
         qtc.QBitArray_Detach(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDetached` instead
+    ///
+    pub const IsDetached = isDetached;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#isDetached)
     ///
@@ -158,9 +214,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn IsDetached(self: QBitArray) bool {
+    pub fn isDetached(self: QBitArray) bool {
         return qtc.QBitArray_IsDetached(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#clear)
     ///
@@ -168,9 +228,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Clear(self: QBitArray) void {
+    pub fn clear(self: QBitArray) void {
         qtc.QBitArray_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `testBit` instead
+    ///
+    pub const TestBit = testBit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#testBit)
     ///
@@ -180,9 +244,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn TestBit(self: QBitArray, i: isize) bool {
+    pub fn testBit(self: QBitArray, i: isize) bool {
         return qtc.QBitArray_TestBit(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `setBit` instead
+    ///
+    pub const SetBit = setBit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#setBit)
     ///
@@ -192,9 +260,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn SetBit(self: QBitArray, i: isize) void {
+    pub fn setBit(self: QBitArray, i: isize) void {
         qtc.QBitArray_SetBit(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `setBit2` instead
+    ///
+    pub const SetBit2 = setBit2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#setBit)
     ///
@@ -206,9 +278,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` val: bool `
     ///
-    pub fn SetBit2(self: QBitArray, i: isize, val: bool) void {
+    pub fn setBit2(self: QBitArray, i: isize, val: bool) void {
         qtc.QBitArray_SetBit2(@ptrCast(self.ptr), @bitCast(i), val);
     }
+
+    /// ### DEPRECATED: Use `clearBit` instead
+    ///
+    pub const ClearBit = clearBit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#clearBit)
     ///
@@ -218,9 +294,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn ClearBit(self: QBitArray, i: isize) void {
+    pub fn clearBit(self: QBitArray, i: isize) void {
         qtc.QBitArray_ClearBit(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `toggleBit` instead
+    ///
+    pub const ToggleBit = toggleBit;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toggleBit)
     ///
@@ -230,9 +310,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn ToggleBit(self: QBitArray, i: isize) bool {
+    pub fn toggleBit(self: QBitArray, i: isize) bool {
         return qtc.QBitArray_ToggleBit(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#at)
     ///
@@ -242,21 +326,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn At(self: QBitArray, i: isize) bool {
+    pub fn at(self: QBitArray, i: isize) bool {
         return qtc.QBitArray_At(@ptrCast(self.ptr), @bitCast(i));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
+    /// ### DEPRECATED: Use `operatorSubscript` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBitArray `
-    ///
-    /// ` i: isize `
-    ///
-    pub fn OperatorSubscript(self: QBitArray, i: isize) QBitRef {
-        return .{ .ptr = qtc.QBitArray_OperatorSubscript(@ptrCast(self.ptr), @bitCast(i)) };
-    }
+    pub const OperatorSubscript = operatorSubscript;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
     ///
@@ -266,9 +342,29 @@ pub const QBitArray = extern struct {
     ///
     /// ` i: isize `
     ///
-    pub fn OperatorSubscript2(self: QBitArray, i: isize) bool {
+    pub fn operatorSubscript(self: QBitArray, i: isize) QBitRef {
+        return .{ .ptr = qtc.QBitArray_OperatorSubscript(@ptrCast(self.ptr), @bitCast(i)) };
+    }
+
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5b-5d)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBitArray `
+    ///
+    /// ` i: isize `
+    ///
+    pub fn operatorSubscript2(self: QBitArray, i: isize) bool {
         return qtc.QBitArray_OperatorSubscript2(@ptrCast(self.ptr), @bitCast(i));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseAndAssign` instead
+    ///
+    pub const OperatorBitwiseAndAssign = operatorBitwiseAndAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-and-eq)
     ///
@@ -278,10 +374,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` param1: QBitArray `
     ///
-    pub fn OperatorBitwiseAndAssign(self: QBitArray, param1: anytype) void {
+    pub fn operatorBitwiseAndAssign(self: QBitArray, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QBitArray;
         qtc.QBitArray_OperatorBitwiseAndAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseOrAssign` instead
+    ///
+    pub const OperatorBitwiseOrAssign = operatorBitwiseOrAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-7c-eq)
     ///
@@ -291,10 +391,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` param1: QBitArray `
     ///
-    pub fn OperatorBitwiseOrAssign(self: QBitArray, param1: anytype) void {
+    pub fn operatorBitwiseOrAssign(self: QBitArray, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QBitArray;
         qtc.QBitArray_OperatorBitwiseOrAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorBitwiseNotAssign` instead
+    ///
+    pub const OperatorBitwiseNotAssign = operatorBitwiseNotAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#operator-5e-eq)
     ///
@@ -304,10 +408,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` param1: QBitArray `
     ///
-    pub fn OperatorBitwiseNotAssign(self: QBitArray, param1: anytype) void {
+    pub fn operatorBitwiseNotAssign(self: QBitArray, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QBitArray;
         qtc.QBitArray_OperatorBitwiseNotAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `fill` instead
+    ///
+    pub const Fill = fill;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#fill)
     ///
@@ -317,9 +425,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` aval: bool `
     ///
-    pub fn Fill(self: QBitArray, aval: bool) bool {
+    pub fn fill(self: QBitArray, aval: bool) bool {
         return qtc.QBitArray_Fill(@ptrCast(self.ptr), aval);
     }
+
+    /// ### DEPRECATED: Use `fill2` instead
+    ///
+    pub const Fill2 = fill2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#fill)
     ///
@@ -333,9 +445,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` last: isize `
     ///
-    pub fn Fill2(self: QBitArray, val: bool, first: isize, last: isize) void {
+    pub fn fill2(self: QBitArray, val: bool, first: isize, last: isize) void {
         qtc.QBitArray_Fill2(@ptrCast(self.ptr), val, @bitCast(first), @bitCast(last));
     }
+
+    /// ### DEPRECATED: Use `truncate` instead
+    ///
+    pub const Truncate = truncate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#truncate)
     ///
@@ -345,9 +461,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` pos: isize `
     ///
-    pub fn Truncate(self: QBitArray, pos: isize) void {
+    pub fn truncate(self: QBitArray, pos: isize) void {
         qtc.QBitArray_Truncate(@ptrCast(self.ptr), @bitCast(pos));
     }
+
+    /// ### DEPRECATED: Use `bits` instead
+    ///
+    pub const Bits = bits;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#bits)
     ///
@@ -355,10 +475,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Bits(self: QBitArray) [:0]const u8 {
+    pub fn bits(self: QBitArray) [:0]const u8 {
         const _ret = qtc.QBitArray_Bits(@ptrCast(self.ptr));
         return std.mem.span(_ret);
     }
+
+    /// ### DEPRECATED: Use `fromBits` instead
+    ///
+    pub const FromBits = fromBits;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#fromBits)
     ///
@@ -368,10 +492,14 @@ pub const QBitArray = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn FromBits(data: [:0]const u8, len: isize) QBitArray {
+    pub fn fromBits(data: [:0]const u8, len: isize) QBitArray {
         const data_Cstring = data.ptr;
         return .{ .ptr = qtc.QBitArray_FromBits(data_Cstring, @bitCast(len)) };
     }
+
+    /// ### DEPRECATED: Use `toUInt32` instead
+    ///
+    pub const ToUInt32 = toUInt32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
     ///
@@ -381,9 +509,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` endianness: qsysinfo_enums.Endian `
     ///
-    pub fn ToUInt32(self: QBitArray, endianness: i32) u32 {
+    pub fn toUInt32(self: QBitArray, endianness: i32) u32 {
         return qtc.QBitArray_ToUInt32(@ptrCast(self.ptr), @bitCast(endianness));
     }
+
+    /// ### DEPRECATED: Use `fill22` instead
+    ///
+    pub const Fill22 = fill22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#fill)
     ///
@@ -395,9 +527,13 @@ pub const QBitArray = extern struct {
     ///
     /// ` asize: isize `
     ///
-    pub fn Fill22(self: QBitArray, aval: bool, asize: isize) bool {
+    pub fn fill22(self: QBitArray, aval: bool, asize: isize) bool {
         return qtc.QBitArray_Fill22(@ptrCast(self.ptr), aval, @bitCast(asize));
     }
+
+    /// ### DEPRECATED: Use `toUInt322` instead
+    ///
+    pub const ToUInt322 = toUInt322;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#toUInt32)
     ///
@@ -409,23 +545,23 @@ pub const QBitArray = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToUInt322(self: QBitArray, endianness: i32, ok: *bool) u32 {
+    pub fn toUInt322(self: QBitArray, endianness: i32, ok: *bool) u32 {
         return qtc.QBitArray_ToUInt322(@ptrCast(self.ptr), @bitCast(endianness), @ptrCast(ok));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitarray.html#dtor.QBitArray)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBitArray `
     ///
-    pub fn Delete(self: QBitArray) void {
+    pub fn delete(self: QBitArray) void {
         qtc.QBitArray_Delete(@ptrCast(self.ptr));
     }
 };
@@ -440,27 +576,39 @@ pub const QBitRef = extern struct {
 
     pub const _is_QBitRef = {};
 
-    /// New constructs a new QBitRef object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QBitRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBitRef `
     ///
-    pub fn New(other: anytype) QBitRef {
+    pub fn new(other: anytype) QBitRef {
         comptime _ = @TypeOf(other)._is_QBitRef;
         return .{ .ptr = qtc.QBitRef_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QBitRef object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBitRef object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QBitRef `
     ///
-    pub fn New2(param1: anytype) QBitRef {
+    pub fn new2(param1: anytype) QBitRef {
         comptime _ = @TypeOf(param1)._is_QBitRef;
         return .{ .ptr = qtc.QBitRef_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator)
     ///
@@ -468,9 +616,13 @@ pub const QBitRef = extern struct {
     ///
     /// ` self: QBitRef `
     ///
-    pub fn ToBool(self: QBitRef) bool {
+    pub fn toBool(self: QBitRef) bool {
         return qtc.QBitRef_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNot` instead
+    ///
+    pub const OperatorNot = operatorNot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator-not)
     ///
@@ -478,9 +630,13 @@ pub const QBitRef = extern struct {
     ///
     /// ` self: QBitRef `
     ///
-    pub fn OperatorNot(self: QBitRef) bool {
+    pub fn operatorNot(self: QBitRef) bool {
         return qtc.QBitRef_OperatorNot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator-eq)
     ///
@@ -490,10 +646,14 @@ pub const QBitRef = extern struct {
     ///
     /// ` val: QBitRef `
     ///
-    pub fn OperatorAssign(self: QBitRef, val: anytype) void {
+    pub fn operatorAssign(self: QBitRef, val: anytype) void {
         comptime _ = @TypeOf(val)._is_QBitRef;
         qtc.QBitRef_OperatorAssign(@ptrCast(self.ptr), @ptrCast(val.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#operator-eq)
     ///
@@ -503,23 +663,23 @@ pub const QBitRef = extern struct {
     ///
     /// ` val: bool `
     ///
-    pub fn OperatorAssign2(self: QBitRef, val: bool) void {
+    pub fn operatorAssign2(self: QBitRef, val: bool) void {
         qtc.QBitRef_OperatorAssign2(@ptrCast(self.ptr), val);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbitref.html#dtor.QBitRef)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBitRef `
     ///
-    pub fn Delete(self: QBitRef) void {
+    pub fn delete(self: QBitRef) void {
         qtc.QBitRef_Delete(@ptrCast(self.ptr));
     }
 };

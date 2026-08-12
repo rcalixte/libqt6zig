@@ -84,81 +84,109 @@ pub const KEditListWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KEditListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KEditListWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEditListWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KEditListWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEditListWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KEditListWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new KEditListWidget object in C++ memory
+    ///
+    pub fn new2() KEditListWidget {
         return .{ .ptr = qtc.KEditListWidget_new2() };
     }
 
-    /// New3 constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KEditListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` customEditor: KEditListWidget__CustomEditor `
     ///
-    pub fn New3(customEditor: anytype) KEditListWidget {
+    pub fn new3(customEditor: anytype) KEditListWidget {
         comptime _ = @TypeOf(customEditor)._is_KEditListWidget__CustomEditor;
         return .{ .ptr = qtc.KEditListWidget_new3(@ptrCast(customEditor.ptr)) };
     }
 
-    /// New4 constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KEditListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` customEditor: KEditListWidget__CustomEditor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(customEditor: anytype, parent: anytype) KEditListWidget {
+    pub fn new4(customEditor: anytype, _parent: anytype) KEditListWidget {
         comptime _ = @TypeOf(customEditor)._is_KEditListWidget__CustomEditor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEditListWidget_new4(@ptrCast(customEditor.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEditListWidget_new4(@ptrCast(customEditor.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New5 constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KEditListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` customEditor: KEditListWidget__CustomEditor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` checkAtEntering: bool `
+    /// ` _checkAtEntering: bool `
     ///
-    pub fn New5(customEditor: anytype, parent: anytype, checkAtEntering: bool) KEditListWidget {
+    pub fn new5(customEditor: anytype, _parent: anytype, _checkAtEntering: bool) KEditListWidget {
         comptime _ = @TypeOf(customEditor)._is_KEditListWidget__CustomEditor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEditListWidget_new5(@ptrCast(customEditor.ptr), @ptrCast(parent.ptr), checkAtEntering) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEditListWidget_new5(@ptrCast(customEditor.ptr), @ptrCast(_parent.ptr), _checkAtEntering) };
     }
 
-    /// New6 constructs a new KEditListWidget object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new KEditListWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` customEditor: KEditListWidget__CustomEditor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` checkAtEntering: bool `
+    /// ` _checkAtEntering: bool `
     ///
-    /// ` buttons: flag of keditlistwidget_enums.Button `
+    /// ` _buttons: flag of keditlistwidget_enums.Button `
     ///
-    pub fn New6(customEditor: anytype, parent: anytype, checkAtEntering: bool, buttons: i32) KEditListWidget {
+    pub fn new6(customEditor: anytype, _parent: anytype, _checkAtEntering: bool, _buttons: i32) KEditListWidget {
         comptime _ = @TypeOf(customEditor)._is_KEditListWidget__CustomEditor;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEditListWidget_new6(@ptrCast(customEditor.ptr), @ptrCast(parent.ptr), checkAtEntering, @bitCast(buttons)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEditListWidget_new6(@ptrCast(customEditor.ptr), @ptrCast(_parent.ptr), _checkAtEntering, @bitCast(_buttons)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -166,9 +194,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MetaObject(self: KEditListWidget) QMetaObject {
+    pub fn metaObject(self: KEditListWidget) QMetaObject {
         return .{ .ptr = qtc.KEditListWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -180,13 +212,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KEditListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KEditListWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KEditListWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -196,9 +228,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperMetaObject(self: KEditListWidget) QMetaObject {
+    pub fn superMetaObject(self: KEditListWidget) QMetaObject {
         return .{ .ptr = qtc.KEditListWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -206,10 +242,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KEditListWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KEditListWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KEditListWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -219,13 +259,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KEditListWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -235,10 +275,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KEditListWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KEditListWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KEditListWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -250,9 +294,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KEditListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KEditListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KEditListWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -262,13 +310,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KEditListWidget, callback: *const fn (KEditListWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KEditListWidget, callback: *const fn (KEditListWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KEditListWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -282,9 +330,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KEditListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KEditListWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KEditListWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -294,14 +346,18 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `listView` instead
+    ///
+    pub const ListView = listView;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#listView)
     ///
@@ -309,9 +365,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ListView(self: KEditListWidget) QListView {
+    pub fn listView(self: KEditListWidget) QListView {
         return .{ .ptr = qtc.KEditListWidget_ListView(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#lineEdit)
     ///
@@ -319,9 +379,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn LineEdit(self: KEditListWidget) QLineEdit {
+    pub fn lineEdit(self: KEditListWidget) QLineEdit {
         return .{ .ptr = qtc.KEditListWidget_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addButton` instead
+    ///
+    pub const AddButton = addButton;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#addButton)
     ///
@@ -329,9 +393,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn AddButton(self: KEditListWidget) QPushButton {
+    pub fn addButton(self: KEditListWidget) QPushButton {
         return .{ .ptr = qtc.KEditListWidget_AddButton(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeButton` instead
+    ///
+    pub const RemoveButton = removeButton;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#removeButton)
     ///
@@ -339,9 +407,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn RemoveButton(self: KEditListWidget) QPushButton {
+    pub fn removeButton(self: KEditListWidget) QPushButton {
         return .{ .ptr = qtc.KEditListWidget_RemoveButton(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `upButton` instead
+    ///
+    pub const UpButton = upButton;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#upButton)
     ///
@@ -349,9 +421,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UpButton(self: KEditListWidget) QPushButton {
+    pub fn upButton(self: KEditListWidget) QPushButton {
         return .{ .ptr = qtc.KEditListWidget_UpButton(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `downButton` instead
+    ///
+    pub const DownButton = downButton;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#downButton)
     ///
@@ -359,9 +435,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DownButton(self: KEditListWidget) QPushButton {
+    pub fn downButton(self: KEditListWidget) QPushButton {
         return .{ .ptr = qtc.KEditListWidget_DownButton(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#count)
     ///
@@ -369,9 +449,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Count(self: KEditListWidget) i32 {
+    pub fn count(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertStringList` instead
+    ///
+    pub const InsertStringList = insertStringList;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#insertStringList)
     ///
@@ -383,13 +467,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` list: []const []const u8 `
     ///
-    pub fn InsertStringList(self: KEditListWidget, allocator: std.mem.Allocator, list: []const []const u8) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KEditListWidget.InsertStringList: Memory allocation failed");
+    pub fn insertStringList(self: KEditListWidget, allocator: std.mem.Allocator, list: []const []const u8) void {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KEditListWidget.insertStringList: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -398,21 +482,29 @@ pub const KEditListWidget = extern struct {
         qtc.KEditListWidget_InsertStringList(@ptrCast(self.ptr), list_list);
     }
 
+    /// ### DEPRECATED: Use `insertItem` instead
+    ///
+    pub const InsertItem = insertItem;
+
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#insertItem)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn InsertItem(self: KEditListWidget, text: []const u8) void {
+    pub fn insertItem(self: KEditListWidget, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KEditListWidget_InsertItem(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#clear)
     ///
@@ -420,9 +512,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Clear(self: KEditListWidget) void {
+    pub fn clear(self: KEditListWidget) void {
         qtc.KEditListWidget_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#text)
     ///
@@ -434,13 +530,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Text(self: KEditListWidget, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn text(self: KEditListWidget, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.KEditListWidget_Text(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `currentItem` instead
+    ///
+    pub const CurrentItem = currentItem;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#currentItem)
     ///
@@ -448,9 +548,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn CurrentItem(self: KEditListWidget) i32 {
+    pub fn currentItem(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_CurrentItem(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#currentText)
     ///
@@ -460,13 +564,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KEditListWidget_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.CurrentText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.currentText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `items` instead
+    ///
+    pub const Items = items;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#items)
     ///
@@ -476,7 +584,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Items(self: KEditListWidget, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn items(self: KEditListWidget, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KEditListWidget_Items(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -484,15 +592,19 @@ pub const KEditListWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KEditListWidget.Items: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KEditListWidget.items: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KEditListWidget.Items: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KEditListWidget.items: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setItems` instead
+    ///
+    pub const SetItems = setItems;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#setItems)
     ///
@@ -502,22 +614,26 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` items: []const []const u8 `
+    /// ` _items: []const []const u8 `
     ///
-    pub fn SetItems(self: KEditListWidget, allocator: std.mem.Allocator, items: []const []const u8) void {
-        const items_arr = allocator.alloc(qtc.libqt_string, items.len) catch @panic("KEditListWidget.SetItems: Memory allocation failed");
+    pub fn setItems(self: KEditListWidget, allocator: std.mem.Allocator, _items: []const []const u8) void {
+        const items_arr = allocator.alloc(qtc.libqt_string, _items.len) catch @panic("KEditListWidget.setItems: Memory allocation failed");
         defer allocator.free(items_arr);
-        for (items, 0..items.len) |item, i|
+        for (_items, 0.._items.len) |str_item, i|
             items_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const items_list = qtc.libqt_list{
-            .len = items.len,
+            .len = _items.len,
             .data = items_arr.ptr,
         };
         qtc.KEditListWidget_SetItems(@ptrCast(self.ptr), items_list);
     }
+
+    /// ### DEPRECATED: Use `buttons` instead
+    ///
+    pub const Buttons = buttons;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#buttons)
     ///
@@ -529,9 +645,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` flag of keditlistwidget_enums.Button `
     ///
-    pub fn Buttons(self: KEditListWidget) i32 {
+    pub fn buttons(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_Buttons(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtons` instead
+    ///
+    pub const SetButtons = setButtons;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#setButtons)
     ///
@@ -539,11 +659,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` buttons: flag of keditlistwidget_enums.Button `
+    /// ` _buttons: flag of keditlistwidget_enums.Button `
     ///
-    pub fn SetButtons(self: KEditListWidget, buttons: i32) void {
-        qtc.KEditListWidget_SetButtons(@ptrCast(self.ptr), @bitCast(buttons));
+    pub fn setButtons(self: KEditListWidget, _buttons: i32) void {
+        qtc.KEditListWidget_SetButtons(@ptrCast(self.ptr), @bitCast(_buttons));
     }
+
+    /// ### DEPRECATED: Use `setCheckAtEntering` instead
+    ///
+    pub const SetCheckAtEntering = setCheckAtEntering;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#setCheckAtEntering)
     ///
@@ -553,9 +677,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` check: bool `
     ///
-    pub fn SetCheckAtEntering(self: KEditListWidget, check: bool) void {
+    pub fn setCheckAtEntering(self: KEditListWidget, check: bool) void {
         qtc.KEditListWidget_SetCheckAtEntering(@ptrCast(self.ptr), check);
     }
+
+    /// ### DEPRECATED: Use `checkAtEntering` instead
+    ///
+    pub const CheckAtEntering = checkAtEntering;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#checkAtEntering)
     ///
@@ -563,9 +691,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn CheckAtEntering(self: KEditListWidget) bool {
+    pub fn checkAtEntering(self: KEditListWidget) bool {
         return qtc.KEditListWidget_CheckAtEntering(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCustomEditor` instead
+    ///
+    pub const SetCustomEditor = setCustomEditor;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#setCustomEditor)
     ///
@@ -575,10 +707,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` editor: KEditListWidget__CustomEditor `
     ///
-    pub fn SetCustomEditor(self: KEditListWidget, editor: anytype) void {
+    pub fn setCustomEditor(self: KEditListWidget, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_KEditListWidget__CustomEditor;
         qtc.KEditListWidget_SetCustomEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
@@ -590,11 +726,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn EventFilter(self: KEditListWidget, o: anytype, e: anytype) bool {
+    pub fn eventFilter(self: KEditListWidget, o: anytype, e: anytype) bool {
         comptime _ = @TypeOf(o)._is_QObject;
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KEditListWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(o.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
@@ -606,13 +746,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, o: QObject, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KEditListWidget, callback: *const fn (KEditListWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KEditListWidget, callback: *const fn (KEditListWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.KEditListWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#eventFilter)
     ///
@@ -626,11 +766,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEventFilter(self: KEditListWidget, o: anytype, e: anytype) bool {
+    pub fn superEventFilter(self: KEditListWidget, o: anytype, e: anytype) bool {
         comptime _ = @TypeOf(o)._is_QObject;
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.KEditListWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(o.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `changed` instead
+    ///
+    pub const Changed = changed;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#changed)
     ///
@@ -638,9 +782,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Changed(self: KEditListWidget) void {
+    pub fn changed(self: KEditListWidget) void {
         qtc.KEditListWidget_Changed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChanged` instead
+    ///
+    pub const OnChanged = onChanged;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#changed)
     ///
@@ -650,9 +798,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget) callconv(.c) void `
     ///
-    pub fn OnChanged(self: KEditListWidget, callback: *const fn (KEditListWidget) callconv(.c) void) void {
+    pub fn onChanged(self: KEditListWidget, callback: *const fn (KEditListWidget) callconv(.c) void) void {
         qtc.KEditListWidget_Connect_Changed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `added` instead
+    ///
+    pub const Added = added;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#added)
     ///
@@ -660,16 +812,20 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn Added(self: KEditListWidget, text: []const u8) void {
+    pub fn added(self: KEditListWidget, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KEditListWidget_Added(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `onAdded` instead
+    ///
+    pub const OnAdded = onAdded;
+
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#added)
     ///
     /// ## Parameters:
@@ -678,9 +834,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAdded(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAdded(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.KEditListWidget_Connect_Added(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `removed` instead
+    ///
+    pub const Removed = removed;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#removed)
     ///
@@ -688,15 +848,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn Removed(self: KEditListWidget, text: []const u8) void {
+    pub fn removed(self: KEditListWidget, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KEditListWidget_Removed(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onRemoved` instead
+    ///
+    pub const OnRemoved = onRemoved;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#removed)
     ///
@@ -706,9 +870,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnRemoved(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onRemoved(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.KEditListWidget_Connect_Removed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -720,15 +888,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -742,15 +914,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `insertStringList2` instead
+    ///
+    pub const InsertStringList2 = insertStringList2;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#insertStringList)
     ///
@@ -764,13 +940,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertStringList2(self: KEditListWidget, allocator: std.mem.Allocator, list: []const []const u8, index: i32) void {
-        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KEditListWidget.InsertStringList2: Memory allocation failed");
+    pub fn insertStringList2(self: KEditListWidget, allocator: std.mem.Allocator, list: []const []const u8, index: i32) void {
+        const list_arr = allocator.alloc(qtc.libqt_string, list.len) catch @panic("KEditListWidget.insertStringList2: Memory allocation failed");
         defer allocator.free(list_arr);
-        for (list, 0..list.len) |item, i|
+        for (list, 0..list.len) |str_item, i|
             list_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const list_list = qtc.libqt_list{
             .len = list.len,
@@ -779,23 +955,31 @@ pub const KEditListWidget = extern struct {
         qtc.KEditListWidget_InsertStringList2(@ptrCast(self.ptr), list_list, @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `insertItem2` instead
+    ///
+    pub const InsertItem2 = insertItem2;
+
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#insertItem)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` index: i32 `
     ///
-    pub fn InsertItem2(self: KEditListWidget, text: []const u8, index: i32) void {
+    pub fn insertItem2(self: KEditListWidget, _text: []const u8, index: i32) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KEditListWidget_InsertItem2(@ptrCast(self.ptr), text_str, @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -805,9 +989,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn WinId(self: KEditListWidget) usize {
+    pub fn winId(self: KEditListWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -817,9 +1005,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn CreateWinId(self: KEditListWidget) void {
+    pub fn createWinId(self: KEditListWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -829,9 +1021,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn InternalWinId(self: KEditListWidget) usize {
+    pub fn internalWinId(self: KEditListWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -841,9 +1037,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn EffectiveWinId(self: KEditListWidget) usize {
+    pub fn effectiveWinId(self: KEditListWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -853,9 +1053,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Style(self: KEditListWidget) QStyle {
+    pub fn style(self: KEditListWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -865,12 +1069,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KEditListWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KEditListWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -880,9 +1088,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsTopLevel(self: KEditListWidget) bool {
+    pub fn isTopLevel(self: KEditListWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -892,9 +1104,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsWindow(self: KEditListWidget) bool {
+    pub fn isWindow(self: KEditListWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -904,9 +1120,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsModal(self: KEditListWidget) bool {
+    pub fn isModal(self: KEditListWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -920,9 +1140,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KEditListWidget) i32 {
+    pub fn windowModality(self: KEditListWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -932,11 +1156,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KEditListWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KEditListWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -946,9 +1174,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsEnabled(self: KEditListWidget) bool {
+    pub fn isEnabled(self: KEditListWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -960,10 +1192,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KEditListWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: KEditListWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -975,9 +1211,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KEditListWidget, enabled: bool) void {
+    pub fn setEnabled(self: KEditListWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -989,9 +1229,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KEditListWidget, disabled: bool) void {
+    pub fn setDisabled(self: KEditListWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1003,9 +1247,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KEditListWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: KEditListWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1015,9 +1263,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FrameGeometry(self: KEditListWidget) QRect {
+    pub fn frameGeometry(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1027,9 +1279,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Geometry(self: KEditListWidget) QRect {
+    pub fn geometry(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1039,9 +1295,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn NormalGeometry(self: KEditListWidget) QRect {
+    pub fn normalGeometry(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1051,9 +1311,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn X(self: KEditListWidget) i32 {
+    pub fn x(self: KEditListWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1063,9 +1327,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Y(self: KEditListWidget) i32 {
+    pub fn y(self: KEditListWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1075,9 +1343,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Pos(self: KEditListWidget) QPoint {
+    pub fn pos(self: KEditListWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1087,9 +1359,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FrameSize(self: KEditListWidget) QSize {
+    pub fn frameSize(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1099,9 +1375,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Size(self: KEditListWidget) QSize {
+    pub fn size(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1111,9 +1391,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Width(self: KEditListWidget) i32 {
+    pub fn width(self: KEditListWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1123,9 +1407,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Height(self: KEditListWidget) i32 {
+    pub fn height(self: KEditListWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1135,9 +1423,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Rect(self: KEditListWidget) QRect {
+    pub fn rect(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1147,9 +1439,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ChildrenRect(self: KEditListWidget) QRect {
+    pub fn childrenRect(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1159,9 +1455,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ChildrenRegion(self: KEditListWidget) QRegion {
+    pub fn childrenRegion(self: KEditListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1171,9 +1471,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MinimumSize(self: KEditListWidget) QSize {
+    pub fn minimumSize(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1183,9 +1487,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MaximumSize(self: KEditListWidget) QSize {
+    pub fn maximumSize(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1195,9 +1503,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MinimumWidth(self: KEditListWidget) i32 {
+    pub fn minimumWidth(self: KEditListWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1207,9 +1519,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MinimumHeight(self: KEditListWidget) i32 {
+    pub fn minimumHeight(self: KEditListWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1219,9 +1535,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MaximumWidth(self: KEditListWidget) i32 {
+    pub fn maximumWidth(self: KEditListWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1231,9 +1551,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MaximumHeight(self: KEditListWidget) i32 {
+    pub fn maximumHeight(self: KEditListWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1243,12 +1567,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KEditListWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KEditListWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1262,9 +1590,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KEditListWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KEditListWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1274,12 +1606,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KEditListWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KEditListWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1293,9 +1629,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KEditListWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KEditListWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1307,9 +1647,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KEditListWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: KEditListWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1321,9 +1665,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KEditListWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: KEditListWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1335,9 +1683,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KEditListWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: KEditListWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1349,9 +1701,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KEditListWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: KEditListWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1361,9 +1717,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SizeIncrement(self: KEditListWidget) QSize {
+    pub fn sizeIncrement(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1373,12 +1733,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KEditListWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KEditListWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1392,9 +1756,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KEditListWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KEditListWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1404,9 +1772,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn BaseSize(self: KEditListWidget) QSize {
+    pub fn baseSize(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1416,12 +1788,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KEditListWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KEditListWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1435,9 +1811,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KEditListWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KEditListWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1449,10 +1829,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KEditListWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KEditListWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1466,9 +1850,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KEditListWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KEditListWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1480,9 +1868,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KEditListWidget, w: i32) void {
+    pub fn setFixedWidth(self: KEditListWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1494,9 +1886,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KEditListWidget, h: i32) void {
+    pub fn setFixedHeight(self: KEditListWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1508,11 +1904,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KEditListWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KEditListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1523,11 +1923,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KEditListWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KEditListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1538,11 +1942,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KEditListWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KEditListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1553,11 +1961,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KEditListWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KEditListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1568,11 +1980,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KEditListWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: KEditListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1583,10 +1999,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KEditListWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KEditListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1598,10 +2018,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KEditListWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KEditListWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1613,10 +2037,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KEditListWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KEditListWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1630,12 +2058,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KEditListWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KEditListWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1648,11 +2080,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KEditListWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KEditListWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1666,11 +2102,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KEditListWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KEditListWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1684,11 +2124,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KEditListWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KEditListWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1698,9 +2142,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Window(self: KEditListWidget) QWidget {
+    pub fn window(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1710,9 +2158,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn NativeParentWidget(self: KEditListWidget) QWidget {
+    pub fn nativeParentWidget(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1722,9 +2174,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn TopLevelWidget(self: KEditListWidget) QWidget {
+    pub fn topLevelWidget(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1734,9 +2190,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Palette(self: KEditListWidget) QPalette {
+    pub fn palette(self: KEditListWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1746,12 +2206,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KEditListWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KEditListWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1761,11 +2225,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KEditListWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KEditListWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1779,9 +2247,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KEditListWidget) i32 {
+    pub fn backgroundRole(self: KEditListWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1791,11 +2263,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KEditListWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KEditListWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1809,9 +2285,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KEditListWidget) i32 {
+    pub fn foregroundRole(self: KEditListWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1821,9 +2301,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Font(self: KEditListWidget) QFont {
+    pub fn font(self: KEditListWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1833,12 +2317,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KEditListWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KEditListWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1848,9 +2336,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FontMetrics(self: KEditListWidget) QFontMetrics {
+    pub fn fontMetrics(self: KEditListWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1860,9 +2352,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FontInfo(self: KEditListWidget) QFontInfo {
+    pub fn fontInfo(self: KEditListWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1872,9 +2368,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Cursor(self: KEditListWidget) QCursor {
+    pub fn cursor(self: KEditListWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1884,12 +2384,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KEditListWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KEditListWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1899,9 +2403,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UnsetCursor(self: KEditListWidget) void {
+    pub fn unsetCursor(self: KEditListWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1913,9 +2421,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KEditListWidget, enable: bool) void {
+    pub fn setMouseTracking(self: KEditListWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1925,9 +2437,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn HasMouseTracking(self: KEditListWidget) bool {
+    pub fn hasMouseTracking(self: KEditListWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1937,9 +2453,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UnderMouse(self: KEditListWidget) bool {
+    pub fn underMouse(self: KEditListWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1951,9 +2471,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KEditListWidget, enable: bool) void {
+    pub fn setTabletTracking(self: KEditListWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1963,24 +2487,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn HasTabletTracking(self: KEditListWidget) bool {
+    pub fn hasTabletTracking(self: KEditListWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEditListWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KEditListWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1990,12 +2503,35 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KEditListWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KEditListWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEditListWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KEditListWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2005,9 +2541,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Mask(self: KEditListWidget) QRegion {
+    pub fn mask(self: KEditListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2017,9 +2557,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ClearMask(self: KEditListWidget) void {
+    pub fn clearMask(self: KEditListWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2031,10 +2575,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KEditListWidget, target: anytype) void {
+    pub fn render(self: KEditListWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2046,10 +2594,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KEditListWidget, painter: anytype) void {
+    pub fn render2(self: KEditListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2059,9 +2611,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Grab(self: KEditListWidget) QPixmap {
+    pub fn grab(self: KEditListWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2071,9 +2627,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn GraphicsEffect(self: KEditListWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: KEditListWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2085,10 +2645,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KEditListWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KEditListWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2100,9 +2664,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KEditListWidget, typeVal: i32) void {
+    pub fn grabGesture(self: KEditListWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2114,9 +2682,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KEditListWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: KEditListWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2126,15 +2698,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KEditListWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KEditListWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2144,15 +2720,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KEditListWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KEditListWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2164,13 +2744,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2182,13 +2766,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2200,10 +2788,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KEditListWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: KEditListWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2213,9 +2805,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn WindowIcon(self: KEditListWidget) QIcon {
+    pub fn windowIcon(self: KEditListWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2225,15 +2821,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KEditListWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KEditListWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2245,13 +2845,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2261,15 +2865,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KEditListWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KEditListWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2281,13 +2889,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2299,13 +2911,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KEditListWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KEditListWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2317,13 +2933,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2335,9 +2955,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KEditListWidget, level: f64) void {
+    pub fn setWindowOpacity(self: KEditListWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2347,9 +2971,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn WindowOpacity(self: KEditListWidget) f64 {
+    pub fn windowOpacity(self: KEditListWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2359,9 +2987,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsWindowModified(self: KEditListWidget) bool {
+    pub fn isWindowModified(self: KEditListWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2371,15 +3003,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KEditListWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: KEditListWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2391,13 +3027,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2409,9 +3049,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KEditListWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: KEditListWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2421,9 +3065,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ToolTipDuration(self: KEditListWidget) i32 {
+    pub fn toolTipDuration(self: KEditListWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2433,15 +3081,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KEditListWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KEditListWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2453,13 +3105,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2469,15 +3125,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KEditListWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KEditListWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2489,13 +3149,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2507,13 +3171,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2525,13 +3193,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KEditListWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: KEditListWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2543,13 +3215,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2561,13 +3237,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KEditListWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KEditListWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2579,9 +3259,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KEditListWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: KEditListWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2595,9 +3279,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KEditListWidget) i32 {
+    pub fn layoutDirection(self: KEditListWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2607,9 +3295,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UnsetLayoutDirection(self: KEditListWidget) void {
+    pub fn unsetLayoutDirection(self: KEditListWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2619,12 +3311,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KEditListWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KEditListWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2634,9 +3330,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Locale(self: KEditListWidget) QLocale {
+    pub fn locale(self: KEditListWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2646,9 +3346,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UnsetLocale(self: KEditListWidget) void {
+    pub fn unsetLocale(self: KEditListWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2658,9 +3362,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsRightToLeft(self: KEditListWidget) bool {
+    pub fn isRightToLeft(self: KEditListWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2670,9 +3378,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsLeftToRight(self: KEditListWidget) bool {
+    pub fn isLeftToRight(self: KEditListWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2682,9 +3394,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SetFocus(self: KEditListWidget) void {
+    pub fn setFocus(self: KEditListWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2694,9 +3410,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsActiveWindow(self: KEditListWidget) bool {
+    pub fn isActiveWindow(self: KEditListWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2706,9 +3426,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ActivateWindow(self: KEditListWidget) void {
+    pub fn activateWindow(self: KEditListWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2718,9 +3442,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ClearFocus(self: KEditListWidget) void {
+    pub fn clearFocus(self: KEditListWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2732,9 +3460,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KEditListWidget, reason: i32) void {
+    pub fn setFocus2(self: KEditListWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2748,9 +3480,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KEditListWidget) i32 {
+    pub fn focusPolicy(self: KEditListWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2762,9 +3498,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KEditListWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: KEditListWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2774,9 +3514,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn HasFocus(self: KEditListWidget) bool {
+    pub fn hasFocus(self: KEditListWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2788,11 +3532,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2802,12 +3550,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KEditListWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KEditListWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2817,9 +3569,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FocusProxy(self: KEditListWidget) QWidget {
+    pub fn focusProxy(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2833,9 +3589,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KEditListWidget) i32 {
+    pub fn contextMenuPolicy(self: KEditListWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3607,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KEditListWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KEditListWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2859,9 +3623,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn GrabMouse(self: KEditListWidget) void {
+    pub fn grabMouse(self: KEditListWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2873,10 +3641,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KEditListWidget, param1: anytype) void {
+    pub fn grabMouse2(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2886,9 +3658,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ReleaseMouse(self: KEditListWidget) void {
+    pub fn releaseMouse(self: KEditListWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2898,9 +3674,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn GrabKeyboard(self: KEditListWidget) void {
+    pub fn grabKeyboard(self: KEditListWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2910,9 +3690,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ReleaseKeyboard(self: KEditListWidget) void {
+    pub fn releaseKeyboard(self: KEditListWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2924,10 +3708,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KEditListWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: KEditListWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2939,9 +3727,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KEditListWidget, id: i32) void {
+    pub fn releaseShortcut(self: KEditListWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2953,9 +3745,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KEditListWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: KEditListWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2967,25 +3763,37 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KEditListWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KEditListWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2995,9 +3803,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UpdatesEnabled(self: KEditListWidget) bool {
+    pub fn updatesEnabled(self: KEditListWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3821,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KEditListWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KEditListWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3021,9 +3837,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn GraphicsProxyWidget(self: KEditListWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KEditListWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3033,9 +3853,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Update(self: KEditListWidget) void {
+    pub fn update(self: KEditListWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3045,9 +3869,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Repaint(self: KEditListWidget) void {
+    pub fn repaint(self: KEditListWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3057,17 +3885,21 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KEditListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KEditListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3079,11 +3911,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KEditListWidget, param1: anytype) void {
+    pub fn update3(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3094,10 +3930,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KEditListWidget, param1: anytype) void {
+    pub fn update4(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3107,17 +3947,21 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KEditListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KEditListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3129,10 +3973,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KEditListWidget, param1: anytype) void {
+    pub fn repaint3(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3144,10 +3992,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KEditListWidget, param1: anytype) void {
+    pub fn repaint4(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3159,9 +4011,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KEditListWidget, hidden: bool) void {
+    pub fn setHidden(self: KEditListWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3171,9 +4027,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Show(self: KEditListWidget) void {
+    pub fn show(self: KEditListWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3183,9 +4043,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Hide(self: KEditListWidget) void {
+    pub fn hide(self: KEditListWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3195,9 +4059,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ShowMinimized(self: KEditListWidget) void {
+    pub fn showMinimized(self: KEditListWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3207,9 +4075,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ShowMaximized(self: KEditListWidget) void {
+    pub fn showMaximized(self: KEditListWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3219,9 +4091,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ShowFullScreen(self: KEditListWidget) void {
+    pub fn showFullScreen(self: KEditListWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3231,9 +4107,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ShowNormal(self: KEditListWidget) void {
+    pub fn showNormal(self: KEditListWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3243,9 +4123,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Close(self: KEditListWidget) bool {
+    pub fn close(self: KEditListWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3255,9 +4139,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Raise(self: KEditListWidget) void {
+    pub fn raise(self: KEditListWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3267,9 +4155,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Lower(self: KEditListWidget) void {
+    pub fn lower(self: KEditListWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3281,10 +4173,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KEditListWidget, param1: anytype) void {
+    pub fn stackUnder(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3294,13 +4190,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KEditListWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KEditListWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3312,10 +4212,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KEditListWidget, param1: anytype) void {
+    pub fn move2(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3329,9 +4233,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KEditListWidget, w: i32, h: i32) void {
+    pub fn resize(self: KEditListWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3343,10 +4251,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KEditListWidget, param1: anytype) void {
+    pub fn resize2(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3356,17 +4268,21 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KEditListWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KEditListWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3376,12 +4292,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KEditListWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KEditListWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3393,13 +4313,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KEditListWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KEditListWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEditListWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEditListWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3409,15 +4333,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KEditListWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KEditListWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3427,9 +4355,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn AdjustSize(self: KEditListWidget) void {
+    pub fn adjustSize(self: KEditListWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3439,9 +4371,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsVisible(self: KEditListWidget) bool {
+    pub fn isVisible(self: KEditListWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3453,10 +4389,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KEditListWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: KEditListWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3466,9 +4406,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsHidden(self: KEditListWidget) bool {
+    pub fn isHidden(self: KEditListWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3478,9 +4422,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsMinimized(self: KEditListWidget) bool {
+    pub fn isMinimized(self: KEditListWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3490,9 +4438,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsMaximized(self: KEditListWidget) bool {
+    pub fn isMaximized(self: KEditListWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3502,9 +4454,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsFullScreen(self: KEditListWidget) bool {
+    pub fn isFullScreen(self: KEditListWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3518,9 +4474,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KEditListWidget) i32 {
+    pub fn windowState(self: KEditListWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4492,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KEditListWidget, state: i32) void {
+    pub fn setWindowState(self: KEditListWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3546,9 +4510,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KEditListWidget, state: i32) void {
+    pub fn overrideWindowState(self: KEditListWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3558,9 +4526,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SizePolicy(self: KEditListWidget) QSizePolicy {
+    pub fn sizePolicy(self: KEditListWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3570,12 +4542,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KEditListWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KEditListWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3589,9 +4565,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KEditListWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KEditListWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3601,9 +4581,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn VisibleRegion(self: KEditListWidget) QRegion {
+    pub fn visibleRegion(self: KEditListWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3621,9 +4605,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KEditListWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KEditListWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3635,10 +4623,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KEditListWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: KEditListWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3648,9 +4640,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ContentsMargins(self: KEditListWidget) QMargins {
+    pub fn contentsMargins(self: KEditListWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3660,9 +4656,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ContentsRect(self: KEditListWidget) QRect {
+    pub fn contentsRect(self: KEditListWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3672,9 +4672,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Layout(self: KEditListWidget) QLayout {
+    pub fn layout(self: KEditListWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3684,12 +4688,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KEditListWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KEditListWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3699,24 +4707,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UpdateGeometry(self: KEditListWidget) void {
+    pub fn updateGeometry(self: KEditListWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEditListWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KEditListWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3726,14 +4723,37 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KEditListWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEditListWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KEditListWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KEditListWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3747,9 +4767,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KEditListWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: KEditListWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3765,10 +4789,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KEditListWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KEditListWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3778,9 +4806,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FocusWidget(self: KEditListWidget) QWidget {
+    pub fn focusWidget(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3790,9 +4822,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn NextInFocusChain(self: KEditListWidget) QWidget {
+    pub fn nextInFocusChain(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3802,9 +4838,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn PreviousInFocusChain(self: KEditListWidget) QWidget {
+    pub fn previousInFocusChain(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3814,9 +4854,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn AcceptDrops(self: KEditListWidget) bool {
+    pub fn acceptDrops(self: KEditListWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3828,9 +4872,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KEditListWidget, on: bool) void {
+    pub fn setAcceptDrops(self: KEditListWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3842,10 +4890,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KEditListWidget, action: anytype) void {
+    pub fn addAction(self: KEditListWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3855,15 +4907,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KEditListWidget, actions: []QAction) void {
+    pub fn addActions(self: KEditListWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3875,16 +4931,20 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KEditListWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KEditListWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3898,11 +4958,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KEditListWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KEditListWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3914,10 +4978,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KEditListWidget, action: anytype) void {
+    pub fn removeAction(self: KEditListWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3929,15 +4997,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KEditListWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KEditListWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KEditListWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KEditListWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3947,15 +5019,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KEditListWidget, text: []const u8) QAction {
+    pub fn addAction2(self: KEditListWidget, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3967,16 +5043,20 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction3(self: KEditListWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KEditListWidget, icon: anytype, _text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -3986,19 +5066,23 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KEditListWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KEditListWidget, _text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4009,19 +5093,23 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KEditListWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KEditListWidget, icon: anytype, _text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4031,9 +5119,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ParentWidget(self: KEditListWidget) QWidget {
+    pub fn parentWidget(self: KEditListWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4045,9 +5137,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KEditListWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: KEditListWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4061,9 +5157,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KEditListWidget) i32 {
+    pub fn windowFlags(self: KEditListWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5175,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KEditListWidget, param1: i32) void {
+    pub fn setWindowFlag(self: KEditListWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5193,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KEditListWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KEditListWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5213,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KEditListWidget) i32 {
+    pub fn windowType(self: KEditListWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5229,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4129,13 +5245,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KEditListWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KEditListWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4147,10 +5267,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KEditListWidget, p: anytype) QWidget {
+    pub fn childAt2(self: KEditListWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4162,10 +5286,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KEditListWidget, p: anytype) QWidget {
+    pub fn childAt3(self: KEditListWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4177,9 +5305,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KEditListWidget, param1: i32) void {
+    pub fn setAttribute(self: KEditListWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4191,9 +5323,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KEditListWidget, param1: i32) bool {
+    pub fn testAttribute(self: KEditListWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4203,9 +5339,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn EnsurePolished(self: KEditListWidget) void {
+    pub fn ensurePolished(self: KEditListWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4217,10 +5357,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KEditListWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: KEditListWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4230,9 +5374,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn AutoFillBackground(self: KEditListWidget) bool {
+    pub fn autoFillBackground(self: KEditListWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4244,9 +5392,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KEditListWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KEditListWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4256,9 +5408,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn BackingStore(self: KEditListWidget) QBackingStore {
+    pub fn backingStore(self: KEditListWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4268,9 +5424,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn WindowHandle(self: KEditListWidget) QWindow {
+    pub fn windowHandle(self: KEditListWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4280,9 +5440,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Screen(self: KEditListWidget) QScreen {
+    pub fn screen(self: KEditListWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4292,12 +5456,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KEditListWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KEditListWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4305,12 +5473,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4322,13 +5494,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KEditListWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: KEditListWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4340,9 +5516,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4354,10 +5534,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KEditListWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: KEditListWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4369,9 +5553,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4383,13 +5571,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KEditListWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KEditListWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4401,9 +5593,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4413,12 +5609,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KEditListWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KEditListWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4430,9 +5630,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KEditListWidget, callback: *const fn (KEditListWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KEditListWidget, callback: *const fn (KEditListWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4446,9 +5650,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KEditListWidget) i32 {
+    pub fn inputMethodHints(self: KEditListWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4460,9 +5668,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KEditListWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: KEditListWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4476,11 +5688,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KEditListWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KEditListWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4496,13 +5712,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KEditListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KEditListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4519,12 +5739,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KEditListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KEditListWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4538,11 +5762,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KEditListWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KEditListWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4558,12 +5786,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KEditListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KEditListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4581,12 +5813,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KEditListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KEditListWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4598,10 +5834,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KEditListWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KEditListWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4615,9 +5855,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KEditListWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KEditListWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4631,10 +5875,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KEditListWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KEditListWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4648,9 +5896,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KEditListWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KEditListWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4664,9 +5916,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KEditListWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KEditListWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4680,9 +5936,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KEditListWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KEditListWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4696,25 +5956,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KEditListWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KEditListWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4722,17 +5970,41 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4744,13 +6016,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KEditListWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEditListWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4762,13 +6038,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KEditListWidget, name: []const u8) void {
+    pub fn setObjectName(self: KEditListWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4778,9 +6058,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsWidgetType(self: KEditListWidget) bool {
+    pub fn isWidgetType(self: KEditListWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4790,9 +6074,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsWindowType(self: KEditListWidget) bool {
+    pub fn isWindowType(self: KEditListWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4802,9 +6090,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn IsQuickItemType(self: KEditListWidget) bool {
+    pub fn isQuickItemType(self: KEditListWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4814,9 +6106,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SignalsBlocked(self: KEditListWidget) bool {
+    pub fn signalsBlocked(self: KEditListWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4828,9 +6124,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KEditListWidget, b: bool) bool {
+    pub fn blockSignals(self: KEditListWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4840,9 +6140,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Thread(self: KEditListWidget) QThread {
+    pub fn thread(self: KEditListWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4852,12 +6156,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KEditListWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KEditListWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4869,9 +6177,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KEditListWidget, interval: i32) i32 {
+    pub fn startTimer(self: KEditListWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4883,9 +6195,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KEditListWidget, time: i64) i32 {
+    pub fn startTimer2(self: KEditListWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4897,9 +6213,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KEditListWidget, id: i32) void {
+    pub fn killTimer(self: KEditListWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4911,9 +6231,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KEditListWidget, id: i32) void {
+    pub fn killTimer2(self: KEditListWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4925,15 +6249,19 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KEditListWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KEditListWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KEditListWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KEditListWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4945,10 +6273,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KEditListWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: KEditListWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4960,10 +6292,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KEditListWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: KEditListWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4971,7 +6307,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4979,13 +6315,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4993,7 +6333,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5001,13 +6341,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5017,18 +6361,22 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KEditListWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KEditListWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5036,7 +6384,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5044,13 +6392,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5058,7 +6410,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5066,13 +6418,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5082,9 +6438,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Disconnect3(self: KEditListWidget) bool {
+    pub fn disconnect3(self: KEditListWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5096,10 +6456,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KEditListWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: KEditListWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5109,10 +6473,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5122,9 +6490,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DumpObjectTree(self: KEditListWidget) void {
+    pub fn dumpObjectTree(self: KEditListWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5134,9 +6506,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DumpObjectInfo(self: KEditListWidget) void {
+    pub fn dumpObjectInfo(self: KEditListWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5150,11 +6526,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KEditListWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KEditListWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5166,10 +6546,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KEditListWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: KEditListWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5181,7 +6565,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KEditListWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KEditListWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5189,27 +6573,19 @@ pub const KEditListWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KEditListWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KEditListWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KEditListWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KEditListWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEditListWidget `
-    ///
-    pub fn BindingStorage(self: KEditListWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5219,9 +6595,29 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn BindingStorage2(self: KEditListWidget) QBindingStorage {
+    pub fn bindingStorage(self: KEditListWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEditListWidget `
+    ///
+    pub fn bindingStorage2(self: KEditListWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5231,9 +6627,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Destroyed(self: KEditListWidget) void {
+    pub fn destroyed(self: KEditListWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5245,9 +6645,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KEditListWidget, callback: *const fn (KEditListWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: KEditListWidget, callback: *const fn (KEditListWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5257,9 +6661,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Parent(self: KEditListWidget) QObject {
+    pub fn parent(self: KEditListWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5271,10 +6679,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KEditListWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: KEditListWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5284,9 +6696,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DeleteLater(self: KEditListWidget) void {
+    pub fn deleteLater(self: KEditListWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5300,9 +6716,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KEditListWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KEditListWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5316,9 +6736,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KEditListWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KEditListWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5326,7 +6750,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5336,13 +6760,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5350,7 +6778,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5360,13 +6788,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5376,7 +6808,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5384,12 +6816,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KEditListWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KEditListWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5401,10 +6837,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KEditListWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KEditListWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5418,11 +6858,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KEditListWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KEditListWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5438,13 +6882,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KEditListWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KEditListWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5457,11 +6905,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KEditListWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KEditListWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5473,10 +6925,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KEditListWidget, param1: anytype) void {
+    pub fn destroyed1(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5488,9 +6944,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KEditListWidget, callback: *const fn (KEditListWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KEditListWidget, callback: *const fn (KEditListWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5500,9 +6960,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn PaintingActive(self: KEditListWidget) bool {
+    pub fn paintingActive(self: KEditListWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5512,9 +6976,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn WidthMM(self: KEditListWidget) i32 {
+    pub fn widthMM(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5524,9 +6992,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn HeightMM(self: KEditListWidget) i32 {
+    pub fn heightMM(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5536,9 +7008,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn LogicalDpiX(self: KEditListWidget) i32 {
+    pub fn logicalDpiX(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5548,9 +7024,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn LogicalDpiY(self: KEditListWidget) i32 {
+    pub fn logicalDpiY(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5560,9 +7040,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn PhysicalDpiX(self: KEditListWidget) i32 {
+    pub fn physicalDpiX(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5572,9 +7056,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn PhysicalDpiY(self: KEditListWidget) i32 {
+    pub fn physicalDpiY(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5584,9 +7072,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DevicePixelRatio(self: KEditListWidget) f64 {
+    pub fn devicePixelRatio(self: KEditListWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5596,9 +7088,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DevicePixelRatioF(self: KEditListWidget) f64 {
+    pub fn devicePixelRatioF(self: KEditListWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5608,9 +7104,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn ColorCount(self: KEditListWidget) i32 {
+    pub fn colorCount(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5620,17 +7120,25 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Depth(self: KEditListWidget) i32 {
+    pub fn depth(self: KEditListWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5638,13 +7146,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5656,13 +7168,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn DevType(self: KEditListWidget) i32 {
+    pub fn devType(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5674,9 +7186,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperDevType(self: KEditListWidget) i32 {
+    pub fn superDevType(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5690,9 +7206,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KEditListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KEditListWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KEditListWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5706,13 +7226,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KEditListWidget, visible: bool) void {
+    pub fn setVisible(self: KEditListWidget, visible: bool) void {
         qtc.KEditListWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5726,9 +7246,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KEditListWidget, visible: bool) void {
+    pub fn superSetVisible(self: KEditListWidget, visible: bool) void {
         qtc.KEditListWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5742,10 +7266,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KEditListWidget, callback: *const fn (KEditListWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KEditListWidget, callback: *const fn (KEditListWidget, bool) callconv(.c) void) void {
         qtc.KEditListWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5756,13 +7284,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SizeHint(self: KEditListWidget) QSize {
+    pub fn sizeHint(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.KEditListWidget_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5774,10 +7302,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperSizeHint(self: KEditListWidget) QSize {
+    pub fn superSizeHint(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.KEditListWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5792,9 +7324,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KEditListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KEditListWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KEditListWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5806,13 +7342,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn MinimumSizeHint(self: KEditListWidget) QSize {
+    pub fn minimumSizeHint(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.KEditListWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5824,9 +7360,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: KEditListWidget) QSize {
+    pub fn superMinimumSizeHint(self: KEditListWidget) QSize {
         return .{ .ptr = qtc.KEditListWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5842,9 +7382,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KEditListWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KEditListWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KEditListWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5858,13 +7402,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KEditListWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: KEditListWidget, param1: i32) i32 {
         return qtc.KEditListWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5878,9 +7422,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KEditListWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KEditListWidget, param1: i32) i32 {
         return qtc.KEditListWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5894,9 +7442,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) i32) void {
         qtc.KEditListWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5908,13 +7460,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn HasHeightForWidth(self: KEditListWidget) bool {
+    pub fn hasHeightForWidth(self: KEditListWidget) bool {
         return qtc.KEditListWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5926,9 +7478,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: KEditListWidget) bool {
+    pub fn superHasHeightForWidth(self: KEditListWidget) bool {
         return qtc.KEditListWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5942,9 +7498,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KEditListWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5956,13 +7516,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn PaintEngine(self: KEditListWidget) QPaintEngine {
+    pub fn paintEngine(self: KEditListWidget) QPaintEngine {
         return .{ .ptr = qtc.KEditListWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5974,9 +7534,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperPaintEngine(self: KEditListWidget) QPaintEngine {
+    pub fn superPaintEngine(self: KEditListWidget) QPaintEngine {
         return .{ .ptr = qtc.KEditListWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5990,9 +7554,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KEditListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KEditListWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KEditListWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -6004,16 +7572,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KEditListWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KEditListWidget_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KEditListWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KEditListWidget_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -6025,12 +7593,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KEditListWidget, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KEditListWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KEditListWidget, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KEditListWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -6044,10 +7616,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) bool) void {
         qtc.KEditListWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6058,16 +7634,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6079,12 +7655,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6098,10 +7678,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6112,16 +7696,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6133,12 +7717,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6152,10 +7740,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6166,16 +7758,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6187,12 +7779,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6206,10 +7802,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6220,16 +7820,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6241,12 +7841,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KEditListWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KEditListWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6260,9 +7864,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6274,16 +7882,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KEditListWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KEditListWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6295,12 +7903,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KEditListWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KEditListWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6314,10 +7926,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QWheelEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6328,16 +7944,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KEditListWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KEditListWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6349,12 +7965,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KEditListWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KEditListWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6368,10 +7988,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6382,16 +8006,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KEditListWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KEditListWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6403,12 +8027,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KEditListWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KEditListWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6422,10 +8050,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6436,16 +8068,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KEditListWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KEditListWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6457,12 +8089,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KEditListWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KEditListWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6476,10 +8112,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6490,16 +8130,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KEditListWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KEditListWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6511,12 +8151,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KEditListWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KEditListWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6530,9 +8174,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6544,16 +8192,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KEditListWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KEditListWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6565,12 +8213,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KEditListWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KEditListWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6584,9 +8236,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEnterEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6598,16 +8254,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KEditListWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KEditListWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6619,12 +8275,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KEditListWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KEditListWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6638,9 +8298,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6652,16 +8316,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KEditListWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KEditListWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6673,12 +8337,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.KEditListWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.KEditListWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -6692,9 +8360,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QPaintEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6706,16 +8378,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KEditListWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KEditListWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6727,12 +8399,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KEditListWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KEditListWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6746,9 +8422,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QMoveEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6760,16 +8440,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KEditListWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KEditListWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6781,12 +8461,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KEditListWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KEditListWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6800,9 +8484,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QResizeEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6814,16 +8502,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KEditListWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KEditListWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6835,12 +8523,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KEditListWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KEditListWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6854,9 +8546,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QCloseEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6868,16 +8564,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KEditListWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KEditListWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6889,12 +8585,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KEditListWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KEditListWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6908,9 +8608,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6922,16 +8626,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KEditListWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KEditListWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6943,12 +8647,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KEditListWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KEditListWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6962,9 +8670,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QTabletEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6976,16 +8688,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KEditListWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KEditListWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6997,12 +8709,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KEditListWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KEditListWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7016,9 +8732,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QActionEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7030,16 +8750,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KEditListWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KEditListWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7051,12 +8771,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KEditListWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KEditListWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7070,9 +8794,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7084,16 +8812,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KEditListWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KEditListWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7105,12 +8833,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KEditListWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KEditListWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7124,9 +8856,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7138,16 +8874,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KEditListWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KEditListWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7159,12 +8895,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KEditListWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KEditListWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7178,9 +8918,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7192,16 +8936,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KEditListWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KEditListWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7213,12 +8957,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KEditListWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KEditListWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7232,9 +8980,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QDropEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7246,16 +8998,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KEditListWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KEditListWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7267,12 +9019,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KEditListWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KEditListWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7286,9 +9042,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QShowEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7300,16 +9060,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KEditListWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KEditListWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7321,12 +9081,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KEditListWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KEditListWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7340,9 +9104,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QHideEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7360,7 +9128,7 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KEditListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KEditListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7368,9 +9136,9 @@ pub const KEditListWidget = extern struct {
         return qtc.KEditListWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7388,13 +9156,17 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KEditListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KEditListWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KEditListWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7408,9 +9180,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KEditListWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7424,14 +9200,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KEditListWidget, param1: anytype) void {
+    pub fn changeEvent(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KEditListWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7445,10 +9221,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KEditListWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KEditListWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7462,9 +9242,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7478,13 +9262,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KEditListWidget, param1: i32) i32 {
+    pub fn metric(self: KEditListWidget, param1: i32) i32 {
         return qtc.KEditListWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7498,9 +9282,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KEditListWidget, param1: i32) i32 {
+    pub fn superMetric(self: KEditListWidget, param1: i32) i32 {
         return qtc.KEditListWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7514,9 +9302,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) i32) void {
         qtc.KEditListWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7530,14 +9322,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KEditListWidget, painter: anytype) void {
+    pub fn initPainter(self: KEditListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KEditListWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7551,10 +9343,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KEditListWidget, painter: anytype) void {
+    pub fn superInitPainter(self: KEditListWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KEditListWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7568,9 +9364,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KEditListWidget, callback: *const fn (KEditListWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KEditListWidget, callback: *const fn (KEditListWidget, QPainter) callconv(.c) void) void {
         qtc.KEditListWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7584,14 +9384,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KEditListWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KEditListWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KEditListWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7605,10 +9405,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KEditListWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KEditListWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KEditListWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7622,9 +9426,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KEditListWidget, callback: *const fn (KEditListWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KEditListWidget, callback: *const fn (KEditListWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KEditListWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7636,13 +9444,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SharedPainter(self: KEditListWidget) QPainter {
+    pub fn sharedPainter(self: KEditListWidget) QPainter {
         return .{ .ptr = qtc.KEditListWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7654,9 +9462,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperSharedPainter(self: KEditListWidget) QPainter {
+    pub fn superSharedPainter(self: KEditListWidget) QPainter {
         return .{ .ptr = qtc.KEditListWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7670,9 +9482,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KEditListWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KEditListWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KEditListWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7686,14 +9502,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KEditListWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KEditListWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7707,10 +9523,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KEditListWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KEditListWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KEditListWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7724,9 +9544,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7740,13 +9564,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KEditListWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KEditListWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KEditListWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7760,9 +9584,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KEditListWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KEditListWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KEditListWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7778,9 +9606,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KEditListWidget, callback: *const fn (KEditListWidget, i32) callconv(.c) QVariant) void {
         qtc.KEditListWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7794,13 +9626,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KEditListWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: KEditListWidget, next: bool) bool {
         return qtc.KEditListWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7814,9 +9646,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KEditListWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KEditListWidget, next: bool) bool {
         return qtc.KEditListWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7830,9 +9666,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KEditListWidget, callback: *const fn (KEditListWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KEditListWidget, callback: *const fn (KEditListWidget, bool) callconv(.c) bool) void {
         qtc.KEditListWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7844,16 +9684,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KEditListWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KEditListWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7865,12 +9705,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KEditListWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KEditListWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7884,9 +9728,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QTimerEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7898,16 +9746,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KEditListWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KEditListWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7919,12 +9767,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KEditListWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KEditListWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7938,9 +9790,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QChildEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7952,16 +9808,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KEditListWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KEditListWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7973,12 +9829,16 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KEditListWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KEditListWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KEditListWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KEditListWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7992,9 +9852,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KEditListWidget, callback: *const fn (KEditListWidget, QEvent) callconv(.c) void) void {
         qtc.KEditListWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8008,14 +9872,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KEditListWidget, signal: anytype) void {
+    pub fn connectNotify(self: KEditListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KEditListWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8029,11 +9893,15 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KEditListWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: KEditListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KEditListWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8046,9 +9914,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KEditListWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8062,14 +9934,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KEditListWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: KEditListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KEditListWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8083,10 +9955,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KEditListWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KEditListWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KEditListWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8100,10 +9976,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KEditListWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8114,13 +9994,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn UpdateMicroFocus(self: KEditListWidget) void {
+    pub fn updateMicroFocus(self: KEditListWidget) void {
         qtc.KEditListWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8132,10 +10012,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: KEditListWidget) void {
+    pub fn superUpdateMicroFocus(self: KEditListWidget) void {
         qtc.KEditListWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8148,10 +10032,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KEditListWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8162,13 +10050,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Create(self: KEditListWidget) void {
+    pub fn create(self: KEditListWidget) void {
         qtc.KEditListWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8180,10 +10068,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperCreate(self: KEditListWidget) void {
+    pub fn superCreate(self: KEditListWidget) void {
         qtc.KEditListWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8196,9 +10088,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KEditListWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8210,13 +10106,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Destroy(self: KEditListWidget) void {
+    pub fn destroy(self: KEditListWidget) void {
         qtc.KEditListWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8228,9 +10124,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperDestroy(self: KEditListWidget) void {
+    pub fn superDestroy(self: KEditListWidget) void {
         qtc.KEditListWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8244,10 +10144,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KEditListWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KEditListWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8258,13 +10162,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FocusNextChild(self: KEditListWidget) bool {
+    pub fn focusNextChild(self: KEditListWidget) bool {
         return qtc.KEditListWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8276,10 +10180,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperFocusNextChild(self: KEditListWidget) bool {
+    pub fn superFocusNextChild(self: KEditListWidget) bool {
         return qtc.KEditListWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8292,9 +10200,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KEditListWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8306,13 +10218,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn FocusPreviousChild(self: KEditListWidget) bool {
+    pub fn focusPreviousChild(self: KEditListWidget) bool {
         return qtc.KEditListWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8324,9 +10236,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: KEditListWidget) bool {
+    pub fn superFocusPreviousChild(self: KEditListWidget) bool {
         return qtc.KEditListWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8340,9 +10256,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KEditListWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KEditListWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8354,13 +10274,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Sender(self: KEditListWidget) QObject {
+    pub fn sender(self: KEditListWidget) QObject {
         return .{ .ptr = qtc.KEditListWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8372,9 +10292,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperSender(self: KEditListWidget) QObject {
+    pub fn superSender(self: KEditListWidget) QObject {
         return .{ .ptr = qtc.KEditListWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8388,9 +10312,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KEditListWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KEditListWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.KEditListWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8402,13 +10330,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SenderSignalIndex(self: KEditListWidget) i32 {
+    pub fn senderSignalIndex(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8420,9 +10348,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: KEditListWidget) i32 {
+    pub fn superSenderSignalIndex(self: KEditListWidget) i32 {
         return qtc.KEditListWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8436,9 +10368,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KEditListWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KEditListWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KEditListWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8452,14 +10388,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KEditListWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KEditListWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KEditListWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8473,10 +10409,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KEditListWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KEditListWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KEditListWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8490,9 +10430,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.KEditListWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8506,14 +10450,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KEditListWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: KEditListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KEditListWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8527,10 +10471,14 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KEditListWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KEditListWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KEditListWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8544,9 +10492,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KEditListWidget, callback: *const fn (KEditListWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.KEditListWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8562,13 +10514,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KEditListWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KEditListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KEditListWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8584,9 +10536,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KEditListWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KEditListWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KEditListWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8600,9 +10556,13 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KEditListWidget, callback: *const fn (KEditListWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KEditListWidget, callback: *const fn (KEditListWidget, i32, i32) callconv(.c) f64) void {
         qtc.KEditListWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8616,23 +10576,23 @@ pub const KEditListWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KEditListWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KEditListWidget, callback: *const fn (KEditListWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget.html#dtor.KEditListWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KEditListWidget `
     ///
-    pub fn Delete(self: KEditListWidget) void {
+    pub fn delete(self: KEditListWidget) void {
         qtc.KEditListWidget_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8647,13 +10607,21 @@ pub const KEditListWidget__CustomEditor = extern struct {
 
     pub const _is_KEditListWidget__CustomEditor = {};
 
-    /// New constructs a new KEditListWidget::CustomEditor object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KEditListWidget__CustomEditor {
+    pub const New = new;
+
+    /// Allocate a new KEditListWidget::CustomEditor object in C++ memory
+    ///
+    pub fn new() KEditListWidget__CustomEditor {
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_new() };
     }
 
-    /// New2 constructs a new KEditListWidget::CustomEditor object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KEditListWidget::CustomEditor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -8661,22 +10629,30 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn New2(repWidget: anytype, edit: anytype) KEditListWidget__CustomEditor {
+    pub fn new2(repWidget: anytype, edit: anytype) KEditListWidget__CustomEditor {
         comptime _ = @TypeOf(repWidget)._is_QWidget;
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_new2(@ptrCast(repWidget.ptr), @ptrCast(edit.ptr)) };
     }
 
-    /// New3 constructs a new KEditListWidget::CustomEditor object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KEditListWidget::CustomEditor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` combo: QComboBox `
     ///
-    pub fn New3(combo: anytype) KEditListWidget__CustomEditor {
+    pub fn new3(combo: anytype) KEditListWidget__CustomEditor {
         comptime _ = @TypeOf(combo)._is_QComboBox;
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_new3(@ptrCast(combo.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRepresentationWidget` instead
+    ///
+    pub const SetRepresentationWidget = setRepresentationWidget;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#setRepresentationWidget)
     ///
@@ -8686,10 +10662,14 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` repWidget: QWidget `
     ///
-    pub fn SetRepresentationWidget(self: KEditListWidget__CustomEditor, repWidget: anytype) void {
+    pub fn setRepresentationWidget(self: KEditListWidget__CustomEditor, repWidget: anytype) void {
         comptime _ = @TypeOf(repWidget)._is_QWidget;
         qtc.KEditListWidget__CustomEditor_SetRepresentationWidget(@ptrCast(self.ptr), @ptrCast(repWidget.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineEdit` instead
+    ///
+    pub const SetLineEdit = setLineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#setLineEdit)
     ///
@@ -8699,10 +10679,14 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` edit: QLineEdit `
     ///
-    pub fn SetLineEdit(self: KEditListWidget__CustomEditor, edit: anytype) void {
+    pub fn setLineEdit(self: KEditListWidget__CustomEditor, edit: anytype) void {
         comptime _ = @TypeOf(edit)._is_QLineEdit;
         qtc.KEditListWidget__CustomEditor_SetLineEdit(@ptrCast(self.ptr), @ptrCast(edit.ptr));
     }
+
+    /// ### DEPRECATED: Use `representationWidget` instead
+    ///
+    pub const RepresentationWidget = representationWidget;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
@@ -8710,9 +10694,13 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` self: KEditListWidget__CustomEditor `
     ///
-    pub fn RepresentationWidget(self: KEditListWidget__CustomEditor) QWidget {
+    pub fn representationWidget(self: KEditListWidget__CustomEditor) QWidget {
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_RepresentationWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRepresentationWidget` instead
+    ///
+    pub const OnRepresentationWidget = onRepresentationWidget;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
@@ -8724,13 +10712,13 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QWidget `
     ///
-    pub fn OnRepresentationWidget(self: KEditListWidget__CustomEditor, callback: *const fn () callconv(.c) QWidget) void {
+    pub fn onRepresentationWidget(self: KEditListWidget__CustomEditor, callback: *const fn () callconv(.c) QWidget) void {
         qtc.KEditListWidget__CustomEditor_OnRepresentationWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRepresentationWidget` instead
+    /// ### DEPRECATED: Use `superRepresentationWidget` instead
     ///
-    pub const QBaseRepresentationWidget = SuperRepresentationWidget;
+    pub const SuperRepresentationWidget = superRepresentationWidget;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#representationWidget)
     ///
@@ -8740,9 +10728,13 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` self: KEditListWidget__CustomEditor `
     ///
-    pub fn SuperRepresentationWidget(self: KEditListWidget__CustomEditor) QWidget {
+    pub fn superRepresentationWidget(self: KEditListWidget__CustomEditor) QWidget {
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_SuperRepresentationWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineEdit` instead
+    ///
+    pub const LineEdit = lineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
@@ -8750,9 +10742,13 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` self: KEditListWidget__CustomEditor `
     ///
-    pub fn LineEdit(self: KEditListWidget__CustomEditor) QLineEdit {
+    pub fn lineEdit(self: KEditListWidget__CustomEditor) QLineEdit {
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_LineEdit(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLineEdit` instead
+    ///
+    pub const OnLineEdit = onLineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
@@ -8764,13 +10760,13 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QLineEdit `
     ///
-    pub fn OnLineEdit(self: KEditListWidget__CustomEditor, callback: *const fn () callconv(.c) QLineEdit) void {
+    pub fn onLineEdit(self: KEditListWidget__CustomEditor, callback: *const fn () callconv(.c) QLineEdit) void {
         qtc.KEditListWidget__CustomEditor_OnLineEdit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLineEdit` instead
+    /// ### DEPRECATED: Use `superLineEdit` instead
     ///
-    pub const QBaseLineEdit = SuperLineEdit;
+    pub const SuperLineEdit = superLineEdit;
 
     /// ### [Upstream resources](https://api.kde.org/keditlistwidget-customeditor.html#lineEdit)
     ///
@@ -8780,21 +10776,21 @@ pub const KEditListWidget__CustomEditor = extern struct {
     ///
     /// ` self: KEditListWidget__CustomEditor `
     ///
-    pub fn SuperLineEdit(self: KEditListWidget__CustomEditor) QLineEdit {
+    pub fn superLineEdit(self: KEditListWidget__CustomEditor) QLineEdit {
         return .{ .ptr = qtc.KEditListWidget__CustomEditor_SuperLineEdit(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KEditListWidget__CustomEditor `
     ///
-    pub fn Delete(self: KEditListWidget__CustomEditor) void {
+    pub fn delete(self: KEditListWidget__CustomEditor) void {
         qtc.KEditListWidget__CustomEditor_Delete(@ptrCast(self.ptr));
     }
 };

@@ -44,7 +44,11 @@ pub const QPlaceManagerEngine = extern struct {
     pub const _is_QPlaceManagerEngine = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPlaceManagerEngine object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPlaceManagerEngine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -52,11 +56,11 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` parameters: ArrayMap_constu8_QVariant `
     ///
-    pub fn New(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) QPlaceManagerEngine {
+    pub fn new(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant) QPlaceManagerEngine {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.New: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.new: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.New: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.new: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -76,7 +80,11 @@ pub const QPlaceManagerEngine = extern struct {
         return .{ .ptr = qtc.QPlaceManagerEngine_new(parameters_map) };
     }
 
-    /// New2 constructs a new QPlaceManagerEngine object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceManagerEngine object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -84,13 +92,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` parameters: ArrayMap_constu8_QVariant `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, parent: anytype) QPlaceManagerEngine {
+    pub fn new2(allocator: std.mem.Allocator, parameters: ArrayMap_constu8_QVariant, _parent: anytype) QPlaceManagerEngine {
         const parameters_count = parameters.count();
-        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.New2: Memory allocation failed");
+        const parameters_keys = allocator.alloc(qtc.libqt_string, parameters_count) catch @panic("QPlaceManagerEngine.new2: Memory allocation failed");
         defer allocator.free(parameters_keys);
-        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.New2: Memory allocation failed");
+        const parameters_values = allocator.alloc(QtC.QVariant, parameters_count) catch @panic("QPlaceManagerEngine.new2: Memory allocation failed");
         defer allocator.free(parameters_values);
         var i: usize = 0;
         var parameters_it = parameters.iterator();
@@ -107,9 +115,13 @@ pub const QPlaceManagerEngine = extern struct {
             .keys = @ptrCast(parameters_keys.ptr),
             .values = @ptrCast(parameters_values.ptr),
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPlaceManagerEngine_new2(parameters_map, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPlaceManagerEngine_new2(parameters_map, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,9 +129,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn MetaObject(self: QPlaceManagerEngine) QMetaObject {
+    pub fn metaObject(self: QPlaceManagerEngine) QMetaObject {
         return .{ .ptr = qtc.QPlaceManagerEngine_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -131,13 +147,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPlaceManagerEngine_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -147,9 +163,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SuperMetaObject(self: QPlaceManagerEngine) QMetaObject {
+    pub fn superMetaObject(self: QPlaceManagerEngine) QMetaObject {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -157,10 +177,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPlaceManagerEngine, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPlaceManagerEngine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlaceManagerEngine_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -170,13 +194,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPlaceManagerEngine_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -186,10 +210,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPlaceManagerEngine, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPlaceManagerEngine, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPlaceManagerEngine_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -201,9 +229,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPlaceManagerEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPlaceManagerEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlaceManagerEngine_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -213,13 +245,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPlaceManagerEngine_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -233,9 +265,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPlaceManagerEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPlaceManagerEngine, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPlaceManagerEngine_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -245,14 +281,18 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerName` instead
+    ///
+    pub const ManagerName = managerName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#managerName)
     ///
@@ -262,13 +302,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManagerName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn managerName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceManagerEngine_ManagerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ManagerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.managerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerVersion` instead
+    ///
+    pub const ManagerVersion = managerVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#managerVersion)
     ///
@@ -276,9 +320,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn ManagerVersion(self: QPlaceManagerEngine) i32 {
+    pub fn managerVersion(self: QPlaceManagerEngine) i32 {
         return qtc.QPlaceManagerEngine_ManagerVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `getPlaceDetails` instead
+    ///
+    pub const GetPlaceDetails = getPlaceDetails;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceDetails)
     ///
@@ -288,13 +336,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn GetPlaceDetails(self: QPlaceManagerEngine, placeId: []const u8) QPlaceDetailsReply {
+    pub fn getPlaceDetails(self: QPlaceManagerEngine, placeId: []const u8) QPlaceDetailsReply {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_GetPlaceDetails(@ptrCast(self.ptr), placeId_str) };
     }
+
+    /// ### DEPRECATED: Use `onGetPlaceDetails` instead
+    ///
+    pub const OnGetPlaceDetails = onGetPlaceDetails;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceDetails)
     ///
@@ -306,13 +358,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) QPlaceDetailsReply `
     ///
-    pub fn OnGetPlaceDetails(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceDetailsReply) void {
+    pub fn onGetPlaceDetails(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceDetailsReply) void {
         qtc.QPlaceManagerEngine_OnGetPlaceDetails(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetPlaceDetails` instead
+    /// ### DEPRECATED: Use `superGetPlaceDetails` instead
     ///
-    pub const QBaseGetPlaceDetails = SuperGetPlaceDetails;
+    pub const SuperGetPlaceDetails = superGetPlaceDetails;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceDetails)
     ///
@@ -324,13 +376,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn SuperGetPlaceDetails(self: QPlaceManagerEngine, placeId: []const u8) QPlaceDetailsReply {
+    pub fn superGetPlaceDetails(self: QPlaceManagerEngine, placeId: []const u8) QPlaceDetailsReply {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperGetPlaceDetails(@ptrCast(self.ptr), placeId_str) };
     }
+
+    /// ### DEPRECATED: Use `getPlaceContent` instead
+    ///
+    pub const GetPlaceContent = getPlaceContent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceContent)
     ///
@@ -340,10 +396,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceContentRequest `
     ///
-    pub fn GetPlaceContent(self: QPlaceManagerEngine, request: anytype) QPlaceContentReply {
+    pub fn getPlaceContent(self: QPlaceManagerEngine, request: anytype) QPlaceContentReply {
         comptime _ = @TypeOf(request)._is_QPlaceContentRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_GetPlaceContent(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onGetPlaceContent` instead
+    ///
+    pub const OnGetPlaceContent = onGetPlaceContent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceContent)
     ///
@@ -355,13 +415,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, request: QPlaceContentRequest) callconv(.c) QPlaceContentReply `
     ///
-    pub fn OnGetPlaceContent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceContentRequest) callconv(.c) QPlaceContentReply) void {
+    pub fn onGetPlaceContent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceContentRequest) callconv(.c) QPlaceContentReply) void {
         qtc.QPlaceManagerEngine_OnGetPlaceContent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperGetPlaceContent` instead
+    /// ### DEPRECATED: Use `superGetPlaceContent` instead
     ///
-    pub const QBaseGetPlaceContent = SuperGetPlaceContent;
+    pub const SuperGetPlaceContent = superGetPlaceContent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#getPlaceContent)
     ///
@@ -373,10 +433,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceContentRequest `
     ///
-    pub fn SuperGetPlaceContent(self: QPlaceManagerEngine, request: anytype) QPlaceContentReply {
+    pub fn superGetPlaceContent(self: QPlaceManagerEngine, request: anytype) QPlaceContentReply {
         comptime _ = @TypeOf(request)._is_QPlaceContentRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperGetPlaceContent(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `search` instead
+    ///
+    pub const Search = search;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#search)
     ///
@@ -386,10 +450,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceSearchRequest `
     ///
-    pub fn Search(self: QPlaceManagerEngine, request: anytype) QPlaceSearchReply {
+    pub fn search(self: QPlaceManagerEngine, request: anytype) QPlaceSearchReply {
         comptime _ = @TypeOf(request)._is_QPlaceSearchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_Search(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSearch` instead
+    ///
+    pub const OnSearch = onSearch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#search)
     ///
@@ -401,13 +469,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, request: QPlaceSearchRequest) callconv(.c) QPlaceSearchReply `
     ///
-    pub fn OnSearch(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceSearchRequest) callconv(.c) QPlaceSearchReply) void {
+    pub fn onSearch(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceSearchRequest) callconv(.c) QPlaceSearchReply) void {
         qtc.QPlaceManagerEngine_OnSearch(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSearch` instead
+    /// ### DEPRECATED: Use `superSearch` instead
     ///
-    pub const QBaseSearch = SuperSearch;
+    pub const SuperSearch = superSearch;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#search)
     ///
@@ -419,10 +487,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceSearchRequest `
     ///
-    pub fn SuperSearch(self: QPlaceManagerEngine, request: anytype) QPlaceSearchReply {
+    pub fn superSearch(self: QPlaceManagerEngine, request: anytype) QPlaceSearchReply {
         comptime _ = @TypeOf(request)._is_QPlaceSearchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperSearch(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `searchSuggestions` instead
+    ///
+    pub const SearchSuggestions = searchSuggestions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#searchSuggestions)
     ///
@@ -432,10 +504,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceSearchRequest `
     ///
-    pub fn SearchSuggestions(self: QPlaceManagerEngine, request: anytype) QPlaceSearchSuggestionReply {
+    pub fn searchSuggestions(self: QPlaceManagerEngine, request: anytype) QPlaceSearchSuggestionReply {
         comptime _ = @TypeOf(request)._is_QPlaceSearchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_SearchSuggestions(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSearchSuggestions` instead
+    ///
+    pub const OnSearchSuggestions = onSearchSuggestions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#searchSuggestions)
     ///
@@ -447,13 +523,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, request: QPlaceSearchRequest) callconv(.c) QPlaceSearchSuggestionReply `
     ///
-    pub fn OnSearchSuggestions(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceSearchRequest) callconv(.c) QPlaceSearchSuggestionReply) void {
+    pub fn onSearchSuggestions(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceSearchRequest) callconv(.c) QPlaceSearchSuggestionReply) void {
         qtc.QPlaceManagerEngine_OnSearchSuggestions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSearchSuggestions` instead
+    /// ### DEPRECATED: Use `superSearchSuggestions` instead
     ///
-    pub const QBaseSearchSuggestions = SuperSearchSuggestions;
+    pub const SuperSearchSuggestions = superSearchSuggestions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#searchSuggestions)
     ///
@@ -465,10 +541,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceSearchRequest `
     ///
-    pub fn SuperSearchSuggestions(self: QPlaceManagerEngine, request: anytype) QPlaceSearchSuggestionReply {
+    pub fn superSearchSuggestions(self: QPlaceManagerEngine, request: anytype) QPlaceSearchSuggestionReply {
         comptime _ = @TypeOf(request)._is_QPlaceSearchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperSearchSuggestions(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `savePlace` instead
+    ///
+    pub const SavePlace = savePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#savePlace)
     ///
@@ -478,10 +558,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` place: QPlace `
     ///
-    pub fn SavePlace(self: QPlaceManagerEngine, place: anytype) QPlaceIdReply {
+    pub fn savePlace(self: QPlaceManagerEngine, place: anytype) QPlaceIdReply {
         comptime _ = @TypeOf(place)._is_QPlace;
         return .{ .ptr = qtc.QPlaceManagerEngine_SavePlace(@ptrCast(self.ptr), @ptrCast(place.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSavePlace` instead
+    ///
+    pub const OnSavePlace = onSavePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#savePlace)
     ///
@@ -493,13 +577,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, place: QPlace) callconv(.c) QPlaceIdReply `
     ///
-    pub fn OnSavePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlace) callconv(.c) QPlaceIdReply) void {
+    pub fn onSavePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlace) callconv(.c) QPlaceIdReply) void {
         qtc.QPlaceManagerEngine_OnSavePlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSavePlace` instead
+    /// ### DEPRECATED: Use `superSavePlace` instead
     ///
-    pub const QBaseSavePlace = SuperSavePlace;
+    pub const SuperSavePlace = superSavePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#savePlace)
     ///
@@ -511,10 +595,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` place: QPlace `
     ///
-    pub fn SuperSavePlace(self: QPlaceManagerEngine, place: anytype) QPlaceIdReply {
+    pub fn superSavePlace(self: QPlaceManagerEngine, place: anytype) QPlaceIdReply {
         comptime _ = @TypeOf(place)._is_QPlace;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperSavePlace(@ptrCast(self.ptr), @ptrCast(place.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removePlace` instead
+    ///
+    pub const RemovePlace = removePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removePlace)
     ///
@@ -524,13 +612,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn RemovePlace(self: QPlaceManagerEngine, placeId: []const u8) QPlaceIdReply {
+    pub fn removePlace(self: QPlaceManagerEngine, placeId: []const u8) QPlaceIdReply {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_RemovePlace(@ptrCast(self.ptr), placeId_str) };
     }
+
+    /// ### DEPRECATED: Use `onRemovePlace` instead
+    ///
+    pub const OnRemovePlace = onRemovePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removePlace)
     ///
@@ -542,13 +634,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) QPlaceIdReply `
     ///
-    pub fn OnRemovePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
+    pub fn onRemovePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
         qtc.QPlaceManagerEngine_OnRemovePlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemovePlace` instead
+    /// ### DEPRECATED: Use `superRemovePlace` instead
     ///
-    pub const QBaseRemovePlace = SuperRemovePlace;
+    pub const SuperRemovePlace = superRemovePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removePlace)
     ///
@@ -560,7 +652,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn SuperRemovePlace(self: QPlaceManagerEngine, placeId: []const u8) QPlaceIdReply {
+    pub fn superRemovePlace(self: QPlaceManagerEngine, placeId: []const u8) QPlaceIdReply {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
@@ -568,24 +660,32 @@ pub const QPlaceManagerEngine = extern struct {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperRemovePlace(@ptrCast(self.ptr), placeId_str) };
     }
 
+    /// ### DEPRECATED: Use `saveCategory` instead
+    ///
+    pub const SaveCategory = saveCategory;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#saveCategory)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` category: QPlaceCategory `
+    /// ` _category: QPlaceCategory `
     ///
     /// ` parentId: []const u8 `
     ///
-    pub fn SaveCategory(self: QPlaceManagerEngine, category: anytype, parentId: []const u8) QPlaceIdReply {
-        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+    pub fn saveCategory(self: QPlaceManagerEngine, _category: anytype, parentId: []const u8) QPlaceIdReply {
+        comptime _ = @TypeOf(_category)._is_QPlaceCategory;
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,
         };
-        return .{ .ptr = qtc.QPlaceManagerEngine_SaveCategory(@ptrCast(self.ptr), @ptrCast(category.ptr), parentId_str) };
+        return .{ .ptr = qtc.QPlaceManagerEngine_SaveCategory(@ptrCast(self.ptr), @ptrCast(_category.ptr), parentId_str) };
     }
+
+    /// ### DEPRECATED: Use `onSaveCategory` instead
+    ///
+    pub const OnSaveCategory = onSaveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#saveCategory)
     ///
@@ -597,13 +697,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, category: QPlaceCategory, parentId: [*:0]const u8) callconv(.c) QPlaceIdReply `
     ///
-    pub fn OnSaveCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
+    pub fn onSaveCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
         qtc.QPlaceManagerEngine_OnSaveCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSaveCategory` instead
+    /// ### DEPRECATED: Use `superSaveCategory` instead
     ///
-    pub const QBaseSaveCategory = SuperSaveCategory;
+    pub const SuperSaveCategory = superSaveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#saveCategory)
     ///
@@ -613,18 +713,22 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` category: QPlaceCategory `
+    /// ` _category: QPlaceCategory `
     ///
     /// ` parentId: []const u8 `
     ///
-    pub fn SuperSaveCategory(self: QPlaceManagerEngine, category: anytype, parentId: []const u8) QPlaceIdReply {
-        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+    pub fn superSaveCategory(self: QPlaceManagerEngine, _category: anytype, parentId: []const u8) QPlaceIdReply {
+        comptime _ = @TypeOf(_category)._is_QPlaceCategory;
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,
         };
-        return .{ .ptr = qtc.QPlaceManagerEngine_SuperSaveCategory(@ptrCast(self.ptr), @ptrCast(category.ptr), parentId_str) };
+        return .{ .ptr = qtc.QPlaceManagerEngine_SuperSaveCategory(@ptrCast(self.ptr), @ptrCast(_category.ptr), parentId_str) };
     }
+
+    /// ### DEPRECATED: Use `removeCategory` instead
+    ///
+    pub const RemoveCategory = removeCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removeCategory)
     ///
@@ -634,13 +738,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn RemoveCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceIdReply {
+    pub fn removeCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceIdReply {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_RemoveCategory(@ptrCast(self.ptr), categoryId_str) };
     }
+
+    /// ### DEPRECATED: Use `onRemoveCategory` instead
+    ///
+    pub const OnRemoveCategory = onRemoveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removeCategory)
     ///
@@ -652,13 +760,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) QPlaceIdReply `
     ///
-    pub fn OnRemoveCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
+    pub fn onRemoveCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceIdReply) void {
         qtc.QPlaceManagerEngine_OnRemoveCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRemoveCategory` instead
+    /// ### DEPRECATED: Use `superRemoveCategory` instead
     ///
-    pub const QBaseRemoveCategory = SuperRemoveCategory;
+    pub const SuperRemoveCategory = superRemoveCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#removeCategory)
     ///
@@ -670,7 +778,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn SuperRemoveCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceIdReply {
+    pub fn superRemoveCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceIdReply {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
@@ -678,15 +786,23 @@ pub const QPlaceManagerEngine = extern struct {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperRemoveCategory(@ptrCast(self.ptr), categoryId_str) };
     }
 
+    /// ### DEPRECATED: Use `initializeCategories` instead
+    ///
+    pub const InitializeCategories = initializeCategories;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#initializeCategories)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn InitializeCategories(self: QPlaceManagerEngine) QPlaceReply {
+    pub fn initializeCategories(self: QPlaceManagerEngine) QPlaceReply {
         return .{ .ptr = qtc.QPlaceManagerEngine_InitializeCategories(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onInitializeCategories` instead
+    ///
+    pub const OnInitializeCategories = onInitializeCategories;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#initializeCategories)
     ///
@@ -698,13 +814,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPlaceReply `
     ///
-    pub fn OnInitializeCategories(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceReply) void {
+    pub fn onInitializeCategories(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceReply) void {
         qtc.QPlaceManagerEngine_OnInitializeCategories(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitializeCategories` instead
+    /// ### DEPRECATED: Use `superInitializeCategories` instead
     ///
-    pub const QBaseInitializeCategories = SuperInitializeCategories;
+    pub const SuperInitializeCategories = superInitializeCategories;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#initializeCategories)
     ///
@@ -714,9 +830,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SuperInitializeCategories(self: QPlaceManagerEngine) QPlaceReply {
+    pub fn superInitializeCategories(self: QPlaceManagerEngine) QPlaceReply {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperInitializeCategories(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentCategoryId` instead
+    ///
+    pub const ParentCategoryId = parentCategoryId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#parentCategoryId)
     ///
@@ -728,17 +848,21 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn ParentCategoryId(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const u8 {
+    pub fn parentCategoryId(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         var _str = qtc.QPlaceManagerEngine_ParentCategoryId(@ptrCast(self.ptr), categoryId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ParentCategoryId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.parentCategoryId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onParentCategoryId` instead
+    ///
+    pub const OnParentCategoryId = onParentCategoryId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#parentCategoryId)
     ///
@@ -750,13 +874,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnParentCategoryId(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) [*:0]const u8) void {
+    pub fn onParentCategoryId(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) [*:0]const u8) void {
         qtc.QPlaceManagerEngine_OnParentCategoryId(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParentCategoryId` instead
+    /// ### DEPRECATED: Use `superParentCategoryId` instead
     ///
-    pub const QBaseParentCategoryId = SuperParentCategoryId;
+    pub const SuperParentCategoryId = superParentCategoryId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#parentCategoryId)
     ///
@@ -770,17 +894,21 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn SuperParentCategoryId(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const u8 {
+    pub fn superParentCategoryId(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         var _str = qtc.QPlaceManagerEngine_SuperParentCategoryId(@ptrCast(self.ptr), categoryId_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ParentCategoryId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.parentCategoryId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `childCategoryIds` instead
+    ///
+    pub const ChildCategoryIds = childCategoryIds;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategoryIds)
     ///
@@ -792,7 +920,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn ChildCategoryIds(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const []const u8 {
+    pub fn childCategoryIds(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
@@ -804,15 +932,19 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.childCategoryIds: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPlaceManagerEngine.childCategoryIds: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onChildCategoryIds` instead
+    ///
+    pub const OnChildCategoryIds = onChildCategoryIds;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategoryIds)
     ///
@@ -826,13 +958,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, categoryId: [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8 `
     ///
-    pub fn OnChildCategoryIds(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
+    pub fn onChildCategoryIds(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) ?[*:null]?[*:0]const u8) void {
         qtc.QPlaceManagerEngine_OnChildCategoryIds(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChildCategoryIds` instead
+    /// ### DEPRECATED: Use `superChildCategoryIds` instead
     ///
-    pub const QBaseChildCategoryIds = SuperChildCategoryIds;
+    pub const SuperChildCategoryIds = superChildCategoryIds;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategoryIds)
     ///
@@ -846,7 +978,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn SuperChildCategoryIds(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const []const u8 {
+    pub fn superChildCategoryIds(self: QPlaceManagerEngine, allocator: std.mem.Allocator, categoryId: []const u8) []const []const u8 {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
@@ -858,15 +990,19 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QPlaceManagerEngine.childCategoryIds: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.ChildCategoryIds: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPlaceManagerEngine.childCategoryIds: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `category` instead
+    ///
+    pub const Category = category;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#category)
     ///
@@ -876,13 +1012,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn Category(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceCategory {
+    pub fn category(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceCategory {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_Category(@ptrCast(self.ptr), categoryId_str) };
     }
+
+    /// ### DEPRECATED: Use `onCategory` instead
+    ///
+    pub const OnCategory = onCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#category)
     ///
@@ -896,13 +1036,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceCategory) void {
+    pub fn onCategory(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) QPlaceCategory) void {
         qtc.QPlaceManagerEngine_OnCategory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCategory` instead
+    /// ### DEPRECATED: Use `superCategory` instead
     ///
-    pub const QBaseCategory = SuperCategory;
+    pub const SuperCategory = superCategory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#category)
     ///
@@ -914,13 +1054,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    pub fn SuperCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceCategory {
+    pub fn superCategory(self: QPlaceManagerEngine, categoryId: []const u8) QPlaceCategory {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperCategory(@ptrCast(self.ptr), categoryId_str) };
     }
+
+    /// ### DEPRECATED: Use `childCategories` instead
+    ///
+    pub const ChildCategories = childCategories;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategories)
     ///
@@ -932,19 +1076,23 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` parentId: []const u8 `
     ///
-    pub fn ChildCategories(self: QPlaceManagerEngine, allocator: std.mem.Allocator, parentId: []const u8) []QPlaceCategory {
+    pub fn childCategories(self: QPlaceManagerEngine, allocator: std.mem.Allocator, parentId: []const u8) []QPlaceCategory {
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_ChildCategories(@ptrCast(self.ptr), parentId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategories: Memory allocation failed");
-        const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.childCategories: Memory allocation failed");
+        const _data_val: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onChildCategories` instead
+    ///
+    pub const OnChildCategories = onChildCategories;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategories)
     ///
@@ -962,13 +1110,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` C ABI representation of []QPlaceCategory `
     ///
-    pub fn OnChildCategories(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) qtc.libqt_list) void {
+    pub fn onChildCategories(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) qtc.libqt_list) void {
         qtc.QPlaceManagerEngine_OnChildCategories(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperChildCategories` instead
+    /// ### DEPRECATED: Use `superChildCategories` instead
     ///
-    pub const QBaseChildCategories = SuperChildCategories;
+    pub const SuperChildCategories = superChildCategories;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#childCategories)
     ///
@@ -982,19 +1130,23 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` parentId: []const u8 `
     ///
-    pub fn SuperChildCategories(self: QPlaceManagerEngine, allocator: std.mem.Allocator, parentId: []const u8) []QPlaceCategory {
+    pub fn superChildCategories(self: QPlaceManagerEngine, allocator: std.mem.Allocator, parentId: []const u8) []QPlaceCategory {
         const parentId_str = qtc.libqt_string{
             .len = parentId.len,
             .data = parentId.ptr,
         };
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_SuperChildCategories(@ptrCast(self.ptr), parentId_str);
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.ChildCategories: Memory allocation failed");
-        const _data: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QPlaceCategory, _arr.len) catch @panic("QPlaceManagerEngine.childCategories: Memory allocation failed");
+        const _data_val: [*]QtC.QPlaceCategory = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `locales` instead
+    ///
+    pub const Locales = locales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#locales)
     ///
@@ -1004,15 +1156,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Locales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
+    pub fn locales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_Locales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.Locales: Memory allocation failed");
-        const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.locales: Memory allocation failed");
+        const _data_val: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onLocales` instead
+    ///
+    pub const OnLocales = onLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#locales)
     ///
@@ -1030,13 +1186,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` C ABI representation of []QLocale `
     ///
-    pub fn OnLocales(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onLocales(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QPlaceManagerEngine_OnLocales(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperLocales` instead
+    /// ### DEPRECATED: Use `superLocales` instead
     ///
-    pub const QBaseLocales = SuperLocales;
+    pub const SuperLocales = superLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#locales)
     ///
@@ -1048,15 +1204,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperLocales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
+    pub fn superLocales(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QLocale {
         const _arr: qtc.libqt_list = qtc.QPlaceManagerEngine_SuperLocales(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.Locales: Memory allocation failed");
-        const _data: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QLocale, _arr.len) catch @panic("QPlaceManagerEngine.locales: Memory allocation failed");
+        const _data_val: [*]QtC.QLocale = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLocales` instead
+    ///
+    pub const SetLocales = setLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#setLocales)
     ///
@@ -1064,15 +1224,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` locales: []QLocale `
+    /// ` _locales: []QLocale `
     ///
-    pub fn SetLocales(self: QPlaceManagerEngine, locales: []QLocale) void {
+    pub fn setLocales(self: QPlaceManagerEngine, _locales: []QLocale) void {
         const locales_list = qtc.libqt_list{
-            .len = locales.len,
-            .data = @ptrCast(locales.ptr),
+            .len = _locales.len,
+            .data = @ptrCast(_locales.ptr),
         };
         qtc.QPlaceManagerEngine_SetLocales(@ptrCast(self.ptr), locales_list);
     }
+
+    /// ### DEPRECATED: Use `onSetLocales` instead
+    ///
+    pub const OnSetLocales = onSetLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#setLocales)
     ///
@@ -1084,13 +1248,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, locales: qtc.libqt_list ([]QLocale)) callconv(.c) void `
     ///
-    pub fn OnSetLocales(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, qtc.libqt_list) callconv(.c) void) void {
+    pub fn onSetLocales(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, qtc.libqt_list) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnSetLocales(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetLocales` instead
+    /// ### DEPRECATED: Use `superSetLocales` instead
     ///
-    pub const QBaseSetLocales = SuperSetLocales;
+    pub const SuperSetLocales = superSetLocales;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#setLocales)
     ///
@@ -1100,15 +1264,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` locales: []QLocale `
+    /// ` _locales: []QLocale `
     ///
-    pub fn SuperSetLocales(self: QPlaceManagerEngine, locales: []QLocale) void {
+    pub fn superSetLocales(self: QPlaceManagerEngine, _locales: []QLocale) void {
         const locales_list = qtc.libqt_list{
-            .len = locales.len,
-            .data = @ptrCast(locales.ptr),
+            .len = _locales.len,
+            .data = @ptrCast(_locales.ptr),
         };
         qtc.QPlaceManagerEngine_SuperSetLocales(@ptrCast(self.ptr), locales_list);
     }
+
+    /// ### DEPRECATED: Use `constructIconUrl` instead
+    ///
+    pub const ConstructIconUrl = constructIconUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#constructIconUrl)
     ///
@@ -1120,11 +1288,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn ConstructIconUrl(self: QPlaceManagerEngine, icon: anytype, size: anytype) QUrl {
+    pub fn constructIconUrl(self: QPlaceManagerEngine, icon: anytype, size: anytype) QUrl {
         comptime _ = @TypeOf(icon)._is_QPlaceIcon;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QPlaceManagerEngine_ConstructIconUrl(@ptrCast(self.ptr), @ptrCast(icon.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onConstructIconUrl` instead
+    ///
+    pub const OnConstructIconUrl = onConstructIconUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#constructIconUrl)
     ///
@@ -1138,13 +1310,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnConstructIconUrl(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceIcon, QSize) callconv(.c) QUrl) void {
+    pub fn onConstructIconUrl(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceIcon, QSize) callconv(.c) QUrl) void {
         qtc.QPlaceManagerEngine_OnConstructIconUrl(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperConstructIconUrl` instead
+    /// ### DEPRECATED: Use `superConstructIconUrl` instead
     ///
-    pub const QBaseConstructIconUrl = SuperConstructIconUrl;
+    pub const SuperConstructIconUrl = superConstructIconUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#constructIconUrl)
     ///
@@ -1158,11 +1330,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` size: QSize `
     ///
-    pub fn SuperConstructIconUrl(self: QPlaceManagerEngine, icon: anytype, size: anytype) QUrl {
+    pub fn superConstructIconUrl(self: QPlaceManagerEngine, icon: anytype, size: anytype) QUrl {
         comptime _ = @TypeOf(icon)._is_QPlaceIcon;
         comptime _ = @TypeOf(size)._is_QSize;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperConstructIconUrl(@ptrCast(self.ptr), @ptrCast(icon.ptr), @ptrCast(size.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `compatiblePlace` instead
+    ///
+    pub const CompatiblePlace = compatiblePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#compatiblePlace)
     ///
@@ -1172,10 +1348,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` original: QPlace `
     ///
-    pub fn CompatiblePlace(self: QPlaceManagerEngine, original: anytype) QPlace {
+    pub fn compatiblePlace(self: QPlaceManagerEngine, original: anytype) QPlace {
         comptime _ = @TypeOf(original)._is_QPlace;
         return .{ .ptr = qtc.QPlaceManagerEngine_CompatiblePlace(@ptrCast(self.ptr), @ptrCast(original.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCompatiblePlace` instead
+    ///
+    pub const OnCompatiblePlace = onCompatiblePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#compatiblePlace)
     ///
@@ -1189,13 +1369,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnCompatiblePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlace) callconv(.c) QPlace) void {
+    pub fn onCompatiblePlace(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlace) callconv(.c) QPlace) void {
         qtc.QPlaceManagerEngine_OnCompatiblePlace(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCompatiblePlace` instead
+    /// ### DEPRECATED: Use `superCompatiblePlace` instead
     ///
-    pub const QBaseCompatiblePlace = SuperCompatiblePlace;
+    pub const SuperCompatiblePlace = superCompatiblePlace;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#compatiblePlace)
     ///
@@ -1207,10 +1387,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` original: QPlace `
     ///
-    pub fn SuperCompatiblePlace(self: QPlaceManagerEngine, original: anytype) QPlace {
+    pub fn superCompatiblePlace(self: QPlaceManagerEngine, original: anytype) QPlace {
         comptime _ = @TypeOf(original)._is_QPlace;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperCompatiblePlace(@ptrCast(self.ptr), @ptrCast(original.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `matchingPlaces` instead
+    ///
+    pub const MatchingPlaces = matchingPlaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#matchingPlaces)
     ///
@@ -1220,10 +1404,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceMatchRequest `
     ///
-    pub fn MatchingPlaces(self: QPlaceManagerEngine, request: anytype) QPlaceMatchReply {
+    pub fn matchingPlaces(self: QPlaceManagerEngine, request: anytype) QPlaceMatchReply {
         comptime _ = @TypeOf(request)._is_QPlaceMatchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_MatchingPlaces(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMatchingPlaces` instead
+    ///
+    pub const OnMatchingPlaces = onMatchingPlaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#matchingPlaces)
     ///
@@ -1235,13 +1423,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, request: QPlaceMatchRequest) callconv(.c) QPlaceMatchReply `
     ///
-    pub fn OnMatchingPlaces(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceMatchRequest) callconv(.c) QPlaceMatchReply) void {
+    pub fn onMatchingPlaces(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceMatchRequest) callconv(.c) QPlaceMatchReply) void {
         qtc.QPlaceManagerEngine_OnMatchingPlaces(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMatchingPlaces` instead
+    /// ### DEPRECATED: Use `superMatchingPlaces` instead
     ///
-    pub const QBaseMatchingPlaces = SuperMatchingPlaces;
+    pub const SuperMatchingPlaces = superMatchingPlaces;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#matchingPlaces)
     ///
@@ -1253,10 +1441,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` request: QPlaceMatchRequest `
     ///
-    pub fn SuperMatchingPlaces(self: QPlaceManagerEngine, request: anytype) QPlaceMatchReply {
+    pub fn superMatchingPlaces(self: QPlaceManagerEngine, request: anytype) QPlaceMatchReply {
         comptime _ = @TypeOf(request)._is_QPlaceMatchRequest;
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperMatchingPlaces(@ptrCast(self.ptr), @ptrCast(request.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#finished)
     ///
@@ -1266,10 +1458,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` reply: QPlaceReply `
     ///
-    pub fn Finished(self: QPlaceManagerEngine, reply: anytype) void {
+    pub fn finished(self: QPlaceManagerEngine, reply: anytype) void {
         comptime _ = @TypeOf(reply)._is_QPlaceReply;
         qtc.QPlaceManagerEngine_Finished(@ptrCast(self.ptr), @ptrCast(reply.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#finished)
     ///
@@ -1279,9 +1475,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, reply: QPlaceReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply) callconv(.c) void) void {
+    pub fn onFinished(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
     ///
@@ -1293,10 +1493,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` errorVal: qplacereply_enums.Error `
     ///
-    pub fn ErrorOccurred(self: QPlaceManagerEngine, param1: anytype, errorVal: i32) void {
+    pub fn errorOccurred(self: QPlaceManagerEngine, param1: anytype, errorVal: i32) void {
         comptime _ = @TypeOf(param1)._is_QPlaceReply;
         qtc.QPlaceManagerEngine_ErrorOccurred(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
     ///
@@ -1306,9 +1510,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, param1: QPlaceReply, errorVal: qplacereply_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply, i32) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `placeAdded` instead
+    ///
+    pub const PlaceAdded = placeAdded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeAdded)
     ///
@@ -1318,7 +1526,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn PlaceAdded(self: QPlaceManagerEngine, placeId: []const u8) void {
+    pub fn placeAdded(self: QPlaceManagerEngine, placeId: []const u8) void {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
@@ -1326,6 +1534,10 @@ pub const QPlaceManagerEngine = extern struct {
         qtc.QPlaceManagerEngine_PlaceAdded(@ptrCast(self.ptr), placeId_str);
     }
 
+    /// ### DEPRECATED: Use `onPlaceAdded` instead
+    ///
+    pub const OnPlaceAdded = onPlaceAdded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeAdded)
     ///
     /// ## Parameters:
@@ -1334,9 +1546,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPlaceAdded(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onPlaceAdded(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_PlaceAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `placeUpdated` instead
+    ///
+    pub const PlaceUpdated = placeUpdated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeUpdated)
     ///
@@ -1346,7 +1562,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn PlaceUpdated(self: QPlaceManagerEngine, placeId: []const u8) void {
+    pub fn placeUpdated(self: QPlaceManagerEngine, placeId: []const u8) void {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
@@ -1354,6 +1570,10 @@ pub const QPlaceManagerEngine = extern struct {
         qtc.QPlaceManagerEngine_PlaceUpdated(@ptrCast(self.ptr), placeId_str);
     }
 
+    /// ### DEPRECATED: Use `onPlaceUpdated` instead
+    ///
+    pub const OnPlaceUpdated = onPlaceUpdated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeUpdated)
     ///
     /// ## Parameters:
@@ -1362,9 +1582,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPlaceUpdated(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onPlaceUpdated(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_PlaceUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `placeRemoved` instead
+    ///
+    pub const PlaceRemoved = placeRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeRemoved)
     ///
@@ -1374,13 +1598,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` placeId: []const u8 `
     ///
-    pub fn PlaceRemoved(self: QPlaceManagerEngine, placeId: []const u8) void {
+    pub fn placeRemoved(self: QPlaceManagerEngine, placeId: []const u8) void {
         const placeId_str = qtc.libqt_string{
             .len = placeId.len,
             .data = placeId.ptr,
         };
         qtc.QPlaceManagerEngine_PlaceRemoved(@ptrCast(self.ptr), placeId_str);
     }
+
+    /// ### DEPRECATED: Use `onPlaceRemoved` instead
+    ///
+    pub const OnPlaceRemoved = onPlaceRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#placeRemoved)
     ///
@@ -1390,28 +1618,36 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, placeId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnPlaceRemoved(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onPlaceRemoved(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_PlaceRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `categoryAdded` instead
+    ///
+    pub const CategoryAdded = categoryAdded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryAdded)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` category: QPlaceCategory `
+    /// ` _category: QPlaceCategory `
     ///
-    /// ` parentCategoryId: []const u8 `
+    /// ` _parentCategoryId: []const u8 `
     ///
-    pub fn CategoryAdded(self: QPlaceManagerEngine, category: anytype, parentCategoryId: []const u8) void {
-        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+    pub fn categoryAdded(self: QPlaceManagerEngine, _category: anytype, _parentCategoryId: []const u8) void {
+        comptime _ = @TypeOf(_category)._is_QPlaceCategory;
         const parentCategoryId_str = qtc.libqt_string{
-            .len = parentCategoryId.len,
-            .data = parentCategoryId.ptr,
+            .len = _parentCategoryId.len,
+            .data = _parentCategoryId.ptr,
         };
-        qtc.QPlaceManagerEngine_CategoryAdded(@ptrCast(self.ptr), @ptrCast(category.ptr), parentCategoryId_str);
+        qtc.QPlaceManagerEngine_CategoryAdded(@ptrCast(self.ptr), @ptrCast(_category.ptr), parentCategoryId_str);
     }
+
+    /// ### DEPRECATED: Use `onCategoryAdded` instead
+    ///
+    pub const OnCategoryAdded = onCategoryAdded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryAdded)
     ///
@@ -1421,28 +1657,36 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, category: QPlaceCategory, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCategoryAdded(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCategoryAdded(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_CategoryAdded(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `categoryUpdated` instead
+    ///
+    pub const CategoryUpdated = categoryUpdated;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryUpdated)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` category: QPlaceCategory `
+    /// ` _category: QPlaceCategory `
     ///
-    /// ` parentCategoryId: []const u8 `
+    /// ` _parentCategoryId: []const u8 `
     ///
-    pub fn CategoryUpdated(self: QPlaceManagerEngine, category: anytype, parentCategoryId: []const u8) void {
-        comptime _ = @TypeOf(category)._is_QPlaceCategory;
+    pub fn categoryUpdated(self: QPlaceManagerEngine, _category: anytype, _parentCategoryId: []const u8) void {
+        comptime _ = @TypeOf(_category)._is_QPlaceCategory;
         const parentCategoryId_str = qtc.libqt_string{
-            .len = parentCategoryId.len,
-            .data = parentCategoryId.ptr,
+            .len = _parentCategoryId.len,
+            .data = _parentCategoryId.ptr,
         };
-        qtc.QPlaceManagerEngine_CategoryUpdated(@ptrCast(self.ptr), @ptrCast(category.ptr), parentCategoryId_str);
+        qtc.QPlaceManagerEngine_CategoryUpdated(@ptrCast(self.ptr), @ptrCast(_category.ptr), parentCategoryId_str);
     }
+
+    /// ### DEPRECATED: Use `onCategoryUpdated` instead
+    ///
+    pub const OnCategoryUpdated = onCategoryUpdated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryUpdated)
     ///
@@ -1452,9 +1696,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, category: QPlaceCategory, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCategoryUpdated(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCategoryUpdated(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceCategory, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_CategoryUpdated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `categoryRemoved` instead
+    ///
+    pub const CategoryRemoved = categoryRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryRemoved)
     ///
@@ -1464,19 +1712,23 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` categoryId: []const u8 `
     ///
-    /// ` parentCategoryId: []const u8 `
+    /// ` _parentCategoryId: []const u8 `
     ///
-    pub fn CategoryRemoved(self: QPlaceManagerEngine, categoryId: []const u8, parentCategoryId: []const u8) void {
+    pub fn categoryRemoved(self: QPlaceManagerEngine, categoryId: []const u8, _parentCategoryId: []const u8) void {
         const categoryId_str = qtc.libqt_string{
             .len = categoryId.len,
             .data = categoryId.ptr,
         };
         const parentCategoryId_str = qtc.libqt_string{
-            .len = parentCategoryId.len,
-            .data = parentCategoryId.ptr,
+            .len = _parentCategoryId.len,
+            .data = _parentCategoryId.ptr,
         };
         qtc.QPlaceManagerEngine_CategoryRemoved(@ptrCast(self.ptr), categoryId_str, parentCategoryId_str);
     }
+
+    /// ### DEPRECATED: Use `onCategoryRemoved` instead
+    ///
+    pub const OnCategoryRemoved = onCategoryRemoved;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#categoryRemoved)
     ///
@@ -1486,9 +1738,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, categoryId: [*:0]const u8, parentCategoryId: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnCategoryRemoved(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onCategoryRemoved(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_CategoryRemoved(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dataChanged` instead
+    ///
+    pub const DataChanged = dataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#dataChanged)
     ///
@@ -1496,9 +1752,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn DataChanged(self: QPlaceManagerEngine) void {
+    pub fn dataChanged(self: QPlaceManagerEngine) void {
         qtc.QPlaceManagerEngine_DataChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDataChanged` instead
+    ///
+    pub const OnDataChanged = onDataChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#dataChanged)
     ///
@@ -1508,9 +1768,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine) callconv(.c) void `
     ///
-    pub fn OnDataChanged(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) void) void {
+    pub fn onDataChanged(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_DataChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `manager` instead
+    ///
+    pub const Manager = manager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
     ///
@@ -1518,9 +1782,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Manager(self: QPlaceManagerEngine) QPlaceManager {
+    pub fn manager(self: QPlaceManagerEngine) QPlaceManager {
         return .{ .ptr = qtc.QPlaceManagerEngine_Manager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onManager` instead
+    ///
+    pub const OnManager = onManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
     ///
@@ -1532,13 +1800,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPlaceManager `
     ///
-    pub fn OnManager(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceManager) void {
+    pub fn onManager(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QPlaceManager) void {
         qtc.QPlaceManagerEngine_OnManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperManager` instead
+    /// ### DEPRECATED: Use `superManager` instead
     ///
-    pub const QBaseManager = SuperManager;
+    pub const SuperManager = superManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#manager)
     ///
@@ -1548,9 +1816,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SuperManager(self: QPlaceManagerEngine) QPlaceManager {
+    pub fn superManager(self: QPlaceManagerEngine) QPlaceManager {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperManager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1562,15 +1834,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1584,15 +1860,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `errorOccurred3` instead
+    ///
+    pub const ErrorOccurred3 = errorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
     ///
@@ -1606,7 +1886,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred3(self: QPlaceManagerEngine, param1: anytype, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred3(self: QPlaceManagerEngine, param1: anytype, errorVal: i32, errorString: []const u8) void {
         comptime _ = @TypeOf(param1)._is_QPlaceReply;
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -1614,6 +1894,10 @@ pub const QPlaceManagerEngine = extern struct {
         };
         qtc.QPlaceManagerEngine_ErrorOccurred3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred3` instead
+    ///
+    pub const OnErrorOccurred3 = onErrorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#errorOccurred)
     ///
@@ -1623,9 +1907,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, param1: QPlaceReply, errorVal: qplacereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred3(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred3(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QPlaceReply, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_Connect_ErrorOccurred3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1637,13 +1925,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceManagerEngine.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1655,13 +1947,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPlaceManagerEngine, name: []const u8) void {
+    pub fn setObjectName(self: QPlaceManagerEngine, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1671,9 +1967,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn IsWidgetType(self: QPlaceManagerEngine) bool {
+    pub fn isWidgetType(self: QPlaceManagerEngine) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1683,9 +1983,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn IsWindowType(self: QPlaceManagerEngine) bool {
+    pub fn isWindowType(self: QPlaceManagerEngine) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1695,9 +1999,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn IsQuickItemType(self: QPlaceManagerEngine) bool {
+    pub fn isQuickItemType(self: QPlaceManagerEngine) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1707,9 +2015,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SignalsBlocked(self: QPlaceManagerEngine) bool {
+    pub fn signalsBlocked(self: QPlaceManagerEngine) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1721,9 +2033,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPlaceManagerEngine, b: bool) bool {
+    pub fn blockSignals(self: QPlaceManagerEngine, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1733,9 +2049,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Thread(self: QPlaceManagerEngine) QThread {
+    pub fn thread(self: QPlaceManagerEngine) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1745,12 +2065,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPlaceManagerEngine, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPlaceManagerEngine, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1762,9 +2086,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPlaceManagerEngine, interval: i32) i32 {
+    pub fn startTimer(self: QPlaceManagerEngine, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1776,9 +2104,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPlaceManagerEngine, time: i64) i32 {
+    pub fn startTimer2(self: QPlaceManagerEngine, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1790,9 +2122,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPlaceManagerEngine, id: i32) void {
+    pub fn killTimer(self: QPlaceManagerEngine, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1804,9 +2140,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPlaceManagerEngine, id: i32) void {
+    pub fn killTimer2(self: QPlaceManagerEngine, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1818,15 +2158,19 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPlaceManagerEngine, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlaceManagerEngine.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPlaceManagerEngine.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1836,12 +2180,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPlaceManagerEngine, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPlaceManagerEngine, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1853,10 +2201,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPlaceManagerEngine, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPlaceManagerEngine, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1868,10 +2220,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPlaceManagerEngine, obj: anytype) void {
+    pub fn removeEventFilter(self: QPlaceManagerEngine, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1879,7 +2235,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1887,13 +2243,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1901,7 +2261,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1909,13 +2269,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1925,18 +2289,22 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPlaceManagerEngine, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPlaceManagerEngine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1944,7 +2312,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1952,13 +2320,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1966,7 +2338,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1974,13 +2346,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1990,9 +2366,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Disconnect3(self: QPlaceManagerEngine) bool {
+    pub fn disconnect3(self: QPlaceManagerEngine) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2004,10 +2384,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPlaceManagerEngine, receiver: anytype) bool {
+    pub fn disconnect4(self: QPlaceManagerEngine, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2017,10 +2401,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2030,9 +2418,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn DumpObjectTree(self: QPlaceManagerEngine) void {
+    pub fn dumpObjectTree(self: QPlaceManagerEngine) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2042,9 +2434,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn DumpObjectInfo(self: QPlaceManagerEngine) void {
+    pub fn dumpObjectInfo(self: QPlaceManagerEngine) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2058,11 +2454,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPlaceManagerEngine, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPlaceManagerEngine, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2074,10 +2474,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPlaceManagerEngine, name: [:0]const u8) QVariant {
+    pub fn property(self: QPlaceManagerEngine, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2089,7 +2493,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPlaceManagerEngine, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPlaceManagerEngine, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2097,27 +2501,19 @@ pub const QPlaceManagerEngine = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlaceManagerEngine.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPlaceManagerEngine.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPlaceManagerEngine.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPlaceManagerEngine.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPlaceManagerEngine `
-    ///
-    pub fn BindingStorage(self: QPlaceManagerEngine) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2127,9 +2523,29 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn BindingStorage2(self: QPlaceManagerEngine) QBindingStorage {
+    pub fn bindingStorage(self: QPlaceManagerEngine) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPlaceManagerEngine `
+    ///
+    pub fn bindingStorage2(self: QPlaceManagerEngine) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2139,9 +2555,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Destroyed(self: QPlaceManagerEngine) void {
+    pub fn destroyed(self: QPlaceManagerEngine) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2153,9 +2573,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2165,9 +2589,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Parent(self: QPlaceManagerEngine) QObject {
+    pub fn parent(self: QPlaceManagerEngine) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2179,10 +2607,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPlaceManagerEngine, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPlaceManagerEngine, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2192,9 +2624,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn DeleteLater(self: QPlaceManagerEngine) void {
+    pub fn deleteLater(self: QPlaceManagerEngine) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2208,9 +2644,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPlaceManagerEngine, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPlaceManagerEngine, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2224,9 +2664,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPlaceManagerEngine, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPlaceManagerEngine, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2234,7 +2678,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2244,13 +2688,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2258,7 +2706,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2268,13 +2716,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2284,7 +2736,7 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2292,12 +2744,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPlaceManagerEngine, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPlaceManagerEngine, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2309,10 +2765,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPlaceManagerEngine, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPlaceManagerEngine, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2326,11 +2786,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPlaceManagerEngine, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPlaceManagerEngine, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2346,13 +2810,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPlaceManagerEngine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPlaceManagerEngine, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2365,11 +2833,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPlaceManagerEngine, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPlaceManagerEngine, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2381,10 +2853,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPlaceManagerEngine, param1: anytype) void {
+    pub fn destroyed1(self: QPlaceManagerEngine, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2396,9 +2872,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2410,16 +2890,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPlaceManagerEngine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlaceManagerEngine_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPlaceManagerEngine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlaceManagerEngine_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2431,12 +2911,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPlaceManagerEngine, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlaceManagerEngine_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPlaceManagerEngine, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlaceManagerEngine_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2450,9 +2934,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QEvent) callconv(.c) bool) void {
         qtc.QPlaceManagerEngine_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2466,17 +2954,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPlaceManagerEngine, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPlaceManagerEngine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlaceManagerEngine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlaceManagerEngine_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2490,13 +2978,17 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPlaceManagerEngine, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPlaceManagerEngine, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPlaceManagerEngine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPlaceManagerEngine_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2510,9 +3002,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPlaceManagerEngine_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2524,16 +3020,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPlaceManagerEngine_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPlaceManagerEngine_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2545,12 +3041,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPlaceManagerEngine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPlaceManagerEngine_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2564,9 +3064,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QTimerEvent) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2578,16 +3082,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlaceManagerEngine_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlaceManagerEngine_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2599,12 +3103,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPlaceManagerEngine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPlaceManagerEngine_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2618,9 +3126,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QChildEvent) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2632,16 +3144,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlaceManagerEngine_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlaceManagerEngine_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2653,12 +3165,16 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPlaceManagerEngine, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPlaceManagerEngine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPlaceManagerEngine, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPlaceManagerEngine_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2672,9 +3188,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QEvent) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2688,14 +3208,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
+    pub fn connectNotify(self: QPlaceManagerEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlaceManagerEngine_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2709,11 +3229,15 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
+    pub fn superConnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlaceManagerEngine_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2726,9 +3250,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2742,14 +3270,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
+    pub fn disconnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlaceManagerEngine_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2763,10 +3291,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPlaceManagerEngine, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPlaceManagerEngine_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2780,9 +3312,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) void) void {
         qtc.QPlaceManagerEngine_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2794,13 +3330,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Sender(self: QPlaceManagerEngine) QObject {
+    pub fn sender(self: QPlaceManagerEngine) QObject {
         return .{ .ptr = qtc.QPlaceManagerEngine_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2812,9 +3348,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SuperSender(self: QPlaceManagerEngine) QObject {
+    pub fn superSender(self: QPlaceManagerEngine) QObject {
         return .{ .ptr = qtc.QPlaceManagerEngine_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2828,9 +3368,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPlaceManagerEngine_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2842,13 +3386,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SenderSignalIndex(self: QPlaceManagerEngine) i32 {
+    pub fn senderSignalIndex(self: QPlaceManagerEngine) i32 {
         return qtc.QPlaceManagerEngine_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2860,9 +3404,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn SuperSenderSignalIndex(self: QPlaceManagerEngine) i32 {
+    pub fn superSenderSignalIndex(self: QPlaceManagerEngine) i32 {
         return qtc.QPlaceManagerEngine_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2876,9 +3424,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPlaceManagerEngine, callback: *const fn () callconv(.c) i32) void {
         qtc.QPlaceManagerEngine_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2892,14 +3444,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPlaceManagerEngine, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPlaceManagerEngine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlaceManagerEngine_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2913,10 +3465,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPlaceManagerEngine, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPlaceManagerEngine, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPlaceManagerEngine_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2930,9 +3486,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPlaceManagerEngine_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2946,14 +3506,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlaceManagerEngine_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2967,10 +3527,14 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPlaceManagerEngine, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPlaceManagerEngine_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2984,9 +3548,13 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, QMetaMethod) callconv(.c) bool) void {
         qtc.QPlaceManagerEngine_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3000,23 +3568,23 @@ pub const QPlaceManagerEngine = extern struct {
     ///
     /// ` callback: *const fn (self: QPlaceManagerEngine, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPlaceManagerEngine, callback: *const fn (QPlaceManagerEngine, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacemanagerengine.html#dtor.QPlaceManagerEngine)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceManagerEngine `
     ///
-    pub fn Delete(self: QPlaceManagerEngine) void {
+    pub fn delete(self: QPlaceManagerEngine) void {
         qtc.QPlaceManagerEngine_Delete(@ptrCast(self.ptr));
     }
 };

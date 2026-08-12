@@ -88,22 +88,34 @@ pub const KPlotWidget = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KPlotWidget object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KPlotWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KPlotWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KPlotWidget_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KPlotWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KPlotWidget_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KPlotWidget object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KPlotWidget {
+    pub const New2 = new2;
+
+    /// Allocate a new KPlotWidget object in C++ memory
+    ///
+    pub fn new2() KPlotWidget {
         return .{ .ptr = qtc.KPlotWidget_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -111,9 +123,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MetaObject(self: KPlotWidget) QMetaObject {
+    pub fn metaObject(self: KPlotWidget) QMetaObject {
         return .{ .ptr = qtc.KPlotWidget_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -125,13 +141,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KPlotWidget, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KPlotWidget, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KPlotWidget_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -141,9 +157,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperMetaObject(self: KPlotWidget) QMetaObject {
+    pub fn superMetaObject(self: KPlotWidget) QMetaObject {
         return .{ .ptr = qtc.KPlotWidget_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -151,10 +171,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KPlotWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KPlotWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPlotWidget_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -164,13 +188,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KPlotWidget_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -180,10 +204,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KPlotWidget, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KPlotWidget, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KPlotWidget_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -195,9 +223,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KPlotWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KPlotWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPlotWidget_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -207,13 +239,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KPlotWidget, callback: *const fn (KPlotWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KPlotWidget, callback: *const fn (KPlotWidget, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KPlotWidget_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -227,9 +259,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KPlotWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KPlotWidget, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KPlotWidget_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -239,25 +275,33 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MinimumSizeHint(self: KPlotWidget) QSize {
+    pub fn minimumSizeHint(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.KPlotWidget_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
     /// Allows for overriding the related default method
@@ -270,13 +314,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPlotWidget_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#minimumSizeHint)
     ///
@@ -286,9 +330,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperMinimumSizeHint(self: KPlotWidget) QSize {
+    pub fn superMinimumSizeHint(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.KPlotWidget_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
@@ -296,9 +344,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SizeHint(self: KPlotWidget) QSize {
+    pub fn sizeHint(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.KPlotWidget_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
@@ -312,13 +364,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KPlotWidget, callback: *const fn () callconv(.c) QSize) void {
         qtc.KPlotWidget_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#sizeHint)
     ///
@@ -328,9 +380,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperSizeHint(self: KPlotWidget) QSize {
+    pub fn superSizeHint(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.KPlotWidget_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLimits` instead
+    ///
+    pub const SetLimits = setLimits;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setLimits)
     ///
@@ -346,9 +402,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` y2: f64 `
     ///
-    pub fn SetLimits(self: KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64) void {
+    pub fn setLimits(self: KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64) void {
         qtc.KPlotWidget_SetLimits(@ptrCast(self.ptr), @bitCast(x1), @bitCast(x2), @bitCast(y1), @bitCast(y2));
     }
+
+    /// ### DEPRECATED: Use `setSecondaryLimits` instead
+    ///
+    pub const SetSecondaryLimits = setSecondaryLimits;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setSecondaryLimits)
     ///
@@ -364,9 +424,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` y2: f64 `
     ///
-    pub fn SetSecondaryLimits(self: KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64) void {
+    pub fn setSecondaryLimits(self: KPlotWidget, x1: f64, x2: f64, y1: f64, y2: f64) void {
         qtc.KPlotWidget_SetSecondaryLimits(@ptrCast(self.ptr), @bitCast(x1), @bitCast(x2), @bitCast(y1), @bitCast(y2));
     }
+
+    /// ### DEPRECATED: Use `clearSecondaryLimits` instead
+    ///
+    pub const ClearSecondaryLimits = clearSecondaryLimits;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#clearSecondaryLimits)
     ///
@@ -374,9 +438,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ClearSecondaryLimits(self: KPlotWidget) void {
+    pub fn clearSecondaryLimits(self: KPlotWidget) void {
         qtc.KPlotWidget_ClearSecondaryLimits(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataRect` instead
+    ///
+    pub const DataRect = dataRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#dataRect)
     ///
@@ -384,9 +452,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DataRect(self: KPlotWidget) QRectF {
+    pub fn dataRect(self: KPlotWidget) QRectF {
         return .{ .ptr = qtc.KPlotWidget_DataRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `secondaryDataRect` instead
+    ///
+    pub const SecondaryDataRect = secondaryDataRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#secondaryDataRect)
     ///
@@ -394,9 +466,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SecondaryDataRect(self: KPlotWidget) QRectF {
+    pub fn secondaryDataRect(self: KPlotWidget) QRectF {
         return .{ .ptr = qtc.KPlotWidget_SecondaryDataRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `pixRect` instead
+    ///
+    pub const PixRect = pixRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pixRect)
     ///
@@ -404,9 +480,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PixRect(self: KPlotWidget) QRect {
+    pub fn pixRect(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.KPlotWidget_PixRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addPlotObject` instead
+    ///
+    pub const AddPlotObject = addPlotObject;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#addPlotObject)
     ///
@@ -416,10 +496,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` object: KPlotObject `
     ///
-    pub fn AddPlotObject(self: KPlotWidget, object: anytype) void {
+    pub fn addPlotObject(self: KPlotWidget, object: anytype) void {
         comptime _ = @TypeOf(object)._is_KPlotObject;
         qtc.KPlotWidget_AddPlotObject(@ptrCast(self.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `addPlotObjects` instead
+    ///
+    pub const AddPlotObjects = addPlotObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#addPlotObjects)
     ///
@@ -429,13 +513,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` objects: []KPlotObject `
     ///
-    pub fn AddPlotObjects(self: KPlotWidget, objects: []KPlotObject) void {
+    pub fn addPlotObjects(self: KPlotWidget, objects: []KPlotObject) void {
         const objects_list = qtc.libqt_list{
             .len = objects.len,
             .data = @ptrCast(objects.ptr),
         };
         qtc.KPlotWidget_AddPlotObjects(@ptrCast(self.ptr), objects_list);
     }
+
+    /// ### DEPRECATED: Use `plotObjects` instead
+    ///
+    pub const PlotObjects = plotObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#plotObjects)
     ///
@@ -445,15 +533,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlotObjects(self: KPlotWidget, allocator: std.mem.Allocator) []KPlotObject {
+    pub fn plotObjects(self: KPlotWidget, allocator: std.mem.Allocator) []KPlotObject {
         const _arr: qtc.libqt_list = qtc.KPlotWidget_PlotObjects(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotObject, _arr.len) catch @panic("KPlotWidget.PlotObjects: Memory allocation failed");
-        const _data: [*]QtC.KPlotObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KPlotObject, _arr.len) catch @panic("KPlotWidget.plotObjects: Memory allocation failed");
+        const _data_val: [*]QtC.KPlotObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAutoDeletePlotObjects` instead
+    ///
+    pub const SetAutoDeletePlotObjects = setAutoDeletePlotObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setAutoDeletePlotObjects)
     ///
@@ -463,9 +555,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` autoDelete: bool `
     ///
-    pub fn SetAutoDeletePlotObjects(self: KPlotWidget, autoDelete: bool) void {
+    pub fn setAutoDeletePlotObjects(self: KPlotWidget, autoDelete: bool) void {
         qtc.KPlotWidget_SetAutoDeletePlotObjects(@ptrCast(self.ptr), autoDelete);
     }
+
+    /// ### DEPRECATED: Use `removeAllPlotObjects` instead
+    ///
+    pub const RemoveAllPlotObjects = removeAllPlotObjects;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#removeAllPlotObjects)
     ///
@@ -473,9 +569,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn RemoveAllPlotObjects(self: KPlotWidget) void {
+    pub fn removeAllPlotObjects(self: KPlotWidget) void {
         qtc.KPlotWidget_RemoveAllPlotObjects(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetPlotMask` instead
+    ///
+    pub const ResetPlotMask = resetPlotMask;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#resetPlotMask)
     ///
@@ -483,9 +583,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ResetPlotMask(self: KPlotWidget) void {
+    pub fn resetPlotMask(self: KPlotWidget) void {
         qtc.KPlotWidget_ResetPlotMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resetPlot` instead
+    ///
+    pub const ResetPlot = resetPlot;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#resetPlot)
     ///
@@ -493,9 +597,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ResetPlot(self: KPlotWidget) void {
+    pub fn resetPlot(self: KPlotWidget) void {
         qtc.KPlotWidget_ResetPlot(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `replacePlotObject` instead
+    ///
+    pub const ReplacePlotObject = replacePlotObject;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#replacePlotObject)
     ///
@@ -507,10 +615,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` o: KPlotObject `
     ///
-    pub fn ReplacePlotObject(self: KPlotWidget, i: i32, o: anytype) void {
+    pub fn replacePlotObject(self: KPlotWidget, i: i32, o: anytype) void {
         comptime _ = @TypeOf(o)._is_KPlotObject;
         qtc.KPlotWidget_ReplacePlotObject(@ptrCast(self.ptr), @bitCast(i), @ptrCast(o.ptr));
     }
+
+    /// ### DEPRECATED: Use `backgroundColor` instead
+    ///
+    pub const BackgroundColor = backgroundColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#backgroundColor)
     ///
@@ -518,9 +630,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn BackgroundColor(self: KPlotWidget) QColor {
+    pub fn backgroundColor(self: KPlotWidget) QColor {
         return .{ .ptr = qtc.KPlotWidget_BackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `foregroundColor` instead
+    ///
+    pub const ForegroundColor = foregroundColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#foregroundColor)
     ///
@@ -528,9 +644,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ForegroundColor(self: KPlotWidget) QColor {
+    pub fn foregroundColor(self: KPlotWidget) QColor {
         return .{ .ptr = qtc.KPlotWidget_ForegroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `gridColor` instead
+    ///
+    pub const GridColor = gridColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#gridColor)
     ///
@@ -538,9 +658,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn GridColor(self: KPlotWidget) QColor {
+    pub fn gridColor(self: KPlotWidget) QColor {
         return .{ .ptr = qtc.KPlotWidget_GridColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundColor` instead
+    ///
+    pub const SetBackgroundColor = setBackgroundColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setBackgroundColor)
     ///
@@ -550,10 +674,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` bg: QColor `
     ///
-    pub fn SetBackgroundColor(self: KPlotWidget, bg: anytype) void {
+    pub fn setBackgroundColor(self: KPlotWidget, bg: anytype) void {
         comptime _ = @TypeOf(bg)._is_QColor;
         qtc.KPlotWidget_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(bg.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundColor` instead
+    ///
+    pub const SetForegroundColor = setForegroundColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setForegroundColor)
     ///
@@ -563,10 +691,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` fg: QColor `
     ///
-    pub fn SetForegroundColor(self: KPlotWidget, fg: anytype) void {
+    pub fn setForegroundColor(self: KPlotWidget, fg: anytype) void {
         comptime _ = @TypeOf(fg)._is_QColor;
         qtc.KPlotWidget_SetForegroundColor(@ptrCast(self.ptr), @ptrCast(fg.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGridColor` instead
+    ///
+    pub const SetGridColor = setGridColor;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setGridColor)
     ///
@@ -576,10 +708,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` gc: QColor `
     ///
-    pub fn SetGridColor(self: KPlotWidget, gc: anytype) void {
+    pub fn setGridColor(self: KPlotWidget, gc: anytype) void {
         comptime _ = @TypeOf(gc)._is_QColor;
         qtc.KPlotWidget_SetGridColor(@ptrCast(self.ptr), @ptrCast(gc.ptr));
     }
+
+    /// ### DEPRECATED: Use `isGridShown` instead
+    ///
+    pub const IsGridShown = isGridShown;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#isGridShown)
     ///
@@ -587,9 +723,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsGridShown(self: KPlotWidget) bool {
+    pub fn isGridShown(self: KPlotWidget) bool {
         return qtc.KPlotWidget_IsGridShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isObjectToolTipShown` instead
+    ///
+    pub const IsObjectToolTipShown = isObjectToolTipShown;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#isObjectToolTipShown)
     ///
@@ -597,9 +737,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsObjectToolTipShown(self: KPlotWidget) bool {
+    pub fn isObjectToolTipShown(self: KPlotWidget) bool {
         return qtc.KPlotWidget_IsObjectToolTipShown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `antialiasing` instead
+    ///
+    pub const Antialiasing = antialiasing;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#antialiasing)
     ///
@@ -607,9 +751,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Antialiasing(self: KPlotWidget) bool {
+    pub fn antialiasing(self: KPlotWidget) bool {
         return qtc.KPlotWidget_Antialiasing(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAntialiasing` instead
+    ///
+    pub const SetAntialiasing = setAntialiasing;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setAntialiasing)
     ///
@@ -619,9 +767,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAntialiasing(self: KPlotWidget, b: bool) void {
+    pub fn setAntialiasing(self: KPlotWidget, b: bool) void {
         qtc.KPlotWidget_SetAntialiasing(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `leftPadding` instead
+    ///
+    pub const LeftPadding = leftPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#leftPadding)
     ///
@@ -629,9 +781,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn LeftPadding(self: KPlotWidget) i32 {
+    pub fn leftPadding(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_LeftPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightPadding` instead
+    ///
+    pub const RightPadding = rightPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#rightPadding)
     ///
@@ -639,9 +795,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn RightPadding(self: KPlotWidget) i32 {
+    pub fn rightPadding(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_RightPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `topPadding` instead
+    ///
+    pub const TopPadding = topPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#topPadding)
     ///
@@ -649,9 +809,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn TopPadding(self: KPlotWidget) i32 {
+    pub fn topPadding(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_TopPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bottomPadding` instead
+    ///
+    pub const BottomPadding = bottomPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#bottomPadding)
     ///
@@ -659,9 +823,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn BottomPadding(self: KPlotWidget) i32 {
+    pub fn bottomPadding(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_BottomPadding(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLeftPadding` instead
+    ///
+    pub const SetLeftPadding = setLeftPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setLeftPadding)
     ///
@@ -671,9 +839,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` padding: i32 `
     ///
-    pub fn SetLeftPadding(self: KPlotWidget, padding: i32) void {
+    pub fn setLeftPadding(self: KPlotWidget, padding: i32) void {
         qtc.KPlotWidget_SetLeftPadding(@ptrCast(self.ptr), @bitCast(padding));
     }
+
+    /// ### DEPRECATED: Use `setRightPadding` instead
+    ///
+    pub const SetRightPadding = setRightPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setRightPadding)
     ///
@@ -683,9 +855,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` padding: i32 `
     ///
-    pub fn SetRightPadding(self: KPlotWidget, padding: i32) void {
+    pub fn setRightPadding(self: KPlotWidget, padding: i32) void {
         qtc.KPlotWidget_SetRightPadding(@ptrCast(self.ptr), @bitCast(padding));
     }
+
+    /// ### DEPRECATED: Use `setTopPadding` instead
+    ///
+    pub const SetTopPadding = setTopPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setTopPadding)
     ///
@@ -695,9 +871,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` padding: i32 `
     ///
-    pub fn SetTopPadding(self: KPlotWidget, padding: i32) void {
+    pub fn setTopPadding(self: KPlotWidget, padding: i32) void {
         qtc.KPlotWidget_SetTopPadding(@ptrCast(self.ptr), @bitCast(padding));
     }
+
+    /// ### DEPRECATED: Use `setBottomPadding` instead
+    ///
+    pub const SetBottomPadding = setBottomPadding;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setBottomPadding)
     ///
@@ -707,9 +887,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` padding: i32 `
     ///
-    pub fn SetBottomPadding(self: KPlotWidget, padding: i32) void {
+    pub fn setBottomPadding(self: KPlotWidget, padding: i32) void {
         qtc.KPlotWidget_SetBottomPadding(@ptrCast(self.ptr), @bitCast(padding));
     }
+
+    /// ### DEPRECATED: Use `setDefaultPaddings` instead
+    ///
+    pub const SetDefaultPaddings = setDefaultPaddings;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setDefaultPaddings)
     ///
@@ -717,9 +901,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SetDefaultPaddings(self: KPlotWidget) void {
+    pub fn setDefaultPaddings(self: KPlotWidget) void {
         qtc.KPlotWidget_SetDefaultPaddings(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mapToWidget` instead
+    ///
+    pub const MapToWidget = mapToWidget;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#mapToWidget)
     ///
@@ -729,10 +917,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn MapToWidget(self: KPlotWidget, p: anytype) QPointF {
+    pub fn mapToWidget(self: KPlotWidget, p: anytype) QPointF {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.KPlotWidget_MapToWidget(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maskRect` instead
+    ///
+    pub const MaskRect = maskRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#maskRect)
     ///
@@ -742,10 +934,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` r: QRectF `
     ///
-    pub fn MaskRect(self: KPlotWidget, r: anytype) void {
+    pub fn maskRect(self: KPlotWidget, r: anytype) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.KPlotWidget_MaskRect(@ptrCast(self.ptr), @ptrCast(r.ptr));
     }
+
+    /// ### DEPRECATED: Use `maskAlongLine` instead
+    ///
+    pub const MaskAlongLine = maskAlongLine;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#maskAlongLine)
     ///
@@ -757,11 +953,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p2: QPointF `
     ///
-    pub fn MaskAlongLine(self: KPlotWidget, p1: anytype, p2: anytype) void {
+    pub fn maskAlongLine(self: KPlotWidget, p1: anytype, p2: anytype) void {
         comptime _ = @TypeOf(p1)._is_QPointF;
         comptime _ = @TypeOf(p2)._is_QPointF;
         qtc.KPlotWidget_MaskAlongLine(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr));
     }
+
+    /// ### DEPRECATED: Use `placeLabel` instead
+    ///
+    pub const PlaceLabel = placeLabel;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#placeLabel)
     ///
@@ -773,23 +973,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` pp: KPlotPoint `
     ///
-    pub fn PlaceLabel(self: KPlotWidget, painter: anytype, pp: anytype) void {
+    pub fn placeLabel(self: KPlotWidget, painter: anytype, pp: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(pp)._is_KPlotPoint;
         qtc.KPlotWidget_PlaceLabel(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(pp.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#axis)
+    /// ### DEPRECATED: Use `axis` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` typeVal: kplotwidget_enums.Axis `
-    ///
-    pub fn Axis(self: KPlotWidget, typeVal: i32) KPlotAxis {
-        return .{ .ptr = qtc.KPlotWidget_Axis(@ptrCast(self.ptr), @bitCast(typeVal)) };
-    }
+    pub const Axis = axis;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#axis)
     ///
@@ -799,9 +991,29 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: kplotwidget_enums.Axis `
     ///
-    pub fn Axis2(self: KPlotWidget, typeVal: i32) KPlotAxis {
+    pub fn axis(self: KPlotWidget, typeVal: i32) KPlotAxis {
+        return .{ .ptr = qtc.KPlotWidget_Axis(@ptrCast(self.ptr), @bitCast(typeVal)) };
+    }
+
+    /// ### DEPRECATED: Use `axis2` instead
+    ///
+    pub const Axis2 = axis2;
+
+    /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#axis)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPlotWidget `
+    ///
+    /// ` typeVal: kplotwidget_enums.Axis `
+    ///
+    pub fn axis2(self: KPlotWidget, typeVal: i32) KPlotAxis {
         return .{ .ptr = qtc.KPlotWidget_Axis2(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `setShowGrid` instead
+    ///
+    pub const SetShowGrid = setShowGrid;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setShowGrid)
     ///
@@ -809,11 +1021,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetShowGrid(self: KPlotWidget, show: bool) void {
-        qtc.KPlotWidget_SetShowGrid(@ptrCast(self.ptr), show);
+    pub fn setShowGrid(self: KPlotWidget, _show: bool) void {
+        qtc.KPlotWidget_SetShowGrid(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `setObjectToolTipShown` instead
+    ///
+    pub const SetObjectToolTipShown = setObjectToolTipShown;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setObjectToolTipShown)
     ///
@@ -821,11 +1037,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` show: bool `
+    /// ` _show: bool `
     ///
-    pub fn SetObjectToolTipShown(self: KPlotWidget, show: bool) void {
-        qtc.KPlotWidget_SetObjectToolTipShown(@ptrCast(self.ptr), show);
+    pub fn setObjectToolTipShown(self: KPlotWidget, _show: bool) void {
+        qtc.KPlotWidget_SetObjectToolTipShown(@ptrCast(self.ptr), _show);
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#event)
     ///
@@ -835,10 +1055,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: KPlotWidget, param1: anytype) bool {
+    pub fn event(self: KPlotWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KPlotWidget_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#event)
     ///
@@ -850,13 +1074,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) bool) void {
         qtc.KPlotWidget_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#event)
     ///
@@ -868,10 +1092,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: KPlotWidget, param1: anytype) bool {
+    pub fn superEvent(self: KPlotWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.KPlotWidget_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
@@ -881,10 +1109,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn paintEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KPlotWidget_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
@@ -896,13 +1128,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QPaintEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#paintEvent)
     ///
@@ -914,10 +1146,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn superPaintEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KPlotWidget_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
@@ -927,10 +1163,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn resizeEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPlotWidget_ResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
@@ -942,13 +1182,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QResizeEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#resizeEvent)
     ///
@@ -960,10 +1200,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn superResizeEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QResizeEvent;
         qtc.KPlotWidget_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawAxes` instead
+    ///
+    pub const DrawAxes = drawAxes;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
@@ -973,10 +1217,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPainter `
     ///
-    pub fn DrawAxes(self: KPlotWidget, p: anytype) void {
+    pub fn drawAxes(self: KPlotWidget, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPainter;
         qtc.KPlotWidget_DrawAxes(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawAxes` instead
+    ///
+    pub const OnDrawAxes = onDrawAxes;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
@@ -988,13 +1236,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, p: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawAxes(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
+    pub fn onDrawAxes(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
         qtc.KPlotWidget_OnDrawAxes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawAxes` instead
+    /// ### DEPRECATED: Use `superDrawAxes` instead
     ///
-    pub const QBaseDrawAxes = SuperDrawAxes;
+    pub const SuperDrawAxes = superDrawAxes;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#drawAxes)
     ///
@@ -1006,10 +1254,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPainter `
     ///
-    pub fn SuperDrawAxes(self: KPlotWidget, p: anytype) void {
+    pub fn superDrawAxes(self: KPlotWidget, p: anytype) void {
         comptime _ = @TypeOf(p)._is_QPainter;
         qtc.KPlotWidget_SuperDrawAxes(@ptrCast(self.ptr), @ptrCast(p.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPixRect` instead
+    ///
+    pub const SetPixRect = setPixRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
@@ -1017,9 +1269,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SetPixRect(self: KPlotWidget) void {
+    pub fn setPixRect(self: KPlotWidget) void {
         qtc.KPlotWidget_SetPixRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPixRect` instead
+    ///
+    pub const OnSetPixRect = onSetPixRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
@@ -1031,13 +1287,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnSetPixRect(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onSetPixRect(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPlotWidget_OnSetPixRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPixRect` instead
+    /// ### DEPRECATED: Use `superSetPixRect` instead
     ///
-    pub const QBaseSetPixRect = SuperSetPixRect;
+    pub const SuperSetPixRect = superSetPixRect;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#setPixRect)
     ///
@@ -1047,9 +1303,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperSetPixRect(self: KPlotWidget) void {
+    pub fn superSetPixRect(self: KPlotWidget) void {
         qtc.KPlotWidget_SuperSetPixRect(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pointsUnderPoint` instead
+    ///
+    pub const PointsUnderPoint = pointsUnderPoint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
@@ -1061,16 +1321,20 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn PointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
+    pub fn pointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         const _arr: qtc.libqt_list = qtc.KPlotWidget_PointsUnderPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.PointsUnderPoint: Memory allocation failed");
-        const _data: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.pointsUnderPoint: Memory allocation failed");
+        const _data_val: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPointsUnderPoint` instead
+    ///
+    pub const OnPointsUnderPoint = onPointsUnderPoint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
@@ -1088,13 +1352,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` C ABI representation of []KPlotPoint `
     ///
-    pub fn OnPointsUnderPoint(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) qtc.libqt_list) void {
+    pub fn onPointsUnderPoint(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) qtc.libqt_list) void {
         qtc.KPlotWidget_OnPointsUnderPoint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPointsUnderPoint` instead
+    /// ### DEPRECATED: Use `superPointsUnderPoint` instead
     ///
-    pub const QBasePointsUnderPoint = SuperPointsUnderPoint;
+    pub const SuperPointsUnderPoint = superPointsUnderPoint;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#pointsUnderPoint)
     ///
@@ -1108,16 +1372,20 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn SuperPointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
+    pub fn superPointsUnderPoint(self: KPlotWidget, allocator: std.mem.Allocator, p: anytype) []KPlotPoint {
         comptime _ = @TypeOf(p)._is_QPoint;
         const _arr: qtc.libqt_list = qtc.KPlotWidget_SuperPointsUnderPoint(@ptrCast(self.ptr), @ptrCast(p.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.PointsUnderPoint: Memory allocation failed");
-        const _data: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KPlotPoint, _arr.len) catch @panic("KPlotWidget.pointsUnderPoint: Memory allocation failed");
+        const _data_val: [*]QtC.KPlotPoint = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1129,15 +1397,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1151,15 +1423,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `maskRect2` instead
+    ///
+    pub const MaskRect2 = maskRect2;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#maskRect)
     ///
@@ -1171,10 +1447,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn MaskRect2(self: KPlotWidget, r: anytype, value: f32) void {
+    pub fn maskRect2(self: KPlotWidget, r: anytype, value: f32) void {
         comptime _ = @TypeOf(r)._is_QRectF;
         qtc.KPlotWidget_MaskRect2(@ptrCast(self.ptr), @ptrCast(r.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `maskAlongLine3` instead
+    ///
+    pub const MaskAlongLine3 = maskAlongLine3;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#maskAlongLine)
     ///
@@ -1188,11 +1468,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` value: f32 `
     ///
-    pub fn MaskAlongLine3(self: KPlotWidget, p1: anytype, p2: anytype, value: f32) void {
+    pub fn maskAlongLine3(self: KPlotWidget, p1: anytype, p2: anytype, value: f32) void {
         comptime _ = @TypeOf(p1)._is_QPointF;
         comptime _ = @TypeOf(p2)._is_QPointF;
         qtc.KPlotWidget_MaskAlongLine3(@ptrCast(self.ptr), @ptrCast(p1.ptr), @ptrCast(p2.ptr), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1202,9 +1486,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FrameStyle(self: KPlotWidget) i32 {
+    pub fn frameStyle(self: KPlotWidget) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -1214,11 +1502,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: KPlotWidget, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: KPlotWidget, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -1228,9 +1520,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FrameWidth(self: KPlotWidget) i32 {
+    pub fn frameWidth(self: KPlotWidget) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -1244,9 +1540,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: KPlotWidget) i32 {
+    pub fn frameShape(self: KPlotWidget) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -1256,11 +1556,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: KPlotWidget, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: KPlotWidget, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1274,9 +1578,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: KPlotWidget) i32 {
+    pub fn frameShadow(self: KPlotWidget) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -1286,11 +1594,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: KPlotWidget, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: KPlotWidget, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1300,9 +1612,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn LineWidth(self: KPlotWidget) i32 {
+    pub fn lineWidth(self: KPlotWidget) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1312,11 +1628,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: KPlotWidget, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: KPlotWidget, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1326,9 +1646,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MidLineWidth(self: KPlotWidget) i32 {
+    pub fn midLineWidth(self: KPlotWidget) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -1338,11 +1662,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: KPlotWidget, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: KPlotWidget, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -1352,9 +1680,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FrameRect(self: KPlotWidget) QRect {
+    pub fn frameRect(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -1364,12 +1696,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: KPlotWidget, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: KPlotWidget, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1379,9 +1715,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn WinId(self: KPlotWidget) usize {
+    pub fn winId(self: KPlotWidget) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1391,9 +1731,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn CreateWinId(self: KPlotWidget) void {
+    pub fn createWinId(self: KPlotWidget) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1403,9 +1747,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn InternalWinId(self: KPlotWidget) usize {
+    pub fn internalWinId(self: KPlotWidget) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1415,9 +1763,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn EffectiveWinId(self: KPlotWidget) usize {
+    pub fn effectiveWinId(self: KPlotWidget) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1427,9 +1779,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Style(self: KPlotWidget) QStyle {
+    pub fn style(self: KPlotWidget) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1439,12 +1795,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KPlotWidget, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KPlotWidget, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1454,9 +1814,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsTopLevel(self: KPlotWidget) bool {
+    pub fn isTopLevel(self: KPlotWidget) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1466,9 +1830,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsWindow(self: KPlotWidget) bool {
+    pub fn isWindow(self: KPlotWidget) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1478,9 +1846,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsModal(self: KPlotWidget) bool {
+    pub fn isModal(self: KPlotWidget) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1494,9 +1866,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KPlotWidget) i32 {
+    pub fn windowModality(self: KPlotWidget) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1506,11 +1882,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KPlotWidget, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KPlotWidget, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1520,9 +1900,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsEnabled(self: KPlotWidget) bool {
+    pub fn isEnabled(self: KPlotWidget) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1534,10 +1918,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KPlotWidget, param1: anytype) bool {
+    pub fn isEnabledTo(self: KPlotWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1549,9 +1937,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KPlotWidget, enabled: bool) void {
+    pub fn setEnabled(self: KPlotWidget, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1563,9 +1955,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KPlotWidget, disabled: bool) void {
+    pub fn setDisabled(self: KPlotWidget, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1577,9 +1973,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KPlotWidget, windowModified: bool) void {
+    pub fn setWindowModified(self: KPlotWidget, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1589,9 +1989,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FrameGeometry(self: KPlotWidget) QRect {
+    pub fn frameGeometry(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1601,9 +2005,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Geometry(self: KPlotWidget) QRect {
+    pub fn geometry(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1613,9 +2021,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn NormalGeometry(self: KPlotWidget) QRect {
+    pub fn normalGeometry(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1625,9 +2037,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn X(self: KPlotWidget) i32 {
+    pub fn x(self: KPlotWidget) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1637,9 +2053,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Y(self: KPlotWidget) i32 {
+    pub fn y(self: KPlotWidget) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1649,9 +2069,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Pos(self: KPlotWidget) QPoint {
+    pub fn pos(self: KPlotWidget) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1661,9 +2085,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FrameSize(self: KPlotWidget) QSize {
+    pub fn frameSize(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1673,9 +2101,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Size(self: KPlotWidget) QSize {
+    pub fn size(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1685,9 +2117,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Width(self: KPlotWidget) i32 {
+    pub fn width(self: KPlotWidget) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1697,9 +2133,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Height(self: KPlotWidget) i32 {
+    pub fn height(self: KPlotWidget) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1709,9 +2149,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Rect(self: KPlotWidget) QRect {
+    pub fn rect(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1721,9 +2165,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ChildrenRect(self: KPlotWidget) QRect {
+    pub fn childrenRect(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1733,9 +2181,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ChildrenRegion(self: KPlotWidget) QRegion {
+    pub fn childrenRegion(self: KPlotWidget) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1745,9 +2197,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MinimumSize(self: KPlotWidget) QSize {
+    pub fn minimumSize(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1757,9 +2213,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MaximumSize(self: KPlotWidget) QSize {
+    pub fn maximumSize(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1769,9 +2229,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MinimumWidth(self: KPlotWidget) i32 {
+    pub fn minimumWidth(self: KPlotWidget) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1781,9 +2245,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MinimumHeight(self: KPlotWidget) i32 {
+    pub fn minimumHeight(self: KPlotWidget) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1793,9 +2261,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MaximumWidth(self: KPlotWidget) i32 {
+    pub fn maximumWidth(self: KPlotWidget) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1805,9 +2277,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn MaximumHeight(self: KPlotWidget) i32 {
+    pub fn maximumHeight(self: KPlotWidget) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1817,12 +2293,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KPlotWidget, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KPlotWidget, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1836,9 +2316,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KPlotWidget, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KPlotWidget, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1848,12 +2332,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KPlotWidget, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KPlotWidget, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1867,9 +2355,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KPlotWidget, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KPlotWidget, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1881,9 +2373,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KPlotWidget, minw: i32) void {
+    pub fn setMinimumWidth(self: KPlotWidget, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1895,9 +2391,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KPlotWidget, minh: i32) void {
+    pub fn setMinimumHeight(self: KPlotWidget, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1909,9 +2409,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KPlotWidget, maxw: i32) void {
+    pub fn setMaximumWidth(self: KPlotWidget, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1923,9 +2427,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KPlotWidget, maxh: i32) void {
+    pub fn setMaximumHeight(self: KPlotWidget, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1935,9 +2443,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SizeIncrement(self: KPlotWidget) QSize {
+    pub fn sizeIncrement(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1947,12 +2459,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KPlotWidget, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KPlotWidget, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1966,9 +2482,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KPlotWidget, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KPlotWidget, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1978,9 +2498,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn BaseSize(self: KPlotWidget) QSize {
+    pub fn baseSize(self: KPlotWidget) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1990,12 +2514,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KPlotWidget, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KPlotWidget, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2009,9 +2537,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KPlotWidget, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KPlotWidget, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2023,10 +2555,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KPlotWidget, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KPlotWidget, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2040,9 +2576,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KPlotWidget, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KPlotWidget, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2054,9 +2594,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KPlotWidget, w: i32) void {
+    pub fn setFixedWidth(self: KPlotWidget, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2068,9 +2612,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KPlotWidget, h: i32) void {
+    pub fn setFixedHeight(self: KPlotWidget, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2082,11 +2630,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KPlotWidget, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KPlotWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2097,11 +2649,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KPlotWidget, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KPlotWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2112,11 +2668,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KPlotWidget, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KPlotWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2127,11 +2687,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KPlotWidget, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KPlotWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2142,11 +2706,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KPlotWidget, param1: anytype) QPointF {
+    pub fn mapToParent(self: KPlotWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2157,10 +2725,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KPlotWidget, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KPlotWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2172,10 +2744,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KPlotWidget, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KPlotWidget, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2187,10 +2763,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KPlotWidget, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KPlotWidget, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2204,12 +2784,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KPlotWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KPlotWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2222,11 +2806,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KPlotWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KPlotWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2240,11 +2828,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KPlotWidget, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KPlotWidget, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2258,11 +2850,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KPlotWidget, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KPlotWidget, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2272,9 +2868,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Window(self: KPlotWidget) QWidget {
+    pub fn window(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2284,9 +2884,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn NativeParentWidget(self: KPlotWidget) QWidget {
+    pub fn nativeParentWidget(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2296,9 +2900,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn TopLevelWidget(self: KPlotWidget) QWidget {
+    pub fn topLevelWidget(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2308,9 +2916,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Palette(self: KPlotWidget) QPalette {
+    pub fn palette(self: KPlotWidget) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2320,12 +2932,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KPlotWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KPlotWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2335,11 +2951,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KPlotWidget, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KPlotWidget, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2353,9 +2973,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KPlotWidget) i32 {
+    pub fn backgroundRole(self: KPlotWidget) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2365,11 +2989,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KPlotWidget, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KPlotWidget, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2383,9 +3011,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KPlotWidget) i32 {
+    pub fn foregroundRole(self: KPlotWidget) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2395,9 +3027,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Font(self: KPlotWidget) QFont {
+    pub fn font(self: KPlotWidget) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2407,12 +3043,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KPlotWidget, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KPlotWidget, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2422,9 +3062,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FontMetrics(self: KPlotWidget) QFontMetrics {
+    pub fn fontMetrics(self: KPlotWidget) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2434,9 +3078,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FontInfo(self: KPlotWidget) QFontInfo {
+    pub fn fontInfo(self: KPlotWidget) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2446,9 +3094,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Cursor(self: KPlotWidget) QCursor {
+    pub fn cursor(self: KPlotWidget) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2458,12 +3110,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KPlotWidget, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KPlotWidget, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2473,9 +3129,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UnsetCursor(self: KPlotWidget) void {
+    pub fn unsetCursor(self: KPlotWidget) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2487,9 +3147,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KPlotWidget, enable: bool) void {
+    pub fn setMouseTracking(self: KPlotWidget, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2499,9 +3163,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn HasMouseTracking(self: KPlotWidget) bool {
+    pub fn hasMouseTracking(self: KPlotWidget) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2511,9 +3179,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UnderMouse(self: KPlotWidget) bool {
+    pub fn underMouse(self: KPlotWidget) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2525,9 +3197,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KPlotWidget, enable: bool) void {
+    pub fn setTabletTracking(self: KPlotWidget, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2537,24 +3213,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn HasTabletTracking(self: KPlotWidget) bool {
+    pub fn hasTabletTracking(self: KPlotWidget) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KPlotWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2564,12 +3229,35 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KPlotWidget, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KPlotWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPlotWidget `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KPlotWidget, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2579,9 +3267,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Mask(self: KPlotWidget) QRegion {
+    pub fn mask(self: KPlotWidget) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2591,9 +3283,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ClearMask(self: KPlotWidget) void {
+    pub fn clearMask(self: KPlotWidget) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2605,10 +3301,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KPlotWidget, target: anytype) void {
+    pub fn render(self: KPlotWidget, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2620,10 +3320,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KPlotWidget, painter: anytype) void {
+    pub fn render2(self: KPlotWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2633,9 +3337,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Grab(self: KPlotWidget) QPixmap {
+    pub fn grab(self: KPlotWidget) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2645,9 +3353,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn GraphicsEffect(self: KPlotWidget) QGraphicsEffect {
+    pub fn graphicsEffect(self: KPlotWidget) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2659,10 +3371,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KPlotWidget, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KPlotWidget, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2674,9 +3390,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KPlotWidget, typeVal: i32) void {
+    pub fn grabGesture(self: KPlotWidget, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2688,9 +3408,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KPlotWidget, typeVal: i32) void {
+    pub fn ungrabGesture(self: KPlotWidget, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2700,15 +3424,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KPlotWidget, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KPlotWidget, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2718,15 +3446,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KPlotWidget, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KPlotWidget, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2738,13 +3470,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2756,13 +3492,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2774,10 +3514,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KPlotWidget, icon: anytype) void {
+    pub fn setWindowIcon(self: KPlotWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2787,9 +3531,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn WindowIcon(self: KPlotWidget) QIcon {
+    pub fn windowIcon(self: KPlotWidget) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2799,15 +3547,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KPlotWidget, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KPlotWidget, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2819,13 +3571,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2835,15 +3591,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KPlotWidget, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KPlotWidget, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2855,13 +3615,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2873,13 +3637,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KPlotWidget, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KPlotWidget, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2891,13 +3659,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2909,9 +3681,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KPlotWidget, level: f64) void {
+    pub fn setWindowOpacity(self: KPlotWidget, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2921,9 +3697,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn WindowOpacity(self: KPlotWidget) f64 {
+    pub fn windowOpacity(self: KPlotWidget) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2933,9 +3713,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsWindowModified(self: KPlotWidget) bool {
+    pub fn isWindowModified(self: KPlotWidget) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2945,15 +3729,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KPlotWidget, toolTip: []const u8) void {
+    pub fn setToolTip(self: KPlotWidget, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2965,13 +3753,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2983,9 +3775,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KPlotWidget, msec: i32) void {
+    pub fn setToolTipDuration(self: KPlotWidget, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2995,9 +3791,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ToolTipDuration(self: KPlotWidget) i32 {
+    pub fn toolTipDuration(self: KPlotWidget) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3007,15 +3807,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KPlotWidget, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KPlotWidget, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3027,13 +3831,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3043,15 +3851,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KPlotWidget, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KPlotWidget, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3063,13 +3875,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3081,13 +3897,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3099,13 +3919,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KPlotWidget, name: []const u8) void {
+    pub fn setAccessibleName(self: KPlotWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3117,13 +3941,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3135,13 +3963,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KPlotWidget, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KPlotWidget, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3153,9 +3985,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KPlotWidget, direction: i32) void {
+    pub fn setLayoutDirection(self: KPlotWidget, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3169,9 +4005,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KPlotWidget) i32 {
+    pub fn layoutDirection(self: KPlotWidget) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3181,9 +4021,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UnsetLayoutDirection(self: KPlotWidget) void {
+    pub fn unsetLayoutDirection(self: KPlotWidget) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3193,12 +4037,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KPlotWidget, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KPlotWidget, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3208,9 +4056,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Locale(self: KPlotWidget) QLocale {
+    pub fn locale(self: KPlotWidget) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3220,9 +4072,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UnsetLocale(self: KPlotWidget) void {
+    pub fn unsetLocale(self: KPlotWidget) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3232,9 +4088,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsRightToLeft(self: KPlotWidget) bool {
+    pub fn isRightToLeft(self: KPlotWidget) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3244,9 +4104,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsLeftToRight(self: KPlotWidget) bool {
+    pub fn isLeftToRight(self: KPlotWidget) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4120,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SetFocus(self: KPlotWidget) void {
+    pub fn setFocus(self: KPlotWidget) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3268,9 +4136,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsActiveWindow(self: KPlotWidget) bool {
+    pub fn isActiveWindow(self: KPlotWidget) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3280,9 +4152,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ActivateWindow(self: KPlotWidget) void {
+    pub fn activateWindow(self: KPlotWidget) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3292,9 +4168,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ClearFocus(self: KPlotWidget) void {
+    pub fn clearFocus(self: KPlotWidget) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3306,9 +4186,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KPlotWidget, reason: i32) void {
+    pub fn setFocus2(self: KPlotWidget, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3322,9 +4206,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KPlotWidget) i32 {
+    pub fn focusPolicy(self: KPlotWidget) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3336,9 +4224,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KPlotWidget, policy: i32) void {
+    pub fn setFocusPolicy(self: KPlotWidget, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3348,9 +4240,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn HasFocus(self: KPlotWidget) bool {
+    pub fn hasFocus(self: KPlotWidget) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3362,11 +4258,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3376,12 +4276,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KPlotWidget, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KPlotWidget, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3391,9 +4295,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FocusProxy(self: KPlotWidget) QWidget {
+    pub fn focusProxy(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3407,9 +4315,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KPlotWidget) i32 {
+    pub fn contextMenuPolicy(self: KPlotWidget) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3421,9 +4333,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KPlotWidget, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KPlotWidget, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3433,9 +4349,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn GrabMouse(self: KPlotWidget) void {
+    pub fn grabMouse(self: KPlotWidget) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3447,10 +4367,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KPlotWidget, param1: anytype) void {
+    pub fn grabMouse2(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3460,9 +4384,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ReleaseMouse(self: KPlotWidget) void {
+    pub fn releaseMouse(self: KPlotWidget) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3472,9 +4400,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn GrabKeyboard(self: KPlotWidget) void {
+    pub fn grabKeyboard(self: KPlotWidget) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3484,9 +4416,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ReleaseKeyboard(self: KPlotWidget) void {
+    pub fn releaseKeyboard(self: KPlotWidget) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3498,10 +4434,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KPlotWidget, key: anytype) i32 {
+    pub fn grabShortcut(self: KPlotWidget, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3513,9 +4453,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KPlotWidget, id: i32) void {
+    pub fn releaseShortcut(self: KPlotWidget, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3527,9 +4471,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KPlotWidget, id: i32) void {
+    pub fn setShortcutEnabled(self: KPlotWidget, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3541,25 +4489,37 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KPlotWidget, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KPlotWidget, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3569,9 +4529,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UpdatesEnabled(self: KPlotWidget) bool {
+    pub fn updatesEnabled(self: KPlotWidget) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3583,9 +4547,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KPlotWidget, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KPlotWidget, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3595,9 +4563,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn GraphicsProxyWidget(self: KPlotWidget) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KPlotWidget) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3607,9 +4579,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Update(self: KPlotWidget) void {
+    pub fn update(self: KPlotWidget) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3619,9 +4595,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Repaint(self: KPlotWidget) void {
+    pub fn repaint(self: KPlotWidget) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3631,17 +4611,21 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KPlotWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KPlotWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3653,11 +4637,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KPlotWidget, param1: anytype) void {
+    pub fn update3(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3668,10 +4656,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KPlotWidget, param1: anytype) void {
+    pub fn update4(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3681,17 +4673,21 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KPlotWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KPlotWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3703,10 +4699,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KPlotWidget, param1: anytype) void {
+    pub fn repaint3(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3718,10 +4718,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KPlotWidget, param1: anytype) void {
+    pub fn repaint4(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3733,9 +4737,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KPlotWidget, hidden: bool) void {
+    pub fn setHidden(self: KPlotWidget, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3745,9 +4753,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Show(self: KPlotWidget) void {
+    pub fn show(self: KPlotWidget) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3757,9 +4769,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Hide(self: KPlotWidget) void {
+    pub fn hide(self: KPlotWidget) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3769,9 +4785,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ShowMinimized(self: KPlotWidget) void {
+    pub fn showMinimized(self: KPlotWidget) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3781,9 +4801,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ShowMaximized(self: KPlotWidget) void {
+    pub fn showMaximized(self: KPlotWidget) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4817,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ShowFullScreen(self: KPlotWidget) void {
+    pub fn showFullScreen(self: KPlotWidget) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3805,9 +4833,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ShowNormal(self: KPlotWidget) void {
+    pub fn showNormal(self: KPlotWidget) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3817,9 +4849,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Close(self: KPlotWidget) bool {
+    pub fn close(self: KPlotWidget) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3829,9 +4865,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Raise(self: KPlotWidget) void {
+    pub fn raise(self: KPlotWidget) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3841,9 +4881,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Lower(self: KPlotWidget) void {
+    pub fn lower(self: KPlotWidget) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3855,10 +4899,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KPlotWidget, param1: anytype) void {
+    pub fn stackUnder(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3868,13 +4916,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KPlotWidget, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KPlotWidget, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3886,10 +4938,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KPlotWidget, param1: anytype) void {
+    pub fn move2(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3903,9 +4959,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KPlotWidget, w: i32, h: i32) void {
+    pub fn resize(self: KPlotWidget, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3917,10 +4977,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KPlotWidget, param1: anytype) void {
+    pub fn resize2(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3930,17 +4994,21 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KPlotWidget, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KPlotWidget, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3950,12 +5018,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KPlotWidget, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KPlotWidget, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3967,13 +5039,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KPlotWidget, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KPlotWidget, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPlotWidget.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KPlotWidget.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3983,15 +5059,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KPlotWidget, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KPlotWidget, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4001,9 +5081,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn AdjustSize(self: KPlotWidget) void {
+    pub fn adjustSize(self: KPlotWidget) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4013,9 +5097,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsVisible(self: KPlotWidget) bool {
+    pub fn isVisible(self: KPlotWidget) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4027,10 +5115,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KPlotWidget, param1: anytype) bool {
+    pub fn isVisibleTo(self: KPlotWidget, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4040,9 +5132,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsHidden(self: KPlotWidget) bool {
+    pub fn isHidden(self: KPlotWidget) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4052,9 +5148,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsMinimized(self: KPlotWidget) bool {
+    pub fn isMinimized(self: KPlotWidget) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4064,9 +5164,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsMaximized(self: KPlotWidget) bool {
+    pub fn isMaximized(self: KPlotWidget) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4076,9 +5180,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsFullScreen(self: KPlotWidget) bool {
+    pub fn isFullScreen(self: KPlotWidget) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4092,9 +5200,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KPlotWidget) i32 {
+    pub fn windowState(self: KPlotWidget) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4106,9 +5218,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KPlotWidget, state: i32) void {
+    pub fn setWindowState(self: KPlotWidget, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4120,9 +5236,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KPlotWidget, state: i32) void {
+    pub fn overrideWindowState(self: KPlotWidget, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4132,9 +5252,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SizePolicy(self: KPlotWidget) QSizePolicy {
+    pub fn sizePolicy(self: KPlotWidget) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4144,12 +5268,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KPlotWidget, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KPlotWidget, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4163,9 +5291,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KPlotWidget, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KPlotWidget, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4175,9 +5307,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn VisibleRegion(self: KPlotWidget) QRegion {
+    pub fn visibleRegion(self: KPlotWidget) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4195,9 +5331,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KPlotWidget, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KPlotWidget, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4209,10 +5349,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KPlotWidget, margins: anytype) void {
+    pub fn setContentsMargins2(self: KPlotWidget, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4222,9 +5366,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ContentsMargins(self: KPlotWidget) QMargins {
+    pub fn contentsMargins(self: KPlotWidget) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4234,9 +5382,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ContentsRect(self: KPlotWidget) QRect {
+    pub fn contentsRect(self: KPlotWidget) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4246,9 +5398,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Layout(self: KPlotWidget) QLayout {
+    pub fn layout(self: KPlotWidget) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4258,12 +5414,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KPlotWidget, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KPlotWidget, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4273,24 +5433,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UpdateGeometry(self: KPlotWidget) void {
+    pub fn updateGeometry(self: KPlotWidget) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KPlotWidget, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4300,14 +5449,37 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KPlotWidget, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPlotWidget `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KPlotWidget, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KPlotWidget, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4321,9 +5493,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KPlotWidget, dx: i32, dy: i32) void {
+    pub fn scroll(self: KPlotWidget, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4339,10 +5515,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KPlotWidget, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KPlotWidget, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4352,9 +5532,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FocusWidget(self: KPlotWidget) QWidget {
+    pub fn focusWidget(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4364,9 +5548,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn NextInFocusChain(self: KPlotWidget) QWidget {
+    pub fn nextInFocusChain(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4376,9 +5564,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PreviousInFocusChain(self: KPlotWidget) QWidget {
+    pub fn previousInFocusChain(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5580,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn AcceptDrops(self: KPlotWidget) bool {
+    pub fn acceptDrops(self: KPlotWidget) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4402,9 +5598,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KPlotWidget, on: bool) void {
+    pub fn setAcceptDrops(self: KPlotWidget, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4416,10 +5616,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KPlotWidget, action: anytype) void {
+    pub fn addAction(self: KPlotWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4429,15 +5633,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KPlotWidget, actions: []QAction) void {
+    pub fn addActions(self: KPlotWidget, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4449,16 +5657,20 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KPlotWidget, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KPlotWidget, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4472,11 +5684,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KPlotWidget, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KPlotWidget, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4488,10 +5704,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KPlotWidget, action: anytype) void {
+    pub fn removeAction(self: KPlotWidget, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4503,15 +5723,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KPlotWidget, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KPlotWidget, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPlotWidget.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KPlotWidget.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4523,13 +5747,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KPlotWidget, text: []const u8) QAction {
+    pub fn addAction2(self: KPlotWidget, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4543,7 +5771,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KPlotWidget, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KPlotWidget, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4552,6 +5780,10 @@ pub const KPlotWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4564,7 +5796,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KPlotWidget, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KPlotWidget, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4572,6 +5804,10 @@ pub const KPlotWidget = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4587,7 +5823,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KPlotWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KPlotWidget, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4597,6 +5833,10 @@ pub const KPlotWidget = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4605,9 +5845,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ParentWidget(self: KPlotWidget) QWidget {
+    pub fn parentWidget(self: KPlotWidget) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4619,9 +5863,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KPlotWidget, typeVal: i32) void {
+    pub fn setWindowFlags(self: KPlotWidget, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4635,9 +5883,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KPlotWidget) i32 {
+    pub fn windowFlags(self: KPlotWidget) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4649,9 +5901,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KPlotWidget, param1: i32) void {
+    pub fn setWindowFlag(self: KPlotWidget, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4663,9 +5919,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KPlotWidget, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KPlotWidget, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4679,9 +5939,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KPlotWidget) i32 {
+    pub fn windowType(self: KPlotWidget) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4691,9 +5955,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4703,13 +5971,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KPlotWidget, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KPlotWidget, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4721,10 +5993,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KPlotWidget, p: anytype) QWidget {
+    pub fn childAt2(self: KPlotWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4736,10 +6012,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KPlotWidget, p: anytype) QWidget {
+    pub fn childAt3(self: KPlotWidget, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4751,9 +6031,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KPlotWidget, param1: i32) void {
+    pub fn setAttribute(self: KPlotWidget, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4765,9 +6049,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KPlotWidget, param1: i32) bool {
+    pub fn testAttribute(self: KPlotWidget, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4777,9 +6065,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn EnsurePolished(self: KPlotWidget) void {
+    pub fn ensurePolished(self: KPlotWidget) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4791,10 +6083,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KPlotWidget, child: anytype) bool {
+    pub fn isAncestorOf(self: KPlotWidget, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4804,9 +6100,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn AutoFillBackground(self: KPlotWidget) bool {
+    pub fn autoFillBackground(self: KPlotWidget) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4818,9 +6118,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KPlotWidget, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KPlotWidget, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4830,9 +6134,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn BackingStore(self: KPlotWidget) QBackingStore {
+    pub fn backingStore(self: KPlotWidget) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4842,9 +6150,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn WindowHandle(self: KPlotWidget) QWindow {
+    pub fn windowHandle(self: KPlotWidget) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4854,9 +6166,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Screen(self: KPlotWidget) QScreen {
+    pub fn screen(self: KPlotWidget) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4866,12 +6182,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KPlotWidget, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KPlotWidget, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4879,12 +6199,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4896,13 +6220,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KPlotWidget, title: []const u8) void {
+    pub fn windowTitleChanged(self: KPlotWidget, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4914,9 +6242,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4928,10 +6260,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KPlotWidget, icon: anytype) void {
+    pub fn windowIconChanged(self: KPlotWidget, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4943,9 +6279,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4957,13 +6297,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KPlotWidget, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KPlotWidget, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4975,9 +6319,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4987,12 +6335,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KPlotWidget, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KPlotWidget, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5004,9 +6356,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5020,9 +6376,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KPlotWidget) i32 {
+    pub fn inputMethodHints(self: KPlotWidget) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5034,9 +6394,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KPlotWidget, hints: i32) void {
+    pub fn setInputMethodHints(self: KPlotWidget, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5050,11 +6414,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KPlotWidget, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KPlotWidget, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5070,13 +6438,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KPlotWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KPlotWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5093,12 +6465,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KPlotWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KPlotWidget, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5112,11 +6488,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KPlotWidget, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KPlotWidget, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5132,12 +6512,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KPlotWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KPlotWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5155,12 +6539,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KPlotWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KPlotWidget, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5172,10 +6560,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KPlotWidget, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KPlotWidget, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5189,9 +6581,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KPlotWidget, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KPlotWidget, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5205,10 +6601,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KPlotWidget, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KPlotWidget, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5222,9 +6622,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KPlotWidget, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KPlotWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5238,9 +6642,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KPlotWidget, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KPlotWidget, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5254,9 +6662,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KPlotWidget, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KPlotWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5270,25 +6682,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KPlotWidget, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KPlotWidget, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5296,17 +6696,41 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5318,13 +6742,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KPlotWidget, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KPlotWidget.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5336,13 +6764,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KPlotWidget, name: []const u8) void {
+    pub fn setObjectName(self: KPlotWidget, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5352,9 +6784,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsWidgetType(self: KPlotWidget) bool {
+    pub fn isWidgetType(self: KPlotWidget) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5364,9 +6800,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsWindowType(self: KPlotWidget) bool {
+    pub fn isWindowType(self: KPlotWidget) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5376,9 +6816,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn IsQuickItemType(self: KPlotWidget) bool {
+    pub fn isQuickItemType(self: KPlotWidget) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5388,9 +6832,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SignalsBlocked(self: KPlotWidget) bool {
+    pub fn signalsBlocked(self: KPlotWidget) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5402,9 +6850,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KPlotWidget, b: bool) bool {
+    pub fn blockSignals(self: KPlotWidget, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5414,9 +6866,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Thread(self: KPlotWidget) QThread {
+    pub fn thread(self: KPlotWidget) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5426,12 +6882,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KPlotWidget, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KPlotWidget, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5443,9 +6903,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KPlotWidget, interval: i32) i32 {
+    pub fn startTimer(self: KPlotWidget, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5457,9 +6921,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KPlotWidget, time: i64) i32 {
+    pub fn startTimer2(self: KPlotWidget, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5471,9 +6939,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KPlotWidget, id: i32) void {
+    pub fn killTimer(self: KPlotWidget, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5485,9 +6957,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KPlotWidget, id: i32) void {
+    pub fn killTimer2(self: KPlotWidget, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5499,15 +6975,19 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KPlotWidget, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KPlotWidget, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPlotWidget.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KPlotWidget.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5519,10 +6999,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KPlotWidget, filterObj: anytype) void {
+    pub fn installEventFilter(self: KPlotWidget, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5534,10 +7018,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KPlotWidget, obj: anytype) void {
+    pub fn removeEventFilter(self: KPlotWidget, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5545,7 +7033,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5553,13 +7041,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5567,7 +7059,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5575,13 +7067,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5591,18 +7087,22 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KPlotWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KPlotWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5610,7 +7110,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5618,13 +7118,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5632,7 +7136,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5640,13 +7144,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5656,9 +7164,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Disconnect3(self: KPlotWidget) bool {
+    pub fn disconnect3(self: KPlotWidget) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5670,10 +7182,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KPlotWidget, receiver: anytype) bool {
+    pub fn disconnect4(self: KPlotWidget, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5683,10 +7199,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5696,9 +7216,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DumpObjectTree(self: KPlotWidget) void {
+    pub fn dumpObjectTree(self: KPlotWidget) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5708,9 +7232,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DumpObjectInfo(self: KPlotWidget) void {
+    pub fn dumpObjectInfo(self: KPlotWidget) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5724,11 +7252,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KPlotWidget, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KPlotWidget, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5740,10 +7272,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KPlotWidget, name: [:0]const u8) QVariant {
+    pub fn property(self: KPlotWidget, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5755,7 +7291,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KPlotWidget, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KPlotWidget, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5763,27 +7299,19 @@ pub const KPlotWidget = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPlotWidget.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KPlotWidget.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KPlotWidget.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KPlotWidget.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KPlotWidget `
-    ///
-    pub fn BindingStorage(self: KPlotWidget) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5793,9 +7321,29 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn BindingStorage2(self: KPlotWidget) QBindingStorage {
+    pub fn bindingStorage(self: KPlotWidget) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KPlotWidget `
+    ///
+    pub fn bindingStorage2(self: KPlotWidget) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5805,9 +7353,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Destroyed(self: KPlotWidget) void {
+    pub fn destroyed(self: KPlotWidget) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5819,9 +7371,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) void) void {
+    pub fn onDestroyed(self: KPlotWidget, callback: *const fn (KPlotWidget) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5831,9 +7387,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Parent(self: KPlotWidget) QObject {
+    pub fn parent(self: KPlotWidget) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5845,10 +7405,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KPlotWidget, classname: [:0]const u8) bool {
+    pub fn inherits(self: KPlotWidget, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5858,9 +7422,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DeleteLater(self: KPlotWidget) void {
+    pub fn deleteLater(self: KPlotWidget) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5874,9 +7442,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KPlotWidget, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KPlotWidget, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5890,9 +7462,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KPlotWidget, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KPlotWidget, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5900,7 +7476,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5910,13 +7486,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5924,7 +7504,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5934,13 +7514,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5950,7 +7534,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5958,12 +7542,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KPlotWidget, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KPlotWidget, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5975,10 +7563,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KPlotWidget, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KPlotWidget, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5992,11 +7584,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KPlotWidget, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KPlotWidget, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6012,13 +7608,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KPlotWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KPlotWidget, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6031,11 +7631,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KPlotWidget, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KPlotWidget, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6047,10 +7651,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KPlotWidget, param1: anytype) void {
+    pub fn destroyed1(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6062,9 +7670,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KPlotWidget, callback: *const fn (KPlotWidget, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KPlotWidget, callback: *const fn (KPlotWidget, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6074,9 +7686,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PaintingActive(self: KPlotWidget) bool {
+    pub fn paintingActive(self: KPlotWidget) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6086,9 +7702,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn WidthMM(self: KPlotWidget) i32 {
+    pub fn widthMM(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6098,9 +7718,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn HeightMM(self: KPlotWidget) i32 {
+    pub fn heightMM(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6110,9 +7734,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn LogicalDpiX(self: KPlotWidget) i32 {
+    pub fn logicalDpiX(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6122,9 +7750,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn LogicalDpiY(self: KPlotWidget) i32 {
+    pub fn logicalDpiY(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6134,9 +7766,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PhysicalDpiX(self: KPlotWidget) i32 {
+    pub fn physicalDpiX(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6146,9 +7782,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PhysicalDpiY(self: KPlotWidget) i32 {
+    pub fn physicalDpiY(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6158,9 +7798,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DevicePixelRatio(self: KPlotWidget) f64 {
+    pub fn devicePixelRatio(self: KPlotWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6170,9 +7814,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DevicePixelRatioF(self: KPlotWidget) f64 {
+    pub fn devicePixelRatioF(self: KPlotWidget) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6182,9 +7830,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn ColorCount(self: KPlotWidget) i32 {
+    pub fn colorCount(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6194,17 +7846,25 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Depth(self: KPlotWidget) i32 {
+    pub fn depth(self: KPlotWidget) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6212,13 +7872,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QFrame
     ///
@@ -6232,14 +7896,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn changeEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPlotWidget_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -6253,10 +7917,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn superChangeEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KPlotWidget_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QFrame
     ///
@@ -6270,9 +7938,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6286,14 +7958,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: KPlotWidget, option: anytype) void {
+    pub fn initStyleOption(self: KPlotWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KPlotWidget_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6307,10 +7979,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: KPlotWidget, option: anytype) void {
+    pub fn superInitStyleOption(self: KPlotWidget, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.KPlotWidget_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -6324,9 +8000,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: KPlotWidget, callback: *const fn (KPlotWidget, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: KPlotWidget, callback: *const fn (KPlotWidget, QStyleOptionFrame) callconv(.c) void) void {
         qtc.KPlotWidget_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6338,13 +8018,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn DevType(self: KPlotWidget) i32 {
+    pub fn devType(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6356,9 +8036,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperDevType(self: KPlotWidget) i32 {
+    pub fn superDevType(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6372,9 +8056,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KPlotWidget_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6388,13 +8076,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KPlotWidget, visible: bool) void {
+    pub fn setVisible(self: KPlotWidget, visible: bool) void {
         qtc.KPlotWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6408,9 +8096,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KPlotWidget, visible: bool) void {
+    pub fn superSetVisible(self: KPlotWidget, visible: bool) void {
         qtc.KPlotWidget_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6424,9 +8116,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KPlotWidget, callback: *const fn (KPlotWidget, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KPlotWidget, callback: *const fn (KPlotWidget, bool) callconv(.c) void) void {
         qtc.KPlotWidget_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6440,13 +8136,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KPlotWidget, param1: i32) i32 {
+    pub fn heightForWidth(self: KPlotWidget, param1: i32) i32 {
         return qtc.KPlotWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6460,9 +8156,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KPlotWidget, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KPlotWidget, param1: i32) i32 {
         return qtc.KPlotWidget_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6476,9 +8176,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) i32) void {
         qtc.KPlotWidget_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6490,13 +8194,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn HasHeightForWidth(self: KPlotWidget) bool {
+    pub fn hasHeightForWidth(self: KPlotWidget) bool {
         return qtc.KPlotWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6508,9 +8212,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperHasHeightForWidth(self: KPlotWidget) bool {
+    pub fn superHasHeightForWidth(self: KPlotWidget) bool {
         return qtc.KPlotWidget_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6524,9 +8232,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPlotWidget_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6538,13 +8250,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn PaintEngine(self: KPlotWidget) QPaintEngine {
+    pub fn paintEngine(self: KPlotWidget) QPaintEngine {
         return .{ .ptr = qtc.KPlotWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6556,9 +8268,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperPaintEngine(self: KPlotWidget) QPaintEngine {
+    pub fn superPaintEngine(self: KPlotWidget) QPaintEngine {
         return .{ .ptr = qtc.KPlotWidget_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6572,10 +8288,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KPlotWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KPlotWidget, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KPlotWidget_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6586,16 +8306,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6607,12 +8327,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6626,10 +8350,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6640,16 +8368,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6661,12 +8389,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6680,10 +8412,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6694,16 +8430,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6715,12 +8451,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6734,10 +8474,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6748,16 +8492,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6769,12 +8513,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KPlotWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KPlotWidget_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6788,9 +8536,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMouseEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6802,16 +8554,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPlotWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPlotWidget_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6823,12 +8575,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KPlotWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KPlotWidget_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6842,10 +8598,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QWheelEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6856,16 +8616,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPlotWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPlotWidget_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6877,12 +8637,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPlotWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPlotWidget_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6896,10 +8660,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6910,16 +8678,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPlotWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPlotWidget_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6931,12 +8699,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KPlotWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KPlotWidget_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6950,10 +8722,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QKeyEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6964,16 +8740,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPlotWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPlotWidget_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6985,12 +8761,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPlotWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPlotWidget_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7004,10 +8784,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7018,16 +8802,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPlotWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPlotWidget_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7039,12 +8823,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KPlotWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KPlotWidget_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7058,9 +8846,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QFocusEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7072,16 +8864,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPlotWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPlotWidget_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7093,12 +8885,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KPlotWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KPlotWidget_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7112,9 +8908,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEnterEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7126,16 +8926,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPlotWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPlotWidget_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7147,12 +8947,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPlotWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPlotWidget_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7166,9 +8970,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7180,16 +8988,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPlotWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPlotWidget_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7201,12 +9009,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KPlotWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KPlotWidget_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7220,9 +9032,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QMoveEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7234,16 +9050,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KPlotWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KPlotWidget_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7255,12 +9071,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KPlotWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KPlotWidget_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7274,9 +9094,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QCloseEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7288,16 +9112,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KPlotWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KPlotWidget_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7309,12 +9133,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KPlotWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KPlotWidget_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -7328,9 +9156,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QContextMenuEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7342,16 +9174,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPlotWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPlotWidget_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7363,12 +9195,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KPlotWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KPlotWidget_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7382,9 +9218,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QTabletEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7396,16 +9236,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPlotWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPlotWidget_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7417,12 +9257,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KPlotWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KPlotWidget_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7436,9 +9280,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QActionEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7450,16 +9298,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPlotWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPlotWidget_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7471,12 +9319,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KPlotWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KPlotWidget_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7490,9 +9342,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragEnterEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7504,16 +9360,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPlotWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPlotWidget_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7525,12 +9381,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KPlotWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KPlotWidget_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7544,9 +9404,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragMoveEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7558,16 +9422,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPlotWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPlotWidget_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7579,12 +9443,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KPlotWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KPlotWidget_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7598,9 +9466,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7612,16 +9484,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPlotWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPlotWidget_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7633,12 +9505,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KPlotWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KPlotWidget_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7652,9 +9528,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QDropEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7666,16 +9546,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KPlotWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KPlotWidget_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7687,12 +9567,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KPlotWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KPlotWidget_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7706,9 +9590,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QShowEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7720,16 +9608,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPlotWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPlotWidget_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7741,12 +9629,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KPlotWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KPlotWidget_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7760,9 +9652,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QHideEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7780,7 +9676,7 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KPlotWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KPlotWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7788,9 +9684,9 @@ pub const KPlotWidget = extern struct {
         return qtc.KPlotWidget_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7808,13 +9704,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KPlotWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KPlotWidget, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KPlotWidget_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7828,9 +9728,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KPlotWidget_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7844,13 +9748,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KPlotWidget, param1: i32) i32 {
+    pub fn metric(self: KPlotWidget, param1: i32) i32 {
         return qtc.KPlotWidget_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7864,9 +9768,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KPlotWidget, param1: i32) i32 {
+    pub fn superMetric(self: KPlotWidget, param1: i32) i32 {
         return qtc.KPlotWidget_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7880,9 +9788,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) i32) void {
         qtc.KPlotWidget_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7896,14 +9808,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KPlotWidget, painter: anytype) void {
+    pub fn initPainter(self: KPlotWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPlotWidget_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7917,10 +9829,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KPlotWidget, painter: anytype) void {
+    pub fn superInitPainter(self: KPlotWidget, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KPlotWidget_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7934,9 +9850,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
         qtc.KPlotWidget_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7950,14 +9870,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KPlotWidget, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KPlotWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPlotWidget_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7971,10 +9891,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KPlotWidget, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KPlotWidget, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KPlotWidget_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7988,9 +9912,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KPlotWidget, callback: *const fn (KPlotWidget, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KPlotWidget_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8002,13 +9930,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SharedPainter(self: KPlotWidget) QPainter {
+    pub fn sharedPainter(self: KPlotWidget) QPainter {
         return .{ .ptr = qtc.KPlotWidget_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8020,9 +9948,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperSharedPainter(self: KPlotWidget) QPainter {
+    pub fn superSharedPainter(self: KPlotWidget) QPainter {
         return .{ .ptr = qtc.KPlotWidget_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8036,9 +9968,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KPlotWidget, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KPlotWidget, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KPlotWidget_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8052,14 +9988,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn inputMethodEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPlotWidget_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8073,10 +10009,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KPlotWidget, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KPlotWidget_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8090,9 +10030,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QInputMethodEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8106,13 +10050,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KPlotWidget, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KPlotWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KPlotWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8126,9 +10070,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KPlotWidget, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KPlotWidget, param1: i32) QVariant {
         return .{ .ptr = qtc.KPlotWidget_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8144,9 +10092,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KPlotWidget, callback: *const fn (KPlotWidget, i32) callconv(.c) QVariant) void {
         qtc.KPlotWidget_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8160,13 +10112,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KPlotWidget, next: bool) bool {
+    pub fn focusNextPrevChild(self: KPlotWidget, next: bool) bool {
         return qtc.KPlotWidget_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8180,9 +10132,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KPlotWidget, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KPlotWidget, next: bool) bool {
         return qtc.KPlotWidget_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8196,9 +10152,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KPlotWidget, callback: *const fn (KPlotWidget, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KPlotWidget, callback: *const fn (KPlotWidget, bool) callconv(.c) bool) void {
         qtc.KPlotWidget_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8212,17 +10172,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KPlotWidget, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KPlotWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPlotWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPlotWidget_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8236,13 +10196,17 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KPlotWidget, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KPlotWidget, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KPlotWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KPlotWidget_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8256,9 +10220,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KPlotWidget, callback: *const fn (KPlotWidget, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KPlotWidget, callback: *const fn (KPlotWidget, QObject, QEvent) callconv(.c) bool) void {
         qtc.KPlotWidget_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8270,16 +10238,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPlotWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPlotWidget_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8291,12 +10259,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KPlotWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KPlotWidget_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8310,9 +10282,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QTimerEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8324,16 +10300,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPlotWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPlotWidget_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8345,12 +10321,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KPlotWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KPlotWidget_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8364,9 +10344,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QChildEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8378,16 +10362,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPlotWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPlotWidget_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8399,12 +10383,16 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KPlotWidget, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KPlotWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KPlotWidget, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KPlotWidget_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8418,9 +10406,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KPlotWidget, callback: *const fn (KPlotWidget, QEvent) callconv(.c) void) void {
         qtc.KPlotWidget_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8434,14 +10426,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KPlotWidget, signal: anytype) void {
+    pub fn connectNotify(self: KPlotWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPlotWidget_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8455,11 +10447,15 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KPlotWidget, signal: anytype) void {
+    pub fn superConnectNotify(self: KPlotWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPlotWidget_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8472,9 +10468,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KPlotWidget_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8488,14 +10488,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KPlotWidget, signal: anytype) void {
+    pub fn disconnectNotify(self: KPlotWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPlotWidget_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8509,10 +10509,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KPlotWidget, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KPlotWidget, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KPlotWidget_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8526,9 +10530,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) void) void {
         qtc.KPlotWidget_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8542,14 +10550,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: KPlotWidget, param1: anytype) void {
+    pub fn drawFrame(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KPlotWidget_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8563,10 +10571,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: KPlotWidget, param1: anytype) void {
+    pub fn superDrawFrame(self: KPlotWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.KPlotWidget_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -8580,10 +10592,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: KPlotWidget, callback: *const fn (KPlotWidget, QPainter) callconv(.c) void) void {
         qtc.KPlotWidget_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8594,13 +10610,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn UpdateMicroFocus(self: KPlotWidget) void {
+    pub fn updateMicroFocus(self: KPlotWidget) void {
         qtc.KPlotWidget_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8612,10 +10628,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperUpdateMicroFocus(self: KPlotWidget) void {
+    pub fn superUpdateMicroFocus(self: KPlotWidget) void {
         qtc.KPlotWidget_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8628,10 +10648,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPlotWidget_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8642,13 +10666,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Create(self: KPlotWidget) void {
+    pub fn create(self: KPlotWidget) void {
         qtc.KPlotWidget_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8660,10 +10684,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperCreate(self: KPlotWidget) void {
+    pub fn superCreate(self: KPlotWidget) void {
         qtc.KPlotWidget_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8676,9 +10704,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPlotWidget_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8690,13 +10722,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Destroy(self: KPlotWidget) void {
+    pub fn destroy(self: KPlotWidget) void {
         qtc.KPlotWidget_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8708,9 +10740,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperDestroy(self: KPlotWidget) void {
+    pub fn superDestroy(self: KPlotWidget) void {
         qtc.KPlotWidget_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8724,10 +10760,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KPlotWidget, callback: *const fn () callconv(.c) void) void {
         qtc.KPlotWidget_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8738,13 +10778,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FocusNextChild(self: KPlotWidget) bool {
+    pub fn focusNextChild(self: KPlotWidget) bool {
         return qtc.KPlotWidget_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8756,10 +10796,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperFocusNextChild(self: KPlotWidget) bool {
+    pub fn superFocusNextChild(self: KPlotWidget) bool {
         return qtc.KPlotWidget_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8772,9 +10816,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPlotWidget_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8786,13 +10834,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn FocusPreviousChild(self: KPlotWidget) bool {
+    pub fn focusPreviousChild(self: KPlotWidget) bool {
         return qtc.KPlotWidget_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8804,9 +10852,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperFocusPreviousChild(self: KPlotWidget) bool {
+    pub fn superFocusPreviousChild(self: KPlotWidget) bool {
         return qtc.KPlotWidget_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8820,9 +10872,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KPlotWidget, callback: *const fn () callconv(.c) bool) void {
         qtc.KPlotWidget_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8834,13 +10890,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Sender(self: KPlotWidget) QObject {
+    pub fn sender(self: KPlotWidget) QObject {
         return .{ .ptr = qtc.KPlotWidget_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8852,9 +10908,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperSender(self: KPlotWidget) QObject {
+    pub fn superSender(self: KPlotWidget) QObject {
         return .{ .ptr = qtc.KPlotWidget_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8868,9 +10928,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KPlotWidget, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KPlotWidget, callback: *const fn () callconv(.c) QObject) void {
         qtc.KPlotWidget_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8882,13 +10946,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SenderSignalIndex(self: KPlotWidget) i32 {
+    pub fn senderSignalIndex(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8900,9 +10964,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn SuperSenderSignalIndex(self: KPlotWidget) i32 {
+    pub fn superSenderSignalIndex(self: KPlotWidget) i32 {
         return qtc.KPlotWidget_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8916,9 +10984,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KPlotWidget, callback: *const fn () callconv(.c) i32) void {
         qtc.KPlotWidget_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8932,14 +11004,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KPlotWidget, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KPlotWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPlotWidget_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8953,10 +11025,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KPlotWidget, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KPlotWidget, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KPlotWidget_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8970,9 +11046,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) i32) void {
         qtc.KPlotWidget_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8986,14 +11066,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KPlotWidget, signal: anytype) bool {
+    pub fn isSignalConnected(self: KPlotWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPlotWidget_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9007,10 +11087,14 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KPlotWidget, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KPlotWidget, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KPlotWidget_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -9024,9 +11108,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KPlotWidget, callback: *const fn (KPlotWidget, QMetaMethod) callconv(.c) bool) void {
         qtc.KPlotWidget_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9042,13 +11130,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPlotWidget_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9064,9 +11152,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KPlotWidget, metricA: i32, metricB: i32) f64 {
         return qtc.KPlotWidget_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9080,9 +11172,13 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KPlotWidget, callback: *const fn (KPlotWidget, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KPlotWidget, callback: *const fn (KPlotWidget, i32, i32) callconv(.c) f64) void {
         qtc.KPlotWidget_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9096,23 +11192,23 @@ pub const KPlotWidget = extern struct {
     ///
     /// ` callback: *const fn (self: KPlotWidget, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KPlotWidget, callback: *const fn (KPlotWidget, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kplotwidget.html#dtor.KPlotWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPlotWidget `
     ///
-    pub fn Delete(self: KPlotWidget) void {
+    pub fn delete(self: KPlotWidget) void {
         qtc.KPlotWidget_Delete(@ptrCast(self.ptr));
     }
 };

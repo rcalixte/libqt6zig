@@ -14,29 +14,40 @@ pub const KCursor = extern struct {
 
     pub const _is_KCursor = {};
 
-    /// New constructs a new KCursor object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KCursor `
     ///
-    pub fn New(other: anytype) KCursor {
+    pub fn new(other: anytype) KCursor {
         comptime _ = @TypeOf(other)._is_KCursor;
         return .{ .ptr = qtc.KCursor_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new KCursor object and invalidates the source KCursor object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KCursor object and invalidate the source KCursor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KCursor `
     ///
-    pub fn New2(other: anytype) KCursor {
+    pub fn new2(other: anytype) KCursor {
         comptime _ = @TypeOf(other)._is_KCursor;
         return .{ .ptr = qtc.KCursor_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -44,11 +55,14 @@ pub const KCursor = extern struct {
     ///
     /// ` other: KCursor `
     ///
-    pub fn CopyAssign(self: KCursor, other: KCursor) void {
+    pub fn copyAssign(self: KCursor, other: KCursor) void {
         qtc.KCursor_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -56,9 +70,13 @@ pub const KCursor = extern struct {
     ///
     /// ` other: KCursor `
     ///
-    pub fn MoveAssign(self: KCursor, other: KCursor) void {
+    pub fn moveAssign(self: KCursor, other: KCursor) void {
         qtc.KCursor_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoHideCursor` instead
+    ///
+    pub const SetAutoHideCursor = setAutoHideCursor;
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#setAutoHideCursor)
     ///
@@ -68,10 +86,14 @@ pub const KCursor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetAutoHideCursor(w: anytype, enable: bool) void {
+    pub fn setAutoHideCursor(w: anytype, enable: bool) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.KCursor_SetAutoHideCursor(@ptrCast(w.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `setHideCursorDelay` instead
+    ///
+    pub const SetHideCursorDelay = setHideCursorDelay;
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#setHideCursorDelay)
     ///
@@ -79,15 +101,23 @@ pub const KCursor = extern struct {
     ///
     /// ` ms: i32 `
     ///
-    pub fn SetHideCursorDelay(ms: i32) void {
+    pub fn setHideCursorDelay(ms: i32) void {
         qtc.KCursor_SetHideCursorDelay(@bitCast(ms));
     }
 
+    /// ### DEPRECATED: Use `hideCursorDelay` instead
+    ///
+    pub const HideCursorDelay = hideCursorDelay;
+
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#hideCursorDelay)
     ///
-    pub fn HideCursorDelay() i32 {
+    pub fn hideCursorDelay() i32 {
         return qtc.KCursor_HideCursorDelay();
     }
+
+    /// ### DEPRECATED: Use `autoHideEventFilter` instead
+    ///
+    pub const AutoHideEventFilter = autoHideEventFilter;
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#autoHideEventFilter)
     ///
@@ -97,11 +127,15 @@ pub const KCursor = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn AutoHideEventFilter(param1: anytype, param2: anytype) void {
+    pub fn autoHideEventFilter(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         qtc.KCursor_AutoHideEventFilter(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoHideCursor3` instead
+    ///
+    pub const SetAutoHideCursor3 = setAutoHideCursor3;
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#setAutoHideCursor)
     ///
@@ -113,24 +147,24 @@ pub const KCursor = extern struct {
     ///
     /// ` customEventFilter: bool `
     ///
-    pub fn SetAutoHideCursor3(w: anytype, enable: bool, customEventFilter: bool) void {
+    pub fn setAutoHideCursor3(w: anytype, enable: bool, customEventFilter: bool) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.KCursor_SetAutoHideCursor3(@ptrCast(w.ptr), enable, customEventFilter);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kcursor.html#dtor.KCursor)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KCursor `
     ///
-    pub fn Delete(self: KCursor) void {
+    pub fn delete(self: KCursor) void {
         qtc.KCursor_Delete(@ptrCast(self.ptr));
     }
 };

@@ -25,22 +25,34 @@ pub const QSignalMapper = extern struct {
     pub const _is_QSignalMapper = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QSignalMapper object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QSignalMapper {
+    pub const New = new;
+
+    /// Allocate a new QSignalMapper object in C++ memory
+    ///
+    pub fn new() QSignalMapper {
         return .{ .ptr = qtc.QSignalMapper_new() };
     }
 
-    /// New2 constructs a new QSignalMapper object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QSignalMapper object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QSignalMapper {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QSignalMapper_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QSignalMapper {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QSignalMapper_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -48,9 +60,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn MetaObject(self: QSignalMapper) QMetaObject {
+    pub fn metaObject(self: QSignalMapper) QMetaObject {
         return .{ .ptr = qtc.QSignalMapper_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -62,13 +78,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QSignalMapper, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QSignalMapper, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QSignalMapper_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -78,9 +94,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn SuperMetaObject(self: QSignalMapper) QMetaObject {
+    pub fn superMetaObject(self: QSignalMapper) QMetaObject {
         return .{ .ptr = qtc.QSignalMapper_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -88,10 +108,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QSignalMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QSignalMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSignalMapper_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -101,13 +125,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QSignalMapper_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -117,10 +141,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QSignalMapper, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QSignalMapper, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QSignalMapper_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -132,9 +160,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QSignalMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QSignalMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSignalMapper_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -144,13 +176,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QSignalMapper, callback: *const fn (QSignalMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QSignalMapper, callback: *const fn (QSignalMapper, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QSignalMapper_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -164,9 +196,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QSignalMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QSignalMapper, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QSignalMapper_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -176,29 +212,18 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#setMapping)
+    /// ### DEPRECATED: Use `setMapping` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalMapper `
-    ///
-    /// ` sender: QObject `
-    ///
-    /// ` id: i32 `
-    ///
-    pub fn SetMapping(self: QSignalMapper, sender: anytype, id: i32) void {
-        comptime _ = @TypeOf(sender)._is_QObject;
-        qtc.QSignalMapper_SetMapping(@ptrCast(self.ptr), @ptrCast(sender.ptr), @bitCast(id));
-    }
+    pub const SetMapping = setMapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#setMapping)
     ///
@@ -206,18 +231,41 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
+    ///
+    /// ` id: i32 `
+    ///
+    pub fn setMapping(self: QSignalMapper, _sender: anytype, id: i32) void {
+        comptime _ = @TypeOf(_sender)._is_QObject;
+        qtc.QSignalMapper_SetMapping(@ptrCast(self.ptr), @ptrCast(_sender.ptr), @bitCast(id));
+    }
+
+    /// ### DEPRECATED: Use `setMapping2` instead
+    ///
+    pub const SetMapping2 = setMapping2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#setMapping)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSignalMapper `
+    ///
+    /// ` _sender: QObject `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetMapping2(self: QSignalMapper, sender: anytype, text: []const u8) void {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn setMapping2(self: QSignalMapper, _sender: anytype, text: []const u8) void {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QSignalMapper_SetMapping2(@ptrCast(self.ptr), @ptrCast(sender.ptr), text_str);
+        qtc.QSignalMapper_SetMapping2(@ptrCast(self.ptr), @ptrCast(_sender.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setMapping3` instead
+    ///
+    pub const SetMapping3 = setMapping3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#setMapping)
     ///
@@ -225,15 +273,19 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` object: QObject `
     ///
-    pub fn SetMapping3(self: QSignalMapper, sender: anytype, object: anytype) void {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn setMapping3(self: QSignalMapper, _sender: anytype, object: anytype) void {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(object)._is_QObject;
-        qtc.QSignalMapper_SetMapping3(@ptrCast(self.ptr), @ptrCast(sender.ptr), @ptrCast(object.ptr));
+        qtc.QSignalMapper_SetMapping3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), @ptrCast(object.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeMappings` instead
+    ///
+    pub const RemoveMappings = removeMappings;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#removeMappings)
     ///
@@ -241,12 +293,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
-    pub fn RemoveMappings(self: QSignalMapper, sender: anytype) void {
-        comptime _ = @TypeOf(sender)._is_QObject;
-        qtc.QSignalMapper_RemoveMappings(@ptrCast(self.ptr), @ptrCast(sender.ptr));
+    pub fn removeMappings(self: QSignalMapper, _sender: anytype) void {
+        comptime _ = @TypeOf(_sender)._is_QObject;
+        qtc.QSignalMapper_RemoveMappings(@ptrCast(self.ptr), @ptrCast(_sender.ptr));
     }
+
+    /// ### DEPRECATED: Use `mapping` instead
+    ///
+    pub const Mapping = mapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mapping)
     ///
@@ -256,9 +312,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn Mapping(self: QSignalMapper, id: i32) QObject {
+    pub fn mapping(self: QSignalMapper, id: i32) QObject {
         return .{ .ptr = qtc.QSignalMapper_Mapping(@ptrCast(self.ptr), @bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `mapping2` instead
+    ///
+    pub const Mapping2 = mapping2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mapping)
     ///
@@ -268,13 +328,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Mapping2(self: QSignalMapper, text: []const u8) QObject {
+    pub fn mapping2(self: QSignalMapper, text: []const u8) QObject {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QSignalMapper_Mapping2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `mapping3` instead
+    ///
+    pub const Mapping3 = mapping3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mapping)
     ///
@@ -284,10 +348,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` object: QObject `
     ///
-    pub fn Mapping3(self: QSignalMapper, object: anytype) QObject {
+    pub fn mapping3(self: QSignalMapper, object: anytype) QObject {
         comptime _ = @TypeOf(object)._is_QObject;
         return .{ .ptr = qtc.QSignalMapper_Mapping3(@ptrCast(self.ptr), @ptrCast(object.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mappedInt` instead
+    ///
+    pub const MappedInt = mappedInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedInt)
     ///
@@ -297,9 +365,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn MappedInt(self: QSignalMapper, param1: i32) void {
+    pub fn mappedInt(self: QSignalMapper, param1: i32) void {
         qtc.QSignalMapper_MappedInt(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMappedInt` instead
+    ///
+    pub const OnMappedInt = onMappedInt;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedInt)
     ///
@@ -309,9 +381,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: i32) callconv(.c) void `
     ///
-    pub fn OnMappedInt(self: QSignalMapper, callback: *const fn (QSignalMapper, i32) callconv(.c) void) void {
+    pub fn onMappedInt(self: QSignalMapper, callback: *const fn (QSignalMapper, i32) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedInt(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mappedString` instead
+    ///
+    pub const MappedString = mappedString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedString)
     ///
@@ -321,13 +397,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn MappedString(self: QSignalMapper, param1: []const u8) void {
+    pub fn mappedString(self: QSignalMapper, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.QSignalMapper_MappedString(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onMappedString` instead
+    ///
+    pub const OnMappedString = onMappedString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedString)
     ///
@@ -337,9 +417,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnMappedString(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onMappedString(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mappedObject` instead
+    ///
+    pub const MappedObject = mappedObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedObject)
     ///
@@ -349,10 +433,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn MappedObject(self: QSignalMapper, param1: anytype) void {
+    pub fn mappedObject(self: QSignalMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QSignalMapper_MappedObject(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMappedObject` instead
+    ///
+    pub const OnMappedObject = onMappedObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#mappedObject)
     ///
@@ -362,19 +450,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnMappedObject(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject) callconv(.c) void) void {
+    pub fn onMappedObject(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject) callconv(.c) void) void {
         qtc.QSignalMapper_Connect_MappedObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#map)
+    /// ### DEPRECATED: Use `map` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalMapper `
-    ///
-    pub fn Map(self: QSignalMapper) void {
-        qtc.QSignalMapper_Map(@ptrCast(self.ptr));
-    }
+    pub const Map = map;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#map)
     ///
@@ -382,12 +464,30 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
-    ///
-    pub fn Map2(self: QSignalMapper, sender: anytype) void {
-        comptime _ = @TypeOf(sender)._is_QObject;
-        qtc.QSignalMapper_Map2(@ptrCast(self.ptr), @ptrCast(sender.ptr));
+    pub fn map(self: QSignalMapper) void {
+        qtc.QSignalMapper_Map(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `map2` instead
+    ///
+    pub const Map2 = map2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#map)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSignalMapper `
+    ///
+    /// ` _sender: QObject `
+    ///
+    pub fn map2(self: QSignalMapper, _sender: anytype) void {
+        comptime _ = @TypeOf(_sender)._is_QObject;
+        qtc.QSignalMapper_Map2(@ptrCast(self.ptr), @ptrCast(_sender.ptr));
+    }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -399,15 +499,19 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -421,15 +525,19 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -441,13 +549,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QSignalMapper, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QSignalMapper, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QSignalMapper.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -459,13 +571,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QSignalMapper, name: []const u8) void {
+    pub fn setObjectName(self: QSignalMapper, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -475,9 +591,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn IsWidgetType(self: QSignalMapper) bool {
+    pub fn isWidgetType(self: QSignalMapper) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -487,9 +607,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn IsWindowType(self: QSignalMapper) bool {
+    pub fn isWindowType(self: QSignalMapper) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -499,9 +623,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn IsQuickItemType(self: QSignalMapper) bool {
+    pub fn isQuickItemType(self: QSignalMapper) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -511,9 +639,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn SignalsBlocked(self: QSignalMapper) bool {
+    pub fn signalsBlocked(self: QSignalMapper) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -525,9 +657,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QSignalMapper, b: bool) bool {
+    pub fn blockSignals(self: QSignalMapper, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -537,9 +673,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Thread(self: QSignalMapper) QThread {
+    pub fn thread(self: QSignalMapper) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -549,12 +689,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QSignalMapper, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QSignalMapper, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -566,9 +710,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QSignalMapper, interval: i32) i32 {
+    pub fn startTimer(self: QSignalMapper, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -580,9 +728,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QSignalMapper, time: i64) i32 {
+    pub fn startTimer2(self: QSignalMapper, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -594,9 +746,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QSignalMapper, id: i32) void {
+    pub fn killTimer(self: QSignalMapper, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -608,9 +764,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QSignalMapper, id: i32) void {
+    pub fn killTimer2(self: QSignalMapper, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -622,15 +782,19 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QSignalMapper, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QSignalMapper, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSignalMapper.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QSignalMapper.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -640,12 +804,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QSignalMapper, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QSignalMapper, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -657,10 +825,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QSignalMapper, filterObj: anytype) void {
+    pub fn installEventFilter(self: QSignalMapper, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -672,10 +844,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QSignalMapper, obj: anytype) void {
+    pub fn removeEventFilter(self: QSignalMapper, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -683,7 +859,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -691,13 +867,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -705,7 +885,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -713,13 +893,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -729,18 +913,22 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QSignalMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QSignalMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -748,7 +936,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -756,13 +944,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -770,7 +962,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -778,13 +970,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -794,9 +990,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Disconnect3(self: QSignalMapper) bool {
+    pub fn disconnect3(self: QSignalMapper) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -808,10 +1008,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QSignalMapper, receiver: anytype) bool {
+    pub fn disconnect4(self: QSignalMapper, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -821,10 +1025,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1042,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn DumpObjectTree(self: QSignalMapper) void {
+    pub fn dumpObjectTree(self: QSignalMapper) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -846,9 +1058,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn DumpObjectInfo(self: QSignalMapper) void {
+    pub fn dumpObjectInfo(self: QSignalMapper) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -862,11 +1078,15 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QSignalMapper, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QSignalMapper, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -878,10 +1098,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QSignalMapper, name: [:0]const u8) QVariant {
+    pub fn property(self: QSignalMapper, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -893,7 +1117,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QSignalMapper, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QSignalMapper, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -901,27 +1125,19 @@ pub const QSignalMapper = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSignalMapper.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QSignalMapper.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QSignalMapper.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QSignalMapper.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QSignalMapper `
-    ///
-    pub fn BindingStorage(self: QSignalMapper) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -931,9 +1147,29 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn BindingStorage2(self: QSignalMapper) QBindingStorage {
+    pub fn bindingStorage(self: QSignalMapper) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QSignalMapper `
+    ///
+    pub fn bindingStorage2(self: QSignalMapper) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -943,9 +1179,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Destroyed(self: QSignalMapper) void {
+    pub fn destroyed(self: QSignalMapper) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -957,9 +1197,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QSignalMapper, callback: *const fn (QSignalMapper) callconv(.c) void) void {
+    pub fn onDestroyed(self: QSignalMapper, callback: *const fn (QSignalMapper) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -969,9 +1213,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Parent(self: QSignalMapper) QObject {
+    pub fn parent(self: QSignalMapper) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -983,10 +1231,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QSignalMapper, classname: [:0]const u8) bool {
+    pub fn inherits(self: QSignalMapper, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -996,9 +1248,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn DeleteLater(self: QSignalMapper) void {
+    pub fn deleteLater(self: QSignalMapper) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1012,9 +1268,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QSignalMapper, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QSignalMapper, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1028,9 +1288,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QSignalMapper, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QSignalMapper, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1038,7 +1302,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1048,13 +1312,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1062,7 +1330,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1072,13 +1340,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1088,7 +1360,7 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1096,12 +1368,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QSignalMapper, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QSignalMapper, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1113,10 +1389,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QSignalMapper, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QSignalMapper, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1130,11 +1410,15 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QSignalMapper, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QSignalMapper, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1150,13 +1434,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QSignalMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QSignalMapper, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1169,11 +1457,15 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QSignalMapper, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QSignalMapper, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1185,10 +1477,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QSignalMapper, param1: anytype) void {
+    pub fn destroyed1(self: QSignalMapper, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1200,9 +1496,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1214,16 +1514,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QSignalMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSignalMapper_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QSignalMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSignalMapper_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1235,12 +1535,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QSignalMapper, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSignalMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QSignalMapper, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSignalMapper_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1254,9 +1558,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QEvent) callconv(.c) bool) void {
         qtc.QSignalMapper_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1270,17 +1578,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QSignalMapper, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QSignalMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSignalMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSignalMapper_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1294,13 +1602,17 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QSignalMapper, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QSignalMapper, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QSignalMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QSignalMapper_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1314,9 +1626,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QSignalMapper, callback: *const fn (QSignalMapper, QObject, QEvent) callconv(.c) bool) void {
         qtc.QSignalMapper_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1328,16 +1644,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSignalMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSignalMapper_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1349,12 +1665,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QSignalMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QSignalMapper_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1368,9 +1688,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QTimerEvent) callconv(.c) void) void {
         qtc.QSignalMapper_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1382,16 +1706,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSignalMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSignalMapper_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1403,12 +1727,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QSignalMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QSignalMapper_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1422,9 +1750,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QChildEvent) callconv(.c) void) void {
         qtc.QSignalMapper_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1436,16 +1768,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSignalMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSignalMapper_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1457,12 +1789,16 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QSignalMapper, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QSignalMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QSignalMapper, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QSignalMapper_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1476,9 +1812,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QSignalMapper, callback: *const fn (QSignalMapper, QEvent) callconv(.c) void) void {
         qtc.QSignalMapper_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1492,14 +1832,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QSignalMapper, signal: anytype) void {
+    pub fn connectNotify(self: QSignalMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSignalMapper_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1513,11 +1853,15 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QSignalMapper, signal: anytype) void {
+    pub fn superConnectNotify(self: QSignalMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSignalMapper_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1530,9 +1874,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QSignalMapper_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1546,14 +1894,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QSignalMapper, signal: anytype) void {
+    pub fn disconnectNotify(self: QSignalMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSignalMapper_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1567,10 +1915,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QSignalMapper, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QSignalMapper, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QSignalMapper_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1584,9 +1936,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) void) void {
         qtc.QSignalMapper_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1598,13 +1954,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Sender(self: QSignalMapper) QObject {
+    pub fn sender(self: QSignalMapper) QObject {
         return .{ .ptr = qtc.QSignalMapper_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1616,9 +1972,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn SuperSender(self: QSignalMapper) QObject {
+    pub fn superSender(self: QSignalMapper) QObject {
         return .{ .ptr = qtc.QSignalMapper_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1632,9 +1992,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QSignalMapper, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QSignalMapper, callback: *const fn () callconv(.c) QObject) void {
         qtc.QSignalMapper_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1646,13 +2010,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn SenderSignalIndex(self: QSignalMapper) i32 {
+    pub fn senderSignalIndex(self: QSignalMapper) i32 {
         return qtc.QSignalMapper_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1664,9 +2028,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn SuperSenderSignalIndex(self: QSignalMapper) i32 {
+    pub fn superSenderSignalIndex(self: QSignalMapper) i32 {
         return qtc.QSignalMapper_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -1680,9 +2048,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QSignalMapper, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QSignalMapper, callback: *const fn () callconv(.c) i32) void {
         qtc.QSignalMapper_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -1696,14 +2068,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QSignalMapper, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QSignalMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSignalMapper_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -1717,10 +2089,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QSignalMapper, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QSignalMapper, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QSignalMapper_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -1734,9 +2110,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) i32) void {
         qtc.QSignalMapper_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1750,14 +2130,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QSignalMapper, signal: anytype) bool {
+    pub fn isSignalConnected(self: QSignalMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSignalMapper_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1771,10 +2151,14 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QSignalMapper, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QSignalMapper, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QSignalMapper_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -1788,9 +2172,13 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QSignalMapper, callback: *const fn (QSignalMapper, QMetaMethod) callconv(.c) bool) void {
         qtc.QSignalMapper_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1804,23 +2192,23 @@ pub const QSignalMapper = extern struct {
     ///
     /// ` callback: *const fn (self: QSignalMapper, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QSignalMapper, callback: *const fn (QSignalMapper, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qsignalmapper.html#dtor.QSignalMapper)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QSignalMapper `
     ///
-    pub fn Delete(self: QSignalMapper) void {
+    pub fn delete(self: QSignalMapper) void {
         qtc.QSignalMapper_Delete(@ptrCast(self.ptr));
     }
 };

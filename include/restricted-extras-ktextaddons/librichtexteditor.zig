@@ -102,22 +102,34 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new TextCustomEditor::RichTextEditor object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextCustomEditor::RichTextEditor object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) TextCustomEditor__RichTextEditor {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) TextCustomEditor__RichTextEditor {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new TextCustomEditor::RichTextEditor object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() TextCustomEditor__RichTextEditor {
+    pub const New2 = new2;
+
+    /// Allocate a new TextCustomEditor::RichTextEditor object in C++ memory
+    ///
+    pub fn new2() TextCustomEditor__RichTextEditor {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -125,9 +137,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MetaObject(self: TextCustomEditor__RichTextEditor) QMetaObject {
+    pub fn metaObject(self: TextCustomEditor__RichTextEditor) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -139,13 +155,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.TextCustomEditor__RichTextEditor_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -155,9 +171,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperMetaObject(self: TextCustomEditor__RichTextEditor) QMetaObject {
+    pub fn superMetaObject(self: TextCustomEditor__RichTextEditor) QMetaObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -165,10 +185,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: TextCustomEditor__RichTextEditor, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: TextCustomEditor__RichTextEditor, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__RichTextEditor_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -178,13 +202,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.TextCustomEditor__RichTextEditor_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -194,10 +218,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: TextCustomEditor__RichTextEditor, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: TextCustomEditor__RichTextEditor, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.TextCustomEditor__RichTextEditor_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -209,9 +237,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: TextCustomEditor__RichTextEditor, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: TextCustomEditor__RichTextEditor, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__RichTextEditor_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -221,13 +253,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -241,9 +273,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: TextCustomEditor__RichTextEditor, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: TextCustomEditor__RichTextEditor, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -253,14 +289,18 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSearchSupport` instead
+    ///
+    pub const SetSearchSupport = setSearchSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -270,19 +310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetSearchSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setSearchSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetSearchSupport(@ptrCast(self.ptr), b);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    /// ### DEPRECATED: Use `searchSupport` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    pub fn SearchSupport(self: TextCustomEditor__RichTextEditor) bool {
-        return qtc.TextCustomEditor__RichTextEditor_SearchSupport(@ptrCast(self.ptr));
-    }
+    pub const SearchSupport = searchSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -290,9 +324,27 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SpellCheckingSupport(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn searchSupport(self: TextCustomEditor__RichTextEditor) bool {
+        return qtc.TextCustomEditor__RichTextEditor_SearchSupport(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `spellCheckingSupport` instead
+    ///
+    pub const SpellCheckingSupport = spellCheckingSupport;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    pub fn spellCheckingSupport(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_SpellCheckingSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSpellCheckingSupport` instead
+    ///
+    pub const SetSpellCheckingSupport = setSpellCheckingSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -302,9 +354,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` check: bool `
     ///
-    pub fn SetSpellCheckingSupport(self: TextCustomEditor__RichTextEditor, check: bool) void {
+    pub fn setSpellCheckingSupport(self: TextCustomEditor__RichTextEditor, check: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetSpellCheckingSupport(@ptrCast(self.ptr), check);
     }
+
+    /// ### DEPRECATED: Use `setSpellCheckingConfigFileName` instead
+    ///
+    pub const SetSpellCheckingConfigFileName = setSpellCheckingConfigFileName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -314,7 +370,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` _fileName: []const u8 `
     ///
-    pub fn SetSpellCheckingConfigFileName(self: TextCustomEditor__RichTextEditor, _fileName: []const u8) void {
+    pub fn setSpellCheckingConfigFileName(self: TextCustomEditor__RichTextEditor, _fileName: []const u8) void {
         const _fileName_str = qtc.libqt_string{
             .len = _fileName.len,
             .data = _fileName.ptr,
@@ -322,15 +378,23 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         qtc.TextCustomEditor__RichTextEditor_SetSpellCheckingConfigFileName(@ptrCast(self.ptr), _fileName_str);
     }
 
+    /// ### DEPRECATED: Use `checkSpellingEnabled` instead
+    ///
+    pub const CheckSpellingEnabled = checkSpellingEnabled;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CheckSpellingEnabled(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn checkSpellingEnabled(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_CheckSpellingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckSpellingEnabled` instead
+    ///
+    pub const SetCheckSpellingEnabled = setCheckSpellingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -340,9 +404,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` check: bool `
     ///
-    pub fn SetCheckSpellingEnabled(self: TextCustomEditor__RichTextEditor, check: bool) void {
+    pub fn setCheckSpellingEnabled(self: TextCustomEditor__RichTextEditor, check: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetCheckSpellingEnabled(@ptrCast(self.ptr), check);
     }
+
+    /// ### DEPRECATED: Use `setSpellCheckingLanguage` instead
+    ///
+    pub const SetSpellCheckingLanguage = setSpellCheckingLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -352,13 +420,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` _language: []const u8 `
     ///
-    pub fn SetSpellCheckingLanguage(self: TextCustomEditor__RichTextEditor, _language: []const u8) void {
+    pub fn setSpellCheckingLanguage(self: TextCustomEditor__RichTextEditor, _language: []const u8) void {
         const _language_str = qtc.libqt_string{
             .len = _language.len,
             .data = _language.ptr,
         };
         qtc.TextCustomEditor__RichTextEditor_SetSpellCheckingLanguage(@ptrCast(self.ptr), _language_str);
     }
+
+    /// ### DEPRECATED: Use `spellCheckingLanguage` instead
+    ///
+    pub const SpellCheckingLanguage = spellCheckingLanguage;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -368,13 +440,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpellCheckingLanguage(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn spellCheckingLanguage(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextCustomEditor__RichTextEditor_SpellCheckingLanguage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.SpellCheckingLanguage: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.spellCheckingLanguage: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setReadOnly` instead
+    ///
+    pub const SetReadOnly = setReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -384,9 +460,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SetReadOnly(self: TextCustomEditor__RichTextEditor, readOnly: bool) void {
+    pub fn setReadOnly(self: TextCustomEditor__RichTextEditor, readOnly: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetReadOnly(@ptrCast(self.ptr), readOnly);
     }
+
+    /// ### DEPRECATED: Use `onSetReadOnly` instead
+    ///
+    pub const OnSetReadOnly = onSetReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -398,13 +478,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, readOnly: bool) callconv(.c) void `
     ///
-    pub fn OnSetReadOnly(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onSetReadOnly(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnSetReadOnly(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetReadOnly` instead
+    /// ### DEPRECATED: Use `superSetReadOnly` instead
     ///
-    pub const QBaseSetReadOnly = SuperSetReadOnly;
+    pub const SuperSetReadOnly = superSetReadOnly;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -416,9 +496,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` readOnly: bool `
     ///
-    pub fn SuperSetReadOnly(self: TextCustomEditor__RichTextEditor, readOnly: bool) void {
+    pub fn superSetReadOnly(self: TextCustomEditor__RichTextEditor, readOnly: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SuperSetReadOnly(@ptrCast(self.ptr), readOnly);
     }
+
+    /// ### DEPRECATED: Use `createHighlighter` instead
+    ///
+    pub const CreateHighlighter = createHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -426,9 +510,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CreateHighlighter(self: TextCustomEditor__RichTextEditor) void {
+    pub fn createHighlighter(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_CreateHighlighter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCreateHighlighter` instead
+    ///
+    pub const OnCreateHighlighter = onCreateHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -440,13 +528,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreateHighlighter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreateHighlighter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnCreateHighlighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateHighlighter` instead
+    /// ### DEPRECATED: Use `superCreateHighlighter` instead
     ///
-    pub const QBaseCreateHighlighter = SuperCreateHighlighter;
+    pub const SuperCreateHighlighter = superCreateHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -456,9 +544,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperCreateHighlighter(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superCreateHighlighter(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperCreateHighlighter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textToSpeechSupport` instead
+    ///
+    pub const TextToSpeechSupport = textToSpeechSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -466,9 +558,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TextToSpeechSupport(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn textToSpeechSupport(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_TextToSpeechSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextToSpeechSupport` instead
+    ///
+    pub const SetTextToSpeechSupport = setTextToSpeechSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -478,19 +574,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTextToSpeechSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setTextToSpeechSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetTextToSpeechSupport(@ptrCast(self.ptr), b);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    /// ### DEPRECATED: Use `highlighter` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    pub fn Highlighter(self: TextCustomEditor__RichTextEditor) Sonnet__Highlighter {
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_Highlighter(@ptrCast(self.ptr)) };
-    }
+    pub const Highlighter = highlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -498,9 +588,27 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ActivateLanguageMenu(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn highlighter(self: TextCustomEditor__RichTextEditor) Sonnet__Highlighter {
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_Highlighter(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `activateLanguageMenu` instead
+    ///
+    pub const ActivateLanguageMenu = activateLanguageMenu;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    pub fn activateLanguageMenu(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_ActivateLanguageMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActivateLanguageMenu` instead
+    ///
+    pub const SetActivateLanguageMenu = setActivateLanguageMenu;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -510,10 +618,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` activate: bool `
     ///
-    pub fn SetActivateLanguageMenu(self: TextCustomEditor__RichTextEditor, activate: bool) void {
+    pub fn setActivateLanguageMenu(self: TextCustomEditor__RichTextEditor, activate: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetActivateLanguageMenu(@ptrCast(self.ptr), activate);
     }
 
+    /// ### DEPRECATED: Use `setAllowTabSupport` instead
+    ///
+    pub const SetAllowTabSupport = setAllowTabSupport;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
@@ -522,19 +634,27 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetAllowTabSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setAllowTabSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetAllowTabSupport(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `allowTabSupport` instead
+    ///
+    pub const AllowTabSupport = allowTabSupport;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn AllowTabSupport(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn allowTabSupport(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_AllowTabSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShowAutoCorrectButton` instead
+    ///
+    pub const SetShowAutoCorrectButton = setShowAutoCorrectButton;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -544,19 +664,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetShowAutoCorrectButton(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setShowAutoCorrectButton(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetShowAutoCorrectButton(@ptrCast(self.ptr), b);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    /// ### DEPRECATED: Use `showAutoCorrectButton` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    pub fn ShowAutoCorrectButton(self: TextCustomEditor__RichTextEditor) bool {
-        return qtc.TextCustomEditor__RichTextEditor_ShowAutoCorrectButton(@ptrCast(self.ptr));
-    }
+    pub const ShowAutoCorrectButton = showAutoCorrectButton;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -564,9 +678,27 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ForceSpellChecking(self: TextCustomEditor__RichTextEditor) void {
+    pub fn showAutoCorrectButton(self: TextCustomEditor__RichTextEditor) bool {
+        return qtc.TextCustomEditor__RichTextEditor_ShowAutoCorrectButton(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `forceSpellChecking` instead
+    ///
+    pub const ForceSpellChecking = forceSpellChecking;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    pub fn forceSpellChecking(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_ForceSpellChecking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `spellCheckingConfigFileName` instead
+    ///
+    pub const SpellCheckingConfigFileName = spellCheckingConfigFileName;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -576,13 +708,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SpellCheckingConfigFileName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn spellCheckingConfigFileName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.TextCustomEditor__RichTextEditor_SpellCheckingConfigFileName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.SpellCheckingConfigFileName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.spellCheckingConfigFileName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWebShortcutSupport` instead
+    ///
+    pub const SetWebShortcutSupport = setWebShortcutSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -592,9 +728,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetWebShortcutSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setWebShortcutSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetWebShortcutSupport(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `webShortcutSupport` instead
+    ///
+    pub const WebShortcutSupport = webShortcutSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -602,9 +742,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WebShortcutSupport(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn webShortcutSupport(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_WebShortcutSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addIgnoreWords` instead
+    ///
+    pub const AddIgnoreWords = addIgnoreWords;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -616,13 +760,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` lst: []const []const u8 `
     ///
-    pub fn AddIgnoreWords(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, lst: []const []const u8) void {
-        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("TextCustomEditor__RichTextEditor.AddIgnoreWords: Memory allocation failed");
+    pub fn addIgnoreWords(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, lst: []const []const u8) void {
+        const lst_arr = allocator.alloc(qtc.libqt_string, lst.len) catch @panic("TextCustomEditor__RichTextEditor.addIgnoreWords: Memory allocation failed");
         defer allocator.free(lst_arr);
-        for (lst, 0..lst.len) |item, i|
+        for (lst, 0..lst.len) |str_item, i|
             lst_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const lst_list = qtc.libqt_list{
             .len = lst.len,
@@ -630,6 +774,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         };
         qtc.TextCustomEditor__RichTextEditor_AddIgnoreWords(@ptrCast(self.ptr), lst_list);
     }
+
+    /// ### DEPRECATED: Use `forceAutoCorrection` instead
+    ///
+    pub const ForceAutoCorrection = forceAutoCorrection;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -639,9 +787,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` selectedText: bool `
     ///
-    pub fn ForceAutoCorrection(self: TextCustomEditor__RichTextEditor, selectedText: bool) void {
+    pub fn forceAutoCorrection(self: TextCustomEditor__RichTextEditor, selectedText: bool) void {
         qtc.TextCustomEditor__RichTextEditor_ForceAutoCorrection(@ptrCast(self.ptr), selectedText);
     }
+
+    /// ### DEPRECATED: Use `onForceAutoCorrection` instead
+    ///
+    pub const OnForceAutoCorrection = onForceAutoCorrection;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -653,13 +805,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, selectedText: bool) callconv(.c) void `
     ///
-    pub fn OnForceAutoCorrection(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onForceAutoCorrection(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnForceAutoCorrection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperForceAutoCorrection` instead
+    /// ### DEPRECATED: Use `superForceAutoCorrection` instead
     ///
-    pub const QBaseForceAutoCorrection = SuperForceAutoCorrection;
+    pub const SuperForceAutoCorrection = superForceAutoCorrection;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -671,9 +823,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` selectedText: bool `
     ///
-    pub fn SuperForceAutoCorrection(self: TextCustomEditor__RichTextEditor, selectedText: bool) void {
+    pub fn superForceAutoCorrection(self: TextCustomEditor__RichTextEditor, selectedText: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SuperForceAutoCorrection(@ptrCast(self.ptr), selectedText);
     }
+
+    /// ### DEPRECATED: Use `setDefaultFontSize` instead
+    ///
+    pub const SetDefaultFontSize = setDefaultFontSize;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -683,9 +839,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` val: i32 `
     ///
-    pub fn SetDefaultFontSize(self: TextCustomEditor__RichTextEditor, val: i32) void {
+    pub fn setDefaultFontSize(self: TextCustomEditor__RichTextEditor, val: i32) void {
         qtc.TextCustomEditor__RichTextEditor_SetDefaultFontSize(@ptrCast(self.ptr), @bitCast(val));
     }
+
+    /// ### DEPRECATED: Use `zoomFactor` instead
+    ///
+    pub const ZoomFactor = zoomFactor;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -693,9 +853,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ZoomFactor(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn zoomFactor(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.TextCustomEditor__RichTextEditor_ZoomFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEmojiSupport` instead
+    ///
+    pub const SetEmojiSupport = setEmojiSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -705,9 +869,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetEmojiSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setEmojiSupport(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetEmojiSupport(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `emojiSupport` instead
+    ///
+    pub const EmojiSupport = emojiSupport;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -715,9 +883,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn EmojiSupport(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn emojiSupport(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_EmojiSupport(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `slotDisplayMessageIndicator` instead
+    ///
+    pub const SlotDisplayMessageIndicator = slotDisplayMessageIndicator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -727,7 +899,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn SlotDisplayMessageIndicator(self: TextCustomEditor__RichTextEditor, message: []const u8) void {
+    pub fn slotDisplayMessageIndicator(self: TextCustomEditor__RichTextEditor, message: []const u8) void {
         const message_str = qtc.libqt_string{
             .len = message.len,
             .data = message.ptr,
@@ -735,25 +907,23 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         qtc.TextCustomEditor__RichTextEditor_SlotDisplayMessageIndicator(@ptrCast(self.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `slotSpeakText` instead
+    ///
+    pub const SlotSpeakText = slotSpeakText;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SlotSpeakText(self: TextCustomEditor__RichTextEditor) void {
+    pub fn slotSpeakText(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SlotSpeakText(@ptrCast(self.ptr));
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    /// ### DEPRECATED: Use `slotCheckSpelling` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    pub fn SlotCheckSpelling(self: TextCustomEditor__RichTextEditor) void {
-        qtc.TextCustomEditor__RichTextEditor_SlotCheckSpelling(@ptrCast(self.ptr));
-    }
+    pub const SlotCheckSpelling = slotCheckSpelling;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -761,9 +931,27 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SlotZoomReset(self: TextCustomEditor__RichTextEditor) void {
+    pub fn slotCheckSpelling(self: TextCustomEditor__RichTextEditor) void {
+        qtc.TextCustomEditor__RichTextEditor_SlotCheckSpelling(@ptrCast(self.ptr));
+    }
+
+    /// ### DEPRECATED: Use `slotZoomReset` instead
+    ///
+    pub const SlotZoomReset = slotZoomReset;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    pub fn slotZoomReset(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SlotZoomReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `addExtraMenuEntry` instead
+    ///
+    pub const AddExtraMenuEntry = addExtraMenuEntry;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -773,13 +961,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn AddExtraMenuEntry(self: TextCustomEditor__RichTextEditor, menu: anytype, pos: anytype) void {
+    pub fn addExtraMenuEntry(self: TextCustomEditor__RichTextEditor, menu: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(menu)._is_QMenu;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.TextCustomEditor__RichTextEditor_AddExtraMenuEntry(@ptrCast(self.ptr), @ptrCast(menu.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.TextCustomEditor__RichTextEditor_AddExtraMenuEntry(@ptrCast(self.ptr), @ptrCast(menu.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAddExtraMenuEntry` instead
+    ///
+    pub const OnAddExtraMenuEntry = onAddExtraMenuEntry;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -791,13 +983,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, menu: QMenu, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnAddExtraMenuEntry(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMenu, QPoint) callconv(.c) void) void {
+    pub fn onAddExtraMenuEntry(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMenu, QPoint) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnAddExtraMenuEntry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddExtraMenuEntry` instead
+    /// ### DEPRECATED: Use `superAddExtraMenuEntry` instead
     ///
-    pub const QBaseAddExtraMenuEntry = SuperAddExtraMenuEntry;
+    pub const SuperAddExtraMenuEntry = superAddExtraMenuEntry;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -809,13 +1001,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` menu: QMenu `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperAddExtraMenuEntry(self: TextCustomEditor__RichTextEditor, menu: anytype, pos: anytype) void {
+    pub fn superAddExtraMenuEntry(self: TextCustomEditor__RichTextEditor, menu: anytype, _pos: anytype) void {
         comptime _ = @TypeOf(menu)._is_QMenu;
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.TextCustomEditor__RichTextEditor_SuperAddExtraMenuEntry(@ptrCast(self.ptr), @ptrCast(menu.ptr), @ptrCast(pos.ptr));
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.TextCustomEditor__RichTextEditor_SuperAddExtraMenuEntry(@ptrCast(self.ptr), @ptrCast(menu.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -823,12 +1019,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextCustomEditor__RichTextEditor_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextCustomEditor__RichTextEditor_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -840,13 +1040,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QContextMenuEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -856,12 +1056,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -869,12 +1073,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextEditor_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextEditor_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -886,13 +1094,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QFocusEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -902,12 +1110,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -917,10 +1129,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn Event(self: TextCustomEditor__RichTextEditor, ev: anytype) bool {
+    pub fn event(self: TextCustomEditor__RichTextEditor, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_Event(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -932,13 +1148,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, ev: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -950,10 +1166,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` ev: QEvent `
     ///
-    pub fn SuperEvent(self: TextCustomEditor__RichTextEditor, ev: anytype) bool {
+    pub fn superEvent(self: TextCustomEditor__RichTextEditor, ev: anytype) bool {
         comptime _ = @TypeOf(ev)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_SuperEvent(@ptrCast(self.ptr), @ptrCast(ev.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -961,12 +1181,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextEditor_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextEditor_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -978,13 +1202,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QKeyEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -994,12 +1218,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1009,10 +1237,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn WheelEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn wheelEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextCustomEditor__RichTextEditor_WheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1024,13 +1256,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QWheelEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1042,10 +1274,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superWheelEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QWheelEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `mousePopupMenu` instead
+    ///
+    pub const MousePopupMenu = mousePopupMenu;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1053,12 +1289,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn MousePopupMenu(self: TextCustomEditor__RichTextEditor, pos: anytype) QMenu {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_MousePopupMenu(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn mousePopupMenu(self: TextCustomEditor__RichTextEditor, _pos: anytype) QMenu {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_MousePopupMenu(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMousePopupMenu` instead
+    ///
+    pub const OnMousePopupMenu = onMousePopupMenu;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1070,13 +1310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, pos: QPoint) callconv(.c) QMenu `
     ///
-    pub fn OnMousePopupMenu(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) QMenu) void {
+    pub fn onMousePopupMenu(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) QMenu) void {
         qtc.TextCustomEditor__RichTextEditor_OnMousePopupMenu(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePopupMenu` instead
+    /// ### DEPRECATED: Use `superMousePopupMenu` instead
     ///
-    pub const QBaseMousePopupMenu = SuperMousePopupMenu;
+    pub const SuperMousePopupMenu = superMousePopupMenu;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1086,12 +1326,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SuperMousePopupMenu(self: TextCustomEditor__RichTextEditor, pos: anytype) QMenu {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperMousePopupMenu(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn superMousePopupMenu(self: TextCustomEditor__RichTextEditor, _pos: anytype) QMenu {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperMousePopupMenu(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createSpellCheckDecorator` instead
+    ///
+    pub const CreateSpellCheckDecorator = createSpellCheckDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1099,9 +1343,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CreateSpellCheckDecorator(self: TextCustomEditor__RichTextEditor) Sonnet__SpellCheckDecorator {
+    pub fn createSpellCheckDecorator(self: TextCustomEditor__RichTextEditor) Sonnet__SpellCheckDecorator {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_CreateSpellCheckDecorator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateSpellCheckDecorator` instead
+    ///
+    pub const OnCreateSpellCheckDecorator = onCreateSpellCheckDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1113,13 +1361,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) Sonnet__SpellCheckDecorator `
     ///
-    pub fn OnCreateSpellCheckDecorator(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) Sonnet__SpellCheckDecorator) void {
+    pub fn onCreateSpellCheckDecorator(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) Sonnet__SpellCheckDecorator) void {
         qtc.TextCustomEditor__RichTextEditor_OnCreateSpellCheckDecorator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateSpellCheckDecorator` instead
+    /// ### DEPRECATED: Use `superCreateSpellCheckDecorator` instead
     ///
-    pub const QBaseCreateSpellCheckDecorator = SuperCreateSpellCheckDecorator;
+    pub const SuperCreateSpellCheckDecorator = superCreateSpellCheckDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1129,9 +1377,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperCreateSpellCheckDecorator(self: TextCustomEditor__RichTextEditor) Sonnet__SpellCheckDecorator {
+    pub fn superCreateSpellCheckDecorator(self: TextCustomEditor__RichTextEditor) Sonnet__SpellCheckDecorator {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperCreateSpellCheckDecorator(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHighlighter` instead
+    ///
+    pub const SetHighlighter = setHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1141,10 +1393,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` _highLighter: Sonnet__Highlighter `
     ///
-    pub fn SetHighlighter(self: TextCustomEditor__RichTextEditor, _highLighter: anytype) void {
+    pub fn setHighlighter(self: TextCustomEditor__RichTextEditor, _highLighter: anytype) void {
         comptime _ = @TypeOf(_highLighter)._is_Sonnet__Highlighter;
         qtc.TextCustomEditor__RichTextEditor_SetHighlighter(@ptrCast(self.ptr), @ptrCast(_highLighter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetHighlighter` instead
+    ///
+    pub const OnSetHighlighter = onSetHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1156,13 +1412,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, _highLighter: Sonnet__Highlighter) callconv(.c) void `
     ///
-    pub fn OnSetHighlighter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, Sonnet__Highlighter) callconv(.c) void) void {
+    pub fn onSetHighlighter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, Sonnet__Highlighter) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnSetHighlighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetHighlighter` instead
+    /// ### DEPRECATED: Use `superSetHighlighter` instead
     ///
-    pub const QBaseSetHighlighter = SuperSetHighlighter;
+    pub const SuperSetHighlighter = superSetHighlighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1174,21 +1430,29 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` _highLighter: Sonnet__Highlighter `
     ///
-    pub fn SuperSetHighlighter(self: TextCustomEditor__RichTextEditor, _highLighter: anytype) void {
+    pub fn superSetHighlighter(self: TextCustomEditor__RichTextEditor, _highLighter: anytype) void {
         comptime _ = @TypeOf(_highLighter)._is_Sonnet__Highlighter;
         qtc.TextCustomEditor__RichTextEditor_SuperSetHighlighter(@ptrCast(self.ptr), @ptrCast(_highLighter.ptr));
     }
 
+    /// ### DEPRECATED: Use `updateHighLighter` instead
+    ///
+    pub const UpdateHighLighter = updateHighLighter;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UpdateHighLighter(self: TextCustomEditor__RichTextEditor) void {
+    pub fn updateHighLighter(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_UpdateHighLighter(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateHighLighter` instead
+    ///
+    pub const OnUpdateHighLighter = onUpdateHighLighter;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// Allows for overriding the related default method
@@ -1199,13 +1463,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateHighLighter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateHighLighter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnUpdateHighLighter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateHighLighter` instead
+    /// ### DEPRECATED: Use `superUpdateHighLighter` instead
     ///
-    pub const QBaseUpdateHighLighter = SuperUpdateHighLighter;
+    pub const SuperUpdateHighLighter = superUpdateHighLighter;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1215,9 +1479,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperUpdateHighLighter(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superUpdateHighLighter(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperUpdateHighLighter(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearDecorator` instead
+    ///
+    pub const ClearDecorator = clearDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1225,9 +1493,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ClearDecorator(self: TextCustomEditor__RichTextEditor) void {
+    pub fn clearDecorator(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_ClearDecorator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClearDecorator` instead
+    ///
+    pub const OnClearDecorator = onClearDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1239,13 +1511,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClearDecorator(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onClearDecorator(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnClearDecorator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClearDecorator` instead
+    /// ### DEPRECATED: Use `superClearDecorator` instead
     ///
-    pub const QBaseClearDecorator = SuperClearDecorator;
+    pub const SuperClearDecorator = superClearDecorator;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1255,9 +1527,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperClearDecorator(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superClearDecorator(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperClearDecorator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `say` instead
+    ///
+    pub const Say = say;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1267,13 +1543,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Say(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn say(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.TextCustomEditor__RichTextEditor_Say(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onSay` instead
+    ///
+    pub const OnSay = onSay;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1283,20 +1563,28 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSay(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSay(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_Say(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FindText(self: TextCustomEditor__RichTextEditor) void {
+    pub fn findText(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_FindText(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFindText` instead
+    ///
+    pub const OnFindText = onFindText;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameters:
@@ -1305,9 +1593,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnFindText(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onFindText(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_FindText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `replaceText` instead
+    ///
+    pub const ReplaceText = replaceText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1315,9 +1607,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ReplaceText(self: TextCustomEditor__RichTextEditor) void {
+    pub fn replaceText(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_ReplaceText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReplaceText` instead
+    ///
+    pub const OnReplaceText = onReplaceText;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1327,9 +1623,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnReplaceText(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onReplaceText(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_ReplaceText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spellCheckerAutoCorrect` instead
+    ///
+    pub const SpellCheckerAutoCorrect = spellCheckerAutoCorrect;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1341,7 +1641,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` autoCorrectWord: []const u8 `
     ///
-    pub fn SpellCheckerAutoCorrect(self: TextCustomEditor__RichTextEditor, currentWord: []const u8, autoCorrectWord: []const u8) void {
+    pub fn spellCheckerAutoCorrect(self: TextCustomEditor__RichTextEditor, currentWord: []const u8, autoCorrectWord: []const u8) void {
         const currentWord_str = qtc.libqt_string{
             .len = currentWord.len,
             .data = currentWord.ptr,
@@ -1353,6 +1653,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         qtc.TextCustomEditor__RichTextEditor_SpellCheckerAutoCorrect(@ptrCast(self.ptr), currentWord_str, autoCorrectWord_str);
     }
 
+    /// ### DEPRECATED: Use `onSpellCheckerAutoCorrect` instead
+    ///
+    pub const OnSpellCheckerAutoCorrect = onSpellCheckerAutoCorrect;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameters:
@@ -1361,9 +1665,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, currentWord: [*:0]const u8, autoCorrectWord: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSpellCheckerAutoCorrect(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSpellCheckerAutoCorrect(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8, [*:0]const u8) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_SpellCheckerAutoCorrect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `checkSpellingChanged` instead
+    ///
+    pub const CheckSpellingChanged = checkSpellingChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1373,9 +1681,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn CheckSpellingChanged(self: TextCustomEditor__RichTextEditor, param1: bool) void {
+    pub fn checkSpellingChanged(self: TextCustomEditor__RichTextEditor, param1: bool) void {
         qtc.TextCustomEditor__RichTextEditor_CheckSpellingChanged(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onCheckSpellingChanged` instead
+    ///
+    pub const OnCheckSpellingChanged = onCheckSpellingChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1385,9 +1697,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: bool) callconv(.c) void `
     ///
-    pub fn OnCheckSpellingChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onCheckSpellingChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_CheckSpellingChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `languageChanged` instead
+    ///
+    pub const LanguageChanged = languageChanged;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1397,7 +1713,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn LanguageChanged(self: TextCustomEditor__RichTextEditor, param1: []const u8) void {
+    pub fn languageChanged(self: TextCustomEditor__RichTextEditor, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
@@ -1405,6 +1721,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         qtc.TextCustomEditor__RichTextEditor_LanguageChanged(@ptrCast(self.ptr), param1_str);
     }
 
+    /// ### DEPRECATED: Use `onLanguageChanged` instead
+    ///
+    pub const OnLanguageChanged = onLanguageChanged;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameters:
@@ -1413,9 +1733,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnLanguageChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onLanguageChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_LanguageChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spellCheckStatus` instead
+    ///
+    pub const SpellCheckStatus = spellCheckStatus;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1425,13 +1749,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: []const u8 `
     ///
-    pub fn SpellCheckStatus(self: TextCustomEditor__RichTextEditor, param1: []const u8) void {
+    pub fn spellCheckStatus(self: TextCustomEditor__RichTextEditor, param1: []const u8) void {
         const param1_str = qtc.libqt_string{
             .len = param1.len,
             .data = param1.ptr,
         };
         qtc.TextCustomEditor__RichTextEditor_SpellCheckStatus(@ptrCast(self.ptr), param1_str);
     }
+
+    /// ### DEPRECATED: Use `onSpellCheckStatus` instead
+    ///
+    pub const OnSpellCheckStatus = onSpellCheckStatus;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1441,20 +1769,28 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSpellCheckStatus(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSpellCheckStatus(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_SpellCheckStatus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `spellCheckingFinished` instead
+    ///
+    pub const SpellCheckingFinished = spellCheckingFinished;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SpellCheckingFinished(self: TextCustomEditor__RichTextEditor) void {
+    pub fn spellCheckingFinished(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SpellCheckingFinished(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSpellCheckingFinished` instead
+    ///
+    pub const OnSpellCheckingFinished = onSpellCheckingFinished;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
     /// ## Parameters:
@@ -1463,9 +1799,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnSpellCheckingFinished(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onSpellCheckingFinished(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_SpellCheckingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `spellCheckingCanceled` instead
+    ///
+    pub const SpellCheckingCanceled = spellCheckingCanceled;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1473,9 +1813,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SpellCheckingCanceled(self: TextCustomEditor__RichTextEditor) void {
+    pub fn spellCheckingCanceled(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SpellCheckingCanceled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSpellCheckingCanceled` instead
+    ///
+    pub const OnSpellCheckingCanceled = onSpellCheckingCanceled;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
@@ -1485,9 +1829,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnSpellCheckingCanceled(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onSpellCheckingCanceled(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_Connect_SpellCheckingCanceled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1499,15 +1847,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1521,15 +1873,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setDocument` instead
+    ///
+    pub const SetDocument = setDocument;
 
     /// Inherited from QTextEdit
     ///
@@ -1539,12 +1895,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` document: QTextDocument `
+    /// ` _document: QTextDocument `
     ///
-    pub fn SetDocument(self: TextCustomEditor__RichTextEditor, document: anytype) void {
-        comptime _ = @TypeOf(document)._is_QTextDocument;
-        qtc.QTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(document.ptr));
+    pub fn setDocument(self: TextCustomEditor__RichTextEditor, _document: anytype) void {
+        comptime _ = @TypeOf(_document)._is_QTextDocument;
+        qtc.QTextEdit_SetDocument(@ptrCast(self.ptr), @ptrCast(_document.ptr));
     }
+
+    /// ### DEPRECATED: Use `document` instead
+    ///
+    pub const Document = document;
 
     /// Inherited from QTextEdit
     ///
@@ -1554,9 +1914,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Document(self: TextCustomEditor__RichTextEditor) QTextDocument {
+    pub fn document(self: TextCustomEditor__RichTextEditor) QTextDocument {
         return .{ .ptr = qtc.QTextEdit_Document(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPlaceholderText` instead
+    ///
+    pub const SetPlaceholderText = setPlaceholderText;
 
     /// Inherited from QTextEdit
     ///
@@ -1566,15 +1930,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` placeholderText: []const u8 `
+    /// ` _placeholderText: []const u8 `
     ///
-    pub fn SetPlaceholderText(self: TextCustomEditor__RichTextEditor, placeholderText: []const u8) void {
+    pub fn setPlaceholderText(self: TextCustomEditor__RichTextEditor, _placeholderText: []const u8) void {
         const placeholderText_str = qtc.libqt_string{
-            .len = placeholderText.len,
-            .data = placeholderText.ptr,
+            .len = _placeholderText.len,
+            .data = _placeholderText.ptr,
         };
         qtc.QTextEdit_SetPlaceholderText(@ptrCast(self.ptr), placeholderText_str);
     }
+
+    /// ### DEPRECATED: Use `placeholderText` instead
+    ///
+    pub const PlaceholderText = placeholderText;
 
     /// Inherited from QTextEdit
     ///
@@ -1586,13 +1954,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PlaceholderText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn placeholderText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_PlaceholderText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.PlaceholderText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.placeholderText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTextCursor` instead
+    ///
+    pub const SetTextCursor = setTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -1602,12 +1974,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SetTextCursor(self: TextCustomEditor__RichTextEditor, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.QTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setTextCursor(self: TextCustomEditor__RichTextEditor, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.QTextEdit_SetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `textCursor` instead
+    ///
+    pub const TextCursor = textCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -1617,9 +1993,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TextCursor(self: TextCustomEditor__RichTextEditor) QTextCursor {
+    pub fn textCursor(self: TextCustomEditor__RichTextEditor) QTextCursor {
         return .{ .ptr = qtc.QTextEdit_TextCursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isReadOnly` instead
+    ///
+    pub const IsReadOnly = isReadOnly;
 
     /// Inherited from QTextEdit
     ///
@@ -1629,9 +2009,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsReadOnly(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isReadOnly(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_IsReadOnly(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextInteractionFlags` instead
+    ///
+    pub const SetTextInteractionFlags = setTextInteractionFlags;
 
     /// Inherited from QTextEdit
     ///
@@ -1643,9 +2027,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn SetTextInteractionFlags(self: TextCustomEditor__RichTextEditor, flags: i32) void {
+    pub fn setTextInteractionFlags(self: TextCustomEditor__RichTextEditor, flags: i32) void {
         qtc.QTextEdit_SetTextInteractionFlags(@ptrCast(self.ptr), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `textInteractionFlags` instead
+    ///
+    pub const TextInteractionFlags = textInteractionFlags;
 
     /// Inherited from QTextEdit
     ///
@@ -1659,9 +2047,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qnamespace_enums.TextInteractionFlag `
     ///
-    pub fn TextInteractionFlags(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn textInteractionFlags(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_TextInteractionFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontPointSize` instead
+    ///
+    pub const FontPointSize = fontPointSize;
 
     /// Inherited from QTextEdit
     ///
@@ -1671,9 +2063,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontPointSize(self: TextCustomEditor__RichTextEditor) f64 {
+    pub fn fontPointSize(self: TextCustomEditor__RichTextEditor) f64 {
         return qtc.QTextEdit_FontPointSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontFamily` instead
+    ///
+    pub const FontFamily = fontFamily;
 
     /// Inherited from QTextEdit
     ///
@@ -1685,13 +2081,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FontFamily(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn fontFamily(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_FontFamily(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.FontFamily: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.fontFamily: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `fontWeight` instead
+    ///
+    pub const FontWeight = fontWeight;
 
     /// Inherited from QTextEdit
     ///
@@ -1701,9 +2101,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontWeight(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn fontWeight(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_FontWeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontUnderline` instead
+    ///
+    pub const FontUnderline = fontUnderline;
 
     /// Inherited from QTextEdit
     ///
@@ -1713,9 +2117,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontUnderline(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn fontUnderline(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_FontUnderline(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontItalic` instead
+    ///
+    pub const FontItalic = fontItalic;
 
     /// Inherited from QTextEdit
     ///
@@ -1725,9 +2133,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontItalic(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn fontItalic(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_FontItalic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textColor` instead
+    ///
+    pub const TextColor = textColor;
 
     /// Inherited from QTextEdit
     ///
@@ -1737,9 +2149,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TextColor(self: TextCustomEditor__RichTextEditor) QColor {
+    pub fn textColor(self: TextCustomEditor__RichTextEditor) QColor {
         return .{ .ptr = qtc.QTextEdit_TextColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textBackgroundColor` instead
+    ///
+    pub const TextBackgroundColor = textBackgroundColor;
 
     /// Inherited from QTextEdit
     ///
@@ -1749,9 +2165,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TextBackgroundColor(self: TextCustomEditor__RichTextEditor) QColor {
+    pub fn textBackgroundColor(self: TextCustomEditor__RichTextEditor) QColor {
         return .{ .ptr = qtc.QTextEdit_TextBackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `currentFont` instead
+    ///
+    pub const CurrentFont = currentFont;
 
     /// Inherited from QTextEdit
     ///
@@ -1761,9 +2181,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CurrentFont(self: TextCustomEditor__RichTextEditor) QFont {
+    pub fn currentFont(self: TextCustomEditor__RichTextEditor) QFont {
         return .{ .ptr = qtc.QTextEdit_CurrentFont(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `alignment` instead
+    ///
+    pub const Alignment = alignment;
 
     /// Inherited from QTextEdit
     ///
@@ -1777,9 +2201,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn Alignment(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn alignment(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_Alignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `mergeCurrentCharFormat` instead
+    ///
+    pub const MergeCurrentCharFormat = mergeCurrentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -1791,10 +2219,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` modifier: QTextCharFormat `
     ///
-    pub fn MergeCurrentCharFormat(self: TextCustomEditor__RichTextEditor, modifier: anytype) void {
+    pub fn mergeCurrentCharFormat(self: TextCustomEditor__RichTextEditor, modifier: anytype) void {
         comptime _ = @TypeOf(modifier)._is_QTextCharFormat;
         qtc.QTextEdit_MergeCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(modifier.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentCharFormat` instead
+    ///
+    pub const SetCurrentCharFormat = setCurrentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -1806,10 +2238,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn SetCurrentCharFormat(self: TextCustomEditor__RichTextEditor, format: anytype) void {
+    pub fn setCurrentCharFormat(self: TextCustomEditor__RichTextEditor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextEdit_SetCurrentCharFormat(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormat` instead
+    ///
+    pub const CurrentCharFormat = currentCharFormat;
 
     /// Inherited from QTextEdit
     ///
@@ -1819,9 +2255,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CurrentCharFormat(self: TextCustomEditor__RichTextEditor) QTextCharFormat {
+    pub fn currentCharFormat(self: TextCustomEditor__RichTextEditor) QTextCharFormat {
         return .{ .ptr = qtc.QTextEdit_CurrentCharFormat(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `autoFormatting` instead
+    ///
+    pub const AutoFormatting = autoFormatting;
 
     /// Inherited from QTextEdit
     ///
@@ -1835,9 +2275,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn AutoFormatting(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn autoFormatting(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_AutoFormatting(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFormatting` instead
+    ///
+    pub const SetAutoFormatting = setAutoFormatting;
 
     /// Inherited from QTextEdit
     ///
@@ -1849,9 +2293,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` features: flag of qtextedit_enums.AutoFormattingFlag `
     ///
-    pub fn SetAutoFormatting(self: TextCustomEditor__RichTextEditor, features: i32) void {
+    pub fn setAutoFormatting(self: TextCustomEditor__RichTextEditor, features: i32) void {
         qtc.QTextEdit_SetAutoFormatting(@ptrCast(self.ptr), @bitCast(features));
     }
+
+    /// ### DEPRECATED: Use `tabChangesFocus` instead
+    ///
+    pub const TabChangesFocus = tabChangesFocus;
 
     /// Inherited from QTextEdit
     ///
@@ -1861,9 +2309,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TabChangesFocus(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn tabChangesFocus(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_TabChangesFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabChangesFocus` instead
+    ///
+    pub const SetTabChangesFocus = setTabChangesFocus;
 
     /// Inherited from QTextEdit
     ///
@@ -1875,9 +2327,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetTabChangesFocus(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setTabChangesFocus(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_SetTabChangesFocus(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setDocumentTitle` instead
+    ///
+    pub const SetDocumentTitle = setDocumentTitle;
 
     /// Inherited from QTextEdit
     ///
@@ -1889,13 +2345,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn SetDocumentTitle(self: TextCustomEditor__RichTextEditor, title: []const u8) void {
+    pub fn setDocumentTitle(self: TextCustomEditor__RichTextEditor, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QTextEdit_SetDocumentTitle(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `documentTitle` instead
+    ///
+    pub const DocumentTitle = documentTitle;
 
     /// Inherited from QTextEdit
     ///
@@ -1907,13 +2367,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DocumentTitle(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn documentTitle(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_DocumentTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.DocumentTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.documentTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isUndoRedoEnabled` instead
+    ///
+    pub const IsUndoRedoEnabled = isUndoRedoEnabled;
 
     /// Inherited from QTextEdit
     ///
@@ -1923,9 +2387,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsUndoRedoEnabled(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isUndoRedoEnabled(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_IsUndoRedoEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUndoRedoEnabled` instead
+    ///
+    pub const SetUndoRedoEnabled = setUndoRedoEnabled;
 
     /// Inherited from QTextEdit
     ///
@@ -1937,9 +2405,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUndoRedoEnabled(self: TextCustomEditor__RichTextEditor, enable: bool) void {
+    pub fn setUndoRedoEnabled(self: TextCustomEditor__RichTextEditor, enable: bool) void {
         qtc.QTextEdit_SetUndoRedoEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `lineWrapMode` instead
+    ///
+    pub const LineWrapMode = lineWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -1953,9 +2425,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qtextedit_enums.LineWrapMode `
     ///
-    pub fn LineWrapMode(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn lineWrapMode(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_LineWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapMode` instead
+    ///
+    pub const SetLineWrapMode = setLineWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -1967,9 +2443,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` mode: qtextedit_enums.LineWrapMode `
     ///
-    pub fn SetLineWrapMode(self: TextCustomEditor__RichTextEditor, mode: i32) void {
+    pub fn setLineWrapMode(self: TextCustomEditor__RichTextEditor, mode: i32) void {
         qtc.QTextEdit_SetLineWrapMode(@ptrCast(self.ptr), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `lineWrapColumnOrWidth` instead
+    ///
+    pub const LineWrapColumnOrWidth = lineWrapColumnOrWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -1979,9 +2459,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn LineWrapColumnOrWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn lineWrapColumnOrWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_LineWrapColumnOrWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWrapColumnOrWidth` instead
+    ///
+    pub const SetLineWrapColumnOrWidth = setLineWrapColumnOrWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -1993,9 +2477,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetLineWrapColumnOrWidth(self: TextCustomEditor__RichTextEditor, w: i32) void {
+    pub fn setLineWrapColumnOrWidth(self: TextCustomEditor__RichTextEditor, w: i32) void {
         qtc.QTextEdit_SetLineWrapColumnOrWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `wordWrapMode` instead
+    ///
+    pub const WordWrapMode = wordWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -2009,9 +2497,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qtextoption_enums.WrapMode `
     ///
-    pub fn WordWrapMode(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn wordWrapMode(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_WordWrapMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWordWrapMode` instead
+    ///
+    pub const SetWordWrapMode = setWordWrapMode;
 
     /// Inherited from QTextEdit
     ///
@@ -2023,9 +2515,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` policy: qtextoption_enums.WrapMode `
     ///
-    pub fn SetWordWrapMode(self: TextCustomEditor__RichTextEditor, policy: i32) void {
+    pub fn setWordWrapMode(self: TextCustomEditor__RichTextEditor, policy: i32) void {
         qtc.QTextEdit_SetWordWrapMode(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QTextEdit
     ///
@@ -2037,13 +2533,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` exp: []const u8 `
     ///
-    pub fn Find(self: TextCustomEditor__RichTextEditor, exp: []const u8) bool {
+    pub fn find(self: TextCustomEditor__RichTextEditor, exp: []const u8) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QTextEdit_Find(@ptrCast(self.ptr), exp_str);
     }
+
+    /// ### DEPRECATED: Use `find2` instead
+    ///
+    pub const Find2 = find2;
 
     /// Inherited from QTextEdit
     ///
@@ -2055,10 +2555,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` exp: QRegularExpression `
     ///
-    pub fn Find2(self: TextCustomEditor__RichTextEditor, exp: anytype) bool {
+    pub fn find2(self: TextCustomEditor__RichTextEditor, exp: anytype) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QTextEdit_Find2(@ptrCast(self.ptr), @ptrCast(exp.ptr));
     }
+
+    /// ### DEPRECATED: Use `toPlainText` instead
+    ///
+    pub const ToPlainText = toPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -2070,13 +2574,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToPlainText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn toPlainText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToPlainText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ToPlainText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.toPlainText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toHtml` instead
+    ///
+    pub const ToHtml = toHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -2088,13 +2596,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToHtml(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn toHtml(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToHtml(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ToHtml: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.toHtml: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toMarkdown` instead
+    ///
+    pub const ToMarkdown = toMarkdown;
 
     /// Inherited from QTextEdit
     ///
@@ -2106,13 +2618,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToMarkdown(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn toMarkdown(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ToMarkdown: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.toMarkdown: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `ensureCursorVisible` instead
+    ///
+    pub const EnsureCursorVisible = ensureCursorVisible;
 
     /// Inherited from QTextEdit
     ///
@@ -2122,9 +2638,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn EnsureCursorVisible(self: TextCustomEditor__RichTextEditor) void {
+    pub fn ensureCursorVisible(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_EnsureCursorVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// Inherited from QTextEdit
     ///
@@ -2134,9 +2654,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CreateStandardContextMenu(self: TextCustomEditor__RichTextEditor) QMenu {
+    pub fn createStandardContextMenu(self: TextCustomEditor__RichTextEditor) QMenu {
         return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu2` instead
+    ///
+    pub const CreateStandardContextMenu2 = createStandardContextMenu2;
 
     /// Inherited from QTextEdit
     ///
@@ -2148,10 +2672,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` position: QPoint `
     ///
-    pub fn CreateStandardContextMenu2(self: TextCustomEditor__RichTextEditor, position: anytype) QMenu {
+    pub fn createStandardContextMenu2(self: TextCustomEditor__RichTextEditor, position: anytype) QMenu {
         comptime _ = @TypeOf(position)._is_QPoint;
         return .{ .ptr = qtc.QTextEdit_CreateStandardContextMenu2(@ptrCast(self.ptr), @ptrCast(position.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorForPosition` instead
+    ///
+    pub const CursorForPosition = cursorForPosition;
 
     /// Inherited from QTextEdit
     ///
@@ -2161,12 +2689,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CursorForPosition(self: TextCustomEditor__RichTextEditor, pos: anytype) QTextCursor {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        return .{ .ptr = qtc.QTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(pos.ptr)) };
+    pub fn cursorForPosition(self: TextCustomEditor__RichTextEditor, _pos: anytype) QTextCursor {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        return .{ .ptr = qtc.QTextEdit_CursorForPosition(@ptrCast(self.ptr), @ptrCast(_pos.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect` instead
+    ///
+    pub const CursorRect = cursorRect;
 
     /// Inherited from QTextEdit
     ///
@@ -2176,12 +2708,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn CursorRect(self: TextCustomEditor__RichTextEditor, cursor: anytype) QRect {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        return .{ .ptr = qtc.QTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(cursor.ptr)) };
+    pub fn cursorRect(self: TextCustomEditor__RichTextEditor, _cursor: anytype) QRect {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        return .{ .ptr = qtc.QTextEdit_CursorRect(@ptrCast(self.ptr), @ptrCast(_cursor.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursorRect2` instead
+    ///
+    pub const CursorRect2 = cursorRect2;
 
     /// Inherited from QTextEdit
     ///
@@ -2191,9 +2727,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CursorRect2(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn cursorRect2(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QTextEdit_CursorRect2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `anchorAt` instead
+    ///
+    pub const AnchorAt = anchorAt;
 
     /// Inherited from QTextEdit
     ///
@@ -2205,16 +2745,20 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn AnchorAt(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, pos: anytype) []const u8 {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn anchorAt(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, _pos: anytype) []const u8 {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        var _str = qtc.QTextEdit_AnchorAt(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.AnchorAt: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.anchorAt: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `overwriteMode` instead
+    ///
+    pub const OverwriteMode = overwriteMode;
 
     /// Inherited from QTextEdit
     ///
@@ -2224,9 +2768,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn OverwriteMode(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn overwriteMode(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_OverwriteMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOverwriteMode` instead
+    ///
+    pub const SetOverwriteMode = setOverwriteMode;
 
     /// Inherited from QTextEdit
     ///
@@ -2238,9 +2786,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` overwrite: bool `
     ///
-    pub fn SetOverwriteMode(self: TextCustomEditor__RichTextEditor, overwrite: bool) void {
+    pub fn setOverwriteMode(self: TextCustomEditor__RichTextEditor, overwrite: bool) void {
         qtc.QTextEdit_SetOverwriteMode(@ptrCast(self.ptr), overwrite);
     }
+
+    /// ### DEPRECATED: Use `tabStopDistance` instead
+    ///
+    pub const TabStopDistance = tabStopDistance;
 
     /// Inherited from QTextEdit
     ///
@@ -2250,9 +2802,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TabStopDistance(self: TextCustomEditor__RichTextEditor) f64 {
+    pub fn tabStopDistance(self: TextCustomEditor__RichTextEditor) f64 {
         return qtc.QTextEdit_TabStopDistance(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabStopDistance` instead
+    ///
+    pub const SetTabStopDistance = setTabStopDistance;
 
     /// Inherited from QTextEdit
     ///
@@ -2264,9 +2820,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` distance: f64 `
     ///
-    pub fn SetTabStopDistance(self: TextCustomEditor__RichTextEditor, distance: f64) void {
+    pub fn setTabStopDistance(self: TextCustomEditor__RichTextEditor, distance: f64) void {
         qtc.QTextEdit_SetTabStopDistance(@ptrCast(self.ptr), @bitCast(distance));
     }
+
+    /// ### DEPRECATED: Use `cursorWidth` instead
+    ///
+    pub const CursorWidth = cursorWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -2276,9 +2836,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CursorWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn cursorWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QTextEdit_CursorWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCursorWidth` instead
+    ///
+    pub const SetCursorWidth = setCursorWidth;
 
     /// Inherited from QTextEdit
     ///
@@ -2288,11 +2852,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` width: i32 `
+    /// ` _width: i32 `
     ///
-    pub fn SetCursorWidth(self: TextCustomEditor__RichTextEditor, width: i32) void {
-        qtc.QTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(width));
+    pub fn setCursorWidth(self: TextCustomEditor__RichTextEditor, _width: i32) void {
+        qtc.QTextEdit_SetCursorWidth(@ptrCast(self.ptr), @bitCast(_width));
     }
+
+    /// ### DEPRECATED: Use `acceptRichText` instead
+    ///
+    pub const AcceptRichText = acceptRichText;
 
     /// Inherited from QTextEdit
     ///
@@ -2302,9 +2870,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn AcceptRichText(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn acceptRichText(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_AcceptRichText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptRichText` instead
+    ///
+    pub const SetAcceptRichText = setAcceptRichText;
 
     /// Inherited from QTextEdit
     ///
@@ -2316,9 +2888,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` accept: bool `
     ///
-    pub fn SetAcceptRichText(self: TextCustomEditor__RichTextEditor, accept: bool) void {
+    pub fn setAcceptRichText(self: TextCustomEditor__RichTextEditor, accept: bool) void {
         qtc.QTextEdit_SetAcceptRichText(@ptrCast(self.ptr), accept);
     }
+
+    /// ### DEPRECATED: Use `setExtraSelections` instead
+    ///
+    pub const SetExtraSelections = setExtraSelections;
 
     /// Inherited from QTextEdit
     ///
@@ -2330,13 +2906,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` selections: []QTextEdit__ExtraSelection `
     ///
-    pub fn SetExtraSelections(self: TextCustomEditor__RichTextEditor, selections: []QTextEdit__ExtraSelection) void {
+    pub fn setExtraSelections(self: TextCustomEditor__RichTextEditor, selections: []QTextEdit__ExtraSelection) void {
         const selections_list = qtc.libqt_list{
             .len = selections.len,
             .data = @ptrCast(selections.ptr),
         };
         qtc.QTextEdit_SetExtraSelections(@ptrCast(self.ptr), selections_list);
     }
+
+    /// ### DEPRECATED: Use `extraSelections` instead
+    ///
+    pub const ExtraSelections = extraSelections;
 
     /// Inherited from QTextEdit
     ///
@@ -2348,15 +2928,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ExtraSelections(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
+    pub fn extraSelections(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QTextEdit__ExtraSelection {
         const _arr: qtc.libqt_list = qtc.QTextEdit_ExtraSelections(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.ExtraSelections: Memory allocation failed");
-        const _data: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QTextEdit__ExtraSelection, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.extraSelections: Memory allocation failed");
+        const _data_val: [*]QtC.QTextEdit__ExtraSelection = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor` instead
+    ///
+    pub const MoveCursor = moveCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -2368,9 +2952,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` operation: qtextcursor_enums.MoveOperation `
     ///
-    pub fn MoveCursor(self: TextCustomEditor__RichTextEditor, operation: i32) void {
+    pub fn moveCursor(self: TextCustomEditor__RichTextEditor, operation: i32) void {
         qtc.QTextEdit_MoveCursor(@ptrCast(self.ptr), @bitCast(operation));
     }
+
+    /// ### DEPRECATED: Use `canPaste` instead
+    ///
+    pub const CanPaste = canPaste;
 
     /// Inherited from QTextEdit
     ///
@@ -2380,9 +2968,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CanPaste(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn canPaste(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QTextEdit_CanPaste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// Inherited from QTextEdit
     ///
@@ -2394,10 +2986,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` printer: QPagedPaintDevice `
     ///
-    pub fn Print(self: TextCustomEditor__RichTextEditor, printer: anytype) void {
+    pub fn print(self: TextCustomEditor__RichTextEditor, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPagedPaintDevice;
         qtc.QTextEdit_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery2` instead
+    ///
+    pub const InputMethodQuery2 = inputMethodQuery2;
 
     /// Inherited from QTextEdit
     ///
@@ -2411,10 +3007,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` argument: QVariant `
     ///
-    pub fn InputMethodQuery2(self: TextCustomEditor__RichTextEditor, query: i32, argument: anytype) QVariant {
+    pub fn inputMethodQuery2(self: TextCustomEditor__RichTextEditor, query: i32, argument: anytype) QVariant {
         comptime _ = @TypeOf(argument)._is_QVariant;
         return .{ .ptr = qtc.QTextEdit_InputMethodQuery2(@ptrCast(self.ptr), @bitCast(query), @ptrCast(argument.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFontPointSize` instead
+    ///
+    pub const SetFontPointSize = setFontPointSize;
 
     /// Inherited from QTextEdit
     ///
@@ -2426,9 +3026,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` s: f64 `
     ///
-    pub fn SetFontPointSize(self: TextCustomEditor__RichTextEditor, s: f64) void {
+    pub fn setFontPointSize(self: TextCustomEditor__RichTextEditor, s: f64) void {
         qtc.QTextEdit_SetFontPointSize(@ptrCast(self.ptr), @bitCast(s));
     }
+
+    /// ### DEPRECATED: Use `setFontFamily` instead
+    ///
+    pub const SetFontFamily = setFontFamily;
 
     /// Inherited from QTextEdit
     ///
@@ -2438,15 +3042,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` fontFamily: []const u8 `
+    /// ` _fontFamily: []const u8 `
     ///
-    pub fn SetFontFamily(self: TextCustomEditor__RichTextEditor, fontFamily: []const u8) void {
+    pub fn setFontFamily(self: TextCustomEditor__RichTextEditor, _fontFamily: []const u8) void {
         const fontFamily_str = qtc.libqt_string{
-            .len = fontFamily.len,
-            .data = fontFamily.ptr,
+            .len = _fontFamily.len,
+            .data = _fontFamily.ptr,
         };
         qtc.QTextEdit_SetFontFamily(@ptrCast(self.ptr), fontFamily_str);
     }
+
+    /// ### DEPRECATED: Use `setFontWeight` instead
+    ///
+    pub const SetFontWeight = setFontWeight;
 
     /// Inherited from QTextEdit
     ///
@@ -2458,9 +3066,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFontWeight(self: TextCustomEditor__RichTextEditor, w: i32) void {
+    pub fn setFontWeight(self: TextCustomEditor__RichTextEditor, w: i32) void {
         qtc.QTextEdit_SetFontWeight(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFontUnderline` instead
+    ///
+    pub const SetFontUnderline = setFontUnderline;
 
     /// Inherited from QTextEdit
     ///
@@ -2472,9 +3084,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontUnderline(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setFontUnderline(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_SetFontUnderline(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setFontItalic` instead
+    ///
+    pub const SetFontItalic = setFontItalic;
 
     /// Inherited from QTextEdit
     ///
@@ -2486,9 +3102,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetFontItalic(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn setFontItalic(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_SetFontItalic(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `setTextColor` instead
+    ///
+    pub const SetTextColor = setTextColor;
 
     /// Inherited from QTextEdit
     ///
@@ -2500,10 +3120,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetTextColor(self: TextCustomEditor__RichTextEditor, c: anytype) void {
+    pub fn setTextColor(self: TextCustomEditor__RichTextEditor, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QTextEdit_SetTextColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextBackgroundColor` instead
+    ///
+    pub const SetTextBackgroundColor = setTextBackgroundColor;
 
     /// Inherited from QTextEdit
     ///
@@ -2515,10 +3139,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` c: QColor `
     ///
-    pub fn SetTextBackgroundColor(self: TextCustomEditor__RichTextEditor, c: anytype) void {
+    pub fn setTextBackgroundColor(self: TextCustomEditor__RichTextEditor, c: anytype) void {
         comptime _ = @TypeOf(c)._is_QColor;
         qtc.QTextEdit_SetTextBackgroundColor(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentFont` instead
+    ///
+    pub const SetCurrentFont = setCurrentFont;
 
     /// Inherited from QTextEdit
     ///
@@ -2530,10 +3158,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` f: QFont `
     ///
-    pub fn SetCurrentFont(self: TextCustomEditor__RichTextEditor, f: anytype) void {
+    pub fn setCurrentFont(self: TextCustomEditor__RichTextEditor, f: anytype) void {
         comptime _ = @TypeOf(f)._is_QFont;
         qtc.QTextEdit_SetCurrentFont(@ptrCast(self.ptr), @ptrCast(f.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAlignment` instead
+    ///
+    pub const SetAlignment = setAlignment;
 
     /// Inherited from QTextEdit
     ///
@@ -2545,9 +3177,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` a: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetAlignment(self: TextCustomEditor__RichTextEditor, a: i32) void {
+    pub fn setAlignment(self: TextCustomEditor__RichTextEditor, a: i32) void {
         qtc.QTextEdit_SetAlignment(@ptrCast(self.ptr), @bitCast(a));
     }
+
+    /// ### DEPRECATED: Use `setPlainText` instead
+    ///
+    pub const SetPlainText = setPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -2559,13 +3195,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetPlainText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn setPlainText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setHtml` instead
+    ///
+    pub const SetHtml = setHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -2577,13 +3217,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetHtml(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn setHtml(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetHtml(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `setMarkdown` instead
+    ///
+    pub const SetMarkdown = setMarkdown;
 
     /// Inherited from QTextEdit
     ///
@@ -2595,13 +3239,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` markdown: []const u8 `
     ///
-    pub fn SetMarkdown(self: TextCustomEditor__RichTextEditor, markdown: []const u8) void {
+    pub fn setMarkdown(self: TextCustomEditor__RichTextEditor, markdown: []const u8) void {
         const markdown_str = qtc.libqt_string{
             .len = markdown.len,
             .data = markdown.ptr,
         };
         qtc.QTextEdit_SetMarkdown(@ptrCast(self.ptr), markdown_str);
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QTextEdit
     ///
@@ -2613,13 +3261,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SetText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn setText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `cut` instead
+    ///
+    pub const Cut = cut;
 
     /// Inherited from QTextEdit
     ///
@@ -2629,9 +3281,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Cut(self: TextCustomEditor__RichTextEditor) void {
+    pub fn cut(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Cut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `copy` instead
+    ///
+    pub const Copy = copy;
 
     /// Inherited from QTextEdit
     ///
@@ -2641,9 +3297,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Copy(self: TextCustomEditor__RichTextEditor) void {
+    pub fn copy(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Copy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `paste` instead
+    ///
+    pub const Paste = paste;
 
     /// Inherited from QTextEdit
     ///
@@ -2653,9 +3313,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Paste(self: TextCustomEditor__RichTextEditor) void {
+    pub fn paste(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Paste(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `undo` instead
+    ///
+    pub const Undo = undo;
 
     /// Inherited from QTextEdit
     ///
@@ -2665,9 +3329,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Undo(self: TextCustomEditor__RichTextEditor) void {
+    pub fn undo(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Undo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `redo` instead
+    ///
+    pub const Redo = redo;
 
     /// Inherited from QTextEdit
     ///
@@ -2677,9 +3345,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Redo(self: TextCustomEditor__RichTextEditor) void {
+    pub fn redo(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Redo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QTextEdit
     ///
@@ -2689,9 +3361,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Clear(self: TextCustomEditor__RichTextEditor) void {
+    pub fn clear(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectAll` instead
+    ///
+    pub const SelectAll = selectAll;
 
     /// Inherited from QTextEdit
     ///
@@ -2701,9 +3377,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SelectAll(self: TextCustomEditor__RichTextEditor) void {
+    pub fn selectAll(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_SelectAll(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertPlainText` instead
+    ///
+    pub const InsertPlainText = insertPlainText;
 
     /// Inherited from QTextEdit
     ///
@@ -2715,13 +3395,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertPlainText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn insertPlainText(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_InsertPlainText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `insertHtml` instead
+    ///
+    pub const InsertHtml = insertHtml;
 
     /// Inherited from QTextEdit
     ///
@@ -2733,13 +3417,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn InsertHtml(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn insertHtml(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_InsertHtml(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// Inherited from QTextEdit
     ///
@@ -2751,13 +3439,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Append(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
+    pub fn append(self: TextCustomEditor__RichTextEditor, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.QTextEdit_Append(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `scrollToAnchor` instead
+    ///
+    pub const ScrollToAnchor = scrollToAnchor;
 
     /// Inherited from QTextEdit
     ///
@@ -2769,13 +3461,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn ScrollToAnchor(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
+    pub fn scrollToAnchor(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QTextEdit_ScrollToAnchor(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `zoomIn` instead
+    ///
+    pub const ZoomIn = zoomIn;
 
     /// Inherited from QTextEdit
     ///
@@ -2785,9 +3481,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ZoomIn(self: TextCustomEditor__RichTextEditor) void {
+    pub fn zoomIn(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_ZoomIn(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `zoomOut` instead
+    ///
+    pub const ZoomOut = zoomOut;
 
     /// Inherited from QTextEdit
     ///
@@ -2797,9 +3497,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ZoomOut(self: TextCustomEditor__RichTextEditor) void {
+    pub fn zoomOut(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_ZoomOut(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `textChanged` instead
+    ///
+    pub const TextChanged = textChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2809,9 +3513,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TextChanged(self: TextCustomEditor__RichTextEditor) void {
+    pub fn textChanged(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_TextChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTextChanged` instead
+    ///
+    pub const OnTextChanged = onTextChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2823,10 +3531,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnTextChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onTextChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.QTextEdit_Connect_TextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `undoAvailable` instead
+    ///
+    pub const UndoAvailable = undoAvailable;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
@@ -2837,10 +3549,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn UndoAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn undoAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_UndoAvailable(@ptrCast(self.ptr), b);
     }
 
+    /// ### DEPRECATED: Use `onUndoAvailable` instead
+    ///
+    pub const OnUndoAvailable = onUndoAvailable;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#undoAvailable)
@@ -2851,9 +3567,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, b: bool) callconv(.c) void `
     ///
-    pub fn OnUndoAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onUndoAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_UndoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redoAvailable` instead
+    ///
+    pub const RedoAvailable = redoAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -2865,9 +3585,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn RedoAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn redoAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_RedoAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onRedoAvailable` instead
+    ///
+    pub const OnRedoAvailable = onRedoAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -2879,9 +3603,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, b: bool) callconv(.c) void `
     ///
-    pub fn OnRedoAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onRedoAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_RedoAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentCharFormatChanged` instead
+    ///
+    pub const CurrentCharFormatChanged = currentCharFormatChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2893,10 +3621,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` format: QTextCharFormat `
     ///
-    pub fn CurrentCharFormatChanged(self: TextCustomEditor__RichTextEditor, format: anytype) void {
+    pub fn currentCharFormatChanged(self: TextCustomEditor__RichTextEditor, format: anytype) void {
         comptime _ = @TypeOf(format)._is_QTextCharFormat;
         qtc.QTextEdit_CurrentCharFormatChanged(@ptrCast(self.ptr), @ptrCast(format.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCurrentCharFormatChanged` instead
+    ///
+    pub const OnCurrentCharFormatChanged = onCurrentCharFormatChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2908,9 +3640,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, format: QTextCharFormat) callconv(.c) void `
     ///
-    pub fn OnCurrentCharFormatChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTextCharFormat) callconv(.c) void) void {
+    pub fn onCurrentCharFormatChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTextCharFormat) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CurrentCharFormatChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `copyAvailable` instead
+    ///
+    pub const CopyAvailable = copyAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -2922,9 +3658,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn CopyAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
+    pub fn copyAvailable(self: TextCustomEditor__RichTextEditor, b: bool) void {
         qtc.QTextEdit_CopyAvailable(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `onCopyAvailable` instead
+    ///
+    pub const OnCopyAvailable = onCopyAvailable;
 
     /// Inherited from QTextEdit
     ///
@@ -2936,10 +3676,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, b: bool) callconv(.c) void `
     ///
-    pub fn OnCopyAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onCopyAvailable(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CopyAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
@@ -2948,10 +3692,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SelectionChanged(self: TextCustomEditor__RichTextEditor) void {
+    pub fn selectionChanged(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_SelectionChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#selectionChanged)
@@ -2962,9 +3710,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.QTextEdit_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `cursorPositionChanged` instead
+    ///
+    pub const CursorPositionChanged = cursorPositionChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2974,9 +3726,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CursorPositionChanged(self: TextCustomEditor__RichTextEditor) void {
+    pub fn cursorPositionChanged(self: TextCustomEditor__RichTextEditor) void {
         qtc.QTextEdit_CursorPositionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCursorPositionChanged` instead
+    ///
+    pub const OnCursorPositionChanged = onCursorPositionChanged;
 
     /// Inherited from QTextEdit
     ///
@@ -2988,9 +3744,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnCursorPositionChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onCursorPositionChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.QTextEdit_Connect_CursorPositionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `find22` instead
+    ///
+    pub const Find22 = find22;
 
     /// Inherited from QTextEdit
     ///
@@ -3004,13 +3764,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find22(self: TextCustomEditor__RichTextEditor, exp: []const u8, options: i32) bool {
+    pub fn find22(self: TextCustomEditor__RichTextEditor, exp: []const u8, options: i32) bool {
         const exp_str = qtc.libqt_string{
             .len = exp.len,
             .data = exp.ptr,
         };
         return qtc.QTextEdit_Find22(@ptrCast(self.ptr), exp_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `find23` instead
+    ///
+    pub const Find23 = find23;
 
     /// Inherited from QTextEdit
     ///
@@ -3024,10 +3788,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` options: flag of qtextdocument_enums.FindFlag `
     ///
-    pub fn Find23(self: TextCustomEditor__RichTextEditor, exp: anytype, options: i32) bool {
+    pub fn find23(self: TextCustomEditor__RichTextEditor, exp: anytype, options: i32) bool {
         comptime _ = @TypeOf(exp)._is_QRegularExpression;
         return qtc.QTextEdit_Find23(@ptrCast(self.ptr), @ptrCast(exp.ptr), @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `toMarkdown1` instead
+    ///
+    pub const ToMarkdown1 = toMarkdown1;
 
     /// Inherited from QTextEdit
     ///
@@ -3041,13 +3809,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` features: flag of qtextdocument_enums.MarkdownFeature `
     ///
-    pub fn ToMarkdown1(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, features: i32) []const u8 {
+    pub fn toMarkdown1(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, features: i32) []const u8 {
         var _str = qtc.QTextEdit_ToMarkdown1(@ptrCast(self.ptr), @bitCast(features));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ToMarkdown1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.toMarkdown1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `moveCursor2` instead
+    ///
+    pub const MoveCursor2 = moveCursor2;
 
     /// Inherited from QTextEdit
     ///
@@ -3061,9 +3833,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` mode: qtextcursor_enums.MoveMode `
     ///
-    pub fn MoveCursor2(self: TextCustomEditor__RichTextEditor, operation: i32, mode: i32) void {
+    pub fn moveCursor2(self: TextCustomEditor__RichTextEditor, operation: i32, mode: i32) void {
         qtc.QTextEdit_MoveCursor2(@ptrCast(self.ptr), @bitCast(operation), @bitCast(mode));
     }
+
+    /// ### DEPRECATED: Use `zoomIn1` instead
+    ///
+    pub const ZoomIn1 = zoomIn1;
 
     /// Inherited from QTextEdit
     ///
@@ -3075,9 +3851,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomIn1(self: TextCustomEditor__RichTextEditor, range: i32) void {
+    pub fn zoomIn1(self: TextCustomEditor__RichTextEditor, range: i32) void {
         qtc.QTextEdit_ZoomIn1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `zoomOut1` instead
+    ///
+    pub const ZoomOut1 = zoomOut1;
 
     /// Inherited from QTextEdit
     ///
@@ -3089,9 +3869,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` range: i32 `
     ///
-    pub fn ZoomOut1(self: TextCustomEditor__RichTextEditor, range: i32) void {
+    pub fn zoomOut1(self: TextCustomEditor__RichTextEditor, range: i32) void {
         qtc.QTextEdit_ZoomOut1(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBarPolicy` instead
+    ///
+    pub const VerticalScrollBarPolicy = verticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3105,9 +3889,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn VerticalScrollBarPolicy(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn verticalScrollBarPolicy(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QAbstractScrollArea_VerticalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBarPolicy` instead
+    ///
+    pub const SetVerticalScrollBarPolicy = setVerticalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3117,11 +3905,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _verticalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetVerticalScrollBarPolicy(self: TextCustomEditor__RichTextEditor, verticalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(verticalScrollBarPolicy));
+    pub fn setVerticalScrollBarPolicy(self: TextCustomEditor__RichTextEditor, _verticalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetVerticalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_verticalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `verticalScrollBar` instead
+    ///
+    pub const VerticalScrollBar = verticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3131,9 +3923,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn VerticalScrollBar(self: TextCustomEditor__RichTextEditor) QScrollBar {
+    pub fn verticalScrollBar(self: TextCustomEditor__RichTextEditor) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_VerticalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVerticalScrollBar` instead
+    ///
+    pub const SetVerticalScrollBar = setVerticalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3145,10 +3941,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetVerticalScrollBar(self: TextCustomEditor__RichTextEditor, scrollbar: anytype) void {
+    pub fn setVerticalScrollBar(self: TextCustomEditor__RichTextEditor, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetVerticalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBarPolicy` instead
+    ///
+    pub const HorizontalScrollBarPolicy = horizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3162,9 +3962,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn HorizontalScrollBarPolicy(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn horizontalScrollBarPolicy(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QAbstractScrollArea_HorizontalScrollBarPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBarPolicy` instead
+    ///
+    pub const SetHorizontalScrollBarPolicy = setHorizontalScrollBarPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3174,11 +3978,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
+    /// ` _horizontalScrollBarPolicy: qnamespace_enums.ScrollBarPolicy `
     ///
-    pub fn SetHorizontalScrollBarPolicy(self: TextCustomEditor__RichTextEditor, horizontalScrollBarPolicy: i32) void {
-        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(horizontalScrollBarPolicy));
+    pub fn setHorizontalScrollBarPolicy(self: TextCustomEditor__RichTextEditor, _horizontalScrollBarPolicy: i32) void {
+        qtc.QAbstractScrollArea_SetHorizontalScrollBarPolicy(@ptrCast(self.ptr), @bitCast(_horizontalScrollBarPolicy));
     }
+
+    /// ### DEPRECATED: Use `horizontalScrollBar` instead
+    ///
+    pub const HorizontalScrollBar = horizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3188,9 +3996,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HorizontalScrollBar(self: TextCustomEditor__RichTextEditor) QScrollBar {
+    pub fn horizontalScrollBar(self: TextCustomEditor__RichTextEditor) QScrollBar {
         return .{ .ptr = qtc.QAbstractScrollArea_HorizontalScrollBar(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setHorizontalScrollBar` instead
+    ///
+    pub const SetHorizontalScrollBar = setHorizontalScrollBar;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3202,10 +4014,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` scrollbar: QScrollBar `
     ///
-    pub fn SetHorizontalScrollBar(self: TextCustomEditor__RichTextEditor, scrollbar: anytype) void {
+    pub fn setHorizontalScrollBar(self: TextCustomEditor__RichTextEditor, scrollbar: anytype) void {
         comptime _ = @TypeOf(scrollbar)._is_QScrollBar;
         qtc.QAbstractScrollArea_SetHorizontalScrollBar(@ptrCast(self.ptr), @ptrCast(scrollbar.ptr));
     }
+
+    /// ### DEPRECATED: Use `cornerWidget` instead
+    ///
+    pub const CornerWidget = cornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3215,9 +4031,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CornerWidget(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn cornerWidget(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_CornerWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCornerWidget` instead
+    ///
+    pub const SetCornerWidget = setCornerWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3229,10 +4049,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetCornerWidget(self: TextCustomEditor__RichTextEditor, widget: anytype) void {
+    pub fn setCornerWidget(self: TextCustomEditor__RichTextEditor, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetCornerWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `addScrollBarWidget` instead
+    ///
+    pub const AddScrollBarWidget = addScrollBarWidget;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3244,12 +4068,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn AddScrollBarWidget(self: TextCustomEditor__RichTextEditor, widget: anytype, alignment: i32) void {
+    pub fn addScrollBarWidget(self: TextCustomEditor__RichTextEditor, widget: anytype, _alignment: i32) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(alignment));
+        qtc.QAbstractScrollArea_AddScrollBarWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr), @bitCast(_alignment));
     }
+
+    /// ### DEPRECATED: Use `scrollBarWidgets` instead
+    ///
+    pub const ScrollBarWidgets = scrollBarWidgets;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3261,17 +4089,21 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` alignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _alignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn ScrollBarWidgets(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, alignment: i32) []QWidget {
-        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(alignment));
+    pub fn scrollBarWidgets(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator, _alignment: i32) []QWidget {
+        const _arr: qtc.libqt_list = qtc.QAbstractScrollArea_ScrollBarWidgets(@ptrCast(self.ptr), @bitCast(_alignment));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.ScrollBarWidgets: Memory allocation failed");
-        const _data: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QWidget, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.scrollBarWidgets: Memory allocation failed");
+        const _data_val: [*]QtC.QWidget = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `viewport` instead
+    ///
+    pub const Viewport = viewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3281,9 +4113,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Viewport(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn viewport(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QAbstractScrollArea_Viewport(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setViewport` instead
+    ///
+    pub const SetViewport = setViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3295,10 +4131,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` widget: QWidget `
     ///
-    pub fn SetViewport(self: TextCustomEditor__RichTextEditor, widget: anytype) void {
+    pub fn setViewport(self: TextCustomEditor__RichTextEditor, widget: anytype) void {
         comptime _ = @TypeOf(widget)._is_QWidget;
         qtc.QAbstractScrollArea_SetViewport(@ptrCast(self.ptr), @ptrCast(widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumViewportSize` instead
+    ///
+    pub const MaximumViewportSize = maximumViewportSize;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3308,9 +4148,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MaximumViewportSize(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn maximumViewportSize(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QAbstractScrollArea_MaximumViewportSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `sizeAdjustPolicy` instead
+    ///
+    pub const SizeAdjustPolicy = sizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3324,9 +4168,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SizeAdjustPolicy(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn sizeAdjustPolicy(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QAbstractScrollArea_SizeAdjustPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeAdjustPolicy` instead
+    ///
+    pub const SetSizeAdjustPolicy = setSizeAdjustPolicy;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -3338,9 +4186,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` policy: qabstractscrollarea_enums.SizeAdjustPolicy `
     ///
-    pub fn SetSizeAdjustPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
+    pub fn setSizeAdjustPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
         qtc.QAbstractScrollArea_SetSizeAdjustPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `frameStyle` instead
+    ///
+    pub const FrameStyle = frameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3350,9 +4202,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FrameStyle(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn frameStyle(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_FrameStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameStyle` instead
+    ///
+    pub const SetFrameStyle = setFrameStyle;
 
     /// Inherited from QFrame
     ///
@@ -3362,11 +4218,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` frameStyle: i32 `
+    /// ` _frameStyle: i32 `
     ///
-    pub fn SetFrameStyle(self: TextCustomEditor__RichTextEditor, frameStyle: i32) void {
-        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(frameStyle));
+    pub fn setFrameStyle(self: TextCustomEditor__RichTextEditor, _frameStyle: i32) void {
+        qtc.QFrame_SetFrameStyle(@ptrCast(self.ptr), @bitCast(_frameStyle));
     }
+
+    /// ### DEPRECATED: Use `frameWidth` instead
+    ///
+    pub const FrameWidth = frameWidth;
 
     /// Inherited from QFrame
     ///
@@ -3376,9 +4236,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FrameWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn frameWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_FrameWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// Inherited from QFrame
     ///
@@ -3392,9 +4256,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn frameShape(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// Inherited from QFrame
     ///
@@ -3404,11 +4272,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: TextCustomEditor__RichTextEditor, frameShape: i32) void {
-        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: TextCustomEditor__RichTextEditor, _frameShape: i32) void {
+        qtc.QFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `frameShadow` instead
+    ///
+    pub const FrameShadow = frameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3422,9 +4294,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qframe_enums.Shadow `
     ///
-    pub fn FrameShadow(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn frameShadow(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_FrameShadow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShadow` instead
+    ///
+    pub const SetFrameShadow = setFrameShadow;
 
     /// Inherited from QFrame
     ///
@@ -3434,11 +4310,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` frameShadow: qframe_enums.Shadow `
+    /// ` _frameShadow: qframe_enums.Shadow `
     ///
-    pub fn SetFrameShadow(self: TextCustomEditor__RichTextEditor, frameShadow: i32) void {
-        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(frameShadow));
+    pub fn setFrameShadow(self: TextCustomEditor__RichTextEditor, _frameShadow: i32) void {
+        qtc.QFrame_SetFrameShadow(@ptrCast(self.ptr), @bitCast(_frameShadow));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3448,9 +4328,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn LineWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn lineWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_LineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3460,11 +4344,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: TextCustomEditor__RichTextEditor, lineWidth: i32) void {
-        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: TextCustomEditor__RichTextEditor, _lineWidth: i32) void {
+        qtc.QFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3474,9 +4362,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MidLineWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn midLineWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QFrame_MidLineWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
 
     /// Inherited from QFrame
     ///
@@ -3486,11 +4378,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: TextCustomEditor__RichTextEditor, midLineWidth: i32) void {
-        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: TextCustomEditor__RichTextEditor, _midLineWidth: i32) void {
+        qtc.QFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `frameRect` instead
+    ///
+    pub const FrameRect = frameRect;
 
     /// Inherited from QFrame
     ///
@@ -3500,9 +4396,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FrameRect(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn frameRect(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QFrame_FrameRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFrameRect` instead
+    ///
+    pub const SetFrameRect = setFrameRect;
 
     /// Inherited from QFrame
     ///
@@ -3512,12 +4412,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` frameRect: QRect `
+    /// ` _frameRect: QRect `
     ///
-    pub fn SetFrameRect(self: TextCustomEditor__RichTextEditor, frameRect: anytype) void {
-        comptime _ = @TypeOf(frameRect)._is_QRect;
-        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(frameRect.ptr));
+    pub fn setFrameRect(self: TextCustomEditor__RichTextEditor, _frameRect: anytype) void {
+        comptime _ = @TypeOf(_frameRect)._is_QRect;
+        qtc.QFrame_SetFrameRect(@ptrCast(self.ptr), @ptrCast(_frameRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -3527,9 +4431,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WinId(self: TextCustomEditor__RichTextEditor) usize {
+    pub fn winId(self: TextCustomEditor__RichTextEditor) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -3539,9 +4447,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CreateWinId(self: TextCustomEditor__RichTextEditor) void {
+    pub fn createWinId(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -3551,9 +4463,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn InternalWinId(self: TextCustomEditor__RichTextEditor) usize {
+    pub fn internalWinId(self: TextCustomEditor__RichTextEditor) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -3563,9 +4479,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn EffectiveWinId(self: TextCustomEditor__RichTextEditor) usize {
+    pub fn effectiveWinId(self: TextCustomEditor__RichTextEditor) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -3575,9 +4495,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Style(self: TextCustomEditor__RichTextEditor) QStyle {
+    pub fn style(self: TextCustomEditor__RichTextEditor) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -3587,12 +4511,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: TextCustomEditor__RichTextEditor, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: TextCustomEditor__RichTextEditor, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -3602,9 +4530,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsTopLevel(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isTopLevel(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -3614,9 +4546,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsWindow(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isWindow(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -3626,9 +4562,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsModal(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isModal(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -3642,9 +4582,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn windowModality(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -3654,11 +4598,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: TextCustomEditor__RichTextEditor, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: TextCustomEditor__RichTextEditor, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3668,9 +4616,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsEnabled(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isEnabled(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -3682,10 +4634,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
+    pub fn isEnabledTo(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3697,9 +4653,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: TextCustomEditor__RichTextEditor, enabled: bool) void {
+    pub fn setEnabled(self: TextCustomEditor__RichTextEditor, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -3711,9 +4671,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: TextCustomEditor__RichTextEditor, disabled: bool) void {
+    pub fn setDisabled(self: TextCustomEditor__RichTextEditor, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3725,9 +4689,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: TextCustomEditor__RichTextEditor, windowModified: bool) void {
+    pub fn setWindowModified(self: TextCustomEditor__RichTextEditor, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3737,9 +4705,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FrameGeometry(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn frameGeometry(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -3749,9 +4721,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Geometry(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn geometry(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3761,9 +4737,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn NormalGeometry(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn normalGeometry(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -3773,9 +4753,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn X(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn x(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -3785,9 +4769,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Y(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn y(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -3797,9 +4785,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Pos(self: TextCustomEditor__RichTextEditor) QPoint {
+    pub fn pos(self: TextCustomEditor__RichTextEditor) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -3809,9 +4801,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FrameSize(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn frameSize(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -3821,9 +4817,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Size(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn size(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -3833,9 +4833,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Width(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn width(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -3845,9 +4849,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Height(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn height(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -3857,9 +4865,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Rect(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn rect(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -3869,9 +4881,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ChildrenRect(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn childrenRect(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -3881,9 +4897,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ChildrenRegion(self: TextCustomEditor__RichTextEditor) QRegion {
+    pub fn childrenRegion(self: TextCustomEditor__RichTextEditor) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3893,9 +4913,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MinimumSize(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn minimumSize(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3905,9 +4929,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MaximumSize(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn maximumSize(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3917,9 +4945,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MinimumWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn minimumWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3929,9 +4961,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MinimumHeight(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn minimumHeight(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -3941,9 +4977,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MaximumWidth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn maximumWidth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -3953,9 +4993,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MaximumHeight(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn maximumHeight(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -3965,12 +5009,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: TextCustomEditor__RichTextEditor, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: TextCustomEditor__RichTextEditor, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -3984,9 +5032,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: TextCustomEditor__RichTextEditor, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: TextCustomEditor__RichTextEditor, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -3996,12 +5048,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: TextCustomEditor__RichTextEditor, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: TextCustomEditor__RichTextEditor, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -4015,9 +5071,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: TextCustomEditor__RichTextEditor, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: TextCustomEditor__RichTextEditor, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4029,9 +5089,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: TextCustomEditor__RichTextEditor, minw: i32) void {
+    pub fn setMinimumWidth(self: TextCustomEditor__RichTextEditor, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4043,9 +5107,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: TextCustomEditor__RichTextEditor, minh: i32) void {
+    pub fn setMinimumHeight(self: TextCustomEditor__RichTextEditor, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -4057,9 +5125,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: TextCustomEditor__RichTextEditor, maxw: i32) void {
+    pub fn setMaximumWidth(self: TextCustomEditor__RichTextEditor, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -4071,9 +5143,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: TextCustomEditor__RichTextEditor, maxh: i32) void {
+    pub fn setMaximumHeight(self: TextCustomEditor__RichTextEditor, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4083,9 +5159,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SizeIncrement(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn sizeIncrement(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -4095,12 +5175,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: TextCustomEditor__RichTextEditor, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: TextCustomEditor__RichTextEditor, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -4114,9 +5198,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -4126,9 +5214,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn BaseSize(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn baseSize(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -4138,12 +5230,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: TextCustomEditor__RichTextEditor, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: TextCustomEditor__RichTextEditor, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -4157,9 +5253,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: TextCustomEditor__RichTextEditor, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: TextCustomEditor__RichTextEditor, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -4171,10 +5271,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: TextCustomEditor__RichTextEditor, fixedSize: anytype) void {
+    pub fn setFixedSize(self: TextCustomEditor__RichTextEditor, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -4188,9 +5292,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -4202,9 +5310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: TextCustomEditor__RichTextEditor, w: i32) void {
+    pub fn setFixedWidth(self: TextCustomEditor__RichTextEditor, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -4216,9 +5328,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: TextCustomEditor__RichTextEditor, h: i32) void {
+    pub fn setFixedHeight(self: TextCustomEditor__RichTextEditor, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -4230,11 +5346,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -4245,11 +5365,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4260,11 +5384,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -4275,11 +5403,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4290,11 +5422,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
+    pub fn mapToParent(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -4305,10 +5441,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
+    pub fn mapToParent2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -4320,10 +5460,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
+    pub fn mapFromParent(self: TextCustomEditor__RichTextEditor, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -4335,10 +5479,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: TextCustomEditor__RichTextEditor, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -4352,12 +5500,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -4370,11 +5522,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -4388,11 +5544,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -4406,11 +5566,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -4420,9 +5584,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Window(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn window(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4432,9 +5600,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn NativeParentWidget(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn nativeParentWidget(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -4444,9 +5616,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn TopLevelWidget(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn topLevelWidget(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -4456,9 +5632,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Palette(self: TextCustomEditor__RichTextEditor) QPalette {
+    pub fn palette(self: TextCustomEditor__RichTextEditor) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -4468,12 +5648,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: TextCustomEditor__RichTextEditor, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: TextCustomEditor__RichTextEditor, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4483,11 +5667,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: TextCustomEditor__RichTextEditor, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: TextCustomEditor__RichTextEditor, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4501,9 +5689,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn backgroundRole(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4513,11 +5705,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: TextCustomEditor__RichTextEditor, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: TextCustomEditor__RichTextEditor, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -4531,9 +5727,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn foregroundRole(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -4543,9 +5743,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Font(self: TextCustomEditor__RichTextEditor) QFont {
+    pub fn font(self: TextCustomEditor__RichTextEditor) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -4555,12 +5759,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: TextCustomEditor__RichTextEditor, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: TextCustomEditor__RichTextEditor, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -4570,9 +5778,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontMetrics(self: TextCustomEditor__RichTextEditor) QFontMetrics {
+    pub fn fontMetrics(self: TextCustomEditor__RichTextEditor) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -4582,9 +5794,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FontInfo(self: TextCustomEditor__RichTextEditor) QFontInfo {
+    pub fn fontInfo(self: TextCustomEditor__RichTextEditor) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -4594,9 +5810,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Cursor(self: TextCustomEditor__RichTextEditor) QCursor {
+    pub fn cursor(self: TextCustomEditor__RichTextEditor) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -4606,12 +5826,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: TextCustomEditor__RichTextEditor, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: TextCustomEditor__RichTextEditor, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -4621,9 +5845,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UnsetCursor(self: TextCustomEditor__RichTextEditor) void {
+    pub fn unsetCursor(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4635,9 +5863,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: TextCustomEditor__RichTextEditor, enable: bool) void {
+    pub fn setMouseTracking(self: TextCustomEditor__RichTextEditor, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -4647,9 +5879,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HasMouseTracking(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn hasMouseTracking(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -4659,9 +5895,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UnderMouse(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn underMouse(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4673,9 +5913,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: TextCustomEditor__RichTextEditor, enable: bool) void {
+    pub fn setTabletTracking(self: TextCustomEditor__RichTextEditor, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -4685,24 +5929,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HasTabletTracking(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn hasTabletTracking(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: TextCustomEditor__RichTextEditor, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -4712,12 +5945,35 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: TextCustomEditor__RichTextEditor, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: TextCustomEditor__RichTextEditor, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: TextCustomEditor__RichTextEditor, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -4727,9 +5983,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Mask(self: TextCustomEditor__RichTextEditor) QRegion {
+    pub fn mask(self: TextCustomEditor__RichTextEditor) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -4739,9 +5999,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ClearMask(self: TextCustomEditor__RichTextEditor) void {
+    pub fn clearMask(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -4753,10 +6017,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: TextCustomEditor__RichTextEditor, target: anytype) void {
+    pub fn render(self: TextCustomEditor__RichTextEditor, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -4768,10 +6036,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
+    pub fn render2(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -4781,9 +6053,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Grab(self: TextCustomEditor__RichTextEditor) QPixmap {
+    pub fn grab(self: TextCustomEditor__RichTextEditor) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4793,9 +6069,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn GraphicsEffect(self: TextCustomEditor__RichTextEditor) QGraphicsEffect {
+    pub fn graphicsEffect(self: TextCustomEditor__RichTextEditor) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -4807,10 +6087,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: TextCustomEditor__RichTextEditor, effect: anytype) void {
+    pub fn setGraphicsEffect(self: TextCustomEditor__RichTextEditor, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4822,9 +6106,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
+    pub fn grabGesture(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -4836,9 +6124,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
+    pub fn ungrabGesture(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4848,15 +6140,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: TextCustomEditor__RichTextEditor, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: TextCustomEditor__RichTextEditor, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4866,15 +6162,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: TextCustomEditor__RichTextEditor, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: TextCustomEditor__RichTextEditor, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -4886,13 +6186,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -4904,13 +6208,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4922,10 +6230,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: TextCustomEditor__RichTextEditor, icon: anytype) void {
+    pub fn setWindowIcon(self: TextCustomEditor__RichTextEditor, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -4935,9 +6247,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WindowIcon(self: TextCustomEditor__RichTextEditor) QIcon {
+    pub fn windowIcon(self: TextCustomEditor__RichTextEditor) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4947,15 +6263,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: TextCustomEditor__RichTextEditor, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: TextCustomEditor__RichTextEditor, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -4967,13 +6287,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -4983,15 +6307,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: TextCustomEditor__RichTextEditor, windowRole: []const u8) void {
+    pub fn setWindowRole(self: TextCustomEditor__RichTextEditor, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -5003,13 +6331,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5021,13 +6353,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: TextCustomEditor__RichTextEditor, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: TextCustomEditor__RichTextEditor, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -5039,13 +6375,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5057,9 +6397,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: TextCustomEditor__RichTextEditor, level: f64) void {
+    pub fn setWindowOpacity(self: TextCustomEditor__RichTextEditor, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -5069,9 +6413,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WindowOpacity(self: TextCustomEditor__RichTextEditor) f64 {
+    pub fn windowOpacity(self: TextCustomEditor__RichTextEditor) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -5081,9 +6429,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsWindowModified(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isWindowModified(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -5093,15 +6445,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: TextCustomEditor__RichTextEditor, toolTip: []const u8) void {
+    pub fn setToolTip(self: TextCustomEditor__RichTextEditor, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -5113,13 +6469,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5131,9 +6491,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: TextCustomEditor__RichTextEditor, msec: i32) void {
+    pub fn setToolTipDuration(self: TextCustomEditor__RichTextEditor, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -5143,9 +6507,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ToolTipDuration(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn toolTipDuration(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -5155,15 +6523,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: TextCustomEditor__RichTextEditor, statusTip: []const u8) void {
+    pub fn setStatusTip(self: TextCustomEditor__RichTextEditor, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -5175,13 +6547,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5191,15 +6567,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: TextCustomEditor__RichTextEditor, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: TextCustomEditor__RichTextEditor, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -5211,13 +6591,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5229,13 +6613,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -5247,13 +6635,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
+    pub fn setAccessibleName(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5265,13 +6657,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -5283,13 +6679,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: TextCustomEditor__RichTextEditor, description: []const u8) void {
+    pub fn setAccessibleDescription(self: TextCustomEditor__RichTextEditor, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5301,9 +6701,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: TextCustomEditor__RichTextEditor, direction: i32) void {
+    pub fn setLayoutDirection(self: TextCustomEditor__RichTextEditor, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5317,9 +6721,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn layoutDirection(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -5329,9 +6737,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UnsetLayoutDirection(self: TextCustomEditor__RichTextEditor) void {
+    pub fn unsetLayoutDirection(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -5341,12 +6753,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: TextCustomEditor__RichTextEditor, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: TextCustomEditor__RichTextEditor, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -5356,9 +6772,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Locale(self: TextCustomEditor__RichTextEditor) QLocale {
+    pub fn locale(self: TextCustomEditor__RichTextEditor) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -5368,9 +6788,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UnsetLocale(self: TextCustomEditor__RichTextEditor) void {
+    pub fn unsetLocale(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -5380,9 +6804,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsRightToLeft(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isRightToLeft(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -5392,9 +6820,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsLeftToRight(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isLeftToRight(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -5404,9 +6836,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SetFocus(self: TextCustomEditor__RichTextEditor) void {
+    pub fn setFocus(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -5416,9 +6852,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsActiveWindow(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isActiveWindow(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -5428,9 +6868,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ActivateWindow(self: TextCustomEditor__RichTextEditor) void {
+    pub fn activateWindow(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -5440,9 +6884,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ClearFocus(self: TextCustomEditor__RichTextEditor) void {
+    pub fn clearFocus(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -5454,9 +6902,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: TextCustomEditor__RichTextEditor, reason: i32) void {
+    pub fn setFocus2(self: TextCustomEditor__RichTextEditor, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5470,9 +6922,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn focusPolicy(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5484,9 +6940,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
+    pub fn setFocusPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -5496,9 +6956,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HasFocus(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn hasFocus(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -5510,11 +6974,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5524,12 +6992,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: TextCustomEditor__RichTextEditor, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: TextCustomEditor__RichTextEditor, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -5539,9 +7011,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FocusProxy(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn focusProxy(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5555,9 +7031,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn contextMenuPolicy(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -5569,9 +7049,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
+    pub fn setContextMenuPolicy(self: TextCustomEditor__RichTextEditor, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -5581,9 +7065,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn GrabMouse(self: TextCustomEditor__RichTextEditor) void {
+    pub fn grabMouse(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -5595,10 +7083,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn grabMouse2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -5608,9 +7100,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ReleaseMouse(self: TextCustomEditor__RichTextEditor) void {
+    pub fn releaseMouse(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5620,9 +7116,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn GrabKeyboard(self: TextCustomEditor__RichTextEditor) void {
+    pub fn grabKeyboard(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -5632,9 +7132,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ReleaseKeyboard(self: TextCustomEditor__RichTextEditor) void {
+    pub fn releaseKeyboard(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5646,10 +7150,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: TextCustomEditor__RichTextEditor, key: anytype) i32 {
+    pub fn grabShortcut(self: TextCustomEditor__RichTextEditor, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -5661,9 +7169,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: TextCustomEditor__RichTextEditor, id: i32) void {
+    pub fn releaseShortcut(self: TextCustomEditor__RichTextEditor, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5675,9 +7187,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: TextCustomEditor__RichTextEditor, id: i32) void {
+    pub fn setShortcutEnabled(self: TextCustomEditor__RichTextEditor, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -5689,25 +7205,37 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: TextCustomEditor__RichTextEditor, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: TextCustomEditor__RichTextEditor, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5717,9 +7245,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UpdatesEnabled(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn updatesEnabled(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -5731,9 +7263,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: TextCustomEditor__RichTextEditor, enable: bool) void {
+    pub fn setUpdatesEnabled(self: TextCustomEditor__RichTextEditor, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -5743,9 +7279,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn GraphicsProxyWidget(self: TextCustomEditor__RichTextEditor) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: TextCustomEditor__RichTextEditor) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -5755,9 +7295,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Update(self: TextCustomEditor__RichTextEditor) void {
+    pub fn update(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -5767,9 +7311,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Repaint(self: TextCustomEditor__RichTextEditor) void {
+    pub fn repaint(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -5779,17 +7327,21 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: TextCustomEditor__RichTextEditor, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: TextCustomEditor__RichTextEditor, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -5801,11 +7353,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn update3(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -5816,10 +7372,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn update4(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -5829,17 +7389,21 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: TextCustomEditor__RichTextEditor, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: TextCustomEditor__RichTextEditor, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -5851,10 +7415,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn repaint3(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -5866,10 +7434,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn repaint4(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -5881,9 +7453,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: TextCustomEditor__RichTextEditor, hidden: bool) void {
+    pub fn setHidden(self: TextCustomEditor__RichTextEditor, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -5893,9 +7469,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Show(self: TextCustomEditor__RichTextEditor) void {
+    pub fn show(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -5905,9 +7485,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Hide(self: TextCustomEditor__RichTextEditor) void {
+    pub fn hide(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -5917,9 +7501,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ShowMinimized(self: TextCustomEditor__RichTextEditor) void {
+    pub fn showMinimized(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -5929,9 +7517,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ShowMaximized(self: TextCustomEditor__RichTextEditor) void {
+    pub fn showMaximized(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -5941,9 +7533,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ShowFullScreen(self: TextCustomEditor__RichTextEditor) void {
+    pub fn showFullScreen(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -5953,9 +7549,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ShowNormal(self: TextCustomEditor__RichTextEditor) void {
+    pub fn showNormal(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -5965,9 +7565,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Close(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn close(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -5977,9 +7581,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Raise(self: TextCustomEditor__RichTextEditor) void {
+    pub fn raise(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -5989,9 +7597,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Lower(self: TextCustomEditor__RichTextEditor) void {
+    pub fn lower(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -6003,10 +7615,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn stackUnder(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -6016,13 +7632,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: TextCustomEditor__RichTextEditor, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: TextCustomEditor__RichTextEditor, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -6034,10 +7654,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn move2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -6051,9 +7675,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
+    pub fn resize(self: TextCustomEditor__RichTextEditor, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -6065,10 +7693,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn resize2(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6078,17 +7710,21 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: TextCustomEditor__RichTextEditor, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: TextCustomEditor__RichTextEditor, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -6098,12 +7734,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: TextCustomEditor__RichTextEditor, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: TextCustomEditor__RichTextEditor, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6115,13 +7755,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextCustomEditor__RichTextEditor.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("TextCustomEditor__RichTextEditor.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6131,15 +7775,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: TextCustomEditor__RichTextEditor, geometry: []u8) bool {
+    pub fn restoreGeometry(self: TextCustomEditor__RichTextEditor, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -6149,9 +7797,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn AdjustSize(self: TextCustomEditor__RichTextEditor) void {
+    pub fn adjustSize(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -6161,9 +7813,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsVisible(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isVisible(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -6175,10 +7831,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
+    pub fn isVisibleTo(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -6188,9 +7848,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsHidden(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isHidden(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -6200,9 +7864,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsMinimized(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isMinimized(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -6212,9 +7880,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsMaximized(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isMaximized(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -6224,9 +7896,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsFullScreen(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isFullScreen(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -6240,9 +7916,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn windowState(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6254,9 +7934,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: TextCustomEditor__RichTextEditor, state: i32) void {
+    pub fn setWindowState(self: TextCustomEditor__RichTextEditor, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -6268,9 +7952,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: TextCustomEditor__RichTextEditor, state: i32) void {
+    pub fn overrideWindowState(self: TextCustomEditor__RichTextEditor, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6280,9 +7968,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SizePolicy(self: TextCustomEditor__RichTextEditor) QSizePolicy {
+    pub fn sizePolicy(self: TextCustomEditor__RichTextEditor) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -6292,12 +7984,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: TextCustomEditor__RichTextEditor, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: TextCustomEditor__RichTextEditor, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -6311,9 +8007,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: TextCustomEditor__RichTextEditor, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: TextCustomEditor__RichTextEditor, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -6323,9 +8023,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn VisibleRegion(self: TextCustomEditor__RichTextEditor) QRegion {
+    pub fn visibleRegion(self: TextCustomEditor__RichTextEditor) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6343,9 +8047,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -6357,10 +8065,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: TextCustomEditor__RichTextEditor, margins: anytype) void {
+    pub fn setContentsMargins2(self: TextCustomEditor__RichTextEditor, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -6370,9 +8082,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ContentsMargins(self: TextCustomEditor__RichTextEditor) QMargins {
+    pub fn contentsMargins(self: TextCustomEditor__RichTextEditor) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -6382,9 +8098,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ContentsRect(self: TextCustomEditor__RichTextEditor) QRect {
+    pub fn contentsRect(self: TextCustomEditor__RichTextEditor) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -6394,9 +8114,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Layout(self: TextCustomEditor__RichTextEditor) QLayout {
+    pub fn layout(self: TextCustomEditor__RichTextEditor) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -6406,12 +8130,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: TextCustomEditor__RichTextEditor, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: TextCustomEditor__RichTextEditor, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -6421,24 +8149,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UpdateGeometry(self: TextCustomEditor__RichTextEditor) void {
+    pub fn updateGeometry(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: TextCustomEditor__RichTextEditor, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -6448,14 +8165,37 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: TextCustomEditor__RichTextEditor, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: TextCustomEditor__RichTextEditor, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: TextCustomEditor__RichTextEditor, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -6469,9 +8209,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
+    pub fn scroll(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -6487,10 +8231,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -6500,9 +8248,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FocusWidget(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn focusWidget(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6512,9 +8264,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn NextInFocusChain(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn nextInFocusChain(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -6524,9 +8280,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn PreviousInFocusChain(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn previousInFocusChain(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6536,9 +8296,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn AcceptDrops(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn acceptDrops(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -6550,9 +8314,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: TextCustomEditor__RichTextEditor, on: bool) void {
+    pub fn setAcceptDrops(self: TextCustomEditor__RichTextEditor, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -6564,10 +8332,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: TextCustomEditor__RichTextEditor, action: anytype) void {
+    pub fn addAction(self: TextCustomEditor__RichTextEditor, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -6577,15 +8349,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: TextCustomEditor__RichTextEditor, actions: []QAction) void {
+    pub fn addActions(self: TextCustomEditor__RichTextEditor, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -6597,16 +8373,20 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: TextCustomEditor__RichTextEditor, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: TextCustomEditor__RichTextEditor, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -6620,11 +8400,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: TextCustomEditor__RichTextEditor, before: anytype, action: anytype) void {
+    pub fn insertAction(self: TextCustomEditor__RichTextEditor, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -6636,10 +8420,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: TextCustomEditor__RichTextEditor, action: anytype) void {
+    pub fn removeAction(self: TextCustomEditor__RichTextEditor, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -6651,15 +8439,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -6671,13 +8463,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: TextCustomEditor__RichTextEditor, text: []const u8) QAction {
+    pub fn addAction2(self: TextCustomEditor__RichTextEditor, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -6691,7 +8487,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: TextCustomEditor__RichTextEditor, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: TextCustomEditor__RichTextEditor, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6700,6 +8496,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -6712,7 +8512,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: TextCustomEditor__RichTextEditor, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: TextCustomEditor__RichTextEditor, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -6720,6 +8520,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -6735,7 +8539,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: TextCustomEditor__RichTextEditor, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: TextCustomEditor__RichTextEditor, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -6745,6 +8549,10 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -6753,9 +8561,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ParentWidget(self: TextCustomEditor__RichTextEditor) QWidget {
+    pub fn parentWidget(self: TextCustomEditor__RichTextEditor) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6767,9 +8579,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
+    pub fn setWindowFlags(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6783,9 +8599,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn windowFlags(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -6797,9 +8617,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: TextCustomEditor__RichTextEditor, param1: i32) void {
+    pub fn setWindowFlag(self: TextCustomEditor__RichTextEditor, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -6811,9 +8635,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: TextCustomEditor__RichTextEditor, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -6827,9 +8655,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn windowType(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -6839,13 +8671,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: TextCustomEditor__RichTextEditor, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: TextCustomEditor__RichTextEditor, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -6857,10 +8693,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: TextCustomEditor__RichTextEditor, p: anytype) QWidget {
+    pub fn childAt2(self: TextCustomEditor__RichTextEditor, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -6872,10 +8712,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: TextCustomEditor__RichTextEditor, p: anytype) QWidget {
+    pub fn childAt3(self: TextCustomEditor__RichTextEditor, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6887,9 +8731,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: TextCustomEditor__RichTextEditor, param1: i32) void {
+    pub fn setAttribute(self: TextCustomEditor__RichTextEditor, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -6901,9 +8749,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: TextCustomEditor__RichTextEditor, param1: i32) bool {
+    pub fn testAttribute(self: TextCustomEditor__RichTextEditor, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -6913,9 +8765,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn EnsurePolished(self: TextCustomEditor__RichTextEditor) void {
+    pub fn ensurePolished(self: TextCustomEditor__RichTextEditor) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -6927,10 +8783,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: TextCustomEditor__RichTextEditor, child: anytype) bool {
+    pub fn isAncestorOf(self: TextCustomEditor__RichTextEditor, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6940,9 +8800,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn AutoFillBackground(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn autoFillBackground(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -6954,9 +8818,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: TextCustomEditor__RichTextEditor, enabled: bool) void {
+    pub fn setAutoFillBackground(self: TextCustomEditor__RichTextEditor, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -6966,9 +8834,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn BackingStore(self: TextCustomEditor__RichTextEditor) QBackingStore {
+    pub fn backingStore(self: TextCustomEditor__RichTextEditor) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -6978,9 +8850,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WindowHandle(self: TextCustomEditor__RichTextEditor) QWindow {
+    pub fn windowHandle(self: TextCustomEditor__RichTextEditor) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -6990,9 +8866,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Screen(self: TextCustomEditor__RichTextEditor) QScreen {
+    pub fn screen(self: TextCustomEditor__RichTextEditor) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -7002,12 +8882,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: TextCustomEditor__RichTextEditor, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: TextCustomEditor__RichTextEditor, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -7015,12 +8899,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7032,13 +8920,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: TextCustomEditor__RichTextEditor, title: []const u8) void {
+    pub fn windowTitleChanged(self: TextCustomEditor__RichTextEditor, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -7050,9 +8942,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7064,10 +8960,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: TextCustomEditor__RichTextEditor, icon: anytype) void {
+    pub fn windowIconChanged(self: TextCustomEditor__RichTextEditor, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -7079,9 +8979,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7093,13 +8997,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: TextCustomEditor__RichTextEditor, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: TextCustomEditor__RichTextEditor, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -7111,9 +9019,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7123,12 +9035,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: TextCustomEditor__RichTextEditor, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: TextCustomEditor__RichTextEditor, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -7140,9 +9056,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7156,9 +9076,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn inputMethodHints(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -7170,9 +9094,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: TextCustomEditor__RichTextEditor, hints: i32) void {
+    pub fn setInputMethodHints(self: TextCustomEditor__RichTextEditor, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -7186,11 +9114,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -7206,13 +9138,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -7229,12 +9165,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: TextCustomEditor__RichTextEditor, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -7248,11 +9188,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -7268,12 +9212,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -7291,12 +9239,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: TextCustomEditor__RichTextEditor, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -7308,10 +9260,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: TextCustomEditor__RichTextEditor, rectangle: anytype) QPixmap {
+    pub fn grab1(self: TextCustomEditor__RichTextEditor, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -7325,9 +9281,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: TextCustomEditor__RichTextEditor, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: TextCustomEditor__RichTextEditor, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -7341,10 +9301,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: TextCustomEditor__RichTextEditor, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: TextCustomEditor__RichTextEditor, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -7358,9 +9322,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: TextCustomEditor__RichTextEditor, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: TextCustomEditor__RichTextEditor, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -7374,9 +9342,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: TextCustomEditor__RichTextEditor, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: TextCustomEditor__RichTextEditor, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -7390,9 +9362,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: TextCustomEditor__RichTextEditor, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: TextCustomEditor__RichTextEditor, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -7406,25 +9382,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: TextCustomEditor__RichTextEditor, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: TextCustomEditor__RichTextEditor, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -7432,17 +9396,41 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -7454,13 +9442,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("TextCustomEditor__RichTextEditor.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -7472,13 +9464,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
+    pub fn setObjectName(self: TextCustomEditor__RichTextEditor, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -7488,9 +9484,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsWidgetType(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isWidgetType(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -7500,9 +9500,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsWindowType(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isWindowType(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -7512,9 +9516,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn IsQuickItemType(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn isQuickItemType(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -7524,9 +9532,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SignalsBlocked(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn signalsBlocked(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -7538,9 +9550,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: TextCustomEditor__RichTextEditor, b: bool) bool {
+    pub fn blockSignals(self: TextCustomEditor__RichTextEditor, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -7550,9 +9566,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Thread(self: TextCustomEditor__RichTextEditor) QThread {
+    pub fn thread(self: TextCustomEditor__RichTextEditor) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -7562,12 +9582,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: TextCustomEditor__RichTextEditor, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: TextCustomEditor__RichTextEditor, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -7579,9 +9603,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: TextCustomEditor__RichTextEditor, interval: i32) i32 {
+    pub fn startTimer(self: TextCustomEditor__RichTextEditor, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -7593,9 +9621,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: TextCustomEditor__RichTextEditor, time: i64) i32 {
+    pub fn startTimer2(self: TextCustomEditor__RichTextEditor, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -7607,9 +9639,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: TextCustomEditor__RichTextEditor, id: i32) void {
+    pub fn killTimer(self: TextCustomEditor__RichTextEditor, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -7621,9 +9657,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: TextCustomEditor__RichTextEditor, id: i32) void {
+    pub fn killTimer2(self: TextCustomEditor__RichTextEditor, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -7635,15 +9675,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7655,10 +9699,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: TextCustomEditor__RichTextEditor, filterObj: anytype) void {
+    pub fn installEventFilter(self: TextCustomEditor__RichTextEditor, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7670,10 +9718,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: TextCustomEditor__RichTextEditor, obj: anytype) void {
+    pub fn removeEventFilter(self: TextCustomEditor__RichTextEditor, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -7681,7 +9733,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7689,13 +9741,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -7703,7 +9759,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7711,13 +9767,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -7727,18 +9787,22 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: TextCustomEditor__RichTextEditor, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: TextCustomEditor__RichTextEditor, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -7746,7 +9810,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -7754,13 +9818,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -7768,7 +9836,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -7776,13 +9844,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -7792,9 +9864,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Disconnect3(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn disconnect3(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -7806,10 +9882,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: TextCustomEditor__RichTextEditor, receiver: anytype) bool {
+    pub fn disconnect4(self: TextCustomEditor__RichTextEditor, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -7819,10 +9899,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -7832,9 +9916,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DumpObjectTree(self: TextCustomEditor__RichTextEditor) void {
+    pub fn dumpObjectTree(self: TextCustomEditor__RichTextEditor) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -7844,9 +9932,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DumpObjectInfo(self: TextCustomEditor__RichTextEditor) void {
+    pub fn dumpObjectInfo(self: TextCustomEditor__RichTextEditor) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -7860,11 +9952,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: TextCustomEditor__RichTextEditor, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: TextCustomEditor__RichTextEditor, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -7876,10 +9972,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: TextCustomEditor__RichTextEditor, name: [:0]const u8) QVariant {
+    pub fn property(self: TextCustomEditor__RichTextEditor, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -7891,7 +9991,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: TextCustomEditor__RichTextEditor, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -7899,27 +9999,19 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("TextCustomEditor__RichTextEditor.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("TextCustomEditor__RichTextEditor.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("TextCustomEditor__RichTextEditor.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextCustomEditor__RichTextEditor `
-    ///
-    pub fn BindingStorage(self: TextCustomEditor__RichTextEditor) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -7929,9 +10021,29 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn BindingStorage2(self: TextCustomEditor__RichTextEditor) QBindingStorage {
+    pub fn bindingStorage(self: TextCustomEditor__RichTextEditor) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextCustomEditor__RichTextEditor `
+    ///
+    pub fn bindingStorage2(self: TextCustomEditor__RichTextEditor) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -7941,9 +10053,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Destroyed(self: TextCustomEditor__RichTextEditor) void {
+    pub fn destroyed(self: TextCustomEditor__RichTextEditor) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -7955,9 +10071,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
+    pub fn onDestroyed(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -7967,9 +10087,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Parent(self: TextCustomEditor__RichTextEditor) QObject {
+    pub fn parent(self: TextCustomEditor__RichTextEditor) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -7981,10 +10105,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: TextCustomEditor__RichTextEditor, classname: [:0]const u8) bool {
+    pub fn inherits(self: TextCustomEditor__RichTextEditor, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -7994,9 +10122,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DeleteLater(self: TextCustomEditor__RichTextEditor) void {
+    pub fn deleteLater(self: TextCustomEditor__RichTextEditor) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -8010,9 +10142,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: TextCustomEditor__RichTextEditor, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: TextCustomEditor__RichTextEditor, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -8026,9 +10162,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: TextCustomEditor__RichTextEditor, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: TextCustomEditor__RichTextEditor, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -8036,7 +10176,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8046,13 +10186,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -8060,7 +10204,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -8070,13 +10214,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -8086,7 +10234,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -8094,12 +10242,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: TextCustomEditor__RichTextEditor, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: TextCustomEditor__RichTextEditor, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -8111,10 +10263,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -8128,11 +10284,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -8148,13 +10308,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -8167,11 +10331,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: TextCustomEditor__RichTextEditor, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: TextCustomEditor__RichTextEditor, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -8183,10 +10351,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn destroyed1(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -8198,9 +10370,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -8210,9 +10386,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn PaintingActive(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn paintingActive(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8222,9 +10402,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn WidthMM(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn widthMM(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -8234,9 +10418,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HeightMM(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn heightMM(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8246,9 +10434,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn LogicalDpiX(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn logicalDpiX(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8258,9 +10450,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn LogicalDpiY(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn logicalDpiY(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -8270,9 +10466,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn PhysicalDpiX(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn physicalDpiX(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -8282,9 +10482,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn PhysicalDpiY(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn physicalDpiY(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -8294,9 +10498,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DevicePixelRatio(self: TextCustomEditor__RichTextEditor) f64 {
+    pub fn devicePixelRatio(self: TextCustomEditor__RichTextEditor) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8306,9 +10514,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DevicePixelRatioF(self: TextCustomEditor__RichTextEditor) f64 {
+    pub fn devicePixelRatioF(self: TextCustomEditor__RichTextEditor) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -8318,9 +10530,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ColorCount(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn colorCount(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -8330,17 +10546,25 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Depth(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn depth(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8348,13 +10572,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `loadResource` instead
+    ///
+    pub const LoadResource = loadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -8370,14 +10598,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn LoadResource(self: TextCustomEditor__RichTextEditor, typeVal: i32, name: anytype) QVariant {
+    pub fn loadResource(self: TextCustomEditor__RichTextEditor, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_LoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperLoadResource` instead
+    /// ### DEPRECATED: Use `superLoadResource` instead
     ///
-    pub const QBaseLoadResource = SuperLoadResource;
+    pub const SuperLoadResource = superLoadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -8393,10 +10621,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` name: QUrl `
     ///
-    pub fn SuperLoadResource(self: TextCustomEditor__RichTextEditor, typeVal: i32, name: anytype) QVariant {
+    pub fn superLoadResource(self: TextCustomEditor__RichTextEditor, typeVal: i32, name: anytype) QVariant {
         comptime _ = @TypeOf(name)._is_QUrl;
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperLoadResource(@ptrCast(self.ptr), @bitCast(typeVal), @ptrCast(name.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onLoadResource` instead
+    ///
+    pub const OnLoadResource = onLoadResource;
 
     /// Inherited from QTextEdit
     ///
@@ -8412,9 +10644,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnLoadResource(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, QUrl) callconv(.c) QVariant) void {
+    pub fn onLoadResource(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, QUrl) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextEditor_OnLoadResource(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -8426,15 +10662,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: TextCustomEditor__RichTextEditor, property: i32) QVariant {
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_InputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn inputMethodQuery(self: TextCustomEditor__RichTextEditor, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_InputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -8446,11 +10682,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` property: qnamespace_enums.InputMethodQuery `
+    /// ` _property: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: TextCustomEditor__RichTextEditor, property: i32) QVariant {
-        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(property)) };
+    pub fn superInputMethodQuery(self: TextCustomEditor__RichTextEditor, _property: i32) QVariant {
+        return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(_property)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QTextEdit
     ///
@@ -8466,9 +10706,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) QVariant) void {
         qtc.TextCustomEditor__RichTextEditor_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8482,14 +10726,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn TimerEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn timerEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextCustomEditor__RichTextEditor_TimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8503,10 +10747,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superTimerEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QTimerEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8520,9 +10768,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTimerEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8536,14 +10788,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn keyReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextCustomEditor__RichTextEditor_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8557,10 +10809,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superKeyReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QKeyEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8574,9 +10830,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QKeyEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8590,14 +10850,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn resizeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextCustomEditor__RichTextEditor_ResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8611,10 +10871,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superResizeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QResizeEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8628,9 +10892,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QResizeEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8644,14 +10912,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn PaintEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn paintEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextCustomEditor__RichTextEditor_PaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8665,10 +10933,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superPaintEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QPaintEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8682,9 +10954,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPaintEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8698,14 +10974,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn mousePressEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_MousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8719,11 +10995,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superMousePressEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mousePressEvent)
@@ -8736,9 +11016,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8752,14 +11036,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn mouseMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8773,11 +11057,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superMouseMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseMoveEvent)
@@ -8790,9 +11078,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8806,14 +11098,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn mouseReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8827,11 +11119,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superMouseReleaseEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
+
     /// Inherited from QTextEdit
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtextedit.html#mouseReleaseEvent)
@@ -8844,9 +11140,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8860,14 +11160,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn mouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8881,10 +11181,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superMouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QMouseEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8898,9 +11202,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMouseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -8914,13 +11222,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: TextCustomEditor__RichTextEditor, next: bool) bool {
+    pub fn focusNextPrevChild(self: TextCustomEditor__RichTextEditor, next: bool) bool {
         return qtc.TextCustomEditor__RichTextEditor_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -8934,9 +11242,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: TextCustomEditor__RichTextEditor, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: TextCustomEditor__RichTextEditor, next: bool) bool {
         return qtc.TextCustomEditor__RichTextEditor_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QTextEdit
     ///
@@ -8950,9 +11262,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8966,14 +11282,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn dragEnterEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextCustomEditor__RichTextEditor_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -8987,10 +11303,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superDragEnterEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9004,9 +11324,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragEnterEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9020,14 +11344,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn dragLeaveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextCustomEditor__RichTextEditor_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9041,10 +11365,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superDragLeaveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9058,9 +11386,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragLeaveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9074,14 +11406,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn dragMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextCustomEditor__RichTextEditor_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9095,10 +11427,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superDragMoveEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9112,9 +11448,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDragMoveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9128,14 +11468,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn dropEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.TextCustomEditor__RichTextEditor_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9149,10 +11489,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superDropEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9166,9 +11510,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QDropEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9182,14 +11530,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn focusOutEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextCustomEditor__RichTextEditor_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9203,10 +11551,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superFocusOutEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QFocusEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9220,9 +11572,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QFocusEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9236,14 +11592,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn showEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextCustomEditor__RichTextEditor_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9257,10 +11613,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn superShowEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9274,9 +11634,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QShowEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9290,14 +11654,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn ChangeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn changeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextCustomEditor__RichTextEditor_ChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9311,10 +11675,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperChangeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
+    pub fn superChangeEvent(self: TextCustomEditor__RichTextEditor, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9328,9 +11696,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, e: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createMimeDataFromSelection` instead
+    ///
+    pub const CreateMimeDataFromSelection = createMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -9342,13 +11714,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn CreateMimeDataFromSelection(self: TextCustomEditor__RichTextEditor) QMimeData {
+    pub fn createMimeDataFromSelection(self: TextCustomEditor__RichTextEditor) QMimeData {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_CreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperCreateMimeDataFromSelection` instead
+    /// ### DEPRECATED: Use `superCreateMimeDataFromSelection` instead
     ///
-    pub const QBaseCreateMimeDataFromSelection = SuperCreateMimeDataFromSelection;
+    pub const SuperCreateMimeDataFromSelection = superCreateMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -9360,9 +11732,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperCreateMimeDataFromSelection(self: TextCustomEditor__RichTextEditor) QMimeData {
+    pub fn superCreateMimeDataFromSelection(self: TextCustomEditor__RichTextEditor) QMimeData {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperCreateMimeDataFromSelection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateMimeDataFromSelection` instead
+    ///
+    pub const OnCreateMimeDataFromSelection = onCreateMimeDataFromSelection;
 
     /// Inherited from QTextEdit
     ///
@@ -9376,9 +11752,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMimeData `
     ///
-    pub fn OnCreateMimeDataFromSelection(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMimeData) void {
+    pub fn onCreateMimeDataFromSelection(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMimeData) void {
         qtc.TextCustomEditor__RichTextEditor_OnCreateMimeDataFromSelection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `canInsertFromMimeData` instead
+    ///
+    pub const CanInsertFromMimeData = canInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9392,14 +11772,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn CanInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) bool {
+    pub fn canInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextCustomEditor__RichTextEditor_CanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCanInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superCanInsertFromMimeData` instead
     ///
-    pub const QBaseCanInsertFromMimeData = SuperCanInsertFromMimeData;
+    pub const SuperCanInsertFromMimeData = superCanInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9413,10 +11793,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperCanInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) bool {
+    pub fn superCanInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) bool {
         comptime _ = @TypeOf(source)._is_QMimeData;
         return qtc.TextCustomEditor__RichTextEditor_SuperCanInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanInsertFromMimeData` instead
+    ///
+    pub const OnCanInsertFromMimeData = onCanInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9430,9 +11814,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, source: QMimeData) callconv(.c) bool `
     ///
-    pub fn OnCanInsertFromMimeData(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMimeData) callconv(.c) bool) void {
+    pub fn onCanInsertFromMimeData(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMimeData) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnCanInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `insertFromMimeData` instead
+    ///
+    pub const InsertFromMimeData = insertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9446,14 +11834,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn InsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) void {
+    pub fn insertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextCustomEditor__RichTextEditor_InsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInsertFromMimeData` instead
+    /// ### DEPRECATED: Use `superInsertFromMimeData` instead
     ///
-    pub const QBaseInsertFromMimeData = SuperInsertFromMimeData;
+    pub const SuperInsertFromMimeData = superInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9467,10 +11855,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` source: QMimeData `
     ///
-    pub fn SuperInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) void {
+    pub fn superInsertFromMimeData(self: TextCustomEditor__RichTextEditor, source: anytype) void {
         comptime _ = @TypeOf(source)._is_QMimeData;
         qtc.TextCustomEditor__RichTextEditor_SuperInsertFromMimeData(@ptrCast(self.ptr), @ptrCast(source.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInsertFromMimeData` instead
+    ///
+    pub const OnInsertFromMimeData = onInsertFromMimeData;
 
     /// Inherited from QTextEdit
     ///
@@ -9484,9 +11876,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, source: QMimeData) callconv(.c) void `
     ///
-    pub fn OnInsertFromMimeData(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMimeData) callconv(.c) void) void {
+    pub fn onInsertFromMimeData(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMimeData) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnInsertFromMimeData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9500,14 +11896,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn inputMethodEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextCustomEditor__RichTextEditor_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9521,10 +11917,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn superInputMethodEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.TextCustomEditor__RichTextEditor_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QTextEdit
     ///
@@ -9538,9 +11938,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QInputMethodEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `scrollContentsBy` instead
+    ///
+    pub const ScrollContentsBy = scrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -9556,13 +11960,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn ScrollContentsBy(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
+    pub fn scrollContentsBy(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
         qtc.TextCustomEditor__RichTextEditor_ScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
 
-    /// ### DEPRECATED: Use `SuperScrollContentsBy` instead
+    /// ### DEPRECATED: Use `superScrollContentsBy` instead
     ///
-    pub const QBaseScrollContentsBy = SuperScrollContentsBy;
+    pub const SuperScrollContentsBy = superScrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -9578,9 +11982,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn SuperScrollContentsBy(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
+    pub fn superScrollContentsBy(self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) void {
         qtc.TextCustomEditor__RichTextEditor_SuperScrollContentsBy(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `onScrollContentsBy` instead
+    ///
+    pub const OnScrollContentsBy = onScrollContentsBy;
 
     /// Inherited from QTextEdit
     ///
@@ -9594,9 +12002,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, dx: i32, dy: i32) callconv(.c) void `
     ///
-    pub fn OnScrollContentsBy(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32) callconv(.c) void) void {
+    pub fn onScrollContentsBy(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnScrollContentsBy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doSetTextCursor` instead
+    ///
+    pub const DoSetTextCursor = doSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -9608,16 +12020,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn DoSetTextCursor(self: TextCustomEditor__RichTextEditor, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextCustomEditor__RichTextEditor_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn doSetTextCursor(self: TextCustomEditor__RichTextEditor, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextCustomEditor__RichTextEditor_DoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSetTextCursor` instead
+    /// ### DEPRECATED: Use `superDoSetTextCursor` instead
     ///
-    pub const QBaseDoSetTextCursor = SuperDoSetTextCursor;
+    pub const SuperDoSetTextCursor = superDoSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -9629,12 +12041,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` cursor: QTextCursor `
+    /// ` _cursor: QTextCursor `
     ///
-    pub fn SuperDoSetTextCursor(self: TextCustomEditor__RichTextEditor, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QTextCursor;
-        qtc.TextCustomEditor__RichTextEditor_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn superDoSetTextCursor(self: TextCustomEditor__RichTextEditor, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QTextCursor;
+        qtc.TextCustomEditor__RichTextEditor_SuperDoSetTextCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoSetTextCursor` instead
+    ///
+    pub const OnDoSetTextCursor = onDoSetTextCursor;
 
     /// Inherited from QTextEdit
     ///
@@ -9648,10 +12064,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, cursor: QTextCursor) callconv(.c) void `
     ///
-    pub fn OnDoSetTextCursor(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTextCursor) callconv(.c) void) void {
+    pub fn onDoSetTextCursor(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTextCursor) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDoSetTextCursor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -9662,13 +12082,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn MinimumSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn minimumSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9680,10 +12100,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperMinimumSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn superMinimumSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
+
     /// Inherited from QAbstractScrollArea
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractscrollarea.html#minimumSizeHint)
@@ -9698,9 +12122,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9712,13 +12140,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn sizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9730,9 +12158,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn superSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9748,9 +12180,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setupViewport` instead
+    ///
+    pub const SetupViewport = setupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9762,16 +12198,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SetupViewport(self: TextCustomEditor__RichTextEditor, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextCustomEditor__RichTextEditor_SetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn setupViewport(self: TextCustomEditor__RichTextEditor, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextCustomEditor__RichTextEditor_SetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSetupViewport` instead
+    /// ### DEPRECATED: Use `superSetupViewport` instead
     ///
-    pub const QBaseSetupViewport = SuperSetupViewport;
+    pub const SuperSetupViewport = superSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9783,12 +12219,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` viewport: QWidget `
+    /// ` _viewport: QWidget `
     ///
-    pub fn SuperSetupViewport(self: TextCustomEditor__RichTextEditor, viewport: anytype) void {
-        comptime _ = @TypeOf(viewport)._is_QWidget;
-        qtc.TextCustomEditor__RichTextEditor_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(viewport.ptr));
+    pub fn superSetupViewport(self: TextCustomEditor__RichTextEditor, _viewport: anytype) void {
+        comptime _ = @TypeOf(_viewport)._is_QWidget;
+        qtc.TextCustomEditor__RichTextEditor_SuperSetupViewport(@ptrCast(self.ptr), @ptrCast(_viewport.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetupViewport` instead
+    ///
+    pub const OnSetupViewport = onSetupViewport;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9802,9 +12242,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, viewport: QWidget) callconv(.c) void `
     ///
-    pub fn OnSetupViewport(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QWidget) callconv(.c) void) void {
+    pub fn onSetupViewport(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QWidget) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnSetupViewport(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9820,15 +12264,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9844,11 +12288,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: TextCustomEditor__RichTextEditor, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9862,9 +12310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QObject, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportEvent` instead
+    ///
+    pub const ViewportEvent = viewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9878,14 +12330,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ViewportEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
+    pub fn viewportEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_ViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperViewportEvent` instead
+    /// ### DEPRECATED: Use `superViewportEvent` instead
     ///
-    pub const QBaseViewportEvent = SuperViewportEvent;
+    pub const SuperViewportEvent = superViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9899,10 +12351,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperViewportEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
+    pub fn superViewportEvent(self: TextCustomEditor__RichTextEditor, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.TextCustomEditor__RichTextEditor_SuperViewportEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onViewportEvent` instead
+    ///
+    pub const OnViewportEvent = onViewportEvent;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9916,9 +12372,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnViewportEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) bool) void {
+    pub fn onViewportEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnViewportEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportSizeHint` instead
+    ///
+    pub const ViewportSizeHint = viewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9930,13 +12390,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ViewportSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn viewportSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_ViewportSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportSizeHint` instead
+    /// ### DEPRECATED: Use `superViewportSizeHint` instead
     ///
-    pub const QBaseViewportSizeHint = SuperViewportSizeHint;
+    pub const SuperViewportSizeHint = superViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9948,9 +12408,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperViewportSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
+    pub fn superViewportSizeHint(self: TextCustomEditor__RichTextEditor) QSize {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperViewportSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportSizeHint` instead
+    ///
+    pub const OnViewportSizeHint = onViewportSizeHint;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -9966,9 +12430,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onViewportSizeHint(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QSize) void {
         qtc.TextCustomEditor__RichTextEditor_OnViewportSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -9982,14 +12450,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn InitStyleOption(self: TextCustomEditor__RichTextEditor, option: anytype) void {
+    pub fn initStyleOption(self: TextCustomEditor__RichTextEditor, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextCustomEditor__RichTextEditor_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -10003,10 +12471,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` option: QStyleOptionFrame `
     ///
-    pub fn SuperInitStyleOption(self: TextCustomEditor__RichTextEditor, option: anytype) void {
+    pub fn superInitStyleOption(self: TextCustomEditor__RichTextEditor, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionFrame;
         qtc.TextCustomEditor__RichTextEditor_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// Inherited from QFrame
     ///
@@ -10020,9 +12492,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, option: QStyleOptionFrame) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QStyleOptionFrame) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QStyleOptionFrame) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -10034,13 +12510,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn DevType(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn devType(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.TextCustomEditor__RichTextEditor_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -10052,9 +12528,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperDevType(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn superDevType(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -10068,9 +12548,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -10084,13 +12568,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: TextCustomEditor__RichTextEditor, visible: bool) void {
+    pub fn setVisible(self: TextCustomEditor__RichTextEditor, visible: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -10104,9 +12588,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: TextCustomEditor__RichTextEditor, visible: bool) void {
+    pub fn superSetVisible(self: TextCustomEditor__RichTextEditor, visible: bool) void {
         qtc.TextCustomEditor__RichTextEditor_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -10120,9 +12608,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, bool) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10136,13 +12628,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
+    pub fn heightForWidth(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextEditor_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10156,9 +12648,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
+    pub fn superHeightForWidth(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10172,9 +12668,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10186,13 +12686,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn HasHeightForWidth(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn hasHeightForWidth(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10204,9 +12704,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperHasHeightForWidth(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn superHasHeightForWidth(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -10220,9 +12724,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10234,13 +12742,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn PaintEngine(self: TextCustomEditor__RichTextEditor) QPaintEngine {
+    pub fn paintEngine(self: TextCustomEditor__RichTextEditor) QPaintEngine {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10252,9 +12760,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperPaintEngine(self: TextCustomEditor__RichTextEditor) QPaintEngine {
+    pub fn superPaintEngine(self: TextCustomEditor__RichTextEditor) QPaintEngine {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -10268,9 +12780,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.TextCustomEditor__RichTextEditor_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10282,16 +12798,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextCustomEditor__RichTextEditor_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextCustomEditor__RichTextEditor_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10303,12 +12819,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -10322,9 +12842,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEnterEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10336,16 +12860,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextEditor_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextEditor_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10357,12 +12881,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10376,9 +12904,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10390,16 +12922,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextCustomEditor__RichTextEditor_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextCustomEditor__RichTextEditor_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10411,12 +12943,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -10430,9 +12966,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMoveEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10444,16 +12984,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextCustomEditor__RichTextEditor_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextCustomEditor__RichTextEditor_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10465,12 +13005,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -10484,9 +13028,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QCloseEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10498,16 +13046,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextCustomEditor__RichTextEditor_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextCustomEditor__RichTextEditor_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10519,12 +13067,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -10538,9 +13090,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QTabletEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10552,16 +13108,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextCustomEditor__RichTextEditor_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextCustomEditor__RichTextEditor_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10573,12 +13129,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -10592,9 +13152,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QActionEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10606,16 +13170,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextCustomEditor__RichTextEditor_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextCustomEditor__RichTextEditor_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10627,12 +13191,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -10646,9 +13214,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QHideEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10666,7 +13238,7 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: TextCustomEditor__RichTextEditor, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: TextCustomEditor__RichTextEditor, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -10674,9 +13246,9 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
         return qtc.TextCustomEditor__RichTextEditor_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10694,13 +13266,17 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: TextCustomEditor__RichTextEditor, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: TextCustomEditor__RichTextEditor, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.TextCustomEditor__RichTextEditor_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -10714,9 +13290,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -10730,13 +13310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
+    pub fn metric(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextEditor_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -10750,9 +13330,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
+    pub fn superMetric(self: TextCustomEditor__RichTextEditor, param1: i32) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -10766,9 +13350,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -10782,14 +13370,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
+    pub fn initPainter(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextCustomEditor__RichTextEditor_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10803,10 +13391,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
+    pub fn superInitPainter(self: TextCustomEditor__RichTextEditor, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.TextCustomEditor__RichTextEditor_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -10820,9 +13412,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPainter) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -10836,14 +13432,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: TextCustomEditor__RichTextEditor, offset: anytype) QPaintDevice {
+    pub fn redirected(self: TextCustomEditor__RichTextEditor, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10857,10 +13453,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: TextCustomEditor__RichTextEditor, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: TextCustomEditor__RichTextEditor, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -10874,9 +13474,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPoint) callconv(.c) QPaintDevice) void {
         qtc.TextCustomEditor__RichTextEditor_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10888,13 +13492,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SharedPainter(self: TextCustomEditor__RichTextEditor) QPainter {
+    pub fn sharedPainter(self: TextCustomEditor__RichTextEditor) QPainter {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10906,9 +13510,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperSharedPainter(self: TextCustomEditor__RichTextEditor) QPainter {
+    pub fn superSharedPainter(self: TextCustomEditor__RichTextEditor) QPainter {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -10922,9 +13530,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QPainter) void {
         qtc.TextCustomEditor__RichTextEditor_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -10936,16 +13548,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__RichTextEditor_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__RichTextEditor_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10957,12 +13569,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -10976,9 +13592,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QChildEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -10990,16 +13610,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextEditor_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextEditor_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11011,12 +13631,16 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: TextCustomEditor__RichTextEditor, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.TextCustomEditor__RichTextEditor_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: TextCustomEditor__RichTextEditor, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.TextCustomEditor__RichTextEditor_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -11030,9 +13654,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QEvent) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -11046,14 +13674,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
+    pub fn connectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextEditor_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11067,11 +13695,15 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
+    pub fn superConnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextEditor_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -11084,9 +13716,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11100,14 +13736,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
+    pub fn disconnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextEditor_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11121,10 +13757,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
+    pub fn superDisconnectNotify(self: TextCustomEditor__RichTextEditor, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.TextCustomEditor__RichTextEditor_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -11138,9 +13778,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `zoomInF` instead
+    ///
+    pub const ZoomInF = zoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -11154,13 +13798,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn ZoomInF(self: TextCustomEditor__RichTextEditor, range: f32) void {
+    pub fn zoomInF(self: TextCustomEditor__RichTextEditor, range: f32) void {
         qtc.TextCustomEditor__RichTextEditor_ZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
 
-    /// ### DEPRECATED: Use `SuperZoomInF` instead
+    /// ### DEPRECATED: Use `superZoomInF` instead
     ///
-    pub const QBaseZoomInF = SuperZoomInF;
+    pub const SuperZoomInF = superZoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -11174,9 +13818,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` range: f32 `
     ///
-    pub fn SuperZoomInF(self: TextCustomEditor__RichTextEditor, range: f32) void {
+    pub fn superZoomInF(self: TextCustomEditor__RichTextEditor, range: f32) void {
         qtc.TextCustomEditor__RichTextEditor_SuperZoomInF(@ptrCast(self.ptr), @bitCast(range));
     }
+
+    /// ### DEPRECATED: Use `onZoomInF` instead
+    ///
+    pub const OnZoomInF = onZoomInF;
 
     /// Inherited from QTextEdit
     ///
@@ -11190,9 +13838,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, range: f32) callconv(.c) void `
     ///
-    pub fn OnZoomInF(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, f32) callconv(.c) void) void {
+    pub fn onZoomInF(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, f32) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnZoomInF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setViewportMargins` instead
+    ///
+    pub const SetViewportMargins = setViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11212,13 +13864,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetViewportMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setViewportMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextCustomEditor__RichTextEditor_SetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
 
-    /// ### DEPRECATED: Use `SuperSetViewportMargins` instead
+    /// ### DEPRECATED: Use `superSetViewportMargins` instead
     ///
-    pub const QBaseSetViewportMargins = SuperSetViewportMargins;
+    pub const SuperSetViewportMargins = superSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11238,9 +13890,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SuperSetViewportMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn superSetViewportMargins(self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.TextCustomEditor__RichTextEditor_SuperSetViewportMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `onSetViewportMargins` instead
+    ///
+    pub const OnSetViewportMargins = onSetViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11254,9 +13910,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, left: i32, top: i32, right: i32, bottom: i32) callconv(.c) void `
     ///
-    pub fn OnSetViewportMargins(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32, i32, i32) callconv(.c) void) void {
+    pub fn onSetViewportMargins(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32, i32, i32) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnSetViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `viewportMargins` instead
+    ///
+    pub const ViewportMargins = viewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11268,13 +13928,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn ViewportMargins(self: TextCustomEditor__RichTextEditor) QMargins {
+    pub fn viewportMargins(self: TextCustomEditor__RichTextEditor) QMargins {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_ViewportMargins(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperViewportMargins` instead
+    /// ### DEPRECATED: Use `superViewportMargins` instead
     ///
-    pub const QBaseViewportMargins = SuperViewportMargins;
+    pub const SuperViewportMargins = superViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11286,9 +13946,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperViewportMargins(self: TextCustomEditor__RichTextEditor) QMargins {
+    pub fn superViewportMargins(self: TextCustomEditor__RichTextEditor) QMargins {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperViewportMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onViewportMargins` instead
+    ///
+    pub const OnViewportMargins = onViewportMargins;
 
     /// Inherited from QAbstractScrollArea
     ///
@@ -11304,9 +13968,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnViewportMargins(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMargins) void {
+    pub fn onViewportMargins(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QMargins) void {
         qtc.TextCustomEditor__RichTextEditor_OnViewportMargins(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `drawFrame` instead
+    ///
+    pub const DrawFrame = drawFrame;
 
     /// Inherited from QFrame
     ///
@@ -11320,14 +13988,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn DrawFrame(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn drawFrame(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextCustomEditor__RichTextEditor_DrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFrame` instead
+    /// ### DEPRECATED: Use `superDrawFrame` instead
     ///
-    pub const QBaseDrawFrame = SuperDrawFrame;
+    pub const SuperDrawFrame = superDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -11341,10 +14009,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` param1: QPainter `
     ///
-    pub fn SuperDrawFrame(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
+    pub fn superDrawFrame(self: TextCustomEditor__RichTextEditor, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPainter;
         qtc.TextCustomEditor__RichTextEditor_SuperDrawFrame(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFrame` instead
+    ///
+    pub const OnDrawFrame = onDrawFrame;
 
     /// Inherited from QFrame
     ///
@@ -11358,10 +14030,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, param1: QPainter) callconv(.c) void `
     ///
-    pub fn OnDrawFrame(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPainter) callconv(.c) void) void {
+    pub fn onDrawFrame(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QPainter) callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDrawFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11372,13 +14048,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn UpdateMicroFocus(self: TextCustomEditor__RichTextEditor) void {
+    pub fn updateMicroFocus(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -11390,10 +14066,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperUpdateMicroFocus(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superUpdateMicroFocus(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -11406,10 +14086,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11420,13 +14104,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Create(self: TextCustomEditor__RichTextEditor) void {
+    pub fn create(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -11438,10 +14122,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperCreate(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superCreate(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -11454,9 +14142,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -11468,13 +14160,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Destroy(self: TextCustomEditor__RichTextEditor) void {
+    pub fn destroy(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11486,9 +14178,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperDestroy(self: TextCustomEditor__RichTextEditor) void {
+    pub fn superDestroy(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -11502,10 +14198,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) void) void {
         qtc.TextCustomEditor__RichTextEditor_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11516,13 +14216,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FocusNextChild(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn focusNextChild(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -11534,10 +14234,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperFocusNextChild(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn superFocusNextChild(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -11550,9 +14254,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11564,13 +14272,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn FocusPreviousChild(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn focusPreviousChild(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11582,9 +14290,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperFocusPreviousChild(self: TextCustomEditor__RichTextEditor) bool {
+    pub fn superFocusPreviousChild(self: TextCustomEditor__RichTextEditor) bool {
         return qtc.TextCustomEditor__RichTextEditor_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -11598,9 +14310,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -11612,13 +14328,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Sender(self: TextCustomEditor__RichTextEditor) QObject {
+    pub fn sender(self: TextCustomEditor__RichTextEditor) QObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -11630,9 +14346,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperSender(self: TextCustomEditor__RichTextEditor) QObject {
+    pub fn superSender(self: TextCustomEditor__RichTextEditor) QObject {
         return .{ .ptr = qtc.TextCustomEditor__RichTextEditor_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -11646,9 +14366,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) QObject) void {
         qtc.TextCustomEditor__RichTextEditor_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11660,13 +14384,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SenderSignalIndex(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn senderSignalIndex(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11678,9 +14402,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn SuperSenderSignalIndex(self: TextCustomEditor__RichTextEditor) i32 {
+    pub fn superSenderSignalIndex(self: TextCustomEditor__RichTextEditor) i32 {
         return qtc.TextCustomEditor__RichTextEditor_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -11694,9 +14422,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: TextCustomEditor__RichTextEditor, callback: *const fn () callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -11710,14 +14442,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) i32 {
+    pub fn receivers(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__RichTextEditor_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -11731,10 +14463,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: TextCustomEditor__RichTextEditor, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.TextCustomEditor__RichTextEditor_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -11748,9 +14484,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) i32) void {
         qtc.TextCustomEditor__RichTextEditor_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11764,14 +14504,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: TextCustomEditor__RichTextEditor, signal: anytype) bool {
+    pub fn isSignalConnected(self: TextCustomEditor__RichTextEditor, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__RichTextEditor_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11785,10 +14525,14 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: TextCustomEditor__RichTextEditor, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: TextCustomEditor__RichTextEditor, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.TextCustomEditor__RichTextEditor_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -11802,9 +14546,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, QMetaMethod) callconv(.c) bool) void {
         qtc.TextCustomEditor__RichTextEditor_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11820,13 +14568,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: TextCustomEditor__RichTextEditor, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: TextCustomEditor__RichTextEditor, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__RichTextEditor_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11842,9 +14590,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: TextCustomEditor__RichTextEditor, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: TextCustomEditor__RichTextEditor, metricA: i32, metricB: i32) f64 {
         return qtc.TextCustomEditor__RichTextEditor_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -11858,9 +14610,13 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, i32, i32) callconv(.c) f64) void {
         qtc.TextCustomEditor__RichTextEditor_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -11874,23 +14630,23 @@ pub const TextCustomEditor__RichTextEditor = extern struct {
     ///
     /// ` callback: *const fn (self: TextCustomEditor__RichTextEditor, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: TextCustomEditor__RichTextEditor, callback: *const fn (TextCustomEditor__RichTextEditor, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextCustomEditor_1_1RichTextEditor.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextCustomEditor__RichTextEditor `
     ///
-    pub fn Delete(self: TextCustomEditor__RichTextEditor) void {
+    pub fn delete(self: TextCustomEditor__RichTextEditor) void {
         qtc.TextCustomEditor__RichTextEditor_Delete(@ptrCast(self.ptr));
     }
 };

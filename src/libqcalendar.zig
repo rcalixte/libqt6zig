@@ -18,70 +18,97 @@ pub const QCalendar = extern struct {
 
     pub const _is_QCalendar = {};
 
-    /// New constructs a new QCalendar object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCalendar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar `
     ///
-    pub fn New(other: anytype) QCalendar {
+    pub fn new(other: anytype) QCalendar {
         comptime _ = @TypeOf(other)._is_QCalendar;
         return .{ .ptr = qtc.QCalendar_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QCalendar object and invalidates the source QCalendar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCalendar object and invalidate the source QCalendar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar `
     ///
-    pub fn New2(other: anytype) QCalendar {
+    pub fn new2(other: anytype) QCalendar {
         comptime _ = @TypeOf(other)._is_QCalendar;
         return .{ .ptr = qtc.QCalendar_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCalendar object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QCalendar {
+    pub const New3 = new3;
+
+    /// Allocate a new QCalendar object in C++ memory
+    ///
+    pub fn new3() QCalendar {
         return .{ .ptr = qtc.QCalendar_new3() };
     }
 
-    /// New4 constructs a new QCalendar object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCalendar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` system: qcalendar_enums.System `
     ///
-    pub fn New4(system: i32) QCalendar {
+    pub fn new4(system: i32) QCalendar {
         return .{ .ptr = qtc.QCalendar_new4(@bitCast(system)) };
     }
 
-    /// New5 constructs a new QCalendar object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCalendar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New5(name: []const u8) QCalendar {
+    pub fn new5(_name: []const u8) QCalendar {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QCalendar_new5(name_str) };
     }
 
-    /// New6 constructs a new QCalendar object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QCalendar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` id: QCalendar__SystemId `
     ///
-    pub fn New6(id: anytype) QCalendar {
+    pub fn new6(id: anytype) QCalendar {
         comptime _ = @TypeOf(id)._is_QCalendar__SystemId;
         return .{ .ptr = qtc.QCalendar_new6(@ptrCast(id.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -89,11 +116,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` other: QCalendar `
     ///
-    pub fn CopyAssign(self: QCalendar, other: QCalendar) void {
+    pub fn copyAssign(self: QCalendar, other: QCalendar) void {
         qtc.QCalendar_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -101,9 +131,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` other: QCalendar `
     ///
-    pub fn MoveAssign(self: QCalendar, other: QCalendar) void {
+    pub fn moveAssign(self: QCalendar, other: QCalendar) void {
         qtc.QCalendar_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isValid)
     ///
@@ -111,9 +145,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsValid(self: QCalendar) bool {
+    pub fn isValid(self: QCalendar) bool {
         return qtc.QCalendar_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `daysInMonth` instead
+    ///
+    pub const DaysInMonth = daysInMonth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
     ///
@@ -123,9 +161,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` month: i32 `
     ///
-    pub fn DaysInMonth(self: QCalendar, month: i32) i32 {
+    pub fn daysInMonth(self: QCalendar, month: i32) i32 {
         return qtc.QCalendar_DaysInMonth(@ptrCast(self.ptr), @bitCast(month));
     }
+
+    /// ### DEPRECATED: Use `daysInYear` instead
+    ///
+    pub const DaysInYear = daysInYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInYear)
     ///
@@ -135,9 +177,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn DaysInYear(self: QCalendar, year: i32) i32 {
+    pub fn daysInYear(self: QCalendar, year: i32) i32 {
         return qtc.QCalendar_DaysInYear(@ptrCast(self.ptr), @bitCast(year));
     }
+
+    /// ### DEPRECATED: Use `monthsInYear` instead
+    ///
+    pub const MonthsInYear = monthsInYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthsInYear)
     ///
@@ -147,9 +193,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn MonthsInYear(self: QCalendar, year: i32) i32 {
+    pub fn monthsInYear(self: QCalendar, year: i32) i32 {
         return qtc.QCalendar_MonthsInYear(@ptrCast(self.ptr), @bitCast(year));
     }
+
+    /// ### DEPRECATED: Use `isDateValid` instead
+    ///
+    pub const IsDateValid = isDateValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isDateValid)
     ///
@@ -163,9 +213,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` day: i32 `
     ///
-    pub fn IsDateValid(self: QCalendar, year: i32, month: i32, day: i32) bool {
+    pub fn isDateValid(self: QCalendar, year: i32, month: i32, day: i32) bool {
         return qtc.QCalendar_IsDateValid(@ptrCast(self.ptr), @bitCast(year), @bitCast(month), @bitCast(day));
     }
+
+    /// ### DEPRECATED: Use `isLeapYear` instead
+    ///
+    pub const IsLeapYear = isLeapYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLeapYear)
     ///
@@ -175,9 +229,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn IsLeapYear(self: QCalendar, year: i32) bool {
+    pub fn isLeapYear(self: QCalendar, year: i32) bool {
         return qtc.QCalendar_IsLeapYear(@ptrCast(self.ptr), @bitCast(year));
     }
+
+    /// ### DEPRECATED: Use `isGregorian` instead
+    ///
+    pub const IsGregorian = isGregorian;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isGregorian)
     ///
@@ -185,9 +243,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsGregorian(self: QCalendar) bool {
+    pub fn isGregorian(self: QCalendar) bool {
         return qtc.QCalendar_IsGregorian(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLunar` instead
+    ///
+    pub const IsLunar = isLunar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLunar)
     ///
@@ -195,9 +257,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsLunar(self: QCalendar) bool {
+    pub fn isLunar(self: QCalendar) bool {
         return qtc.QCalendar_IsLunar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLuniSolar` instead
+    ///
+    pub const IsLuniSolar = isLuniSolar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isLuniSolar)
     ///
@@ -205,9 +271,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsLuniSolar(self: QCalendar) bool {
+    pub fn isLuniSolar(self: QCalendar) bool {
         return qtc.QCalendar_IsLuniSolar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSolar` instead
+    ///
+    pub const IsSolar = isSolar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isSolar)
     ///
@@ -215,9 +285,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsSolar(self: QCalendar) bool {
+    pub fn isSolar(self: QCalendar) bool {
         return qtc.QCalendar_IsSolar(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProleptic` instead
+    ///
+    pub const IsProleptic = isProleptic;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#isProleptic)
     ///
@@ -225,9 +299,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn IsProleptic(self: QCalendar) bool {
+    pub fn isProleptic(self: QCalendar) bool {
         return qtc.QCalendar_IsProleptic(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasYearZero` instead
+    ///
+    pub const HasYearZero = hasYearZero;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#hasYearZero)
     ///
@@ -235,9 +313,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn HasYearZero(self: QCalendar) bool {
+    pub fn hasYearZero(self: QCalendar) bool {
         return qtc.QCalendar_HasYearZero(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumDaysInMonth` instead
+    ///
+    pub const MaximumDaysInMonth = maximumDaysInMonth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#maximumDaysInMonth)
     ///
@@ -245,9 +327,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn MaximumDaysInMonth(self: QCalendar) i32 {
+    pub fn maximumDaysInMonth(self: QCalendar) i32 {
         return qtc.QCalendar_MaximumDaysInMonth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumDaysInMonth` instead
+    ///
+    pub const MinimumDaysInMonth = minimumDaysInMonth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#minimumDaysInMonth)
     ///
@@ -255,9 +341,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn MinimumDaysInMonth(self: QCalendar) i32 {
+    pub fn minimumDaysInMonth(self: QCalendar) i32 {
         return qtc.QCalendar_MinimumDaysInMonth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumMonthsInYear` instead
+    ///
+    pub const MaximumMonthsInYear = maximumMonthsInYear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#maximumMonthsInYear)
     ///
@@ -265,9 +355,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` self: QCalendar `
     ///
-    pub fn MaximumMonthsInYear(self: QCalendar) i32 {
+    pub fn maximumMonthsInYear(self: QCalendar) i32 {
         return qtc.QCalendar_MaximumMonthsInYear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#name)
     ///
@@ -277,13 +371,17 @@ pub const QCalendar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QCalendar, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QCalendar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCalendar_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `dateFromParts` instead
+    ///
+    pub const DateFromParts = dateFromParts;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
     ///
@@ -297,9 +395,13 @@ pub const QCalendar = extern struct {
     ///
     /// ` day: i32 `
     ///
-    pub fn DateFromParts(self: QCalendar, year: i32, month: i32, day: i32) QDate {
+    pub fn dateFromParts(self: QCalendar, year: i32, month: i32, day: i32) QDate {
         return .{ .ptr = qtc.QCalendar_DateFromParts(@ptrCast(self.ptr), @bitCast(year), @bitCast(month), @bitCast(day)) };
     }
+
+    /// ### DEPRECATED: Use `dateFromParts2` instead
+    ///
+    pub const DateFromParts2 = dateFromParts2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateFromParts)
     ///
@@ -309,10 +411,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` parts: QCalendar__YearMonthDay `
     ///
-    pub fn DateFromParts2(self: QCalendar, parts: anytype) QDate {
+    pub fn dateFromParts2(self: QCalendar, parts: anytype) QDate {
         comptime _ = @TypeOf(parts)._is_QCalendar__YearMonthDay;
         return .{ .ptr = qtc.QCalendar_DateFromParts2(@ptrCast(self.ptr), @ptrCast(parts.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `matchCenturyToWeekday` instead
+    ///
+    pub const MatchCenturyToWeekday = matchCenturyToWeekday;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#matchCenturyToWeekday)
     ///
@@ -324,10 +430,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` dow: i32 `
     ///
-    pub fn MatchCenturyToWeekday(self: QCalendar, parts: anytype, dow: i32) QDate {
+    pub fn matchCenturyToWeekday(self: QCalendar, parts: anytype, dow: i32) QDate {
         comptime _ = @TypeOf(parts)._is_QCalendar__YearMonthDay;
         return .{ .ptr = qtc.QCalendar_MatchCenturyToWeekday(@ptrCast(self.ptr), @ptrCast(parts.ptr), @bitCast(dow)) };
     }
+
+    /// ### DEPRECATED: Use `partsFromDate` instead
+    ///
+    pub const PartsFromDate = partsFromDate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#partsFromDate)
     ///
@@ -337,10 +447,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn PartsFromDate(self: QCalendar, date: anytype) QCalendar__YearMonthDay {
+    pub fn partsFromDate(self: QCalendar, date: anytype) QCalendar__YearMonthDay {
         comptime _ = @TypeOf(date)._is_QDate;
         return .{ .ptr = qtc.QCalendar_PartsFromDate(@ptrCast(self.ptr), @ptrCast(date.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `dayOfWeek` instead
+    ///
+    pub const DayOfWeek = dayOfWeek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dayOfWeek)
     ///
@@ -350,10 +464,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` date: QDate `
     ///
-    pub fn DayOfWeek(self: QCalendar, date: anytype) i32 {
+    pub fn dayOfWeek(self: QCalendar, date: anytype) i32 {
         comptime _ = @TypeOf(date)._is_QDate;
         return qtc.QCalendar_DayOfWeek(@ptrCast(self.ptr), @ptrCast(date.ptr));
     }
+
+    /// ### DEPRECATED: Use `monthName` instead
+    ///
+    pub const MonthName = monthName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
@@ -367,14 +485,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` month: i32 `
     ///
-    pub fn MonthName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32) []const u8 {
+    pub fn monthName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.monthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `standaloneMonthName` instead
+    ///
+    pub const StandaloneMonthName = standaloneMonthName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
@@ -388,14 +510,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` month: i32 `
     ///
-    pub fn StandaloneMonthName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32) []const u8 {
+    pub fn standaloneMonthName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.standaloneMonthName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `weekDayName` instead
+    ///
+    pub const WeekDayName = weekDayName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
     ///
@@ -409,14 +535,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` day: i32 `
     ///
-    pub fn WeekDayName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32) []const u8 {
+    pub fn weekDayName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_WeekDayName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.WeekDayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.weekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `standaloneWeekDayName` instead
+    ///
+    pub const StandaloneWeekDayName = standaloneWeekDayName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
     ///
@@ -430,14 +560,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` day: i32 `
     ///
-    pub fn StandaloneWeekDayName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32) []const u8 {
+    pub fn standaloneWeekDayName(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneWeekDayName(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneWeekDayName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.standaloneWeekDayName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `dateTimeToString` instead
+    ///
+    pub const DateTimeToString = dateTimeToString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dateTimeToString)
     ///
@@ -457,7 +591,7 @@ pub const QCalendar = extern struct {
     ///
     /// ` locale: QLocale `
     ///
-    pub fn DateTimeToString(self: QCalendar, allocator: std.mem.Allocator, format: []const u8, datetime: anytype, dateOnly: anytype, timeOnly: anytype, locale: anytype) []const u8 {
+    pub fn dateTimeToString(self: QCalendar, allocator: std.mem.Allocator, format: []const u8, datetime: anytype, dateOnly: anytype, timeOnly: anytype, locale: anytype) []const u8 {
         const format_str = qtc.libqt_string{
             .len = format.len,
             .data = format.ptr,
@@ -468,10 +602,14 @@ pub const QCalendar = extern struct {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_DateTimeToString(@ptrCast(self.ptr), format_str, @ptrCast(datetime.ptr), @ptrCast(dateOnly.ptr), @ptrCast(timeOnly.ptr), @ptrCast(locale.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.DateTimeToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.dateTimeToString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `availableCalendars` instead
+    ///
+    pub const AvailableCalendars = availableCalendars;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#availableCalendars)
     ///
@@ -479,7 +617,7 @@ pub const QCalendar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AvailableCalendars(allocator: std.mem.Allocator) []const []const u8 {
+    pub fn availableCalendars(allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QCalendar_AvailableCalendars();
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -487,15 +625,19 @@ pub const QCalendar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCalendar.AvailableCalendars: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QCalendar.availableCalendars: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QCalendar.AvailableCalendars: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QCalendar.availableCalendars: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `daysInMonth2` instead
+    ///
+    pub const DaysInMonth2 = daysInMonth2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#daysInMonth)
     ///
@@ -507,10 +649,14 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn DaysInMonth2(self: QCalendar, month: i32, year: i32) i32 {
+    pub fn daysInMonth2(self: QCalendar, month: i32, year: i32) i32 {
         return qtc.QCalendar_DaysInMonth2(@ptrCast(self.ptr), @bitCast(month), @bitCast(year));
     }
 
+    /// ### DEPRECATED: Use `monthName3` instead
+    ///
+    pub const MonthName3 = monthName3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
     /// ## Parameter(s):
@@ -525,14 +671,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn MonthName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32) []const u8 {
+    pub fn monthName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.monthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `monthName4` instead
+    ///
+    pub const MonthName4 = monthName4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#monthName)
     ///
@@ -550,14 +700,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn MonthName4(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32, format: i32) []const u8 {
+    pub fn monthName4(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32, format: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_MonthName4(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.MonthName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.monthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `standaloneMonthName3` instead
+    ///
+    pub const StandaloneMonthName3 = standaloneMonthName3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
@@ -573,14 +727,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` year: i32 `
     ///
-    pub fn StandaloneMonthName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32) []const u8 {
+    pub fn standaloneMonthName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.standaloneMonthName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `standaloneMonthName4` instead
+    ///
+    pub const StandaloneMonthName4 = standaloneMonthName4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneMonthName)
     ///
@@ -598,14 +756,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn StandaloneMonthName4(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32, format: i32) []const u8 {
+    pub fn standaloneMonthName4(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, month: i32, year: i32, format: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneMonthName4(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(month), @bitCast(year), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneMonthName4: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.standaloneMonthName4: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `weekDayName3` instead
+    ///
+    pub const WeekDayName3 = weekDayName3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#weekDayName)
     ///
@@ -621,14 +783,18 @@ pub const QCalendar = extern struct {
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn WeekDayName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32, format: i32) []const u8 {
+    pub fn weekDayName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32, format: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_WeekDayName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.WeekDayName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.weekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `standaloneWeekDayName3` instead
+    ///
+    pub const StandaloneWeekDayName3 = standaloneWeekDayName3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#standaloneWeekDayName)
     ///
@@ -644,28 +810,28 @@ pub const QCalendar = extern struct {
     ///
     /// ` format: qlocale_enums.FormatType `
     ///
-    pub fn StandaloneWeekDayName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32, format: i32) []const u8 {
+    pub fn standaloneWeekDayName3(self: QCalendar, allocator: std.mem.Allocator, locale: anytype, day: i32, format: i32) []const u8 {
         comptime _ = @TypeOf(locale)._is_QLocale;
         var _str = qtc.QCalendar_StandaloneWeekDayName3(@ptrCast(self.ptr), @ptrCast(locale.ptr), @bitCast(day), @bitCast(format));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.StandaloneWeekDayName3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCalendar.standaloneWeekDayName3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar.html#dtor.QCalendar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCalendar `
     ///
-    pub fn Delete(self: QCalendar) void {
+    pub fn delete(self: QCalendar) void {
         qtc.QCalendar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -680,45 +846,65 @@ pub const QCalendar__YearMonthDay = extern struct {
 
     pub const _is_QCalendar__YearMonthDay = {};
 
-    /// New constructs a new QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCalendar__YearMonthDay {
+    pub const New = new;
+
+    /// Allocate a new QCalendar::YearMonthDay object in C++ memory
+    ///
+    pub fn new() QCalendar__YearMonthDay {
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new() };
     }
 
-    /// New2 constructs a new QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCalendar::YearMonthDay object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar__YearMonthDay `
     ///
-    pub fn New2(other: anytype) QCalendar__YearMonthDay {
+    pub fn new2(other: anytype) QCalendar__YearMonthDay {
         comptime _ = @TypeOf(other)._is_QCalendar__YearMonthDay;
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCalendar::YearMonthDay object and invalidates the source QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QCalendar::YearMonthDay object and invalidate the source QCalendar::YearMonthDay object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar__YearMonthDay `
     ///
-    pub fn New3(other: anytype) QCalendar__YearMonthDay {
+    pub fn new3(other: anytype) QCalendar__YearMonthDay {
         comptime _ = @TypeOf(other)._is_QCalendar__YearMonthDay;
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new3(@ptrCast(other.ptr)) };
     }
 
-    /// New4 constructs a new QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QCalendar::YearMonthDay object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` y: i32 `
     ///
-    pub fn New4(y: i32) QCalendar__YearMonthDay {
+    pub fn new4(y: i32) QCalendar__YearMonthDay {
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new4(@bitCast(y)) };
     }
 
-    /// New5 constructs a new QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QCalendar::YearMonthDay object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -726,11 +912,15 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` m: i32 `
     ///
-    pub fn New5(y: i32, m: i32) QCalendar__YearMonthDay {
+    pub fn new5(y: i32, m: i32) QCalendar__YearMonthDay {
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new5(@bitCast(y), @bitCast(m)) };
     }
 
-    /// New6 constructs a new QCalendar::YearMonthDay object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QCalendar::YearMonthDay object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -740,11 +930,14 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` d: i32 `
     ///
-    pub fn New6(y: i32, m: i32, d: i32) QCalendar__YearMonthDay {
+    pub fn new6(y: i32, m: i32, d: i32) QCalendar__YearMonthDay {
         return .{ .ptr = qtc.QCalendar__YearMonthDay_new6(@bitCast(y), @bitCast(m), @bitCast(d)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -752,11 +945,14 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` other: QCalendar__YearMonthDay `
     ///
-    pub fn CopyAssign(self: QCalendar__YearMonthDay, other: QCalendar__YearMonthDay) void {
+    pub fn copyAssign(self: QCalendar__YearMonthDay, other: QCalendar__YearMonthDay) void {
         qtc.QCalendar__YearMonthDay_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -764,9 +960,13 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` other: QCalendar__YearMonthDay `
     ///
-    pub fn MoveAssign(self: QCalendar__YearMonthDay, other: QCalendar__YearMonthDay) void {
+    pub fn moveAssign(self: QCalendar__YearMonthDay, other: QCalendar__YearMonthDay) void {
         qtc.QCalendar__YearMonthDay_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#isValid)
     ///
@@ -774,31 +974,43 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    pub fn IsValid(self: QCalendar__YearMonthDay) bool {
+    pub fn isValid(self: QCalendar__YearMonthDay) bool {
         return qtc.QCalendar__YearMonthDay_IsValid(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `year` instead
+    ///
+    pub const Year = year;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    pub fn Year(self: QCalendar__YearMonthDay) i32 {
+    pub fn year(self: QCalendar__YearMonthDay) i32 {
         return qtc.QCalendar__YearMonthDay_Year(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setYear` instead
+    ///
+    pub const SetYear = setYear;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#year-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    /// ` year: i32 `
+    /// ` _year: i32 `
     ///
-    pub fn SetYear(self: QCalendar__YearMonthDay, year: i32) void {
-        qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self.ptr), @bitCast(year));
+    pub fn setYear(self: QCalendar__YearMonthDay, _year: i32) void {
+        qtc.QCalendar__YearMonthDay_SetYear(@ptrCast(self.ptr), @bitCast(_year));
     }
+
+    /// ### DEPRECATED: Use `month` instead
+    ///
+    pub const Month = month;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
     ///
@@ -806,21 +1018,29 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    pub fn Month(self: QCalendar__YearMonthDay) i32 {
+    pub fn month(self: QCalendar__YearMonthDay) i32 {
         return qtc.QCalendar__YearMonthDay_Month(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMonth` instead
+    ///
+    pub const SetMonth = setMonth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#month-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    /// ` month: i32 `
+    /// ` _month: i32 `
     ///
-    pub fn SetMonth(self: QCalendar__YearMonthDay, month: i32) void {
-        qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self.ptr), @bitCast(month));
+    pub fn setMonth(self: QCalendar__YearMonthDay, _month: i32) void {
+        qtc.QCalendar__YearMonthDay_SetMonth(@ptrCast(self.ptr), @bitCast(_month));
     }
+
+    /// ### DEPRECATED: Use `day` instead
+    ///
+    pub const Day = day;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
     ///
@@ -828,33 +1048,37 @@ pub const QCalendar__YearMonthDay = extern struct {
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    pub fn Day(self: QCalendar__YearMonthDay) i32 {
+    pub fn day(self: QCalendar__YearMonthDay) i32 {
         return qtc.QCalendar__YearMonthDay_Day(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDay` instead
+    ///
+    pub const SetDay = setDay;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-yearmonthday.html#day-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    /// ` day: i32 `
+    /// ` _day: i32 `
     ///
-    pub fn SetDay(self: QCalendar__YearMonthDay, day: i32) void {
-        qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self.ptr), @bitCast(day));
+    pub fn setDay(self: QCalendar__YearMonthDay, _day: i32) void {
+        qtc.QCalendar__YearMonthDay_SetDay(@ptrCast(self.ptr), @bitCast(_day));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCalendar__YearMonthDay `
     ///
-    pub fn Delete(self: QCalendar__YearMonthDay) void {
+    pub fn delete(self: QCalendar__YearMonthDay) void {
         qtc.QCalendar__YearMonthDay_Delete(@ptrCast(self.ptr));
     }
 };
@@ -869,35 +1093,50 @@ pub const QCalendar__SystemId = extern struct {
 
     pub const _is_QCalendar__SystemId = {};
 
-    /// New constructs a new QCalendar::SystemId object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QCalendar::SystemId object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar__SystemId `
     ///
-    pub fn New(other: anytype) QCalendar__SystemId {
+    pub fn new(other: anytype) QCalendar__SystemId {
         comptime _ = @TypeOf(other)._is_QCalendar__SystemId;
         return .{ .ptr = qtc.QCalendar__SystemId_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QCalendar::SystemId object and invalidates the source QCalendar::SystemId object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCalendar::SystemId object and invalidate the source QCalendar::SystemId object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCalendar__SystemId `
     ///
-    pub fn New2(other: anytype) QCalendar__SystemId {
+    pub fn new2(other: anytype) QCalendar__SystemId {
         comptime _ = @TypeOf(other)._is_QCalendar__SystemId;
         return .{ .ptr = qtc.QCalendar__SystemId_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QCalendar::SystemId object.
+    /// ### DEPRECATED: Use `new3` instead
     ///
-    pub fn New3() QCalendar__SystemId {
+    pub const New3 = new3;
+
+    /// Allocate a new QCalendar::SystemId object in C++ memory
+    ///
+    pub fn new3() QCalendar__SystemId {
         return .{ .ptr = qtc.QCalendar__SystemId_new3() };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -905,11 +1144,14 @@ pub const QCalendar__SystemId = extern struct {
     ///
     /// ` other: QCalendar__SystemId `
     ///
-    pub fn CopyAssign(self: QCalendar__SystemId, other: QCalendar__SystemId) void {
+    pub fn copyAssign(self: QCalendar__SystemId, other: QCalendar__SystemId) void {
         qtc.QCalendar__SystemId_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -917,9 +1159,13 @@ pub const QCalendar__SystemId = extern struct {
     ///
     /// ` other: QCalendar__SystemId `
     ///
-    pub fn MoveAssign(self: QCalendar__SystemId, other: QCalendar__SystemId) void {
+    pub fn moveAssign(self: QCalendar__SystemId, other: QCalendar__SystemId) void {
         qtc.QCalendar__SystemId_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-systemid.html#index)
     ///
@@ -927,9 +1173,13 @@ pub const QCalendar__SystemId = extern struct {
     ///
     /// ` self: QCalendar__SystemId `
     ///
-    pub fn Index(self: QCalendar__SystemId) usize {
+    pub fn index(self: QCalendar__SystemId) usize {
         return qtc.QCalendar__SystemId_Index(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcalendar-systemid.html#isValid)
     ///
@@ -937,21 +1187,21 @@ pub const QCalendar__SystemId = extern struct {
     ///
     /// ` self: QCalendar__SystemId `
     ///
-    pub fn IsValid(self: QCalendar__SystemId) bool {
+    pub fn isValid(self: QCalendar__SystemId) bool {
         return qtc.QCalendar__SystemId_IsValid(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCalendar__SystemId `
     ///
-    pub fn Delete(self: QCalendar__SystemId) void {
+    pub fn delete(self: QCalendar__SystemId) void {
         qtc.QCalendar__SystemId_Delete(@ptrCast(self.ptr));
     }
 };

@@ -16,22 +16,34 @@ pub const QDomImplementation = extern struct {
 
     pub const _is_QDomImplementation = {};
 
-    /// New constructs a new QDomImplementation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomImplementation {
+    pub const New = new;
+
+    /// Allocate a new QDomImplementation object in C++ memory
+    ///
+    pub fn new() QDomImplementation {
         return .{ .ptr = qtc.QDomImplementation_new() };
     }
 
-    /// New2 constructs a new QDomImplementation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomImplementation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` implementation: QDomImplementation `
     ///
-    pub fn New2(implementation: anytype) QDomImplementation {
+    pub fn new2(implementation: anytype) QDomImplementation {
         comptime _ = @TypeOf(implementation)._is_QDomImplementation;
         return .{ .ptr = qtc.QDomImplementation_new2(@ptrCast(implementation.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` other: QDomImplementation `
     ///
-    pub fn OperatorAssign(self: QDomImplementation, other: anytype) void {
+    pub fn operatorAssign(self: QDomImplementation, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomImplementation;
         qtc.QDomImplementation_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#operator-eq-eq)
     ///
@@ -54,10 +70,14 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` other: QDomImplementation `
     ///
-    pub fn OperatorEqual(self: QDomImplementation, other: anytype) bool {
+    pub fn operatorEqual(self: QDomImplementation, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomImplementation;
         return qtc.QDomImplementation_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#operator-not-eq)
     ///
@@ -67,10 +87,14 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` other: QDomImplementation `
     ///
-    pub fn OperatorNotEqual(self: QDomImplementation, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomImplementation, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomImplementation;
         return qtc.QDomImplementation_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `hasFeature` instead
+    ///
+    pub const HasFeature = hasFeature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#hasFeature)
     ///
@@ -82,7 +106,7 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn HasFeature(self: QDomImplementation, feature: []const u8, version: []const u8) bool {
+    pub fn hasFeature(self: QDomImplementation, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -93,6 +117,10 @@ pub const QDomImplementation = extern struct {
         };
         return qtc.QDomImplementation_HasFeature(@ptrCast(self.ptr), feature_str, version_str);
     }
+
+    /// ### DEPRECATED: Use `createDocumentType` instead
+    ///
+    pub const CreateDocumentType = createDocumentType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#createDocumentType)
     ///
@@ -106,7 +134,7 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` systemId: []const u8 `
     ///
-    pub fn CreateDocumentType(self: QDomImplementation, qName: []const u8, publicId: []const u8, systemId: []const u8) QDomDocumentType {
+    pub fn createDocumentType(self: QDomImplementation, qName: []const u8, publicId: []const u8, systemId: []const u8) QDomDocumentType {
         const qName_str = qtc.libqt_string{
             .len = qName.len,
             .data = qName.ptr,
@@ -122,6 +150,10 @@ pub const QDomImplementation = extern struct {
         return .{ .ptr = qtc.QDomImplementation_CreateDocumentType(@ptrCast(self.ptr), qName_str, publicId_str, systemId_str) };
     }
 
+    /// ### DEPRECATED: Use `createDocument` instead
+    ///
+    pub const CreateDocument = createDocument;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#createDocument)
     ///
     /// ## Parameter(s):
@@ -134,7 +166,7 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` doctype: QDomDocumentType `
     ///
-    pub fn CreateDocument(self: QDomImplementation, nsURI: []const u8, qName: []const u8, doctype: anytype) QDomDocument {
+    pub fn createDocument(self: QDomImplementation, nsURI: []const u8, qName: []const u8, doctype: anytype) QDomDocument {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -147,15 +179,23 @@ pub const QDomImplementation = extern struct {
         return .{ .ptr = qtc.QDomImplementation_CreateDocument(@ptrCast(self.ptr), nsURI_str, qName_str, @ptrCast(doctype.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `invalidDataPolicy` instead
+    ///
+    pub const InvalidDataPolicy = invalidDataPolicy;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#invalidDataPolicy)
     ///
     /// ## Returns:
     ///
     /// ` qdom_enums.InvalidDataPolicy `
     ///
-    pub fn InvalidDataPolicy() i32 {
+    pub fn invalidDataPolicy() i32 {
         return qtc.QDomImplementation_InvalidDataPolicy();
     }
+
+    /// ### DEPRECATED: Use `setInvalidDataPolicy` instead
+    ///
+    pub const SetInvalidDataPolicy = setInvalidDataPolicy;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#setInvalidDataPolicy)
     ///
@@ -163,9 +203,13 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` policy: qdom_enums.InvalidDataPolicy `
     ///
-    pub fn SetInvalidDataPolicy(policy: i32) void {
+    pub fn setInvalidDataPolicy(policy: i32) void {
         qtc.QDomImplementation_SetInvalidDataPolicy(@bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#isNull)
     ///
@@ -173,23 +217,23 @@ pub const QDomImplementation = extern struct {
     ///
     /// ` self: QDomImplementation `
     ///
-    pub fn IsNull(self: QDomImplementation) bool {
+    pub fn isNull(self: QDomImplementation) bool {
         return qtc.QDomImplementation_IsNull(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomimplementation.html#dtor.QDomImplementation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomImplementation `
     ///
-    pub fn Delete(self: QDomImplementation) void {
+    pub fn delete(self: QDomImplementation) void {
         qtc.QDomImplementation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -204,22 +248,34 @@ pub const QDomNode = extern struct {
 
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomNode object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomNode {
+    pub const New = new;
+
+    /// Allocate a new QDomNode object in C++ memory
+    ///
+    pub fn new() QDomNode {
         return .{ .ptr = qtc.QDomNode_new() };
     }
 
-    /// New2 constructs a new QDomNode object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomNode object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` node: QDomNode `
     ///
-    pub fn New2(node: anytype) QDomNode {
+    pub fn new2(node: anytype) QDomNode {
         comptime _ = @TypeOf(node)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_new2(@ptrCast(node.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#operator-eq)
     ///
@@ -229,10 +285,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorAssign(self: QDomNode, other: anytype) void {
+    pub fn operatorAssign(self: QDomNode, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomNode;
         qtc.QDomNode_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#operator-eq-eq)
     ///
@@ -242,10 +302,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomNode, other: anytype) bool {
+    pub fn operatorEqual(self: QDomNode, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#operator-not-eq)
     ///
@@ -255,10 +319,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomNode, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomNode, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#insertBefore)
     ///
@@ -270,11 +338,15 @@ pub const QDomNode = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomNode, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomNode, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#insertAfter)
     ///
@@ -286,11 +358,15 @@ pub const QDomNode = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomNode, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomNode, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#replaceChild)
     ///
@@ -302,11 +378,15 @@ pub const QDomNode = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomNode, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomNode, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#removeChild)
     ///
@@ -316,10 +396,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomNode, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomNode, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#appendChild)
     ///
@@ -329,10 +413,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomNode, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomNode, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#hasChildNodes)
     ///
@@ -340,9 +428,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn HasChildNodes(self: QDomNode) bool {
+    pub fn hasChildNodes(self: QDomNode) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#cloneNode)
     ///
@@ -350,9 +442,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn CloneNode(self: QDomNode) QDomNode {
+    pub fn cloneNode(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#normalize)
     ///
@@ -360,9 +456,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn Normalize(self: QDomNode) void {
+    pub fn normalize(self: QDomNode) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isSupported)
     ///
@@ -374,7 +474,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomNode, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomNode, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -386,6 +486,10 @@ pub const QDomNode = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
     ///
     /// ## Parameter(s):
@@ -394,13 +498,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeType)
     ///
@@ -412,9 +520,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomNode) i32 {
+    pub fn nodeType(self: QDomNode) i32 {
         return qtc.QDomNode_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#parentNode)
     ///
@@ -422,9 +534,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ParentNode(self: QDomNode) QDomNode {
+    pub fn parentNode(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#childNodes)
     ///
@@ -432,9 +548,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ChildNodes(self: QDomNode) QDomNodeList {
+    pub fn childNodes(self: QDomNode) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChild)
     ///
@@ -442,9 +562,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn FirstChild(self: QDomNode) QDomNode {
+    pub fn firstChild(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChild)
     ///
@@ -452,9 +576,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn LastChild(self: QDomNode) QDomNode {
+    pub fn lastChild(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSibling)
     ///
@@ -462,9 +590,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn PreviousSibling(self: QDomNode) QDomNode {
+    pub fn previousSibling(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSibling)
     ///
@@ -472,9 +604,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn NextSibling(self: QDomNode) QDomNode {
+    pub fn nextSibling(self: QDomNode) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#attributes)
     ///
@@ -482,9 +618,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn Attributes(self: QDomNode) QDomNamedNodeMap {
+    pub fn attributes(self: QDomNode) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#ownerDocument)
     ///
@@ -492,9 +632,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn OwnerDocument(self: QDomNode) QDomDocument {
+    pub fn ownerDocument(self: QDomNode) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#namespaceURI)
     ///
@@ -504,13 +648,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#localName)
     ///
@@ -520,13 +668,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#hasAttributes)
     ///
@@ -534,9 +686,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn HasAttributes(self: QDomNode) bool {
+    pub fn hasAttributes(self: QDomNode) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeValue)
     ///
@@ -546,13 +702,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#setNodeValue)
     ///
@@ -562,13 +722,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomNode, value: []const u8) void {
+    pub fn setNodeValue(self: QDomNode, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#prefix)
     ///
@@ -578,13 +742,17 @@ pub const QDomNode = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomNode, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNode.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#setPrefix)
     ///
@@ -594,7 +762,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomNode, pre: []const u8) void {
+    pub fn setPrefix(self: QDomNode, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
@@ -602,15 +770,23 @@ pub const QDomNode = extern struct {
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
 
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isAttr)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsAttr(self: QDomNode) bool {
+    pub fn isAttr(self: QDomNode) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isCDATASection)
     ///
@@ -618,9 +794,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsCDATASection(self: QDomNode) bool {
+    pub fn isCDATASection(self: QDomNode) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isDocumentFragment)
     ///
@@ -628,9 +808,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsDocumentFragment(self: QDomNode) bool {
+    pub fn isDocumentFragment(self: QDomNode) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isDocument)
     ///
@@ -638,9 +822,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsDocument(self: QDomNode) bool {
+    pub fn isDocument(self: QDomNode) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isDocumentType)
     ///
@@ -648,9 +836,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsDocumentType(self: QDomNode) bool {
+    pub fn isDocumentType(self: QDomNode) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isElement)
     ///
@@ -658,9 +850,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsElement(self: QDomNode) bool {
+    pub fn isElement(self: QDomNode) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isEntityReference)
     ///
@@ -668,9 +864,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsEntityReference(self: QDomNode) bool {
+    pub fn isEntityReference(self: QDomNode) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isText)
     ///
@@ -678,9 +878,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsText(self: QDomNode) bool {
+    pub fn isText(self: QDomNode) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isEntity)
     ///
@@ -688,9 +892,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsEntity(self: QDomNode) bool {
+    pub fn isEntity(self: QDomNode) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isNotation)
     ///
@@ -698,9 +906,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsNotation(self: QDomNode) bool {
+    pub fn isNotation(self: QDomNode) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isProcessingInstruction)
     ///
@@ -708,9 +920,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsProcessingInstruction(self: QDomNode) bool {
+    pub fn isProcessingInstruction(self: QDomNode) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isCharacterData)
     ///
@@ -718,9 +934,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsCharacterData(self: QDomNode) bool {
+    pub fn isCharacterData(self: QDomNode) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isComment)
     ///
@@ -728,9 +948,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsComment(self: QDomNode) bool {
+    pub fn isComment(self: QDomNode) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#namedItem)
     ///
@@ -740,7 +964,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomNode, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomNode, name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -748,15 +972,23 @@ pub const QDomNode = extern struct {
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
 
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#isNull)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomNode `
     ///
-    pub fn IsNull(self: QDomNode) bool {
+    pub fn isNull(self: QDomNode) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#clear)
     ///
@@ -764,9 +996,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn Clear(self: QDomNode) void {
+    pub fn clear(self: QDomNode) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toAttr)
     ///
@@ -774,9 +1010,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToAttr(self: QDomNode) QDomAttr {
+    pub fn toAttr(self: QDomNode) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toCDATASection)
     ///
@@ -784,9 +1024,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToCDATASection(self: QDomNode) QDomCDATASection {
+    pub fn toCDATASection(self: QDomNode) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toDocumentFragment)
     ///
@@ -794,9 +1038,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToDocumentFragment(self: QDomNode) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomNode) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toDocument)
     ///
@@ -804,9 +1052,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToDocument(self: QDomNode) QDomDocument {
+    pub fn toDocument(self: QDomNode) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toDocumentType)
     ///
@@ -814,9 +1066,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToDocumentType(self: QDomNode) QDomDocumentType {
+    pub fn toDocumentType(self: QDomNode) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toElement)
     ///
@@ -824,9 +1080,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToElement(self: QDomNode) QDomElement {
+    pub fn toElement(self: QDomNode) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toEntityReference)
     ///
@@ -834,9 +1094,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToEntityReference(self: QDomNode) QDomEntityReference {
+    pub fn toEntityReference(self: QDomNode) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toText)
     ///
@@ -844,9 +1108,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToText(self: QDomNode) QDomText {
+    pub fn toText(self: QDomNode) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toEntity)
     ///
@@ -854,9 +1122,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToEntity(self: QDomNode) QDomEntity {
+    pub fn toEntity(self: QDomNode) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toNotation)
     ///
@@ -864,9 +1136,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToNotation(self: QDomNode) QDomNotation {
+    pub fn toNotation(self: QDomNode) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toProcessingInstruction)
     ///
@@ -874,9 +1150,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToProcessingInstruction(self: QDomNode) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomNode) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toCharacterData)
     ///
@@ -884,9 +1164,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToCharacterData(self: QDomNode) QDomCharacterData {
+    pub fn toCharacterData(self: QDomNode) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#toComment)
     ///
@@ -894,9 +1178,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ToComment(self: QDomNode) QDomComment {
+    pub fn toComment(self: QDomNode) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#save)
     ///
@@ -908,10 +1196,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomNode, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomNode, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
     ///
@@ -919,9 +1211,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn FirstChildElement(self: QDomNode) QDomElement {
+    pub fn firstChildElement(self: QDomNode) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
     ///
@@ -929,9 +1225,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn LastChildElement(self: QDomNode) QDomElement {
+    pub fn lastChildElement(self: QDomNode) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
     ///
@@ -939,9 +1239,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn PreviousSiblingElement(self: QDomNode) QDomElement {
+    pub fn previousSiblingElement(self: QDomNode) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
     ///
@@ -949,9 +1253,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn NextSiblingElement(self: QDomNode) QDomElement {
+    pub fn nextSiblingElement(self: QDomNode) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lineNumber)
     ///
@@ -959,9 +1267,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn LineNumber(self: QDomNode) i32 {
+    pub fn lineNumber(self: QDomNode) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#columnNumber)
     ///
@@ -969,9 +1281,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` self: QDomNode `
     ///
-    pub fn ColumnNumber(self: QDomNode) i32 {
+    pub fn columnNumber(self: QDomNode) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#cloneNode)
     ///
@@ -981,9 +1297,13 @@ pub const QDomNode = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomNode, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomNode, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#save)
     ///
@@ -997,10 +1317,14 @@ pub const QDomNode = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomNode, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomNode, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
     ///
@@ -1010,7 +1334,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomNode, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomNode, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -1018,6 +1342,10 @@ pub const QDomNode = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
     ///
     /// ## Parameter(s):
@@ -1026,19 +1354,23 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomNode, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomNode, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
     ///
@@ -1048,7 +1380,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomNode, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomNode, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -1056,6 +1388,10 @@ pub const QDomNode = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
     ///
     /// ## Parameter(s):
@@ -1064,19 +1400,23 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomNode, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomNode, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
     ///
@@ -1086,7 +1426,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomNode, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomNode, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -1094,6 +1434,10 @@ pub const QDomNode = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
     ///
     /// ## Parameter(s):
@@ -1102,19 +1446,23 @@ pub const QDomNode = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomNode, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomNode, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
     ///
@@ -1124,7 +1472,7 @@ pub const QDomNode = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomNode, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomNode, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -1132,6 +1480,10 @@ pub const QDomNode = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
     ///
     /// ## Parameter(s):
@@ -1140,33 +1492,33 @@ pub const QDomNode = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomNode, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomNode, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#dtor.QDomNode)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomNode `
     ///
-    pub fn Delete(self: QDomNode) void {
+    pub fn delete(self: QDomNode) void {
         qtc.QDomNode_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1181,22 +1533,34 @@ pub const QDomNodeList = extern struct {
 
     pub const _is_QDomNodeList = {};
 
-    /// New constructs a new QDomNodeList object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomNodeList {
+    pub const New = new;
+
+    /// Allocate a new QDomNodeList object in C++ memory
+    ///
+    pub fn new() QDomNodeList {
         return .{ .ptr = qtc.QDomNodeList_new() };
     }
 
-    /// New2 constructs a new QDomNodeList object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomNodeList object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` nodeList: QDomNodeList `
     ///
-    pub fn New2(nodeList: anytype) QDomNodeList {
+    pub fn new2(nodeList: anytype) QDomNodeList {
         comptime _ = @TypeOf(nodeList)._is_QDomNodeList;
         return .{ .ptr = qtc.QDomNodeList_new2(@ptrCast(nodeList.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#operator-eq)
     ///
@@ -1206,10 +1570,14 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` other: QDomNodeList `
     ///
-    pub fn OperatorAssign(self: QDomNodeList, other: anytype) void {
+    pub fn operatorAssign(self: QDomNodeList, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomNodeList;
         qtc.QDomNodeList_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#operator-eq-eq)
     ///
@@ -1219,10 +1587,14 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` other: QDomNodeList `
     ///
-    pub fn OperatorEqual(self: QDomNodeList, other: anytype) bool {
+    pub fn operatorEqual(self: QDomNodeList, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNodeList;
         return qtc.QDomNodeList_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#operator-not-eq)
     ///
@@ -1232,10 +1604,14 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` other: QDomNodeList `
     ///
-    pub fn OperatorNotEqual(self: QDomNodeList, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomNodeList, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNodeList;
         return qtc.QDomNodeList_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#item)
     ///
@@ -1245,9 +1621,13 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Item(self: QDomNodeList, index: i32) QDomNode {
+    pub fn item(self: QDomNodeList, index: i32) QDomNode {
         return .{ .ptr = qtc.QDomNodeList_Item(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `at` instead
+    ///
+    pub const At = at;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#at)
     ///
@@ -1257,9 +1637,13 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn At(self: QDomNodeList, index: i32) QDomNode {
+    pub fn at(self: QDomNodeList, index: i32) QDomNode {
         return .{ .ptr = qtc.QDomNodeList_At(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#length)
     ///
@@ -1267,9 +1651,13 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` self: QDomNodeList `
     ///
-    pub fn Length(self: QDomNodeList) i32 {
+    pub fn length(self: QDomNodeList) i32 {
         return qtc.QDomNodeList_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#count)
     ///
@@ -1277,9 +1665,13 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` self: QDomNodeList `
     ///
-    pub fn Count(self: QDomNodeList) i32 {
+    pub fn count(self: QDomNodeList) i32 {
         return qtc.QDomNodeList_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#size)
     ///
@@ -1287,9 +1679,13 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` self: QDomNodeList `
     ///
-    pub fn Size(self: QDomNodeList) i32 {
+    pub fn size(self: QDomNodeList) i32 {
         return qtc.QDomNodeList_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#isEmpty)
     ///
@@ -1297,23 +1693,23 @@ pub const QDomNodeList = extern struct {
     ///
     /// ` self: QDomNodeList `
     ///
-    pub fn IsEmpty(self: QDomNodeList) bool {
+    pub fn isEmpty(self: QDomNodeList) bool {
         return qtc.QDomNodeList_IsEmpty(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnodelist.html#dtor.QDomNodeList)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomNodeList `
     ///
-    pub fn Delete(self: QDomNodeList) void {
+    pub fn delete(self: QDomNodeList) void {
         qtc.QDomNodeList_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1329,22 +1725,34 @@ pub const QDomDocumentType = extern struct {
     pub const _is_QDomDocumentType = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomDocumentType object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomDocumentType {
+    pub const New = new;
+
+    /// Allocate a new QDomDocumentType object in C++ memory
+    ///
+    pub fn new() QDomDocumentType {
         return .{ .ptr = qtc.QDomDocumentType_new() };
     }
 
-    /// New2 constructs a new QDomDocumentType object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomDocumentType object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` documentType: QDomDocumentType `
     ///
-    pub fn New2(documentType: anytype) QDomDocumentType {
+    pub fn new2(documentType: anytype) QDomDocumentType {
         comptime _ = @TypeOf(documentType)._is_QDomDocumentType;
         return .{ .ptr = qtc.QDomDocumentType_new2(@ptrCast(documentType.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#operator-eq)
     ///
@@ -1354,10 +1762,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` other: QDomDocumentType `
     ///
-    pub fn OperatorAssign(self: QDomDocumentType, other: anytype) void {
+    pub fn operatorAssign(self: QDomDocumentType, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomDocumentType;
         qtc.QDomDocumentType_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#name)
     ///
@@ -1367,13 +1779,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `entities` instead
+    ///
+    pub const Entities = entities;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#entities)
     ///
@@ -1381,9 +1797,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Entities(self: QDomDocumentType) QDomNamedNodeMap {
+    pub fn entities(self: QDomDocumentType) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomDocumentType_Entities(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `notations` instead
+    ///
+    pub const Notations = notations;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#notations)
     ///
@@ -1391,9 +1811,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Notations(self: QDomDocumentType) QDomNamedNodeMap {
+    pub fn notations(self: QDomDocumentType) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomDocumentType_Notations(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `publicId` instead
+    ///
+    pub const PublicId = publicId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#publicId)
     ///
@@ -1403,13 +1827,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PublicId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn publicId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.publicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `systemId` instead
+    ///
+    pub const SystemId = systemId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#systemId)
     ///
@@ -1419,13 +1847,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn systemId(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.systemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `internalSubset` instead
+    ///
+    pub const InternalSubset = internalSubset;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#internalSubset)
     ///
@@ -1435,13 +1867,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InternalSubset(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn internalSubset(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocumentType_InternalSubset(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.InternalSubset: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.internalSubset: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#nodeType)
     ///
@@ -1453,9 +1889,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomDocumentType) i32 {
+    pub fn nodeType(self: QDomDocumentType) i32 {
         return qtc.QDomDocumentType_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -1467,10 +1907,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomDocumentType, other: anytype) bool {
+    pub fn operatorEqual(self: QDomDocumentType, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -1482,10 +1926,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomDocumentType, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomDocumentType, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -1499,11 +1947,15 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomDocumentType, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomDocumentType, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -1517,11 +1969,15 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomDocumentType, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomDocumentType, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -1535,11 +1991,15 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomDocumentType, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomDocumentType, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -1551,10 +2011,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomDocumentType, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomDocumentType, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -1566,10 +2030,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomDocumentType, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomDocumentType, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -1579,9 +2047,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn HasChildNodes(self: QDomDocumentType) bool {
+    pub fn hasChildNodes(self: QDomDocumentType) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -1591,9 +2063,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn CloneNode(self: QDomDocumentType) QDomNode {
+    pub fn cloneNode(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -1603,9 +2079,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Normalize(self: QDomDocumentType) void {
+    pub fn normalize(self: QDomDocumentType) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -1619,7 +2099,7 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomDocumentType, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomDocumentType, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -1631,6 +2111,10 @@ pub const QDomDocumentType = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -1641,13 +2125,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -1657,9 +2145,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ParentNode(self: QDomDocumentType) QDomNode {
+    pub fn parentNode(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -1669,9 +2161,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ChildNodes(self: QDomDocumentType) QDomNodeList {
+    pub fn childNodes(self: QDomDocumentType) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -1681,9 +2177,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn FirstChild(self: QDomDocumentType) QDomNode {
+    pub fn firstChild(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -1693,9 +2193,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn LastChild(self: QDomDocumentType) QDomNode {
+    pub fn lastChild(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -1705,9 +2209,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn PreviousSibling(self: QDomDocumentType) QDomNode {
+    pub fn previousSibling(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -1717,9 +2225,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn NextSibling(self: QDomDocumentType) QDomNode {
+    pub fn nextSibling(self: QDomDocumentType) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -1729,9 +2241,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Attributes(self: QDomDocumentType) QDomNamedNodeMap {
+    pub fn attributes(self: QDomDocumentType) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -1741,9 +2257,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn OwnerDocument(self: QDomDocumentType) QDomDocument {
+    pub fn ownerDocument(self: QDomDocumentType) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -1755,13 +2275,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -1773,13 +2297,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -1789,9 +2317,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn HasAttributes(self: QDomDocumentType) bool {
+    pub fn hasAttributes(self: QDomDocumentType) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -1803,13 +2335,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -1821,13 +2357,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomDocumentType, value: []const u8) void {
+    pub fn setNodeValue(self: QDomDocumentType, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -1839,13 +2379,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomDocumentType, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentType.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -1857,13 +2401,17 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomDocumentType, pre: []const u8) void {
+    pub fn setPrefix(self: QDomDocumentType, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -1873,9 +2421,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsAttr(self: QDomDocumentType) bool {
+    pub fn isAttr(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -1885,9 +2437,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsCDATASection(self: QDomDocumentType) bool {
+    pub fn isCDATASection(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -1897,9 +2453,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsDocumentFragment(self: QDomDocumentType) bool {
+    pub fn isDocumentFragment(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -1909,9 +2469,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsDocument(self: QDomDocumentType) bool {
+    pub fn isDocument(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -1921,9 +2485,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsDocumentType(self: QDomDocumentType) bool {
+    pub fn isDocumentType(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -1933,9 +2501,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsElement(self: QDomDocumentType) bool {
+    pub fn isElement(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -1945,9 +2517,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsEntityReference(self: QDomDocumentType) bool {
+    pub fn isEntityReference(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -1957,9 +2533,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsText(self: QDomDocumentType) bool {
+    pub fn isText(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -1969,9 +2549,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsEntity(self: QDomDocumentType) bool {
+    pub fn isEntity(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -1981,9 +2565,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsNotation(self: QDomDocumentType) bool {
+    pub fn isNotation(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -1993,9 +2581,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsProcessingInstruction(self: QDomDocumentType) bool {
+    pub fn isProcessingInstruction(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -2005,9 +2597,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsCharacterData(self: QDomDocumentType) bool {
+    pub fn isCharacterData(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -2017,9 +2613,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsComment(self: QDomDocumentType) bool {
+    pub fn isComment(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -2029,15 +2629,19 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomDocumentType, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomDocumentType, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -2047,9 +2651,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn IsNull(self: QDomDocumentType) bool {
+    pub fn isNull(self: QDomDocumentType) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -2059,9 +2667,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Clear(self: QDomDocumentType) void {
+    pub fn clear(self: QDomDocumentType) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -2071,9 +2683,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToAttr(self: QDomDocumentType) QDomAttr {
+    pub fn toAttr(self: QDomDocumentType) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -2083,9 +2699,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToCDATASection(self: QDomDocumentType) QDomCDATASection {
+    pub fn toCDATASection(self: QDomDocumentType) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -2095,9 +2715,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToDocumentFragment(self: QDomDocumentType) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomDocumentType) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -2107,9 +2731,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToDocument(self: QDomDocumentType) QDomDocument {
+    pub fn toDocument(self: QDomDocumentType) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -2119,9 +2747,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToDocumentType(self: QDomDocumentType) QDomDocumentType {
+    pub fn toDocumentType(self: QDomDocumentType) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -2131,9 +2763,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToElement(self: QDomDocumentType) QDomElement {
+    pub fn toElement(self: QDomDocumentType) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -2143,9 +2779,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToEntityReference(self: QDomDocumentType) QDomEntityReference {
+    pub fn toEntityReference(self: QDomDocumentType) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -2155,9 +2795,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToText(self: QDomDocumentType) QDomText {
+    pub fn toText(self: QDomDocumentType) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -2167,9 +2811,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToEntity(self: QDomDocumentType) QDomEntity {
+    pub fn toEntity(self: QDomDocumentType) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -2179,9 +2827,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToNotation(self: QDomDocumentType) QDomNotation {
+    pub fn toNotation(self: QDomDocumentType) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -2191,9 +2843,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToProcessingInstruction(self: QDomDocumentType) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomDocumentType) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -2203,9 +2859,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToCharacterData(self: QDomDocumentType) QDomCharacterData {
+    pub fn toCharacterData(self: QDomDocumentType) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -2215,9 +2875,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ToComment(self: QDomDocumentType) QDomComment {
+    pub fn toComment(self: QDomDocumentType) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -2231,10 +2895,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomDocumentType, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomDocumentType, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -2244,9 +2912,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn FirstChildElement(self: QDomDocumentType) QDomElement {
+    pub fn firstChildElement(self: QDomDocumentType) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -2256,9 +2928,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn LastChildElement(self: QDomDocumentType) QDomElement {
+    pub fn lastChildElement(self: QDomDocumentType) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -2268,9 +2944,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn PreviousSiblingElement(self: QDomDocumentType) QDomElement {
+    pub fn previousSiblingElement(self: QDomDocumentType) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -2280,9 +2960,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn NextSiblingElement(self: QDomDocumentType) QDomElement {
+    pub fn nextSiblingElement(self: QDomDocumentType) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -2292,9 +2976,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn LineNumber(self: QDomDocumentType) i32 {
+    pub fn lineNumber(self: QDomDocumentType) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -2304,9 +2992,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn ColumnNumber(self: QDomDocumentType) i32 {
+    pub fn columnNumber(self: QDomDocumentType) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -2318,9 +3010,13 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomDocumentType, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomDocumentType, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -2336,10 +3032,14 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomDocumentType, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomDocumentType, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -2351,7 +3051,7 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -2359,6 +3059,10 @@ pub const QDomDocumentType = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -2369,19 +3073,23 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomDocumentType, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomDocumentType, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -2393,7 +3101,7 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -2401,6 +3109,10 @@ pub const QDomDocumentType = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -2411,19 +3123,23 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomDocumentType, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomDocumentType, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -2435,7 +3151,7 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomDocumentType, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -2443,6 +3159,10 @@ pub const QDomDocumentType = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
@@ -2453,19 +3173,23 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomDocumentType, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomDocumentType, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -2477,7 +3201,7 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomDocumentType, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomDocumentType, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -2485,6 +3209,10 @@ pub const QDomDocumentType = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -2495,33 +3223,33 @@ pub const QDomDocumentType = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomDocumentType, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomDocumentType, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumenttype.html#dtor.QDomDocumentType)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomDocumentType `
     ///
-    pub fn Delete(self: QDomDocumentType) void {
+    pub fn delete(self: QDomDocumentType) void {
         qtc.QDomDocumentType_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2537,47 +3265,67 @@ pub const QDomDocument = extern struct {
     pub const _is_QDomDocument = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomDocument object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomDocument {
+    pub const New = new;
+
+    /// Allocate a new QDomDocument object in C++ memory
+    ///
+    pub fn new() QDomDocument {
         return .{ .ptr = qtc.QDomDocument_new() };
     }
 
-    /// New2 constructs a new QDomDocument object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New2(name: []const u8) QDomDocument {
+    pub fn new2(_name: []const u8) QDomDocument {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_new2(name_str) };
     }
 
-    /// New3 constructs a new QDomDocument object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDomDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` doctype: QDomDocumentType `
+    /// ` _doctype: QDomDocumentType `
     ///
-    pub fn New3(doctype: anytype) QDomDocument {
-        comptime _ = @TypeOf(doctype)._is_QDomDocumentType;
-        return .{ .ptr = qtc.QDomDocument_new3(@ptrCast(doctype.ptr)) };
+    pub fn new3(_doctype: anytype) QDomDocument {
+        comptime _ = @TypeOf(_doctype)._is_QDomDocumentType;
+        return .{ .ptr = qtc.QDomDocument_new3(@ptrCast(_doctype.ptr)) };
     }
 
-    /// New4 constructs a new QDomDocument object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDomDocument object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` document: QDomDocument `
     ///
-    pub fn New4(document: anytype) QDomDocument {
+    pub fn new4(document: anytype) QDomDocument {
         comptime _ = @TypeOf(document)._is_QDomDocument;
         return .{ .ptr = qtc.QDomDocument_new4(@ptrCast(document.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#operator-eq)
     ///
@@ -2587,10 +3335,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` other: QDomDocument `
     ///
-    pub fn OperatorAssign(self: QDomDocument, other: anytype) void {
+    pub fn operatorAssign(self: QDomDocument, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomDocument;
         qtc.QDomDocument_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `createElement` instead
+    ///
+    pub const CreateElement = createElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createElement)
     ///
@@ -2600,7 +3352,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn CreateElement(self: QDomDocument, tagName: []const u8) QDomElement {
+    pub fn createElement(self: QDomDocument, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -2608,15 +3360,23 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_CreateElement(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `createDocumentFragment` instead
+    ///
+    pub const CreateDocumentFragment = createDocumentFragment;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createDocumentFragment)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn CreateDocumentFragment(self: QDomDocument) QDomDocumentFragment {
+    pub fn createDocumentFragment(self: QDomDocument) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomDocument_CreateDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createTextNode` instead
+    ///
+    pub const CreateTextNode = createTextNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createTextNode)
     ///
@@ -2626,13 +3386,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn CreateTextNode(self: QDomDocument, data: []const u8) QDomText {
+    pub fn createTextNode(self: QDomDocument, data: []const u8) QDomText {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_CreateTextNode(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `createComment` instead
+    ///
+    pub const CreateComment = createComment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createComment)
     ///
@@ -2642,13 +3406,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn CreateComment(self: QDomDocument, data: []const u8) QDomComment {
+    pub fn createComment(self: QDomDocument, data: []const u8) QDomComment {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_CreateComment(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `createCDATASection` instead
+    ///
+    pub const CreateCDATASection = createCDATASection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createCDATASection)
     ///
@@ -2658,13 +3426,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn CreateCDATASection(self: QDomDocument, data: []const u8) QDomCDATASection {
+    pub fn createCDATASection(self: QDomDocument, data: []const u8) QDomCDATASection {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_CreateCDATASection(@ptrCast(self.ptr), data_str) };
     }
+
+    /// ### DEPRECATED: Use `createProcessingInstruction` instead
+    ///
+    pub const CreateProcessingInstruction = createProcessingInstruction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createProcessingInstruction)
     ///
@@ -2676,7 +3448,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn CreateProcessingInstruction(self: QDomDocument, target: []const u8, data: []const u8) QDomProcessingInstruction {
+    pub fn createProcessingInstruction(self: QDomDocument, target: []const u8, data: []const u8) QDomProcessingInstruction {
         const target_str = qtc.libqt_string{
             .len = target.len,
             .data = target.ptr,
@@ -2688,21 +3460,29 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_CreateProcessingInstruction(@ptrCast(self.ptr), target_str, data_str) };
     }
 
+    /// ### DEPRECATED: Use `createAttribute` instead
+    ///
+    pub const CreateAttribute = createAttribute;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createAttribute)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn CreateAttribute(self: QDomDocument, name: []const u8) QDomAttr {
+    pub fn createAttribute(self: QDomDocument, _name: []const u8) QDomAttr {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_CreateAttribute(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `createEntityReference` instead
+    ///
+    pub const CreateEntityReference = createEntityReference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createEntityReference)
     ///
@@ -2710,15 +3490,19 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn CreateEntityReference(self: QDomDocument, name: []const u8) QDomEntityReference {
+    pub fn createEntityReference(self: QDomDocument, _name: []const u8) QDomEntityReference {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_CreateEntityReference(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `elementsByTagName` instead
+    ///
+    pub const ElementsByTagName = elementsByTagName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#elementsByTagName)
     ///
@@ -2728,13 +3512,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagname: []const u8 `
     ///
-    pub fn ElementsByTagName(self: QDomDocument, tagname: []const u8) QDomNodeList {
+    pub fn elementsByTagName(self: QDomDocument, tagname: []const u8) QDomNodeList {
         const tagname_str = qtc.libqt_string{
             .len = tagname.len,
             .data = tagname.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_ElementsByTagName(@ptrCast(self.ptr), tagname_str) };
     }
+
+    /// ### DEPRECATED: Use `importNode` instead
+    ///
+    pub const ImportNode = importNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#importNode)
     ///
@@ -2746,10 +3534,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn ImportNode(self: QDomDocument, importedNode: anytype, deep: bool) QDomNode {
+    pub fn importNode(self: QDomDocument, importedNode: anytype, deep: bool) QDomNode {
         comptime _ = @TypeOf(importedNode)._is_QDomNode;
         return .{ .ptr = qtc.QDomDocument_ImportNode(@ptrCast(self.ptr), @ptrCast(importedNode.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `createElementNS` instead
+    ///
+    pub const CreateElementNS = createElementNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createElementNS)
     ///
@@ -2761,7 +3553,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    pub fn CreateElementNS(self: QDomDocument, nsURI: []const u8, qName: []const u8) QDomElement {
+    pub fn createElementNS(self: QDomDocument, nsURI: []const u8, qName: []const u8) QDomElement {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -2773,6 +3565,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_CreateElementNS(@ptrCast(self.ptr), nsURI_str, qName_str) };
     }
 
+    /// ### DEPRECATED: Use `createAttributeNS` instead
+    ///
+    pub const CreateAttributeNS = createAttributeNS;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#createAttributeNS)
     ///
     /// ## Parameter(s):
@@ -2783,7 +3579,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    pub fn CreateAttributeNS(self: QDomDocument, nsURI: []const u8, qName: []const u8) QDomAttr {
+    pub fn createAttributeNS(self: QDomDocument, nsURI: []const u8, qName: []const u8) QDomAttr {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -2795,6 +3591,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_CreateAttributeNS(@ptrCast(self.ptr), nsURI_str, qName_str) };
     }
 
+    /// ### DEPRECATED: Use `elementsByTagNameNS` instead
+    ///
+    pub const ElementsByTagNameNS = elementsByTagNameNS;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#elementsByTagNameNS)
     ///
     /// ## Parameter(s):
@@ -2803,19 +3603,23 @@ pub const QDomDocument = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn ElementsByTagNameNS(self: QDomDocument, nsURI: []const u8, localName: []const u8) QDomNodeList {
+    pub fn elementsByTagNameNS(self: QDomDocument, nsURI: []const u8, _localName: []const u8) QDomNodeList {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_ElementsByTagNameNS(@ptrCast(self.ptr), nsURI_str, localName_str) };
     }
+
+    /// ### DEPRECATED: Use `elementById` instead
+    ///
+    pub const ElementById = elementById;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#elementById)
     ///
@@ -2825,7 +3629,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` elementId: []const u8 `
     ///
-    pub fn ElementById(self: QDomDocument, elementId: []const u8) QDomElement {
+    pub fn elementById(self: QDomDocument, elementId: []const u8) QDomElement {
         const elementId_str = qtc.libqt_string{
             .len = elementId.len,
             .data = elementId.ptr,
@@ -2833,15 +3637,23 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_ElementById(@ptrCast(self.ptr), elementId_str) };
     }
 
+    /// ### DEPRECATED: Use `doctype` instead
+    ///
+    pub const Doctype = doctype;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#doctype)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Doctype(self: QDomDocument) QDomDocumentType {
+    pub fn doctype(self: QDomDocument) QDomDocumentType {
         return .{ .ptr = qtc.QDomDocument_Doctype(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `implementation` instead
+    ///
+    pub const Implementation = implementation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#implementation)
     ///
@@ -2849,9 +3661,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Implementation(self: QDomDocument) QDomImplementation {
+    pub fn implementation(self: QDomDocument) QDomImplementation {
         return .{ .ptr = qtc.QDomDocument_Implementation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `documentElement` instead
+    ///
+    pub const DocumentElement = documentElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#documentElement)
     ///
@@ -2859,9 +3675,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn DocumentElement(self: QDomDocument) QDomElement {
+    pub fn documentElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomDocument_DocumentElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#nodeType)
     ///
@@ -2873,9 +3693,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomDocument) i32 {
+    pub fn nodeType(self: QDomDocument) i32 {
         return qtc.QDomDocument_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContent` instead
+    ///
+    pub const SetContent = setContent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2887,13 +3711,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` namespaceProcessing: bool `
     ///
-    pub fn SetContent(self: QDomDocument, text: []u8, namespaceProcessing: bool) bool {
+    pub fn setContent(self: QDomDocument, text: []u8, namespaceProcessing: bool) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QDomDocument_SetContent(@ptrCast(self.ptr), text_str, namespaceProcessing);
     }
+
+    /// ### DEPRECATED: Use `setContent2` instead
+    ///
+    pub const SetContent2 = setContent2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2905,13 +3733,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` namespaceProcessing: bool `
     ///
-    pub fn SetContent2(self: QDomDocument, text: []const u8, namespaceProcessing: bool) bool {
+    pub fn setContent2(self: QDomDocument, text: []const u8, namespaceProcessing: bool) bool {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return qtc.QDomDocument_SetContent2(@ptrCast(self.ptr), text_str, namespaceProcessing);
     }
+
+    /// ### DEPRECATED: Use `setContent3` instead
+    ///
+    pub const SetContent3 = setContent3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2923,10 +3755,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` namespaceProcessing: bool `
     ///
-    pub fn SetContent3(self: QDomDocument, dev: anytype, namespaceProcessing: bool) bool {
+    pub fn setContent3(self: QDomDocument, dev: anytype, namespaceProcessing: bool) bool {
         comptime _ = @TypeOf(dev)._is_QIODevice;
         return qtc.QDomDocument_SetContent3(@ptrCast(self.ptr), @ptrCast(dev.ptr), namespaceProcessing);
     }
+
+    /// ### DEPRECATED: Use `setContent7` instead
+    ///
+    pub const SetContent7 = setContent7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2938,10 +3774,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` namespaceProcessing: bool `
     ///
-    pub fn SetContent7(self: QDomDocument, reader: anytype, namespaceProcessing: bool) bool {
+    pub fn setContent7(self: QDomDocument, reader: anytype, namespaceProcessing: bool) bool {
         comptime _ = @TypeOf(reader)._is_QXmlStreamReader;
         return qtc.QDomDocument_SetContent7(@ptrCast(self.ptr), @ptrCast(reader.ptr), namespaceProcessing);
     }
+
+    /// ### DEPRECATED: Use `setContent8` instead
+    ///
+    pub const SetContent8 = setContent8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2951,7 +3791,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` data: []const u8 `
     ///
-    pub fn SetContent8(self: QDomDocument, data: []const u8) QDomDocument__ParseResult {
+    pub fn setContent8(self: QDomDocument, data: []const u8) QDomDocument__ParseResult {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -2959,6 +3799,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomDocument_SetContent8(@ptrCast(self.ptr), data_str) };
     }
 
+    /// ### DEPRECATED: Use `setContent9` instead
+    ///
+    pub const SetContent9 = setContent9;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
     /// ## Parameter(s):
@@ -2967,10 +3811,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` device: QIODevice `
     ///
-    pub fn SetContent9(self: QDomDocument, device: anytype) QDomDocument__ParseResult {
+    pub fn setContent9(self: QDomDocument, device: anytype) QDomDocument__ParseResult {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return .{ .ptr = qtc.QDomDocument_SetContent9(@ptrCast(self.ptr), @ptrCast(device.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContent10` instead
+    ///
+    pub const SetContent10 = setContent10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -2980,10 +3828,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` reader: QXmlStreamReader `
     ///
-    pub fn SetContent10(self: QDomDocument, reader: anytype) QDomDocument__ParseResult {
+    pub fn setContent10(self: QDomDocument, reader: anytype) QDomDocument__ParseResult {
         comptime _ = @TypeOf(reader)._is_QXmlStreamReader;
         return .{ .ptr = qtc.QDomDocument_SetContent10(@ptrCast(self.ptr), @ptrCast(reader.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#toString)
     ///
@@ -2993,13 +3845,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomDocument_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toByteArray` instead
+    ///
+    pub const ToByteArray = toByteArray;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#toByteArray)
     ///
@@ -3009,13 +3865,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToByteArray(self: QDomDocument, allocator: std.mem.Allocator) []u8 {
+    pub fn toByteArray(self: QDomDocument, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.ToByteArray: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.toByteArray: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setContent22` instead
+    ///
+    pub const SetContent22 = setContent22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -3027,13 +3887,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` options: flag of qdom_enums.ParseOption `
     ///
-    pub fn SetContent22(self: QDomDocument, data: []const u8, options: i32) QDomDocument__ParseResult {
+    pub fn setContent22(self: QDomDocument, data: []const u8, options: i32) QDomDocument__ParseResult {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
         };
         return .{ .ptr = qtc.QDomDocument_SetContent22(@ptrCast(self.ptr), data_str, @bitCast(options)) };
     }
+
+    /// ### DEPRECATED: Use `setContent23` instead
+    ///
+    pub const SetContent23 = setContent23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -3045,10 +3909,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` options: flag of qdom_enums.ParseOption `
     ///
-    pub fn SetContent23(self: QDomDocument, device: anytype, options: i32) QDomDocument__ParseResult {
+    pub fn setContent23(self: QDomDocument, device: anytype, options: i32) QDomDocument__ParseResult {
         comptime _ = @TypeOf(device)._is_QIODevice;
         return .{ .ptr = qtc.QDomDocument_SetContent23(@ptrCast(self.ptr), @ptrCast(device.ptr), @bitCast(options)) };
     }
+
+    /// ### DEPRECATED: Use `setContent24` instead
+    ///
+    pub const SetContent24 = setContent24;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#setContent)
     ///
@@ -3060,10 +3928,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` options: flag of qdom_enums.ParseOption `
     ///
-    pub fn SetContent24(self: QDomDocument, reader: anytype, options: i32) QDomDocument__ParseResult {
+    pub fn setContent24(self: QDomDocument, reader: anytype, options: i32) QDomDocument__ParseResult {
         comptime _ = @TypeOf(reader)._is_QXmlStreamReader;
         return .{ .ptr = qtc.QDomDocument_SetContent24(@ptrCast(self.ptr), @ptrCast(reader.ptr), @bitCast(options)) };
     }
+
+    /// ### DEPRECATED: Use `toString1` instead
+    ///
+    pub const ToString1 = toString1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#toString)
     ///
@@ -3075,13 +3947,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` indent: i32 `
     ///
-    pub fn ToString1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []const u8 {
+    pub fn toString1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []const u8 {
         var _str = qtc.QDomDocument_ToString1(@ptrCast(self.ptr), @bitCast(indent));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.ToString1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.toString1: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `toByteArray1` instead
+    ///
+    pub const ToByteArray1 = toByteArray1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#toByteArray)
     ///
@@ -3093,13 +3969,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` indent: i32 `
     ///
-    pub fn ToByteArray1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []u8 {
+    pub fn toByteArray1(self: QDomDocument, allocator: std.mem.Allocator, indent: i32) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDomDocument_ToByteArray1(@ptrCast(self.ptr), @bitCast(indent));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.ToByteArray1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDomDocument.toByteArray1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -3111,10 +3991,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomDocument, other: anytype) bool {
+    pub fn operatorEqual(self: QDomDocument, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -3126,10 +4010,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomDocument, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomDocument, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -3143,11 +4031,15 @@ pub const QDomDocument = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomDocument, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomDocument, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -3161,11 +4053,15 @@ pub const QDomDocument = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomDocument, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomDocument, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -3179,11 +4075,15 @@ pub const QDomDocument = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomDocument, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomDocument, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -3195,10 +4095,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomDocument, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomDocument, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -3210,10 +4114,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomDocument, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomDocument, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -3223,9 +4131,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn HasChildNodes(self: QDomDocument) bool {
+    pub fn hasChildNodes(self: QDomDocument) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -3235,9 +4147,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn CloneNode(self: QDomDocument) QDomNode {
+    pub fn cloneNode(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -3247,9 +4163,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Normalize(self: QDomDocument) void {
+    pub fn normalize(self: QDomDocument) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -3263,7 +4183,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomDocument, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomDocument, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -3275,6 +4195,10 @@ pub const QDomDocument = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -3285,13 +4209,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -3301,9 +4229,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ParentNode(self: QDomDocument) QDomNode {
+    pub fn parentNode(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -3313,9 +4245,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ChildNodes(self: QDomDocument) QDomNodeList {
+    pub fn childNodes(self: QDomDocument) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -3325,9 +4261,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn FirstChild(self: QDomDocument) QDomNode {
+    pub fn firstChild(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -3337,9 +4277,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn LastChild(self: QDomDocument) QDomNode {
+    pub fn lastChild(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -3349,9 +4293,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn PreviousSibling(self: QDomDocument) QDomNode {
+    pub fn previousSibling(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -3361,9 +4309,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn NextSibling(self: QDomDocument) QDomNode {
+    pub fn nextSibling(self: QDomDocument) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -3373,9 +4325,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Attributes(self: QDomDocument) QDomNamedNodeMap {
+    pub fn attributes(self: QDomDocument) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -3385,9 +4341,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn OwnerDocument(self: QDomDocument) QDomDocument {
+    pub fn ownerDocument(self: QDomDocument) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -3399,13 +4359,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -3417,13 +4381,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -3433,9 +4401,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn HasAttributes(self: QDomDocument) bool {
+    pub fn hasAttributes(self: QDomDocument) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -3447,13 +4419,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -3465,13 +4441,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomDocument, value: []const u8) void {
+    pub fn setNodeValue(self: QDomDocument, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -3483,13 +4463,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomDocument, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocument.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -3501,13 +4485,17 @@ pub const QDomDocument = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomDocument, pre: []const u8) void {
+    pub fn setPrefix(self: QDomDocument, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -3517,9 +4505,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsAttr(self: QDomDocument) bool {
+    pub fn isAttr(self: QDomDocument) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -3529,9 +4521,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsCDATASection(self: QDomDocument) bool {
+    pub fn isCDATASection(self: QDomDocument) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -3541,9 +4537,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsDocumentFragment(self: QDomDocument) bool {
+    pub fn isDocumentFragment(self: QDomDocument) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -3553,9 +4553,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsDocument(self: QDomDocument) bool {
+    pub fn isDocument(self: QDomDocument) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -3565,9 +4569,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsDocumentType(self: QDomDocument) bool {
+    pub fn isDocumentType(self: QDomDocument) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -3577,9 +4585,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsElement(self: QDomDocument) bool {
+    pub fn isElement(self: QDomDocument) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -3589,9 +4601,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsEntityReference(self: QDomDocument) bool {
+    pub fn isEntityReference(self: QDomDocument) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -3601,9 +4617,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsText(self: QDomDocument) bool {
+    pub fn isText(self: QDomDocument) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -3613,9 +4633,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsEntity(self: QDomDocument) bool {
+    pub fn isEntity(self: QDomDocument) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -3625,9 +4649,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsNotation(self: QDomDocument) bool {
+    pub fn isNotation(self: QDomDocument) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -3637,9 +4665,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsProcessingInstruction(self: QDomDocument) bool {
+    pub fn isProcessingInstruction(self: QDomDocument) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -3649,9 +4681,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsCharacterData(self: QDomDocument) bool {
+    pub fn isCharacterData(self: QDomDocument) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -3661,9 +4697,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsComment(self: QDomDocument) bool {
+    pub fn isComment(self: QDomDocument) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -3673,15 +4713,19 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomDocument, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomDocument, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -3691,9 +4735,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn IsNull(self: QDomDocument) bool {
+    pub fn isNull(self: QDomDocument) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -3703,9 +4751,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Clear(self: QDomDocument) void {
+    pub fn clear(self: QDomDocument) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -3715,9 +4767,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToAttr(self: QDomDocument) QDomAttr {
+    pub fn toAttr(self: QDomDocument) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -3727,9 +4783,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToCDATASection(self: QDomDocument) QDomCDATASection {
+    pub fn toCDATASection(self: QDomDocument) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -3739,9 +4799,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToDocumentFragment(self: QDomDocument) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomDocument) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -3751,9 +4815,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToDocument(self: QDomDocument) QDomDocument {
+    pub fn toDocument(self: QDomDocument) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -3763,9 +4831,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToDocumentType(self: QDomDocument) QDomDocumentType {
+    pub fn toDocumentType(self: QDomDocument) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -3775,9 +4847,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToElement(self: QDomDocument) QDomElement {
+    pub fn toElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -3787,9 +4863,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToEntityReference(self: QDomDocument) QDomEntityReference {
+    pub fn toEntityReference(self: QDomDocument) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -3799,9 +4879,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToText(self: QDomDocument) QDomText {
+    pub fn toText(self: QDomDocument) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -3811,9 +4895,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToEntity(self: QDomDocument) QDomEntity {
+    pub fn toEntity(self: QDomDocument) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -3823,9 +4911,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToNotation(self: QDomDocument) QDomNotation {
+    pub fn toNotation(self: QDomDocument) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -3835,9 +4927,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToProcessingInstruction(self: QDomDocument) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomDocument) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -3847,9 +4943,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToCharacterData(self: QDomDocument) QDomCharacterData {
+    pub fn toCharacterData(self: QDomDocument) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -3859,9 +4959,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ToComment(self: QDomDocument) QDomComment {
+    pub fn toComment(self: QDomDocument) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -3875,10 +4979,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomDocument, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomDocument, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -3888,9 +4996,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn FirstChildElement(self: QDomDocument) QDomElement {
+    pub fn firstChildElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -3900,9 +5012,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn LastChildElement(self: QDomDocument) QDomElement {
+    pub fn lastChildElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -3912,9 +5028,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn PreviousSiblingElement(self: QDomDocument) QDomElement {
+    pub fn previousSiblingElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -3924,9 +5044,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn NextSiblingElement(self: QDomDocument) QDomElement {
+    pub fn nextSiblingElement(self: QDomDocument) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -3936,9 +5060,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn LineNumber(self: QDomDocument) i32 {
+    pub fn lineNumber(self: QDomDocument) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -3948,9 +5076,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn ColumnNumber(self: QDomDocument) i32 {
+    pub fn columnNumber(self: QDomDocument) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -3962,9 +5094,13 @@ pub const QDomDocument = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomDocument, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomDocument, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -3980,10 +5116,14 @@ pub const QDomDocument = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomDocument, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomDocument, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -3995,7 +5135,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomDocument, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomDocument, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -4003,6 +5143,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -4013,19 +5157,23 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomDocument, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomDocument, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -4037,7 +5185,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomDocument, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomDocument, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -4045,6 +5193,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -4055,19 +5207,23 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomDocument, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomDocument, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -4079,7 +5235,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomDocument, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomDocument, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -4087,6 +5243,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
@@ -4097,19 +5257,23 @@ pub const QDomDocument = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomDocument, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomDocument, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -4121,7 +5285,7 @@ pub const QDomDocument = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomDocument, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomDocument, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -4129,6 +5293,10 @@ pub const QDomDocument = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -4139,33 +5307,33 @@ pub const QDomDocument = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomDocument, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomDocument, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument.html#dtor.QDomDocument)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomDocument `
     ///
-    pub fn Delete(self: QDomDocument) void {
+    pub fn delete(self: QDomDocument) void {
         qtc.QDomDocument_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4180,22 +5348,34 @@ pub const QDomNamedNodeMap = extern struct {
 
     pub const _is_QDomNamedNodeMap = {};
 
-    /// New constructs a new QDomNamedNodeMap object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomNamedNodeMap {
+    pub const New = new;
+
+    /// Allocate a new QDomNamedNodeMap object in C++ memory
+    ///
+    pub fn new() QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNamedNodeMap_new() };
     }
 
-    /// New2 constructs a new QDomNamedNodeMap object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomNamedNodeMap object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` namedNodeMap: QDomNamedNodeMap `
     ///
-    pub fn New2(namedNodeMap: anytype) QDomNamedNodeMap {
+    pub fn new2(namedNodeMap: anytype) QDomNamedNodeMap {
         comptime _ = @TypeOf(namedNodeMap)._is_QDomNamedNodeMap;
         return .{ .ptr = qtc.QDomNamedNodeMap_new2(@ptrCast(namedNodeMap.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#operator-eq)
     ///
@@ -4205,10 +5385,14 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` other: QDomNamedNodeMap `
     ///
-    pub fn OperatorAssign(self: QDomNamedNodeMap, other: anytype) void {
+    pub fn operatorAssign(self: QDomNamedNodeMap, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomNamedNodeMap;
         qtc.QDomNamedNodeMap_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#operator-eq-eq)
     ///
@@ -4218,10 +5402,14 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` other: QDomNamedNodeMap `
     ///
-    pub fn OperatorEqual(self: QDomNamedNodeMap, other: anytype) bool {
+    pub fn operatorEqual(self: QDomNamedNodeMap, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNamedNodeMap;
         return qtc.QDomNamedNodeMap_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#operator-not-eq)
     ///
@@ -4231,10 +5419,14 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` other: QDomNamedNodeMap `
     ///
-    pub fn OperatorNotEqual(self: QDomNamedNodeMap, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomNamedNodeMap, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNamedNodeMap;
         return qtc.QDomNamedNodeMap_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#namedItem)
     ///
@@ -4242,15 +5434,19 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomNamedNodeMap, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomNamedNodeMap, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNamedNodeMap_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `setNamedItem` instead
+    ///
+    pub const SetNamedItem = setNamedItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#setNamedItem)
     ///
@@ -4260,10 +5456,14 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` newNode: QDomNode `
     ///
-    pub fn SetNamedItem(self: QDomNamedNodeMap, newNode: anytype) QDomNode {
+    pub fn setNamedItem(self: QDomNamedNodeMap, newNode: anytype) QDomNode {
         comptime _ = @TypeOf(newNode)._is_QDomNode;
         return .{ .ptr = qtc.QDomNamedNodeMap_SetNamedItem(@ptrCast(self.ptr), @ptrCast(newNode.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeNamedItem` instead
+    ///
+    pub const RemoveNamedItem = removeNamedItem;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#removeNamedItem)
     ///
@@ -4271,15 +5471,19 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn RemoveNamedItem(self: QDomNamedNodeMap, name: []const u8) QDomNode {
+    pub fn removeNamedItem(self: QDomNamedNodeMap, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNamedNodeMap_RemoveNamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `item` instead
+    ///
+    pub const Item = item;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#item)
     ///
@@ -4289,9 +5493,13 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Item(self: QDomNamedNodeMap, index: i32) QDomNode {
+    pub fn item(self: QDomNamedNodeMap, index: i32) QDomNode {
         return .{ .ptr = qtc.QDomNamedNodeMap_Item(@ptrCast(self.ptr), @bitCast(index)) };
     }
+
+    /// ### DEPRECATED: Use `namedItemNS` instead
+    ///
+    pub const NamedItemNS = namedItemNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#namedItemNS)
     ///
@@ -4301,19 +5509,23 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn NamedItemNS(self: QDomNamedNodeMap, nsURI: []const u8, localName: []const u8) QDomNode {
+    pub fn namedItemNS(self: QDomNamedNodeMap, nsURI: []const u8, _localName: []const u8) QDomNode {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return .{ .ptr = qtc.QDomNamedNodeMap_NamedItemNS(@ptrCast(self.ptr), nsURI_str, localName_str) };
     }
+
+    /// ### DEPRECATED: Use `setNamedItemNS` instead
+    ///
+    pub const SetNamedItemNS = setNamedItemNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#setNamedItemNS)
     ///
@@ -4323,10 +5535,14 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` newNode: QDomNode `
     ///
-    pub fn SetNamedItemNS(self: QDomNamedNodeMap, newNode: anytype) QDomNode {
+    pub fn setNamedItemNS(self: QDomNamedNodeMap, newNode: anytype) QDomNode {
         comptime _ = @TypeOf(newNode)._is_QDomNode;
         return .{ .ptr = qtc.QDomNamedNodeMap_SetNamedItemNS(@ptrCast(self.ptr), @ptrCast(newNode.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeNamedItemNS` instead
+    ///
+    pub const RemoveNamedItemNS = removeNamedItemNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#removeNamedItemNS)
     ///
@@ -4336,19 +5552,23 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn RemoveNamedItemNS(self: QDomNamedNodeMap, nsURI: []const u8, localName: []const u8) QDomNode {
+    pub fn removeNamedItemNS(self: QDomNamedNodeMap, nsURI: []const u8, _localName: []const u8) QDomNode {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return .{ .ptr = qtc.QDomNamedNodeMap_RemoveNamedItemNS(@ptrCast(self.ptr), nsURI_str, localName_str) };
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#length)
     ///
@@ -4356,9 +5576,13 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    pub fn Length(self: QDomNamedNodeMap) i32 {
+    pub fn length(self: QDomNamedNodeMap) i32 {
         return qtc.QDomNamedNodeMap_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#count)
     ///
@@ -4366,9 +5590,13 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    pub fn Count(self: QDomNamedNodeMap) i32 {
+    pub fn count(self: QDomNamedNodeMap) i32 {
         return qtc.QDomNamedNodeMap_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#size)
     ///
@@ -4376,9 +5604,13 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    pub fn Size(self: QDomNamedNodeMap) i32 {
+    pub fn size(self: QDomNamedNodeMap) i32 {
         return qtc.QDomNamedNodeMap_Size(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#isEmpty)
     ///
@@ -4386,9 +5618,13 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    pub fn IsEmpty(self: QDomNamedNodeMap) bool {
+    pub fn isEmpty(self: QDomNamedNodeMap) bool {
         return qtc.QDomNamedNodeMap_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `contains` instead
+    ///
+    pub const Contains = contains;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#contains)
     ///
@@ -4396,29 +5632,29 @@ pub const QDomNamedNodeMap = extern struct {
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn Contains(self: QDomNamedNodeMap, name: []const u8) bool {
+    pub fn contains(self: QDomNamedNodeMap, _name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QDomNamedNodeMap_Contains(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnamednodemap.html#dtor.QDomNamedNodeMap)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomNamedNodeMap `
     ///
-    pub fn Delete(self: QDomNamedNodeMap) void {
+    pub fn delete(self: QDomNamedNodeMap) void {
         qtc.QDomNamedNodeMap_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4434,22 +5670,34 @@ pub const QDomDocumentFragment = extern struct {
     pub const _is_QDomDocumentFragment = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomDocumentFragment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomDocumentFragment {
+    pub const New = new;
+
+    /// Allocate a new QDomDocumentFragment object in C++ memory
+    ///
+    pub fn new() QDomDocumentFragment {
         return .{ .ptr = qtc.QDomDocumentFragment_new() };
     }
 
-    /// New2 constructs a new QDomDocumentFragment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomDocumentFragment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` documentFragment: QDomDocumentFragment `
     ///
-    pub fn New2(documentFragment: anytype) QDomDocumentFragment {
+    pub fn new2(documentFragment: anytype) QDomDocumentFragment {
         comptime _ = @TypeOf(documentFragment)._is_QDomDocumentFragment;
         return .{ .ptr = qtc.QDomDocumentFragment_new2(@ptrCast(documentFragment.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumentfragment.html#operator-eq)
     ///
@@ -4459,10 +5707,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` other: QDomDocumentFragment `
     ///
-    pub fn OperatorAssign(self: QDomDocumentFragment, other: anytype) void {
+    pub fn operatorAssign(self: QDomDocumentFragment, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomDocumentFragment;
         qtc.QDomDocumentFragment_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumentfragment.html#nodeType)
     ///
@@ -4474,9 +5726,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomDocumentFragment) i32 {
+    pub fn nodeType(self: QDomDocumentFragment) i32 {
         return qtc.QDomDocumentFragment_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -4488,10 +5744,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomDocumentFragment, other: anytype) bool {
+    pub fn operatorEqual(self: QDomDocumentFragment, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -4503,10 +5763,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomDocumentFragment, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomDocumentFragment, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -4520,11 +5784,15 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomDocumentFragment, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomDocumentFragment, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -4538,11 +5806,15 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomDocumentFragment, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomDocumentFragment, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -4556,11 +5828,15 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomDocumentFragment, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomDocumentFragment, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -4572,10 +5848,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomDocumentFragment, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomDocumentFragment, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -4587,10 +5867,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomDocumentFragment, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomDocumentFragment, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -4600,9 +5884,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn HasChildNodes(self: QDomDocumentFragment) bool {
+    pub fn hasChildNodes(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -4612,9 +5900,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn CloneNode(self: QDomDocumentFragment) QDomNode {
+    pub fn cloneNode(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -4624,9 +5916,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn Normalize(self: QDomDocumentFragment) void {
+    pub fn normalize(self: QDomDocumentFragment) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -4640,7 +5936,7 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomDocumentFragment, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomDocumentFragment, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -4652,6 +5948,10 @@ pub const QDomDocumentFragment = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -4662,13 +5962,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -4678,9 +5982,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ParentNode(self: QDomDocumentFragment) QDomNode {
+    pub fn parentNode(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -4690,9 +5998,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ChildNodes(self: QDomDocumentFragment) QDomNodeList {
+    pub fn childNodes(self: QDomDocumentFragment) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -4702,9 +6014,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn FirstChild(self: QDomDocumentFragment) QDomNode {
+    pub fn firstChild(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -4714,9 +6030,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn LastChild(self: QDomDocumentFragment) QDomNode {
+    pub fn lastChild(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -4726,9 +6046,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn PreviousSibling(self: QDomDocumentFragment) QDomNode {
+    pub fn previousSibling(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -4738,9 +6062,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn NextSibling(self: QDomDocumentFragment) QDomNode {
+    pub fn nextSibling(self: QDomDocumentFragment) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -4750,9 +6078,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn Attributes(self: QDomDocumentFragment) QDomNamedNodeMap {
+    pub fn attributes(self: QDomDocumentFragment) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -4762,9 +6094,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn OwnerDocument(self: QDomDocumentFragment) QDomDocument {
+    pub fn ownerDocument(self: QDomDocumentFragment) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -4776,13 +6112,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -4794,13 +6134,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -4810,9 +6154,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn HasAttributes(self: QDomDocumentFragment) bool {
+    pub fn hasAttributes(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -4824,13 +6172,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -4842,13 +6194,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomDocumentFragment, value: []const u8) void {
+    pub fn setNodeValue(self: QDomDocumentFragment, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -4860,13 +6216,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomDocumentFragment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomDocumentFragment.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -4878,13 +6238,17 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomDocumentFragment, pre: []const u8) void {
+    pub fn setPrefix(self: QDomDocumentFragment, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -4894,9 +6258,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsAttr(self: QDomDocumentFragment) bool {
+    pub fn isAttr(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -4906,9 +6274,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsCDATASection(self: QDomDocumentFragment) bool {
+    pub fn isCDATASection(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -4918,9 +6290,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsDocumentFragment(self: QDomDocumentFragment) bool {
+    pub fn isDocumentFragment(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -4930,9 +6306,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsDocument(self: QDomDocumentFragment) bool {
+    pub fn isDocument(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -4942,9 +6322,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsDocumentType(self: QDomDocumentFragment) bool {
+    pub fn isDocumentType(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -4954,9 +6338,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsElement(self: QDomDocumentFragment) bool {
+    pub fn isElement(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -4966,9 +6354,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsEntityReference(self: QDomDocumentFragment) bool {
+    pub fn isEntityReference(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -4978,9 +6370,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsText(self: QDomDocumentFragment) bool {
+    pub fn isText(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -4990,9 +6386,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsEntity(self: QDomDocumentFragment) bool {
+    pub fn isEntity(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -5002,9 +6402,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsNotation(self: QDomDocumentFragment) bool {
+    pub fn isNotation(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -5014,9 +6418,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsProcessingInstruction(self: QDomDocumentFragment) bool {
+    pub fn isProcessingInstruction(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -5026,9 +6434,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsCharacterData(self: QDomDocumentFragment) bool {
+    pub fn isCharacterData(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -5038,9 +6450,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsComment(self: QDomDocumentFragment) bool {
+    pub fn isComment(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -5050,15 +6466,19 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomDocumentFragment, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomDocumentFragment, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -5068,9 +6488,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn IsNull(self: QDomDocumentFragment) bool {
+    pub fn isNull(self: QDomDocumentFragment) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -5080,9 +6504,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn Clear(self: QDomDocumentFragment) void {
+    pub fn clear(self: QDomDocumentFragment) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -5092,9 +6520,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToAttr(self: QDomDocumentFragment) QDomAttr {
+    pub fn toAttr(self: QDomDocumentFragment) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -5104,9 +6536,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToCDATASection(self: QDomDocumentFragment) QDomCDATASection {
+    pub fn toCDATASection(self: QDomDocumentFragment) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -5116,9 +6552,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToDocumentFragment(self: QDomDocumentFragment) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomDocumentFragment) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -5128,9 +6568,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToDocument(self: QDomDocumentFragment) QDomDocument {
+    pub fn toDocument(self: QDomDocumentFragment) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -5140,9 +6584,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToDocumentType(self: QDomDocumentFragment) QDomDocumentType {
+    pub fn toDocumentType(self: QDomDocumentFragment) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -5152,9 +6600,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToElement(self: QDomDocumentFragment) QDomElement {
+    pub fn toElement(self: QDomDocumentFragment) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -5164,9 +6616,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToEntityReference(self: QDomDocumentFragment) QDomEntityReference {
+    pub fn toEntityReference(self: QDomDocumentFragment) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -5176,9 +6632,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToText(self: QDomDocumentFragment) QDomText {
+    pub fn toText(self: QDomDocumentFragment) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -5188,9 +6648,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToEntity(self: QDomDocumentFragment) QDomEntity {
+    pub fn toEntity(self: QDomDocumentFragment) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -5200,9 +6664,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToNotation(self: QDomDocumentFragment) QDomNotation {
+    pub fn toNotation(self: QDomDocumentFragment) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -5212,9 +6680,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToProcessingInstruction(self: QDomDocumentFragment) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomDocumentFragment) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -5224,9 +6696,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToCharacterData(self: QDomDocumentFragment) QDomCharacterData {
+    pub fn toCharacterData(self: QDomDocumentFragment) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -5236,9 +6712,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ToComment(self: QDomDocumentFragment) QDomComment {
+    pub fn toComment(self: QDomDocumentFragment) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -5252,10 +6732,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomDocumentFragment, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomDocumentFragment, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -5265,9 +6749,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn FirstChildElement(self: QDomDocumentFragment) QDomElement {
+    pub fn firstChildElement(self: QDomDocumentFragment) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -5277,9 +6765,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn LastChildElement(self: QDomDocumentFragment) QDomElement {
+    pub fn lastChildElement(self: QDomDocumentFragment) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -5289,9 +6781,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn PreviousSiblingElement(self: QDomDocumentFragment) QDomElement {
+    pub fn previousSiblingElement(self: QDomDocumentFragment) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -5301,9 +6797,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn NextSiblingElement(self: QDomDocumentFragment) QDomElement {
+    pub fn nextSiblingElement(self: QDomDocumentFragment) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -5313,9 +6813,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn LineNumber(self: QDomDocumentFragment) i32 {
+    pub fn lineNumber(self: QDomDocumentFragment) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -5325,9 +6829,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn ColumnNumber(self: QDomDocumentFragment) i32 {
+    pub fn columnNumber(self: QDomDocumentFragment) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -5339,9 +6847,13 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomDocumentFragment, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomDocumentFragment, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -5357,10 +6869,14 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomDocumentFragment, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomDocumentFragment, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -5372,7 +6888,7 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -5380,6 +6896,10 @@ pub const QDomDocumentFragment = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -5390,19 +6910,23 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomDocumentFragment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomDocumentFragment, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -5414,7 +6938,7 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -5422,6 +6946,10 @@ pub const QDomDocumentFragment = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -5432,19 +6960,23 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomDocumentFragment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomDocumentFragment, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -5456,7 +6988,7 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomDocumentFragment, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -5464,6 +6996,10 @@ pub const QDomDocumentFragment = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
@@ -5474,19 +7010,23 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomDocumentFragment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomDocumentFragment, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -5498,7 +7038,7 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomDocumentFragment, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomDocumentFragment, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -5506,6 +7046,10 @@ pub const QDomDocumentFragment = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -5516,33 +7060,33 @@ pub const QDomDocumentFragment = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomDocumentFragment, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomDocumentFragment, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocumentfragment.html#dtor.QDomDocumentFragment)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomDocumentFragment `
     ///
-    pub fn Delete(self: QDomDocumentFragment) void {
+    pub fn delete(self: QDomDocumentFragment) void {
         qtc.QDomDocumentFragment_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5558,22 +7102,34 @@ pub const QDomCharacterData = extern struct {
     pub const _is_QDomCharacterData = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomCharacterData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomCharacterData {
+    pub const New = new;
+
+    /// Allocate a new QDomCharacterData object in C++ memory
+    ///
+    pub fn new() QDomCharacterData {
         return .{ .ptr = qtc.QDomCharacterData_new() };
     }
 
-    /// New2 constructs a new QDomCharacterData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomCharacterData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` characterData: QDomCharacterData `
     ///
-    pub fn New2(characterData: anytype) QDomCharacterData {
+    pub fn new2(characterData: anytype) QDomCharacterData {
         comptime _ = @TypeOf(characterData)._is_QDomCharacterData;
         return .{ .ptr = qtc.QDomCharacterData_new2(@ptrCast(characterData.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#operator-eq)
     ///
@@ -5583,10 +7139,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` other: QDomCharacterData `
     ///
-    pub fn OperatorAssign(self: QDomCharacterData, other: anytype) void {
+    pub fn operatorAssign(self: QDomCharacterData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomCharacterData;
         qtc.QDomCharacterData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `substringData` instead
+    ///
+    pub const SubstringData = substringData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#substringData)
     ///
@@ -5598,15 +7158,19 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn SubstringData(self: QDomCharacterData, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn substringData(self: QDomCharacterData, allocator: std.mem.Allocator, offset: usize, _count: usize) []const u8 {
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.substringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendData` instead
+    ///
+    pub const AppendData = appendData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#appendData)
     ///
@@ -5616,13 +7180,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn AppendData(self: QDomCharacterData, arg: []const u8) void {
+    pub fn appendData(self: QDomCharacterData, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_AppendData(@ptrCast(self.ptr), arg_str);
     }
+
+    /// ### DEPRECATED: Use `insertData` instead
+    ///
+    pub const InsertData = insertData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#insertData)
     ///
@@ -5634,13 +7202,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: QDomCharacterData, offset: usize, arg: []const u8) void {
+    pub fn insertData(self: QDomCharacterData, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_InsertData(@ptrCast(self.ptr), @bitCast(offset), arg_str);
     }
+
+    /// ### DEPRECATED: Use `deleteData` instead
+    ///
+    pub const DeleteData = deleteData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#deleteData)
     ///
@@ -5650,11 +7222,15 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn DeleteData(self: QDomCharacterData, offset: usize, count: usize) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn deleteData(self: QDomCharacterData, offset: usize, _count: usize) void {
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `replaceData` instead
+    ///
+    pub const ReplaceData = replaceData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#replaceData)
     ///
@@ -5664,17 +7240,21 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: QDomCharacterData, offset: usize, count: usize, arg: []const u8) void {
+    pub fn replaceData(self: QDomCharacterData, offset: usize, _count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count), arg_str);
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#length)
     ///
@@ -5682,9 +7262,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn Length(self: QDomCharacterData) i32 {
+    pub fn length(self: QDomCharacterData) i32 {
         return qtc.QDomCharacterData_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#data)
     ///
@@ -5694,13 +7278,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#setData)
     ///
@@ -5708,15 +7296,19 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: QDomCharacterData, data: []const u8) void {
+    pub fn setData(self: QDomCharacterData, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QDomCharacterData_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#nodeType)
     ///
@@ -5728,9 +7320,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomCharacterData) i32 {
+    pub fn nodeType(self: QDomCharacterData) i32 {
         return qtc.QDomCharacterData_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -5742,10 +7338,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomCharacterData, other: anytype) bool {
+    pub fn operatorEqual(self: QDomCharacterData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -5757,10 +7357,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomCharacterData, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomCharacterData, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -5774,11 +7378,15 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomCharacterData, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomCharacterData, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -5792,11 +7400,15 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomCharacterData, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomCharacterData, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -5810,11 +7422,15 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomCharacterData, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomCharacterData, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -5826,10 +7442,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomCharacterData, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomCharacterData, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -5841,10 +7461,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomCharacterData, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomCharacterData, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -5854,9 +7478,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn HasChildNodes(self: QDomCharacterData) bool {
+    pub fn hasChildNodes(self: QDomCharacterData) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -5866,9 +7494,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn CloneNode(self: QDomCharacterData) QDomNode {
+    pub fn cloneNode(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -5878,9 +7510,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn Normalize(self: QDomCharacterData) void {
+    pub fn normalize(self: QDomCharacterData) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -5894,7 +7530,7 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomCharacterData, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomCharacterData, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -5906,6 +7542,10 @@ pub const QDomCharacterData = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -5916,13 +7556,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -5932,9 +7576,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ParentNode(self: QDomCharacterData) QDomNode {
+    pub fn parentNode(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -5944,9 +7592,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ChildNodes(self: QDomCharacterData) QDomNodeList {
+    pub fn childNodes(self: QDomCharacterData) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -5956,9 +7608,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn FirstChild(self: QDomCharacterData) QDomNode {
+    pub fn firstChild(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -5968,9 +7624,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn LastChild(self: QDomCharacterData) QDomNode {
+    pub fn lastChild(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -5980,9 +7640,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn PreviousSibling(self: QDomCharacterData) QDomNode {
+    pub fn previousSibling(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -5992,9 +7656,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn NextSibling(self: QDomCharacterData) QDomNode {
+    pub fn nextSibling(self: QDomCharacterData) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -6004,9 +7672,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn Attributes(self: QDomCharacterData) QDomNamedNodeMap {
+    pub fn attributes(self: QDomCharacterData) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -6016,9 +7688,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn OwnerDocument(self: QDomCharacterData) QDomDocument {
+    pub fn ownerDocument(self: QDomCharacterData) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -6030,13 +7706,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -6048,13 +7728,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -6064,9 +7748,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn HasAttributes(self: QDomCharacterData) bool {
+    pub fn hasAttributes(self: QDomCharacterData) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -6078,13 +7766,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -6096,13 +7788,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomCharacterData, value: []const u8) void {
+    pub fn setNodeValue(self: QDomCharacterData, value: []const u8) void {
         const value_str = qtc.libqt_string{
             .len = value.len,
             .data = value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -6114,13 +7810,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomCharacterData, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCharacterData.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -6132,13 +7832,17 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomCharacterData, pre: []const u8) void {
+    pub fn setPrefix(self: QDomCharacterData, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -6148,9 +7852,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsAttr(self: QDomCharacterData) bool {
+    pub fn isAttr(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -6160,9 +7868,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsCDATASection(self: QDomCharacterData) bool {
+    pub fn isCDATASection(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -6172,9 +7884,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsDocumentFragment(self: QDomCharacterData) bool {
+    pub fn isDocumentFragment(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -6184,9 +7900,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsDocument(self: QDomCharacterData) bool {
+    pub fn isDocument(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -6196,9 +7916,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsDocumentType(self: QDomCharacterData) bool {
+    pub fn isDocumentType(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -6208,9 +7932,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsElement(self: QDomCharacterData) bool {
+    pub fn isElement(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -6220,9 +7948,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsEntityReference(self: QDomCharacterData) bool {
+    pub fn isEntityReference(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -6232,9 +7964,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsText(self: QDomCharacterData) bool {
+    pub fn isText(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -6244,9 +7980,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsEntity(self: QDomCharacterData) bool {
+    pub fn isEntity(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -6256,9 +7996,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsNotation(self: QDomCharacterData) bool {
+    pub fn isNotation(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -6268,9 +8012,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsProcessingInstruction(self: QDomCharacterData) bool {
+    pub fn isProcessingInstruction(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -6280,9 +8028,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsCharacterData(self: QDomCharacterData) bool {
+    pub fn isCharacterData(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -6292,9 +8044,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsComment(self: QDomCharacterData) bool {
+    pub fn isComment(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -6304,15 +8060,19 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomCharacterData, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomCharacterData, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -6322,9 +8082,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn IsNull(self: QDomCharacterData) bool {
+    pub fn isNull(self: QDomCharacterData) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -6334,9 +8098,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn Clear(self: QDomCharacterData) void {
+    pub fn clear(self: QDomCharacterData) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -6346,9 +8114,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToAttr(self: QDomCharacterData) QDomAttr {
+    pub fn toAttr(self: QDomCharacterData) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -6358,9 +8130,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToCDATASection(self: QDomCharacterData) QDomCDATASection {
+    pub fn toCDATASection(self: QDomCharacterData) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -6370,9 +8146,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToDocumentFragment(self: QDomCharacterData) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomCharacterData) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -6382,9 +8162,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToDocument(self: QDomCharacterData) QDomDocument {
+    pub fn toDocument(self: QDomCharacterData) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -6394,9 +8178,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToDocumentType(self: QDomCharacterData) QDomDocumentType {
+    pub fn toDocumentType(self: QDomCharacterData) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -6406,9 +8194,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToElement(self: QDomCharacterData) QDomElement {
+    pub fn toElement(self: QDomCharacterData) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -6418,9 +8210,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToEntityReference(self: QDomCharacterData) QDomEntityReference {
+    pub fn toEntityReference(self: QDomCharacterData) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -6430,9 +8226,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToText(self: QDomCharacterData) QDomText {
+    pub fn toText(self: QDomCharacterData) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -6442,9 +8242,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToEntity(self: QDomCharacterData) QDomEntity {
+    pub fn toEntity(self: QDomCharacterData) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -6454,9 +8258,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToNotation(self: QDomCharacterData) QDomNotation {
+    pub fn toNotation(self: QDomCharacterData) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -6466,9 +8274,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToProcessingInstruction(self: QDomCharacterData) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomCharacterData) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -6478,9 +8290,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToCharacterData(self: QDomCharacterData) QDomCharacterData {
+    pub fn toCharacterData(self: QDomCharacterData) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -6490,9 +8306,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ToComment(self: QDomCharacterData) QDomComment {
+    pub fn toComment(self: QDomCharacterData) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -6506,10 +8326,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomCharacterData, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomCharacterData, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -6519,9 +8343,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn FirstChildElement(self: QDomCharacterData) QDomElement {
+    pub fn firstChildElement(self: QDomCharacterData) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -6531,9 +8359,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn LastChildElement(self: QDomCharacterData) QDomElement {
+    pub fn lastChildElement(self: QDomCharacterData) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -6543,9 +8375,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn PreviousSiblingElement(self: QDomCharacterData) QDomElement {
+    pub fn previousSiblingElement(self: QDomCharacterData) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -6555,9 +8391,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn NextSiblingElement(self: QDomCharacterData) QDomElement {
+    pub fn nextSiblingElement(self: QDomCharacterData) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -6567,9 +8407,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn LineNumber(self: QDomCharacterData) i32 {
+    pub fn lineNumber(self: QDomCharacterData) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -6579,9 +8423,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn ColumnNumber(self: QDomCharacterData) i32 {
+    pub fn columnNumber(self: QDomCharacterData) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -6593,9 +8441,13 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomCharacterData, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomCharacterData, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -6611,10 +8463,14 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomCharacterData, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomCharacterData, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -6626,7 +8482,7 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -6634,6 +8490,10 @@ pub const QDomCharacterData = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -6644,19 +8504,23 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomCharacterData, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomCharacterData, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -6668,7 +8532,7 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -6676,6 +8540,10 @@ pub const QDomCharacterData = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -6686,19 +8554,23 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomCharacterData, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomCharacterData, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -6710,7 +8582,7 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomCharacterData, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -6718,6 +8590,10 @@ pub const QDomCharacterData = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
@@ -6728,19 +8604,23 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomCharacterData, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomCharacterData, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -6752,7 +8632,7 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomCharacterData, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomCharacterData, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -6760,6 +8640,10 @@ pub const QDomCharacterData = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -6770,33 +8654,33 @@ pub const QDomCharacterData = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomCharacterData, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomCharacterData, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcharacterdata.html#dtor.QDomCharacterData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomCharacterData `
     ///
-    pub fn Delete(self: QDomCharacterData) void {
+    pub fn delete(self: QDomCharacterData) void {
         qtc.QDomCharacterData_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6812,22 +8696,34 @@ pub const QDomAttr = extern struct {
     pub const _is_QDomAttr = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomAttr object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomAttr {
+    pub const New = new;
+
+    /// Allocate a new QDomAttr object in C++ memory
+    ///
+    pub fn new() QDomAttr {
         return .{ .ptr = qtc.QDomAttr_new() };
     }
 
-    /// New2 constructs a new QDomAttr object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomAttr object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` attr: QDomAttr `
     ///
-    pub fn New2(attr: anytype) QDomAttr {
+    pub fn new2(attr: anytype) QDomAttr {
         comptime _ = @TypeOf(attr)._is_QDomAttr;
         return .{ .ptr = qtc.QDomAttr_new2(@ptrCast(attr.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#operator-eq)
     ///
@@ -6837,10 +8733,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` other: QDomAttr `
     ///
-    pub fn OperatorAssign(self: QDomAttr, other: anytype) void {
+    pub fn operatorAssign(self: QDomAttr, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomAttr;
         qtc.QDomAttr_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#name)
     ///
@@ -6850,13 +8750,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomAttr_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `specified` instead
+    ///
+    pub const Specified = specified;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#specified)
     ///
@@ -6864,9 +8768,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn Specified(self: QDomAttr) bool {
+    pub fn specified(self: QDomAttr) bool {
         return qtc.QDomAttr_Specified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `ownerElement` instead
+    ///
+    pub const OwnerElement = ownerElement;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#ownerElement)
     ///
@@ -6874,9 +8782,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn OwnerElement(self: QDomAttr) QDomElement {
+    pub fn ownerElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomAttr_OwnerElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#value)
     ///
@@ -6886,13 +8798,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn value(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomAttr_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#setValue)
     ///
@@ -6900,15 +8816,19 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetValue(self: QDomAttr, value: []const u8) void {
+    pub fn setValue(self: QDomAttr, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomAttr_SetValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#nodeType)
     ///
@@ -6920,9 +8840,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomAttr) i32 {
+    pub fn nodeType(self: QDomAttr) i32 {
         return qtc.QDomAttr_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -6934,10 +8858,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomAttr, other: anytype) bool {
+    pub fn operatorEqual(self: QDomAttr, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -6949,10 +8877,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomAttr, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomAttr, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -6966,11 +8898,15 @@ pub const QDomAttr = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomAttr, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomAttr, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -6984,11 +8920,15 @@ pub const QDomAttr = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomAttr, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomAttr, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -7002,11 +8942,15 @@ pub const QDomAttr = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomAttr, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomAttr, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -7018,10 +8962,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomAttr, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomAttr, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -7033,10 +8981,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomAttr, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomAttr, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -7046,9 +8998,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn HasChildNodes(self: QDomAttr) bool {
+    pub fn hasChildNodes(self: QDomAttr) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -7058,9 +9014,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn CloneNode(self: QDomAttr) QDomNode {
+    pub fn cloneNode(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -7070,9 +9030,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn Normalize(self: QDomAttr) void {
+    pub fn normalize(self: QDomAttr) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -7086,7 +9050,7 @@ pub const QDomAttr = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomAttr, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomAttr, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -7098,6 +9062,10 @@ pub const QDomAttr = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -7108,13 +9076,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -7124,9 +9096,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ParentNode(self: QDomAttr) QDomNode {
+    pub fn parentNode(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -7136,9 +9112,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ChildNodes(self: QDomAttr) QDomNodeList {
+    pub fn childNodes(self: QDomAttr) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -7148,9 +9128,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn FirstChild(self: QDomAttr) QDomNode {
+    pub fn firstChild(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -7160,9 +9144,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn LastChild(self: QDomAttr) QDomNode {
+    pub fn lastChild(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -7172,9 +9160,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn PreviousSibling(self: QDomAttr) QDomNode {
+    pub fn previousSibling(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -7184,9 +9176,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn NextSibling(self: QDomAttr) QDomNode {
+    pub fn nextSibling(self: QDomAttr) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -7196,9 +9192,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn Attributes(self: QDomAttr) QDomNamedNodeMap {
+    pub fn attributes(self: QDomAttr) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -7208,9 +9208,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn OwnerDocument(self: QDomAttr) QDomDocument {
+    pub fn ownerDocument(self: QDomAttr) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -7222,13 +9226,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -7240,13 +9248,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -7256,9 +9268,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn HasAttributes(self: QDomAttr) bool {
+    pub fn hasAttributes(self: QDomAttr) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -7270,13 +9286,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -7286,15 +9306,19 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomAttr, value: []const u8) void {
+    pub fn setNodeValue(self: QDomAttr, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -7306,13 +9330,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomAttr, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomAttr.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -7324,13 +9352,17 @@ pub const QDomAttr = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomAttr, pre: []const u8) void {
+    pub fn setPrefix(self: QDomAttr, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -7340,9 +9372,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsAttr(self: QDomAttr) bool {
+    pub fn isAttr(self: QDomAttr) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -7352,9 +9388,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsCDATASection(self: QDomAttr) bool {
+    pub fn isCDATASection(self: QDomAttr) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -7364,9 +9404,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsDocumentFragment(self: QDomAttr) bool {
+    pub fn isDocumentFragment(self: QDomAttr) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -7376,9 +9420,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsDocument(self: QDomAttr) bool {
+    pub fn isDocument(self: QDomAttr) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -7388,9 +9436,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsDocumentType(self: QDomAttr) bool {
+    pub fn isDocumentType(self: QDomAttr) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -7400,9 +9452,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsElement(self: QDomAttr) bool {
+    pub fn isElement(self: QDomAttr) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -7412,9 +9468,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsEntityReference(self: QDomAttr) bool {
+    pub fn isEntityReference(self: QDomAttr) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -7424,9 +9484,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsText(self: QDomAttr) bool {
+    pub fn isText(self: QDomAttr) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -7436,9 +9500,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsEntity(self: QDomAttr) bool {
+    pub fn isEntity(self: QDomAttr) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -7448,9 +9516,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsNotation(self: QDomAttr) bool {
+    pub fn isNotation(self: QDomAttr) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -7460,9 +9532,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsProcessingInstruction(self: QDomAttr) bool {
+    pub fn isProcessingInstruction(self: QDomAttr) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -7472,9 +9548,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsCharacterData(self: QDomAttr) bool {
+    pub fn isCharacterData(self: QDomAttr) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -7484,9 +9564,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsComment(self: QDomAttr) bool {
+    pub fn isComment(self: QDomAttr) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -7496,15 +9580,19 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomAttr, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomAttr, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -7514,9 +9602,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn IsNull(self: QDomAttr) bool {
+    pub fn isNull(self: QDomAttr) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -7526,9 +9618,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn Clear(self: QDomAttr) void {
+    pub fn clear(self: QDomAttr) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -7538,9 +9634,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToAttr(self: QDomAttr) QDomAttr {
+    pub fn toAttr(self: QDomAttr) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -7550,9 +9650,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToCDATASection(self: QDomAttr) QDomCDATASection {
+    pub fn toCDATASection(self: QDomAttr) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -7562,9 +9666,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToDocumentFragment(self: QDomAttr) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomAttr) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -7574,9 +9682,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToDocument(self: QDomAttr) QDomDocument {
+    pub fn toDocument(self: QDomAttr) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -7586,9 +9698,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToDocumentType(self: QDomAttr) QDomDocumentType {
+    pub fn toDocumentType(self: QDomAttr) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -7598,9 +9714,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToElement(self: QDomAttr) QDomElement {
+    pub fn toElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -7610,9 +9730,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToEntityReference(self: QDomAttr) QDomEntityReference {
+    pub fn toEntityReference(self: QDomAttr) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -7622,9 +9746,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToText(self: QDomAttr) QDomText {
+    pub fn toText(self: QDomAttr) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -7634,9 +9762,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToEntity(self: QDomAttr) QDomEntity {
+    pub fn toEntity(self: QDomAttr) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -7646,9 +9778,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToNotation(self: QDomAttr) QDomNotation {
+    pub fn toNotation(self: QDomAttr) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -7658,9 +9794,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToProcessingInstruction(self: QDomAttr) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomAttr) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -7670,9 +9810,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToCharacterData(self: QDomAttr) QDomCharacterData {
+    pub fn toCharacterData(self: QDomAttr) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -7682,9 +9826,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ToComment(self: QDomAttr) QDomComment {
+    pub fn toComment(self: QDomAttr) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -7698,10 +9846,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomAttr, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomAttr, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -7711,9 +9863,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn FirstChildElement(self: QDomAttr) QDomElement {
+    pub fn firstChildElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -7723,9 +9879,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn LastChildElement(self: QDomAttr) QDomElement {
+    pub fn lastChildElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -7735,9 +9895,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn PreviousSiblingElement(self: QDomAttr) QDomElement {
+    pub fn previousSiblingElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -7747,9 +9911,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn NextSiblingElement(self: QDomAttr) QDomElement {
+    pub fn nextSiblingElement(self: QDomAttr) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -7759,9 +9927,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn LineNumber(self: QDomAttr) i32 {
+    pub fn lineNumber(self: QDomAttr) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -7771,9 +9943,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn ColumnNumber(self: QDomAttr) i32 {
+    pub fn columnNumber(self: QDomAttr) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -7785,9 +9961,13 @@ pub const QDomAttr = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomAttr, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomAttr, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -7803,10 +9983,14 @@ pub const QDomAttr = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomAttr, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomAttr, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -7818,7 +10002,7 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomAttr, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomAttr, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -7826,6 +10010,10 @@ pub const QDomAttr = extern struct {
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -7836,19 +10024,23 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomAttr, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomAttr, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
 
     /// Inherited from QDomNode
     ///
@@ -7860,7 +10052,7 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomAttr, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomAttr, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -7868,6 +10060,10 @@ pub const QDomAttr = extern struct {
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -7878,19 +10074,23 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomAttr, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomAttr, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
+    ///
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -7902,7 +10102,7 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    pub fn PreviousSiblingElement1(self: QDomAttr, tagName: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomAttr, tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
@@ -7910,6 +10110,10 @@ pub const QDomAttr = extern struct {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
@@ -7920,19 +10124,23 @@ pub const QDomAttr = extern struct {
     ///
     /// ` tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn PreviousSiblingElement2(self: QDomAttr, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement2(self: QDomAttr, tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
             .len = tagName.len,
             .data = tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -7944,7 +10152,7 @@ pub const QDomAttr = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomAttr, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomAttr, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -7952,6 +10160,10 @@ pub const QDomAttr = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -7962,33 +10174,33 @@ pub const QDomAttr = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomAttr, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomAttr, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomattr.html#dtor.QDomAttr)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomAttr `
     ///
-    pub fn Delete(self: QDomAttr) void {
+    pub fn delete(self: QDomAttr) void {
         qtc.QDomAttr_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8004,22 +10216,34 @@ pub const QDomElement = extern struct {
     pub const _is_QDomElement = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomElement object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomElement {
+    pub const New = new;
+
+    /// Allocate a new QDomElement object in C++ memory
+    ///
+    pub fn new() QDomElement {
         return .{ .ptr = qtc.QDomElement_new() };
     }
 
-    /// New2 constructs a new QDomElement object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomElement object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` element: QDomElement `
     ///
-    pub fn New2(element: anytype) QDomElement {
+    pub fn new2(element: anytype) QDomElement {
         comptime _ = @TypeOf(element)._is_QDomElement;
         return .{ .ptr = qtc.QDomElement_new2(@ptrCast(element.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#operator-eq)
     ///
@@ -8029,10 +10253,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` other: QDomElement `
     ///
-    pub fn OperatorAssign(self: QDomElement, other: anytype) void {
+    pub fn operatorAssign(self: QDomElement, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomElement;
         qtc.QDomElement_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `attribute` instead
+    ///
+    pub const Attribute = attribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attribute)
     ///
@@ -8042,59 +10270,49 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn Attribute(self: QDomElement, allocator: std.mem.Allocator, name: []const u8) []const u8 {
+    pub fn attribute(self: QDomElement, allocator: std.mem.Allocator, _name: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         var _str = qtc.QDomElement_Attribute(@ptrCast(self.ptr), name_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Attribute: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.attribute: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetAttribute(self: QDomElement, name: []const u8, value: []const u8) void {
+    pub fn setAttribute(self: QDomElement, _name: []const u8, _value: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomElement_SetAttribute(@ptrCast(self.ptr), name_str, value_str);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
+    /// ### DEPRECATED: Use `setAttribute2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomElement `
-    ///
-    /// ` name: []const u8 `
-    ///
-    /// ` value: isize `
-    ///
-    pub fn SetAttribute2(self: QDomElement, name: []const u8, value: isize) void {
-        const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
-        };
-        qtc.QDomElement_SetAttribute2(@ptrCast(self.ptr), name_str, @bitCast(value));
-    }
+    pub const SetAttribute2 = setAttribute2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
@@ -8102,17 +10320,21 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: usize `
+    /// ` _value: isize `
     ///
-    pub fn SetAttribute3(self: QDomElement, name: []const u8, value: usize) void {
+    pub fn setAttribute2(self: QDomElement, _name: []const u8, _value: isize) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        qtc.QDomElement_SetAttribute3(@ptrCast(self.ptr), name_str, @bitCast(value));
+        qtc.QDomElement_SetAttribute2(@ptrCast(self.ptr), name_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttribute3` instead
+    ///
+    pub const SetAttribute3 = setAttribute3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
@@ -8120,17 +10342,21 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: i32 `
+    /// ` _value: usize `
     ///
-    pub fn SetAttribute4(self: QDomElement, name: []const u8, value: i32) void {
+    pub fn setAttribute3(self: QDomElement, _name: []const u8, _value: usize) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        qtc.QDomElement_SetAttribute4(@ptrCast(self.ptr), name_str, @bitCast(value));
+        qtc.QDomElement_SetAttribute3(@ptrCast(self.ptr), name_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttribute4` instead
+    ///
+    pub const SetAttribute4 = setAttribute4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
@@ -8138,17 +10364,21 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: u32 `
+    /// ` _value: i32 `
     ///
-    pub fn SetAttribute5(self: QDomElement, name: []const u8, value: u32) void {
+    pub fn setAttribute4(self: QDomElement, _name: []const u8, _value: i32) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        qtc.QDomElement_SetAttribute5(@ptrCast(self.ptr), name_str, @bitCast(value));
+        qtc.QDomElement_SetAttribute4(@ptrCast(self.ptr), name_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttribute5` instead
+    ///
+    pub const SetAttribute5 = setAttribute5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
@@ -8156,17 +10386,21 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: f32 `
+    /// ` _value: u32 `
     ///
-    pub fn SetAttribute6(self: QDomElement, name: []const u8, value: f32) void {
+    pub fn setAttribute5(self: QDomElement, _name: []const u8, _value: u32) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        qtc.QDomElement_SetAttribute6(@ptrCast(self.ptr), name_str, @bitCast(value));
+        qtc.QDomElement_SetAttribute5(@ptrCast(self.ptr), name_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttribute6` instead
+    ///
+    pub const SetAttribute6 = setAttribute6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
     ///
@@ -8174,17 +10408,43 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` value: f64 `
+    /// ` _value: f32 `
     ///
-    pub fn SetAttribute7(self: QDomElement, name: []const u8, value: f64) void {
+    pub fn setAttribute6(self: QDomElement, _name: []const u8, _value: f32) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        qtc.QDomElement_SetAttribute7(@ptrCast(self.ptr), name_str, @bitCast(value));
+        qtc.QDomElement_SetAttribute6(@ptrCast(self.ptr), name_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttribute7` instead
+    ///
+    pub const SetAttribute7 = setAttribute7;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttribute)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomElement `
+    ///
+    /// ` _name: []const u8 `
+    ///
+    /// ` _value: f64 `
+    ///
+    pub fn setAttribute7(self: QDomElement, _name: []const u8, _value: f64) void {
+        const name_str = qtc.libqt_string{
+            .len = _name.len,
+            .data = _name.ptr,
+        };
+        qtc.QDomElement_SetAttribute7(@ptrCast(self.ptr), name_str, @bitCast(_value));
+    }
+
+    /// ### DEPRECATED: Use `removeAttribute` instead
+    ///
+    pub const RemoveAttribute = removeAttribute;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#removeAttribute)
     ///
@@ -8192,15 +10452,19 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn RemoveAttribute(self: QDomElement, name: []const u8) void {
+    pub fn removeAttribute(self: QDomElement, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDomElement_RemoveAttribute(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `attributeNode` instead
+    ///
+    pub const AttributeNode = attributeNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attributeNode)
     ///
@@ -8208,15 +10472,19 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn AttributeNode(self: QDomElement, name: []const u8) QDomAttr {
+    pub fn attributeNode(self: QDomElement, _name: []const u8) QDomAttr {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomElement_AttributeNode(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `setAttributeNode` instead
+    ///
+    pub const SetAttributeNode = setAttributeNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNode)
     ///
@@ -8226,10 +10494,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` newAttr: QDomAttr `
     ///
-    pub fn SetAttributeNode(self: QDomElement, newAttr: anytype) QDomAttr {
+    pub fn setAttributeNode(self: QDomElement, newAttr: anytype) QDomAttr {
         comptime _ = @TypeOf(newAttr)._is_QDomAttr;
         return .{ .ptr = qtc.QDomElement_SetAttributeNode(@ptrCast(self.ptr), @ptrCast(newAttr.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeAttributeNode` instead
+    ///
+    pub const RemoveAttributeNode = removeAttributeNode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#removeAttributeNode)
     ///
@@ -8239,10 +10511,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` oldAttr: QDomAttr `
     ///
-    pub fn RemoveAttributeNode(self: QDomElement, oldAttr: anytype) QDomAttr {
+    pub fn removeAttributeNode(self: QDomElement, oldAttr: anytype) QDomAttr {
         comptime _ = @TypeOf(oldAttr)._is_QDomAttr;
         return .{ .ptr = qtc.QDomElement_RemoveAttributeNode(@ptrCast(self.ptr), @ptrCast(oldAttr.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `elementsByTagName` instead
+    ///
+    pub const ElementsByTagName = elementsByTagName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#elementsByTagName)
     ///
@@ -8252,7 +10528,7 @@ pub const QDomElement = extern struct {
     ///
     /// ` tagname: []const u8 `
     ///
-    pub fn ElementsByTagName(self: QDomElement, tagname: []const u8) QDomNodeList {
+    pub fn elementsByTagName(self: QDomElement, tagname: []const u8) QDomNodeList {
         const tagname_str = qtc.libqt_string{
             .len = tagname.len,
             .data = tagname.ptr,
@@ -8260,21 +10536,29 @@ pub const QDomElement = extern struct {
         return .{ .ptr = qtc.QDomElement_ElementsByTagName(@ptrCast(self.ptr), tagname_str) };
     }
 
+    /// ### DEPRECATED: Use `hasAttribute` instead
+    ///
+    pub const HasAttribute = hasAttribute;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#hasAttribute)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn HasAttribute(self: QDomElement, name: []const u8) bool {
+    pub fn hasAttribute(self: QDomElement, _name: []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return qtc.QDomElement_HasAttribute(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `attributeNS` instead
+    ///
+    pub const AttributeNS = attributeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attributeNS)
     ///
@@ -8286,23 +10570,27 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn AttributeNS(self: QDomElement, allocator: std.mem.Allocator, nsURI: []const u8, localName: []const u8) []const u8 {
+    pub fn attributeNS(self: QDomElement, allocator: std.mem.Allocator, nsURI: []const u8, _localName: []const u8) []const u8 {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         var _str = qtc.QDomElement_AttributeNS(@ptrCast(self.ptr), nsURI_str, localName_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.AttributeNS: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.attributeNS: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAttributeNS` instead
+    ///
+    pub const SetAttributeNS = setAttributeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
     ///
@@ -8314,9 +10602,9 @@ pub const QDomElement = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetAttributeNS(self: QDomElement, nsURI: []const u8, qName: []const u8, value: []const u8) void {
+    pub fn setAttributeNS(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: []const u8) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8326,35 +10614,15 @@ pub const QDomElement = extern struct {
             .data = qName.ptr,
         };
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomElement_SetAttributeNS(@ptrCast(self.ptr), nsURI_str, qName_str, value_str);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
+    /// ### DEPRECATED: Use `setAttributeNS2` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomElement `
-    ///
-    /// ` nsURI: []const u8 `
-    ///
-    /// ` qName: []const u8 `
-    ///
-    /// ` value: i32 `
-    ///
-    pub fn SetAttributeNS2(self: QDomElement, nsURI: []const u8, qName: []const u8, value: i32) void {
-        const nsURI_str = qtc.libqt_string{
-            .len = nsURI.len,
-            .data = nsURI.ptr,
-        };
-        const qName_str = qtc.libqt_string{
-            .len = qName.len,
-            .data = qName.ptr,
-        };
-        qtc.QDomElement_SetAttributeNS2(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(value));
-    }
+    pub const SetAttributeNS2 = setAttributeNS2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
     ///
@@ -8366,9 +10634,9 @@ pub const QDomElement = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: u32 `
+    /// ` _value: i32 `
     ///
-    pub fn SetAttributeNS3(self: QDomElement, nsURI: []const u8, qName: []const u8, value: u32) void {
+    pub fn setAttributeNS2(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: i32) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8377,8 +10645,12 @@ pub const QDomElement = extern struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS3(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(value));
+        qtc.QDomElement_SetAttributeNS2(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeNS3` instead
+    ///
+    pub const SetAttributeNS3 = setAttributeNS3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
     ///
@@ -8390,9 +10662,9 @@ pub const QDomElement = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: isize `
+    /// ` _value: u32 `
     ///
-    pub fn SetAttributeNS4(self: QDomElement, nsURI: []const u8, qName: []const u8, value: isize) void {
+    pub fn setAttributeNS3(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: u32) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8401,8 +10673,12 @@ pub const QDomElement = extern struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS4(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(value));
+        qtc.QDomElement_SetAttributeNS3(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeNS4` instead
+    ///
+    pub const SetAttributeNS4 = setAttributeNS4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
     ///
@@ -8414,9 +10690,9 @@ pub const QDomElement = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: usize `
+    /// ` _value: isize `
     ///
-    pub fn SetAttributeNS5(self: QDomElement, nsURI: []const u8, qName: []const u8, value: usize) void {
+    pub fn setAttributeNS4(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: isize) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8425,8 +10701,12 @@ pub const QDomElement = extern struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS5(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(value));
+        qtc.QDomElement_SetAttributeNS4(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeNS5` instead
+    ///
+    pub const SetAttributeNS5 = setAttributeNS5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
     ///
@@ -8438,9 +10718,9 @@ pub const QDomElement = extern struct {
     ///
     /// ` qName: []const u8 `
     ///
-    /// ` value: f64 `
+    /// ` _value: usize `
     ///
-    pub fn SetAttributeNS6(self: QDomElement, nsURI: []const u8, qName: []const u8, value: f64) void {
+    pub fn setAttributeNS5(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: usize) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
@@ -8449,8 +10729,40 @@ pub const QDomElement = extern struct {
             .len = qName.len,
             .data = qName.ptr,
         };
-        qtc.QDomElement_SetAttributeNS6(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(value));
+        qtc.QDomElement_SetAttributeNS5(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(_value));
     }
+
+    /// ### DEPRECATED: Use `setAttributeNS6` instead
+    ///
+    pub const SetAttributeNS6 = setAttributeNS6;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNS)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomElement `
+    ///
+    /// ` nsURI: []const u8 `
+    ///
+    /// ` qName: []const u8 `
+    ///
+    /// ` _value: f64 `
+    ///
+    pub fn setAttributeNS6(self: QDomElement, nsURI: []const u8, qName: []const u8, _value: f64) void {
+        const nsURI_str = qtc.libqt_string{
+            .len = nsURI.len,
+            .data = nsURI.ptr,
+        };
+        const qName_str = qtc.libqt_string{
+            .len = qName.len,
+            .data = qName.ptr,
+        };
+        qtc.QDomElement_SetAttributeNS6(@ptrCast(self.ptr), nsURI_str, qName_str, @bitCast(_value));
+    }
+
+    /// ### DEPRECATED: Use `removeAttributeNS` instead
+    ///
+    pub const RemoveAttributeNS = removeAttributeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#removeAttributeNS)
     ///
@@ -8460,19 +10772,23 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn RemoveAttributeNS(self: QDomElement, nsURI: []const u8, localName: []const u8) void {
+    pub fn removeAttributeNS(self: QDomElement, nsURI: []const u8, _localName: []const u8) void {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         qtc.QDomElement_RemoveAttributeNS(@ptrCast(self.ptr), nsURI_str, localName_str);
     }
+
+    /// ### DEPRECATED: Use `attributeNodeNS` instead
+    ///
+    pub const AttributeNodeNS = attributeNodeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attributeNodeNS)
     ///
@@ -8482,19 +10798,23 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn AttributeNodeNS(self: QDomElement, nsURI: []const u8, localName: []const u8) QDomAttr {
+    pub fn attributeNodeNS(self: QDomElement, nsURI: []const u8, _localName: []const u8) QDomAttr {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return .{ .ptr = qtc.QDomElement_AttributeNodeNS(@ptrCast(self.ptr), nsURI_str, localName_str) };
     }
+
+    /// ### DEPRECATED: Use `setAttributeNodeNS` instead
+    ///
+    pub const SetAttributeNodeNS = setAttributeNodeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setAttributeNodeNS)
     ///
@@ -8504,10 +10824,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` newAttr: QDomAttr `
     ///
-    pub fn SetAttributeNodeNS(self: QDomElement, newAttr: anytype) QDomAttr {
+    pub fn setAttributeNodeNS(self: QDomElement, newAttr: anytype) QDomAttr {
         comptime _ = @TypeOf(newAttr)._is_QDomAttr;
         return .{ .ptr = qtc.QDomElement_SetAttributeNodeNS(@ptrCast(self.ptr), @ptrCast(newAttr.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `elementsByTagNameNS` instead
+    ///
+    pub const ElementsByTagNameNS = elementsByTagNameNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#elementsByTagNameNS)
     ///
@@ -8517,19 +10841,23 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn ElementsByTagNameNS(self: QDomElement, nsURI: []const u8, localName: []const u8) QDomNodeList {
+    pub fn elementsByTagNameNS(self: QDomElement, nsURI: []const u8, _localName: []const u8) QDomNodeList {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return .{ .ptr = qtc.QDomElement_ElementsByTagNameNS(@ptrCast(self.ptr), nsURI_str, localName_str) };
     }
+
+    /// ### DEPRECATED: Use `hasAttributeNS` instead
+    ///
+    pub const HasAttributeNS = hasAttributeNS;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#hasAttributeNS)
     ///
@@ -8539,19 +10867,23 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
-    pub fn HasAttributeNS(self: QDomElement, nsURI: []const u8, localName: []const u8) bool {
+    pub fn hasAttributeNS(self: QDomElement, nsURI: []const u8, _localName: []const u8) bool {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         return qtc.QDomElement_HasAttributeNS(@ptrCast(self.ptr), nsURI_str, localName_str);
     }
+
+    /// ### DEPRECATED: Use `tagName` instead
+    ///
+    pub const TagName = tagName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#tagName)
     ///
@@ -8561,13 +10893,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TagName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn tagName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomElement_TagName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.TagName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.tagName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTagName` instead
+    ///
+    pub const SetTagName = setTagName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#setTagName)
     ///
@@ -8575,15 +10911,19 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetTagName(self: QDomElement, name: []const u8) void {
+    pub fn setTagName(self: QDomElement, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDomElement_SetTagName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attributes)
     ///
@@ -8591,9 +10931,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn Attributes(self: QDomElement) QDomNamedNodeMap {
+    pub fn attributes(self: QDomElement) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomElement_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#nodeType)
     ///
@@ -8605,9 +10949,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomElement) i32 {
+    pub fn nodeType(self: QDomElement) i32 {
         return qtc.QDomElement_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#text)
     ///
@@ -8617,13 +10965,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomElement_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `attribute2` instead
+    ///
+    pub const Attribute2 = attribute2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attribute)
     ///
@@ -8633,14 +10985,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` defValue: []const u8 `
     ///
-    pub fn Attribute2(self: QDomElement, allocator: std.mem.Allocator, name: []const u8, defValue: []const u8) []const u8 {
+    pub fn attribute2(self: QDomElement, allocator: std.mem.Allocator, _name: []const u8, defValue: []const u8) []const u8 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         const defValue_str = qtc.libqt_string{
             .len = defValue.len,
@@ -8648,10 +11000,14 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_Attribute2(@ptrCast(self.ptr), name_str, defValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Attribute2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.attribute2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `attributeNS3` instead
+    ///
+    pub const AttributeNS3 = attributeNS3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#attributeNS)
     ///
@@ -8663,18 +11019,18 @@ pub const QDomElement = extern struct {
     ///
     /// ` nsURI: []const u8 `
     ///
-    /// ` localName: []const u8 `
+    /// ` _localName: []const u8 `
     ///
     /// ` defValue: []const u8 `
     ///
-    pub fn AttributeNS3(self: QDomElement, allocator: std.mem.Allocator, nsURI: []const u8, localName: []const u8, defValue: []const u8) []const u8 {
+    pub fn attributeNS3(self: QDomElement, allocator: std.mem.Allocator, nsURI: []const u8, _localName: []const u8, defValue: []const u8) []const u8 {
         const nsURI_str = qtc.libqt_string{
             .len = nsURI.len,
             .data = nsURI.ptr,
         };
         const localName_str = qtc.libqt_string{
-            .len = localName.len,
-            .data = localName.ptr,
+            .len = _localName.len,
+            .data = _localName.ptr,
         };
         const defValue_str = qtc.libqt_string{
             .len = defValue.len,
@@ -8682,10 +11038,14 @@ pub const QDomElement = extern struct {
         };
         var _str = qtc.QDomElement_AttributeNS3(@ptrCast(self.ptr), nsURI_str, localName_str, defValue_str);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.AttributeNS3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.attributeNS3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -8697,10 +11057,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomElement, other: anytype) bool {
+    pub fn operatorEqual(self: QDomElement, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -8712,10 +11076,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomElement, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomElement, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -8729,11 +11097,15 @@ pub const QDomElement = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomElement, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomElement, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -8747,11 +11119,15 @@ pub const QDomElement = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomElement, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomElement, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -8765,11 +11141,15 @@ pub const QDomElement = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomElement, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomElement, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -8781,10 +11161,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomElement, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomElement, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -8796,10 +11180,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomElement, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomElement, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -8809,9 +11197,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn HasChildNodes(self: QDomElement) bool {
+    pub fn hasChildNodes(self: QDomElement) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -8821,9 +11213,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn CloneNode(self: QDomElement) QDomNode {
+    pub fn cloneNode(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -8833,9 +11229,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn Normalize(self: QDomElement) void {
+    pub fn normalize(self: QDomElement) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -8849,7 +11249,7 @@ pub const QDomElement = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomElement, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomElement, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -8861,6 +11261,10 @@ pub const QDomElement = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -8871,13 +11275,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -8887,9 +11295,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ParentNode(self: QDomElement) QDomNode {
+    pub fn parentNode(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -8899,9 +11311,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ChildNodes(self: QDomElement) QDomNodeList {
+    pub fn childNodes(self: QDomElement) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -8911,9 +11327,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn FirstChild(self: QDomElement) QDomNode {
+    pub fn firstChild(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -8923,9 +11343,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn LastChild(self: QDomElement) QDomNode {
+    pub fn lastChild(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -8935,9 +11359,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn PreviousSibling(self: QDomElement) QDomNode {
+    pub fn previousSibling(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -8947,9 +11375,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn NextSibling(self: QDomElement) QDomNode {
+    pub fn nextSibling(self: QDomElement) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -8959,9 +11391,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn OwnerDocument(self: QDomElement) QDomDocument {
+    pub fn ownerDocument(self: QDomElement) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -8973,13 +11409,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -8991,13 +11431,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -9007,9 +11451,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn HasAttributes(self: QDomElement) bool {
+    pub fn hasAttributes(self: QDomElement) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -9021,13 +11469,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -9037,15 +11489,19 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomElement, value: []const u8) void {
+    pub fn setNodeValue(self: QDomElement, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -9057,13 +11513,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomElement, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomElement.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -9075,13 +11535,17 @@ pub const QDomElement = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomElement, pre: []const u8) void {
+    pub fn setPrefix(self: QDomElement, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -9091,9 +11555,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsAttr(self: QDomElement) bool {
+    pub fn isAttr(self: QDomElement) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -9103,9 +11571,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsCDATASection(self: QDomElement) bool {
+    pub fn isCDATASection(self: QDomElement) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -9115,9 +11587,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsDocumentFragment(self: QDomElement) bool {
+    pub fn isDocumentFragment(self: QDomElement) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -9127,9 +11603,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsDocument(self: QDomElement) bool {
+    pub fn isDocument(self: QDomElement) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -9139,9 +11619,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsDocumentType(self: QDomElement) bool {
+    pub fn isDocumentType(self: QDomElement) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -9151,9 +11635,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsElement(self: QDomElement) bool {
+    pub fn isElement(self: QDomElement) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -9163,9 +11651,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsEntityReference(self: QDomElement) bool {
+    pub fn isEntityReference(self: QDomElement) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -9175,9 +11667,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsText(self: QDomElement) bool {
+    pub fn isText(self: QDomElement) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -9187,9 +11683,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsEntity(self: QDomElement) bool {
+    pub fn isEntity(self: QDomElement) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -9199,9 +11699,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsNotation(self: QDomElement) bool {
+    pub fn isNotation(self: QDomElement) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -9211,9 +11715,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsProcessingInstruction(self: QDomElement) bool {
+    pub fn isProcessingInstruction(self: QDomElement) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -9223,9 +11731,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsCharacterData(self: QDomElement) bool {
+    pub fn isCharacterData(self: QDomElement) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -9235,9 +11747,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsComment(self: QDomElement) bool {
+    pub fn isComment(self: QDomElement) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -9247,15 +11763,19 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomElement, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomElement, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -9265,9 +11785,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn IsNull(self: QDomElement) bool {
+    pub fn isNull(self: QDomElement) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -9277,9 +11801,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn Clear(self: QDomElement) void {
+    pub fn clear(self: QDomElement) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -9289,9 +11817,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToAttr(self: QDomElement) QDomAttr {
+    pub fn toAttr(self: QDomElement) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -9301,9 +11833,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToCDATASection(self: QDomElement) QDomCDATASection {
+    pub fn toCDATASection(self: QDomElement) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -9313,9 +11849,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToDocumentFragment(self: QDomElement) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomElement) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -9325,9 +11865,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToDocument(self: QDomElement) QDomDocument {
+    pub fn toDocument(self: QDomElement) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -9337,9 +11881,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToDocumentType(self: QDomElement) QDomDocumentType {
+    pub fn toDocumentType(self: QDomElement) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -9349,9 +11897,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToElement(self: QDomElement) QDomElement {
+    pub fn toElement(self: QDomElement) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -9361,9 +11913,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToEntityReference(self: QDomElement) QDomEntityReference {
+    pub fn toEntityReference(self: QDomElement) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -9373,9 +11929,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToText(self: QDomElement) QDomText {
+    pub fn toText(self: QDomElement) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -9385,9 +11945,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToEntity(self: QDomElement) QDomEntity {
+    pub fn toEntity(self: QDomElement) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -9397,9 +11961,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToNotation(self: QDomElement) QDomNotation {
+    pub fn toNotation(self: QDomElement) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -9409,9 +11977,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToProcessingInstruction(self: QDomElement) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomElement) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -9421,9 +11993,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToCharacterData(self: QDomElement) QDomCharacterData {
+    pub fn toCharacterData(self: QDomElement) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -9433,9 +12009,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ToComment(self: QDomElement) QDomComment {
+    pub fn toComment(self: QDomElement) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -9449,10 +12029,14 @@ pub const QDomElement = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomElement, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomElement, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -9462,9 +12046,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn FirstChildElement(self: QDomElement) QDomElement {
+    pub fn firstChildElement(self: QDomElement) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -9474,9 +12062,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn LastChildElement(self: QDomElement) QDomElement {
+    pub fn lastChildElement(self: QDomElement) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -9486,9 +12078,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn PreviousSiblingElement(self: QDomElement) QDomElement {
+    pub fn previousSiblingElement(self: QDomElement) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -9498,9 +12094,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn NextSiblingElement(self: QDomElement) QDomElement {
+    pub fn nextSiblingElement(self: QDomElement) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -9510,9 +12110,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn LineNumber(self: QDomElement) i32 {
+    pub fn lineNumber(self: QDomElement) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -9522,9 +12126,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    pub fn ColumnNumber(self: QDomElement) i32 {
+    pub fn columnNumber(self: QDomElement) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -9536,9 +12144,13 @@ pub const QDomElement = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomElement, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomElement, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -9554,11 +12166,15 @@ pub const QDomElement = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomElement, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomElement, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -9567,16 +12183,20 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomElement, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomElement, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -9585,22 +12205,26 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomElement, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomElement, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -9609,16 +12233,20 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomElement, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomElement, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -9627,39 +12255,25 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomElement, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomElement, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomElement `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomElement, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -9669,21 +12283,47 @@ pub const QDomElement = extern struct {
     ///
     /// ` self: QDomElement `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomElement, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomElement, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomElement `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomElement, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -9695,7 +12335,7 @@ pub const QDomElement = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomElement, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomElement, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -9703,6 +12343,10 @@ pub const QDomElement = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -9713,33 +12357,33 @@ pub const QDomElement = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomElement, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomElement, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomelement.html#dtor.QDomElement)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomElement `
     ///
-    pub fn Delete(self: QDomElement) void {
+    pub fn delete(self: QDomElement) void {
         qtc.QDomElement_Delete(@ptrCast(self.ptr));
     }
 };
@@ -9756,22 +12400,34 @@ pub const QDomText = extern struct {
     pub const _is_QDomCharacterData = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomText object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomText {
+    pub const New = new;
+
+    /// Allocate a new QDomText object in C++ memory
+    ///
+    pub fn new() QDomText {
         return .{ .ptr = qtc.QDomText_new() };
     }
 
-    /// New2 constructs a new QDomText object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomText object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` text: QDomText `
+    /// ` _text: QDomText `
     ///
-    pub fn New2(text: anytype) QDomText {
-        comptime _ = @TypeOf(text)._is_QDomText;
-        return .{ .ptr = qtc.QDomText_new2(@ptrCast(text.ptr)) };
+    pub fn new2(_text: anytype) QDomText {
+        comptime _ = @TypeOf(_text)._is_QDomText;
+        return .{ .ptr = qtc.QDomText_new2(@ptrCast(_text.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#operator-eq)
     ///
@@ -9781,10 +12437,14 @@ pub const QDomText = extern struct {
     ///
     /// ` other: QDomText `
     ///
-    pub fn OperatorAssign(self: QDomText, other: anytype) void {
+    pub fn operatorAssign(self: QDomText, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomText;
         qtc.QDomText_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `splitText` instead
+    ///
+    pub const SplitText = splitText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#splitText)
     ///
@@ -9794,9 +12454,13 @@ pub const QDomText = extern struct {
     ///
     /// ` offset: i32 `
     ///
-    pub fn SplitText(self: QDomText, offset: i32) QDomText {
+    pub fn splitText(self: QDomText, offset: i32) QDomText {
         return .{ .ptr = qtc.QDomText_SplitText(@ptrCast(self.ptr), @bitCast(offset)) };
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#nodeType)
     ///
@@ -9808,9 +12472,13 @@ pub const QDomText = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomText) i32 {
+    pub fn nodeType(self: QDomText) i32 {
         return qtc.QDomText_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `substringData` instead
+    ///
+    pub const SubstringData = substringData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9824,15 +12492,19 @@ pub const QDomText = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn SubstringData(self: QDomText, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn substringData(self: QDomText, allocator: std.mem.Allocator, offset: usize, _count: usize) []const u8 {
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.substringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendData` instead
+    ///
+    pub const AppendData = appendData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9844,13 +12516,17 @@ pub const QDomText = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn AppendData(self: QDomText, arg: []const u8) void {
+    pub fn appendData(self: QDomText, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_AppendData(@ptrCast(self.ptr), arg_str);
     }
+
+    /// ### DEPRECATED: Use `insertData` instead
+    ///
+    pub const InsertData = insertData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9864,13 +12540,17 @@ pub const QDomText = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: QDomText, offset: usize, arg: []const u8) void {
+    pub fn insertData(self: QDomText, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_InsertData(@ptrCast(self.ptr), @bitCast(offset), arg_str);
     }
+
+    /// ### DEPRECATED: Use `deleteData` instead
+    ///
+    pub const DeleteData = deleteData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9882,11 +12562,15 @@ pub const QDomText = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn DeleteData(self: QDomText, offset: usize, count: usize) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn deleteData(self: QDomText, offset: usize, _count: usize) void {
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `replaceData` instead
+    ///
+    pub const ReplaceData = replaceData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9898,17 +12582,21 @@ pub const QDomText = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: QDomText, offset: usize, count: usize, arg: []const u8) void {
+    pub fn replaceData(self: QDomText, offset: usize, _count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count), arg_str);
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9918,9 +12606,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn Length(self: QDomText) i32 {
+    pub fn length(self: QDomText) i32 {
         return qtc.QDomCharacterData_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9932,13 +12624,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -9948,15 +12644,19 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: QDomText, data: []const u8) void {
+    pub fn setData(self: QDomText, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QDomCharacterData_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -9968,10 +12668,14 @@ pub const QDomText = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomText, other: anytype) bool {
+    pub fn operatorEqual(self: QDomText, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -9983,10 +12687,14 @@ pub const QDomText = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomText, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomText, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -10000,11 +12708,15 @@ pub const QDomText = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomText, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomText, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -10018,11 +12730,15 @@ pub const QDomText = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomText, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomText, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -10036,11 +12752,15 @@ pub const QDomText = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomText, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomText, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -10052,10 +12772,14 @@ pub const QDomText = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomText, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomText, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -10067,10 +12791,14 @@ pub const QDomText = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomText, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomText, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -10080,9 +12808,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn HasChildNodes(self: QDomText) bool {
+    pub fn hasChildNodes(self: QDomText) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -10092,9 +12824,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn CloneNode(self: QDomText) QDomNode {
+    pub fn cloneNode(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -10104,9 +12840,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn Normalize(self: QDomText) void {
+    pub fn normalize(self: QDomText) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -10120,7 +12860,7 @@ pub const QDomText = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomText, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomText, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -10132,6 +12872,10 @@ pub const QDomText = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -10142,13 +12886,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -10158,9 +12906,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ParentNode(self: QDomText) QDomNode {
+    pub fn parentNode(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -10170,9 +12922,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ChildNodes(self: QDomText) QDomNodeList {
+    pub fn childNodes(self: QDomText) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -10182,9 +12938,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn FirstChild(self: QDomText) QDomNode {
+    pub fn firstChild(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -10194,9 +12954,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn LastChild(self: QDomText) QDomNode {
+    pub fn lastChild(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -10206,9 +12970,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn PreviousSibling(self: QDomText) QDomNode {
+    pub fn previousSibling(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -10218,9 +12986,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn NextSibling(self: QDomText) QDomNode {
+    pub fn nextSibling(self: QDomText) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -10230,9 +13002,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn Attributes(self: QDomText) QDomNamedNodeMap {
+    pub fn attributes(self: QDomText) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -10242,9 +13018,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn OwnerDocument(self: QDomText) QDomDocument {
+    pub fn ownerDocument(self: QDomText) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -10256,13 +13036,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -10274,13 +13058,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -10290,9 +13078,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn HasAttributes(self: QDomText) bool {
+    pub fn hasAttributes(self: QDomText) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -10304,13 +13096,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -10320,15 +13116,19 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomText, value: []const u8) void {
+    pub fn setNodeValue(self: QDomText, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -10340,13 +13140,17 @@ pub const QDomText = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomText, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomText, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomText.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -10358,13 +13162,17 @@ pub const QDomText = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomText, pre: []const u8) void {
+    pub fn setPrefix(self: QDomText, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -10374,9 +13182,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsAttr(self: QDomText) bool {
+    pub fn isAttr(self: QDomText) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -10386,9 +13198,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsCDATASection(self: QDomText) bool {
+    pub fn isCDATASection(self: QDomText) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -10398,9 +13214,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsDocumentFragment(self: QDomText) bool {
+    pub fn isDocumentFragment(self: QDomText) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -10410,9 +13230,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsDocument(self: QDomText) bool {
+    pub fn isDocument(self: QDomText) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -10422,9 +13246,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsDocumentType(self: QDomText) bool {
+    pub fn isDocumentType(self: QDomText) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -10434,9 +13262,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsElement(self: QDomText) bool {
+    pub fn isElement(self: QDomText) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -10446,9 +13278,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsEntityReference(self: QDomText) bool {
+    pub fn isEntityReference(self: QDomText) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -10458,9 +13294,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsText(self: QDomText) bool {
+    pub fn isText(self: QDomText) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -10470,9 +13310,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsEntity(self: QDomText) bool {
+    pub fn isEntity(self: QDomText) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -10482,9 +13326,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsNotation(self: QDomText) bool {
+    pub fn isNotation(self: QDomText) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -10494,9 +13342,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsProcessingInstruction(self: QDomText) bool {
+    pub fn isProcessingInstruction(self: QDomText) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -10506,9 +13358,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsCharacterData(self: QDomText) bool {
+    pub fn isCharacterData(self: QDomText) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -10518,9 +13374,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsComment(self: QDomText) bool {
+    pub fn isComment(self: QDomText) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -10530,15 +13390,19 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomText, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomText, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -10548,9 +13412,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn IsNull(self: QDomText) bool {
+    pub fn isNull(self: QDomText) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -10560,9 +13428,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn Clear(self: QDomText) void {
+    pub fn clear(self: QDomText) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -10572,9 +13444,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToAttr(self: QDomText) QDomAttr {
+    pub fn toAttr(self: QDomText) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -10584,9 +13460,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToCDATASection(self: QDomText) QDomCDATASection {
+    pub fn toCDATASection(self: QDomText) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -10596,9 +13476,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToDocumentFragment(self: QDomText) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomText) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -10608,9 +13492,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToDocument(self: QDomText) QDomDocument {
+    pub fn toDocument(self: QDomText) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -10620,9 +13508,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToDocumentType(self: QDomText) QDomDocumentType {
+    pub fn toDocumentType(self: QDomText) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -10632,9 +13524,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToElement(self: QDomText) QDomElement {
+    pub fn toElement(self: QDomText) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -10644,9 +13540,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToEntityReference(self: QDomText) QDomEntityReference {
+    pub fn toEntityReference(self: QDomText) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -10656,9 +13556,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToText(self: QDomText) QDomText {
+    pub fn toText(self: QDomText) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -10668,9 +13572,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToEntity(self: QDomText) QDomEntity {
+    pub fn toEntity(self: QDomText) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -10680,9 +13588,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToNotation(self: QDomText) QDomNotation {
+    pub fn toNotation(self: QDomText) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -10692,9 +13604,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToProcessingInstruction(self: QDomText) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomText) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -10704,9 +13620,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToCharacterData(self: QDomText) QDomCharacterData {
+    pub fn toCharacterData(self: QDomText) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -10716,9 +13636,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ToComment(self: QDomText) QDomComment {
+    pub fn toComment(self: QDomText) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -10732,10 +13656,14 @@ pub const QDomText = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomText, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomText, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -10745,9 +13673,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn FirstChildElement(self: QDomText) QDomElement {
+    pub fn firstChildElement(self: QDomText) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -10757,9 +13689,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn LastChildElement(self: QDomText) QDomElement {
+    pub fn lastChildElement(self: QDomText) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -10769,9 +13705,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn PreviousSiblingElement(self: QDomText) QDomElement {
+    pub fn previousSiblingElement(self: QDomText) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -10781,9 +13721,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn NextSiblingElement(self: QDomText) QDomElement {
+    pub fn nextSiblingElement(self: QDomText) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -10793,9 +13737,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn LineNumber(self: QDomText) i32 {
+    pub fn lineNumber(self: QDomText) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -10805,9 +13753,13 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    pub fn ColumnNumber(self: QDomText) i32 {
+    pub fn columnNumber(self: QDomText) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -10819,9 +13771,13 @@ pub const QDomText = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomText, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomText, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -10837,11 +13793,15 @@ pub const QDomText = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomText, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomText, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -10850,16 +13810,20 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomText, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomText, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -10868,22 +13832,26 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomText, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomText, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -10892,16 +13860,20 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomText, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomText, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -10910,39 +13882,25 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomText, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomText, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomText `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomText, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -10952,21 +13910,47 @@ pub const QDomText = extern struct {
     ///
     /// ` self: QDomText `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomText, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomText, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomText `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomText, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -10978,7 +13962,7 @@ pub const QDomText = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomText, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomText, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -10986,6 +13970,10 @@ pub const QDomText = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -10996,33 +13984,33 @@ pub const QDomText = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomText, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomText, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomtext.html#dtor.QDomText)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomText `
     ///
-    pub fn Delete(self: QDomText) void {
+    pub fn delete(self: QDomText) void {
         qtc.QDomText_Delete(@ptrCast(self.ptr));
     }
 };
@@ -11039,22 +14027,34 @@ pub const QDomComment = extern struct {
     pub const _is_QDomCharacterData = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomComment object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomComment {
+    pub const New = new;
+
+    /// Allocate a new QDomComment object in C++ memory
+    ///
+    pub fn new() QDomComment {
         return .{ .ptr = qtc.QDomComment_new() };
     }
 
-    /// New2 constructs a new QDomComment object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomComment object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` comment: QDomComment `
     ///
-    pub fn New2(comment: anytype) QDomComment {
+    pub fn new2(comment: anytype) QDomComment {
         comptime _ = @TypeOf(comment)._is_QDomComment;
         return .{ .ptr = qtc.QDomComment_new2(@ptrCast(comment.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcomment.html#operator-eq)
     ///
@@ -11064,10 +14064,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` other: QDomComment `
     ///
-    pub fn OperatorAssign(self: QDomComment, other: anytype) void {
+    pub fn operatorAssign(self: QDomComment, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomComment;
         qtc.QDomComment_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcomment.html#nodeType)
     ///
@@ -11079,9 +14083,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomComment) i32 {
+    pub fn nodeType(self: QDomComment) i32 {
         return qtc.QDomComment_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `substringData` instead
+    ///
+    pub const SubstringData = substringData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11095,15 +14103,19 @@ pub const QDomComment = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn SubstringData(self: QDomComment, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn substringData(self: QDomComment, allocator: std.mem.Allocator, offset: usize, _count: usize) []const u8 {
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.substringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendData` instead
+    ///
+    pub const AppendData = appendData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11115,13 +14127,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn AppendData(self: QDomComment, arg: []const u8) void {
+    pub fn appendData(self: QDomComment, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_AppendData(@ptrCast(self.ptr), arg_str);
     }
+
+    /// ### DEPRECATED: Use `insertData` instead
+    ///
+    pub const InsertData = insertData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11135,13 +14151,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: QDomComment, offset: usize, arg: []const u8) void {
+    pub fn insertData(self: QDomComment, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_InsertData(@ptrCast(self.ptr), @bitCast(offset), arg_str);
     }
+
+    /// ### DEPRECATED: Use `deleteData` instead
+    ///
+    pub const DeleteData = deleteData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11153,11 +14173,15 @@ pub const QDomComment = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn DeleteData(self: QDomComment, offset: usize, count: usize) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn deleteData(self: QDomComment, offset: usize, _count: usize) void {
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `replaceData` instead
+    ///
+    pub const ReplaceData = replaceData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11169,17 +14193,21 @@ pub const QDomComment = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: QDomComment, offset: usize, count: usize, arg: []const u8) void {
+    pub fn replaceData(self: QDomComment, offset: usize, _count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count), arg_str);
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11189,9 +14217,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn Length(self: QDomComment) i32 {
+    pub fn length(self: QDomComment) i32 {
         return qtc.QDomCharacterData_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11203,13 +14235,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -11219,15 +14255,19 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: QDomComment, data: []const u8) void {
+    pub fn setData(self: QDomComment, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QDomCharacterData_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -11239,10 +14279,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomComment, other: anytype) bool {
+    pub fn operatorEqual(self: QDomComment, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -11254,10 +14298,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomComment, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomComment, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -11271,11 +14319,15 @@ pub const QDomComment = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomComment, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomComment, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -11289,11 +14341,15 @@ pub const QDomComment = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomComment, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomComment, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -11307,11 +14363,15 @@ pub const QDomComment = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomComment, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomComment, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -11323,10 +14383,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomComment, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomComment, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -11338,10 +14402,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomComment, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomComment, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -11351,9 +14419,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn HasChildNodes(self: QDomComment) bool {
+    pub fn hasChildNodes(self: QDomComment) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -11363,9 +14435,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn CloneNode(self: QDomComment) QDomNode {
+    pub fn cloneNode(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -11375,9 +14451,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn Normalize(self: QDomComment) void {
+    pub fn normalize(self: QDomComment) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -11391,7 +14471,7 @@ pub const QDomComment = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomComment, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomComment, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -11403,6 +14483,10 @@ pub const QDomComment = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -11413,13 +14497,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -11429,9 +14517,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ParentNode(self: QDomComment) QDomNode {
+    pub fn parentNode(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -11441,9 +14533,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ChildNodes(self: QDomComment) QDomNodeList {
+    pub fn childNodes(self: QDomComment) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -11453,9 +14549,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn FirstChild(self: QDomComment) QDomNode {
+    pub fn firstChild(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -11465,9 +14565,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn LastChild(self: QDomComment) QDomNode {
+    pub fn lastChild(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -11477,9 +14581,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn PreviousSibling(self: QDomComment) QDomNode {
+    pub fn previousSibling(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -11489,9 +14597,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn NextSibling(self: QDomComment) QDomNode {
+    pub fn nextSibling(self: QDomComment) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -11501,9 +14613,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn Attributes(self: QDomComment) QDomNamedNodeMap {
+    pub fn attributes(self: QDomComment) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -11513,9 +14629,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn OwnerDocument(self: QDomComment) QDomDocument {
+    pub fn ownerDocument(self: QDomComment) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -11527,13 +14647,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -11545,13 +14669,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -11561,9 +14689,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn HasAttributes(self: QDomComment) bool {
+    pub fn hasAttributes(self: QDomComment) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -11575,13 +14707,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -11591,15 +14727,19 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomComment, value: []const u8) void {
+    pub fn setNodeValue(self: QDomComment, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -11611,13 +14751,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomComment, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomComment.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -11629,13 +14773,17 @@ pub const QDomComment = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomComment, pre: []const u8) void {
+    pub fn setPrefix(self: QDomComment, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -11645,9 +14793,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsAttr(self: QDomComment) bool {
+    pub fn isAttr(self: QDomComment) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -11657,9 +14809,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsCDATASection(self: QDomComment) bool {
+    pub fn isCDATASection(self: QDomComment) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -11669,9 +14825,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsDocumentFragment(self: QDomComment) bool {
+    pub fn isDocumentFragment(self: QDomComment) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -11681,9 +14841,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsDocument(self: QDomComment) bool {
+    pub fn isDocument(self: QDomComment) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -11693,9 +14857,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsDocumentType(self: QDomComment) bool {
+    pub fn isDocumentType(self: QDomComment) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -11705,9 +14873,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsElement(self: QDomComment) bool {
+    pub fn isElement(self: QDomComment) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -11717,9 +14889,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsEntityReference(self: QDomComment) bool {
+    pub fn isEntityReference(self: QDomComment) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -11729,9 +14905,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsText(self: QDomComment) bool {
+    pub fn isText(self: QDomComment) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -11741,9 +14921,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsEntity(self: QDomComment) bool {
+    pub fn isEntity(self: QDomComment) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -11753,9 +14937,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsNotation(self: QDomComment) bool {
+    pub fn isNotation(self: QDomComment) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -11765,9 +14953,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsProcessingInstruction(self: QDomComment) bool {
+    pub fn isProcessingInstruction(self: QDomComment) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -11777,9 +14969,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsCharacterData(self: QDomComment) bool {
+    pub fn isCharacterData(self: QDomComment) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -11789,9 +14985,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsComment(self: QDomComment) bool {
+    pub fn isComment(self: QDomComment) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -11801,15 +15001,19 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomComment, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomComment, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -11819,9 +15023,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn IsNull(self: QDomComment) bool {
+    pub fn isNull(self: QDomComment) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -11831,9 +15039,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn Clear(self: QDomComment) void {
+    pub fn clear(self: QDomComment) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -11843,9 +15055,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToAttr(self: QDomComment) QDomAttr {
+    pub fn toAttr(self: QDomComment) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -11855,9 +15071,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToCDATASection(self: QDomComment) QDomCDATASection {
+    pub fn toCDATASection(self: QDomComment) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -11867,9 +15087,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToDocumentFragment(self: QDomComment) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomComment) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -11879,9 +15103,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToDocument(self: QDomComment) QDomDocument {
+    pub fn toDocument(self: QDomComment) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -11891,9 +15119,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToDocumentType(self: QDomComment) QDomDocumentType {
+    pub fn toDocumentType(self: QDomComment) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -11903,9 +15135,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToElement(self: QDomComment) QDomElement {
+    pub fn toElement(self: QDomComment) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -11915,9 +15151,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToEntityReference(self: QDomComment) QDomEntityReference {
+    pub fn toEntityReference(self: QDomComment) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -11927,9 +15167,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToText(self: QDomComment) QDomText {
+    pub fn toText(self: QDomComment) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -11939,9 +15183,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToEntity(self: QDomComment) QDomEntity {
+    pub fn toEntity(self: QDomComment) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -11951,9 +15199,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToNotation(self: QDomComment) QDomNotation {
+    pub fn toNotation(self: QDomComment) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -11963,9 +15215,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToProcessingInstruction(self: QDomComment) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomComment) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -11975,9 +15231,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToCharacterData(self: QDomComment) QDomCharacterData {
+    pub fn toCharacterData(self: QDomComment) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -11987,9 +15247,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ToComment(self: QDomComment) QDomComment {
+    pub fn toComment(self: QDomComment) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -12003,10 +15267,14 @@ pub const QDomComment = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomComment, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomComment, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -12016,9 +15284,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn FirstChildElement(self: QDomComment) QDomElement {
+    pub fn firstChildElement(self: QDomComment) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -12028,9 +15300,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn LastChildElement(self: QDomComment) QDomElement {
+    pub fn lastChildElement(self: QDomComment) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -12040,9 +15316,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn PreviousSiblingElement(self: QDomComment) QDomElement {
+    pub fn previousSiblingElement(self: QDomComment) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -12052,9 +15332,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn NextSiblingElement(self: QDomComment) QDomElement {
+    pub fn nextSiblingElement(self: QDomComment) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -12064,9 +15348,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn LineNumber(self: QDomComment) i32 {
+    pub fn lineNumber(self: QDomComment) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -12076,9 +15364,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    pub fn ColumnNumber(self: QDomComment) i32 {
+    pub fn columnNumber(self: QDomComment) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -12090,9 +15382,13 @@ pub const QDomComment = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomComment, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomComment, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -12108,11 +15404,15 @@ pub const QDomComment = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomComment, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomComment, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -12121,16 +15421,20 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomComment, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomComment, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -12139,22 +15443,26 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomComment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomComment, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -12163,16 +15471,20 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomComment, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomComment, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -12181,39 +15493,25 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomComment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomComment, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomComment `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomComment, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -12223,21 +15521,47 @@ pub const QDomComment = extern struct {
     ///
     /// ` self: QDomComment `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomComment, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomComment, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomComment `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomComment, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -12249,7 +15573,7 @@ pub const QDomComment = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomComment, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomComment, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -12257,6 +15581,10 @@ pub const QDomComment = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -12267,33 +15595,33 @@ pub const QDomComment = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomComment, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomComment, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcomment.html#dtor.QDomComment)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomComment `
     ///
-    pub fn Delete(self: QDomComment) void {
+    pub fn delete(self: QDomComment) void {
         qtc.QDomComment_Delete(@ptrCast(self.ptr));
     }
 };
@@ -12311,22 +15639,34 @@ pub const QDomCDATASection = extern struct {
     pub const _is_QDomCharacterData = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomCDATASection object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomCDATASection {
+    pub const New = new;
+
+    /// Allocate a new QDomCDATASection object in C++ memory
+    ///
+    pub fn new() QDomCDATASection {
         return .{ .ptr = qtc.QDomCDATASection_new() };
     }
 
-    /// New2 constructs a new QDomCDATASection object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomCDATASection object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` cdataSection: QDomCDATASection `
     ///
-    pub fn New2(cdataSection: anytype) QDomCDATASection {
+    pub fn new2(cdataSection: anytype) QDomCDATASection {
         comptime _ = @TypeOf(cdataSection)._is_QDomCDATASection;
         return .{ .ptr = qtc.QDomCDATASection_new2(@ptrCast(cdataSection.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcdatasection.html#operator-eq)
     ///
@@ -12336,10 +15676,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` other: QDomCDATASection `
     ///
-    pub fn OperatorAssign(self: QDomCDATASection, other: anytype) void {
+    pub fn operatorAssign(self: QDomCDATASection, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomCDATASection;
         qtc.QDomCDATASection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcdatasection.html#nodeType)
     ///
@@ -12351,9 +15695,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomCDATASection) i32 {
+    pub fn nodeType(self: QDomCDATASection) i32 {
         return qtc.QDomCDATASection_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `splitText` instead
+    ///
+    pub const SplitText = splitText;
 
     /// Inherited from QDomText
     ///
@@ -12365,9 +15713,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` offset: i32 `
     ///
-    pub fn SplitText(self: QDomCDATASection, offset: i32) QDomText {
+    pub fn splitText(self: QDomCDATASection, offset: i32) QDomText {
         return .{ .ptr = qtc.QDomText_SplitText(@ptrCast(self.ptr), @bitCast(offset)) };
     }
+
+    /// ### DEPRECATED: Use `substringData` instead
+    ///
+    pub const SubstringData = substringData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12381,15 +15733,19 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn SubstringData(self: QDomCDATASection, allocator: std.mem.Allocator, offset: usize, count: usize) []const u8 {
-        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn substringData(self: QDomCDATASection, allocator: std.mem.Allocator, offset: usize, _count: usize) []const u8 {
+        var _str = qtc.QDomCharacterData_SubstringData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.SubstringData: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.substringData: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendData` instead
+    ///
+    pub const AppendData = appendData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12401,13 +15757,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn AppendData(self: QDomCDATASection, arg: []const u8) void {
+    pub fn appendData(self: QDomCDATASection, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_AppendData(@ptrCast(self.ptr), arg_str);
     }
+
+    /// ### DEPRECATED: Use `insertData` instead
+    ///
+    pub const InsertData = insertData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12421,13 +15781,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn InsertData(self: QDomCDATASection, offset: usize, arg: []const u8) void {
+    pub fn insertData(self: QDomCDATASection, offset: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
         qtc.QDomCharacterData_InsertData(@ptrCast(self.ptr), @bitCast(offset), arg_str);
     }
+
+    /// ### DEPRECATED: Use `deleteData` instead
+    ///
+    pub const DeleteData = deleteData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12439,11 +15803,15 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
-    pub fn DeleteData(self: QDomCDATASection, offset: usize, count: usize) void {
-        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count));
+    pub fn deleteData(self: QDomCDATASection, offset: usize, _count: usize) void {
+        qtc.QDomCharacterData_DeleteData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count));
     }
+
+    /// ### DEPRECATED: Use `replaceData` instead
+    ///
+    pub const ReplaceData = replaceData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12455,17 +15823,21 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` offset: usize `
     ///
-    /// ` count: usize `
+    /// ` _count: usize `
     ///
     /// ` arg: []const u8 `
     ///
-    pub fn ReplaceData(self: QDomCDATASection, offset: usize, count: usize, arg: []const u8) void {
+    pub fn replaceData(self: QDomCDATASection, offset: usize, _count: usize, arg: []const u8) void {
         const arg_str = qtc.libqt_string{
             .len = arg.len,
             .data = arg.ptr,
         };
-        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(count), arg_str);
+        qtc.QDomCharacterData_ReplaceData(@ptrCast(self.ptr), @bitCast(offset), @bitCast(_count), arg_str);
     }
+
+    /// ### DEPRECATED: Use `length` instead
+    ///
+    pub const Length = length;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12475,9 +15847,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn Length(self: QDomCDATASection) i32 {
+    pub fn length(self: QDomCDATASection) i32 {
         return qtc.QDomCharacterData_Length(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12489,13 +15865,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomCharacterData_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// Inherited from QDomCharacterData
     ///
@@ -12505,15 +15885,19 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: QDomCDATASection, data: []const u8) void {
+    pub fn setData(self: QDomCDATASection, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QDomCharacterData_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -12525,10 +15909,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomCDATASection, other: anytype) bool {
+    pub fn operatorEqual(self: QDomCDATASection, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -12540,10 +15928,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomCDATASection, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomCDATASection, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -12557,11 +15949,15 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomCDATASection, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomCDATASection, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -12575,11 +15971,15 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomCDATASection, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomCDATASection, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -12593,11 +15993,15 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomCDATASection, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomCDATASection, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -12609,10 +16013,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomCDATASection, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomCDATASection, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -12624,10 +16032,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomCDATASection, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomCDATASection, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -12637,9 +16049,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn HasChildNodes(self: QDomCDATASection) bool {
+    pub fn hasChildNodes(self: QDomCDATASection) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -12649,9 +16065,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn CloneNode(self: QDomCDATASection) QDomNode {
+    pub fn cloneNode(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -12661,9 +16081,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn Normalize(self: QDomCDATASection) void {
+    pub fn normalize(self: QDomCDATASection) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -12677,7 +16101,7 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomCDATASection, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomCDATASection, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -12689,6 +16113,10 @@ pub const QDomCDATASection = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -12699,13 +16127,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -12715,9 +16147,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ParentNode(self: QDomCDATASection) QDomNode {
+    pub fn parentNode(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -12727,9 +16163,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ChildNodes(self: QDomCDATASection) QDomNodeList {
+    pub fn childNodes(self: QDomCDATASection) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -12739,9 +16179,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn FirstChild(self: QDomCDATASection) QDomNode {
+    pub fn firstChild(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -12751,9 +16195,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn LastChild(self: QDomCDATASection) QDomNode {
+    pub fn lastChild(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -12763,9 +16211,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn PreviousSibling(self: QDomCDATASection) QDomNode {
+    pub fn previousSibling(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -12775,9 +16227,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn NextSibling(self: QDomCDATASection) QDomNode {
+    pub fn nextSibling(self: QDomCDATASection) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -12787,9 +16243,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn Attributes(self: QDomCDATASection) QDomNamedNodeMap {
+    pub fn attributes(self: QDomCDATASection) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -12799,9 +16259,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn OwnerDocument(self: QDomCDATASection) QDomDocument {
+    pub fn ownerDocument(self: QDomCDATASection) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -12813,13 +16277,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -12831,13 +16299,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -12847,9 +16319,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn HasAttributes(self: QDomCDATASection) bool {
+    pub fn hasAttributes(self: QDomCDATASection) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -12861,13 +16337,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -12877,15 +16357,19 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomCDATASection, value: []const u8) void {
+    pub fn setNodeValue(self: QDomCDATASection, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -12897,13 +16381,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomCDATASection, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomCDATASection.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -12915,13 +16403,17 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomCDATASection, pre: []const u8) void {
+    pub fn setPrefix(self: QDomCDATASection, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -12931,9 +16423,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsAttr(self: QDomCDATASection) bool {
+    pub fn isAttr(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -12943,9 +16439,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsCDATASection(self: QDomCDATASection) bool {
+    pub fn isCDATASection(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -12955,9 +16455,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsDocumentFragment(self: QDomCDATASection) bool {
+    pub fn isDocumentFragment(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -12967,9 +16471,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsDocument(self: QDomCDATASection) bool {
+    pub fn isDocument(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -12979,9 +16487,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsDocumentType(self: QDomCDATASection) bool {
+    pub fn isDocumentType(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -12991,9 +16503,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsElement(self: QDomCDATASection) bool {
+    pub fn isElement(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -13003,9 +16519,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsEntityReference(self: QDomCDATASection) bool {
+    pub fn isEntityReference(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -13015,9 +16535,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsText(self: QDomCDATASection) bool {
+    pub fn isText(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -13027,9 +16551,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsEntity(self: QDomCDATASection) bool {
+    pub fn isEntity(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -13039,9 +16567,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsNotation(self: QDomCDATASection) bool {
+    pub fn isNotation(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -13051,9 +16583,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsProcessingInstruction(self: QDomCDATASection) bool {
+    pub fn isProcessingInstruction(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -13063,9 +16599,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsCharacterData(self: QDomCDATASection) bool {
+    pub fn isCharacterData(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -13075,9 +16615,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsComment(self: QDomCDATASection) bool {
+    pub fn isComment(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -13087,15 +16631,19 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomCDATASection, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomCDATASection, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -13105,9 +16653,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn IsNull(self: QDomCDATASection) bool {
+    pub fn isNull(self: QDomCDATASection) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -13117,9 +16669,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn Clear(self: QDomCDATASection) void {
+    pub fn clear(self: QDomCDATASection) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -13129,9 +16685,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToAttr(self: QDomCDATASection) QDomAttr {
+    pub fn toAttr(self: QDomCDATASection) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -13141,9 +16701,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToCDATASection(self: QDomCDATASection) QDomCDATASection {
+    pub fn toCDATASection(self: QDomCDATASection) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -13153,9 +16717,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToDocumentFragment(self: QDomCDATASection) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomCDATASection) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -13165,9 +16733,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToDocument(self: QDomCDATASection) QDomDocument {
+    pub fn toDocument(self: QDomCDATASection) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -13177,9 +16749,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToDocumentType(self: QDomCDATASection) QDomDocumentType {
+    pub fn toDocumentType(self: QDomCDATASection) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -13189,9 +16765,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToElement(self: QDomCDATASection) QDomElement {
+    pub fn toElement(self: QDomCDATASection) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -13201,9 +16781,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToEntityReference(self: QDomCDATASection) QDomEntityReference {
+    pub fn toEntityReference(self: QDomCDATASection) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -13213,9 +16797,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToText(self: QDomCDATASection) QDomText {
+    pub fn toText(self: QDomCDATASection) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -13225,9 +16813,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToEntity(self: QDomCDATASection) QDomEntity {
+    pub fn toEntity(self: QDomCDATASection) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -13237,9 +16829,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToNotation(self: QDomCDATASection) QDomNotation {
+    pub fn toNotation(self: QDomCDATASection) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -13249,9 +16845,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToProcessingInstruction(self: QDomCDATASection) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomCDATASection) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -13261,9 +16861,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToCharacterData(self: QDomCDATASection) QDomCharacterData {
+    pub fn toCharacterData(self: QDomCDATASection) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -13273,9 +16877,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ToComment(self: QDomCDATASection) QDomComment {
+    pub fn toComment(self: QDomCDATASection) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -13289,10 +16897,14 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomCDATASection, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomCDATASection, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -13302,9 +16914,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn FirstChildElement(self: QDomCDATASection) QDomElement {
+    pub fn firstChildElement(self: QDomCDATASection) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -13314,9 +16930,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn LastChildElement(self: QDomCDATASection) QDomElement {
+    pub fn lastChildElement(self: QDomCDATASection) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -13326,9 +16946,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn PreviousSiblingElement(self: QDomCDATASection) QDomElement {
+    pub fn previousSiblingElement(self: QDomCDATASection) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -13338,9 +16962,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn NextSiblingElement(self: QDomCDATASection) QDomElement {
+    pub fn nextSiblingElement(self: QDomCDATASection) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -13350,9 +16978,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn LineNumber(self: QDomCDATASection) i32 {
+    pub fn lineNumber(self: QDomCDATASection) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -13362,9 +16994,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn ColumnNumber(self: QDomCDATASection) i32 {
+    pub fn columnNumber(self: QDomCDATASection) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -13376,9 +17012,13 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomCDATASection, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomCDATASection, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -13394,11 +17034,15 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomCDATASection, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomCDATASection, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -13407,16 +17051,20 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomCDATASection, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomCDATASection, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -13425,22 +17073,26 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomCDATASection, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomCDATASection, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -13449,16 +17101,20 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomCDATASection, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomCDATASection, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -13467,39 +17123,25 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomCDATASection, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomCDATASection, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomCDATASection `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomCDATASection, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -13509,21 +17151,47 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` self: QDomCDATASection `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomCDATASection, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomCDATASection, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomCDATASection `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomCDATASection, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -13535,7 +17203,7 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomCDATASection, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomCDATASection, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -13543,6 +17211,10 @@ pub const QDomCDATASection = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -13553,33 +17225,33 @@ pub const QDomCDATASection = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomCDATASection, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomCDATASection, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomcdatasection.html#dtor.QDomCDATASection)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomCDATASection `
     ///
-    pub fn Delete(self: QDomCDATASection) void {
+    pub fn delete(self: QDomCDATASection) void {
         qtc.QDomCDATASection_Delete(@ptrCast(self.ptr));
     }
 };
@@ -13595,22 +17267,34 @@ pub const QDomNotation = extern struct {
     pub const _is_QDomNotation = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomNotation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomNotation {
+    pub const New = new;
+
+    /// Allocate a new QDomNotation object in C++ memory
+    ///
+    pub fn new() QDomNotation {
         return .{ .ptr = qtc.QDomNotation_new() };
     }
 
-    /// New2 constructs a new QDomNotation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomNotation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` notation: QDomNotation `
     ///
-    pub fn New2(notation: anytype) QDomNotation {
+    pub fn new2(notation: anytype) QDomNotation {
         comptime _ = @TypeOf(notation)._is_QDomNotation;
         return .{ .ptr = qtc.QDomNotation_new2(@ptrCast(notation.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#operator-eq)
     ///
@@ -13620,10 +17304,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` other: QDomNotation `
     ///
-    pub fn OperatorAssign(self: QDomNotation, other: anytype) void {
+    pub fn operatorAssign(self: QDomNotation, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomNotation;
         qtc.QDomNotation_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `publicId` instead
+    ///
+    pub const PublicId = publicId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#publicId)
     ///
@@ -13633,13 +17321,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PublicId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn publicId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNotation_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.publicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `systemId` instead
+    ///
+    pub const SystemId = systemId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#systemId)
     ///
@@ -13649,13 +17341,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn systemId(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNotation_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.systemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#nodeType)
     ///
@@ -13667,9 +17363,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomNotation) i32 {
+    pub fn nodeType(self: QDomNotation) i32 {
         return qtc.QDomNotation_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -13681,10 +17381,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomNotation, other: anytype) bool {
+    pub fn operatorEqual(self: QDomNotation, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -13696,10 +17400,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomNotation, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomNotation, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -13713,11 +17421,15 @@ pub const QDomNotation = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomNotation, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomNotation, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -13731,11 +17443,15 @@ pub const QDomNotation = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomNotation, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomNotation, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -13749,11 +17465,15 @@ pub const QDomNotation = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomNotation, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomNotation, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -13765,10 +17485,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomNotation, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomNotation, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -13780,10 +17504,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomNotation, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomNotation, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -13793,9 +17521,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn HasChildNodes(self: QDomNotation) bool {
+    pub fn hasChildNodes(self: QDomNotation) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -13805,9 +17537,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn CloneNode(self: QDomNotation) QDomNode {
+    pub fn cloneNode(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -13817,9 +17553,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn Normalize(self: QDomNotation) void {
+    pub fn normalize(self: QDomNotation) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -13833,7 +17573,7 @@ pub const QDomNotation = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomNotation, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomNotation, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -13845,6 +17585,10 @@ pub const QDomNotation = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -13855,13 +17599,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -13871,9 +17619,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ParentNode(self: QDomNotation) QDomNode {
+    pub fn parentNode(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -13883,9 +17635,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ChildNodes(self: QDomNotation) QDomNodeList {
+    pub fn childNodes(self: QDomNotation) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -13895,9 +17651,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn FirstChild(self: QDomNotation) QDomNode {
+    pub fn firstChild(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -13907,9 +17667,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn LastChild(self: QDomNotation) QDomNode {
+    pub fn lastChild(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -13919,9 +17683,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn PreviousSibling(self: QDomNotation) QDomNode {
+    pub fn previousSibling(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -13931,9 +17699,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn NextSibling(self: QDomNotation) QDomNode {
+    pub fn nextSibling(self: QDomNotation) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -13943,9 +17715,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn Attributes(self: QDomNotation) QDomNamedNodeMap {
+    pub fn attributes(self: QDomNotation) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -13955,9 +17731,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn OwnerDocument(self: QDomNotation) QDomDocument {
+    pub fn ownerDocument(self: QDomNotation) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -13969,13 +17749,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -13987,13 +17771,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -14003,9 +17791,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn HasAttributes(self: QDomNotation) bool {
+    pub fn hasAttributes(self: QDomNotation) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -14017,13 +17809,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -14033,15 +17829,19 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomNotation, value: []const u8) void {
+    pub fn setNodeValue(self: QDomNotation, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -14053,13 +17853,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomNotation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomNotation.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -14071,13 +17875,17 @@ pub const QDomNotation = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomNotation, pre: []const u8) void {
+    pub fn setPrefix(self: QDomNotation, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -14087,9 +17895,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsAttr(self: QDomNotation) bool {
+    pub fn isAttr(self: QDomNotation) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -14099,9 +17911,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsCDATASection(self: QDomNotation) bool {
+    pub fn isCDATASection(self: QDomNotation) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -14111,9 +17927,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsDocumentFragment(self: QDomNotation) bool {
+    pub fn isDocumentFragment(self: QDomNotation) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -14123,9 +17943,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsDocument(self: QDomNotation) bool {
+    pub fn isDocument(self: QDomNotation) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -14135,9 +17959,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsDocumentType(self: QDomNotation) bool {
+    pub fn isDocumentType(self: QDomNotation) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -14147,9 +17975,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsElement(self: QDomNotation) bool {
+    pub fn isElement(self: QDomNotation) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -14159,9 +17991,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsEntityReference(self: QDomNotation) bool {
+    pub fn isEntityReference(self: QDomNotation) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -14171,9 +18007,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsText(self: QDomNotation) bool {
+    pub fn isText(self: QDomNotation) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -14183,9 +18023,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsEntity(self: QDomNotation) bool {
+    pub fn isEntity(self: QDomNotation) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -14195,9 +18039,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsNotation(self: QDomNotation) bool {
+    pub fn isNotation(self: QDomNotation) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -14207,9 +18055,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsProcessingInstruction(self: QDomNotation) bool {
+    pub fn isProcessingInstruction(self: QDomNotation) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -14219,9 +18071,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsCharacterData(self: QDomNotation) bool {
+    pub fn isCharacterData(self: QDomNotation) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -14231,9 +18087,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsComment(self: QDomNotation) bool {
+    pub fn isComment(self: QDomNotation) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -14243,15 +18103,19 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomNotation, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomNotation, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -14261,9 +18125,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn IsNull(self: QDomNotation) bool {
+    pub fn isNull(self: QDomNotation) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -14273,9 +18141,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn Clear(self: QDomNotation) void {
+    pub fn clear(self: QDomNotation) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -14285,9 +18157,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToAttr(self: QDomNotation) QDomAttr {
+    pub fn toAttr(self: QDomNotation) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -14297,9 +18173,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToCDATASection(self: QDomNotation) QDomCDATASection {
+    pub fn toCDATASection(self: QDomNotation) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -14309,9 +18189,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToDocumentFragment(self: QDomNotation) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomNotation) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -14321,9 +18205,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToDocument(self: QDomNotation) QDomDocument {
+    pub fn toDocument(self: QDomNotation) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -14333,9 +18221,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToDocumentType(self: QDomNotation) QDomDocumentType {
+    pub fn toDocumentType(self: QDomNotation) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -14345,9 +18237,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToElement(self: QDomNotation) QDomElement {
+    pub fn toElement(self: QDomNotation) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -14357,9 +18253,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToEntityReference(self: QDomNotation) QDomEntityReference {
+    pub fn toEntityReference(self: QDomNotation) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -14369,9 +18269,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToText(self: QDomNotation) QDomText {
+    pub fn toText(self: QDomNotation) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -14381,9 +18285,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToEntity(self: QDomNotation) QDomEntity {
+    pub fn toEntity(self: QDomNotation) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -14393,9 +18301,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToNotation(self: QDomNotation) QDomNotation {
+    pub fn toNotation(self: QDomNotation) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -14405,9 +18317,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToProcessingInstruction(self: QDomNotation) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomNotation) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -14417,9 +18333,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToCharacterData(self: QDomNotation) QDomCharacterData {
+    pub fn toCharacterData(self: QDomNotation) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -14429,9 +18349,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ToComment(self: QDomNotation) QDomComment {
+    pub fn toComment(self: QDomNotation) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -14445,10 +18369,14 @@ pub const QDomNotation = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomNotation, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomNotation, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -14458,9 +18386,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn FirstChildElement(self: QDomNotation) QDomElement {
+    pub fn firstChildElement(self: QDomNotation) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -14470,9 +18402,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn LastChildElement(self: QDomNotation) QDomElement {
+    pub fn lastChildElement(self: QDomNotation) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -14482,9 +18418,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn PreviousSiblingElement(self: QDomNotation) QDomElement {
+    pub fn previousSiblingElement(self: QDomNotation) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -14494,9 +18434,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn NextSiblingElement(self: QDomNotation) QDomElement {
+    pub fn nextSiblingElement(self: QDomNotation) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -14506,9 +18450,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn LineNumber(self: QDomNotation) i32 {
+    pub fn lineNumber(self: QDomNotation) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -14518,9 +18466,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn ColumnNumber(self: QDomNotation) i32 {
+    pub fn columnNumber(self: QDomNotation) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -14532,9 +18484,13 @@ pub const QDomNotation = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomNotation, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomNotation, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -14550,11 +18506,15 @@ pub const QDomNotation = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomNotation, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomNotation, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -14563,16 +18523,20 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomNotation, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomNotation, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -14581,22 +18545,26 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomNotation, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomNotation, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -14605,16 +18573,20 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomNotation, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomNotation, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -14623,39 +18595,25 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomNotation, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomNotation, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomNotation `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomNotation, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -14665,21 +18623,47 @@ pub const QDomNotation = extern struct {
     ///
     /// ` self: QDomNotation `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomNotation, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomNotation, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomNotation `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomNotation, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -14691,7 +18675,7 @@ pub const QDomNotation = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomNotation, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomNotation, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -14699,6 +18683,10 @@ pub const QDomNotation = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -14709,33 +18697,33 @@ pub const QDomNotation = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomNotation, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomNotation, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnotation.html#dtor.QDomNotation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomNotation `
     ///
-    pub fn Delete(self: QDomNotation) void {
+    pub fn delete(self: QDomNotation) void {
         qtc.QDomNotation_Delete(@ptrCast(self.ptr));
     }
 };
@@ -14751,22 +18739,34 @@ pub const QDomEntity = extern struct {
     pub const _is_QDomEntity = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomEntity object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomEntity {
+    pub const New = new;
+
+    /// Allocate a new QDomEntity object in C++ memory
+    ///
+    pub fn new() QDomEntity {
         return .{ .ptr = qtc.QDomEntity_new() };
     }
 
-    /// New2 constructs a new QDomEntity object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomEntity object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` entity: QDomEntity `
     ///
-    pub fn New2(entity: anytype) QDomEntity {
+    pub fn new2(entity: anytype) QDomEntity {
         comptime _ = @TypeOf(entity)._is_QDomEntity;
         return .{ .ptr = qtc.QDomEntity_new2(@ptrCast(entity.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#operator-eq)
     ///
@@ -14776,10 +18776,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` other: QDomEntity `
     ///
-    pub fn OperatorAssign(self: QDomEntity, other: anytype) void {
+    pub fn operatorAssign(self: QDomEntity, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomEntity;
         qtc.QDomEntity_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `publicId` instead
+    ///
+    pub const PublicId = publicId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#publicId)
     ///
@@ -14789,13 +18793,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PublicId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn publicId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_PublicId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.PublicId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.publicId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `systemId` instead
+    ///
+    pub const SystemId = systemId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#systemId)
     ///
@@ -14805,13 +18813,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SystemId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn systemId(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_SystemId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.SystemId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.systemId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `notationName` instead
+    ///
+    pub const NotationName = notationName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#notationName)
     ///
@@ -14821,13 +18833,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NotationName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn notationName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomEntity_NotationName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NotationName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.notationName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#nodeType)
     ///
@@ -14839,9 +18855,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomEntity) i32 {
+    pub fn nodeType(self: QDomEntity) i32 {
         return qtc.QDomEntity_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -14853,10 +18873,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomEntity, other: anytype) bool {
+    pub fn operatorEqual(self: QDomEntity, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -14868,10 +18892,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomEntity, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomEntity, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -14885,11 +18913,15 @@ pub const QDomEntity = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomEntity, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomEntity, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -14903,11 +18935,15 @@ pub const QDomEntity = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomEntity, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomEntity, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -14921,11 +18957,15 @@ pub const QDomEntity = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomEntity, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomEntity, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -14937,10 +18977,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomEntity, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomEntity, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -14952,10 +18996,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomEntity, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomEntity, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -14965,9 +19013,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn HasChildNodes(self: QDomEntity) bool {
+    pub fn hasChildNodes(self: QDomEntity) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -14977,9 +19029,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn CloneNode(self: QDomEntity) QDomNode {
+    pub fn cloneNode(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -14989,9 +19045,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn Normalize(self: QDomEntity) void {
+    pub fn normalize(self: QDomEntity) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -15005,7 +19065,7 @@ pub const QDomEntity = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomEntity, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomEntity, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -15017,6 +19077,10 @@ pub const QDomEntity = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -15027,13 +19091,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -15043,9 +19111,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ParentNode(self: QDomEntity) QDomNode {
+    pub fn parentNode(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -15055,9 +19127,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ChildNodes(self: QDomEntity) QDomNodeList {
+    pub fn childNodes(self: QDomEntity) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -15067,9 +19143,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn FirstChild(self: QDomEntity) QDomNode {
+    pub fn firstChild(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -15079,9 +19159,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn LastChild(self: QDomEntity) QDomNode {
+    pub fn lastChild(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -15091,9 +19175,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn PreviousSibling(self: QDomEntity) QDomNode {
+    pub fn previousSibling(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -15103,9 +19191,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn NextSibling(self: QDomEntity) QDomNode {
+    pub fn nextSibling(self: QDomEntity) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -15115,9 +19207,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn Attributes(self: QDomEntity) QDomNamedNodeMap {
+    pub fn attributes(self: QDomEntity) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -15127,9 +19223,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn OwnerDocument(self: QDomEntity) QDomDocument {
+    pub fn ownerDocument(self: QDomEntity) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -15141,13 +19241,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -15159,13 +19263,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -15175,9 +19283,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn HasAttributes(self: QDomEntity) bool {
+    pub fn hasAttributes(self: QDomEntity) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -15189,13 +19301,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -15205,15 +19321,19 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomEntity, value: []const u8) void {
+    pub fn setNodeValue(self: QDomEntity, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -15225,13 +19345,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomEntity, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntity.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -15243,13 +19367,17 @@ pub const QDomEntity = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomEntity, pre: []const u8) void {
+    pub fn setPrefix(self: QDomEntity, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -15259,9 +19387,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsAttr(self: QDomEntity) bool {
+    pub fn isAttr(self: QDomEntity) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -15271,9 +19403,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsCDATASection(self: QDomEntity) bool {
+    pub fn isCDATASection(self: QDomEntity) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -15283,9 +19419,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsDocumentFragment(self: QDomEntity) bool {
+    pub fn isDocumentFragment(self: QDomEntity) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -15295,9 +19435,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsDocument(self: QDomEntity) bool {
+    pub fn isDocument(self: QDomEntity) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -15307,9 +19451,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsDocumentType(self: QDomEntity) bool {
+    pub fn isDocumentType(self: QDomEntity) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -15319,9 +19467,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsElement(self: QDomEntity) bool {
+    pub fn isElement(self: QDomEntity) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -15331,9 +19483,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsEntityReference(self: QDomEntity) bool {
+    pub fn isEntityReference(self: QDomEntity) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -15343,9 +19499,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsText(self: QDomEntity) bool {
+    pub fn isText(self: QDomEntity) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -15355,9 +19515,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsEntity(self: QDomEntity) bool {
+    pub fn isEntity(self: QDomEntity) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -15367,9 +19531,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsNotation(self: QDomEntity) bool {
+    pub fn isNotation(self: QDomEntity) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -15379,9 +19547,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsProcessingInstruction(self: QDomEntity) bool {
+    pub fn isProcessingInstruction(self: QDomEntity) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -15391,9 +19563,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsCharacterData(self: QDomEntity) bool {
+    pub fn isCharacterData(self: QDomEntity) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -15403,9 +19579,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsComment(self: QDomEntity) bool {
+    pub fn isComment(self: QDomEntity) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -15415,15 +19595,19 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomEntity, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomEntity, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -15433,9 +19617,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn IsNull(self: QDomEntity) bool {
+    pub fn isNull(self: QDomEntity) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -15445,9 +19633,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn Clear(self: QDomEntity) void {
+    pub fn clear(self: QDomEntity) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -15457,9 +19649,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToAttr(self: QDomEntity) QDomAttr {
+    pub fn toAttr(self: QDomEntity) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -15469,9 +19665,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToCDATASection(self: QDomEntity) QDomCDATASection {
+    pub fn toCDATASection(self: QDomEntity) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -15481,9 +19681,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToDocumentFragment(self: QDomEntity) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomEntity) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -15493,9 +19697,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToDocument(self: QDomEntity) QDomDocument {
+    pub fn toDocument(self: QDomEntity) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -15505,9 +19713,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToDocumentType(self: QDomEntity) QDomDocumentType {
+    pub fn toDocumentType(self: QDomEntity) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -15517,9 +19729,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToElement(self: QDomEntity) QDomElement {
+    pub fn toElement(self: QDomEntity) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -15529,9 +19745,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToEntityReference(self: QDomEntity) QDomEntityReference {
+    pub fn toEntityReference(self: QDomEntity) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -15541,9 +19761,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToText(self: QDomEntity) QDomText {
+    pub fn toText(self: QDomEntity) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -15553,9 +19777,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToEntity(self: QDomEntity) QDomEntity {
+    pub fn toEntity(self: QDomEntity) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -15565,9 +19793,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToNotation(self: QDomEntity) QDomNotation {
+    pub fn toNotation(self: QDomEntity) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -15577,9 +19809,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToProcessingInstruction(self: QDomEntity) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomEntity) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -15589,9 +19825,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToCharacterData(self: QDomEntity) QDomCharacterData {
+    pub fn toCharacterData(self: QDomEntity) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -15601,9 +19841,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ToComment(self: QDomEntity) QDomComment {
+    pub fn toComment(self: QDomEntity) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -15617,10 +19861,14 @@ pub const QDomEntity = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomEntity, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomEntity, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -15630,9 +19878,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn FirstChildElement(self: QDomEntity) QDomElement {
+    pub fn firstChildElement(self: QDomEntity) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -15642,9 +19894,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn LastChildElement(self: QDomEntity) QDomElement {
+    pub fn lastChildElement(self: QDomEntity) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -15654,9 +19910,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn PreviousSiblingElement(self: QDomEntity) QDomElement {
+    pub fn previousSiblingElement(self: QDomEntity) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -15666,9 +19926,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn NextSiblingElement(self: QDomEntity) QDomElement {
+    pub fn nextSiblingElement(self: QDomEntity) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -15678,9 +19942,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn LineNumber(self: QDomEntity) i32 {
+    pub fn lineNumber(self: QDomEntity) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -15690,9 +19958,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn ColumnNumber(self: QDomEntity) i32 {
+    pub fn columnNumber(self: QDomEntity) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -15704,9 +19976,13 @@ pub const QDomEntity = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomEntity, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomEntity, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -15722,11 +19998,15 @@ pub const QDomEntity = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomEntity, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomEntity, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -15735,16 +20015,20 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomEntity, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomEntity, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -15753,22 +20037,26 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomEntity, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomEntity, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -15777,16 +20065,20 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomEntity, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomEntity, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -15795,39 +20087,25 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomEntity, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomEntity, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomEntity `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomEntity, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -15837,21 +20115,47 @@ pub const QDomEntity = extern struct {
     ///
     /// ` self: QDomEntity `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomEntity, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomEntity, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomEntity `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomEntity, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -15863,7 +20167,7 @@ pub const QDomEntity = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomEntity, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomEntity, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -15871,6 +20175,10 @@ pub const QDomEntity = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -15881,33 +20189,33 @@ pub const QDomEntity = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomEntity, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomEntity, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentity.html#dtor.QDomEntity)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomEntity `
     ///
-    pub fn Delete(self: QDomEntity) void {
+    pub fn delete(self: QDomEntity) void {
         qtc.QDomEntity_Delete(@ptrCast(self.ptr));
     }
 };
@@ -15923,22 +20231,34 @@ pub const QDomEntityReference = extern struct {
     pub const _is_QDomEntityReference = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomEntityReference object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomEntityReference {
+    pub const New = new;
+
+    /// Allocate a new QDomEntityReference object in C++ memory
+    ///
+    pub fn new() QDomEntityReference {
         return .{ .ptr = qtc.QDomEntityReference_new() };
     }
 
-    /// New2 constructs a new QDomEntityReference object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomEntityReference object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` entityReference: QDomEntityReference `
     ///
-    pub fn New2(entityReference: anytype) QDomEntityReference {
+    pub fn new2(entityReference: anytype) QDomEntityReference {
         comptime _ = @TypeOf(entityReference)._is_QDomEntityReference;
         return .{ .ptr = qtc.QDomEntityReference_new2(@ptrCast(entityReference.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentityreference.html#operator-eq)
     ///
@@ -15948,10 +20268,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` other: QDomEntityReference `
     ///
-    pub fn OperatorAssign(self: QDomEntityReference, other: anytype) void {
+    pub fn operatorAssign(self: QDomEntityReference, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomEntityReference;
         qtc.QDomEntityReference_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentityreference.html#nodeType)
     ///
@@ -15963,9 +20287,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomEntityReference) i32 {
+    pub fn nodeType(self: QDomEntityReference) i32 {
         return qtc.QDomEntityReference_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -15977,10 +20305,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomEntityReference, other: anytype) bool {
+    pub fn operatorEqual(self: QDomEntityReference, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -15992,10 +20324,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomEntityReference, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomEntityReference, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -16009,11 +20345,15 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomEntityReference, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomEntityReference, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -16027,11 +20367,15 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomEntityReference, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomEntityReference, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -16045,11 +20389,15 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomEntityReference, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomEntityReference, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -16061,10 +20409,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomEntityReference, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomEntityReference, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -16076,10 +20428,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomEntityReference, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomEntityReference, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -16089,9 +20445,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn HasChildNodes(self: QDomEntityReference) bool {
+    pub fn hasChildNodes(self: QDomEntityReference) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -16101,9 +20461,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn CloneNode(self: QDomEntityReference) QDomNode {
+    pub fn cloneNode(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -16113,9 +20477,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn Normalize(self: QDomEntityReference) void {
+    pub fn normalize(self: QDomEntityReference) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -16129,7 +20497,7 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomEntityReference, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomEntityReference, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -16141,6 +20509,10 @@ pub const QDomEntityReference = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -16151,13 +20523,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -16167,9 +20543,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ParentNode(self: QDomEntityReference) QDomNode {
+    pub fn parentNode(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -16179,9 +20559,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ChildNodes(self: QDomEntityReference) QDomNodeList {
+    pub fn childNodes(self: QDomEntityReference) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -16191,9 +20575,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn FirstChild(self: QDomEntityReference) QDomNode {
+    pub fn firstChild(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -16203,9 +20591,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn LastChild(self: QDomEntityReference) QDomNode {
+    pub fn lastChild(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -16215,9 +20607,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn PreviousSibling(self: QDomEntityReference) QDomNode {
+    pub fn previousSibling(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -16227,9 +20623,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn NextSibling(self: QDomEntityReference) QDomNode {
+    pub fn nextSibling(self: QDomEntityReference) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -16239,9 +20639,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn Attributes(self: QDomEntityReference) QDomNamedNodeMap {
+    pub fn attributes(self: QDomEntityReference) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -16251,9 +20655,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn OwnerDocument(self: QDomEntityReference) QDomDocument {
+    pub fn ownerDocument(self: QDomEntityReference) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -16265,13 +20673,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -16283,13 +20695,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -16299,9 +20715,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn HasAttributes(self: QDomEntityReference) bool {
+    pub fn hasAttributes(self: QDomEntityReference) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -16313,13 +20733,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -16329,15 +20753,19 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomEntityReference, value: []const u8) void {
+    pub fn setNodeValue(self: QDomEntityReference, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -16349,13 +20777,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomEntityReference, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomEntityReference.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -16367,13 +20799,17 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomEntityReference, pre: []const u8) void {
+    pub fn setPrefix(self: QDomEntityReference, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -16383,9 +20819,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsAttr(self: QDomEntityReference) bool {
+    pub fn isAttr(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -16395,9 +20835,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsCDATASection(self: QDomEntityReference) bool {
+    pub fn isCDATASection(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -16407,9 +20851,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsDocumentFragment(self: QDomEntityReference) bool {
+    pub fn isDocumentFragment(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -16419,9 +20867,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsDocument(self: QDomEntityReference) bool {
+    pub fn isDocument(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -16431,9 +20883,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsDocumentType(self: QDomEntityReference) bool {
+    pub fn isDocumentType(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -16443,9 +20899,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsElement(self: QDomEntityReference) bool {
+    pub fn isElement(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -16455,9 +20915,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsEntityReference(self: QDomEntityReference) bool {
+    pub fn isEntityReference(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -16467,9 +20931,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsText(self: QDomEntityReference) bool {
+    pub fn isText(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -16479,9 +20947,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsEntity(self: QDomEntityReference) bool {
+    pub fn isEntity(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -16491,9 +20963,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsNotation(self: QDomEntityReference) bool {
+    pub fn isNotation(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -16503,9 +20979,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsProcessingInstruction(self: QDomEntityReference) bool {
+    pub fn isProcessingInstruction(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -16515,9 +20995,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsCharacterData(self: QDomEntityReference) bool {
+    pub fn isCharacterData(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -16527,9 +21011,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsComment(self: QDomEntityReference) bool {
+    pub fn isComment(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -16539,15 +21027,19 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomEntityReference, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomEntityReference, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -16557,9 +21049,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn IsNull(self: QDomEntityReference) bool {
+    pub fn isNull(self: QDomEntityReference) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -16569,9 +21065,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn Clear(self: QDomEntityReference) void {
+    pub fn clear(self: QDomEntityReference) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -16581,9 +21081,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToAttr(self: QDomEntityReference) QDomAttr {
+    pub fn toAttr(self: QDomEntityReference) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -16593,9 +21097,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToCDATASection(self: QDomEntityReference) QDomCDATASection {
+    pub fn toCDATASection(self: QDomEntityReference) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -16605,9 +21113,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToDocumentFragment(self: QDomEntityReference) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomEntityReference) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -16617,9 +21129,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToDocument(self: QDomEntityReference) QDomDocument {
+    pub fn toDocument(self: QDomEntityReference) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -16629,9 +21145,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToDocumentType(self: QDomEntityReference) QDomDocumentType {
+    pub fn toDocumentType(self: QDomEntityReference) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -16641,9 +21161,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToElement(self: QDomEntityReference) QDomElement {
+    pub fn toElement(self: QDomEntityReference) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -16653,9 +21177,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToEntityReference(self: QDomEntityReference) QDomEntityReference {
+    pub fn toEntityReference(self: QDomEntityReference) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -16665,9 +21193,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToText(self: QDomEntityReference) QDomText {
+    pub fn toText(self: QDomEntityReference) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -16677,9 +21209,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToEntity(self: QDomEntityReference) QDomEntity {
+    pub fn toEntity(self: QDomEntityReference) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -16689,9 +21225,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToNotation(self: QDomEntityReference) QDomNotation {
+    pub fn toNotation(self: QDomEntityReference) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -16701,9 +21241,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToProcessingInstruction(self: QDomEntityReference) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomEntityReference) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -16713,9 +21257,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToCharacterData(self: QDomEntityReference) QDomCharacterData {
+    pub fn toCharacterData(self: QDomEntityReference) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -16725,9 +21273,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ToComment(self: QDomEntityReference) QDomComment {
+    pub fn toComment(self: QDomEntityReference) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -16741,10 +21293,14 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomEntityReference, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomEntityReference, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -16754,9 +21310,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn FirstChildElement(self: QDomEntityReference) QDomElement {
+    pub fn firstChildElement(self: QDomEntityReference) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -16766,9 +21326,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn LastChildElement(self: QDomEntityReference) QDomElement {
+    pub fn lastChildElement(self: QDomEntityReference) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -16778,9 +21342,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn PreviousSiblingElement(self: QDomEntityReference) QDomElement {
+    pub fn previousSiblingElement(self: QDomEntityReference) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -16790,9 +21358,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn NextSiblingElement(self: QDomEntityReference) QDomElement {
+    pub fn nextSiblingElement(self: QDomEntityReference) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -16802,9 +21374,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn LineNumber(self: QDomEntityReference) i32 {
+    pub fn lineNumber(self: QDomEntityReference) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -16814,9 +21390,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn ColumnNumber(self: QDomEntityReference) i32 {
+    pub fn columnNumber(self: QDomEntityReference) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -16828,9 +21408,13 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomEntityReference, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomEntityReference, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -16846,11 +21430,15 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomEntityReference, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomEntityReference, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -16859,16 +21447,20 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomEntityReference, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomEntityReference, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -16877,22 +21469,26 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomEntityReference, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomEntityReference, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -16901,16 +21497,20 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomEntityReference, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomEntityReference, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -16919,39 +21519,25 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomEntityReference, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomEntityReference, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomEntityReference `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomEntityReference, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -16961,21 +21547,47 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` self: QDomEntityReference `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomEntityReference, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomEntityReference, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomEntityReference `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomEntityReference, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -16987,7 +21599,7 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomEntityReference, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomEntityReference, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -16995,6 +21607,10 @@ pub const QDomEntityReference = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -17005,33 +21621,33 @@ pub const QDomEntityReference = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomEntityReference, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomEntityReference, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomentityreference.html#dtor.QDomEntityReference)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomEntityReference `
     ///
-    pub fn Delete(self: QDomEntityReference) void {
+    pub fn delete(self: QDomEntityReference) void {
         qtc.QDomEntityReference_Delete(@ptrCast(self.ptr));
     }
 };
@@ -17047,22 +21663,34 @@ pub const QDomProcessingInstruction = extern struct {
     pub const _is_QDomProcessingInstruction = {};
     pub const _is_QDomNode = {};
 
-    /// New constructs a new QDomProcessingInstruction object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomProcessingInstruction {
+    pub const New = new;
+
+    /// Allocate a new QDomProcessingInstruction object in C++ memory
+    ///
+    pub fn new() QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomProcessingInstruction_new() };
     }
 
-    /// New2 constructs a new QDomProcessingInstruction object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomProcessingInstruction object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` processingInstruction: QDomProcessingInstruction `
     ///
-    pub fn New2(processingInstruction: anytype) QDomProcessingInstruction {
+    pub fn new2(processingInstruction: anytype) QDomProcessingInstruction {
         comptime _ = @TypeOf(processingInstruction)._is_QDomProcessingInstruction;
         return .{ .ptr = qtc.QDomProcessingInstruction_new2(@ptrCast(processingInstruction.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#operator-eq)
     ///
@@ -17072,10 +21700,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` other: QDomProcessingInstruction `
     ///
-    pub fn OperatorAssign(self: QDomProcessingInstruction, other: anytype) void {
+    pub fn operatorAssign(self: QDomProcessingInstruction, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDomProcessingInstruction;
         qtc.QDomProcessingInstruction_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `target` instead
+    ///
+    pub const Target = target;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#target)
     ///
@@ -17085,13 +21717,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Target(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn target(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomProcessingInstruction_Target(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#data)
     ///
@@ -17101,13 +21737,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn data(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomProcessingInstruction_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.data: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#setData)
     ///
@@ -17115,15 +21755,19 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` data: []const u8 `
+    /// ` _data: []const u8 `
     ///
-    pub fn SetData(self: QDomProcessingInstruction, data: []const u8) void {
+    pub fn setData(self: QDomProcessingInstruction, _data: []const u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QDomProcessingInstruction_SetData(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `nodeType` instead
+    ///
+    pub const NodeType = nodeType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#nodeType)
     ///
@@ -17135,9 +21779,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` qdom_enums.NodeType `
     ///
-    pub fn NodeType(self: QDomProcessingInstruction) i32 {
+    pub fn nodeType(self: QDomProcessingInstruction) i32 {
         return qtc.QDomProcessingInstruction_NodeType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// Inherited from QDomNode
     ///
@@ -17149,10 +21797,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorEqual(self: QDomProcessingInstruction, other: anytype) bool {
+    pub fn operatorEqual(self: QDomProcessingInstruction, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// Inherited from QDomNode
     ///
@@ -17164,10 +21816,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` other: QDomNode `
     ///
-    pub fn OperatorNotEqual(self: QDomProcessingInstruction, other: anytype) bool {
+    pub fn operatorNotEqual(self: QDomProcessingInstruction, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QDomNode;
         return qtc.QDomNode_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `insertBefore` instead
+    ///
+    pub const InsertBefore = insertBefore;
 
     /// Inherited from QDomNode
     ///
@@ -17181,11 +21837,15 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertBefore(self: QDomProcessingInstruction, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertBefore(self: QDomProcessingInstruction, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertBefore(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `insertAfter` instead
+    ///
+    pub const InsertAfter = insertAfter;
 
     /// Inherited from QDomNode
     ///
@@ -17199,11 +21859,15 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` refChild: QDomNode `
     ///
-    pub fn InsertAfter(self: QDomProcessingInstruction, newChild: anytype, refChild: anytype) QDomNode {
+    pub fn insertAfter(self: QDomProcessingInstruction, newChild: anytype, refChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(refChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_InsertAfter(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(refChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `replaceChild` instead
+    ///
+    pub const ReplaceChild = replaceChild;
 
     /// Inherited from QDomNode
     ///
@@ -17217,11 +21881,15 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn ReplaceChild(self: QDomProcessingInstruction, newChild: anytype, oldChild: anytype) QDomNode {
+    pub fn replaceChild(self: QDomProcessingInstruction, newChild: anytype, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_ReplaceChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `removeChild` instead
+    ///
+    pub const RemoveChild = removeChild;
 
     /// Inherited from QDomNode
     ///
@@ -17233,10 +21901,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` oldChild: QDomNode `
     ///
-    pub fn RemoveChild(self: QDomProcessingInstruction, oldChild: anytype) QDomNode {
+    pub fn removeChild(self: QDomProcessingInstruction, oldChild: anytype) QDomNode {
         comptime _ = @TypeOf(oldChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_RemoveChild(@ptrCast(self.ptr), @ptrCast(oldChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `appendChild` instead
+    ///
+    pub const AppendChild = appendChild;
 
     /// Inherited from QDomNode
     ///
@@ -17248,10 +21920,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` newChild: QDomNode `
     ///
-    pub fn AppendChild(self: QDomProcessingInstruction, newChild: anytype) QDomNode {
+    pub fn appendChild(self: QDomProcessingInstruction, newChild: anytype) QDomNode {
         comptime _ = @TypeOf(newChild)._is_QDomNode;
         return .{ .ptr = qtc.QDomNode_AppendChild(@ptrCast(self.ptr), @ptrCast(newChild.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasChildNodes` instead
+    ///
+    pub const HasChildNodes = hasChildNodes;
 
     /// Inherited from QDomNode
     ///
@@ -17261,9 +21937,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn HasChildNodes(self: QDomProcessingInstruction) bool {
+    pub fn hasChildNodes(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_HasChildNodes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode` instead
+    ///
+    pub const CloneNode = cloneNode;
 
     /// Inherited from QDomNode
     ///
@@ -17273,9 +21953,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn CloneNode(self: QDomProcessingInstruction) QDomNode {
+    pub fn cloneNode(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalize` instead
+    ///
+    pub const Normalize = normalize;
 
     /// Inherited from QDomNode
     ///
@@ -17285,9 +21969,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn Normalize(self: QDomProcessingInstruction) void {
+    pub fn normalize(self: QDomProcessingInstruction) void {
         qtc.QDomNode_Normalize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSupported` instead
+    ///
+    pub const IsSupported = isSupported;
 
     /// Inherited from QDomNode
     ///
@@ -17301,7 +21989,7 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` version: []const u8 `
     ///
-    pub fn IsSupported(self: QDomProcessingInstruction, feature: []const u8, version: []const u8) bool {
+    pub fn isSupported(self: QDomProcessingInstruction, feature: []const u8, version: []const u8) bool {
         const feature_str = qtc.libqt_string{
             .len = feature.len,
             .data = feature.ptr,
@@ -17313,6 +22001,10 @@ pub const QDomProcessingInstruction = extern struct {
         return qtc.QDomNode_IsSupported(@ptrCast(self.ptr), feature_str, version_str);
     }
 
+    /// ### DEPRECATED: Use `nodeName` instead
+    ///
+    pub const NodeName = nodeName;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nodeName)
@@ -17323,13 +22015,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NodeName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.nodeName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parentNode` instead
+    ///
+    pub const ParentNode = parentNode;
 
     /// Inherited from QDomNode
     ///
@@ -17339,9 +22035,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ParentNode(self: QDomProcessingInstruction) QDomNode {
+    pub fn parentNode(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_ParentNode(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childNodes` instead
+    ///
+    pub const ChildNodes = childNodes;
 
     /// Inherited from QDomNode
     ///
@@ -17351,9 +22051,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ChildNodes(self: QDomProcessingInstruction) QDomNodeList {
+    pub fn childNodes(self: QDomProcessingInstruction) QDomNodeList {
         return .{ .ptr = qtc.QDomNode_ChildNodes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `firstChild` instead
+    ///
+    pub const FirstChild = firstChild;
 
     /// Inherited from QDomNode
     ///
@@ -17363,9 +22067,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn FirstChild(self: QDomProcessingInstruction) QDomNode {
+    pub fn firstChild(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_FirstChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChild` instead
+    ///
+    pub const LastChild = lastChild;
 
     /// Inherited from QDomNode
     ///
@@ -17375,9 +22083,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn LastChild(self: QDomProcessingInstruction) QDomNode {
+    pub fn lastChild(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_LastChild(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSibling` instead
+    ///
+    pub const PreviousSibling = previousSibling;
 
     /// Inherited from QDomNode
     ///
@@ -17387,9 +22099,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn PreviousSibling(self: QDomProcessingInstruction) QDomNode {
+    pub fn previousSibling(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_PreviousSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSibling` instead
+    ///
+    pub const NextSibling = nextSibling;
 
     /// Inherited from QDomNode
     ///
@@ -17399,9 +22115,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn NextSibling(self: QDomProcessingInstruction) QDomNode {
+    pub fn nextSibling(self: QDomProcessingInstruction) QDomNode {
         return .{ .ptr = qtc.QDomNode_NextSibling(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `attributes` instead
+    ///
+    pub const Attributes = attributes;
 
     /// Inherited from QDomNode
     ///
@@ -17411,9 +22131,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn Attributes(self: QDomProcessingInstruction) QDomNamedNodeMap {
+    pub fn attributes(self: QDomProcessingInstruction) QDomNamedNodeMap {
         return .{ .ptr = qtc.QDomNode_Attributes(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ownerDocument` instead
+    ///
+    pub const OwnerDocument = ownerDocument;
 
     /// Inherited from QDomNode
     ///
@@ -17423,9 +22147,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn OwnerDocument(self: QDomProcessingInstruction) QDomDocument {
+    pub fn ownerDocument(self: QDomProcessingInstruction) QDomDocument {
         return .{ .ptr = qtc.QDomNode_OwnerDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `namespaceURI` instead
+    ///
+    pub const NamespaceURI = namespaceURI;
 
     /// Inherited from QDomNode
     ///
@@ -17437,13 +22165,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NamespaceURI(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn namespaceURI(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NamespaceURI(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NamespaceURI: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.namespaceURI: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `localName` instead
+    ///
+    pub const LocalName = localName;
 
     /// Inherited from QDomNode
     ///
@@ -17455,13 +22187,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn LocalName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn localName(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_LocalName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.LocalName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.localName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasAttributes` instead
+    ///
+    pub const HasAttributes = hasAttributes;
 
     /// Inherited from QDomNode
     ///
@@ -17471,9 +22207,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn HasAttributes(self: QDomProcessingInstruction) bool {
+    pub fn hasAttributes(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_HasAttributes(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `nodeValue` instead
+    ///
+    pub const NodeValue = nodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -17485,13 +22225,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NodeValue(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn nodeValue(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_NodeValue(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.NodeValue: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.nodeValue: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNodeValue` instead
+    ///
+    pub const SetNodeValue = setNodeValue;
 
     /// Inherited from QDomNode
     ///
@@ -17501,15 +22245,19 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` value: []const u8 `
+    /// ` _value: []const u8 `
     ///
-    pub fn SetNodeValue(self: QDomProcessingInstruction, value: []const u8) void {
+    pub fn setNodeValue(self: QDomProcessingInstruction, _value: []const u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QDomNode_SetNodeValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `prefix` instead
+    ///
+    pub const Prefix = prefix;
 
     /// Inherited from QDomNode
     ///
@@ -17521,13 +22269,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Prefix(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
+    pub fn prefix(self: QDomProcessingInstruction, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDomNode_Prefix(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.Prefix: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDomProcessingInstruction.prefix: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPrefix` instead
+    ///
+    pub const SetPrefix = setPrefix;
 
     /// Inherited from QDomNode
     ///
@@ -17539,13 +22291,17 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` pre: []const u8 `
     ///
-    pub fn SetPrefix(self: QDomProcessingInstruction, pre: []const u8) void {
+    pub fn setPrefix(self: QDomProcessingInstruction, pre: []const u8) void {
         const pre_str = qtc.libqt_string{
             .len = pre.len,
             .data = pre.ptr,
         };
         qtc.QDomNode_SetPrefix(@ptrCast(self.ptr), pre_str);
     }
+
+    /// ### DEPRECATED: Use `isAttr` instead
+    ///
+    pub const IsAttr = isAttr;
 
     /// Inherited from QDomNode
     ///
@@ -17555,9 +22311,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsAttr(self: QDomProcessingInstruction) bool {
+    pub fn isAttr(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsAttr(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCDATASection` instead
+    ///
+    pub const IsCDATASection = isCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -17567,9 +22327,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsCDATASection(self: QDomProcessingInstruction) bool {
+    pub fn isCDATASection(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsCDATASection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentFragment` instead
+    ///
+    pub const IsDocumentFragment = isDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -17579,9 +22343,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsDocumentFragment(self: QDomProcessingInstruction) bool {
+    pub fn isDocumentFragment(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsDocumentFragment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocument` instead
+    ///
+    pub const IsDocument = isDocument;
 
     /// Inherited from QDomNode
     ///
@@ -17591,9 +22359,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsDocument(self: QDomProcessingInstruction) bool {
+    pub fn isDocument(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsDocument(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isDocumentType` instead
+    ///
+    pub const IsDocumentType = isDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -17603,9 +22375,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsDocumentType(self: QDomProcessingInstruction) bool {
+    pub fn isDocumentType(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsDocumentType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isElement` instead
+    ///
+    pub const IsElement = isElement;
 
     /// Inherited from QDomNode
     ///
@@ -17615,9 +22391,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsElement(self: QDomProcessingInstruction) bool {
+    pub fn isElement(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsElement(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntityReference` instead
+    ///
+    pub const IsEntityReference = isEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -17627,9 +22407,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsEntityReference(self: QDomProcessingInstruction) bool {
+    pub fn isEntityReference(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsEntityReference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isText` instead
+    ///
+    pub const IsText = isText;
 
     /// Inherited from QDomNode
     ///
@@ -17639,9 +22423,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsText(self: QDomProcessingInstruction) bool {
+    pub fn isText(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsText(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEntity` instead
+    ///
+    pub const IsEntity = isEntity;
 
     /// Inherited from QDomNode
     ///
@@ -17651,9 +22439,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsEntity(self: QDomProcessingInstruction) bool {
+    pub fn isEntity(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsEntity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNotation` instead
+    ///
+    pub const IsNotation = isNotation;
 
     /// Inherited from QDomNode
     ///
@@ -17663,9 +22455,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsNotation(self: QDomProcessingInstruction) bool {
+    pub fn isNotation(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsNotation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isProcessingInstruction` instead
+    ///
+    pub const IsProcessingInstruction = isProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -17675,9 +22471,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsProcessingInstruction(self: QDomProcessingInstruction) bool {
+    pub fn isProcessingInstruction(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsProcessingInstruction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isCharacterData` instead
+    ///
+    pub const IsCharacterData = isCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -17687,9 +22487,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsCharacterData(self: QDomProcessingInstruction) bool {
+    pub fn isCharacterData(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsCharacterData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isComment` instead
+    ///
+    pub const IsComment = isComment;
 
     /// Inherited from QDomNode
     ///
@@ -17699,9 +22503,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsComment(self: QDomProcessingInstruction) bool {
+    pub fn isComment(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsComment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `namedItem` instead
+    ///
+    pub const NamedItem = namedItem;
 
     /// Inherited from QDomNode
     ///
@@ -17711,15 +22519,19 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NamedItem(self: QDomProcessingInstruction, name: []const u8) QDomNode {
+    pub fn namedItem(self: QDomProcessingInstruction, _name: []const u8) QDomNode {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NamedItem(@ptrCast(self.ptr), name_str) };
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// Inherited from QDomNode
     ///
@@ -17729,9 +22541,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn IsNull(self: QDomProcessingInstruction) bool {
+    pub fn isNull(self: QDomProcessingInstruction) bool {
         return qtc.QDomNode_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// Inherited from QDomNode
     ///
@@ -17741,9 +22557,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn Clear(self: QDomProcessingInstruction) void {
+    pub fn clear(self: QDomProcessingInstruction) void {
         qtc.QDomNode_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toAttr` instead
+    ///
+    pub const ToAttr = toAttr;
 
     /// Inherited from QDomNode
     ///
@@ -17753,9 +22573,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToAttr(self: QDomProcessingInstruction) QDomAttr {
+    pub fn toAttr(self: QDomProcessingInstruction) QDomAttr {
         return .{ .ptr = qtc.QDomNode_ToAttr(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCDATASection` instead
+    ///
+    pub const ToCDATASection = toCDATASection;
 
     /// Inherited from QDomNode
     ///
@@ -17765,9 +22589,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToCDATASection(self: QDomProcessingInstruction) QDomCDATASection {
+    pub fn toCDATASection(self: QDomProcessingInstruction) QDomCDATASection {
         return .{ .ptr = qtc.QDomNode_ToCDATASection(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentFragment` instead
+    ///
+    pub const ToDocumentFragment = toDocumentFragment;
 
     /// Inherited from QDomNode
     ///
@@ -17777,9 +22605,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToDocumentFragment(self: QDomProcessingInstruction) QDomDocumentFragment {
+    pub fn toDocumentFragment(self: QDomProcessingInstruction) QDomDocumentFragment {
         return .{ .ptr = qtc.QDomNode_ToDocumentFragment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocument` instead
+    ///
+    pub const ToDocument = toDocument;
 
     /// Inherited from QDomNode
     ///
@@ -17789,9 +22621,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToDocument(self: QDomProcessingInstruction) QDomDocument {
+    pub fn toDocument(self: QDomProcessingInstruction) QDomDocument {
         return .{ .ptr = qtc.QDomNode_ToDocument(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toDocumentType` instead
+    ///
+    pub const ToDocumentType = toDocumentType;
 
     /// Inherited from QDomNode
     ///
@@ -17801,9 +22637,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToDocumentType(self: QDomProcessingInstruction) QDomDocumentType {
+    pub fn toDocumentType(self: QDomProcessingInstruction) QDomDocumentType {
         return .{ .ptr = qtc.QDomNode_ToDocumentType(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toElement` instead
+    ///
+    pub const ToElement = toElement;
 
     /// Inherited from QDomNode
     ///
@@ -17813,9 +22653,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToElement(self: QDomProcessingInstruction) QDomElement {
+    pub fn toElement(self: QDomProcessingInstruction) QDomElement {
         return .{ .ptr = qtc.QDomNode_ToElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntityReference` instead
+    ///
+    pub const ToEntityReference = toEntityReference;
 
     /// Inherited from QDomNode
     ///
@@ -17825,9 +22669,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToEntityReference(self: QDomProcessingInstruction) QDomEntityReference {
+    pub fn toEntityReference(self: QDomProcessingInstruction) QDomEntityReference {
         return .{ .ptr = qtc.QDomNode_ToEntityReference(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toText` instead
+    ///
+    pub const ToText = toText;
 
     /// Inherited from QDomNode
     ///
@@ -17837,9 +22685,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToText(self: QDomProcessingInstruction) QDomText {
+    pub fn toText(self: QDomProcessingInstruction) QDomText {
         return .{ .ptr = qtc.QDomNode_ToText(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toEntity` instead
+    ///
+    pub const ToEntity = toEntity;
 
     /// Inherited from QDomNode
     ///
@@ -17849,9 +22701,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToEntity(self: QDomProcessingInstruction) QDomEntity {
+    pub fn toEntity(self: QDomProcessingInstruction) QDomEntity {
         return .{ .ptr = qtc.QDomNode_ToEntity(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toNotation` instead
+    ///
+    pub const ToNotation = toNotation;
 
     /// Inherited from QDomNode
     ///
@@ -17861,9 +22717,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToNotation(self: QDomProcessingInstruction) QDomNotation {
+    pub fn toNotation(self: QDomProcessingInstruction) QDomNotation {
         return .{ .ptr = qtc.QDomNode_ToNotation(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toProcessingInstruction` instead
+    ///
+    pub const ToProcessingInstruction = toProcessingInstruction;
 
     /// Inherited from QDomNode
     ///
@@ -17873,9 +22733,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToProcessingInstruction(self: QDomProcessingInstruction) QDomProcessingInstruction {
+    pub fn toProcessingInstruction(self: QDomProcessingInstruction) QDomProcessingInstruction {
         return .{ .ptr = qtc.QDomNode_ToProcessingInstruction(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toCharacterData` instead
+    ///
+    pub const ToCharacterData = toCharacterData;
 
     /// Inherited from QDomNode
     ///
@@ -17885,9 +22749,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToCharacterData(self: QDomProcessingInstruction) QDomCharacterData {
+    pub fn toCharacterData(self: QDomProcessingInstruction) QDomCharacterData {
         return .{ .ptr = qtc.QDomNode_ToCharacterData(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toComment` instead
+    ///
+    pub const ToComment = toComment;
 
     /// Inherited from QDomNode
     ///
@@ -17897,9 +22765,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ToComment(self: QDomProcessingInstruction) QDomComment {
+    pub fn toComment(self: QDomProcessingInstruction) QDomComment {
         return .{ .ptr = qtc.QDomNode_ToComment(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `save` instead
+    ///
+    pub const Save = save;
 
     /// Inherited from QDomNode
     ///
@@ -17913,10 +22785,14 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` param2: i32 `
     ///
-    pub fn Save(self: QDomProcessingInstruction, param1: anytype, param2: i32) void {
+    pub fn save(self: QDomProcessingInstruction, param1: anytype, param2: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2));
     }
+
+    /// ### DEPRECATED: Use `firstChildElement` instead
+    ///
+    pub const FirstChildElement = firstChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -17926,9 +22802,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn FirstChildElement(self: QDomProcessingInstruction) QDomElement {
+    pub fn firstChildElement(self: QDomProcessingInstruction) QDomElement {
         return .{ .ptr = qtc.QDomNode_FirstChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastChildElement` instead
+    ///
+    pub const LastChildElement = lastChildElement;
 
     /// Inherited from QDomNode
     ///
@@ -17938,9 +22818,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn LastChildElement(self: QDomProcessingInstruction) QDomElement {
+    pub fn lastChildElement(self: QDomProcessingInstruction) QDomElement {
         return .{ .ptr = qtc.QDomNode_LastChildElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousSiblingElement` instead
+    ///
+    pub const PreviousSiblingElement = previousSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -17950,9 +22834,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn PreviousSiblingElement(self: QDomProcessingInstruction) QDomElement {
+    pub fn previousSiblingElement(self: QDomProcessingInstruction) QDomElement {
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement` instead
+    ///
+    pub const NextSiblingElement = nextSiblingElement;
 
     /// Inherited from QDomNode
     ///
@@ -17962,9 +22850,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn NextSiblingElement(self: QDomProcessingInstruction) QDomElement {
+    pub fn nextSiblingElement(self: QDomProcessingInstruction) QDomElement {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lineNumber` instead
+    ///
+    pub const LineNumber = lineNumber;
 
     /// Inherited from QDomNode
     ///
@@ -17974,9 +22866,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn LineNumber(self: QDomProcessingInstruction) i32 {
+    pub fn lineNumber(self: QDomProcessingInstruction) i32 {
         return qtc.QDomNode_LineNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `columnNumber` instead
+    ///
+    pub const ColumnNumber = columnNumber;
 
     /// Inherited from QDomNode
     ///
@@ -17986,9 +22882,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn ColumnNumber(self: QDomProcessingInstruction) i32 {
+    pub fn columnNumber(self: QDomProcessingInstruction) i32 {
         return qtc.QDomNode_ColumnNumber(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `cloneNode1` instead
+    ///
+    pub const CloneNode1 = cloneNode1;
 
     /// Inherited from QDomNode
     ///
@@ -18000,9 +22900,13 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` deep: bool `
     ///
-    pub fn CloneNode1(self: QDomProcessingInstruction, deep: bool) QDomNode {
+    pub fn cloneNode1(self: QDomProcessingInstruction, deep: bool) QDomNode {
         return .{ .ptr = qtc.QDomNode_CloneNode1(@ptrCast(self.ptr), deep) };
     }
+
+    /// ### DEPRECATED: Use `save3` instead
+    ///
+    pub const Save3 = save3;
 
     /// Inherited from QDomNode
     ///
@@ -18018,11 +22922,15 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` param3: qdom_enums.EncodingPolicy `
     ///
-    pub fn Save3(self: QDomProcessingInstruction, param1: anytype, param2: i32, param3: i32) void {
+    pub fn save3(self: QDomProcessingInstruction, param1: anytype, param2: i32, param3: i32) void {
         comptime _ = @TypeOf(param1)._is_QTextStream;
         qtc.QDomNode_Save3(@ptrCast(self.ptr), @ptrCast(param1.ptr), @bitCast(param2), @bitCast(param3));
     }
 
+    /// ### DEPRECATED: Use `firstChildElement1` instead
+    ///
+    pub const FirstChildElement1 = firstChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -18031,16 +22939,20 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn FirstChildElement1(self: QDomProcessingInstruction, tagName: []const u8) QDomElement {
+    pub fn firstChildElement1(self: QDomProcessingInstruction, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `firstChildElement2` instead
+    ///
+    pub const FirstChildElement2 = firstChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#firstChildElement)
@@ -18049,22 +22961,26 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn FirstChildElement2(self: QDomProcessingInstruction, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn firstChildElement2(self: QDomProcessingInstruction, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_FirstChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement1` instead
+    ///
+    pub const LastChildElement1 = lastChildElement1;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -18073,16 +22989,20 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    pub fn LastChildElement1(self: QDomProcessingInstruction, tagName: []const u8) QDomElement {
+    pub fn lastChildElement1(self: QDomProcessingInstruction, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement1(@ptrCast(self.ptr), tagName_str) };
     }
 
+    /// ### DEPRECATED: Use `lastChildElement2` instead
+    ///
+    pub const LastChildElement2 = lastChildElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#lastChildElement)
@@ -18091,39 +23011,25 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn LastChildElement2(self: QDomProcessingInstruction, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn lastChildElement2(self: QDomProcessingInstruction, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_LastChildElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
 
-    /// Inherited from QDomNode
+    /// ### DEPRECATED: Use `previousSiblingElement1` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDomProcessingInstruction `
-    ///
-    /// ` tagName: []const u8 `
-    ///
-    pub fn PreviousSiblingElement1(self: QDomProcessingInstruction, tagName: []const u8) QDomElement {
-        const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
-        };
-        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
-    }
+    pub const PreviousSiblingElement1 = previousSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -18133,21 +23039,47 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    /// ` tagName: []const u8 `
+    /// ` _tagName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
-    ///
-    pub fn PreviousSiblingElement2(self: QDomProcessingInstruction, tagName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn previousSiblingElement1(self: QDomProcessingInstruction, _tagName: []const u8) QDomElement {
         const tagName_str = qtc.libqt_string{
-            .len = tagName.len,
-            .data = tagName.ptr,
+            .len = _tagName.len,
+            .data = _tagName.ptr,
+        };
+        return .{ .ptr = qtc.QDomNode_PreviousSiblingElement1(@ptrCast(self.ptr), tagName_str) };
+    }
+
+    /// ### DEPRECATED: Use `previousSiblingElement2` instead
+    ///
+    pub const PreviousSiblingElement2 = previousSiblingElement2;
+
+    /// Inherited from QDomNode
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#previousSiblingElement)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDomProcessingInstruction `
+    ///
+    /// ` _tagName: []const u8 `
+    ///
+    /// ` _namespaceURI: []const u8 `
+    ///
+    pub fn previousSiblingElement2(self: QDomProcessingInstruction, _tagName: []const u8, _namespaceURI: []const u8) QDomElement {
+        const tagName_str = qtc.libqt_string{
+            .len = _tagName.len,
+            .data = _tagName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_PreviousSiblingElement2(@ptrCast(self.ptr), tagName_str, namespaceURI_str) };
     }
+
+    /// ### DEPRECATED: Use `nextSiblingElement1` instead
+    ///
+    pub const NextSiblingElement1 = nextSiblingElement1;
 
     /// Inherited from QDomNode
     ///
@@ -18159,7 +23091,7 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    pub fn NextSiblingElement1(self: QDomProcessingInstruction, taName: []const u8) QDomElement {
+    pub fn nextSiblingElement1(self: QDomProcessingInstruction, taName: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
@@ -18167,6 +23099,10 @@ pub const QDomProcessingInstruction = extern struct {
         return .{ .ptr = qtc.QDomNode_NextSiblingElement1(@ptrCast(self.ptr), taName_str) };
     }
 
+    /// ### DEPRECATED: Use `nextSiblingElement2` instead
+    ///
+    pub const NextSiblingElement2 = nextSiblingElement2;
+
     /// Inherited from QDomNode
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomnode.html#nextSiblingElement)
@@ -18177,33 +23113,33 @@ pub const QDomProcessingInstruction = extern struct {
     ///
     /// ` taName: []const u8 `
     ///
-    /// ` namespaceURI: []const u8 `
+    /// ` _namespaceURI: []const u8 `
     ///
-    pub fn NextSiblingElement2(self: QDomProcessingInstruction, taName: []const u8, namespaceURI: []const u8) QDomElement {
+    pub fn nextSiblingElement2(self: QDomProcessingInstruction, taName: []const u8, _namespaceURI: []const u8) QDomElement {
         const taName_str = qtc.libqt_string{
             .len = taName.len,
             .data = taName.ptr,
         };
         const namespaceURI_str = qtc.libqt_string{
-            .len = namespaceURI.len,
-            .data = namespaceURI.ptr,
+            .len = _namespaceURI.len,
+            .data = _namespaceURI.ptr,
         };
         return .{ .ptr = qtc.QDomNode_NextSiblingElement2(@ptrCast(self.ptr), taName_str, namespaceURI_str) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomprocessinginstruction.html#dtor.QDomProcessingInstruction)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomProcessingInstruction `
     ///
-    pub fn Delete(self: QDomProcessingInstruction) void {
+    pub fn delete(self: QDomProcessingInstruction) void {
         qtc.QDomProcessingInstruction_Delete(@ptrCast(self.ptr));
     }
 };
@@ -18218,22 +23154,34 @@ pub const QDomDocument__ParseResult = extern struct {
 
     pub const _is_QDomDocument__ParseResult = {};
 
-    /// New constructs a new QDomDocument::ParseResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDomDocument__ParseResult {
+    pub const New = new;
+
+    /// Allocate a new QDomDocument::ParseResult object in C++ memory
+    ///
+    pub fn new() QDomDocument__ParseResult {
         return .{ .ptr = qtc.QDomDocument__ParseResult_new() };
     }
 
-    /// New2 constructs a new QDomDocument::ParseResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDomDocument::ParseResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QDomDocument__ParseResult `
     ///
-    pub fn New2(param1: anytype) QDomDocument__ParseResult {
+    pub fn new2(param1: anytype) QDomDocument__ParseResult {
         comptime _ = @TypeOf(param1)._is_QDomDocument__ParseResult;
         return .{ .ptr = qtc.QDomDocument__ParseResult_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `errorMessage` instead
+    ///
+    pub const ErrorMessage = errorMessage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorMessage-var)
     ///
@@ -18243,13 +23191,17 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorMessage(self: QDomDocument__ParseResult, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorMessage(self: QDomDocument__ParseResult, allocator: std.mem.Allocator) []const u8 {
         var errorMessage_str = qtc.QDomDocument__ParseResult_ErrorMessage(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&errorMessage_str);
-        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("QDomDocument__ParseResult.ErrorMessage: Memory allocation failed");
+        const errorMessage_ret = allocator.alloc(u8, errorMessage_str.len) catch @panic("QDomDocument__ParseResult.errorMessage: Memory allocation failed");
         @memcpy(errorMessage_ret, errorMessage_str.data[0..errorMessage_str.len]);
         return errorMessage_ret;
     }
+
+    /// ### DEPRECATED: Use `setErrorMessage` instead
+    ///
+    pub const SetErrorMessage = setErrorMessage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorMessage-var)
     ///
@@ -18257,37 +23209,49 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    /// ` errorMessage: []const u8 `
+    /// ` _errorMessage: []const u8 `
     ///
-    pub fn SetErrorMessage(self: QDomDocument__ParseResult, errorMessage: []const u8) void {
+    pub fn setErrorMessage(self: QDomDocument__ParseResult, _errorMessage: []const u8) void {
         const errorMessage_str = qtc.libqt_string{
-            .len = errorMessage.len,
-            .data = errorMessage.ptr,
+            .len = _errorMessage.len,
+            .data = _errorMessage.ptr,
         };
         qtc.QDomDocument__ParseResult_SetErrorMessage(@ptrCast(self.ptr), errorMessage_str);
     }
 
+    /// ### DEPRECATED: Use `errorLine` instead
+    ///
+    pub const ErrorLine = errorLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorLine-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    pub fn ErrorLine(self: QDomDocument__ParseResult) isize {
+    pub fn errorLine(self: QDomDocument__ParseResult) isize {
         return qtc.QDomDocument__ParseResult_ErrorLine(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setErrorLine` instead
+    ///
+    pub const SetErrorLine = setErrorLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorLine-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    /// ` errorLine: isize `
+    /// ` _errorLine: isize `
     ///
-    pub fn SetErrorLine(self: QDomDocument__ParseResult, errorLine: isize) void {
-        qtc.QDomDocument__ParseResult_SetErrorLine(@ptrCast(self.ptr), @bitCast(errorLine));
+    pub fn setErrorLine(self: QDomDocument__ParseResult, _errorLine: isize) void {
+        qtc.QDomDocument__ParseResult_SetErrorLine(@ptrCast(self.ptr), @bitCast(_errorLine));
     }
+
+    /// ### DEPRECATED: Use `errorColumn` instead
+    ///
+    pub const ErrorColumn = errorColumn;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorColumn-var)
     ///
@@ -18295,21 +23259,29 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    pub fn ErrorColumn(self: QDomDocument__ParseResult) isize {
+    pub fn errorColumn(self: QDomDocument__ParseResult) isize {
         return qtc.QDomDocument__ParseResult_ErrorColumn(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setErrorColumn` instead
+    ///
+    pub const SetErrorColumn = setErrorColumn;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#errorColumn-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    /// ` errorColumn: isize `
+    /// ` _errorColumn: isize `
     ///
-    pub fn SetErrorColumn(self: QDomDocument__ParseResult, errorColumn: isize) void {
-        qtc.QDomDocument__ParseResult_SetErrorColumn(@ptrCast(self.ptr), @bitCast(errorColumn));
+    pub fn setErrorColumn(self: QDomDocument__ParseResult, _errorColumn: isize) void {
+        qtc.QDomDocument__ParseResult_SetErrorColumn(@ptrCast(self.ptr), @bitCast(_errorColumn));
     }
+
+    /// ### DEPRECATED: Use `toBool` instead
+    ///
+    pub const ToBool = toBool;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#operator)
     ///
@@ -18317,9 +23289,13 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    pub fn ToBool(self: QDomDocument__ParseResult) bool {
+    pub fn toBool(self: QDomDocument__ParseResult) bool {
         return qtc.QDomDocument__ParseResult_ToBool(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdomdocument-parseresult.html#operator-eq)
     ///
@@ -18329,22 +23305,22 @@ pub const QDomDocument__ParseResult = extern struct {
     ///
     /// ` param1: QDomDocument__ParseResult `
     ///
-    pub fn OperatorAssign(self: QDomDocument__ParseResult, param1: anytype) void {
+    pub fn operatorAssign(self: QDomDocument__ParseResult, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QDomDocument__ParseResult;
         qtc.QDomDocument__ParseResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDomDocument__ParseResult `
     ///
-    pub fn Delete(self: QDomDocument__ParseResult) void {
+    pub fn delete(self: QDomDocument__ParseResult) void {
         qtc.QDomDocument__ParseResult_Delete(@ptrCast(self.ptr));
     }
 };

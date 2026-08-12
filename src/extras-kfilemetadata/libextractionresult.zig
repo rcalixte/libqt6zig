@@ -18,13 +18,17 @@ pub const KFileMetaData__ExtractionResult = extern struct {
 
     pub const _is_KFileMetaData__ExtractionResult = {};
 
-    /// New constructs a new KFileMetaData::ExtractionResult object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KFileMetaData::ExtractionResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` url: []const u8 `
     ///
-    pub fn New(url: []const u8) KFileMetaData__ExtractionResult {
+    pub fn new(url: []const u8) KFileMetaData__ExtractionResult {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -32,18 +36,26 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         return .{ .ptr = qtc.KFileMetaData__ExtractionResult_new(url_str) };
     }
 
-    /// New2 constructs a new KFileMetaData::ExtractionResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KFileMetaData::ExtractionResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rhs: KFileMetaData__ExtractionResult `
     ///
-    pub fn New2(rhs: anytype) KFileMetaData__ExtractionResult {
+    pub fn new2(rhs: anytype) KFileMetaData__ExtractionResult {
         comptime _ = @TypeOf(rhs)._is_KFileMetaData__ExtractionResult;
         return .{ .ptr = qtc.KFileMetaData__ExtractionResult_new2(@ptrCast(rhs.ptr)) };
     }
 
-    /// New3 constructs a new KFileMetaData::ExtractionResult object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KFileMetaData::ExtractionResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -51,7 +63,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` mimetype: []const u8 `
     ///
-    pub fn New3(url: []const u8, mimetype: []const u8) KFileMetaData__ExtractionResult {
+    pub fn new3(url: []const u8, mimetype: []const u8) KFileMetaData__ExtractionResult {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -63,7 +75,11 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         return .{ .ptr = qtc.KFileMetaData__ExtractionResult_new3(url_str, mimetype_str) };
     }
 
-    /// New4 constructs a new KFileMetaData::ExtractionResult object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KFileMetaData::ExtractionResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -73,7 +89,7 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` flags: *const flag of extractionresult_enums.Flag `
     ///
-    pub fn New4(url: []const u8, mimetype: []const u8, flags: *const i32) KFileMetaData__ExtractionResult {
+    pub fn new4(url: []const u8, mimetype: []const u8, flags: *const i32) KFileMetaData__ExtractionResult {
         const url_str = qtc.libqt_string{
             .len = url.len,
             .data = url.ptr,
@@ -85,6 +101,10 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         return .{ .ptr = qtc.KFileMetaData__ExtractionResult_new4(url_str, mimetype_str, @ptrCast(flags)) };
     }
 
+    /// ### DEPRECATED: Use `inputUrl` instead
+    ///
+    pub const InputUrl = inputUrl;
+
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#inputUrl)
     ///
     /// ## Parameter(s):
@@ -93,13 +113,17 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputUrl(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
+    pub fn inputUrl(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputUrl(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.InputUrl: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.inputUrl: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `inputMimetype` instead
+    ///
+    pub const InputMimetype = inputMimetype;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#inputMimetype)
     ///
@@ -109,13 +133,17 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn InputMimetype(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
+    pub fn inputMimetype(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KFileMetaData__ExtractionResult_InputMimetype(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.InputMimetype: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KFileMetaData__ExtractionResult.inputMimetype: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `inputFlags` instead
+    ///
+    pub const InputFlags = inputFlags;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#inputFlags)
     ///
@@ -127,9 +155,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` flag of extractionresult_enums.Flag `
     ///
-    pub fn InputFlags(self: KFileMetaData__ExtractionResult) i32 {
+    pub fn inputFlags(self: KFileMetaData__ExtractionResult) i32 {
         return qtc.KFileMetaData__ExtractionResult_InputFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `append` instead
+    ///
+    pub const Append = append;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
     ///
@@ -139,13 +171,17 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn Append(self: KFileMetaData__ExtractionResult, text: []const u8) void {
+    pub fn append(self: KFileMetaData__ExtractionResult, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KFileMetaData__ExtractionResult_Append(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onAppend` instead
+    ///
+    pub const OnAppend = onAppend;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
     ///
@@ -157,13 +193,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` callback: *const fn (self: KFileMetaData__ExtractionResult, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnAppend(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, [*:0]const u8) callconv(.c) void) void {
+    pub fn onAppend(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, [*:0]const u8) callconv(.c) void) void {
         qtc.KFileMetaData__ExtractionResult_OnAppend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAppend` instead
+    /// ### DEPRECATED: Use `superAppend` instead
     ///
-    pub const QBaseAppend = SuperAppend;
+    pub const SuperAppend = superAppend;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#append)
     ///
@@ -175,13 +211,17 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperAppend(self: KFileMetaData__ExtractionResult, text: []const u8) void {
+    pub fn superAppend(self: KFileMetaData__ExtractionResult, text: []const u8) void {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         qtc.KFileMetaData__ExtractionResult_SuperAppend(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `add` instead
+    ///
+    pub const Add = add;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
     ///
@@ -193,10 +233,14 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn Add(self: KFileMetaData__ExtractionResult, property: i32, value: anytype) void {
+    pub fn add(self: KFileMetaData__ExtractionResult, property: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.KFileMetaData__ExtractionResult_Add(@ptrCast(self.ptr), @bitCast(property), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onAdd` instead
+    ///
+    pub const OnAdd = onAdd;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
     ///
@@ -208,13 +252,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` callback: *const fn (self: KFileMetaData__ExtractionResult, property: properties_enums.Property, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnAdd(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, i32, QVariant) callconv(.c) void) void {
+    pub fn onAdd(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, i32, QVariant) callconv(.c) void) void {
         qtc.KFileMetaData__ExtractionResult_OnAdd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAdd` instead
+    /// ### DEPRECATED: Use `superAdd` instead
     ///
-    pub const QBaseAdd = SuperAdd;
+    pub const SuperAdd = superAdd;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#add)
     ///
@@ -228,10 +272,14 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperAdd(self: KFileMetaData__ExtractionResult, property: i32, value: anytype) void {
+    pub fn superAdd(self: KFileMetaData__ExtractionResult, property: i32, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.KFileMetaData__ExtractionResult_SuperAdd(@ptrCast(self.ptr), @bitCast(property), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `addType` instead
+    ///
+    pub const AddType = addType;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
     ///
@@ -241,9 +289,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` typeVal: types_enums.Type `
     ///
-    pub fn AddType(self: KFileMetaData__ExtractionResult, typeVal: i32) void {
+    pub fn addType(self: KFileMetaData__ExtractionResult, typeVal: i32) void {
         qtc.KFileMetaData__ExtractionResult_AddType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `onAddType` instead
+    ///
+    pub const OnAddType = onAddType;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
     ///
@@ -255,13 +307,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` callback: *const fn (self: KFileMetaData__ExtractionResult, typeVal: types_enums.Type) callconv(.c) void `
     ///
-    pub fn OnAddType(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, i32) callconv(.c) void) void {
+    pub fn onAddType(self: KFileMetaData__ExtractionResult, callback: *const fn (KFileMetaData__ExtractionResult, i32) callconv(.c) void) void {
         qtc.KFileMetaData__ExtractionResult_OnAddType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAddType` instead
+    /// ### DEPRECATED: Use `superAddType` instead
     ///
-    pub const QBaseAddType = SuperAddType;
+    pub const SuperAddType = superAddType;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#addType)
     ///
@@ -273,9 +325,13 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` typeVal: types_enums.Type `
     ///
-    pub fn SuperAddType(self: KFileMetaData__ExtractionResult, typeVal: i32) void {
+    pub fn superAddType(self: KFileMetaData__ExtractionResult, typeVal: i32) void {
         qtc.KFileMetaData__ExtractionResult_SuperAddType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `imageData` instead
+    ///
+    pub const ImageData = imageData;
 
     /// ### [Upstream resources](https://api.kde.org/kfilemetadata-extractionresult.html#imageData)
     ///
@@ -289,10 +345,10 @@ pub const KFileMetaData__ExtractionResult = extern struct {
     ///
     /// ` ArrayMap_i32_u8 (key: embeddedimagedata_enums.ImageType) `
     ///
-    pub fn ImageData(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
+    pub fn imageData(self: KFileMetaData__ExtractionResult, allocator: std.mem.Allocator) ArrayMap_i32_u8 {
         const _map: qtc.libqt_map = qtc.KFileMetaData__ExtractionResult_ImageData(@ptrCast(self.ptr));
         var _ret: ArrayMap_i32_u8 = .empty;
-        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__ExtractionResult.ImageData: Total capacity allocation failed");
+        _ret.ensureTotalCapacity(allocator, @intCast(_map.len)) catch @panic("KFileMetaData__ExtractionResult.imageData: Total capacity allocation failed");
         defer {
             const _values: [*]qtc.libqt_string = @ptrCast(@alignCast(_map.values));
             for (0.._map.len) |i| {
@@ -307,24 +363,24 @@ pub const KFileMetaData__ExtractionResult = extern struct {
         while (i < _map.len) : (i += 1) {
             const _key = _keys[i];
             const _value = _values[i];
-            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KFileMetaData__ExtractionResult.ImageData: Memory allocation failed");
+            const _value_slice = allocator.alloc(u8, _value.len) catch @panic("KFileMetaData__ExtractionResult.imageData: Memory allocation failed");
             @memcpy(_value_slice, _value.data);
             _ret.putAssumeCapacity(_key, _value_slice);
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KFileMetaData__ExtractionResult `
     ///
-    pub fn Delete(self: KFileMetaData__ExtractionResult) void {
+    pub fn delete(self: KFileMetaData__ExtractionResult) void {
         qtc.KFileMetaData__ExtractionResult_Delete(@ptrCast(self.ptr));
     }
 };

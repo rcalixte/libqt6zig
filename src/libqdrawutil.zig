@@ -12,29 +12,41 @@ pub const QTileRules = extern struct {
 
     pub const _is_QTileRules = {};
 
-    /// New constructs a new QTileRules object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTileRules object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTileRules `
     ///
-    pub fn New(other: anytype) QTileRules {
+    pub fn new(other: anytype) QTileRules {
         comptime _ = @TypeOf(other)._is_QTileRules;
         return .{ .ptr = qtc.QTileRules_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QTileRules object and invalidates the source QTileRules object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTileRules object and invalidate the source QTileRules object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QTileRules `
     ///
-    pub fn New2(other: anytype) QTileRules {
+    pub fn new2(other: anytype) QTileRules {
         comptime _ = @TypeOf(other)._is_QTileRules;
         return .{ .ptr = qtc.QTileRules_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QTileRules object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTileRules object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -42,38 +54,53 @@ pub const QTileRules = extern struct {
     ///
     /// ` verticalRule: qnamespace_enums.TileRule `
     ///
-    pub fn New3(horizontalRule: i32, verticalRule: i32) QTileRules {
+    pub fn new3(horizontalRule: i32, verticalRule: i32) QTileRules {
         return .{ .ptr = qtc.QTileRules_new3(@bitCast(horizontalRule), @bitCast(verticalRule)) };
     }
 
-    /// New4 constructs a new QTileRules object.
+    /// ### DEPRECATED: Use `new4` instead
     ///
-    pub fn New4() QTileRules {
+    pub const New4 = new4;
+
+    /// Allocate a new QTileRules object in C++ memory
+    ///
+    pub fn new4() QTileRules {
         return .{ .ptr = qtc.QTileRules_new4() };
     }
 
-    /// New5 constructs a new QTileRules object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTileRules object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QTileRules `
     ///
-    pub fn New5(param1: anytype) QTileRules {
+    pub fn new5(param1: anytype) QTileRules {
         comptime _ = @TypeOf(param1)._is_QTileRules;
         return .{ .ptr = qtc.QTileRules_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new QTileRules object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QTileRules object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` rule: qnamespace_enums.TileRule `
     ///
-    pub fn New6(rule: i32) QTileRules {
+    pub fn new6(rule: i32) QTileRules {
         return .{ .ptr = qtc.QTileRules_new6(@bitCast(rule)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -81,11 +108,14 @@ pub const QTileRules = extern struct {
     ///
     /// ` other: QTileRules `
     ///
-    pub fn CopyAssign(self: QTileRules, other: QTileRules) void {
+    pub fn copyAssign(self: QTileRules, other: QTileRules) void {
         qtc.QTileRules_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -93,10 +123,14 @@ pub const QTileRules = extern struct {
     ///
     /// ` other: QTileRules `
     ///
-    pub fn MoveAssign(self: QTileRules, other: QTileRules) void {
+    pub fn moveAssign(self: QTileRules, other: QTileRules) void {
         qtc.QTileRules_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `horizontal` instead
+    ///
+    pub const Horizontal = horizontal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ## Parameter(s):
@@ -107,21 +141,29 @@ pub const QTileRules = extern struct {
     ///
     /// ` qnamespace_enums.TileRule `
     ///
-    pub fn Horizontal(self: QTileRules) i32 {
+    pub fn horizontal(self: QTileRules) i32 {
         return qtc.QTileRules_Horizontal(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setHorizontal` instead
+    ///
+    pub const SetHorizontal = setHorizontal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#horizontal-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QTileRules `
     ///
-    /// ` horizontal: qnamespace_enums.TileRule `
+    /// ` _horizontal: qnamespace_enums.TileRule `
     ///
-    pub fn SetHorizontal(self: QTileRules, horizontal: i32) void {
-        qtc.QTileRules_SetHorizontal(@ptrCast(self.ptr), @bitCast(horizontal));
+    pub fn setHorizontal(self: QTileRules, _horizontal: i32) void {
+        qtc.QTileRules_SetHorizontal(@ptrCast(self.ptr), @bitCast(_horizontal));
     }
+
+    /// ### DEPRECATED: Use `vertical` instead
+    ///
+    pub const Vertical = vertical;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
@@ -133,9 +175,13 @@ pub const QTileRules = extern struct {
     ///
     /// ` qnamespace_enums.TileRule `
     ///
-    pub fn Vertical(self: QTileRules) i32 {
+    pub fn vertical(self: QTileRules) i32 {
         return qtc.QTileRules_Vertical(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVertical` instead
+    ///
+    pub const SetVertical = setVertical;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#vertical-var)
     ///
@@ -143,25 +189,25 @@ pub const QTileRules = extern struct {
     ///
     /// ` self: QTileRules `
     ///
-    /// ` vertical: qnamespace_enums.TileRule `
+    /// ` _vertical: qnamespace_enums.TileRule `
     ///
-    pub fn SetVertical(self: QTileRules, vertical: i32) void {
-        qtc.QTileRules_SetVertical(@ptrCast(self.ptr), @bitCast(vertical));
+    pub fn setVertical(self: QTileRules, _vertical: i32) void {
+        qtc.QTileRules_SetVertical(@ptrCast(self.ptr), @bitCast(_vertical));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtilerules.html#dtor.QTileRules)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTileRules `
     ///
-    pub fn Delete(self: QTileRules) void {
+    pub fn delete(self: QTileRules) void {
         qtc.QTileRules_Delete(@ptrCast(self.ptr));
     }
 };

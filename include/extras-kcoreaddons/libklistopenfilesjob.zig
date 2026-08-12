@@ -30,13 +30,17 @@ pub const KListOpenFilesJob = extern struct {
     pub const _is_KJob = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new KListOpenFilesJob object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KListOpenFilesJob object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` path: []const u8 `
     ///
-    pub fn New(path: []const u8) KListOpenFilesJob {
+    pub fn new(path: []const u8) KListOpenFilesJob {
         const path_str = qtc.libqt_string{
             .len = path.len,
             .data = path.ptr,
@@ -44,15 +48,23 @@ pub const KListOpenFilesJob = extern struct {
         return .{ .ptr = qtc.KListOpenFilesJob_new(path_str) };
     }
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn MetaObject(self: KListOpenFilesJob) QMetaObject {
+    pub fn metaObject(self: KListOpenFilesJob) QMetaObject {
         return .{ .ptr = qtc.KListOpenFilesJob_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -64,13 +76,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KListOpenFilesJob, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KListOpenFilesJob, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KListOpenFilesJob_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -80,9 +92,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperMetaObject(self: KListOpenFilesJob) QMetaObject {
+    pub fn superMetaObject(self: KListOpenFilesJob) QMetaObject {
         return .{ .ptr = qtc.KListOpenFilesJob_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -90,10 +106,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KListOpenFilesJob, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KListOpenFilesJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KListOpenFilesJob_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -103,13 +123,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KListOpenFilesJob_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -119,10 +139,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KListOpenFilesJob, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KListOpenFilesJob, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KListOpenFilesJob_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -134,9 +158,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KListOpenFilesJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KListOpenFilesJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KListOpenFilesJob_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -146,13 +174,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KListOpenFilesJob_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -166,9 +194,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KListOpenFilesJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KListOpenFilesJob, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KListOpenFilesJob_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -178,14 +210,18 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#start)
     ///
@@ -193,9 +229,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Start(self: KListOpenFilesJob) void {
+    pub fn start(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStart` instead
+    ///
+    pub const OnStart = onStart;
 
     /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#start)
     ///
@@ -207,13 +247,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStart(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStart(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnStart(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperStart` instead
+    /// ### DEPRECATED: Use `superStart` instead
     ///
-    pub const QBaseStart = SuperStart;
+    pub const SuperStart = superStart;
 
     /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#start)
     ///
@@ -223,9 +263,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperStart(self: KListOpenFilesJob) void {
+    pub fn superStart(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_SuperStart(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `processInfoList` instead
+    ///
+    pub const ProcessInfoList = processInfoList;
 
     /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#processInfoList)
     ///
@@ -235,15 +279,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ProcessInfoList(self: KListOpenFilesJob, allocator: std.mem.Allocator) []KProcessList__KProcessInfo {
+    pub fn processInfoList(self: KListOpenFilesJob, allocator: std.mem.Allocator) []KProcessList__KProcessInfo {
         const _arr: qtc.libqt_list = qtc.KListOpenFilesJob_ProcessInfoList(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("KListOpenFilesJob.ProcessInfoList: Memory allocation failed");
-        const _data: [*]QtC.KProcessList__KProcessInfo = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KProcessList__KProcessInfo, _arr.len) catch @panic("KListOpenFilesJob.processInfoList: Memory allocation failed");
+        const _data_val: [*]QtC.KProcessList__KProcessInfo = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -255,15 +303,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -277,15 +329,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUiDelegate` instead
+    ///
+    pub const SetUiDelegate = setUiDelegate;
 
     /// Inherited from KJob
     ///
@@ -297,10 +353,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` delegate: KJobUiDelegate `
     ///
-    pub fn SetUiDelegate(self: KListOpenFilesJob, delegate: anytype) void {
+    pub fn setUiDelegate(self: KListOpenFilesJob, delegate: anytype) void {
         comptime _ = @TypeOf(delegate)._is_KJobUiDelegate;
         qtc.KJob_SetUiDelegate(@ptrCast(self.ptr), @ptrCast(delegate.ptr));
     }
+
+    /// ### DEPRECATED: Use `uiDelegate` instead
+    ///
+    pub const UiDelegate = uiDelegate;
 
     /// Inherited from KJob
     ///
@@ -310,9 +370,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn UiDelegate(self: KListOpenFilesJob) KJobUiDelegate {
+    pub fn uiDelegate(self: KListOpenFilesJob) KJobUiDelegate {
         return .{ .ptr = qtc.KJob_UiDelegate(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `capabilities` instead
+    ///
+    pub const Capabilities = capabilities;
 
     /// Inherited from KJob
     ///
@@ -326,9 +390,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` flag of kjob_enums.Capability `
     ///
-    pub fn Capabilities(self: KListOpenFilesJob) i32 {
+    pub fn capabilities(self: KListOpenFilesJob) i32 {
         return qtc.KJob_Capabilities(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSuspended` instead
+    ///
+    pub const IsSuspended = isSuspended;
 
     /// Inherited from KJob
     ///
@@ -338,9 +406,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsSuspended(self: KListOpenFilesJob) bool {
+    pub fn isSuspended(self: KListOpenFilesJob) bool {
         return qtc.KJob_IsSuspended(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `kill` instead
+    ///
+    pub const Kill = kill;
 
     /// Inherited from KJob
     ///
@@ -350,9 +422,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Kill(self: KListOpenFilesJob) bool {
+    pub fn kill(self: KListOpenFilesJob) bool {
         return qtc.KJob_Kill(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `suspend0` instead
+    ///
+    pub const Suspend = suspend0;
+
+    pub const @"suspend" = suspend0;
 
     /// Inherited from KJob
     ///
@@ -362,9 +440,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Suspend(self: KListOpenFilesJob) bool {
+    pub fn suspend0(self: KListOpenFilesJob) bool {
         return qtc.KJob_Suspend(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// Inherited from KJob
     ///
@@ -374,9 +458,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Resume(self: KListOpenFilesJob) bool {
+    pub fn resume0(self: KListOpenFilesJob) bool {
         return qtc.KJob_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from KJob
     ///
@@ -386,9 +474,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Exec(self: KListOpenFilesJob) bool {
+    pub fn exec(self: KListOpenFilesJob) bool {
         return qtc.KJob_Exec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// Inherited from KJob
     ///
@@ -398,9 +492,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Error(self: KListOpenFilesJob) i32 {
+    pub fn error0(self: KListOpenFilesJob) i32 {
         return qtc.KJob_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorText` instead
+    ///
+    pub const ErrorText = errorText;
 
     /// Inherited from KJob
     ///
@@ -412,13 +510,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorText(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorText(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KJob_ErrorText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.ErrorText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.errorText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `processedAmount` instead
+    ///
+    pub const ProcessedAmount = processedAmount;
 
     /// Inherited from KJob
     ///
@@ -430,9 +532,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn ProcessedAmount(self: KListOpenFilesJob, unit: i32) usize {
+    pub fn processedAmount(self: KListOpenFilesJob, unit: i32) usize {
         return qtc.KJob_ProcessedAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `totalAmount` instead
+    ///
+    pub const TotalAmount = totalAmount;
 
     /// Inherited from KJob
     ///
@@ -444,9 +550,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn TotalAmount(self: KListOpenFilesJob, unit: i32) usize {
+    pub fn totalAmount(self: KListOpenFilesJob, unit: i32) usize {
         return qtc.KJob_TotalAmount(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `percent` instead
+    ///
+    pub const Percent = percent;
 
     /// Inherited from KJob
     ///
@@ -456,9 +566,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Percent(self: KListOpenFilesJob) usize {
+    pub fn percent(self: KListOpenFilesJob) usize {
         return qtc.KJob_Percent(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDelete` instead
+    ///
+    pub const SetAutoDelete = setAutoDelete;
 
     /// Inherited from KJob
     ///
@@ -470,9 +584,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` autodelete: bool `
     ///
-    pub fn SetAutoDelete(self: KListOpenFilesJob, autodelete: bool) void {
+    pub fn setAutoDelete(self: KListOpenFilesJob, autodelete: bool) void {
         qtc.KJob_SetAutoDelete(@ptrCast(self.ptr), autodelete);
     }
+
+    /// ### DEPRECATED: Use `isAutoDelete` instead
+    ///
+    pub const IsAutoDelete = isAutoDelete;
 
     /// Inherited from KJob
     ///
@@ -482,9 +600,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsAutoDelete(self: KListOpenFilesJob) bool {
+    pub fn isAutoDelete(self: KListOpenFilesJob) bool {
         return qtc.KJob_IsAutoDelete(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFinishedNotificationHidden` instead
+    ///
+    pub const SetFinishedNotificationHidden = setFinishedNotificationHidden;
 
     /// Inherited from KJob
     ///
@@ -494,9 +616,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SetFinishedNotificationHidden(self: KListOpenFilesJob) void {
+    pub fn setFinishedNotificationHidden(self: KListOpenFilesJob) void {
         qtc.KJob_SetFinishedNotificationHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFinishedNotificationHidden` instead
+    ///
+    pub const IsFinishedNotificationHidden = isFinishedNotificationHidden;
 
     /// Inherited from KJob
     ///
@@ -506,9 +632,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsFinishedNotificationHidden(self: KListOpenFilesJob) bool {
+    pub fn isFinishedNotificationHidden(self: KListOpenFilesJob) bool {
         return qtc.KJob_IsFinishedNotificationHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isStartedWithExec` instead
+    ///
+    pub const IsStartedWithExec = isStartedWithExec;
 
     /// Inherited from KJob
     ///
@@ -518,9 +648,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsStartedWithExec(self: KListOpenFilesJob) bool {
+    pub fn isStartedWithExec(self: KListOpenFilesJob) bool {
         return qtc.KJob_IsStartedWithExec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `elapsedTime` instead
+    ///
+    pub const ElapsedTime = elapsedTime;
 
     /// Inherited from KJob
     ///
@@ -530,9 +664,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn ElapsedTime(self: KListOpenFilesJob) i64 {
+    pub fn elapsedTime(self: KListOpenFilesJob) i64 {
         return qtc.KJob_ElapsedTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `infoMessage` instead
+    ///
+    pub const InfoMessage = infoMessage;
 
     /// Inherited from KJob
     ///
@@ -546,7 +684,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn InfoMessage(self: KListOpenFilesJob, job: anytype, message: []const u8) void {
+    pub fn infoMessage(self: KListOpenFilesJob, job: anytype, message: []const u8) void {
         comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -555,6 +693,10 @@ pub const KListOpenFilesJob = extern struct {
         qtc.KJob_InfoMessage(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
 
+    /// ### DEPRECATED: Use `onInfoMessage` instead
+    ///
+    pub const OnInfoMessage = onInfoMessage;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#infoMessage)
@@ -565,9 +707,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnInfoMessage(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onInfoMessage(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_InfoMessage(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `warning` instead
+    ///
+    pub const Warning = warning;
 
     /// Inherited from KJob
     ///
@@ -581,7 +727,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` message: []const u8 `
     ///
-    pub fn Warning(self: KListOpenFilesJob, job: anytype, message: []const u8) void {
+    pub fn warning(self: KListOpenFilesJob, job: anytype, message: []const u8) void {
         comptime _ = @TypeOf(job)._is_KJob;
         const message_str = qtc.libqt_string{
             .len = message.len,
@@ -589,6 +735,10 @@ pub const KListOpenFilesJob = extern struct {
         };
         qtc.KJob_Warning(@ptrCast(self.ptr), @ptrCast(job.ptr), message_str);
     }
+
+    /// ### DEPRECATED: Use `onWarning` instead
+    ///
+    pub const OnWarning = onWarning;
 
     /// Inherited from KJob
     ///
@@ -600,9 +750,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, message: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWarning(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWarning(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KJob_Connect_Warning(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `totalSize` instead
+    ///
+    pub const TotalSize = totalSize;
 
     /// Inherited from KJob
     ///
@@ -616,11 +770,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn TotalSize(self: KListOpenFilesJob, job: anytype, size: usize) void {
+    pub fn totalSize(self: KListOpenFilesJob, job: anytype, size: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KJob_TotalSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
 
+    /// ### DEPRECATED: Use `onTotalSize` instead
+    ///
+    pub const OnTotalSize = onTotalSize;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#totalSize)
@@ -631,9 +789,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnTotalSize(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
+    pub fn onTotalSize(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `processedSize` instead
+    ///
+    pub const ProcessedSize = processedSize;
 
     /// Inherited from KJob
     ///
@@ -647,10 +809,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` size: usize `
     ///
-    pub fn ProcessedSize(self: KListOpenFilesJob, job: anytype, size: usize) void {
+    pub fn processedSize(self: KListOpenFilesJob, job: anytype, size: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
         qtc.KJob_ProcessedSize(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(size));
     }
+
+    /// ### DEPRECATED: Use `onProcessedSize` instead
+    ///
+    pub const OnProcessedSize = onProcessedSize;
 
     /// Inherited from KJob
     ///
@@ -662,9 +828,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, size: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedSize(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
+    pub fn onProcessedSize(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `speed` instead
+    ///
+    pub const Speed = speed;
 
     /// Inherited from KJob
     ///
@@ -676,12 +846,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` job: KJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn Speed(self: KListOpenFilesJob, job: anytype, speed: usize) void {
+    pub fn speed(self: KListOpenFilesJob, job: anytype, _speed: usize) void {
         comptime _ = @TypeOf(job)._is_KJob;
-        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(speed));
+        qtc.KJob_Speed(@ptrCast(self.ptr), @ptrCast(job.ptr), @bitCast(_speed));
     }
+
+    /// ### DEPRECATED: Use `onSpeed` instead
+    ///
+    pub const OnSpeed = onSpeed;
 
     /// Inherited from KJob
     ///
@@ -693,9 +867,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnSpeed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
+    pub fn onSpeed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_Speed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `kill1` instead
+    ///
+    pub const Kill1 = kill1;
 
     /// Inherited from KJob
     ///
@@ -707,9 +885,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` verbosity: kjob_enums.KillVerbosity `
     ///
-    pub fn Kill1(self: KListOpenFilesJob, verbosity: i32) bool {
+    pub fn kill1(self: KListOpenFilesJob, verbosity: i32) bool {
         return qtc.KJob_Kill1(@ptrCast(self.ptr), @bitCast(verbosity));
     }
+
+    /// ### DEPRECATED: Use `setFinishedNotificationHidden1` instead
+    ///
+    pub const SetFinishedNotificationHidden1 = setFinishedNotificationHidden1;
 
     /// Inherited from KJob
     ///
@@ -721,9 +903,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` hide: bool `
     ///
-    pub fn SetFinishedNotificationHidden1(self: KListOpenFilesJob, hide: bool) void {
+    pub fn setFinishedNotificationHidden1(self: KListOpenFilesJob, hide: bool) void {
         qtc.KJob_SetFinishedNotificationHidden1(@ptrCast(self.ptr), hide);
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -735,13 +921,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -753,13 +943,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KListOpenFilesJob, name: []const u8) void {
+    pub fn setObjectName(self: KListOpenFilesJob, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -769,9 +963,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsWidgetType(self: KListOpenFilesJob) bool {
+    pub fn isWidgetType(self: KListOpenFilesJob) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -781,9 +979,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsWindowType(self: KListOpenFilesJob) bool {
+    pub fn isWindowType(self: KListOpenFilesJob) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -793,9 +995,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsQuickItemType(self: KListOpenFilesJob) bool {
+    pub fn isQuickItemType(self: KListOpenFilesJob) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -805,9 +1011,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SignalsBlocked(self: KListOpenFilesJob) bool {
+    pub fn signalsBlocked(self: KListOpenFilesJob) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -819,9 +1029,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KListOpenFilesJob, b: bool) bool {
+    pub fn blockSignals(self: KListOpenFilesJob, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -831,9 +1045,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Thread(self: KListOpenFilesJob) QThread {
+    pub fn thread(self: KListOpenFilesJob) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -843,12 +1061,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KListOpenFilesJob, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KListOpenFilesJob, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -860,9 +1082,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KListOpenFilesJob, interval: i32) i32 {
+    pub fn startTimer(self: KListOpenFilesJob, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -874,9 +1100,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KListOpenFilesJob, time: i64) i32 {
+    pub fn startTimer2(self: KListOpenFilesJob, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -888,9 +1118,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KListOpenFilesJob, id: i32) void {
+    pub fn killTimer(self: KListOpenFilesJob, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -902,9 +1136,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KListOpenFilesJob, id: i32) void {
+    pub fn killTimer2(self: KListOpenFilesJob, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -916,15 +1154,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KListOpenFilesJob, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KListOpenFilesJob, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KListOpenFilesJob.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KListOpenFilesJob.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -934,12 +1176,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: KListOpenFilesJob, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: KListOpenFilesJob, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -951,10 +1197,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KListOpenFilesJob, filterObj: anytype) void {
+    pub fn installEventFilter(self: KListOpenFilesJob, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -966,10 +1216,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KListOpenFilesJob, obj: anytype) void {
+    pub fn removeEventFilter(self: KListOpenFilesJob, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -977,7 +1231,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -985,13 +1239,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -999,7 +1257,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1007,13 +1265,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1023,18 +1285,22 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KListOpenFilesJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KListOpenFilesJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1042,7 +1308,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1050,13 +1316,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1064,7 +1334,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1072,13 +1342,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1088,9 +1362,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Disconnect3(self: KListOpenFilesJob) bool {
+    pub fn disconnect3(self: KListOpenFilesJob) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1102,10 +1380,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KListOpenFilesJob, receiver: anytype) bool {
+    pub fn disconnect4(self: KListOpenFilesJob, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1115,10 +1397,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1128,9 +1414,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DumpObjectTree(self: KListOpenFilesJob) void {
+    pub fn dumpObjectTree(self: KListOpenFilesJob) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1140,9 +1430,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DumpObjectInfo(self: KListOpenFilesJob) void {
+    pub fn dumpObjectInfo(self: KListOpenFilesJob) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1156,11 +1450,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KListOpenFilesJob, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KListOpenFilesJob, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1172,10 +1470,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KListOpenFilesJob, name: [:0]const u8) QVariant {
+    pub fn property(self: KListOpenFilesJob, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1187,7 +1489,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KListOpenFilesJob, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KListOpenFilesJob, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1195,27 +1497,19 @@ pub const KListOpenFilesJob = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KListOpenFilesJob.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KListOpenFilesJob.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KListOpenFilesJob.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KListOpenFilesJob.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KListOpenFilesJob `
-    ///
-    pub fn BindingStorage(self: KListOpenFilesJob) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1225,9 +1519,29 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn BindingStorage2(self: KListOpenFilesJob) QBindingStorage {
+    pub fn bindingStorage(self: KListOpenFilesJob) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KListOpenFilesJob `
+    ///
+    pub fn bindingStorage2(self: KListOpenFilesJob) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1237,9 +1551,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Destroyed(self: KListOpenFilesJob) void {
+    pub fn destroyed(self: KListOpenFilesJob) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1251,9 +1569,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob) callconv(.c) void) void {
+    pub fn onDestroyed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1263,9 +1585,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Parent(self: KListOpenFilesJob) QObject {
+    pub fn parent(self: KListOpenFilesJob) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1277,10 +1603,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KListOpenFilesJob, classname: [:0]const u8) bool {
+    pub fn inherits(self: KListOpenFilesJob, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1290,9 +1620,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DeleteLater(self: KListOpenFilesJob) void {
+    pub fn deleteLater(self: KListOpenFilesJob) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1306,9 +1640,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KListOpenFilesJob, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KListOpenFilesJob, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1322,9 +1660,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KListOpenFilesJob, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KListOpenFilesJob, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1332,7 +1674,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1342,13 +1684,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1356,7 +1702,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1366,13 +1712,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1382,7 +1732,7 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1390,12 +1740,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KListOpenFilesJob, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KListOpenFilesJob, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1407,10 +1761,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KListOpenFilesJob, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KListOpenFilesJob, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1424,11 +1782,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KListOpenFilesJob, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KListOpenFilesJob, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1444,13 +1806,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KListOpenFilesJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KListOpenFilesJob, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1463,11 +1829,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KListOpenFilesJob, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KListOpenFilesJob, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1479,10 +1849,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KListOpenFilesJob, param1: anytype) void {
+    pub fn destroyed1(self: KListOpenFilesJob, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1494,10 +1868,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doKill` instead
+    ///
+    pub const DoKill = doKill;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -1508,13 +1886,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DoKill(self: KListOpenFilesJob) bool {
+    pub fn doKill(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_DoKill(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoKill` instead
+    /// ### DEPRECATED: Use `superDoKill` instead
     ///
-    pub const QBaseDoKill = SuperDoKill;
+    pub const SuperDoKill = superDoKill;
 
     /// Inherited from KJob
     ///
@@ -1526,10 +1904,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperDoKill(self: KListOpenFilesJob) bool {
+    pub fn superDoKill(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_SuperDoKill(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoKill` instead
+    ///
+    pub const OnDoKill = onDoKill;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doKill)
@@ -1542,10 +1924,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoKill(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoKill(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnDoKill(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `doSuspend` instead
+    ///
+    pub const DoSuspend = doSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1556,13 +1942,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DoSuspend(self: KListOpenFilesJob) bool {
+    pub fn doSuspend(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_DoSuspend(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoSuspend` instead
+    /// ### DEPRECATED: Use `superDoSuspend` instead
     ///
-    pub const QBaseDoSuspend = SuperDoSuspend;
+    pub const SuperDoSuspend = superDoSuspend;
 
     /// Inherited from KJob
     ///
@@ -1574,10 +1960,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperDoSuspend(self: KListOpenFilesJob) bool {
+    pub fn superDoSuspend(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_SuperDoSuspend(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onDoSuspend` instead
+    ///
+    pub const OnDoSuspend = onDoSuspend;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#doSuspend)
@@ -1590,9 +1980,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoSuspend(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoSuspend(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnDoSuspend(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `doResume` instead
+    ///
+    pub const DoResume = doResume;
 
     /// Inherited from KJob
     ///
@@ -1604,13 +1998,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn DoResume(self: KListOpenFilesJob) bool {
+    pub fn doResume(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_DoResume(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDoResume` instead
+    /// ### DEPRECATED: Use `superDoResume` instead
     ///
-    pub const QBaseDoResume = SuperDoResume;
+    pub const SuperDoResume = superDoResume;
 
     /// Inherited from KJob
     ///
@@ -1622,9 +2016,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperDoResume(self: KListOpenFilesJob) bool {
+    pub fn superDoResume(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_SuperDoResume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDoResume` instead
+    ///
+    pub const OnDoResume = onDoResume;
 
     /// Inherited from KJob
     ///
@@ -1638,9 +2036,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnDoResume(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onDoResume(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnDoResume(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from KJob
     ///
@@ -1654,17 +2056,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KListOpenFilesJob_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperErrorString` instead
+    /// ### DEPRECATED: Use `superErrorString` instead
     ///
-    pub const QBaseErrorString = SuperErrorString;
+    pub const SuperErrorString = superErrorString;
 
     /// Inherited from KJob
     ///
@@ -1678,13 +2080,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperErrorString(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
+    pub fn superErrorString(self: KListOpenFilesJob, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KListOpenFilesJob_SuperErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KListOpenFilesJob.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onErrorString` instead
+    ///
+    pub const OnErrorString = onErrorString;
 
     /// Inherited from KJob
     ///
@@ -1698,9 +2104,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnErrorString(self: KListOpenFilesJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
+    pub fn onErrorString(self: KListOpenFilesJob, callback: *const fn () callconv(.c) [*:0]const u8) void {
         qtc.KListOpenFilesJob_OnErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1712,16 +2122,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KListOpenFilesJob, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListOpenFilesJob_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KListOpenFilesJob, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListOpenFilesJob_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1733,12 +2143,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KListOpenFilesJob, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListOpenFilesJob_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KListOpenFilesJob, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListOpenFilesJob_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1752,9 +2166,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QEvent) callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1768,17 +2186,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KListOpenFilesJob, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KListOpenFilesJob, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListOpenFilesJob_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListOpenFilesJob_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1792,13 +2210,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KListOpenFilesJob, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KListOpenFilesJob, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KListOpenFilesJob_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KListOpenFilesJob_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1812,9 +2234,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QObject, QEvent) callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1826,16 +2252,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KListOpenFilesJob_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KListOpenFilesJob_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1847,12 +2273,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KListOpenFilesJob_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KListOpenFilesJob_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1866,9 +2296,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QTimerEvent) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1880,16 +2314,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KListOpenFilesJob_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KListOpenFilesJob_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1901,12 +2335,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KListOpenFilesJob_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KListOpenFilesJob_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1920,9 +2358,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QChildEvent) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1934,16 +2376,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListOpenFilesJob_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListOpenFilesJob_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1955,12 +2397,16 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KListOpenFilesJob, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KListOpenFilesJob_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KListOpenFilesJob, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KListOpenFilesJob_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1974,9 +2420,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QEvent) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1990,14 +2440,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KListOpenFilesJob, signal: anytype) void {
+    pub fn connectNotify(self: KListOpenFilesJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListOpenFilesJob_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2011,11 +2461,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KListOpenFilesJob, signal: anytype) void {
+    pub fn superConnectNotify(self: KListOpenFilesJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListOpenFilesJob_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2028,9 +2482,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2044,14 +2502,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KListOpenFilesJob, signal: anytype) void {
+    pub fn disconnectNotify(self: KListOpenFilesJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListOpenFilesJob_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2065,10 +2523,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KListOpenFilesJob, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KListOpenFilesJob, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KListOpenFilesJob_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2082,9 +2544,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setCapabilities` instead
+    ///
+    pub const SetCapabilities = setCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2096,15 +2562,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` capabilities: flag of kjob_enums.Capability `
+    /// ` _capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SetCapabilities(self: KListOpenFilesJob, capabilities: i32) void {
-        qtc.KListOpenFilesJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
+    pub fn setCapabilities(self: KListOpenFilesJob, _capabilities: i32) void {
+        qtc.KListOpenFilesJob_SetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
 
-    /// ### DEPRECATED: Use `SuperSetCapabilities` instead
+    /// ### DEPRECATED: Use `superSetCapabilities` instead
     ///
-    pub const QBaseSetCapabilities = SuperSetCapabilities;
+    pub const SuperSetCapabilities = superSetCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2116,11 +2582,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` capabilities: flag of kjob_enums.Capability `
+    /// ` _capabilities: flag of kjob_enums.Capability `
     ///
-    pub fn SuperSetCapabilities(self: KListOpenFilesJob, capabilities: i32) void {
-        qtc.KListOpenFilesJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(capabilities));
+    pub fn superSetCapabilities(self: KListOpenFilesJob, _capabilities: i32) void {
+        qtc.KListOpenFilesJob_SuperSetCapabilities(@ptrCast(self.ptr), @bitCast(_capabilities));
     }
+
+    /// ### DEPRECATED: Use `onSetCapabilities` instead
+    ///
+    pub const OnSetCapabilities = onSetCapabilities;
 
     /// Inherited from KJob
     ///
@@ -2134,9 +2604,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, capabilities: flag of kjob_enums.Capability) callconv(.c) void `
     ///
-    pub fn OnSetCapabilities(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
+    pub fn onSetCapabilities(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetCapabilities(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// Inherited from KJob
     ///
@@ -2148,13 +2622,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn IsFinished(self: KListOpenFilesJob) bool {
+    pub fn isFinished(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_IsFinished(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsFinished` instead
+    /// ### DEPRECATED: Use `superIsFinished` instead
     ///
-    pub const QBaseIsFinished = SuperIsFinished;
+    pub const SuperIsFinished = superIsFinished;
 
     /// Inherited from KJob
     ///
@@ -2166,9 +2640,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperIsFinished(self: KListOpenFilesJob) bool {
+    pub fn superIsFinished(self: KListOpenFilesJob) bool {
         return qtc.KListOpenFilesJob_SuperIsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsFinished` instead
+    ///
+    pub const OnIsFinished = onIsFinished;
 
     /// Inherited from KJob
     ///
@@ -2182,9 +2660,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsFinished(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsFinished(self: KListOpenFilesJob, callback: *const fn () callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnIsFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
 
     /// Inherited from KJob
     ///
@@ -2198,13 +2680,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SetError(self: KListOpenFilesJob, errorCode: i32) void {
+    pub fn setError(self: KListOpenFilesJob, errorCode: i32) void {
         qtc.KListOpenFilesJob_SetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetError` instead
+    /// ### DEPRECATED: Use `superSetError` instead
     ///
-    pub const QBaseSetError = SuperSetError;
+    pub const SuperSetError = superSetError;
 
     /// Inherited from KJob
     ///
@@ -2218,9 +2700,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` errorCode: i32 `
     ///
-    pub fn SuperSetError(self: KListOpenFilesJob, errorCode: i32) void {
+    pub fn superSetError(self: KListOpenFilesJob, errorCode: i32) void {
         qtc.KListOpenFilesJob_SuperSetError(@ptrCast(self.ptr), @bitCast(errorCode));
     }
+
+    /// ### DEPRECATED: Use `onSetError` instead
+    ///
+    pub const OnSetError = onSetError;
 
     /// Inherited from KJob
     ///
@@ -2234,9 +2720,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, errorCode: i32) callconv(.c) void `
     ///
-    pub fn OnSetError(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
+    pub fn onSetError(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetError(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorText` instead
+    ///
+    pub const SetErrorText = setErrorText;
 
     /// Inherited from KJob
     ///
@@ -2248,19 +2738,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` errorText: []const u8 `
+    /// ` _errorText: []const u8 `
     ///
-    pub fn SetErrorText(self: KListOpenFilesJob, errorText: []const u8) void {
+    pub fn setErrorText(self: KListOpenFilesJob, _errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
-            .len = errorText.len,
-            .data = errorText.ptr,
+            .len = _errorText.len,
+            .data = _errorText.ptr,
         };
         qtc.KListOpenFilesJob_SetErrorText(@ptrCast(self.ptr), errorText_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorText` instead
+    /// ### DEPRECATED: Use `superSetErrorText` instead
     ///
-    pub const QBaseSetErrorText = SuperSetErrorText;
+    pub const SuperSetErrorText = superSetErrorText;
 
     /// Inherited from KJob
     ///
@@ -2272,15 +2762,19 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` errorText: []const u8 `
+    /// ` _errorText: []const u8 `
     ///
-    pub fn SuperSetErrorText(self: KListOpenFilesJob, errorText: []const u8) void {
+    pub fn superSetErrorText(self: KListOpenFilesJob, _errorText: []const u8) void {
         const errorText_str = qtc.libqt_string{
-            .len = errorText.len,
-            .data = errorText.ptr,
+            .len = _errorText.len,
+            .data = _errorText.ptr,
         };
         qtc.KListOpenFilesJob_SuperSetErrorText(@ptrCast(self.ptr), errorText_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorText` instead
+    ///
+    pub const OnSetErrorText = onSetErrorText;
 
     /// Inherited from KJob
     ///
@@ -2294,10 +2788,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, errorText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorText(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorText(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetErrorText(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `setProcessedAmount` instead
+    ///
+    pub const SetProcessedAmount = setProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2312,13 +2810,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SetProcessedAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
+    pub fn setProcessedAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
         qtc.KListOpenFilesJob_SetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProcessedAmount` instead
+    /// ### DEPRECATED: Use `superSetProcessedAmount` instead
     ///
-    pub const QBaseSetProcessedAmount = SuperSetProcessedAmount;
+    pub const SuperSetProcessedAmount = superSetProcessedAmount;
 
     /// Inherited from KJob
     ///
@@ -2334,10 +2832,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetProcessedAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
+    pub fn superSetProcessedAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
         qtc.KListOpenFilesJob_SuperSetProcessedAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
+    /// ### DEPRECATED: Use `onSetProcessedAmount` instead
+    ///
+    pub const OnSetProcessedAmount = onSetProcessedAmount;
+
     /// Inherited from KJob
     ///
     /// ### [Upstream resources](https://api.kde.org/kjob.html#setProcessedAmount)
@@ -2350,9 +2852,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetProcessedAmount(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, usize) callconv(.c) void) void {
+    pub fn onSetProcessedAmount(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, usize) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetProcessedAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setTotalAmount` instead
+    ///
+    pub const SetTotalAmount = setTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2368,13 +2874,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SetTotalAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
+    pub fn setTotalAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
         qtc.KListOpenFilesJob_SetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
 
-    /// ### DEPRECATED: Use `SuperSetTotalAmount` instead
+    /// ### DEPRECATED: Use `superSetTotalAmount` instead
     ///
-    pub const QBaseSetTotalAmount = SuperSetTotalAmount;
+    pub const SuperSetTotalAmount = superSetTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2390,9 +2896,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` amount: usize `
     ///
-    pub fn SuperSetTotalAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
+    pub fn superSetTotalAmount(self: KListOpenFilesJob, unit: i32, amount: usize) void {
         qtc.KListOpenFilesJob_SuperSetTotalAmount(@ptrCast(self.ptr), @bitCast(unit), @bitCast(amount));
     }
+
+    /// ### DEPRECATED: Use `onSetTotalAmount` instead
+    ///
+    pub const OnSetTotalAmount = onSetTotalAmount;
 
     /// Inherited from KJob
     ///
@@ -2406,9 +2916,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnSetTotalAmount(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, usize) callconv(.c) void) void {
+    pub fn onSetTotalAmount(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32, usize) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetTotalAmount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setProgressUnit` instead
+    ///
+    pub const SetProgressUnit = setProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2422,13 +2936,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SetProgressUnit(self: KListOpenFilesJob, unit: i32) void {
+    pub fn setProgressUnit(self: KListOpenFilesJob, unit: i32) void {
         qtc.KListOpenFilesJob_SetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
 
-    /// ### DEPRECATED: Use `SuperSetProgressUnit` instead
+    /// ### DEPRECATED: Use `superSetProgressUnit` instead
     ///
-    pub const QBaseSetProgressUnit = SuperSetProgressUnit;
+    pub const SuperSetProgressUnit = superSetProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2442,9 +2956,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` unit: kjob_enums.Unit `
     ///
-    pub fn SuperSetProgressUnit(self: KListOpenFilesJob, unit: i32) void {
+    pub fn superSetProgressUnit(self: KListOpenFilesJob, unit: i32) void {
         qtc.KListOpenFilesJob_SuperSetProgressUnit(@ptrCast(self.ptr), @bitCast(unit));
     }
+
+    /// ### DEPRECATED: Use `onSetProgressUnit` instead
+    ///
+    pub const OnSetProgressUnit = onSetProgressUnit;
 
     /// Inherited from KJob
     ///
@@ -2458,9 +2976,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, unit: kjob_enums.Unit) callconv(.c) void `
     ///
-    pub fn OnSetProgressUnit(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
+    pub fn onSetProgressUnit(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, i32) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetProgressUnit(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setPercent` instead
+    ///
+    pub const SetPercent = setPercent;
 
     /// Inherited from KJob
     ///
@@ -2474,13 +2996,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` percentage: usize `
     ///
-    pub fn SetPercent(self: KListOpenFilesJob, percentage: usize) void {
+    pub fn setPercent(self: KListOpenFilesJob, percentage: usize) void {
         qtc.KListOpenFilesJob_SetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPercent` instead
+    /// ### DEPRECATED: Use `superSetPercent` instead
     ///
-    pub const QBaseSetPercent = SuperSetPercent;
+    pub const SuperSetPercent = superSetPercent;
 
     /// Inherited from KJob
     ///
@@ -2494,9 +3016,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` percentage: usize `
     ///
-    pub fn SuperSetPercent(self: KListOpenFilesJob, percentage: usize) void {
+    pub fn superSetPercent(self: KListOpenFilesJob, percentage: usize) void {
         qtc.KListOpenFilesJob_SuperSetPercent(@ptrCast(self.ptr), @bitCast(percentage));
     }
+
+    /// ### DEPRECATED: Use `onSetPercent` instead
+    ///
+    pub const OnSetPercent = onSetPercent;
 
     /// Inherited from KJob
     ///
@@ -2510,9 +3036,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, percentage: usize) callconv(.c) void `
     ///
-    pub fn OnSetPercent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize) callconv(.c) void) void {
+    pub fn onSetPercent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnSetPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitResult` instead
+    ///
+    pub const EmitResult = emitResult;
 
     /// Inherited from KJob
     ///
@@ -2524,13 +3054,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn EmitResult(self: KListOpenFilesJob) void {
+    pub fn emitResult(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_EmitResult(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitResult` instead
+    /// ### DEPRECATED: Use `superEmitResult` instead
     ///
-    pub const QBaseEmitResult = SuperEmitResult;
+    pub const SuperEmitResult = superEmitResult;
 
     /// Inherited from KJob
     ///
@@ -2542,9 +3072,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperEmitResult(self: KListOpenFilesJob) void {
+    pub fn superEmitResult(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_SuperEmitResult(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEmitResult` instead
+    ///
+    pub const OnEmitResult = onEmitResult;
 
     /// Inherited from KJob
     ///
@@ -2558,9 +3092,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnEmitResult(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onEmitResult(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnEmitResult(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitPercent` instead
+    ///
+    pub const EmitPercent = emitPercent;
 
     /// Inherited from KJob
     ///
@@ -2572,17 +3110,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` processedAmount: usize `
+    /// ` _processedAmount: usize `
     ///
-    /// ` totalAmount: usize `
+    /// ` _totalAmount: usize `
     ///
-    pub fn EmitPercent(self: KListOpenFilesJob, processedAmount: usize, totalAmount: usize) void {
-        qtc.KListOpenFilesJob_EmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn emitPercent(self: KListOpenFilesJob, _processedAmount: usize, _totalAmount: usize) void {
+        qtc.KListOpenFilesJob_EmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitPercent` instead
+    /// ### DEPRECATED: Use `superEmitPercent` instead
     ///
-    pub const QBaseEmitPercent = SuperEmitPercent;
+    pub const SuperEmitPercent = superEmitPercent;
 
     /// Inherited from KJob
     ///
@@ -2594,13 +3132,17 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` processedAmount: usize `
+    /// ` _processedAmount: usize `
     ///
-    /// ` totalAmount: usize `
+    /// ` _totalAmount: usize `
     ///
-    pub fn SuperEmitPercent(self: KListOpenFilesJob, processedAmount: usize, totalAmount: usize) void {
-        qtc.KListOpenFilesJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(processedAmount), @bitCast(totalAmount));
+    pub fn superEmitPercent(self: KListOpenFilesJob, _processedAmount: usize, _totalAmount: usize) void {
+        qtc.KListOpenFilesJob_SuperEmitPercent(@ptrCast(self.ptr), @bitCast(_processedAmount), @bitCast(_totalAmount));
     }
+
+    /// ### DEPRECATED: Use `onEmitPercent` instead
+    ///
+    pub const OnEmitPercent = onEmitPercent;
 
     /// Inherited from KJob
     ///
@@ -2614,9 +3156,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, processedAmount: usize, totalAmount: usize) callconv(.c) void `
     ///
-    pub fn OnEmitPercent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize, usize) callconv(.c) void) void {
+    pub fn onEmitPercent(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize, usize) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnEmitPercent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `emitSpeed` instead
+    ///
+    pub const EmitSpeed = emitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2628,15 +3174,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn EmitSpeed(self: KListOpenFilesJob, speed: usize) void {
-        qtc.KListOpenFilesJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
+    pub fn emitSpeed(self: KListOpenFilesJob, _speed: usize) void {
+        qtc.KListOpenFilesJob_EmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
 
-    /// ### DEPRECATED: Use `SuperEmitSpeed` instead
+    /// ### DEPRECATED: Use `superEmitSpeed` instead
     ///
-    pub const QBaseEmitSpeed = SuperEmitSpeed;
+    pub const SuperEmitSpeed = superEmitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2648,11 +3194,15 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    /// ` speed: usize `
+    /// ` _speed: usize `
     ///
-    pub fn SuperEmitSpeed(self: KListOpenFilesJob, speed: usize) void {
-        qtc.KListOpenFilesJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(speed));
+    pub fn superEmitSpeed(self: KListOpenFilesJob, _speed: usize) void {
+        qtc.KListOpenFilesJob_SuperEmitSpeed(@ptrCast(self.ptr), @bitCast(_speed));
     }
+
+    /// ### DEPRECATED: Use `onEmitSpeed` instead
+    ///
+    pub const OnEmitSpeed = onEmitSpeed;
 
     /// Inherited from KJob
     ///
@@ -2666,9 +3216,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, speed: usize) callconv(.c) void `
     ///
-    pub fn OnEmitSpeed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize) callconv(.c) void) void {
+    pub fn onEmitSpeed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, usize) callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnEmitSpeed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `startElapsedTimer` instead
+    ///
+    pub const StartElapsedTimer = startElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2680,13 +3234,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn StartElapsedTimer(self: KListOpenFilesJob) void {
+    pub fn startElapsedTimer(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_StartElapsedTimer(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperStartElapsedTimer` instead
+    /// ### DEPRECATED: Use `superStartElapsedTimer` instead
     ///
-    pub const QBaseStartElapsedTimer = SuperStartElapsedTimer;
+    pub const SuperStartElapsedTimer = superStartElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2698,9 +3252,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperStartElapsedTimer(self: KListOpenFilesJob) void {
+    pub fn superStartElapsedTimer(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_SuperStartElapsedTimer(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onStartElapsedTimer` instead
+    ///
+    pub const OnStartElapsedTimer = onStartElapsedTimer;
 
     /// Inherited from KJob
     ///
@@ -2714,9 +3272,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnStartElapsedTimer(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
+    pub fn onStartElapsedTimer(self: KListOpenFilesJob, callback: *const fn () callconv(.c) void) void {
         qtc.KListOpenFilesJob_OnStartElapsedTimer(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2728,13 +3290,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Sender(self: KListOpenFilesJob) QObject {
+    pub fn sender(self: KListOpenFilesJob) QObject {
         return .{ .ptr = qtc.KListOpenFilesJob_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2746,9 +3308,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperSender(self: KListOpenFilesJob) QObject {
+    pub fn superSender(self: KListOpenFilesJob) QObject {
         return .{ .ptr = qtc.KListOpenFilesJob_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2762,9 +3328,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KListOpenFilesJob, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KListOpenFilesJob, callback: *const fn () callconv(.c) QObject) void {
         qtc.KListOpenFilesJob_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2776,13 +3346,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SenderSignalIndex(self: KListOpenFilesJob) i32 {
+    pub fn senderSignalIndex(self: KListOpenFilesJob) i32 {
         return qtc.KListOpenFilesJob_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2794,9 +3364,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn SuperSenderSignalIndex(self: KListOpenFilesJob) i32 {
+    pub fn superSenderSignalIndex(self: KListOpenFilesJob) i32 {
         return qtc.KListOpenFilesJob_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2810,9 +3384,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KListOpenFilesJob, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KListOpenFilesJob, callback: *const fn () callconv(.c) i32) void {
         qtc.KListOpenFilesJob_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2826,14 +3404,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KListOpenFilesJob, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KListOpenFilesJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KListOpenFilesJob_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2847,10 +3425,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KListOpenFilesJob, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KListOpenFilesJob, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KListOpenFilesJob_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2864,9 +3446,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) i32) void {
         qtc.KListOpenFilesJob_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2880,14 +3466,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KListOpenFilesJob, signal: anytype) bool {
+    pub fn isSignalConnected(self: KListOpenFilesJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KListOpenFilesJob_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2901,10 +3487,14 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KListOpenFilesJob, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KListOpenFilesJob, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KListOpenFilesJob_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2918,9 +3508,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, QMetaMethod) callconv(.c) bool) void {
         qtc.KListOpenFilesJob_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from KJob
     ///
@@ -2934,9 +3528,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
+    pub fn onFinished(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onSuspended` instead
+    ///
+    pub const OnSuspended = onSuspended;
 
     /// Inherited from KJob
     ///
@@ -2950,9 +3548,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnSuspended(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
+    pub fn onSuspended(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Suspended(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onResumed` instead
+    ///
+    pub const OnResumed = onResumed;
 
     /// Inherited from KJob
     ///
@@ -2966,9 +3568,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResumed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
+    pub fn onResumed(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Resumed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onResult` instead
+    ///
+    pub const OnResult = onResult;
 
     /// Inherited from KJob
     ///
@@ -2982,9 +3588,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob) callconv(.c) void `
     ///
-    pub fn OnResult(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
+    pub fn onResult(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob) callconv(.c) void) void {
         qtc.KJob_Connect_Result(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onTotalAmountChanged` instead
+    ///
+    pub const OnTotalAmountChanged = onTotalAmountChanged;
 
     /// Inherited from KJob
     ///
@@ -2998,9 +3608,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnTotalAmountChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, i32, usize) callconv(.c) void) void {
+    pub fn onTotalAmountChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_TotalAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onProcessedAmountChanged` instead
+    ///
+    pub const OnProcessedAmountChanged = onProcessedAmountChanged;
 
     /// Inherited from KJob
     ///
@@ -3014,9 +3628,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, unit: kjob_enums.Unit, amount: usize) callconv(.c) void `
     ///
-    pub fn OnProcessedAmountChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, i32, usize) callconv(.c) void) void {
+    pub fn onProcessedAmountChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, i32, usize) callconv(.c) void) void {
         qtc.KJob_Connect_ProcessedAmountChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onPercentChanged` instead
+    ///
+    pub const OnPercentChanged = onPercentChanged;
 
     /// Inherited from KJob
     ///
@@ -3030,9 +3648,13 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, job: KJob, percent: usize) callconv(.c) void `
     ///
-    pub fn OnPercentChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
+    pub fn onPercentChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, KJob, usize) callconv(.c) void) void {
         qtc.KJob_Connect_PercentChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3046,23 +3668,23 @@ pub const KListOpenFilesJob = extern struct {
     ///
     /// ` callback: *const fn (self: KListOpenFilesJob, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KListOpenFilesJob, callback: *const fn (KListOpenFilesJob, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/klistopenfilesjob.html#dtor.KListOpenFilesJob)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KListOpenFilesJob `
     ///
-    pub fn Delete(self: KListOpenFilesJob) void {
+    pub fn delete(self: KListOpenFilesJob) void {
         qtc.KListOpenFilesJob_Delete(@ptrCast(self.ptr));
     }
 };

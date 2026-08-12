@@ -40,22 +40,34 @@ pub const QItemDelegate = extern struct {
     pub const _is_QAbstractItemDelegate = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QItemDelegate object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QItemDelegate {
+    pub const New = new;
+
+    /// Allocate a new QItemDelegate object in C++ memory
+    ///
+    pub fn new() QItemDelegate {
         return .{ .ptr = qtc.QItemDelegate_new() };
     }
 
-    /// New2 constructs a new QItemDelegate object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QItemDelegate object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QItemDelegate {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QItemDelegate_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QItemDelegate {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QItemDelegate_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,9 +75,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn MetaObject(self: QItemDelegate) QMetaObject {
+    pub fn metaObject(self: QItemDelegate) QMetaObject {
         return .{ .ptr = qtc.QItemDelegate_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,13 +93,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QItemDelegate, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QItemDelegate_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -93,9 +109,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn SuperMetaObject(self: QItemDelegate) QMetaObject {
+    pub fn superMetaObject(self: QItemDelegate) QMetaObject {
         return .{ .ptr = qtc.QItemDelegate_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -103,10 +123,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QItemDelegate, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QItemDelegate, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QItemDelegate_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -116,13 +140,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QItemDelegate_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -132,10 +156,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QItemDelegate, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QItemDelegate, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QItemDelegate_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -147,9 +175,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QItemDelegate_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +191,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QItemDelegate, callback: *const fn (QItemDelegate, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QItemDelegate, callback: *const fn (QItemDelegate, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QItemDelegate_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -179,9 +211,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QItemDelegate, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QItemDelegate_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -191,14 +227,18 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hasClipping` instead
+    ///
+    pub const HasClipping = hasClipping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#hasClipping)
     ///
@@ -206,9 +246,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn HasClipping(self: QItemDelegate) bool {
+    pub fn hasClipping(self: QItemDelegate) bool {
         return qtc.QItemDelegate_HasClipping(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setClipping` instead
+    ///
+    pub const SetClipping = setClipping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setClipping)
     ///
@@ -218,9 +262,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` clip: bool `
     ///
-    pub fn SetClipping(self: QItemDelegate, clip: bool) void {
+    pub fn setClipping(self: QItemDelegate, clip: bool) void {
         qtc.QItemDelegate_SetClipping(@ptrCast(self.ptr), clip);
     }
+
+    /// ### DEPRECATED: Use `paint` instead
+    ///
+    pub const Paint = paint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
@@ -234,12 +282,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn Paint(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn paint(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_Paint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaint` instead
+    ///
+    pub const OnPaint = onPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
@@ -251,13 +303,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnPaint(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+    pub fn onPaint(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnPaint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaint` instead
+    /// ### DEPRECATED: Use `superPaint` instead
     ///
-    pub const QBasePaint = SuperPaint;
+    pub const SuperPaint = superPaint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#paint)
     ///
@@ -273,12 +325,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperPaint(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn superPaint(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperPaint(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
@@ -290,11 +346,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SizeHint(self: QItemDelegate, option: anytype, index: anytype) QSize {
+    pub fn sizeHint(self: QItemDelegate, option: anytype, index: anytype) QSize {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QItemDelegate_SizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
@@ -308,13 +368,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex) callconv(.c) QSize) void {
         qtc.QItemDelegate_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#sizeHint)
     ///
@@ -328,11 +388,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSizeHint(self: QItemDelegate, option: anytype, index: anytype) QSize {
+    pub fn superSizeHint(self: QItemDelegate, option: anytype, index: anytype) QSize {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QItemDelegate_SuperSizeHint(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createEditor` instead
+    ///
+    pub const CreateEditor = createEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
@@ -340,18 +404,22 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` option: QStyleOptionViewItem `
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn CreateEditor(self: QItemDelegate, parent: anytype, option: anytype, index: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn createEditor(self: QItemDelegate, _parent: anytype, option: anytype, index: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QItemDelegate_CreateEditor(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
+        return .{ .ptr = qtc.QItemDelegate_CreateEditor(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateEditor` instead
+    ///
+    pub const OnCreateEditor = onCreateEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
@@ -363,13 +431,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, parent: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) QWidget `
     ///
-    pub fn OnCreateEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QWidget) void {
+    pub fn onCreateEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) QWidget) void {
         qtc.QItemDelegate_OnCreateEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateEditor` instead
+    /// ### DEPRECATED: Use `superCreateEditor` instead
     ///
-    pub const QBaseCreateEditor = SuperCreateEditor;
+    pub const SuperCreateEditor = superCreateEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#createEditor)
     ///
@@ -379,18 +447,22 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
     /// ` option: QStyleOptionViewItem `
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperCreateEditor(self: QItemDelegate, parent: anytype, option: anytype, index: anytype) QWidget {
-        comptime _ = @TypeOf(parent)._is_QWidget;
+    pub fn superCreateEditor(self: QItemDelegate, _parent: anytype, option: anytype, index: anytype) QWidget {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return .{ .ptr = qtc.QItemDelegate_SuperCreateEditor(@ptrCast(self.ptr), @ptrCast(parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
+        return .{ .ptr = qtc.QItemDelegate_SuperCreateEditor(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEditorData` instead
+    ///
+    pub const SetEditorData = setEditorData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
@@ -402,11 +474,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetEditorData(self: QItemDelegate, editor: anytype, index: anytype) void {
+    pub fn setEditorData(self: QItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SetEditorData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetEditorData` instead
+    ///
+    pub const OnSetEditorData = onSetEditorData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
@@ -418,13 +494,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetEditorData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onSetEditorData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnSetEditorData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetEditorData` instead
+    /// ### DEPRECATED: Use `superSetEditorData` instead
     ///
-    pub const QBaseSetEditorData = SuperSetEditorData;
+    pub const SuperSetEditorData = superSetEditorData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setEditorData)
     ///
@@ -438,11 +514,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetEditorData(self: QItemDelegate, editor: anytype, index: anytype) void {
+    pub fn superSetEditorData(self: QItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperSetEditorData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModelData` instead
+    ///
+    pub const SetModelData = setModelData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
@@ -456,12 +536,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SetModelData(self: QItemDelegate, editor: anytype, model: anytype, index: anytype) void {
+    pub fn setModelData(self: QItemDelegate, editor: anytype, model: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SetModelData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(model.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetModelData` instead
+    ///
+    pub const OnSetModelData = onSetModelData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
@@ -473,13 +557,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget, model: QAbstractItemModel, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSetModelData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QAbstractItemModel, QModelIndex) callconv(.c) void) void {
+    pub fn onSetModelData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QAbstractItemModel, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnSetModelData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetModelData` instead
+    /// ### DEPRECATED: Use `superSetModelData` instead
     ///
-    pub const QBaseSetModelData = SuperSetModelData;
+    pub const SuperSetModelData = superSetModelData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setModelData)
     ///
@@ -495,12 +579,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperSetModelData(self: QItemDelegate, editor: anytype, model: anytype, index: anytype) void {
+    pub fn superSetModelData(self: QItemDelegate, editor: anytype, model: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperSetModelData(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(model.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateEditorGeometry` instead
+    ///
+    pub const UpdateEditorGeometry = updateEditorGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
@@ -514,12 +602,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn UpdateEditorGeometry(self: QItemDelegate, editor: anytype, option: anytype, index: anytype) void {
+    pub fn updateEditorGeometry(self: QItemDelegate, editor: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_UpdateEditorGeometry(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateEditorGeometry` instead
+    ///
+    pub const OnUpdateEditorGeometry = onUpdateEditorGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
@@ -531,13 +623,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnUpdateEditorGeometry(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+    pub fn onUpdateEditorGeometry(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnUpdateEditorGeometry(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateEditorGeometry` instead
+    /// ### DEPRECATED: Use `superUpdateEditorGeometry` instead
     ///
-    pub const QBaseUpdateEditorGeometry = SuperUpdateEditorGeometry;
+    pub const SuperUpdateEditorGeometry = superUpdateEditorGeometry;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#updateEditorGeometry)
     ///
@@ -553,12 +645,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperUpdateEditorGeometry(self: QItemDelegate, editor: anytype, option: anytype, index: anytype) void {
+    pub fn superUpdateEditorGeometry(self: QItemDelegate, editor: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperUpdateEditorGeometry(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `itemEditorFactory` instead
+    ///
+    pub const ItemEditorFactory = itemEditorFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#itemEditorFactory)
     ///
@@ -566,9 +662,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn ItemEditorFactory(self: QItemDelegate) QItemEditorFactory {
+    pub fn itemEditorFactory(self: QItemDelegate) QItemEditorFactory {
         return .{ .ptr = qtc.QItemDelegate_ItemEditorFactory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setItemEditorFactory` instead
+    ///
+    pub const SetItemEditorFactory = setItemEditorFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setItemEditorFactory)
     ///
@@ -578,10 +678,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` factory: QItemEditorFactory `
     ///
-    pub fn SetItemEditorFactory(self: QItemDelegate, factory: anytype) void {
+    pub fn setItemEditorFactory(self: QItemDelegate, factory: anytype) void {
         comptime _ = @TypeOf(factory)._is_QItemEditorFactory;
         qtc.QItemDelegate_SetItemEditorFactory(@ptrCast(self.ptr), @ptrCast(factory.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawDisplay` instead
+    ///
+    pub const DrawDisplay = drawDisplay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
@@ -593,20 +697,24 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn DrawDisplay(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, text: []const u8) void {
+    pub fn drawDisplay(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, text: []const u8) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QItemDelegate_DrawDisplay(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), text_str);
+        qtc.QItemDelegate_DrawDisplay(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `onDrawDisplay` instead
+    ///
+    pub const OnDrawDisplay = onDrawDisplay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
@@ -618,13 +726,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, rect: QRect, text: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnDrawDisplay(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, [*:0]const u8) callconv(.c) void) void {
+    pub fn onDrawDisplay(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, [*:0]const u8) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawDisplay(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawDisplay` instead
+    /// ### DEPRECATED: Use `superDrawDisplay` instead
     ///
-    pub const QBaseDrawDisplay = SuperDrawDisplay;
+    pub const SuperDrawDisplay = superDrawDisplay;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDisplay)
     ///
@@ -638,20 +746,24 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperDrawDisplay(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, text: []const u8) void {
+    pub fn superDrawDisplay(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, text: []const u8) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        qtc.QItemDelegate_SuperDrawDisplay(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), text_str);
+        qtc.QItemDelegate_SuperDrawDisplay(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `drawDecoration` instead
+    ///
+    pub const DrawDecoration = drawDecoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
@@ -663,17 +775,21 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn DrawDecoration(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, pixmap: anytype) void {
+    pub fn drawDecoration(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, pixmap: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QItemDelegate_DrawDecoration(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), @ptrCast(pixmap.ptr));
+        qtc.QItemDelegate_DrawDecoration(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawDecoration` instead
+    ///
+    pub const OnDrawDecoration = onDrawDecoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
@@ -685,13 +801,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, rect: QRect, pixmap: QPixmap) callconv(.c) void `
     ///
-    pub fn OnDrawDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, QPixmap) callconv(.c) void) void {
+    pub fn onDrawDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, QPixmap) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawDecoration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawDecoration` instead
+    /// ### DEPRECATED: Use `superDrawDecoration` instead
     ///
-    pub const QBaseDrawDecoration = SuperDrawDecoration;
+    pub const SuperDrawDecoration = superDrawDecoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawDecoration)
     ///
@@ -705,17 +821,21 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn SuperDrawDecoration(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, pixmap: anytype) void {
+    pub fn superDrawDecoration(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, pixmap: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        qtc.QItemDelegate_SuperDrawDecoration(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), @ptrCast(pixmap.ptr));
+        qtc.QItemDelegate_SuperDrawDecoration(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), @ptrCast(pixmap.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawFocus` instead
+    ///
+    pub const DrawFocus = drawFocus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
@@ -727,14 +847,18 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn DrawFocus(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype) void {
+    pub fn drawFocus(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QItemDelegate_DrawFocus(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QItemDelegate_DrawFocus(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawFocus` instead
+    ///
+    pub const OnDrawFocus = onDrawFocus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
@@ -746,13 +870,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, rect: QRect) callconv(.c) void `
     ///
-    pub fn OnDrawFocus(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect) callconv(.c) void) void {
+    pub fn onDrawFocus(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawFocus` instead
+    /// ### DEPRECATED: Use `superDrawFocus` instead
     ///
-    pub const QBaseDrawFocus = SuperDrawFocus;
+    pub const SuperDrawFocus = superDrawFocus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawFocus)
     ///
@@ -766,14 +890,18 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SuperDrawFocus(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype) void {
+    pub fn superDrawFocus(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QItemDelegate_SuperDrawFocus(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QItemDelegate_SuperDrawFocus(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `drawCheck` instead
+    ///
+    pub const DrawCheck = drawCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
@@ -785,16 +913,20 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` state: qnamespace_enums.CheckState `
     ///
-    pub fn DrawCheck(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, state: i32) void {
+    pub fn drawCheck(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QItemDelegate_DrawCheck(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), @bitCast(state));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QItemDelegate_DrawCheck(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `onDrawCheck` instead
+    ///
+    pub const OnDrawCheck = onDrawCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
@@ -806,13 +938,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, rect: QRect, state: qnamespace_enums.CheckState) callconv(.c) void `
     ///
-    pub fn OnDrawCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, i32) callconv(.c) void) void {
+    pub fn onDrawCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QRect, i32) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawCheck` instead
+    /// ### DEPRECATED: Use `superDrawCheck` instead
     ///
-    pub const QBaseDrawCheck = SuperDrawCheck;
+    pub const SuperDrawCheck = superDrawCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawCheck)
     ///
@@ -826,16 +958,20 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` state: qnamespace_enums.CheckState `
     ///
-    pub fn SuperDrawCheck(self: QItemDelegate, painter: anytype, option: anytype, rect: anytype, state: i32) void {
+    pub fn superDrawCheck(self: QItemDelegate, painter: anytype, option: anytype, _rect: anytype, state: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QItemDelegate_SuperDrawCheck(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(rect.ptr), @bitCast(state));
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QItemDelegate_SuperDrawCheck(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(_rect.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `drawBackground` instead
+    ///
+    pub const DrawBackground = drawBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
@@ -849,12 +985,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DrawBackground(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn drawBackground(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_DrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDrawBackground` instead
+    ///
+    pub const OnDrawBackground = onDrawBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
@@ -866,13 +1006,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, painter: QPainter, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDrawBackground(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
+    pub fn onDrawBackground(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QStyleOptionViewItem, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnDrawBackground(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDrawBackground` instead
+    /// ### DEPRECATED: Use `superDrawBackground` instead
     ///
-    pub const QBaseDrawBackground = SuperDrawBackground;
+    pub const SuperDrawBackground = superDrawBackground;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#drawBackground)
     ///
@@ -888,12 +1028,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperDrawBackground(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
+    pub fn superDrawBackground(self: QItemDelegate, painter: anytype, option: anytype, index: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperDrawBackground(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `doLayout` instead
+    ///
+    pub const DoLayout = doLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
@@ -911,13 +1055,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` hint: bool `
     ///
-    pub fn DoLayout(self: QItemDelegate, option: anytype, checkRect: anytype, iconRect: anytype, textRect: anytype, hint: bool) void {
+    pub fn doLayout(self: QItemDelegate, option: anytype, checkRect: anytype, iconRect: anytype, textRect: anytype, hint: bool) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(checkRect)._is_QRect;
         comptime _ = @TypeOf(iconRect)._is_QRect;
         comptime _ = @TypeOf(textRect)._is_QRect;
         qtc.QItemDelegate_DoLayout(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(checkRect.ptr), @ptrCast(iconRect.ptr), @ptrCast(textRect.ptr), hint);
     }
+
+    /// ### DEPRECATED: Use `onDoLayout` instead
+    ///
+    pub const OnDoLayout = onDoLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
@@ -929,13 +1077,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, option: QStyleOptionViewItem, checkRect: QRect, iconRect: QRect, textRect: QRect, hint: bool) callconv(.c) void `
     ///
-    pub fn OnDoLayout(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QRect, QRect, bool) callconv(.c) void) void {
+    pub fn onDoLayout(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QRect, QRect, bool) callconv(.c) void) void {
         qtc.QItemDelegate_OnDoLayout(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDoLayout` instead
+    /// ### DEPRECATED: Use `superDoLayout` instead
     ///
-    pub const QBaseDoLayout = SuperDoLayout;
+    pub const SuperDoLayout = superDoLayout;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doLayout)
     ///
@@ -955,13 +1103,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` hint: bool `
     ///
-    pub fn SuperDoLayout(self: QItemDelegate, option: anytype, checkRect: anytype, iconRect: anytype, textRect: anytype, hint: bool) void {
+    pub fn superDoLayout(self: QItemDelegate, option: anytype, checkRect: anytype, iconRect: anytype, textRect: anytype, hint: bool) void {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(checkRect)._is_QRect;
         comptime _ = @TypeOf(iconRect)._is_QRect;
         comptime _ = @TypeOf(textRect)._is_QRect;
         qtc.QItemDelegate_SuperDoLayout(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(checkRect.ptr), @ptrCast(iconRect.ptr), @ptrCast(textRect.ptr), hint);
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
@@ -975,11 +1127,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn Rect(self: QItemDelegate, option: anytype, index: anytype, role: i32) QRect {
+    pub fn rect(self: QItemDelegate, option: anytype, index: anytype, role: i32) QRect {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QItemDelegate_Rect(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `onRect` instead
+    ///
+    pub const OnRect = onRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
@@ -993,13 +1149,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnRect(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex, i32) callconv(.c) QRect) void {
+    pub fn onRect(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QModelIndex, i32) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnRect(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperRect` instead
+    /// ### DEPRECATED: Use `superRect` instead
     ///
-    pub const QBaseRect = SuperRect;
+    pub const SuperRect = superRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#rect)
     ///
@@ -1015,11 +1171,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` role: i32 `
     ///
-    pub fn SuperRect(self: QItemDelegate, option: anytype, index: anytype, role: i32) QRect {
+    pub fn superRect(self: QItemDelegate, option: anytype, index: anytype, role: i32) QRect {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         return .{ .ptr = qtc.QItemDelegate_SuperRect(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr), @bitCast(role)) };
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
@@ -1029,13 +1189,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QItemDelegate, object: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QItemDelegate, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QItemDelegate_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QItemDelegate_EventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
@@ -1047,13 +1211,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, object: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QItemDelegate, callback: *const fn (QItemDelegate, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QItemDelegate, callback: *const fn (QItemDelegate, QObject, QEvent) callconv(.c) bool) void {
         qtc.QItemDelegate_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#eventFilter)
     ///
@@ -1065,13 +1229,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` object: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QItemDelegate, object: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QItemDelegate, object: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(object)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QItemDelegate_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QItemDelegate_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(object.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `editorEvent` instead
+    ///
+    pub const EditorEvent = editorEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
@@ -1079,7 +1247,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` model: QAbstractItemModel `
     ///
@@ -1087,13 +1255,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn EditorEvent(self: QItemDelegate, event: anytype, model: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
+    pub fn editorEvent(self: QItemDelegate, _event: anytype, model: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QItemDelegate_EditorEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.QItemDelegate_EditorEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEditorEvent` instead
+    ///
+    pub const OnEditorEvent = onEditorEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
@@ -1105,13 +1277,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QEvent, model: QAbstractItemModel, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnEditorEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
+    pub fn onEditorEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent, QAbstractItemModel, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
         qtc.QItemDelegate_OnEditorEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEditorEvent` instead
+    /// ### DEPRECATED: Use `superEditorEvent` instead
     ///
-    pub const QBaseEditorEvent = SuperEditorEvent;
+    pub const SuperEditorEvent = superEditorEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#editorEvent)
     ///
@@ -1121,7 +1293,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
     /// ` model: QAbstractItemModel `
     ///
@@ -1129,13 +1301,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperEditorEvent(self: QItemDelegate, event: anytype, model: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
+    pub fn superEditorEvent(self: QItemDelegate, _event: anytype, model: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
         comptime _ = @TypeOf(model)._is_QAbstractItemModel;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QItemDelegate_SuperEditorEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.QItemDelegate_SuperEditorEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(model.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOptions` instead
+    ///
+    pub const SetOptions = setOptions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
@@ -1147,11 +1323,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SetOptions(self: QItemDelegate, index: anytype, option: anytype) QStyleOptionViewItem {
+    pub fn setOptions(self: QItemDelegate, index: anytype, option: anytype) QStyleOptionViewItem {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         return .{ .ptr = qtc.QItemDelegate_SetOptions(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(option.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSetOptions` instead
+    ///
+    pub const OnSetOptions = onSetOptions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
@@ -1165,13 +1345,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSetOptions(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex, QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem) void {
+    pub fn onSetOptions(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex, QStyleOptionViewItem) callconv(.c) QStyleOptionViewItem) void {
         qtc.QItemDelegate_OnSetOptions(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOptions` instead
+    /// ### DEPRECATED: Use `superSetOptions` instead
     ///
-    pub const QBaseSetOptions = SuperSetOptions;
+    pub const SuperSetOptions = superSetOptions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#setOptions)
     ///
@@ -1185,11 +1365,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` option: QStyleOptionViewItem `
     ///
-    pub fn SuperSetOptions(self: QItemDelegate, index: anytype, option: anytype) QStyleOptionViewItem {
+    pub fn superSetOptions(self: QItemDelegate, index: anytype, option: anytype) QStyleOptionViewItem {
         comptime _ = @TypeOf(index)._is_QModelIndex;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         return .{ .ptr = qtc.QItemDelegate_SuperSetOptions(@ptrCast(self.ptr), @ptrCast(index.ptr), @ptrCast(option.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `decoration` instead
+    ///
+    pub const Decoration = decoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
@@ -1201,11 +1385,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn Decoration(self: QItemDelegate, option: anytype, variant: anytype) QPixmap {
+    pub fn decoration(self: QItemDelegate, option: anytype, variant: anytype) QPixmap {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_Decoration(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDecoration` instead
+    ///
+    pub const OnDecoration = onDecoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
@@ -1219,13 +1407,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QVariant) callconv(.c) QPixmap) void {
+    pub fn onDecoration(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QVariant) callconv(.c) QPixmap) void {
         qtc.QItemDelegate_OnDecoration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDecoration` instead
+    /// ### DEPRECATED: Use `superDecoration` instead
     ///
-    pub const QBaseDecoration = SuperDecoration;
+    pub const SuperDecoration = superDecoration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#decoration)
     ///
@@ -1239,11 +1427,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperDecoration(self: QItemDelegate, option: anytype, variant: anytype) QPixmap {
+    pub fn superDecoration(self: QItemDelegate, option: anytype, variant: anytype) QPixmap {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_SuperDecoration(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `selectedPixmap` instead
+    ///
+    pub const SelectedPixmap = selectedPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
     ///
@@ -1257,11 +1449,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
+    pub fn selectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(palette)._is_QPalette;
         return .{ .ptr = qtc.QItemDelegate_SelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
     }
+
+    /// ### DEPRECATED: Use `onSelectedPixmap` instead
+    ///
+    pub const OnSelectedPixmap = onSelectedPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
     ///
@@ -1275,13 +1471,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSelectedPixmap(self: QItemDelegate, callback: *const fn (QItemDelegate, QPixmap, QPalette, bool) callconv(.c) QPixmap) void {
+    pub fn onSelectedPixmap(self: QItemDelegate, callback: *const fn (QItemDelegate, QPixmap, QPalette, bool) callconv(.c) QPixmap) void {
         qtc.QItemDelegate_OnSelectedPixmap(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSelectedPixmap` instead
+    /// ### DEPRECATED: Use `superSelectedPixmap` instead
     ///
-    pub const QBaseSelectedPixmap = SuperSelectedPixmap;
+    pub const SuperSelectedPixmap = superSelectedPixmap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#selectedPixmap)
     ///
@@ -1297,11 +1493,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SuperSelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
+    pub fn superSelectedPixmap(self: QItemDelegate, pixmap: anytype, palette: anytype, enabled: bool) QPixmap {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         comptime _ = @TypeOf(palette)._is_QPalette;
         return .{ .ptr = qtc.QItemDelegate_SuperSelectedPixmap(@ptrCast(self.ptr), @ptrCast(pixmap.ptr), @ptrCast(palette.ptr), enabled) };
     }
+
+    /// ### DEPRECATED: Use `doCheck` instead
+    ///
+    pub const DoCheck = doCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
@@ -1315,12 +1515,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn DoCheck(self: QItemDelegate, option: anytype, bounding: anytype, variant: anytype) QRect {
+    pub fn doCheck(self: QItemDelegate, option: anytype, bounding: anytype, variant: anytype) QRect {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(bounding)._is_QRect;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_DoCheck(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(bounding.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onDoCheck` instead
+    ///
+    pub const OnDoCheck = onDoCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
@@ -1334,13 +1538,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnDoCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QVariant) callconv(.c) QRect) void {
+    pub fn onDoCheck(self: QItemDelegate, callback: *const fn (QItemDelegate, QStyleOptionViewItem, QRect, QVariant) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnDoCheck(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDoCheck` instead
+    /// ### DEPRECATED: Use `superDoCheck` instead
     ///
-    pub const QBaseDoCheck = SuperDoCheck;
+    pub const SuperDoCheck = superDoCheck;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#doCheck)
     ///
@@ -1356,12 +1560,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` variant: QVariant `
     ///
-    pub fn SuperDoCheck(self: QItemDelegate, option: anytype, bounding: anytype, variant: anytype) QRect {
+    pub fn superDoCheck(self: QItemDelegate, option: anytype, bounding: anytype, variant: anytype) QRect {
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(bounding)._is_QRect;
         comptime _ = @TypeOf(variant)._is_QVariant;
         return .{ .ptr = qtc.QItemDelegate_SuperDoCheck(@ptrCast(self.ptr), @ptrCast(option.ptr), @ptrCast(bounding.ptr), @ptrCast(variant.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `textRectangle` instead
+    ///
+    pub const TextRectangle = textRectangle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
@@ -1371,22 +1579,26 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` font: QFont `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn TextRectangle(self: QItemDelegate, painter: anytype, rect: anytype, font: anytype, text: []const u8) QRect {
+    pub fn textRectangle(self: QItemDelegate, painter: anytype, _rect: anytype, font: anytype, text: []const u8) QRect {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(font)._is_QFont;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QItemDelegate_TextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(font.ptr), text_str) };
+        return .{ .ptr = qtc.QItemDelegate_TextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(font.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `onTextRectangle` instead
+    ///
+    pub const OnTextRectangle = onTextRectangle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
@@ -1400,13 +1612,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnTextRectangle(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QRect, QFont, [*:0]const u8) callconv(.c) QRect) void {
+    pub fn onTextRectangle(self: QItemDelegate, callback: *const fn (QItemDelegate, QPainter, QRect, QFont, [*:0]const u8) callconv(.c) QRect) void {
         qtc.QItemDelegate_OnTextRectangle(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTextRectangle` instead
+    /// ### DEPRECATED: Use `superTextRectangle` instead
     ///
-    pub const QBaseTextRectangle = SuperTextRectangle;
+    pub const SuperTextRectangle = superTextRectangle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#textRectangle)
     ///
@@ -1418,22 +1630,26 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
     /// ` font: QFont `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn SuperTextRectangle(self: QItemDelegate, painter: anytype, rect: anytype, font: anytype, text: []const u8) QRect {
+    pub fn superTextRectangle(self: QItemDelegate, painter: anytype, _rect: anytype, font: anytype, text: []const u8) QRect {
         comptime _ = @TypeOf(painter)._is_QPainter;
-        comptime _ = @TypeOf(rect)._is_QRect;
+        comptime _ = @TypeOf(_rect)._is_QRect;
         comptime _ = @TypeOf(font)._is_QFont;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QItemDelegate_SuperTextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(rect.ptr), @ptrCast(font.ptr), text_str) };
+        return .{ .ptr = qtc.QItemDelegate_SuperTextRectangle(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(_rect.ptr), @ptrCast(font.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1445,15 +1661,19 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1467,16 +1687,20 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
+    /// ### DEPRECATED: Use `commitData` instead
+    ///
+    pub const CommitData = commitData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
@@ -1487,11 +1711,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CommitData(self: QItemDelegate, editor: anytype) void {
+    pub fn commitData(self: QItemDelegate, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CommitData(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCommitData` instead
+    ///
+    pub const OnCommitData = onCommitData;
+
     /// Inherited from QAbstractItemDelegate
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractitemdelegate.html#commitData)
@@ -1502,9 +1730,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCommitData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget) callconv(.c) void) void {
+    pub fn onCommitData(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CommitData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor` instead
+    ///
+    pub const CloseEditor = closeEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1516,10 +1748,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` editor: QWidget `
     ///
-    pub fn CloseEditor(self: QItemDelegate, editor: anytype) void {
+    pub fn closeEditor(self: QItemDelegate, editor: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CloseEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor` instead
+    ///
+    pub const OnCloseEditor = onCloseEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1531,9 +1767,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget) callconv(.c) void `
     ///
-    pub fn OnCloseEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget) callconv(.c) void) void {
+    pub fn onCloseEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sizeHintChanged` instead
+    ///
+    pub const SizeHintChanged = sizeHintChanged;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1545,10 +1785,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param1: QModelIndex `
     ///
-    pub fn SizeHintChanged(self: QItemDelegate, param1: anytype) void {
+    pub fn sizeHintChanged(self: QItemDelegate, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QModelIndex;
         qtc.QAbstractItemDelegate_SizeHintChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSizeHintChanged` instead
+    ///
+    pub const OnSizeHintChanged = onSizeHintChanged;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1560,9 +1804,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, param1: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnSizeHintChanged(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex) callconv(.c) void) void {
+    pub fn onSizeHintChanged(self: QItemDelegate, callback: *const fn (QItemDelegate, QModelIndex) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_SizeHintChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEditor2` instead
+    ///
+    pub const CloseEditor2 = closeEditor2;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1576,10 +1824,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` hint: qabstractitemdelegate_enums.EndEditHint `
     ///
-    pub fn CloseEditor2(self: QItemDelegate, editor: anytype, hint: i32) void {
+    pub fn closeEditor2(self: QItemDelegate, editor: anytype, hint: i32) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         qtc.QAbstractItemDelegate_CloseEditor2(@ptrCast(self.ptr), @ptrCast(editor.ptr), @bitCast(hint));
     }
+
+    /// ### DEPRECATED: Use `onCloseEditor2` instead
+    ///
+    pub const OnCloseEditor2 = onCloseEditor2;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -1591,9 +1843,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget, hint: qabstractitemdelegate_enums.EndEditHint) callconv(.c) void `
     ///
-    pub fn OnCloseEditor2(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, i32) callconv(.c) void) void {
+    pub fn onCloseEditor2(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, i32) callconv(.c) void) void {
         qtc.QAbstractItemDelegate_Connect_CloseEditor2(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1605,13 +1861,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QItemDelegate, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QItemDelegate, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QItemDelegate.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1623,13 +1883,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QItemDelegate, name: []const u8) void {
+    pub fn setObjectName(self: QItemDelegate, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1639,9 +1903,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn IsWidgetType(self: QItemDelegate) bool {
+    pub fn isWidgetType(self: QItemDelegate) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1651,9 +1919,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn IsWindowType(self: QItemDelegate) bool {
+    pub fn isWindowType(self: QItemDelegate) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1663,9 +1935,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn IsQuickItemType(self: QItemDelegate) bool {
+    pub fn isQuickItemType(self: QItemDelegate) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1675,9 +1951,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn SignalsBlocked(self: QItemDelegate) bool {
+    pub fn signalsBlocked(self: QItemDelegate) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1689,9 +1969,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QItemDelegate, b: bool) bool {
+    pub fn blockSignals(self: QItemDelegate, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1701,9 +1985,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Thread(self: QItemDelegate) QThread {
+    pub fn thread(self: QItemDelegate) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1713,12 +2001,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QItemDelegate, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QItemDelegate, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1730,9 +2022,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QItemDelegate, interval: i32) i32 {
+    pub fn startTimer(self: QItemDelegate, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1744,9 +2040,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QItemDelegate, time: i64) i32 {
+    pub fn startTimer2(self: QItemDelegate, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1758,9 +2058,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QItemDelegate, id: i32) void {
+    pub fn killTimer(self: QItemDelegate, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1772,9 +2076,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QItemDelegate, id: i32) void {
+    pub fn killTimer2(self: QItemDelegate, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1786,15 +2094,19 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QItemDelegate, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QItemDelegate, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QItemDelegate.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QItemDelegate.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1804,12 +2116,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QItemDelegate, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QItemDelegate, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1821,10 +2137,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QItemDelegate, filterObj: anytype) void {
+    pub fn installEventFilter(self: QItemDelegate, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1836,10 +2156,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QItemDelegate, obj: anytype) void {
+    pub fn removeEventFilter(self: QItemDelegate, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1847,7 +2171,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1855,13 +2179,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1869,7 +2197,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1877,13 +2205,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1893,18 +2225,22 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QItemDelegate, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QItemDelegate, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1912,7 +2248,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1920,13 +2256,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1934,7 +2274,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1942,13 +2282,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1958,9 +2302,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Disconnect3(self: QItemDelegate) bool {
+    pub fn disconnect3(self: QItemDelegate) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1972,10 +2320,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QItemDelegate, receiver: anytype) bool {
+    pub fn disconnect4(self: QItemDelegate, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1985,10 +2337,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1998,9 +2354,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn DumpObjectTree(self: QItemDelegate) void {
+    pub fn dumpObjectTree(self: QItemDelegate) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2010,9 +2370,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn DumpObjectInfo(self: QItemDelegate) void {
+    pub fn dumpObjectInfo(self: QItemDelegate) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2026,11 +2390,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QItemDelegate, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QItemDelegate, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2042,10 +2410,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QItemDelegate, name: [:0]const u8) QVariant {
+    pub fn property(self: QItemDelegate, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2057,7 +2429,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QItemDelegate, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QItemDelegate, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2065,27 +2437,19 @@ pub const QItemDelegate = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QItemDelegate.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QItemDelegate.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QItemDelegate.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QItemDelegate.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QItemDelegate `
-    ///
-    pub fn BindingStorage(self: QItemDelegate) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2095,9 +2459,29 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn BindingStorage2(self: QItemDelegate) QBindingStorage {
+    pub fn bindingStorage(self: QItemDelegate) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QItemDelegate `
+    ///
+    pub fn bindingStorage2(self: QItemDelegate) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2107,9 +2491,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Destroyed(self: QItemDelegate) void {
+    pub fn destroyed(self: QItemDelegate) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2121,9 +2509,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QItemDelegate, callback: *const fn (QItemDelegate) callconv(.c) void) void {
+    pub fn onDestroyed(self: QItemDelegate, callback: *const fn (QItemDelegate) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2133,9 +2525,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Parent(self: QItemDelegate) QObject {
+    pub fn parent(self: QItemDelegate) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2147,10 +2543,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QItemDelegate, classname: [:0]const u8) bool {
+    pub fn inherits(self: QItemDelegate, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2160,9 +2560,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn DeleteLater(self: QItemDelegate) void {
+    pub fn deleteLater(self: QItemDelegate) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2176,9 +2580,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QItemDelegate, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QItemDelegate, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2192,9 +2600,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QItemDelegate, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QItemDelegate, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2202,7 +2614,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2212,13 +2624,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2226,7 +2642,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2236,13 +2652,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2252,7 +2672,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2260,12 +2680,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QItemDelegate, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QItemDelegate, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2277,10 +2701,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QItemDelegate, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QItemDelegate, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2294,11 +2722,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QItemDelegate, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QItemDelegate, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2314,13 +2746,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QItemDelegate, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QItemDelegate, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2333,11 +2769,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QItemDelegate, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QItemDelegate, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2349,10 +2789,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QItemDelegate, param1: anytype) void {
+    pub fn destroyed1(self: QItemDelegate, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2364,9 +2808,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QItemDelegate, callback: *const fn (QItemDelegate, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QItemDelegate, callback: *const fn (QItemDelegate, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroyEditor` instead
+    ///
+    pub const DestroyEditor = destroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2382,15 +2830,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn DestroyEditor(self: QItemDelegate, editor: anytype, index: anytype) void {
+    pub fn destroyEditor(self: QItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_DestroyEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroyEditor` instead
+    /// ### DEPRECATED: Use `superDestroyEditor` instead
     ///
-    pub const QBaseDestroyEditor = SuperDestroyEditor;
+    pub const SuperDestroyEditor = superDestroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2406,11 +2854,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperDestroyEditor(self: QItemDelegate, editor: anytype, index: anytype) void {
+    pub fn superDestroyEditor(self: QItemDelegate, editor: anytype, index: anytype) void {
         comptime _ = @TypeOf(editor)._is_QWidget;
         comptime _ = @TypeOf(index)._is_QModelIndex;
         qtc.QItemDelegate_SuperDestroyEditor(@ptrCast(self.ptr), @ptrCast(editor.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyEditor` instead
+    ///
+    pub const OnDestroyEditor = onDestroyEditor;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2424,9 +2876,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, editor: QWidget, index: QModelIndex) callconv(.c) void `
     ///
-    pub fn OnDestroyEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
+    pub fn onDestroyEditor(self: QItemDelegate, callback: *const fn (QItemDelegate, QWidget, QModelIndex) callconv(.c) void) void {
         qtc.QItemDelegate_OnDestroyEditor(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `helpEvent` instead
+    ///
+    pub const HelpEvent = helpEvent;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2438,7 +2894,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QHelpEvent `
+    /// ` _event: QHelpEvent `
     ///
     /// ` view: QAbstractItemView `
     ///
@@ -2446,17 +2902,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn HelpEvent(self: QItemDelegate, event: anytype, view: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QHelpEvent;
+    pub fn helpEvent(self: QItemDelegate, _event: anytype, view: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QHelpEvent;
         comptime _ = @TypeOf(view)._is_QAbstractItemView;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QItemDelegate_HelpEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.QItemDelegate_HelpEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHelpEvent` instead
+    /// ### DEPRECATED: Use `superHelpEvent` instead
     ///
-    pub const QBaseHelpEvent = SuperHelpEvent;
+    pub const SuperHelpEvent = superHelpEvent;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2468,7 +2924,7 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QHelpEvent `
+    /// ` _event: QHelpEvent `
     ///
     /// ` view: QAbstractItemView `
     ///
@@ -2476,13 +2932,17 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` index: QModelIndex `
     ///
-    pub fn SuperHelpEvent(self: QItemDelegate, event: anytype, view: anytype, option: anytype, index: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QHelpEvent;
+    pub fn superHelpEvent(self: QItemDelegate, _event: anytype, view: anytype, option: anytype, index: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QHelpEvent;
         comptime _ = @TypeOf(view)._is_QAbstractItemView;
         comptime _ = @TypeOf(option)._is_QStyleOptionViewItem;
         comptime _ = @TypeOf(index)._is_QModelIndex;
-        return qtc.QItemDelegate_SuperHelpEvent(@ptrCast(self.ptr), @ptrCast(event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
+        return qtc.QItemDelegate_SuperHelpEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr), @ptrCast(view.ptr), @ptrCast(option.ptr), @ptrCast(index.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHelpEvent` instead
+    ///
+    pub const OnHelpEvent = onHelpEvent;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2496,9 +2956,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QHelpEvent, view: QAbstractItemView, option: QStyleOptionViewItem, index: QModelIndex) callconv(.c) bool `
     ///
-    pub fn OnHelpEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QHelpEvent, QAbstractItemView, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
+    pub fn onHelpEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QHelpEvent, QAbstractItemView, QStyleOptionViewItem, QModelIndex) callconv(.c) bool) void {
         qtc.QItemDelegate_OnHelpEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingRoles` instead
+    ///
+    pub const PaintingRoles = paintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2512,18 +2976,18 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PaintingRoles(self: QItemDelegate, allocator: std.mem.Allocator) []i32 {
+    pub fn paintingRoles(self: QItemDelegate, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QItemDelegate_PaintingRoles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QItemDelegate.PaintingRoles: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QItemDelegate.paintingRoles: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `SuperPaintingRoles` instead
+    /// ### DEPRECATED: Use `superPaintingRoles` instead
     ///
-    pub const QBasePaintingRoles = SuperPaintingRoles;
+    pub const SuperPaintingRoles = superPaintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2537,14 +3001,18 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SuperPaintingRoles(self: QItemDelegate, allocator: std.mem.Allocator) []i32 {
+    pub fn superPaintingRoles(self: QItemDelegate, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QItemDelegate_SuperPaintingRoles(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QItemDelegate.PaintingRoles: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QItemDelegate.paintingRoles: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onPaintingRoles` instead
+    ///
+    pub const OnPaintingRoles = onPaintingRoles;
 
     /// Inherited from QAbstractItemDelegate
     ///
@@ -2564,9 +3032,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` C ABI representation of []i32 `
     ///
-    pub fn OnPaintingRoles(self: QItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
+    pub fn onPaintingRoles(self: QItemDelegate, callback: *const fn () callconv(.c) qtc.libqt_list) void {
         qtc.QItemDelegate_OnPaintingRoles(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2578,16 +3050,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QItemDelegate, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QItemDelegate_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QItemDelegate, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QItemDelegate_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2599,12 +3071,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QItemDelegate, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QItemDelegate_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QItemDelegate, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QItemDelegate_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2618,9 +3094,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent) callconv(.c) bool) void {
         qtc.QItemDelegate_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2632,16 +3112,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QItemDelegate_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QItemDelegate_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2653,12 +3133,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QItemDelegate_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QItemDelegate_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2672,9 +3156,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QTimerEvent) callconv(.c) void) void {
         qtc.QItemDelegate_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2686,16 +3174,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QItemDelegate_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QItemDelegate_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2707,12 +3195,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QItemDelegate_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QItemDelegate_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2726,9 +3218,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QChildEvent) callconv(.c) void) void {
         qtc.QItemDelegate_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2740,16 +3236,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QItemDelegate_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QItemDelegate_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2761,12 +3257,16 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QItemDelegate, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QItemDelegate_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QItemDelegate, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QItemDelegate_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2780,9 +3280,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QItemDelegate, callback: *const fn (QItemDelegate, QEvent) callconv(.c) void) void {
         qtc.QItemDelegate_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2796,14 +3300,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QItemDelegate, signal: anytype) void {
+    pub fn connectNotify(self: QItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QItemDelegate_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2817,11 +3321,15 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QItemDelegate, signal: anytype) void {
+    pub fn superConnectNotify(self: QItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QItemDelegate_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2834,9 +3342,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) void) void {
         qtc.QItemDelegate_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2850,14 +3362,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QItemDelegate, signal: anytype) void {
+    pub fn disconnectNotify(self: QItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QItemDelegate_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2871,10 +3383,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QItemDelegate, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QItemDelegate, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QItemDelegate_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2888,9 +3404,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) void) void {
         qtc.QItemDelegate_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2902,13 +3422,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Sender(self: QItemDelegate) QObject {
+    pub fn sender(self: QItemDelegate) QObject {
         return .{ .ptr = qtc.QItemDelegate_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2920,9 +3440,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn SuperSender(self: QItemDelegate) QObject {
+    pub fn superSender(self: QItemDelegate) QObject {
         return .{ .ptr = qtc.QItemDelegate_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2936,9 +3460,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QItemDelegate, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QItemDelegate, callback: *const fn () callconv(.c) QObject) void {
         qtc.QItemDelegate_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2950,13 +3478,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn SenderSignalIndex(self: QItemDelegate) i32 {
+    pub fn senderSignalIndex(self: QItemDelegate) i32 {
         return qtc.QItemDelegate_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2968,9 +3496,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn SuperSenderSignalIndex(self: QItemDelegate) i32 {
+    pub fn superSenderSignalIndex(self: QItemDelegate) i32 {
         return qtc.QItemDelegate_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2984,9 +3516,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QItemDelegate, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QItemDelegate, callback: *const fn () callconv(.c) i32) void {
         qtc.QItemDelegate_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3000,14 +3536,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QItemDelegate, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QItemDelegate, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QItemDelegate_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3021,10 +3557,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QItemDelegate, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QItemDelegate, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QItemDelegate_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3038,9 +3578,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) i32) void {
         qtc.QItemDelegate_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3054,14 +3598,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QItemDelegate, signal: anytype) bool {
+    pub fn isSignalConnected(self: QItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QItemDelegate_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3075,10 +3619,14 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QItemDelegate, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QItemDelegate, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QItemDelegate_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3092,9 +3640,13 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QItemDelegate, callback: *const fn (QItemDelegate, QMetaMethod) callconv(.c) bool) void {
         qtc.QItemDelegate_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3108,23 +3660,23 @@ pub const QItemDelegate = extern struct {
     ///
     /// ` callback: *const fn (self: QItemDelegate, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QItemDelegate, callback: *const fn (QItemDelegate, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qitemdelegate.html#dtor.QItemDelegate)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QItemDelegate `
     ///
-    pub fn Delete(self: QItemDelegate) void {
+    pub fn delete(self: QItemDelegate) void {
         qtc.QItemDelegate_Delete(@ptrCast(self.ptr));
     }
 };

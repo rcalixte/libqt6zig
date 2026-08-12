@@ -37,44 +37,64 @@ pub const QStyleOption = extern struct {
 
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOption object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOption {
+    pub const New = new;
+
+    /// Allocate a new QStyleOption object in C++ memory
+    ///
+    pub fn new() QStyleOption {
         return .{ .ptr = qtc.QStyleOption_new() };
     }
 
-    /// New2 constructs a new QStyleOption object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOption object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOption `
     ///
-    pub fn New2(other: anytype) QStyleOption {
+    pub fn new2(other: anytype) QStyleOption {
         comptime _ = @TypeOf(other)._is_QStyleOption;
         return .{ .ptr = qtc.QStyleOption_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QStyleOption object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStyleOption object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn New3(version: i32) QStyleOption {
-        return .{ .ptr = qtc.QStyleOption_new3(@bitCast(version)) };
+    pub fn new3(_version: i32) QStyleOption {
+        return .{ .ptr = qtc.QStyleOption_new3(@bitCast(_version)) };
     }
 
-    /// New4 constructs a new QStyleOption object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QStyleOption object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New4(version: i32, typeVal: i32) QStyleOption {
-        return .{ .ptr = qtc.QStyleOption_new4(@bitCast(version), @bitCast(typeVal)) };
+    pub fn new4(_version: i32, typeVal: i32) QStyleOption {
+        return .{ .ptr = qtc.QStyleOption_new4(@bitCast(_version), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
     ///
@@ -82,21 +102,31 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn Version(self: QStyleOption) i32 {
+    pub fn version(self: QStyleOption) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOption, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOption, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
     ///
@@ -104,21 +134,29 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn Type(self: QStyleOption) i32 {
+    pub fn type0(self: QStyleOption) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOption, _type: i32) void {
+    pub fn setType(self: QStyleOption, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
@@ -130,9 +168,13 @@ pub const QStyleOption = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOption) i32 {
+    pub fn state(self: QStyleOption) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#state-var)
     ///
@@ -140,11 +182,15 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOption, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOption, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#direction-var)
     ///
@@ -156,9 +202,13 @@ pub const QStyleOption = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOption) i32 {
+    pub fn direction(self: QStyleOption) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#direction-var)
     ///
@@ -166,11 +216,15 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOption, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOption, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
     ///
@@ -178,22 +232,30 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn Rect(self: QStyleOption) QRect {
+    pub fn rect(self: QStyleOption) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOption, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOption, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
     ///
@@ -201,22 +263,30 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn FontMetrics(self: QStyleOption) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOption) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOption, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOption, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
     ///
@@ -224,22 +294,30 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn Palette(self: QStyleOption) QPalette {
+    pub fn palette(self: QStyleOption) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOption, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOption, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
     ///
@@ -247,22 +325,30 @@ pub const QStyleOption = extern struct {
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn StyleObject(self: QStyleOption) QObject {
+    pub fn styleObject(self: QStyleOption) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOption `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOption, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOption, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#initFrom)
     ///
@@ -272,10 +358,14 @@ pub const QStyleOption = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOption, w: anytype) void {
+    pub fn initFrom(self: QStyleOption, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#operator-eq)
     ///
@@ -285,24 +375,24 @@ pub const QStyleOption = extern struct {
     ///
     /// ` other: QStyleOption `
     ///
-    pub fn OperatorAssign(self: QStyleOption, other: anytype) void {
+    pub fn operatorAssign(self: QStyleOption, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QStyleOption;
         qtc.QStyleOption_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#dtor.QStyleOption)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOption `
     ///
-    pub fn Delete(self: QStyleOption) void {
+    pub fn delete(self: QStyleOption) void {
         qtc.QStyleOption_Delete(@ptrCast(self.ptr));
     }
 };
@@ -318,32 +408,34 @@ pub const QStyleOptionFocusRect = extern struct {
     pub const _is_QStyleOptionFocusRect = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionFocusRect object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionFocusRect {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionFocusRect object in C++ memory
+    ///
+    pub fn new() QStyleOptionFocusRect {
         return .{ .ptr = qtc.QStyleOptionFocusRect_new() };
     }
 
-    /// New2 constructs a new QStyleOptionFocusRect object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionFocusRect object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionFocusRect `
     ///
-    pub fn New2(other: anytype) QStyleOptionFocusRect {
+    pub fn new2(other: anytype) QStyleOptionFocusRect {
         comptime _ = @TypeOf(other)._is_QStyleOptionFocusRect;
         return .{ .ptr = qtc.QStyleOptionFocusRect_new2(@ptrCast(other.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#backgroundColor-var)
+    /// ### DEPRECATED: Use `backgroundColor` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleOptionFocusRect `
-    ///
-    pub fn BackgroundColor(self: QStyleOptionFocusRect) QColor {
-        return .{ .ptr = qtc.QStyleOptionFocusRect_BackgroundColor(@ptrCast(self.ptr)) };
-    }
+    pub const BackgroundColor = backgroundColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#backgroundColor-var)
     ///
@@ -351,12 +443,30 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` backgroundColor: QColor `
-    ///
-    pub fn SetBackgroundColor(self: QStyleOptionFocusRect, backgroundColor: anytype) void {
-        comptime _ = @TypeOf(backgroundColor)._is_QColor;
-        qtc.QStyleOptionFocusRect_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(backgroundColor.ptr));
+    pub fn backgroundColor(self: QStyleOptionFocusRect) QColor {
+        return .{ .ptr = qtc.QStyleOptionFocusRect_BackgroundColor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBackgroundColor` instead
+    ///
+    pub const SetBackgroundColor = setBackgroundColor;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#backgroundColor-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleOptionFocusRect `
+    ///
+    /// ` _backgroundColor: QColor `
+    ///
+    pub fn setBackgroundColor(self: QStyleOptionFocusRect, _backgroundColor: anytype) void {
+        comptime _ = @TypeOf(_backgroundColor)._is_QColor;
+        qtc.QStyleOptionFocusRect_SetBackgroundColor(@ptrCast(self.ptr), @ptrCast(_backgroundColor.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#operator-eq)
     ///
@@ -366,11 +476,15 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` param1: QStyleOptionFocusRect `
     ///
-    pub fn OperatorAssign(self: QStyleOptionFocusRect, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionFocusRect, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionFocusRect;
         qtc.QStyleOptionFocusRect_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -379,10 +493,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn Version(self: QStyleOptionFocusRect) i32 {
+    pub fn version(self: QStyleOptionFocusRect) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -391,11 +509,17 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionFocusRect, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionFocusRect, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -405,10 +529,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn Type(self: QStyleOptionFocusRect) i32 {
+    pub fn type0(self: QStyleOptionFocusRect) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -417,11 +545,15 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionFocusRect, _type: i32) void {
+    pub fn setType(self: QStyleOptionFocusRect, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -435,9 +567,13 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionFocusRect) i32 {
+    pub fn state(self: QStyleOptionFocusRect) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -447,11 +583,15 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionFocusRect, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionFocusRect, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -465,9 +605,13 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionFocusRect) i32 {
+    pub fn direction(self: QStyleOptionFocusRect) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -477,11 +621,15 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionFocusRect, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionFocusRect, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -491,10 +639,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn Rect(self: QStyleOptionFocusRect) QRect {
+    pub fn rect(self: QStyleOptionFocusRect) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -503,12 +655,16 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionFocusRect, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionFocusRect, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -518,10 +674,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn FontMetrics(self: QStyleOptionFocusRect) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionFocusRect) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -530,12 +690,16 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionFocusRect, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionFocusRect, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -545,10 +709,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn Palette(self: QStyleOptionFocusRect) QPalette {
+    pub fn palette(self: QStyleOptionFocusRect) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -557,12 +725,16 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionFocusRect, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionFocusRect, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -572,10 +744,14 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn StyleObject(self: QStyleOptionFocusRect) QObject {
+    pub fn styleObject(self: QStyleOptionFocusRect) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -584,12 +760,16 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionFocusRect, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionFocusRect, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -601,24 +781,24 @@ pub const QStyleOptionFocusRect = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionFocusRect, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionFocusRect, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionfocusrect.html#dtor.QStyleOptionFocusRect)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionFocusRect `
     ///
-    pub fn Delete(self: QStyleOptionFocusRect) void {
+    pub fn delete(self: QStyleOptionFocusRect) void {
         qtc.QStyleOptionFocusRect_Delete(@ptrCast(self.ptr));
     }
 };
@@ -634,44 +814,64 @@ pub const QStyleOptionFrame = extern struct {
     pub const _is_QStyleOptionFrame = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionFrame object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionFrame {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionFrame object in C++ memory
+    ///
+    pub fn new() QStyleOptionFrame {
         return .{ .ptr = qtc.QStyleOptionFrame_new() };
     }
 
-    /// New2 constructs a new QStyleOptionFrame object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionFrame object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionFrame `
     ///
-    pub fn New2(other: anytype) QStyleOptionFrame {
+    pub fn new2(other: anytype) QStyleOptionFrame {
         comptime _ = @TypeOf(other)._is_QStyleOptionFrame;
         return .{ .ptr = qtc.QStyleOptionFrame_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn LineWidth(self: QStyleOptionFrame) i32 {
+    pub fn lineWidth(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOptionFrame_LineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QStyleOptionFrame, lineWidth: i32) void {
-        qtc.QStyleOptionFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QStyleOptionFrame, _lineWidth: i32) void {
+        qtc.QStyleOptionFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#midLineWidth-var)
     ///
@@ -679,21 +879,29 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn MidLineWidth(self: QStyleOptionFrame) i32 {
+    pub fn midLineWidth(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOptionFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#midLineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QStyleOptionFrame, midLineWidth: i32) void {
-        qtc.QStyleOptionFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QStyleOptionFrame, _midLineWidth: i32) void {
+        qtc.QStyleOptionFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#features-var)
     ///
@@ -705,9 +913,13 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` flag of qstyleoption_enums.FrameFeature `
     ///
-    pub fn Features(self: QStyleOptionFrame) i32 {
+    pub fn features(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOptionFrame_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#features-var)
     ///
@@ -715,11 +927,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` features: flag of qstyleoption_enums.FrameFeature `
+    /// ` _features: flag of qstyleoption_enums.FrameFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionFrame, features: i32) void {
-        qtc.QStyleOptionFrame_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionFrame, _features: i32) void {
+        qtc.QStyleOptionFrame_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `frameShape` instead
+    ///
+    pub const FrameShape = frameShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#frameShape-var)
     ///
@@ -731,9 +947,13 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` qframe_enums.Shape `
     ///
-    pub fn FrameShape(self: QStyleOptionFrame) i32 {
+    pub fn frameShape(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOptionFrame_FrameShape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFrameShape` instead
+    ///
+    pub const SetFrameShape = setFrameShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#frameShape-var)
     ///
@@ -741,11 +961,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` frameShape: qframe_enums.Shape `
+    /// ` _frameShape: qframe_enums.Shape `
     ///
-    pub fn SetFrameShape(self: QStyleOptionFrame, frameShape: i32) void {
-        qtc.QStyleOptionFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(frameShape));
+    pub fn setFrameShape(self: QStyleOptionFrame, _frameShape: i32) void {
+        qtc.QStyleOptionFrame_SetFrameShape(@ptrCast(self.ptr), @bitCast(_frameShape));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#operator-eq)
     ///
@@ -755,11 +979,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` param1: QStyleOptionFrame `
     ///
-    pub fn OperatorAssign(self: QStyleOptionFrame, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionFrame;
         qtc.QStyleOptionFrame_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -768,10 +996,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn Version(self: QStyleOptionFrame) i32 {
+    pub fn version(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -780,11 +1012,17 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionFrame, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionFrame, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -794,10 +1032,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn Type(self: QStyleOptionFrame) i32 {
+    pub fn type0(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -806,11 +1048,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionFrame, _type: i32) void {
+    pub fn setType(self: QStyleOptionFrame, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -824,9 +1070,13 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionFrame) i32 {
+    pub fn state(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -836,11 +1086,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionFrame, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionFrame, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -854,9 +1108,13 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionFrame) i32 {
+    pub fn direction(self: QStyleOptionFrame) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -866,11 +1124,15 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionFrame, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionFrame, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -880,10 +1142,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn Rect(self: QStyleOptionFrame) QRect {
+    pub fn rect(self: QStyleOptionFrame) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -892,12 +1158,16 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionFrame, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionFrame, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -907,10 +1177,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn FontMetrics(self: QStyleOptionFrame) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionFrame) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -919,12 +1193,16 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionFrame, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionFrame, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -934,10 +1212,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn Palette(self: QStyleOptionFrame) QPalette {
+    pub fn palette(self: QStyleOptionFrame) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -946,12 +1228,16 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionFrame, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionFrame, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -961,10 +1247,14 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn StyleObject(self: QStyleOptionFrame) QObject {
+    pub fn styleObject(self: QStyleOptionFrame) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -973,12 +1263,16 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionFrame, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionFrame, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -990,24 +1284,24 @@ pub const QStyleOptionFrame = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionFrame, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionFrame, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionframe.html#dtor.QStyleOptionFrame)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionFrame `
     ///
-    pub fn Delete(self: QStyleOptionFrame) void {
+    pub fn delete(self: QStyleOptionFrame) void {
         qtc.QStyleOptionFrame_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1023,44 +1317,64 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     pub const _is_QStyleOptionTabWidgetFrame = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionTabWidgetFrame object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionTabWidgetFrame {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionTabWidgetFrame object in C++ memory
+    ///
+    pub fn new() QStyleOptionTabWidgetFrame {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_new() };
     }
 
-    /// New2 constructs a new QStyleOptionTabWidgetFrame object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionTabWidgetFrame object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionTabWidgetFrame `
     ///
-    pub fn New2(other: anytype) QStyleOptionTabWidgetFrame {
+    pub fn new2(other: anytype) QStyleOptionTabWidgetFrame {
         comptime _ = @TypeOf(other)._is_QStyleOptionTabWidgetFrame;
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn LineWidth(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn lineWidth(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOptionTabWidgetFrame_LineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QStyleOptionTabWidgetFrame, lineWidth: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QStyleOptionTabWidgetFrame, _lineWidth: i32) void {
+        qtc.QStyleOptionTabWidgetFrame_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#midLineWidth-var)
     ///
@@ -1068,21 +1382,29 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn MidLineWidth(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn midLineWidth(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOptionTabWidgetFrame_MidLineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#midLineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QStyleOptionTabWidgetFrame, midLineWidth: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QStyleOptionTabWidgetFrame, _midLineWidth: i32) void {
+        qtc.QStyleOptionTabWidgetFrame_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#shape-var)
     ///
@@ -1094,9 +1416,13 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` qtabbar_enums.Shape `
     ///
-    pub fn Shape(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn shape(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOptionTabWidgetFrame_Shape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShape` instead
+    ///
+    pub const SetShape = setShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#shape-var)
     ///
@@ -1104,11 +1430,15 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` shape: qtabbar_enums.Shape `
+    /// ` _shape: qtabbar_enums.Shape `
     ///
-    pub fn SetShape(self: QStyleOptionTabWidgetFrame, shape: i32) void {
-        qtc.QStyleOptionTabWidgetFrame_SetShape(@ptrCast(self.ptr), @bitCast(shape));
+    pub fn setShape(self: QStyleOptionTabWidgetFrame, _shape: i32) void {
+        qtc.QStyleOptionTabWidgetFrame_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
     }
+
+    /// ### DEPRECATED: Use `tabBarSize` instead
+    ///
+    pub const TabBarSize = tabBarSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#tabBarSize-var)
     ///
@@ -1116,22 +1446,30 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn TabBarSize(self: QStyleOptionTabWidgetFrame) QSize {
+    pub fn tabBarSize(self: QStyleOptionTabWidgetFrame) QSize {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_TabBarSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setTabBarSize` instead
+    ///
+    pub const SetTabBarSize = setTabBarSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#tabBarSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` tabBarSize: QSize `
+    /// ` _tabBarSize: QSize `
     ///
-    pub fn SetTabBarSize(self: QStyleOptionTabWidgetFrame, tabBarSize: anytype) void {
-        comptime _ = @TypeOf(tabBarSize)._is_QSize;
-        qtc.QStyleOptionTabWidgetFrame_SetTabBarSize(@ptrCast(self.ptr), @ptrCast(tabBarSize.ptr));
+    pub fn setTabBarSize(self: QStyleOptionTabWidgetFrame, _tabBarSize: anytype) void {
+        comptime _ = @TypeOf(_tabBarSize)._is_QSize;
+        qtc.QStyleOptionTabWidgetFrame_SetTabBarSize(@ptrCast(self.ptr), @ptrCast(_tabBarSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightCornerWidgetSize` instead
+    ///
+    pub const RightCornerWidgetSize = rightCornerWidgetSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#rightCornerWidgetSize-var)
     ///
@@ -1139,22 +1477,30 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn RightCornerWidgetSize(self: QStyleOptionTabWidgetFrame) QSize {
+    pub fn rightCornerWidgetSize(self: QStyleOptionTabWidgetFrame) QSize {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_RightCornerWidgetSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRightCornerWidgetSize` instead
+    ///
+    pub const SetRightCornerWidgetSize = setRightCornerWidgetSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#rightCornerWidgetSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` rightCornerWidgetSize: QSize `
+    /// ` _rightCornerWidgetSize: QSize `
     ///
-    pub fn SetRightCornerWidgetSize(self: QStyleOptionTabWidgetFrame, rightCornerWidgetSize: anytype) void {
-        comptime _ = @TypeOf(rightCornerWidgetSize)._is_QSize;
-        qtc.QStyleOptionTabWidgetFrame_SetRightCornerWidgetSize(@ptrCast(self.ptr), @ptrCast(rightCornerWidgetSize.ptr));
+    pub fn setRightCornerWidgetSize(self: QStyleOptionTabWidgetFrame, _rightCornerWidgetSize: anytype) void {
+        comptime _ = @TypeOf(_rightCornerWidgetSize)._is_QSize;
+        qtc.QStyleOptionTabWidgetFrame_SetRightCornerWidgetSize(@ptrCast(self.ptr), @ptrCast(_rightCornerWidgetSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `leftCornerWidgetSize` instead
+    ///
+    pub const LeftCornerWidgetSize = leftCornerWidgetSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#leftCornerWidgetSize-var)
     ///
@@ -1162,22 +1508,30 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn LeftCornerWidgetSize(self: QStyleOptionTabWidgetFrame) QSize {
+    pub fn leftCornerWidgetSize(self: QStyleOptionTabWidgetFrame) QSize {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_LeftCornerWidgetSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setLeftCornerWidgetSize` instead
+    ///
+    pub const SetLeftCornerWidgetSize = setLeftCornerWidgetSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#leftCornerWidgetSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` leftCornerWidgetSize: QSize `
+    /// ` _leftCornerWidgetSize: QSize `
     ///
-    pub fn SetLeftCornerWidgetSize(self: QStyleOptionTabWidgetFrame, leftCornerWidgetSize: anytype) void {
-        comptime _ = @TypeOf(leftCornerWidgetSize)._is_QSize;
-        qtc.QStyleOptionTabWidgetFrame_SetLeftCornerWidgetSize(@ptrCast(self.ptr), @ptrCast(leftCornerWidgetSize.ptr));
+    pub fn setLeftCornerWidgetSize(self: QStyleOptionTabWidgetFrame, _leftCornerWidgetSize: anytype) void {
+        comptime _ = @TypeOf(_leftCornerWidgetSize)._is_QSize;
+        qtc.QStyleOptionTabWidgetFrame_SetLeftCornerWidgetSize(@ptrCast(self.ptr), @ptrCast(_leftCornerWidgetSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `tabBarRect` instead
+    ///
+    pub const TabBarRect = tabBarRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#tabBarRect-var)
     ///
@@ -1185,22 +1539,30 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn TabBarRect(self: QStyleOptionTabWidgetFrame) QRect {
+    pub fn tabBarRect(self: QStyleOptionTabWidgetFrame) QRect {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_TabBarRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setTabBarRect` instead
+    ///
+    pub const SetTabBarRect = setTabBarRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#tabBarRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` tabBarRect: QRect `
+    /// ` _tabBarRect: QRect `
     ///
-    pub fn SetTabBarRect(self: QStyleOptionTabWidgetFrame, tabBarRect: anytype) void {
-        comptime _ = @TypeOf(tabBarRect)._is_QRect;
-        qtc.QStyleOptionTabWidgetFrame_SetTabBarRect(@ptrCast(self.ptr), @ptrCast(tabBarRect.ptr));
+    pub fn setTabBarRect(self: QStyleOptionTabWidgetFrame, _tabBarRect: anytype) void {
+        comptime _ = @TypeOf(_tabBarRect)._is_QRect;
+        qtc.QStyleOptionTabWidgetFrame_SetTabBarRect(@ptrCast(self.ptr), @ptrCast(_tabBarRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedTabRect` instead
+    ///
+    pub const SelectedTabRect = selectedTabRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#selectedTabRect-var)
     ///
@@ -1208,22 +1570,30 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn SelectedTabRect(self: QStyleOptionTabWidgetFrame) QRect {
+    pub fn selectedTabRect(self: QStyleOptionTabWidgetFrame) QRect {
         return .{ .ptr = qtc.QStyleOptionTabWidgetFrame_SelectedTabRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setSelectedTabRect` instead
+    ///
+    pub const SetSelectedTabRect = setSelectedTabRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#selectedTabRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` selectedTabRect: QRect `
+    /// ` _selectedTabRect: QRect `
     ///
-    pub fn SetSelectedTabRect(self: QStyleOptionTabWidgetFrame, selectedTabRect: anytype) void {
-        comptime _ = @TypeOf(selectedTabRect)._is_QRect;
-        qtc.QStyleOptionTabWidgetFrame_SetSelectedTabRect(@ptrCast(self.ptr), @ptrCast(selectedTabRect.ptr));
+    pub fn setSelectedTabRect(self: QStyleOptionTabWidgetFrame, _selectedTabRect: anytype) void {
+        comptime _ = @TypeOf(_selectedTabRect)._is_QRect;
+        qtc.QStyleOptionTabWidgetFrame_SetSelectedTabRect(@ptrCast(self.ptr), @ptrCast(_selectedTabRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#operator-eq)
     ///
@@ -1233,11 +1603,15 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` param1: QStyleOptionTabWidgetFrame `
     ///
-    pub fn OperatorAssign(self: QStyleOptionTabWidgetFrame, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionTabWidgetFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionTabWidgetFrame;
         qtc.QStyleOptionTabWidgetFrame_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1246,10 +1620,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn Version(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn version(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1258,11 +1636,17 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionTabWidgetFrame, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionTabWidgetFrame, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -1272,10 +1656,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn Type(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn type0(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -1284,11 +1672,15 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionTabWidgetFrame, _type: i32) void {
+    pub fn setType(self: QStyleOptionTabWidgetFrame, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -1302,9 +1694,13 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn state(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -1314,11 +1710,15 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionTabWidgetFrame, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionTabWidgetFrame, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -1332,9 +1732,13 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionTabWidgetFrame) i32 {
+    pub fn direction(self: QStyleOptionTabWidgetFrame) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -1344,11 +1748,15 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionTabWidgetFrame, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionTabWidgetFrame, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -1358,10 +1766,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn Rect(self: QStyleOptionTabWidgetFrame) QRect {
+    pub fn rect(self: QStyleOptionTabWidgetFrame) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -1370,12 +1782,16 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionTabWidgetFrame, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionTabWidgetFrame, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -1385,10 +1801,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn FontMetrics(self: QStyleOptionTabWidgetFrame) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionTabWidgetFrame) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -1397,12 +1817,16 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionTabWidgetFrame, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionTabWidgetFrame, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -1412,10 +1836,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn Palette(self: QStyleOptionTabWidgetFrame) QPalette {
+    pub fn palette(self: QStyleOptionTabWidgetFrame) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -1424,12 +1852,16 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionTabWidgetFrame, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionTabWidgetFrame, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -1439,10 +1871,14 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn StyleObject(self: QStyleOptionTabWidgetFrame) QObject {
+    pub fn styleObject(self: QStyleOptionTabWidgetFrame) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -1451,12 +1887,16 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionTabWidgetFrame, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionTabWidgetFrame, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -1468,24 +1908,24 @@ pub const QStyleOptionTabWidgetFrame = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionTabWidgetFrame, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionTabWidgetFrame, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabwidgetframe.html#dtor.QStyleOptionTabWidgetFrame)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionTabWidgetFrame `
     ///
-    pub fn Delete(self: QStyleOptionTabWidgetFrame) void {
+    pub fn delete(self: QStyleOptionTabWidgetFrame) void {
         qtc.QStyleOptionTabWidgetFrame_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1501,22 +1941,34 @@ pub const QStyleOptionTabBarBase = extern struct {
     pub const _is_QStyleOptionTabBarBase = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionTabBarBase object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionTabBarBase {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionTabBarBase object in C++ memory
+    ///
+    pub fn new() QStyleOptionTabBarBase {
         return .{ .ptr = qtc.QStyleOptionTabBarBase_new() };
     }
 
-    /// New2 constructs a new QStyleOptionTabBarBase object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionTabBarBase object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionTabBarBase `
     ///
-    pub fn New2(other: anytype) QStyleOptionTabBarBase {
+    pub fn new2(other: anytype) QStyleOptionTabBarBase {
         comptime _ = @TypeOf(other)._is_QStyleOptionTabBarBase;
         return .{ .ptr = qtc.QStyleOptionTabBarBase_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#shape-var)
     ///
@@ -1528,9 +1980,13 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` qtabbar_enums.Shape `
     ///
-    pub fn Shape(self: QStyleOptionTabBarBase) i32 {
+    pub fn shape(self: QStyleOptionTabBarBase) i32 {
         return qtc.QStyleOptionTabBarBase_Shape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShape` instead
+    ///
+    pub const SetShape = setShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#shape-var)
     ///
@@ -1538,11 +1994,15 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` shape: qtabbar_enums.Shape `
+    /// ` _shape: qtabbar_enums.Shape `
     ///
-    pub fn SetShape(self: QStyleOptionTabBarBase, shape: i32) void {
-        qtc.QStyleOptionTabBarBase_SetShape(@ptrCast(self.ptr), @bitCast(shape));
+    pub fn setShape(self: QStyleOptionTabBarBase, _shape: i32) void {
+        qtc.QStyleOptionTabBarBase_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
     }
+
+    /// ### DEPRECATED: Use `tabBarRect` instead
+    ///
+    pub const TabBarRect = tabBarRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#tabBarRect-var)
     ///
@@ -1550,22 +2010,30 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn TabBarRect(self: QStyleOptionTabBarBase) QRect {
+    pub fn tabBarRect(self: QStyleOptionTabBarBase) QRect {
         return .{ .ptr = qtc.QStyleOptionTabBarBase_TabBarRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setTabBarRect` instead
+    ///
+    pub const SetTabBarRect = setTabBarRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#tabBarRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` tabBarRect: QRect `
+    /// ` _tabBarRect: QRect `
     ///
-    pub fn SetTabBarRect(self: QStyleOptionTabBarBase, tabBarRect: anytype) void {
-        comptime _ = @TypeOf(tabBarRect)._is_QRect;
-        qtc.QStyleOptionTabBarBase_SetTabBarRect(@ptrCast(self.ptr), @ptrCast(tabBarRect.ptr));
+    pub fn setTabBarRect(self: QStyleOptionTabBarBase, _tabBarRect: anytype) void {
+        comptime _ = @TypeOf(_tabBarRect)._is_QRect;
+        qtc.QStyleOptionTabBarBase_SetTabBarRect(@ptrCast(self.ptr), @ptrCast(_tabBarRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedTabRect` instead
+    ///
+    pub const SelectedTabRect = selectedTabRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#selectedTabRect-var)
     ///
@@ -1573,22 +2041,30 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn SelectedTabRect(self: QStyleOptionTabBarBase) QRect {
+    pub fn selectedTabRect(self: QStyleOptionTabBarBase) QRect {
         return .{ .ptr = qtc.QStyleOptionTabBarBase_SelectedTabRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setSelectedTabRect` instead
+    ///
+    pub const SetSelectedTabRect = setSelectedTabRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#selectedTabRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` selectedTabRect: QRect `
+    /// ` _selectedTabRect: QRect `
     ///
-    pub fn SetSelectedTabRect(self: QStyleOptionTabBarBase, selectedTabRect: anytype) void {
-        comptime _ = @TypeOf(selectedTabRect)._is_QRect;
-        qtc.QStyleOptionTabBarBase_SetSelectedTabRect(@ptrCast(self.ptr), @ptrCast(selectedTabRect.ptr));
+    pub fn setSelectedTabRect(self: QStyleOptionTabBarBase, _selectedTabRect: anytype) void {
+        comptime _ = @TypeOf(_selectedTabRect)._is_QRect;
+        qtc.QStyleOptionTabBarBase_SetSelectedTabRect(@ptrCast(self.ptr), @ptrCast(_selectedTabRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentMode` instead
+    ///
+    pub const DocumentMode = documentMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#documentMode-var)
     ///
@@ -1596,21 +2072,29 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn DocumentMode(self: QStyleOptionTabBarBase) bool {
+    pub fn documentMode(self: QStyleOptionTabBarBase) bool {
         return qtc.QStyleOptionTabBarBase_DocumentMode(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDocumentMode` instead
+    ///
+    pub const SetDocumentMode = setDocumentMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#documentMode-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` documentMode: bool `
+    /// ` _documentMode: bool `
     ///
-    pub fn SetDocumentMode(self: QStyleOptionTabBarBase, documentMode: bool) void {
-        qtc.QStyleOptionTabBarBase_SetDocumentMode(@ptrCast(self.ptr), documentMode);
+    pub fn setDocumentMode(self: QStyleOptionTabBarBase, _documentMode: bool) void {
+        qtc.QStyleOptionTabBarBase_SetDocumentMode(@ptrCast(self.ptr), _documentMode);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#operator-eq)
     ///
@@ -1620,11 +2104,15 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` param1: QStyleOptionTabBarBase `
     ///
-    pub fn OperatorAssign(self: QStyleOptionTabBarBase, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionTabBarBase, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionTabBarBase;
         qtc.QStyleOptionTabBarBase_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1633,10 +2121,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn Version(self: QStyleOptionTabBarBase) i32 {
+    pub fn version(self: QStyleOptionTabBarBase) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -1645,11 +2137,17 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionTabBarBase, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionTabBarBase, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -1659,10 +2157,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn Type(self: QStyleOptionTabBarBase) i32 {
+    pub fn type0(self: QStyleOptionTabBarBase) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -1671,11 +2173,15 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionTabBarBase, _type: i32) void {
+    pub fn setType(self: QStyleOptionTabBarBase, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -1689,9 +2195,13 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionTabBarBase) i32 {
+    pub fn state(self: QStyleOptionTabBarBase) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -1701,11 +2211,15 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionTabBarBase, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionTabBarBase, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -1719,9 +2233,13 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionTabBarBase) i32 {
+    pub fn direction(self: QStyleOptionTabBarBase) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -1731,11 +2249,15 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionTabBarBase, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionTabBarBase, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -1745,10 +2267,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn Rect(self: QStyleOptionTabBarBase) QRect {
+    pub fn rect(self: QStyleOptionTabBarBase) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -1757,12 +2283,16 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionTabBarBase, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionTabBarBase, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -1772,10 +2302,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn FontMetrics(self: QStyleOptionTabBarBase) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionTabBarBase) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -1784,12 +2318,16 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionTabBarBase, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionTabBarBase, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -1799,10 +2337,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn Palette(self: QStyleOptionTabBarBase) QPalette {
+    pub fn palette(self: QStyleOptionTabBarBase) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -1811,12 +2353,16 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionTabBarBase, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionTabBarBase, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -1826,10 +2372,14 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn StyleObject(self: QStyleOptionTabBarBase) QObject {
+    pub fn styleObject(self: QStyleOptionTabBarBase) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -1838,12 +2388,16 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionTabBarBase, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionTabBarBase, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -1855,24 +2409,24 @@ pub const QStyleOptionTabBarBase = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionTabBarBase, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionTabBarBase, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontabbarbase.html#dtor.QStyleOptionTabBarBase)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionTabBarBase `
     ///
-    pub fn Delete(self: QStyleOptionTabBarBase) void {
+    pub fn delete(self: QStyleOptionTabBarBase) void {
         qtc.QStyleOptionTabBarBase_Delete(@ptrCast(self.ptr));
     }
 };
@@ -1888,32 +2442,34 @@ pub const QStyleOptionHeader = extern struct {
     pub const _is_QStyleOptionHeader = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionHeader object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionHeader {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionHeader object in C++ memory
+    ///
+    pub fn new() QStyleOptionHeader {
         return .{ .ptr = qtc.QStyleOptionHeader_new() };
     }
 
-    /// New2 constructs a new QStyleOptionHeader object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionHeader object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionHeader `
     ///
-    pub fn New2(other: anytype) QStyleOptionHeader {
+    pub fn new2(other: anytype) QStyleOptionHeader {
         comptime _ = @TypeOf(other)._is_QStyleOptionHeader;
         return .{ .ptr = qtc.QStyleOptionHeader_new2(@ptrCast(other.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#section-var)
+    /// ### DEPRECATED: Use `section` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleOptionHeader `
-    ///
-    pub fn Section(self: QStyleOptionHeader) i32 {
-        return qtc.QStyleOptionHeader_Section(@ptrCast(self.ptr));
-    }
+    pub const Section = section;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#section-var)
     ///
@@ -1921,11 +2477,29 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` section: i32 `
-    ///
-    pub fn SetSection(self: QStyleOptionHeader, section: i32) void {
-        qtc.QStyleOptionHeader_SetSection(@ptrCast(self.ptr), @bitCast(section));
+    pub fn section(self: QStyleOptionHeader) i32 {
+        return qtc.QStyleOptionHeader_Section(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSection` instead
+    ///
+    pub const SetSection = setSection;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#section-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleOptionHeader `
+    ///
+    /// ` _section: i32 `
+    ///
+    pub fn setSection(self: QStyleOptionHeader, _section: i32) void {
+        qtc.QStyleOptionHeader_SetSection(@ptrCast(self.ptr), @bitCast(_section));
+    }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#text-var)
     ///
@@ -1935,13 +2509,17 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionHeader, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionHeader, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeader.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeader.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#text-var)
     ///
@@ -1949,16 +2527,20 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionHeader, text: []const u8) void {
+    pub fn setText(self: QStyleOptionHeader, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionHeader_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
     ///
     /// ## Parameter(s):
@@ -1969,21 +2551,29 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: QStyleOptionHeader) i32 {
+    pub fn textAlignment(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_TextAlignment(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment(self: QStyleOptionHeader, textAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self.ptr), @bitCast(textAlignment));
+    pub fn setTextAlignment(self: QStyleOptionHeader, _textAlignment: i32) void {
+        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self.ptr), @bitCast(_textAlignment));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#icon-var)
     ///
@@ -1991,22 +2581,30 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Icon(self: QStyleOptionHeader) QIcon {
+    pub fn icon(self: QStyleOptionHeader) QIcon {
         return .{ .ptr = qtc.QStyleOptionHeader_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionHeader, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionHeader_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionHeader, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionHeader_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconAlignment` instead
+    ///
+    pub const IconAlignment = iconAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#iconAlignment-var)
     ///
@@ -2018,9 +2616,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn IconAlignment(self: QStyleOptionHeader) i32 {
+    pub fn iconAlignment(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_IconAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconAlignment` instead
+    ///
+    pub const SetIconAlignment = setIconAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#iconAlignment-var)
     ///
@@ -2028,11 +2630,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` iconAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _iconAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetIconAlignment(self: QStyleOptionHeader, iconAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self.ptr), @bitCast(iconAlignment));
+    pub fn setIconAlignment(self: QStyleOptionHeader, _iconAlignment: i32) void {
+        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self.ptr), @bitCast(_iconAlignment));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#position-var)
     ///
@@ -2044,9 +2650,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` qstyleoption_enums.SectionPosition `
     ///
-    pub fn Position(self: QStyleOptionHeader) i32 {
+    pub fn position(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#position-var)
     ///
@@ -2054,11 +2664,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` position: qstyleoption_enums.SectionPosition `
+    /// ` _position: qstyleoption_enums.SectionPosition `
     ///
-    pub fn SetPosition(self: QStyleOptionHeader, position: i32) void {
-        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: QStyleOptionHeader, _position: i32) void {
+        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `selectedPosition` instead
+    ///
+    pub const SelectedPosition = selectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#selectedPosition-var)
     ///
@@ -2070,9 +2684,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SelectedPosition(self: QStyleOptionHeader) i32 {
+    pub fn selectedPosition(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_SelectedPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedPosition` instead
+    ///
+    pub const SetSelectedPosition = setSelectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#selectedPosition-var)
     ///
@@ -2080,11 +2698,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
+    /// ` _selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SetSelectedPosition(self: QStyleOptionHeader, selectedPosition: i32) void {
-        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(selectedPosition));
+    pub fn setSelectedPosition(self: QStyleOptionHeader, _selectedPosition: i32) void {
+        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(_selectedPosition));
     }
+
+    /// ### DEPRECATED: Use `sortIndicator` instead
+    ///
+    pub const SortIndicator = sortIndicator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#sortIndicator-var)
     ///
@@ -2096,9 +2718,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` qstyleoption_enums.SortIndicator `
     ///
-    pub fn SortIndicator(self: QStyleOptionHeader) i32 {
+    pub fn sortIndicator(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_SortIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortIndicator` instead
+    ///
+    pub const SetSortIndicator = setSortIndicator;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#sortIndicator-var)
     ///
@@ -2106,11 +2732,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` sortIndicator: qstyleoption_enums.SortIndicator `
+    /// ` _sortIndicator: qstyleoption_enums.SortIndicator `
     ///
-    pub fn SetSortIndicator(self: QStyleOptionHeader, sortIndicator: i32) void {
-        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self.ptr), @bitCast(sortIndicator));
+    pub fn setSortIndicator(self: QStyleOptionHeader, _sortIndicator: i32) void {
+        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self.ptr), @bitCast(_sortIndicator));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#orientation-var)
     ///
@@ -2122,9 +2752,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QStyleOptionHeader) i32 {
+    pub fn orientation(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOptionHeader_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#orientation-var)
     ///
@@ -2132,11 +2766,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QStyleOptionHeader, orientation: i32) void {
-        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QStyleOptionHeader, _orientation: i32) void {
+        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#operator-eq)
     ///
@@ -2146,11 +2784,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` param1: QStyleOptionHeader `
     ///
-    pub fn OperatorAssign(self: QStyleOptionHeader, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionHeader, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionHeader;
         qtc.QStyleOptionHeader_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -2159,10 +2801,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Version(self: QStyleOptionHeader) i32 {
+    pub fn version(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -2171,11 +2817,17 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionHeader, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionHeader, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -2185,10 +2837,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Type(self: QStyleOptionHeader) i32 {
+    pub fn type0(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -2197,11 +2853,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionHeader, _type: i32) void {
+    pub fn setType(self: QStyleOptionHeader, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -2215,9 +2875,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionHeader) i32 {
+    pub fn state(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -2227,11 +2891,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionHeader, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionHeader, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -2245,9 +2913,13 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionHeader) i32 {
+    pub fn direction(self: QStyleOptionHeader) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -2257,11 +2929,15 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionHeader, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionHeader, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -2271,10 +2947,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Rect(self: QStyleOptionHeader) QRect {
+    pub fn rect(self: QStyleOptionHeader) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -2283,12 +2963,16 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionHeader, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionHeader, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -2298,10 +2982,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn FontMetrics(self: QStyleOptionHeader) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionHeader) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -2310,12 +2998,16 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionHeader, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionHeader, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -2325,10 +3017,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Palette(self: QStyleOptionHeader) QPalette {
+    pub fn palette(self: QStyleOptionHeader) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -2337,12 +3033,16 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionHeader, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionHeader, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -2352,10 +3052,14 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn StyleObject(self: QStyleOptionHeader) QObject {
+    pub fn styleObject(self: QStyleOptionHeader) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -2364,12 +3068,16 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionHeader, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionHeader, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -2381,24 +3089,24 @@ pub const QStyleOptionHeader = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionHeader, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionHeader, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#dtor.QStyleOptionHeader)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionHeader `
     ///
-    pub fn Delete(self: QStyleOptionHeader) void {
+    pub fn delete(self: QStyleOptionHeader) void {
         qtc.QStyleOptionHeader_Delete(@ptrCast(self.ptr));
     }
 };
@@ -2415,22 +3123,34 @@ pub const QStyleOptionHeaderV2 = extern struct {
     pub const _is_QStyleOptionHeader = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionHeaderV2 object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionHeaderV2 {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionHeaderV2 object in C++ memory
+    ///
+    pub fn new() QStyleOptionHeaderV2 {
         return .{ .ptr = qtc.QStyleOptionHeaderV2_new() };
     }
 
-    /// New2 constructs a new QStyleOptionHeaderV2 object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionHeaderV2 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionHeaderV2 `
     ///
-    pub fn New2(other: anytype) QStyleOptionHeaderV2 {
+    pub fn new2(other: anytype) QStyleOptionHeaderV2 {
         comptime _ = @TypeOf(other)._is_QStyleOptionHeaderV2;
         return .{ .ptr = qtc.QStyleOptionHeaderV2_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#operator-eq)
     ///
@@ -2440,10 +3160,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` param1: QStyleOptionHeaderV2 `
     ///
-    pub fn OperatorAssign(self: QStyleOptionHeaderV2, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionHeaderV2, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionHeaderV2;
         qtc.QStyleOptionHeaderV2_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#textElideMode-var)
     ///
@@ -2455,9 +3179,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: QStyleOptionHeaderV2) i32 {
+    pub fn textElideMode(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeaderV2_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#textElideMode-var)
     ///
@@ -2465,11 +3193,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` textElideMode: qnamespace_enums.TextElideMode `
+    /// ` _textElideMode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: QStyleOptionHeaderV2, textElideMode: i32) void {
-        qtc.QStyleOptionHeaderV2_SetTextElideMode(@ptrCast(self.ptr), @bitCast(textElideMode));
+    pub fn setTextElideMode(self: QStyleOptionHeaderV2, _textElideMode: i32) void {
+        qtc.QStyleOptionHeaderV2_SetTextElideMode(@ptrCast(self.ptr), @bitCast(_textElideMode));
     }
+
+    /// ### DEPRECATED: Use `isSectionDragTarget` instead
+    ///
+    pub const IsSectionDragTarget = isSectionDragTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#isSectionDragTarget-var)
     ///
@@ -2477,21 +3209,29 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn IsSectionDragTarget(self: QStyleOptionHeaderV2) bool {
+    pub fn isSectionDragTarget(self: QStyleOptionHeaderV2) bool {
         return qtc.QStyleOptionHeaderV2_IsSectionDragTarget(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setIsSectionDragTarget` instead
+    ///
+    pub const SetIsSectionDragTarget = setIsSectionDragTarget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#isSectionDragTarget-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` isSectionDragTarget: bool `
+    /// ` _isSectionDragTarget: bool `
     ///
-    pub fn SetIsSectionDragTarget(self: QStyleOptionHeaderV2, isSectionDragTarget: bool) void {
-        qtc.QStyleOptionHeaderV2_SetIsSectionDragTarget(@ptrCast(self.ptr), isSectionDragTarget);
+    pub fn setIsSectionDragTarget(self: QStyleOptionHeaderV2, _isSectionDragTarget: bool) void {
+        qtc.QStyleOptionHeaderV2_SetIsSectionDragTarget(@ptrCast(self.ptr), _isSectionDragTarget);
     }
+
+    /// ### DEPRECATED: Use `unused` instead
+    ///
+    pub const Unused = unused;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#unused-var)
     ///
@@ -2499,21 +3239,29 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Unused(self: QStyleOptionHeaderV2) i32 {
+    pub fn unused(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeaderV2_Unused(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setUnused` instead
+    ///
+    pub const SetUnused = setUnused;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#unused-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` unused: i32 `
+    /// ` _unused: i32 `
     ///
-    pub fn SetUnused(self: QStyleOptionHeaderV2, unused: i32) void {
-        qtc.QStyleOptionHeaderV2_SetUnused(@ptrCast(self.ptr), @bitCast(unused));
+    pub fn setUnused(self: QStyleOptionHeaderV2, _unused: i32) void {
+        qtc.QStyleOptionHeaderV2_SetUnused(@ptrCast(self.ptr), @bitCast(_unused));
     }
+
+    /// ### DEPRECATED: Use `section` instead
+    ///
+    pub const Section = section;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2523,10 +3271,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Section(self: QStyleOptionHeaderV2) i32 {
+    pub fn section(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_Section(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSection` instead
+    ///
+    pub const SetSection = setSection;
+
     /// Inherited from QStyleOptionHeader
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#section-var)
@@ -2535,11 +3287,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` section: i32 `
+    /// ` _section: i32 `
     ///
-    pub fn SetSection(self: QStyleOptionHeaderV2, section: i32) void {
-        qtc.QStyleOptionHeader_SetSection(@ptrCast(self.ptr), @bitCast(section));
+    pub fn setSection(self: QStyleOptionHeaderV2, _section: i32) void {
+        qtc.QStyleOptionHeader_SetSection(@ptrCast(self.ptr), @bitCast(_section));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2551,13 +3307,17 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionHeaderV2, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionHeaderV2, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionHeader_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeaderV2.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionHeaderV2.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2567,16 +3327,20 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionHeaderV2, text: []const u8) void {
+    pub fn setText(self: QStyleOptionHeaderV2, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionHeader_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
+
     /// Inherited from QStyleOptionHeader
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
@@ -2589,10 +3353,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: QStyleOptionHeaderV2) i32 {
+    pub fn textAlignment(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_TextAlignment(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
+
     /// Inherited from QStyleOptionHeader
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#textAlignment-var)
@@ -2601,11 +3369,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment(self: QStyleOptionHeaderV2, textAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self.ptr), @bitCast(textAlignment));
+    pub fn setTextAlignment(self: QStyleOptionHeaderV2, _textAlignment: i32) void {
+        qtc.QStyleOptionHeader_SetTextAlignment(@ptrCast(self.ptr), @bitCast(_textAlignment));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2615,10 +3387,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Icon(self: QStyleOptionHeaderV2) QIcon {
+    pub fn icon(self: QStyleOptionHeaderV2) QIcon {
         return .{ .ptr = qtc.QStyleOptionHeader_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// Inherited from QStyleOptionHeader
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheader.html#icon-var)
@@ -2627,12 +3403,16 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionHeaderV2, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionHeader_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionHeaderV2, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionHeader_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconAlignment` instead
+    ///
+    pub const IconAlignment = iconAlignment;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2646,9 +3426,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn IconAlignment(self: QStyleOptionHeaderV2) i32 {
+    pub fn iconAlignment(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_IconAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIconAlignment` instead
+    ///
+    pub const SetIconAlignment = setIconAlignment;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2658,11 +3442,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` iconAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _iconAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetIconAlignment(self: QStyleOptionHeaderV2, iconAlignment: i32) void {
-        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self.ptr), @bitCast(iconAlignment));
+    pub fn setIconAlignment(self: QStyleOptionHeaderV2, _iconAlignment: i32) void {
+        qtc.QStyleOptionHeader_SetIconAlignment(@ptrCast(self.ptr), @bitCast(_iconAlignment));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2676,9 +3464,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qstyleoption_enums.SectionPosition `
     ///
-    pub fn Position(self: QStyleOptionHeaderV2) i32 {
+    pub fn position(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2688,11 +3480,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` position: qstyleoption_enums.SectionPosition `
+    /// ` _position: qstyleoption_enums.SectionPosition `
     ///
-    pub fn SetPosition(self: QStyleOptionHeaderV2, position: i32) void {
-        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: QStyleOptionHeaderV2, _position: i32) void {
+        qtc.QStyleOptionHeader_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `selectedPosition` instead
+    ///
+    pub const SelectedPosition = selectedPosition;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2706,9 +3502,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SelectedPosition(self: QStyleOptionHeaderV2) i32 {
+    pub fn selectedPosition(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_SelectedPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedPosition` instead
+    ///
+    pub const SetSelectedPosition = setSelectedPosition;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2718,11 +3518,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
+    /// ` _selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SetSelectedPosition(self: QStyleOptionHeaderV2, selectedPosition: i32) void {
-        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(selectedPosition));
+    pub fn setSelectedPosition(self: QStyleOptionHeaderV2, _selectedPosition: i32) void {
+        qtc.QStyleOptionHeader_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(_selectedPosition));
     }
+
+    /// ### DEPRECATED: Use `sortIndicator` instead
+    ///
+    pub const SortIndicator = sortIndicator;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2736,9 +3540,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qstyleoption_enums.SortIndicator `
     ///
-    pub fn SortIndicator(self: QStyleOptionHeaderV2) i32 {
+    pub fn sortIndicator(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_SortIndicator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSortIndicator` instead
+    ///
+    pub const SetSortIndicator = setSortIndicator;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2748,11 +3556,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` sortIndicator: qstyleoption_enums.SortIndicator `
+    /// ` _sortIndicator: qstyleoption_enums.SortIndicator `
     ///
-    pub fn SetSortIndicator(self: QStyleOptionHeaderV2, sortIndicator: i32) void {
-        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self.ptr), @bitCast(sortIndicator));
+    pub fn setSortIndicator(self: QStyleOptionHeaderV2, _sortIndicator: i32) void {
+        qtc.QStyleOptionHeader_SetSortIndicator(@ptrCast(self.ptr), @bitCast(_sortIndicator));
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2766,9 +3578,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QStyleOptionHeaderV2) i32 {
+    pub fn orientation(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOptionHeader_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// Inherited from QStyleOptionHeader
     ///
@@ -2778,11 +3594,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QStyleOptionHeaderV2, orientation: i32) void {
-        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QStyleOptionHeaderV2, _orientation: i32) void {
+        qtc.QStyleOptionHeader_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -2792,10 +3612,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Version(self: QStyleOptionHeaderV2) i32 {
+    pub fn version(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -2804,11 +3628,17 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionHeaderV2, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionHeaderV2, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -2818,10 +3648,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Type(self: QStyleOptionHeaderV2) i32 {
+    pub fn type0(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -2830,11 +3664,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionHeaderV2, _type: i32) void {
+    pub fn setType(self: QStyleOptionHeaderV2, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -2848,9 +3686,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionHeaderV2) i32 {
+    pub fn state(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -2860,11 +3702,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionHeaderV2, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionHeaderV2, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -2878,9 +3724,13 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionHeaderV2) i32 {
+    pub fn direction(self: QStyleOptionHeaderV2) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -2890,11 +3740,15 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionHeaderV2, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionHeaderV2, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -2904,10 +3758,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Rect(self: QStyleOptionHeaderV2) QRect {
+    pub fn rect(self: QStyleOptionHeaderV2) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -2916,12 +3774,16 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionHeaderV2, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionHeaderV2, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -2931,10 +3793,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn FontMetrics(self: QStyleOptionHeaderV2) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionHeaderV2) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -2943,12 +3809,16 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionHeaderV2, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionHeaderV2, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -2958,10 +3828,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Palette(self: QStyleOptionHeaderV2) QPalette {
+    pub fn palette(self: QStyleOptionHeaderV2) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -2970,12 +3844,16 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionHeaderV2, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionHeaderV2, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -2985,10 +3863,14 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn StyleObject(self: QStyleOptionHeaderV2) QObject {
+    pub fn styleObject(self: QStyleOptionHeaderV2) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -2997,12 +3879,16 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionHeaderV2, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionHeaderV2, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -3014,24 +3900,24 @@ pub const QStyleOptionHeaderV2 = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionHeaderV2, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionHeaderV2, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionheaderv2.html#dtor.QStyleOptionHeaderV2)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionHeaderV2 `
     ///
-    pub fn Delete(self: QStyleOptionHeaderV2) void {
+    pub fn delete(self: QStyleOptionHeaderV2) void {
         qtc.QStyleOptionHeaderV2_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3047,22 +3933,34 @@ pub const QStyleOptionButton = extern struct {
     pub const _is_QStyleOptionButton = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionButton object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionButton {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionButton object in C++ memory
+    ///
+    pub fn new() QStyleOptionButton {
         return .{ .ptr = qtc.QStyleOptionButton_new() };
     }
 
-    /// New2 constructs a new QStyleOptionButton object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionButton object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionButton `
     ///
-    pub fn New2(other: anytype) QStyleOptionButton {
+    pub fn new2(other: anytype) QStyleOptionButton {
         comptime _ = @TypeOf(other)._is_QStyleOptionButton;
         return .{ .ptr = qtc.QStyleOptionButton_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#features-var)
     ///
@@ -3074,9 +3972,13 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` flag of qstyleoption_enums.ButtonFeature `
     ///
-    pub fn Features(self: QStyleOptionButton) i32 {
+    pub fn features(self: QStyleOptionButton) i32 {
         return qtc.QStyleOptionButton_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#features-var)
     ///
@@ -3084,11 +3986,15 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` features: flag of qstyleoption_enums.ButtonFeature `
+    /// ` _features: flag of qstyleoption_enums.ButtonFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionButton, features: i32) void {
-        qtc.QStyleOptionButton_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionButton, _features: i32) void {
+        qtc.QStyleOptionButton_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#text-var)
     ///
@@ -3098,13 +4004,17 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionButton, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionButton.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionButton.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#text-var)
     ///
@@ -3112,38 +4022,50 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionButton, text: []const u8) void {
+    pub fn setText(self: QStyleOptionButton, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionButton_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Icon(self: QStyleOptionButton) QIcon {
+    pub fn icon(self: QStyleOptionButton) QIcon {
         return .{ .ptr = qtc.QStyleOptionButton_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#iconSize-var)
     ///
@@ -3151,22 +4073,30 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn IconSize(self: QStyleOptionButton) QSize {
+    pub fn iconSize(self: QStyleOptionButton) QSize {
         return .{ .ptr = qtc.QStyleOptionButton_IconSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#iconSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: QStyleOptionButton, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QStyleOptionButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: QStyleOptionButton, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QStyleOptionButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#operator-eq)
     ///
@@ -3176,11 +4106,15 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` param1: QStyleOptionButton `
     ///
-    pub fn OperatorAssign(self: QStyleOptionButton, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionButton;
         qtc.QStyleOptionButton_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -3189,10 +4123,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Version(self: QStyleOptionButton) i32 {
+    pub fn version(self: QStyleOptionButton) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -3201,11 +4139,17 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionButton, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionButton, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -3215,10 +4159,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Type(self: QStyleOptionButton) i32 {
+    pub fn type0(self: QStyleOptionButton) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -3227,11 +4175,15 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionButton, _type: i32) void {
+    pub fn setType(self: QStyleOptionButton, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -3245,9 +4197,13 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionButton) i32 {
+    pub fn state(self: QStyleOptionButton) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -3257,11 +4213,15 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionButton, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionButton, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -3275,9 +4235,13 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionButton) i32 {
+    pub fn direction(self: QStyleOptionButton) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -3287,11 +4251,15 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionButton, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionButton, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -3301,10 +4269,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Rect(self: QStyleOptionButton) QRect {
+    pub fn rect(self: QStyleOptionButton) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -3313,12 +4285,16 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionButton, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionButton, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -3328,10 +4304,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn FontMetrics(self: QStyleOptionButton) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionButton) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -3340,12 +4320,16 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionButton, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionButton, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -3355,10 +4339,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Palette(self: QStyleOptionButton) QPalette {
+    pub fn palette(self: QStyleOptionButton) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -3367,12 +4355,16 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionButton, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionButton, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -3382,10 +4374,14 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn StyleObject(self: QStyleOptionButton) QObject {
+    pub fn styleObject(self: QStyleOptionButton) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -3394,12 +4390,16 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` self: QStyleOptionButton `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionButton, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionButton, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -3411,24 +4411,24 @@ pub const QStyleOptionButton = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionButton, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionButton, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionbutton.html#dtor.QStyleOptionButton)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionButton `
     ///
-    pub fn Delete(self: QStyleOptionButton) void {
+    pub fn delete(self: QStyleOptionButton) void {
         qtc.QStyleOptionButton_Delete(@ptrCast(self.ptr));
     }
 };
@@ -3444,22 +4444,34 @@ pub const QStyleOptionTab = extern struct {
     pub const _is_QStyleOptionTab = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionTab object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionTab {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionTab object in C++ memory
+    ///
+    pub fn new() QStyleOptionTab {
         return .{ .ptr = qtc.QStyleOptionTab_new() };
     }
 
-    /// New2 constructs a new QStyleOptionTab object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionTab object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionTab `
     ///
-    pub fn New2(other: anytype) QStyleOptionTab {
+    pub fn new2(other: anytype) QStyleOptionTab {
         comptime _ = @TypeOf(other)._is_QStyleOptionTab;
         return .{ .ptr = qtc.QStyleOptionTab_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#shape-var)
     ///
@@ -3471,9 +4483,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` qtabbar_enums.Shape `
     ///
-    pub fn Shape(self: QStyleOptionTab) i32 {
+    pub fn shape(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_Shape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShape` instead
+    ///
+    pub const SetShape = setShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#shape-var)
     ///
@@ -3481,11 +4497,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` shape: qtabbar_enums.Shape `
+    /// ` _shape: qtabbar_enums.Shape `
     ///
-    pub fn SetShape(self: QStyleOptionTab, shape: i32) void {
-        qtc.QStyleOptionTab_SetShape(@ptrCast(self.ptr), @bitCast(shape));
+    pub fn setShape(self: QStyleOptionTab, _shape: i32) void {
+        qtc.QStyleOptionTab_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#text-var)
     ///
@@ -3495,13 +4515,17 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionTab, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionTab_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTab.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTab.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#text-var)
     ///
@@ -3509,38 +4533,50 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionTab, text: []const u8) void {
+    pub fn setText(self: QStyleOptionTab, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionTab_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Icon(self: QStyleOptionTab) QIcon {
+    pub fn icon(self: QStyleOptionTab) QIcon {
         return .{ .ptr = qtc.QStyleOptionTab_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionTab, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionTab_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionTab, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionTab_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `row` instead
+    ///
+    pub const Row = row;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#row-var)
     ///
@@ -3548,21 +4584,29 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Row(self: QStyleOptionTab) i32 {
+    pub fn row(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_Row(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setRow` instead
+    ///
+    pub const SetRow = setRow;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#row-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` row: i32 `
+    /// ` _row: i32 `
     ///
-    pub fn SetRow(self: QStyleOptionTab, row: i32) void {
-        qtc.QStyleOptionTab_SetRow(@ptrCast(self.ptr), @bitCast(row));
+    pub fn setRow(self: QStyleOptionTab, _row: i32) void {
+        qtc.QStyleOptionTab_SetRow(@ptrCast(self.ptr), @bitCast(_row));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#position-var)
     ///
@@ -3574,9 +4618,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` qstyleoption_enums.TabPosition `
     ///
-    pub fn Position(self: QStyleOptionTab) i32 {
+    pub fn position(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#position-var)
     ///
@@ -3584,11 +4632,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` position: qstyleoption_enums.TabPosition `
+    /// ` _position: qstyleoption_enums.TabPosition `
     ///
-    pub fn SetPosition(self: QStyleOptionTab, position: i32) void {
-        qtc.QStyleOptionTab_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: QStyleOptionTab, _position: i32) void {
+        qtc.QStyleOptionTab_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `selectedPosition` instead
+    ///
+    pub const SelectedPosition = selectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#selectedPosition-var)
     ///
@@ -3600,9 +4652,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SelectedPosition(self: QStyleOptionTab) i32 {
+    pub fn selectedPosition(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_SelectedPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedPosition` instead
+    ///
+    pub const SetSelectedPosition = setSelectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#selectedPosition-var)
     ///
@@ -3610,11 +4666,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
+    /// ` _selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SetSelectedPosition(self: QStyleOptionTab, selectedPosition: i32) void {
-        qtc.QStyleOptionTab_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(selectedPosition));
+    pub fn setSelectedPosition(self: QStyleOptionTab, _selectedPosition: i32) void {
+        qtc.QStyleOptionTab_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(_selectedPosition));
     }
+
+    /// ### DEPRECATED: Use `cornerWidgets` instead
+    ///
+    pub const CornerWidgets = cornerWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#cornerWidgets-var)
     ///
@@ -3626,9 +4686,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` flag of qstyleoption_enums.CornerWidget `
     ///
-    pub fn CornerWidgets(self: QStyleOptionTab) i32 {
+    pub fn cornerWidgets(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_CornerWidgets(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCornerWidgets` instead
+    ///
+    pub const SetCornerWidgets = setCornerWidgets;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#cornerWidgets-var)
     ///
@@ -3636,11 +4700,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` cornerWidgets: flag of qstyleoption_enums.CornerWidget `
+    /// ` _cornerWidgets: flag of qstyleoption_enums.CornerWidget `
     ///
-    pub fn SetCornerWidgets(self: QStyleOptionTab, cornerWidgets: i32) void {
-        qtc.QStyleOptionTab_SetCornerWidgets(@ptrCast(self.ptr), @bitCast(cornerWidgets));
+    pub fn setCornerWidgets(self: QStyleOptionTab, _cornerWidgets: i32) void {
+        qtc.QStyleOptionTab_SetCornerWidgets(@ptrCast(self.ptr), @bitCast(_cornerWidgets));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#iconSize-var)
     ///
@@ -3648,22 +4716,30 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn IconSize(self: QStyleOptionTab) QSize {
+    pub fn iconSize(self: QStyleOptionTab) QSize {
         return .{ .ptr = qtc.QStyleOptionTab_IconSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#iconSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: QStyleOptionTab, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QStyleOptionTab_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: QStyleOptionTab, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QStyleOptionTab_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `documentMode` instead
+    ///
+    pub const DocumentMode = documentMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#documentMode-var)
     ///
@@ -3671,21 +4747,29 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn DocumentMode(self: QStyleOptionTab) bool {
+    pub fn documentMode(self: QStyleOptionTab) bool {
         return qtc.QStyleOptionTab_DocumentMode(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDocumentMode` instead
+    ///
+    pub const SetDocumentMode = setDocumentMode;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#documentMode-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` documentMode: bool `
+    /// ` _documentMode: bool `
     ///
-    pub fn SetDocumentMode(self: QStyleOptionTab, documentMode: bool) void {
-        qtc.QStyleOptionTab_SetDocumentMode(@ptrCast(self.ptr), documentMode);
+    pub fn setDocumentMode(self: QStyleOptionTab, _documentMode: bool) void {
+        qtc.QStyleOptionTab_SetDocumentMode(@ptrCast(self.ptr), _documentMode);
     }
+
+    /// ### DEPRECATED: Use `leftButtonSize` instead
+    ///
+    pub const LeftButtonSize = leftButtonSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#leftButtonSize-var)
     ///
@@ -3693,22 +4777,30 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn LeftButtonSize(self: QStyleOptionTab) QSize {
+    pub fn leftButtonSize(self: QStyleOptionTab) QSize {
         return .{ .ptr = qtc.QStyleOptionTab_LeftButtonSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setLeftButtonSize` instead
+    ///
+    pub const SetLeftButtonSize = setLeftButtonSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#leftButtonSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` leftButtonSize: QSize `
+    /// ` _leftButtonSize: QSize `
     ///
-    pub fn SetLeftButtonSize(self: QStyleOptionTab, leftButtonSize: anytype) void {
-        comptime _ = @TypeOf(leftButtonSize)._is_QSize;
-        qtc.QStyleOptionTab_SetLeftButtonSize(@ptrCast(self.ptr), @ptrCast(leftButtonSize.ptr));
+    pub fn setLeftButtonSize(self: QStyleOptionTab, _leftButtonSize: anytype) void {
+        comptime _ = @TypeOf(_leftButtonSize)._is_QSize;
+        qtc.QStyleOptionTab_SetLeftButtonSize(@ptrCast(self.ptr), @ptrCast(_leftButtonSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `rightButtonSize` instead
+    ///
+    pub const RightButtonSize = rightButtonSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#rightButtonSize-var)
     ///
@@ -3716,22 +4808,30 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn RightButtonSize(self: QStyleOptionTab) QSize {
+    pub fn rightButtonSize(self: QStyleOptionTab) QSize {
         return .{ .ptr = qtc.QStyleOptionTab_RightButtonSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRightButtonSize` instead
+    ///
+    pub const SetRightButtonSize = setRightButtonSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#rightButtonSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` rightButtonSize: QSize `
+    /// ` _rightButtonSize: QSize `
     ///
-    pub fn SetRightButtonSize(self: QStyleOptionTab, rightButtonSize: anytype) void {
-        comptime _ = @TypeOf(rightButtonSize)._is_QSize;
-        qtc.QStyleOptionTab_SetRightButtonSize(@ptrCast(self.ptr), @ptrCast(rightButtonSize.ptr));
+    pub fn setRightButtonSize(self: QStyleOptionTab, _rightButtonSize: anytype) void {
+        comptime _ = @TypeOf(_rightButtonSize)._is_QSize;
+        qtc.QStyleOptionTab_SetRightButtonSize(@ptrCast(self.ptr), @ptrCast(_rightButtonSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#features-var)
     ///
@@ -3743,9 +4843,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` flag of qstyleoption_enums.TabFeature `
     ///
-    pub fn Features(self: QStyleOptionTab) i32 {
+    pub fn features(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#features-var)
     ///
@@ -3753,11 +4857,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` features: flag of qstyleoption_enums.TabFeature `
+    /// ` _features: flag of qstyleoption_enums.TabFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionTab, features: i32) void {
-        qtc.QStyleOptionTab_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionTab, _features: i32) void {
+        qtc.QStyleOptionTab_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `tabIndex` instead
+    ///
+    pub const TabIndex = tabIndex;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#tabIndex-var)
     ///
@@ -3765,21 +4873,29 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn TabIndex(self: QStyleOptionTab) i32 {
+    pub fn tabIndex(self: QStyleOptionTab) i32 {
         return qtc.QStyleOptionTab_TabIndex(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTabIndex` instead
+    ///
+    pub const SetTabIndex = setTabIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#tabIndex-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` tabIndex: i32 `
+    /// ` _tabIndex: i32 `
     ///
-    pub fn SetTabIndex(self: QStyleOptionTab, tabIndex: i32) void {
-        qtc.QStyleOptionTab_SetTabIndex(@ptrCast(self.ptr), @bitCast(tabIndex));
+    pub fn setTabIndex(self: QStyleOptionTab, _tabIndex: i32) void {
+        qtc.QStyleOptionTab_SetTabIndex(@ptrCast(self.ptr), @bitCast(_tabIndex));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#operator-eq)
     ///
@@ -3789,11 +4905,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` param1: QStyleOptionTab `
     ///
-    pub fn OperatorAssign(self: QStyleOptionTab, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionTab;
         qtc.QStyleOptionTab_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -3802,10 +4922,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Version(self: QStyleOptionTab) i32 {
+    pub fn version(self: QStyleOptionTab) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -3814,11 +4938,17 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionTab, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionTab, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -3828,10 +4958,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Type(self: QStyleOptionTab) i32 {
+    pub fn type0(self: QStyleOptionTab) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -3840,11 +4974,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionTab, _type: i32) void {
+    pub fn setType(self: QStyleOptionTab, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -3858,9 +4996,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionTab) i32 {
+    pub fn state(self: QStyleOptionTab) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -3870,11 +5012,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionTab, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionTab, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -3888,9 +5034,13 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionTab) i32 {
+    pub fn direction(self: QStyleOptionTab) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -3900,11 +5050,15 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionTab, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionTab, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -3914,10 +5068,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Rect(self: QStyleOptionTab) QRect {
+    pub fn rect(self: QStyleOptionTab) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -3926,12 +5084,16 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionTab, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionTab, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -3941,10 +5103,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn FontMetrics(self: QStyleOptionTab) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionTab) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -3953,12 +5119,16 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionTab, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionTab, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -3968,10 +5138,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Palette(self: QStyleOptionTab) QPalette {
+    pub fn palette(self: QStyleOptionTab) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -3980,12 +5154,16 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionTab, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionTab, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -3995,10 +5173,14 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn StyleObject(self: QStyleOptionTab) QObject {
+    pub fn styleObject(self: QStyleOptionTab) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -4007,12 +5189,16 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` self: QStyleOptionTab `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionTab, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionTab, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -4024,24 +5210,24 @@ pub const QStyleOptionTab = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionTab, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionTab, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontab.html#dtor.QStyleOptionTab)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionTab `
     ///
-    pub fn Delete(self: QStyleOptionTab) void {
+    pub fn delete(self: QStyleOptionTab) void {
         qtc.QStyleOptionTab_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4057,23 +5243,35 @@ pub const QStyleOptionToolBar = extern struct {
     pub const _is_QStyleOptionToolBar = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionToolBar object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionToolBar {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionToolBar object in C++ memory
+    ///
+    pub fn new() QStyleOptionToolBar {
         return .{ .ptr = qtc.QStyleOptionToolBar_new() };
     }
 
-    /// New2 constructs a new QStyleOptionToolBar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionToolBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionToolBar `
     ///
-    pub fn New2(other: anytype) QStyleOptionToolBar {
+    pub fn new2(other: anytype) QStyleOptionToolBar {
         comptime _ = @TypeOf(other)._is_QStyleOptionToolBar;
         return .{ .ptr = qtc.QStyleOptionToolBar_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `positionOfLine` instead
+    ///
+    pub const PositionOfLine = positionOfLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#positionOfLine-var)
     ///
     /// ## Parameter(s):
@@ -4084,21 +5282,29 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` qstyleoption_enums.ToolBarPosition `
     ///
-    pub fn PositionOfLine(self: QStyleOptionToolBar) i32 {
+    pub fn positionOfLine(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_PositionOfLine(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setPositionOfLine` instead
+    ///
+    pub const SetPositionOfLine = setPositionOfLine;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#positionOfLine-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` positionOfLine: qstyleoption_enums.ToolBarPosition `
+    /// ` _positionOfLine: qstyleoption_enums.ToolBarPosition `
     ///
-    pub fn SetPositionOfLine(self: QStyleOptionToolBar, positionOfLine: i32) void {
-        qtc.QStyleOptionToolBar_SetPositionOfLine(@ptrCast(self.ptr), @bitCast(positionOfLine));
+    pub fn setPositionOfLine(self: QStyleOptionToolBar, _positionOfLine: i32) void {
+        qtc.QStyleOptionToolBar_SetPositionOfLine(@ptrCast(self.ptr), @bitCast(_positionOfLine));
     }
+
+    /// ### DEPRECATED: Use `positionWithinLine` instead
+    ///
+    pub const PositionWithinLine = positionWithinLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#positionWithinLine-var)
     ///
@@ -4110,9 +5316,13 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` qstyleoption_enums.ToolBarPosition `
     ///
-    pub fn PositionWithinLine(self: QStyleOptionToolBar) i32 {
+    pub fn positionWithinLine(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_PositionWithinLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPositionWithinLine` instead
+    ///
+    pub const SetPositionWithinLine = setPositionWithinLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#positionWithinLine-var)
     ///
@@ -4120,11 +5330,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` positionWithinLine: qstyleoption_enums.ToolBarPosition `
+    /// ` _positionWithinLine: qstyleoption_enums.ToolBarPosition `
     ///
-    pub fn SetPositionWithinLine(self: QStyleOptionToolBar, positionWithinLine: i32) void {
-        qtc.QStyleOptionToolBar_SetPositionWithinLine(@ptrCast(self.ptr), @bitCast(positionWithinLine));
+    pub fn setPositionWithinLine(self: QStyleOptionToolBar, _positionWithinLine: i32) void {
+        qtc.QStyleOptionToolBar_SetPositionWithinLine(@ptrCast(self.ptr), @bitCast(_positionWithinLine));
     }
+
+    /// ### DEPRECATED: Use `toolBarArea` instead
+    ///
+    pub const ToolBarArea = toolBarArea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#toolBarArea-var)
     ///
@@ -4136,9 +5350,13 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` qnamespace_enums.ToolBarArea `
     ///
-    pub fn ToolBarArea(self: QStyleOptionToolBar) i32 {
+    pub fn toolBarArea(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_ToolBarArea(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolBarArea` instead
+    ///
+    pub const SetToolBarArea = setToolBarArea;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#toolBarArea-var)
     ///
@@ -4146,11 +5364,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` toolBarArea: qnamespace_enums.ToolBarArea `
+    /// ` _toolBarArea: qnamespace_enums.ToolBarArea `
     ///
-    pub fn SetToolBarArea(self: QStyleOptionToolBar, toolBarArea: i32) void {
-        qtc.QStyleOptionToolBar_SetToolBarArea(@ptrCast(self.ptr), @bitCast(toolBarArea));
+    pub fn setToolBarArea(self: QStyleOptionToolBar, _toolBarArea: i32) void {
+        qtc.QStyleOptionToolBar_SetToolBarArea(@ptrCast(self.ptr), @bitCast(_toolBarArea));
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#features-var)
     ///
@@ -4162,9 +5384,13 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` flag of qstyleoption_enums.ToolBarFeature `
     ///
-    pub fn Features(self: QStyleOptionToolBar) i32 {
+    pub fn features(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#features-var)
     ///
@@ -4172,11 +5398,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` features: flag of qstyleoption_enums.ToolBarFeature `
+    /// ` _features: flag of qstyleoption_enums.ToolBarFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionToolBar, features: i32) void {
-        qtc.QStyleOptionToolBar_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionToolBar, _features: i32) void {
+        qtc.QStyleOptionToolBar_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#lineWidth-var)
     ///
@@ -4184,21 +5414,29 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn LineWidth(self: QStyleOptionToolBar) i32 {
+    pub fn lineWidth(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_LineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QStyleOptionToolBar, lineWidth: i32) void {
-        qtc.QStyleOptionToolBar_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QStyleOptionToolBar, _lineWidth: i32) void {
+        qtc.QStyleOptionToolBar_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#midLineWidth-var)
     ///
@@ -4206,21 +5444,29 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn MidLineWidth(self: QStyleOptionToolBar) i32 {
+    pub fn midLineWidth(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOptionToolBar_MidLineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#midLineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QStyleOptionToolBar, midLineWidth: i32) void {
-        qtc.QStyleOptionToolBar_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QStyleOptionToolBar, _midLineWidth: i32) void {
+        qtc.QStyleOptionToolBar_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#operator-eq)
     ///
@@ -4230,11 +5476,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` param1: QStyleOptionToolBar `
     ///
-    pub fn OperatorAssign(self: QStyleOptionToolBar, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionToolBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionToolBar;
         qtc.QStyleOptionToolBar_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4243,10 +5493,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn Version(self: QStyleOptionToolBar) i32 {
+    pub fn version(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4255,11 +5509,17 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionToolBar, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionToolBar, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -4269,10 +5529,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn Type(self: QStyleOptionToolBar) i32 {
+    pub fn type0(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -4281,11 +5545,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionToolBar, _type: i32) void {
+    pub fn setType(self: QStyleOptionToolBar, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -4299,9 +5567,13 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionToolBar) i32 {
+    pub fn state(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -4311,11 +5583,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionToolBar, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionToolBar, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -4329,9 +5605,13 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionToolBar) i32 {
+    pub fn direction(self: QStyleOptionToolBar) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -4341,11 +5621,15 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionToolBar, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionToolBar, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -4355,10 +5639,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn Rect(self: QStyleOptionToolBar) QRect {
+    pub fn rect(self: QStyleOptionToolBar) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -4367,12 +5655,16 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionToolBar, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionToolBar, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -4382,10 +5674,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn FontMetrics(self: QStyleOptionToolBar) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionToolBar) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -4394,12 +5690,16 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionToolBar, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionToolBar, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -4409,10 +5709,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn Palette(self: QStyleOptionToolBar) QPalette {
+    pub fn palette(self: QStyleOptionToolBar) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -4421,12 +5725,16 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionToolBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionToolBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -4436,10 +5744,14 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn StyleObject(self: QStyleOptionToolBar) QObject {
+    pub fn styleObject(self: QStyleOptionToolBar) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -4448,12 +5760,16 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionToolBar, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionToolBar, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -4465,24 +5781,24 @@ pub const QStyleOptionToolBar = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionToolBar, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionToolBar, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbar.html#dtor.QStyleOptionToolBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionToolBar `
     ///
-    pub fn Delete(self: QStyleOptionToolBar) void {
+    pub fn delete(self: QStyleOptionToolBar) void {
         qtc.QStyleOptionToolBar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4498,44 +5814,64 @@ pub const QStyleOptionProgressBar = extern struct {
     pub const _is_QStyleOptionProgressBar = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionProgressBar object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionProgressBar {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionProgressBar object in C++ memory
+    ///
+    pub fn new() QStyleOptionProgressBar {
         return .{ .ptr = qtc.QStyleOptionProgressBar_new() };
     }
 
-    /// New2 constructs a new QStyleOptionProgressBar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionProgressBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionProgressBar `
     ///
-    pub fn New2(other: anytype) QStyleOptionProgressBar {
+    pub fn new2(other: anytype) QStyleOptionProgressBar {
         comptime _ = @TypeOf(other)._is_QStyleOptionProgressBar;
         return .{ .ptr = qtc.QStyleOptionProgressBar_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#minimum-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Minimum(self: QStyleOptionProgressBar) i32 {
+    pub fn minimum(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOptionProgressBar_Minimum(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#minimum-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: QStyleOptionProgressBar, minimum: i32) void {
-        qtc.QStyleOptionProgressBar_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: QStyleOptionProgressBar, _minimum: i32) void {
+        qtc.QStyleOptionProgressBar_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#maximum-var)
     ///
@@ -4543,21 +5879,29 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Maximum(self: QStyleOptionProgressBar) i32 {
+    pub fn maximum(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOptionProgressBar_Maximum(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#maximum-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: QStyleOptionProgressBar, maximum: i32) void {
-        qtc.QStyleOptionProgressBar_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: QStyleOptionProgressBar, _maximum: i32) void {
+        qtc.QStyleOptionProgressBar_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `progress` instead
+    ///
+    pub const Progress = progress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#progress-var)
     ///
@@ -4565,21 +5909,29 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Progress(self: QStyleOptionProgressBar) i32 {
+    pub fn progress(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOptionProgressBar_Progress(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setProgress` instead
+    ///
+    pub const SetProgress = setProgress;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#progress-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` progress: i32 `
+    /// ` _progress: i32 `
     ///
-    pub fn SetProgress(self: QStyleOptionProgressBar, progress: i32) void {
-        qtc.QStyleOptionProgressBar_SetProgress(@ptrCast(self.ptr), @bitCast(progress));
+    pub fn setProgress(self: QStyleOptionProgressBar, _progress: i32) void {
+        qtc.QStyleOptionProgressBar_SetProgress(@ptrCast(self.ptr), @bitCast(_progress));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#text-var)
     ///
@@ -4589,13 +5941,17 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionProgressBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionProgressBar, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionProgressBar_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionProgressBar.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionProgressBar.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#text-var)
     ///
@@ -4603,15 +5959,19 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionProgressBar, text: []const u8) void {
+    pub fn setText(self: QStyleOptionProgressBar, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionProgressBar_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textAlignment-var)
     ///
@@ -4623,9 +5983,13 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: QStyleOptionProgressBar) i32 {
+    pub fn textAlignment(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOptionProgressBar_TextAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textAlignment-var)
     ///
@@ -4633,11 +5997,15 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment(self: QStyleOptionProgressBar, textAlignment: i32) void {
-        qtc.QStyleOptionProgressBar_SetTextAlignment(@ptrCast(self.ptr), @bitCast(textAlignment));
+    pub fn setTextAlignment(self: QStyleOptionProgressBar, _textAlignment: i32) void {
+        qtc.QStyleOptionProgressBar_SetTextAlignment(@ptrCast(self.ptr), @bitCast(_textAlignment));
     }
+
+    /// ### DEPRECATED: Use `textVisible` instead
+    ///
+    pub const TextVisible = textVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textVisible-var)
     ///
@@ -4645,21 +6013,29 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn TextVisible(self: QStyleOptionProgressBar) bool {
+    pub fn textVisible(self: QStyleOptionProgressBar) bool {
         return qtc.QStyleOptionProgressBar_TextVisible(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTextVisible` instead
+    ///
+    pub const SetTextVisible = setTextVisible;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#textVisible-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` textVisible: bool `
+    /// ` _textVisible: bool `
     ///
-    pub fn SetTextVisible(self: QStyleOptionProgressBar, textVisible: bool) void {
-        qtc.QStyleOptionProgressBar_SetTextVisible(@ptrCast(self.ptr), textVisible);
+    pub fn setTextVisible(self: QStyleOptionProgressBar, _textVisible: bool) void {
+        qtc.QStyleOptionProgressBar_SetTextVisible(@ptrCast(self.ptr), _textVisible);
     }
+
+    /// ### DEPRECATED: Use `invertedAppearance` instead
+    ///
+    pub const InvertedAppearance = invertedAppearance;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#invertedAppearance-var)
     ///
@@ -4667,21 +6043,29 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn InvertedAppearance(self: QStyleOptionProgressBar) bool {
+    pub fn invertedAppearance(self: QStyleOptionProgressBar) bool {
         return qtc.QStyleOptionProgressBar_InvertedAppearance(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setInvertedAppearance` instead
+    ///
+    pub const SetInvertedAppearance = setInvertedAppearance;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#invertedAppearance-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` invertedAppearance: bool `
+    /// ` _invertedAppearance: bool `
     ///
-    pub fn SetInvertedAppearance(self: QStyleOptionProgressBar, invertedAppearance: bool) void {
-        qtc.QStyleOptionProgressBar_SetInvertedAppearance(@ptrCast(self.ptr), invertedAppearance);
+    pub fn setInvertedAppearance(self: QStyleOptionProgressBar, _invertedAppearance: bool) void {
+        qtc.QStyleOptionProgressBar_SetInvertedAppearance(@ptrCast(self.ptr), _invertedAppearance);
     }
+
+    /// ### DEPRECATED: Use `bottomToTop` instead
+    ///
+    pub const BottomToTop = bottomToTop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#bottomToTop-var)
     ///
@@ -4689,21 +6073,29 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn BottomToTop(self: QStyleOptionProgressBar) bool {
+    pub fn bottomToTop(self: QStyleOptionProgressBar) bool {
         return qtc.QStyleOptionProgressBar_BottomToTop(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setBottomToTop` instead
+    ///
+    pub const SetBottomToTop = setBottomToTop;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#bottomToTop-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` bottomToTop: bool `
+    /// ` _bottomToTop: bool `
     ///
-    pub fn SetBottomToTop(self: QStyleOptionProgressBar, bottomToTop: bool) void {
-        qtc.QStyleOptionProgressBar_SetBottomToTop(@ptrCast(self.ptr), bottomToTop);
+    pub fn setBottomToTop(self: QStyleOptionProgressBar, _bottomToTop: bool) void {
+        qtc.QStyleOptionProgressBar_SetBottomToTop(@ptrCast(self.ptr), _bottomToTop);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#operator-eq)
     ///
@@ -4713,11 +6105,15 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` param1: QStyleOptionProgressBar `
     ///
-    pub fn OperatorAssign(self: QStyleOptionProgressBar, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionProgressBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionProgressBar;
         qtc.QStyleOptionProgressBar_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4726,10 +6122,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Version(self: QStyleOptionProgressBar) i32 {
+    pub fn version(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -4738,11 +6138,17 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionProgressBar, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionProgressBar, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -4752,10 +6158,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Type(self: QStyleOptionProgressBar) i32 {
+    pub fn type0(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -4764,11 +6174,15 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionProgressBar, _type: i32) void {
+    pub fn setType(self: QStyleOptionProgressBar, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -4782,9 +6196,13 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionProgressBar) i32 {
+    pub fn state(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -4794,11 +6212,15 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionProgressBar, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionProgressBar, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -4812,9 +6234,13 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionProgressBar) i32 {
+    pub fn direction(self: QStyleOptionProgressBar) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -4824,11 +6250,15 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionProgressBar, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionProgressBar, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -4838,10 +6268,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Rect(self: QStyleOptionProgressBar) QRect {
+    pub fn rect(self: QStyleOptionProgressBar) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -4850,12 +6284,16 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionProgressBar, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionProgressBar, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -4865,10 +6303,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn FontMetrics(self: QStyleOptionProgressBar) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionProgressBar) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -4877,12 +6319,16 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionProgressBar, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionProgressBar, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -4892,10 +6338,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Palette(self: QStyleOptionProgressBar) QPalette {
+    pub fn palette(self: QStyleOptionProgressBar) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -4904,12 +6354,16 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionProgressBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionProgressBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -4919,10 +6373,14 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn StyleObject(self: QStyleOptionProgressBar) QObject {
+    pub fn styleObject(self: QStyleOptionProgressBar) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -4931,12 +6389,16 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionProgressBar, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionProgressBar, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -4948,24 +6410,24 @@ pub const QStyleOptionProgressBar = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionProgressBar, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionProgressBar, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionprogressbar.html#dtor.QStyleOptionProgressBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionProgressBar `
     ///
-    pub fn Delete(self: QStyleOptionProgressBar) void {
+    pub fn delete(self: QStyleOptionProgressBar) void {
         qtc.QStyleOptionProgressBar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -4981,22 +6443,34 @@ pub const QStyleOptionMenuItem = extern struct {
     pub const _is_QStyleOptionMenuItem = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionMenuItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionMenuItem {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionMenuItem object in C++ memory
+    ///
+    pub fn new() QStyleOptionMenuItem {
         return .{ .ptr = qtc.QStyleOptionMenuItem_new() };
     }
 
-    /// New2 constructs a new QStyleOptionMenuItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionMenuItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionMenuItem `
     ///
-    pub fn New2(other: anytype) QStyleOptionMenuItem {
+    pub fn new2(other: anytype) QStyleOptionMenuItem {
         comptime _ = @TypeOf(other)._is_QStyleOptionMenuItem;
         return .{ .ptr = qtc.QStyleOptionMenuItem_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `menuItemType` instead
+    ///
+    pub const MenuItemType = menuItemType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuItemType-var)
     ///
@@ -5008,9 +6482,13 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` qstyleoption_enums.MenuItemType `
     ///
-    pub fn MenuItemType(self: QStyleOptionMenuItem) i32 {
+    pub fn menuItemType(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOptionMenuItem_MenuItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMenuItemType` instead
+    ///
+    pub const SetMenuItemType = setMenuItemType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuItemType-var)
     ///
@@ -5018,11 +6496,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` menuItemType: qstyleoption_enums.MenuItemType `
+    /// ` _menuItemType: qstyleoption_enums.MenuItemType `
     ///
-    pub fn SetMenuItemType(self: QStyleOptionMenuItem, menuItemType: i32) void {
-        qtc.QStyleOptionMenuItem_SetMenuItemType(@ptrCast(self.ptr), @bitCast(menuItemType));
+    pub fn setMenuItemType(self: QStyleOptionMenuItem, _menuItemType: i32) void {
+        qtc.QStyleOptionMenuItem_SetMenuItemType(@ptrCast(self.ptr), @bitCast(_menuItemType));
     }
+
+    /// ### DEPRECATED: Use `checkType` instead
+    ///
+    pub const CheckType = checkType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checkType-var)
     ///
@@ -5034,9 +6516,13 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` qstyleoption_enums.CheckType `
     ///
-    pub fn CheckType(self: QStyleOptionMenuItem) i32 {
+    pub fn checkType(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOptionMenuItem_CheckType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckType` instead
+    ///
+    pub const SetCheckType = setCheckType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checkType-var)
     ///
@@ -5044,11 +6530,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` checkType: qstyleoption_enums.CheckType `
+    /// ` _checkType: qstyleoption_enums.CheckType `
     ///
-    pub fn SetCheckType(self: QStyleOptionMenuItem, checkType: i32) void {
-        qtc.QStyleOptionMenuItem_SetCheckType(@ptrCast(self.ptr), @bitCast(checkType));
+    pub fn setCheckType(self: QStyleOptionMenuItem, _checkType: i32) void {
+        qtc.QStyleOptionMenuItem_SetCheckType(@ptrCast(self.ptr), @bitCast(_checkType));
     }
+
+    /// ### DEPRECATED: Use `checked` instead
+    ///
+    pub const Checked = checked;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checked-var)
     ///
@@ -5056,21 +6546,29 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Checked(self: QStyleOptionMenuItem) bool {
+    pub fn checked(self: QStyleOptionMenuItem) bool {
         return qtc.QStyleOptionMenuItem_Checked(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#checked-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` checked: bool `
+    /// ` _checked: bool `
     ///
-    pub fn SetChecked(self: QStyleOptionMenuItem, checked: bool) void {
-        qtc.QStyleOptionMenuItem_SetChecked(@ptrCast(self.ptr), checked);
+    pub fn setChecked(self: QStyleOptionMenuItem, _checked: bool) void {
+        qtc.QStyleOptionMenuItem_SetChecked(@ptrCast(self.ptr), _checked);
     }
+
+    /// ### DEPRECATED: Use `menuHasCheckableItems` instead
+    ///
+    pub const MenuHasCheckableItems = menuHasCheckableItems;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuHasCheckableItems-var)
     ///
@@ -5078,21 +6576,29 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn MenuHasCheckableItems(self: QStyleOptionMenuItem) bool {
+    pub fn menuHasCheckableItems(self: QStyleOptionMenuItem) bool {
         return qtc.QStyleOptionMenuItem_MenuHasCheckableItems(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMenuHasCheckableItems` instead
+    ///
+    pub const SetMenuHasCheckableItems = setMenuHasCheckableItems;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuHasCheckableItems-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` menuHasCheckableItems: bool `
+    /// ` _menuHasCheckableItems: bool `
     ///
-    pub fn SetMenuHasCheckableItems(self: QStyleOptionMenuItem, menuHasCheckableItems: bool) void {
-        qtc.QStyleOptionMenuItem_SetMenuHasCheckableItems(@ptrCast(self.ptr), menuHasCheckableItems);
+    pub fn setMenuHasCheckableItems(self: QStyleOptionMenuItem, _menuHasCheckableItems: bool) void {
+        qtc.QStyleOptionMenuItem_SetMenuHasCheckableItems(@ptrCast(self.ptr), _menuHasCheckableItems);
     }
+
+    /// ### DEPRECATED: Use `menuRect` instead
+    ///
+    pub const MenuRect = menuRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuRect-var)
     ///
@@ -5100,22 +6606,30 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn MenuRect(self: QStyleOptionMenuItem) QRect {
+    pub fn menuRect(self: QStyleOptionMenuItem) QRect {
         return .{ .ptr = qtc.QStyleOptionMenuItem_MenuRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setMenuRect` instead
+    ///
+    pub const SetMenuRect = setMenuRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#menuRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` menuRect: QRect `
+    /// ` _menuRect: QRect `
     ///
-    pub fn SetMenuRect(self: QStyleOptionMenuItem, menuRect: anytype) void {
-        comptime _ = @TypeOf(menuRect)._is_QRect;
-        qtc.QStyleOptionMenuItem_SetMenuRect(@ptrCast(self.ptr), @ptrCast(menuRect.ptr));
+    pub fn setMenuRect(self: QStyleOptionMenuItem, _menuRect: anytype) void {
+        comptime _ = @TypeOf(_menuRect)._is_QRect;
+        qtc.QStyleOptionMenuItem_SetMenuRect(@ptrCast(self.ptr), @ptrCast(_menuRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#text-var)
     ///
@@ -5125,13 +6639,17 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionMenuItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionMenuItem, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionMenuItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionMenuItem.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionMenuItem.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#text-var)
     ///
@@ -5139,38 +6657,50 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionMenuItem, text: []const u8) void {
+    pub fn setText(self: QStyleOptionMenuItem, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionMenuItem_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Icon(self: QStyleOptionMenuItem) QIcon {
+    pub fn icon(self: QStyleOptionMenuItem) QIcon {
         return .{ .ptr = qtc.QStyleOptionMenuItem_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionMenuItem, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionMenuItem_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionMenuItem, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionMenuItem_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxIconWidth` instead
+    ///
+    pub const MaxIconWidth = maxIconWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#maxIconWidth-var)
     ///
@@ -5178,21 +6708,29 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn MaxIconWidth(self: QStyleOptionMenuItem) i32 {
+    pub fn maxIconWidth(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOptionMenuItem_MaxIconWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMaxIconWidth` instead
+    ///
+    pub const SetMaxIconWidth = setMaxIconWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#maxIconWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` maxIconWidth: i32 `
+    /// ` _maxIconWidth: i32 `
     ///
-    pub fn SetMaxIconWidth(self: QStyleOptionMenuItem, maxIconWidth: i32) void {
-        qtc.QStyleOptionMenuItem_SetMaxIconWidth(@ptrCast(self.ptr), @bitCast(maxIconWidth));
+    pub fn setMaxIconWidth(self: QStyleOptionMenuItem, _maxIconWidth: i32) void {
+        qtc.QStyleOptionMenuItem_SetMaxIconWidth(@ptrCast(self.ptr), @bitCast(_maxIconWidth));
     }
+
+    /// ### DEPRECATED: Use `reservedShortcutWidth` instead
+    ///
+    pub const ReservedShortcutWidth = reservedShortcutWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#reservedShortcutWidth-var)
     ///
@@ -5200,21 +6738,29 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn ReservedShortcutWidth(self: QStyleOptionMenuItem) i32 {
+    pub fn reservedShortcutWidth(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOptionMenuItem_ReservedShortcutWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setReservedShortcutWidth` instead
+    ///
+    pub const SetReservedShortcutWidth = setReservedShortcutWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#reservedShortcutWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` reservedShortcutWidth: i32 `
+    /// ` _reservedShortcutWidth: i32 `
     ///
-    pub fn SetReservedShortcutWidth(self: QStyleOptionMenuItem, reservedShortcutWidth: i32) void {
-        qtc.QStyleOptionMenuItem_SetReservedShortcutWidth(@ptrCast(self.ptr), @bitCast(reservedShortcutWidth));
+    pub fn setReservedShortcutWidth(self: QStyleOptionMenuItem, _reservedShortcutWidth: i32) void {
+        qtc.QStyleOptionMenuItem_SetReservedShortcutWidth(@ptrCast(self.ptr), @bitCast(_reservedShortcutWidth));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#font-var)
     ///
@@ -5222,22 +6768,30 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Font(self: QStyleOptionMenuItem) QFont {
+    pub fn font(self: QStyleOptionMenuItem) QFont {
         return .{ .ptr = qtc.QStyleOptionMenuItem_Font(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#font-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QStyleOptionMenuItem, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QStyleOptionMenuItem_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QStyleOptionMenuItem, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QStyleOptionMenuItem_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#operator-eq)
     ///
@@ -5247,11 +6801,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` param1: QStyleOptionMenuItem `
     ///
-    pub fn OperatorAssign(self: QStyleOptionMenuItem, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionMenuItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionMenuItem;
         qtc.QStyleOptionMenuItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5260,10 +6818,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Version(self: QStyleOptionMenuItem) i32 {
+    pub fn version(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5272,11 +6834,17 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionMenuItem, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionMenuItem, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -5286,10 +6854,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Type(self: QStyleOptionMenuItem) i32 {
+    pub fn type0(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -5298,11 +6870,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionMenuItem, _type: i32) void {
+    pub fn setType(self: QStyleOptionMenuItem, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -5316,9 +6892,13 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionMenuItem) i32 {
+    pub fn state(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -5328,11 +6908,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionMenuItem, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionMenuItem, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -5346,9 +6930,13 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionMenuItem) i32 {
+    pub fn direction(self: QStyleOptionMenuItem) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -5358,11 +6946,15 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionMenuItem, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionMenuItem, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -5372,10 +6964,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Rect(self: QStyleOptionMenuItem) QRect {
+    pub fn rect(self: QStyleOptionMenuItem) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -5384,12 +6980,16 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionMenuItem, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionMenuItem, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -5399,10 +6999,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn FontMetrics(self: QStyleOptionMenuItem) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionMenuItem) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -5411,12 +7015,16 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionMenuItem, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionMenuItem, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -5426,10 +7034,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Palette(self: QStyleOptionMenuItem) QPalette {
+    pub fn palette(self: QStyleOptionMenuItem) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -5438,12 +7050,16 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionMenuItem, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionMenuItem, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -5453,10 +7069,14 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn StyleObject(self: QStyleOptionMenuItem) QObject {
+    pub fn styleObject(self: QStyleOptionMenuItem) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -5465,12 +7085,16 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionMenuItem, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionMenuItem, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -5482,24 +7106,24 @@ pub const QStyleOptionMenuItem = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionMenuItem, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionMenuItem, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionmenuitem.html#dtor.QStyleOptionMenuItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionMenuItem `
     ///
-    pub fn Delete(self: QStyleOptionMenuItem) void {
+    pub fn delete(self: QStyleOptionMenuItem) void {
         qtc.QStyleOptionMenuItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5515,22 +7139,34 @@ pub const QStyleOptionDockWidget = extern struct {
     pub const _is_QStyleOptionDockWidget = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionDockWidget object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionDockWidget {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionDockWidget object in C++ memory
+    ///
+    pub fn new() QStyleOptionDockWidget {
         return .{ .ptr = qtc.QStyleOptionDockWidget_new() };
     }
 
-    /// New2 constructs a new QStyleOptionDockWidget object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionDockWidget object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionDockWidget `
     ///
-    pub fn New2(other: anytype) QStyleOptionDockWidget {
+    pub fn new2(other: anytype) QStyleOptionDockWidget {
         comptime _ = @TypeOf(other)._is_QStyleOptionDockWidget;
         return .{ .ptr = qtc.QStyleOptionDockWidget_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#title-var)
     ///
@@ -5540,13 +7176,17 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QStyleOptionDockWidget, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QStyleOptionDockWidget, allocator: std.mem.Allocator) []const u8 {
         var title_str = qtc.QStyleOptionDockWidget_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&title_str);
-        const title_ret = allocator.alloc(u8, title_str.len) catch @panic("QStyleOptionDockWidget.Title: Memory allocation failed");
+        const title_ret = allocator.alloc(u8, title_str.len) catch @panic("QStyleOptionDockWidget.title: Memory allocation failed");
         @memcpy(title_ret, title_str.data[0..title_str.len]);
         return title_ret;
     }
+
+    /// ### DEPRECATED: Use `setTitle` instead
+    ///
+    pub const SetTitle = setTitle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#title-var)
     ///
@@ -5554,37 +7194,49 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn SetTitle(self: QStyleOptionDockWidget, title: []const u8) void {
+    pub fn setTitle(self: QStyleOptionDockWidget, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QStyleOptionDockWidget_SetTitle(@ptrCast(self.ptr), title_str);
     }
 
+    /// ### DEPRECATED: Use `closable` instead
+    ///
+    pub const Closable = closable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#closable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Closable(self: QStyleOptionDockWidget) bool {
+    pub fn closable(self: QStyleOptionDockWidget) bool {
         return qtc.QStyleOptionDockWidget_Closable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setClosable` instead
+    ///
+    pub const SetClosable = setClosable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#closable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` closable: bool `
+    /// ` _closable: bool `
     ///
-    pub fn SetClosable(self: QStyleOptionDockWidget, closable: bool) void {
-        qtc.QStyleOptionDockWidget_SetClosable(@ptrCast(self.ptr), closable);
+    pub fn setClosable(self: QStyleOptionDockWidget, _closable: bool) void {
+        qtc.QStyleOptionDockWidget_SetClosable(@ptrCast(self.ptr), _closable);
     }
+
+    /// ### DEPRECATED: Use `movable` instead
+    ///
+    pub const Movable = movable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#movable-var)
     ///
@@ -5592,21 +7244,29 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Movable(self: QStyleOptionDockWidget) bool {
+    pub fn movable(self: QStyleOptionDockWidget) bool {
         return qtc.QStyleOptionDockWidget_Movable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMovable` instead
+    ///
+    pub const SetMovable = setMovable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#movable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` movable: bool `
+    /// ` _movable: bool `
     ///
-    pub fn SetMovable(self: QStyleOptionDockWidget, movable: bool) void {
-        qtc.QStyleOptionDockWidget_SetMovable(@ptrCast(self.ptr), movable);
+    pub fn setMovable(self: QStyleOptionDockWidget, _movable: bool) void {
+        qtc.QStyleOptionDockWidget_SetMovable(@ptrCast(self.ptr), _movable);
     }
+
+    /// ### DEPRECATED: Use `floatable` instead
+    ///
+    pub const Floatable = floatable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#floatable-var)
     ///
@@ -5614,21 +7274,29 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Floatable(self: QStyleOptionDockWidget) bool {
+    pub fn floatable(self: QStyleOptionDockWidget) bool {
         return qtc.QStyleOptionDockWidget_Floatable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFloatable` instead
+    ///
+    pub const SetFloatable = setFloatable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#floatable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` floatable: bool `
+    /// ` _floatable: bool `
     ///
-    pub fn SetFloatable(self: QStyleOptionDockWidget, floatable: bool) void {
-        qtc.QStyleOptionDockWidget_SetFloatable(@ptrCast(self.ptr), floatable);
+    pub fn setFloatable(self: QStyleOptionDockWidget, _floatable: bool) void {
+        qtc.QStyleOptionDockWidget_SetFloatable(@ptrCast(self.ptr), _floatable);
     }
+
+    /// ### DEPRECATED: Use `verticalTitleBar` instead
+    ///
+    pub const VerticalTitleBar = verticalTitleBar;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#verticalTitleBar-var)
     ///
@@ -5636,21 +7304,29 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn VerticalTitleBar(self: QStyleOptionDockWidget) bool {
+    pub fn verticalTitleBar(self: QStyleOptionDockWidget) bool {
         return qtc.QStyleOptionDockWidget_VerticalTitleBar(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVerticalTitleBar` instead
+    ///
+    pub const SetVerticalTitleBar = setVerticalTitleBar;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#verticalTitleBar-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` verticalTitleBar: bool `
+    /// ` _verticalTitleBar: bool `
     ///
-    pub fn SetVerticalTitleBar(self: QStyleOptionDockWidget, verticalTitleBar: bool) void {
-        qtc.QStyleOptionDockWidget_SetVerticalTitleBar(@ptrCast(self.ptr), verticalTitleBar);
+    pub fn setVerticalTitleBar(self: QStyleOptionDockWidget, _verticalTitleBar: bool) void {
+        qtc.QStyleOptionDockWidget_SetVerticalTitleBar(@ptrCast(self.ptr), _verticalTitleBar);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#operator-eq)
     ///
@@ -5660,11 +7336,15 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` param1: QStyleOptionDockWidget `
     ///
-    pub fn OperatorAssign(self: QStyleOptionDockWidget, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionDockWidget, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionDockWidget;
         qtc.QStyleOptionDockWidget_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5673,10 +7353,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Version(self: QStyleOptionDockWidget) i32 {
+    pub fn version(self: QStyleOptionDockWidget) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -5685,11 +7369,17 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionDockWidget, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionDockWidget, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -5699,10 +7389,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Type(self: QStyleOptionDockWidget) i32 {
+    pub fn type0(self: QStyleOptionDockWidget) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -5711,11 +7405,15 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionDockWidget, _type: i32) void {
+    pub fn setType(self: QStyleOptionDockWidget, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -5729,9 +7427,13 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionDockWidget) i32 {
+    pub fn state(self: QStyleOptionDockWidget) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -5741,11 +7443,15 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionDockWidget, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionDockWidget, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -5759,9 +7465,13 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionDockWidget) i32 {
+    pub fn direction(self: QStyleOptionDockWidget) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -5771,11 +7481,15 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionDockWidget, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionDockWidget, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -5785,10 +7499,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Rect(self: QStyleOptionDockWidget) QRect {
+    pub fn rect(self: QStyleOptionDockWidget) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -5797,12 +7515,16 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionDockWidget, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionDockWidget, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -5812,10 +7534,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn FontMetrics(self: QStyleOptionDockWidget) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionDockWidget) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -5824,12 +7550,16 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionDockWidget, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionDockWidget, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -5839,10 +7569,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Palette(self: QStyleOptionDockWidget) QPalette {
+    pub fn palette(self: QStyleOptionDockWidget) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -5851,12 +7585,16 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionDockWidget, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionDockWidget, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -5866,10 +7604,14 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn StyleObject(self: QStyleOptionDockWidget) QObject {
+    pub fn styleObject(self: QStyleOptionDockWidget) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -5878,12 +7620,16 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionDockWidget, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionDockWidget, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -5895,24 +7641,24 @@ pub const QStyleOptionDockWidget = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionDockWidget, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionDockWidget, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiondockwidget.html#dtor.QStyleOptionDockWidget)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionDockWidget `
     ///
-    pub fn Delete(self: QStyleOptionDockWidget) void {
+    pub fn delete(self: QStyleOptionDockWidget) void {
         qtc.QStyleOptionDockWidget_Delete(@ptrCast(self.ptr));
     }
 };
@@ -5928,23 +7674,35 @@ pub const QStyleOptionViewItem = extern struct {
     pub const _is_QStyleOptionViewItem = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionViewItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionViewItem {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionViewItem object in C++ memory
+    ///
+    pub fn new() QStyleOptionViewItem {
         return .{ .ptr = qtc.QStyleOptionViewItem_new() };
     }
 
-    /// New2 constructs a new QStyleOptionViewItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionViewItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionViewItem `
     ///
-    pub fn New2(other: anytype) QStyleOptionViewItem {
+    pub fn new2(other: anytype) QStyleOptionViewItem {
         comptime _ = @TypeOf(other)._is_QStyleOptionViewItem;
         return .{ .ptr = qtc.QStyleOptionViewItem_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `displayAlignment` instead
+    ///
+    pub const DisplayAlignment = displayAlignment;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#displayAlignment-var)
     ///
     /// ## Parameter(s):
@@ -5955,21 +7713,29 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn DisplayAlignment(self: QStyleOptionViewItem) i32 {
+    pub fn displayAlignment(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_DisplayAlignment(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDisplayAlignment` instead
+    ///
+    pub const SetDisplayAlignment = setDisplayAlignment;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#displayAlignment-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` displayAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _displayAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetDisplayAlignment(self: QStyleOptionViewItem, displayAlignment: i32) void {
-        qtc.QStyleOptionViewItem_SetDisplayAlignment(@ptrCast(self.ptr), @bitCast(displayAlignment));
+    pub fn setDisplayAlignment(self: QStyleOptionViewItem, _displayAlignment: i32) void {
+        qtc.QStyleOptionViewItem_SetDisplayAlignment(@ptrCast(self.ptr), @bitCast(_displayAlignment));
     }
+
+    /// ### DEPRECATED: Use `decorationAlignment` instead
+    ///
+    pub const DecorationAlignment = decorationAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationAlignment-var)
     ///
@@ -5981,9 +7747,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn DecorationAlignment(self: QStyleOptionViewItem) i32 {
+    pub fn decorationAlignment(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_DecorationAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDecorationAlignment` instead
+    ///
+    pub const SetDecorationAlignment = setDecorationAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationAlignment-var)
     ///
@@ -5991,11 +7761,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` decorationAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _decorationAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetDecorationAlignment(self: QStyleOptionViewItem, decorationAlignment: i32) void {
-        qtc.QStyleOptionViewItem_SetDecorationAlignment(@ptrCast(self.ptr), @bitCast(decorationAlignment));
+    pub fn setDecorationAlignment(self: QStyleOptionViewItem, _decorationAlignment: i32) void {
+        qtc.QStyleOptionViewItem_SetDecorationAlignment(@ptrCast(self.ptr), @bitCast(_decorationAlignment));
     }
+
+    /// ### DEPRECATED: Use `textElideMode` instead
+    ///
+    pub const TextElideMode = textElideMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#textElideMode-var)
     ///
@@ -6007,9 +7781,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` qnamespace_enums.TextElideMode `
     ///
-    pub fn TextElideMode(self: QStyleOptionViewItem) i32 {
+    pub fn textElideMode(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_TextElideMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextElideMode` instead
+    ///
+    pub const SetTextElideMode = setTextElideMode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#textElideMode-var)
     ///
@@ -6017,11 +7795,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` textElideMode: qnamespace_enums.TextElideMode `
+    /// ` _textElideMode: qnamespace_enums.TextElideMode `
     ///
-    pub fn SetTextElideMode(self: QStyleOptionViewItem, textElideMode: i32) void {
-        qtc.QStyleOptionViewItem_SetTextElideMode(@ptrCast(self.ptr), @bitCast(textElideMode));
+    pub fn setTextElideMode(self: QStyleOptionViewItem, _textElideMode: i32) void {
+        qtc.QStyleOptionViewItem_SetTextElideMode(@ptrCast(self.ptr), @bitCast(_textElideMode));
     }
+
+    /// ### DEPRECATED: Use `decorationPosition` instead
+    ///
+    pub const DecorationPosition = decorationPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationPosition-var)
     ///
@@ -6033,9 +7815,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` qstyleoption_enums.Position `
     ///
-    pub fn DecorationPosition(self: QStyleOptionViewItem) i32 {
+    pub fn decorationPosition(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_DecorationPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDecorationPosition` instead
+    ///
+    pub const SetDecorationPosition = setDecorationPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationPosition-var)
     ///
@@ -6043,11 +7829,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` decorationPosition: qstyleoption_enums.Position `
+    /// ` _decorationPosition: qstyleoption_enums.Position `
     ///
-    pub fn SetDecorationPosition(self: QStyleOptionViewItem, decorationPosition: i32) void {
-        qtc.QStyleOptionViewItem_SetDecorationPosition(@ptrCast(self.ptr), @bitCast(decorationPosition));
+    pub fn setDecorationPosition(self: QStyleOptionViewItem, _decorationPosition: i32) void {
+        qtc.QStyleOptionViewItem_SetDecorationPosition(@ptrCast(self.ptr), @bitCast(_decorationPosition));
     }
+
+    /// ### DEPRECATED: Use `decorationSize` instead
+    ///
+    pub const DecorationSize = decorationSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationSize-var)
     ///
@@ -6055,22 +7845,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn DecorationSize(self: QStyleOptionViewItem) QSize {
+    pub fn decorationSize(self: QStyleOptionViewItem) QSize {
         return .{ .ptr = qtc.QStyleOptionViewItem_DecorationSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setDecorationSize` instead
+    ///
+    pub const SetDecorationSize = setDecorationSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#decorationSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` decorationSize: QSize `
+    /// ` _decorationSize: QSize `
     ///
-    pub fn SetDecorationSize(self: QStyleOptionViewItem, decorationSize: anytype) void {
-        comptime _ = @TypeOf(decorationSize)._is_QSize;
-        qtc.QStyleOptionViewItem_SetDecorationSize(@ptrCast(self.ptr), @ptrCast(decorationSize.ptr));
+    pub fn setDecorationSize(self: QStyleOptionViewItem, _decorationSize: anytype) void {
+        comptime _ = @TypeOf(_decorationSize)._is_QSize;
+        qtc.QStyleOptionViewItem_SetDecorationSize(@ptrCast(self.ptr), @ptrCast(_decorationSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#font-var)
     ///
@@ -6078,22 +7876,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Font(self: QStyleOptionViewItem) QFont {
+    pub fn font(self: QStyleOptionViewItem) QFont {
         return .{ .ptr = qtc.QStyleOptionViewItem_Font(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#font-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QStyleOptionViewItem, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QStyleOptionViewItem_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QStyleOptionViewItem, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QStyleOptionViewItem_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `showDecorationSelected` instead
+    ///
+    pub const ShowDecorationSelected = showDecorationSelected;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#showDecorationSelected-var)
     ///
@@ -6101,21 +7907,29 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn ShowDecorationSelected(self: QStyleOptionViewItem) bool {
+    pub fn showDecorationSelected(self: QStyleOptionViewItem) bool {
         return qtc.QStyleOptionViewItem_ShowDecorationSelected(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setShowDecorationSelected` instead
+    ///
+    pub const SetShowDecorationSelected = setShowDecorationSelected;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#showDecorationSelected-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` showDecorationSelected: bool `
+    /// ` _showDecorationSelected: bool `
     ///
-    pub fn SetShowDecorationSelected(self: QStyleOptionViewItem, showDecorationSelected: bool) void {
-        qtc.QStyleOptionViewItem_SetShowDecorationSelected(@ptrCast(self.ptr), showDecorationSelected);
+    pub fn setShowDecorationSelected(self: QStyleOptionViewItem, _showDecorationSelected: bool) void {
+        qtc.QStyleOptionViewItem_SetShowDecorationSelected(@ptrCast(self.ptr), _showDecorationSelected);
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#features-var)
     ///
@@ -6127,9 +7941,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` flag of qstyleoption_enums.ViewItemFeature `
     ///
-    pub fn Features(self: QStyleOptionViewItem) i32 {
+    pub fn features(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#features-var)
     ///
@@ -6137,11 +7955,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` features: flag of qstyleoption_enums.ViewItemFeature `
+    /// ` _features: flag of qstyleoption_enums.ViewItemFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionViewItem, features: i32) void {
-        qtc.QStyleOptionViewItem_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionViewItem, _features: i32) void {
+        qtc.QStyleOptionViewItem_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#locale-var)
     ///
@@ -6149,22 +7971,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Locale(self: QStyleOptionViewItem) QLocale {
+    pub fn locale(self: QStyleOptionViewItem) QLocale {
         return .{ .ptr = qtc.QStyleOptionViewItem_Locale(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#locale-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QStyleOptionViewItem, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QStyleOptionViewItem_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QStyleOptionViewItem, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QStyleOptionViewItem_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#widget-var)
     ///
@@ -6172,22 +8002,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Widget(self: QStyleOptionViewItem) QWidget {
+    pub fn widget(self: QStyleOptionViewItem) QWidget {
         return .{ .ptr = qtc.QStyleOptionViewItem_Widget(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#widget-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QStyleOptionViewItem, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QStyleOptionViewItem_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QStyleOptionViewItem, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QStyleOptionViewItem_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#index-var)
     ///
@@ -6195,22 +8033,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Index(self: QStyleOptionViewItem) QModelIndex {
+    pub fn index(self: QStyleOptionViewItem) QModelIndex {
         return .{ .ptr = qtc.QStyleOptionViewItem_Index(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIndex` instead
+    ///
+    pub const SetIndex = setIndex;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#index-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` index: QModelIndex `
+    /// ` _index: QModelIndex `
     ///
-    pub fn SetIndex(self: QStyleOptionViewItem, index: anytype) void {
-        comptime _ = @TypeOf(index)._is_QModelIndex;
-        qtc.QStyleOptionViewItem_SetIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
+    pub fn setIndex(self: QStyleOptionViewItem, _index: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QModelIndex;
+        qtc.QStyleOptionViewItem_SetIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
     }
+
+    /// ### DEPRECATED: Use `checkState` instead
+    ///
+    pub const CheckState = checkState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#checkState-var)
     ///
@@ -6222,9 +8068,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` qnamespace_enums.CheckState `
     ///
-    pub fn CheckState(self: QStyleOptionViewItem) i32 {
+    pub fn checkState(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_CheckState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCheckState` instead
+    ///
+    pub const SetCheckState = setCheckState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#checkState-var)
     ///
@@ -6232,11 +8082,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` checkState: qnamespace_enums.CheckState `
+    /// ` _checkState: qnamespace_enums.CheckState `
     ///
-    pub fn SetCheckState(self: QStyleOptionViewItem, checkState: i32) void {
-        qtc.QStyleOptionViewItem_SetCheckState(@ptrCast(self.ptr), @bitCast(checkState));
+    pub fn setCheckState(self: QStyleOptionViewItem, _checkState: i32) void {
+        qtc.QStyleOptionViewItem_SetCheckState(@ptrCast(self.ptr), @bitCast(_checkState));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#icon-var)
     ///
@@ -6244,22 +8098,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Icon(self: QStyleOptionViewItem) QIcon {
+    pub fn icon(self: QStyleOptionViewItem) QIcon {
         return .{ .ptr = qtc.QStyleOptionViewItem_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionViewItem, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionViewItem_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionViewItem, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionViewItem_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#text-var)
     ///
@@ -6269,13 +8131,17 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionViewItem, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionViewItem, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionViewItem_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionViewItem.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionViewItem.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#text-var)
     ///
@@ -6283,15 +8149,19 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionViewItem, text: []const u8) void {
+    pub fn setText(self: QStyleOptionViewItem, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionViewItem_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `viewItemPosition` instead
+    ///
+    pub const ViewItemPosition = viewItemPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#viewItemPosition-var)
     ///
@@ -6303,9 +8173,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` qstyleoption_enums.ViewItemPosition `
     ///
-    pub fn ViewItemPosition(self: QStyleOptionViewItem) i32 {
+    pub fn viewItemPosition(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOptionViewItem_ViewItemPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setViewItemPosition` instead
+    ///
+    pub const SetViewItemPosition = setViewItemPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#viewItemPosition-var)
     ///
@@ -6313,11 +8187,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` viewItemPosition: qstyleoption_enums.ViewItemPosition `
+    /// ` _viewItemPosition: qstyleoption_enums.ViewItemPosition `
     ///
-    pub fn SetViewItemPosition(self: QStyleOptionViewItem, viewItemPosition: i32) void {
-        qtc.QStyleOptionViewItem_SetViewItemPosition(@ptrCast(self.ptr), @bitCast(viewItemPosition));
+    pub fn setViewItemPosition(self: QStyleOptionViewItem, _viewItemPosition: i32) void {
+        qtc.QStyleOptionViewItem_SetViewItemPosition(@ptrCast(self.ptr), @bitCast(_viewItemPosition));
     }
+
+    /// ### DEPRECATED: Use `backgroundBrush` instead
+    ///
+    pub const BackgroundBrush = backgroundBrush;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#backgroundBrush-var)
     ///
@@ -6325,22 +8203,30 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn BackgroundBrush(self: QStyleOptionViewItem) QBrush {
+    pub fn backgroundBrush(self: QStyleOptionViewItem) QBrush {
         return .{ .ptr = qtc.QStyleOptionViewItem_BackgroundBrush(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setBackgroundBrush` instead
+    ///
+    pub const SetBackgroundBrush = setBackgroundBrush;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#backgroundBrush-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` backgroundBrush: QBrush `
+    /// ` _backgroundBrush: QBrush `
     ///
-    pub fn SetBackgroundBrush(self: QStyleOptionViewItem, backgroundBrush: anytype) void {
-        comptime _ = @TypeOf(backgroundBrush)._is_QBrush;
-        qtc.QStyleOptionViewItem_SetBackgroundBrush(@ptrCast(self.ptr), @ptrCast(backgroundBrush.ptr));
+    pub fn setBackgroundBrush(self: QStyleOptionViewItem, _backgroundBrush: anytype) void {
+        comptime _ = @TypeOf(_backgroundBrush)._is_QBrush;
+        qtc.QStyleOptionViewItem_SetBackgroundBrush(@ptrCast(self.ptr), @ptrCast(_backgroundBrush.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#operator-eq)
     ///
@@ -6350,11 +8236,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` param1: QStyleOptionViewItem `
     ///
-    pub fn OperatorAssign(self: QStyleOptionViewItem, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionViewItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionViewItem;
         qtc.QStyleOptionViewItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6363,10 +8253,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Version(self: QStyleOptionViewItem) i32 {
+    pub fn version(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6375,11 +8269,17 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionViewItem, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionViewItem, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -6389,10 +8289,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Type(self: QStyleOptionViewItem) i32 {
+    pub fn type0(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -6401,11 +8305,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionViewItem, _type: i32) void {
+    pub fn setType(self: QStyleOptionViewItem, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -6419,9 +8327,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionViewItem) i32 {
+    pub fn state(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -6431,11 +8343,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionViewItem, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionViewItem, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -6449,9 +8365,13 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionViewItem) i32 {
+    pub fn direction(self: QStyleOptionViewItem) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -6461,11 +8381,15 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionViewItem, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionViewItem, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -6475,10 +8399,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Rect(self: QStyleOptionViewItem) QRect {
+    pub fn rect(self: QStyleOptionViewItem) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -6487,12 +8415,16 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionViewItem, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionViewItem, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -6502,10 +8434,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn FontMetrics(self: QStyleOptionViewItem) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionViewItem) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -6514,12 +8450,16 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionViewItem, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionViewItem, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -6529,10 +8469,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Palette(self: QStyleOptionViewItem) QPalette {
+    pub fn palette(self: QStyleOptionViewItem) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -6541,12 +8485,16 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionViewItem, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionViewItem, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -6556,10 +8504,14 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn StyleObject(self: QStyleOptionViewItem) QObject {
+    pub fn styleObject(self: QStyleOptionViewItem) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -6568,12 +8520,16 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionViewItem, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionViewItem, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -6585,24 +8541,24 @@ pub const QStyleOptionViewItem = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionViewItem, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionViewItem, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionviewitem.html#dtor.QStyleOptionViewItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionViewItem `
     ///
-    pub fn Delete(self: QStyleOptionViewItem) void {
+    pub fn delete(self: QStyleOptionViewItem) void {
         qtc.QStyleOptionViewItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -6618,22 +8574,34 @@ pub const QStyleOptionToolBox = extern struct {
     pub const _is_QStyleOptionToolBox = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionToolBox object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionToolBox {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionToolBox object in C++ memory
+    ///
+    pub fn new() QStyleOptionToolBox {
         return .{ .ptr = qtc.QStyleOptionToolBox_new() };
     }
 
-    /// New2 constructs a new QStyleOptionToolBox object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionToolBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionToolBox `
     ///
-    pub fn New2(other: anytype) QStyleOptionToolBox {
+    pub fn new2(other: anytype) QStyleOptionToolBox {
         comptime _ = @TypeOf(other)._is_QStyleOptionToolBox;
         return .{ .ptr = qtc.QStyleOptionToolBox_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#text-var)
     ///
@@ -6643,13 +8611,17 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionToolBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionToolBox, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionToolBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolBox.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolBox.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#text-var)
     ///
@@ -6657,25 +8629,19 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionToolBox, text: []const u8) void {
+    pub fn setText(self: QStyleOptionToolBox, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionToolBox_SetText(@ptrCast(self.ptr), text_str);
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#icon-var)
+    /// ### DEPRECATED: Use `icon` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleOptionToolBox `
-    ///
-    pub fn Icon(self: QStyleOptionToolBox) QIcon {
-        return .{ .ptr = qtc.QStyleOptionToolBox_Icon(@ptrCast(self.ptr)) };
-    }
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#icon-var)
     ///
@@ -6683,12 +8649,30 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` icon: QIcon `
-    ///
-    pub fn SetIcon(self: QStyleOptionToolBox, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionToolBox_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn icon(self: QStyleOptionToolBox) QIcon {
+        return .{ .ptr = qtc.QStyleOptionToolBox_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#icon-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleOptionToolBox `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    pub fn setIcon(self: QStyleOptionToolBox, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionToolBox_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
+    }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#position-var)
     ///
@@ -6700,9 +8684,13 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` qstyleoption_enums.TabPosition `
     ///
-    pub fn Position(self: QStyleOptionToolBox) i32 {
+    pub fn position(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOptionToolBox_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#position-var)
     ///
@@ -6710,11 +8698,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` position: qstyleoption_enums.TabPosition `
+    /// ` _position: qstyleoption_enums.TabPosition `
     ///
-    pub fn SetPosition(self: QStyleOptionToolBox, position: i32) void {
-        qtc.QStyleOptionToolBox_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: QStyleOptionToolBox, _position: i32) void {
+        qtc.QStyleOptionToolBox_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `selectedPosition` instead
+    ///
+    pub const SelectedPosition = selectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#selectedPosition-var)
     ///
@@ -6726,9 +8718,13 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SelectedPosition(self: QStyleOptionToolBox) i32 {
+    pub fn selectedPosition(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOptionToolBox_SelectedPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSelectedPosition` instead
+    ///
+    pub const SetSelectedPosition = setSelectedPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#selectedPosition-var)
     ///
@@ -6736,11 +8732,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` selectedPosition: qstyleoption_enums.SelectedPosition `
+    /// ` _selectedPosition: qstyleoption_enums.SelectedPosition `
     ///
-    pub fn SetSelectedPosition(self: QStyleOptionToolBox, selectedPosition: i32) void {
-        qtc.QStyleOptionToolBox_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(selectedPosition));
+    pub fn setSelectedPosition(self: QStyleOptionToolBox, _selectedPosition: i32) void {
+        qtc.QStyleOptionToolBox_SetSelectedPosition(@ptrCast(self.ptr), @bitCast(_selectedPosition));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#operator-eq)
     ///
@@ -6750,11 +8750,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` param1: QStyleOptionToolBox `
     ///
-    pub fn OperatorAssign(self: QStyleOptionToolBox, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionToolBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionToolBox;
         qtc.QStyleOptionToolBox_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6763,10 +8767,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn Version(self: QStyleOptionToolBox) i32 {
+    pub fn version(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -6775,11 +8783,17 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionToolBox, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionToolBox, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -6789,10 +8803,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn Type(self: QStyleOptionToolBox) i32 {
+    pub fn type0(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -6801,11 +8819,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionToolBox, _type: i32) void {
+    pub fn setType(self: QStyleOptionToolBox, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -6819,9 +8841,13 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionToolBox) i32 {
+    pub fn state(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -6831,11 +8857,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionToolBox, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionToolBox, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -6849,9 +8879,13 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionToolBox) i32 {
+    pub fn direction(self: QStyleOptionToolBox) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -6861,11 +8895,15 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionToolBox, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionToolBox, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -6875,10 +8913,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn Rect(self: QStyleOptionToolBox) QRect {
+    pub fn rect(self: QStyleOptionToolBox) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -6887,12 +8929,16 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionToolBox, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionToolBox, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -6902,10 +8948,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn FontMetrics(self: QStyleOptionToolBox) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionToolBox) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -6914,12 +8964,16 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionToolBox, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionToolBox, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -6929,10 +8983,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn Palette(self: QStyleOptionToolBox) QPalette {
+    pub fn palette(self: QStyleOptionToolBox) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -6941,12 +8999,16 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionToolBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionToolBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -6956,10 +9018,14 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn StyleObject(self: QStyleOptionToolBox) QObject {
+    pub fn styleObject(self: QStyleOptionToolBox) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -6968,12 +9034,16 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionToolBox, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionToolBox, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -6985,24 +9055,24 @@ pub const QStyleOptionToolBox = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionToolBox, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionToolBox, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbox.html#dtor.QStyleOptionToolBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionToolBox `
     ///
-    pub fn Delete(self: QStyleOptionToolBox) void {
+    pub fn delete(self: QStyleOptionToolBox) void {
         qtc.QStyleOptionToolBox_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7018,22 +9088,34 @@ pub const QStyleOptionRubberBand = extern struct {
     pub const _is_QStyleOptionRubberBand = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionRubberBand object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionRubberBand {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionRubberBand object in C++ memory
+    ///
+    pub fn new() QStyleOptionRubberBand {
         return .{ .ptr = qtc.QStyleOptionRubberBand_new() };
     }
 
-    /// New2 constructs a new QStyleOptionRubberBand object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionRubberBand object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionRubberBand `
     ///
-    pub fn New2(other: anytype) QStyleOptionRubberBand {
+    pub fn new2(other: anytype) QStyleOptionRubberBand {
         comptime _ = @TypeOf(other)._is_QStyleOptionRubberBand;
         return .{ .ptr = qtc.QStyleOptionRubberBand_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#shape-var)
     ///
@@ -7045,9 +9127,13 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` qrubberband_enums.Shape `
     ///
-    pub fn Shape(self: QStyleOptionRubberBand) i32 {
+    pub fn shape(self: QStyleOptionRubberBand) i32 {
         return qtc.QStyleOptionRubberBand_Shape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShape` instead
+    ///
+    pub const SetShape = setShape;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#shape-var)
     ///
@@ -7055,11 +9141,17 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` shape: qrubberband_enums.Shape `
+    /// ` _shape: qrubberband_enums.Shape `
     ///
-    pub fn SetShape(self: QStyleOptionRubberBand, shape: i32) void {
-        qtc.QStyleOptionRubberBand_SetShape(@ptrCast(self.ptr), @bitCast(shape));
+    pub fn setShape(self: QStyleOptionRubberBand, _shape: i32) void {
+        qtc.QStyleOptionRubberBand_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
     }
+
+    /// ### DEPRECATED: Use `opaque0` instead
+    ///
+    pub const Opaque = opaque0;
+
+    pub const @"opaque" = opaque0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#opaque-var)
     ///
@@ -7067,21 +9159,29 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Opaque(self: QStyleOptionRubberBand) bool {
+    pub fn opaque0(self: QStyleOptionRubberBand) bool {
         return qtc.QStyleOptionRubberBand_Opaque(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setOpaque` instead
+    ///
+    pub const SetOpaque = setOpaque;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#opaque-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` opaque: bool `
+    /// ` _opaque: bool `
     ///
-    pub fn SetOpaque(self: QStyleOptionRubberBand, _opaque: bool) void {
+    pub fn setOpaque(self: QStyleOptionRubberBand, _opaque: bool) void {
         qtc.QStyleOptionRubberBand_SetOpaque(@ptrCast(self.ptr), _opaque);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#operator-eq)
     ///
@@ -7091,11 +9191,15 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` param1: QStyleOptionRubberBand `
     ///
-    pub fn OperatorAssign(self: QStyleOptionRubberBand, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionRubberBand, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionRubberBand;
         qtc.QStyleOptionRubberBand_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -7104,10 +9208,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Version(self: QStyleOptionRubberBand) i32 {
+    pub fn version(self: QStyleOptionRubberBand) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -7116,11 +9224,17 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionRubberBand, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionRubberBand, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -7130,10 +9244,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Type(self: QStyleOptionRubberBand) i32 {
+    pub fn type0(self: QStyleOptionRubberBand) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -7142,11 +9260,15 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionRubberBand, _type: i32) void {
+    pub fn setType(self: QStyleOptionRubberBand, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -7160,9 +9282,13 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionRubberBand) i32 {
+    pub fn state(self: QStyleOptionRubberBand) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -7172,11 +9298,15 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionRubberBand, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionRubberBand, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -7190,9 +9320,13 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionRubberBand) i32 {
+    pub fn direction(self: QStyleOptionRubberBand) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -7202,11 +9336,15 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionRubberBand, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionRubberBand, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -7216,10 +9354,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Rect(self: QStyleOptionRubberBand) QRect {
+    pub fn rect(self: QStyleOptionRubberBand) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -7228,12 +9370,16 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionRubberBand, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionRubberBand, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -7243,10 +9389,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn FontMetrics(self: QStyleOptionRubberBand) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionRubberBand) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -7255,12 +9405,16 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionRubberBand, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionRubberBand, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -7270,10 +9424,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Palette(self: QStyleOptionRubberBand) QPalette {
+    pub fn palette(self: QStyleOptionRubberBand) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -7282,12 +9440,16 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionRubberBand, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionRubberBand, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -7297,10 +9459,14 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn StyleObject(self: QStyleOptionRubberBand) QObject {
+    pub fn styleObject(self: QStyleOptionRubberBand) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -7309,12 +9475,16 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionRubberBand, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionRubberBand, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -7326,24 +9496,24 @@ pub const QStyleOptionRubberBand = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionRubberBand, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionRubberBand, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionrubberband.html#dtor.QStyleOptionRubberBand)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionRubberBand `
     ///
-    pub fn Delete(self: QStyleOptionRubberBand) void {
+    pub fn delete(self: QStyleOptionRubberBand) void {
         qtc.QStyleOptionRubberBand_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7359,44 +9529,64 @@ pub const QStyleOptionComplex = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionComplex object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionComplex {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionComplex object in C++ memory
+    ///
+    pub fn new() QStyleOptionComplex {
         return .{ .ptr = qtc.QStyleOptionComplex_new() };
     }
 
-    /// New2 constructs a new QStyleOptionComplex object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionComplex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionComplex `
     ///
-    pub fn New2(other: anytype) QStyleOptionComplex {
+    pub fn new2(other: anytype) QStyleOptionComplex {
         comptime _ = @TypeOf(other)._is_QStyleOptionComplex;
         return .{ .ptr = qtc.QStyleOptionComplex_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QStyleOptionComplex object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStyleOptionComplex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn New3(version: i32) QStyleOptionComplex {
-        return .{ .ptr = qtc.QStyleOptionComplex_new3(@bitCast(version)) };
+    pub fn new3(_version: i32) QStyleOptionComplex {
+        return .{ .ptr = qtc.QStyleOptionComplex_new3(@bitCast(_version)) };
     }
 
-    /// New4 constructs a new QStyleOptionComplex object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QStyleOptionComplex object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New4(version: i32, typeVal: i32) QStyleOptionComplex {
-        return .{ .ptr = qtc.QStyleOptionComplex_new4(@bitCast(version), @bitCast(typeVal)) };
+    pub fn new4(_version: i32, typeVal: i32) QStyleOptionComplex {
+        return .{ .ptr = qtc.QStyleOptionComplex_new4(@bitCast(_version), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
     ///
@@ -7408,21 +9598,29 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionComplex) i32 {
+    pub fn subControls(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionComplex, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionComplex, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#activeSubControls-var)
     ///
@@ -7434,9 +9632,13 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionComplex) i32 {
+    pub fn activeSubControls(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#activeSubControls-var)
     ///
@@ -7444,11 +9646,15 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionComplex, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionComplex, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#operator-eq)
     ///
@@ -7458,11 +9664,15 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` param1: QStyleOptionComplex `
     ///
-    pub fn OperatorAssign(self: QStyleOptionComplex, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionComplex, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionComplex;
         qtc.QStyleOptionComplex_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -7471,10 +9681,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn Version(self: QStyleOptionComplex) i32 {
+    pub fn version(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -7483,11 +9697,17 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionComplex, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionComplex, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -7497,10 +9717,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn Type(self: QStyleOptionComplex) i32 {
+    pub fn type0(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -7509,11 +9733,15 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionComplex, _type: i32) void {
+    pub fn setType(self: QStyleOptionComplex, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -7527,9 +9755,13 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionComplex) i32 {
+    pub fn state(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -7539,11 +9771,15 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionComplex, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionComplex, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -7557,9 +9793,13 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionComplex) i32 {
+    pub fn direction(self: QStyleOptionComplex) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -7569,11 +9809,15 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionComplex, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionComplex, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -7583,10 +9827,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn Rect(self: QStyleOptionComplex) QRect {
+    pub fn rect(self: QStyleOptionComplex) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -7595,12 +9843,16 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionComplex, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionComplex, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -7610,10 +9862,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn FontMetrics(self: QStyleOptionComplex) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionComplex) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -7622,12 +9878,16 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionComplex, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionComplex, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -7637,10 +9897,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn Palette(self: QStyleOptionComplex) QPalette {
+    pub fn palette(self: QStyleOptionComplex) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -7649,12 +9913,16 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionComplex, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionComplex, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -7664,10 +9932,14 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn StyleObject(self: QStyleOptionComplex) QObject {
+    pub fn styleObject(self: QStyleOptionComplex) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -7676,12 +9948,16 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionComplex, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionComplex, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -7693,24 +9969,24 @@ pub const QStyleOptionComplex = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionComplex, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionComplex, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#dtor.QStyleOptionComplex)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionComplex `
     ///
-    pub fn Delete(self: QStyleOptionComplex) void {
+    pub fn delete(self: QStyleOptionComplex) void {
         qtc.QStyleOptionComplex_Delete(@ptrCast(self.ptr));
     }
 };
@@ -7727,22 +10003,34 @@ pub const QStyleOptionSlider = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionSlider object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionSlider {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionSlider object in C++ memory
+    ///
+    pub fn new() QStyleOptionSlider {
         return .{ .ptr = qtc.QStyleOptionSlider_new() };
     }
 
-    /// New2 constructs a new QStyleOptionSlider object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionSlider object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionSlider `
     ///
-    pub fn New2(other: anytype) QStyleOptionSlider {
+    pub fn new2(other: anytype) QStyleOptionSlider {
         comptime _ = @TypeOf(other)._is_QStyleOptionSlider;
         return .{ .ptr = qtc.QStyleOptionSlider_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `orientation` instead
+    ///
+    pub const Orientation = orientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#orientation-var)
     ///
@@ -7754,9 +10042,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` qnamespace_enums.Orientation `
     ///
-    pub fn Orientation(self: QStyleOptionSlider) i32 {
+    pub fn orientation(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_Orientation(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOrientation` instead
+    ///
+    pub const SetOrientation = setOrientation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#orientation-var)
     ///
@@ -7764,11 +10056,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` orientation: qnamespace_enums.Orientation `
+    /// ` _orientation: qnamespace_enums.Orientation `
     ///
-    pub fn SetOrientation(self: QStyleOptionSlider, orientation: i32) void {
-        qtc.QStyleOptionSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(orientation));
+    pub fn setOrientation(self: QStyleOptionSlider, _orientation: i32) void {
+        qtc.QStyleOptionSlider_SetOrientation(@ptrCast(self.ptr), @bitCast(_orientation));
     }
+
+    /// ### DEPRECATED: Use `minimum` instead
+    ///
+    pub const Minimum = minimum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#minimum-var)
     ///
@@ -7776,21 +10072,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Minimum(self: QStyleOptionSlider) i32 {
+    pub fn minimum(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_Minimum(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMinimum` instead
+    ///
+    pub const SetMinimum = setMinimum;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#minimum-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` minimum: i32 `
+    /// ` _minimum: i32 `
     ///
-    pub fn SetMinimum(self: QStyleOptionSlider, minimum: i32) void {
-        qtc.QStyleOptionSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(minimum));
+    pub fn setMinimum(self: QStyleOptionSlider, _minimum: i32) void {
+        qtc.QStyleOptionSlider_SetMinimum(@ptrCast(self.ptr), @bitCast(_minimum));
     }
+
+    /// ### DEPRECATED: Use `maximum` instead
+    ///
+    pub const Maximum = maximum;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#maximum-var)
     ///
@@ -7798,21 +10102,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Maximum(self: QStyleOptionSlider) i32 {
+    pub fn maximum(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_Maximum(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMaximum` instead
+    ///
+    pub const SetMaximum = setMaximum;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#maximum-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` maximum: i32 `
+    /// ` _maximum: i32 `
     ///
-    pub fn SetMaximum(self: QStyleOptionSlider, maximum: i32) void {
-        qtc.QStyleOptionSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(maximum));
+    pub fn setMaximum(self: QStyleOptionSlider, _maximum: i32) void {
+        qtc.QStyleOptionSlider_SetMaximum(@ptrCast(self.ptr), @bitCast(_maximum));
     }
+
+    /// ### DEPRECATED: Use `tickPosition` instead
+    ///
+    pub const TickPosition = tickPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickPosition-var)
     ///
@@ -7824,9 +10136,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` qslider_enums.TickPosition `
     ///
-    pub fn TickPosition(self: QStyleOptionSlider) i32 {
+    pub fn tickPosition(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_TickPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTickPosition` instead
+    ///
+    pub const SetTickPosition = setTickPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickPosition-var)
     ///
@@ -7834,11 +10150,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` tickPosition: qslider_enums.TickPosition `
+    /// ` _tickPosition: qslider_enums.TickPosition `
     ///
-    pub fn SetTickPosition(self: QStyleOptionSlider, tickPosition: i32) void {
-        qtc.QStyleOptionSlider_SetTickPosition(@ptrCast(self.ptr), @bitCast(tickPosition));
+    pub fn setTickPosition(self: QStyleOptionSlider, _tickPosition: i32) void {
+        qtc.QStyleOptionSlider_SetTickPosition(@ptrCast(self.ptr), @bitCast(_tickPosition));
     }
+
+    /// ### DEPRECATED: Use `tickInterval` instead
+    ///
+    pub const TickInterval = tickInterval;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickInterval-var)
     ///
@@ -7846,21 +10166,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn TickInterval(self: QStyleOptionSlider) i32 {
+    pub fn tickInterval(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_TickInterval(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTickInterval` instead
+    ///
+    pub const SetTickInterval = setTickInterval;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#tickInterval-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` tickInterval: i32 `
+    /// ` _tickInterval: i32 `
     ///
-    pub fn SetTickInterval(self: QStyleOptionSlider, tickInterval: i32) void {
-        qtc.QStyleOptionSlider_SetTickInterval(@ptrCast(self.ptr), @bitCast(tickInterval));
+    pub fn setTickInterval(self: QStyleOptionSlider, _tickInterval: i32) void {
+        qtc.QStyleOptionSlider_SetTickInterval(@ptrCast(self.ptr), @bitCast(_tickInterval));
     }
+
+    /// ### DEPRECATED: Use `upsideDown` instead
+    ///
+    pub const UpsideDown = upsideDown;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#upsideDown-var)
     ///
@@ -7868,21 +10196,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn UpsideDown(self: QStyleOptionSlider) bool {
+    pub fn upsideDown(self: QStyleOptionSlider) bool {
         return qtc.QStyleOptionSlider_UpsideDown(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setUpsideDown` instead
+    ///
+    pub const SetUpsideDown = setUpsideDown;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#upsideDown-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` upsideDown: bool `
+    /// ` _upsideDown: bool `
     ///
-    pub fn SetUpsideDown(self: QStyleOptionSlider, upsideDown: bool) void {
-        qtc.QStyleOptionSlider_SetUpsideDown(@ptrCast(self.ptr), upsideDown);
+    pub fn setUpsideDown(self: QStyleOptionSlider, _upsideDown: bool) void {
+        qtc.QStyleOptionSlider_SetUpsideDown(@ptrCast(self.ptr), _upsideDown);
     }
+
+    /// ### DEPRECATED: Use `sliderPosition` instead
+    ///
+    pub const SliderPosition = sliderPosition;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#sliderPosition-var)
     ///
@@ -7890,21 +10226,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn SliderPosition(self: QStyleOptionSlider) i32 {
+    pub fn sliderPosition(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_SliderPosition(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSliderPosition` instead
+    ///
+    pub const SetSliderPosition = setSliderPosition;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#sliderPosition-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` sliderPosition: i32 `
+    /// ` _sliderPosition: i32 `
     ///
-    pub fn SetSliderPosition(self: QStyleOptionSlider, sliderPosition: i32) void {
-        qtc.QStyleOptionSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(sliderPosition));
+    pub fn setSliderPosition(self: QStyleOptionSlider, _sliderPosition: i32) void {
+        qtc.QStyleOptionSlider_SetSliderPosition(@ptrCast(self.ptr), @bitCast(_sliderPosition));
     }
+
+    /// ### DEPRECATED: Use `sliderValue` instead
+    ///
+    pub const SliderValue = sliderValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#sliderValue-var)
     ///
@@ -7912,21 +10256,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn SliderValue(self: QStyleOptionSlider) i32 {
+    pub fn sliderValue(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_SliderValue(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSliderValue` instead
+    ///
+    pub const SetSliderValue = setSliderValue;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#sliderValue-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` sliderValue: i32 `
+    /// ` _sliderValue: i32 `
     ///
-    pub fn SetSliderValue(self: QStyleOptionSlider, sliderValue: i32) void {
-        qtc.QStyleOptionSlider_SetSliderValue(@ptrCast(self.ptr), @bitCast(sliderValue));
+    pub fn setSliderValue(self: QStyleOptionSlider, _sliderValue: i32) void {
+        qtc.QStyleOptionSlider_SetSliderValue(@ptrCast(self.ptr), @bitCast(_sliderValue));
     }
+
+    /// ### DEPRECATED: Use `singleStep` instead
+    ///
+    pub const SingleStep = singleStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#singleStep-var)
     ///
@@ -7934,21 +10286,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn SingleStep(self: QStyleOptionSlider) i32 {
+    pub fn singleStep(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_SingleStep(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSingleStep` instead
+    ///
+    pub const SetSingleStep = setSingleStep;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#singleStep-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` singleStep: i32 `
+    /// ` _singleStep: i32 `
     ///
-    pub fn SetSingleStep(self: QStyleOptionSlider, singleStep: i32) void {
-        qtc.QStyleOptionSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(singleStep));
+    pub fn setSingleStep(self: QStyleOptionSlider, _singleStep: i32) void {
+        qtc.QStyleOptionSlider_SetSingleStep(@ptrCast(self.ptr), @bitCast(_singleStep));
     }
+
+    /// ### DEPRECATED: Use `pageStep` instead
+    ///
+    pub const PageStep = pageStep;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#pageStep-var)
     ///
@@ -7956,21 +10316,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn PageStep(self: QStyleOptionSlider) i32 {
+    pub fn pageStep(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_PageStep(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setPageStep` instead
+    ///
+    pub const SetPageStep = setPageStep;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#pageStep-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` pageStep: i32 `
+    /// ` _pageStep: i32 `
     ///
-    pub fn SetPageStep(self: QStyleOptionSlider, pageStep: i32) void {
-        qtc.QStyleOptionSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(pageStep));
+    pub fn setPageStep(self: QStyleOptionSlider, _pageStep: i32) void {
+        qtc.QStyleOptionSlider_SetPageStep(@ptrCast(self.ptr), @bitCast(_pageStep));
     }
+
+    /// ### DEPRECATED: Use `notchTarget` instead
+    ///
+    pub const NotchTarget = notchTarget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#notchTarget-var)
     ///
@@ -7978,21 +10346,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn NotchTarget(self: QStyleOptionSlider) f64 {
+    pub fn notchTarget(self: QStyleOptionSlider) f64 {
         return qtc.QStyleOptionSlider_NotchTarget(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setNotchTarget` instead
+    ///
+    pub const SetNotchTarget = setNotchTarget;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#notchTarget-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` notchTarget: f64 `
+    /// ` _notchTarget: f64 `
     ///
-    pub fn SetNotchTarget(self: QStyleOptionSlider, notchTarget: f64) void {
-        qtc.QStyleOptionSlider_SetNotchTarget(@ptrCast(self.ptr), @bitCast(notchTarget));
+    pub fn setNotchTarget(self: QStyleOptionSlider, _notchTarget: f64) void {
+        qtc.QStyleOptionSlider_SetNotchTarget(@ptrCast(self.ptr), @bitCast(_notchTarget));
     }
+
+    /// ### DEPRECATED: Use `dialWrapping` instead
+    ///
+    pub const DialWrapping = dialWrapping;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dialWrapping-var)
     ///
@@ -8000,21 +10376,29 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn DialWrapping(self: QStyleOptionSlider) bool {
+    pub fn dialWrapping(self: QStyleOptionSlider) bool {
         return qtc.QStyleOptionSlider_DialWrapping(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setDialWrapping` instead
+    ///
+    pub const SetDialWrapping = setDialWrapping;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dialWrapping-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` dialWrapping: bool `
+    /// ` _dialWrapping: bool `
     ///
-    pub fn SetDialWrapping(self: QStyleOptionSlider, dialWrapping: bool) void {
-        qtc.QStyleOptionSlider_SetDialWrapping(@ptrCast(self.ptr), dialWrapping);
+    pub fn setDialWrapping(self: QStyleOptionSlider, _dialWrapping: bool) void {
+        qtc.QStyleOptionSlider_SetDialWrapping(@ptrCast(self.ptr), _dialWrapping);
     }
+
+    /// ### DEPRECATED: Use `keyboardModifiers` instead
+    ///
+    pub const KeyboardModifiers = keyboardModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#keyboardModifiers-var)
     ///
@@ -8026,9 +10410,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn KeyboardModifiers(self: QStyleOptionSlider) i32 {
+    pub fn keyboardModifiers(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionSlider_KeyboardModifiers(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setKeyboardModifiers` instead
+    ///
+    pub const SetKeyboardModifiers = setKeyboardModifiers;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#keyboardModifiers-var)
     ///
@@ -8036,11 +10424,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` keyboardModifiers: flag of qnamespace_enums.KeyboardModifier `
+    /// ` _keyboardModifiers: flag of qnamespace_enums.KeyboardModifier `
     ///
-    pub fn SetKeyboardModifiers(self: QStyleOptionSlider, keyboardModifiers: i32) void {
-        qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self.ptr), @bitCast(keyboardModifiers));
+    pub fn setKeyboardModifiers(self: QStyleOptionSlider, _keyboardModifiers: i32) void {
+        qtc.QStyleOptionSlider_SetKeyboardModifiers(@ptrCast(self.ptr), @bitCast(_keyboardModifiers));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#operator-eq)
     ///
@@ -8050,11 +10442,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` param1: QStyleOptionSlider `
     ///
-    pub fn OperatorAssign(self: QStyleOptionSlider, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionSlider, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionSlider;
         qtc.QStyleOptionSlider_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8067,10 +10463,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionSlider) i32 {
+    pub fn subControls(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8079,11 +10479,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionSlider, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionSlider, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -8097,9 +10501,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionSlider) i32 {
+    pub fn activeSubControls(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -8109,11 +10517,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionSlider, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionSlider, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -8123,10 +10535,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Version(self: QStyleOptionSlider) i32 {
+    pub fn version(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -8135,11 +10551,17 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionSlider, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionSlider, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -8149,10 +10571,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Type(self: QStyleOptionSlider) i32 {
+    pub fn type0(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -8161,11 +10587,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionSlider, _type: i32) void {
+    pub fn setType(self: QStyleOptionSlider, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -8179,9 +10609,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionSlider) i32 {
+    pub fn state(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -8191,11 +10625,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionSlider, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionSlider, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -8209,9 +10647,13 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionSlider) i32 {
+    pub fn direction(self: QStyleOptionSlider) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -8221,11 +10663,15 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionSlider, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionSlider, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -8235,10 +10681,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Rect(self: QStyleOptionSlider) QRect {
+    pub fn rect(self: QStyleOptionSlider) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -8247,12 +10697,16 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionSlider, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionSlider, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -8262,10 +10716,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn FontMetrics(self: QStyleOptionSlider) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionSlider) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -8274,12 +10732,16 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionSlider, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionSlider, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -8289,10 +10751,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Palette(self: QStyleOptionSlider) QPalette {
+    pub fn palette(self: QStyleOptionSlider) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -8301,12 +10767,16 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionSlider, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionSlider, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -8316,10 +10786,14 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn StyleObject(self: QStyleOptionSlider) QObject {
+    pub fn styleObject(self: QStyleOptionSlider) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -8328,12 +10802,16 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionSlider, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionSlider, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -8345,24 +10823,24 @@ pub const QStyleOptionSlider = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionSlider, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionSlider, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionslider.html#dtor.QStyleOptionSlider)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionSlider `
     ///
-    pub fn Delete(self: QStyleOptionSlider) void {
+    pub fn delete(self: QStyleOptionSlider) void {
         qtc.QStyleOptionSlider_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8379,22 +10857,34 @@ pub const QStyleOptionSpinBox = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionSpinBox object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionSpinBox {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionSpinBox object in C++ memory
+    ///
+    pub fn new() QStyleOptionSpinBox {
         return .{ .ptr = qtc.QStyleOptionSpinBox_new() };
     }
 
-    /// New2 constructs a new QStyleOptionSpinBox object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionSpinBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionSpinBox `
     ///
-    pub fn New2(other: anytype) QStyleOptionSpinBox {
+    pub fn new2(other: anytype) QStyleOptionSpinBox {
         comptime _ = @TypeOf(other)._is_QStyleOptionSpinBox;
         return .{ .ptr = qtc.QStyleOptionSpinBox_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `buttonSymbols` instead
+    ///
+    pub const ButtonSymbols = buttonSymbols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#buttonSymbols-var)
     ///
@@ -8406,9 +10896,13 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` qabstractspinbox_enums.ButtonSymbols `
     ///
-    pub fn ButtonSymbols(self: QStyleOptionSpinBox) i32 {
+    pub fn buttonSymbols(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOptionSpinBox_ButtonSymbols(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setButtonSymbols` instead
+    ///
+    pub const SetButtonSymbols = setButtonSymbols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#buttonSymbols-var)
     ///
@@ -8416,11 +10910,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` buttonSymbols: qabstractspinbox_enums.ButtonSymbols `
+    /// ` _buttonSymbols: qabstractspinbox_enums.ButtonSymbols `
     ///
-    pub fn SetButtonSymbols(self: QStyleOptionSpinBox, buttonSymbols: i32) void {
-        qtc.QStyleOptionSpinBox_SetButtonSymbols(@ptrCast(self.ptr), @bitCast(buttonSymbols));
+    pub fn setButtonSymbols(self: QStyleOptionSpinBox, _buttonSymbols: i32) void {
+        qtc.QStyleOptionSpinBox_SetButtonSymbols(@ptrCast(self.ptr), @bitCast(_buttonSymbols));
     }
+
+    /// ### DEPRECATED: Use `stepEnabled` instead
+    ///
+    pub const StepEnabled = stepEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#stepEnabled-var)
     ///
@@ -8432,9 +10930,13 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
-    pub fn StepEnabled(self: QStyleOptionSpinBox) i32 {
+    pub fn stepEnabled(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOptionSpinBox_StepEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStepEnabled` instead
+    ///
+    pub const SetStepEnabled = setStepEnabled;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#stepEnabled-var)
     ///
@@ -8442,11 +10944,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` stepEnabled: flag of qabstractspinbox_enums.StepEnabledFlag `
+    /// ` _stepEnabled: flag of qabstractspinbox_enums.StepEnabledFlag `
     ///
-    pub fn SetStepEnabled(self: QStyleOptionSpinBox, stepEnabled: i32) void {
-        qtc.QStyleOptionSpinBox_SetStepEnabled(@ptrCast(self.ptr), @bitCast(stepEnabled));
+    pub fn setStepEnabled(self: QStyleOptionSpinBox, _stepEnabled: i32) void {
+        qtc.QStyleOptionSpinBox_SetStepEnabled(@ptrCast(self.ptr), @bitCast(_stepEnabled));
     }
+
+    /// ### DEPRECATED: Use `frame` instead
+    ///
+    pub const Frame = frame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#frame-var)
     ///
@@ -8454,21 +10960,29 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Frame(self: QStyleOptionSpinBox) bool {
+    pub fn frame(self: QStyleOptionSpinBox) bool {
         return qtc.QStyleOptionSpinBox_Frame(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#frame-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` frame: bool `
+    /// ` _frame: bool `
     ///
-    pub fn SetFrame(self: QStyleOptionSpinBox, frame: bool) void {
-        qtc.QStyleOptionSpinBox_SetFrame(@ptrCast(self.ptr), frame);
+    pub fn setFrame(self: QStyleOptionSpinBox, _frame: bool) void {
+        qtc.QStyleOptionSpinBox_SetFrame(@ptrCast(self.ptr), _frame);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#operator-eq)
     ///
@@ -8478,11 +10992,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` param1: QStyleOptionSpinBox `
     ///
-    pub fn OperatorAssign(self: QStyleOptionSpinBox, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionSpinBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionSpinBox;
         qtc.QStyleOptionSpinBox_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8495,10 +11013,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionSpinBox) i32 {
+    pub fn subControls(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -8507,11 +11029,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionSpinBox, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionSpinBox, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -8525,9 +11051,13 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionSpinBox) i32 {
+    pub fn activeSubControls(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -8537,11 +11067,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionSpinBox, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionSpinBox, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -8551,10 +11085,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Version(self: QStyleOptionSpinBox) i32 {
+    pub fn version(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -8563,11 +11101,17 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionSpinBox, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionSpinBox, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -8577,10 +11121,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Type(self: QStyleOptionSpinBox) i32 {
+    pub fn type0(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -8589,11 +11137,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionSpinBox, _type: i32) void {
+    pub fn setType(self: QStyleOptionSpinBox, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -8607,9 +11159,13 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionSpinBox) i32 {
+    pub fn state(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -8619,11 +11175,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionSpinBox, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionSpinBox, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -8637,9 +11197,13 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionSpinBox) i32 {
+    pub fn direction(self: QStyleOptionSpinBox) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -8649,11 +11213,15 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionSpinBox, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionSpinBox, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -8663,10 +11231,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Rect(self: QStyleOptionSpinBox) QRect {
+    pub fn rect(self: QStyleOptionSpinBox) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -8675,12 +11247,16 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionSpinBox, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionSpinBox, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -8690,10 +11266,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn FontMetrics(self: QStyleOptionSpinBox) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionSpinBox) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -8702,12 +11282,16 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionSpinBox, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionSpinBox, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -8717,10 +11301,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Palette(self: QStyleOptionSpinBox) QPalette {
+    pub fn palette(self: QStyleOptionSpinBox) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -8729,12 +11317,16 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionSpinBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionSpinBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -8744,10 +11336,14 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn StyleObject(self: QStyleOptionSpinBox) QObject {
+    pub fn styleObject(self: QStyleOptionSpinBox) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -8756,12 +11352,16 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionSpinBox, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionSpinBox, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -8773,24 +11373,24 @@ pub const QStyleOptionSpinBox = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionSpinBox, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionSpinBox, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionspinbox.html#dtor.QStyleOptionSpinBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionSpinBox `
     ///
-    pub fn Delete(self: QStyleOptionSpinBox) void {
+    pub fn delete(self: QStyleOptionSpinBox) void {
         qtc.QStyleOptionSpinBox_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8807,22 +11407,34 @@ pub const QStyleOptionToolButton = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionToolButton object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionToolButton {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionToolButton object in C++ memory
+    ///
+    pub fn new() QStyleOptionToolButton {
         return .{ .ptr = qtc.QStyleOptionToolButton_new() };
     }
 
-    /// New2 constructs a new QStyleOptionToolButton object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionToolButton object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionToolButton `
     ///
-    pub fn New2(other: anytype) QStyleOptionToolButton {
+    pub fn new2(other: anytype) QStyleOptionToolButton {
         comptime _ = @TypeOf(other)._is_QStyleOptionToolButton;
         return .{ .ptr = qtc.QStyleOptionToolButton_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#features-var)
     ///
@@ -8834,9 +11446,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` flag of qstyleoption_enums.ToolButtonFeature `
     ///
-    pub fn Features(self: QStyleOptionToolButton) i32 {
+    pub fn features(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOptionToolButton_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#features-var)
     ///
@@ -8844,11 +11460,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` features: flag of qstyleoption_enums.ToolButtonFeature `
+    /// ` _features: flag of qstyleoption_enums.ToolButtonFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionToolButton, features: i32) void {
-        qtc.QStyleOptionToolButton_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionToolButton, _features: i32) void {
+        qtc.QStyleOptionToolButton_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#icon-var)
     ///
@@ -8856,22 +11476,30 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Icon(self: QStyleOptionToolButton) QIcon {
+    pub fn icon(self: QStyleOptionToolButton) QIcon {
         return .{ .ptr = qtc.QStyleOptionToolButton_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionToolButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionToolButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionToolButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionToolButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#iconSize-var)
     ///
@@ -8879,22 +11507,30 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn IconSize(self: QStyleOptionToolButton) QSize {
+    pub fn iconSize(self: QStyleOptionToolButton) QSize {
         return .{ .ptr = qtc.QStyleOptionToolButton_IconSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#iconSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: QStyleOptionToolButton, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QStyleOptionToolButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: QStyleOptionToolButton, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QStyleOptionToolButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#text-var)
     ///
@@ -8904,13 +11540,17 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionToolButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionToolButton, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionToolButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolButton.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionToolButton.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#text-var)
     ///
@@ -8918,15 +11558,19 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionToolButton, text: []const u8) void {
+    pub fn setText(self: QStyleOptionToolButton, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionToolButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `arrowType` instead
+    ///
+    pub const ArrowType = arrowType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#arrowType-var)
     ///
@@ -8938,9 +11582,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` qnamespace_enums.ArrowType `
     ///
-    pub fn ArrowType(self: QStyleOptionToolButton) i32 {
+    pub fn arrowType(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOptionToolButton_ArrowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setArrowType` instead
+    ///
+    pub const SetArrowType = setArrowType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#arrowType-var)
     ///
@@ -8948,11 +11596,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` arrowType: qnamespace_enums.ArrowType `
+    /// ` _arrowType: qnamespace_enums.ArrowType `
     ///
-    pub fn SetArrowType(self: QStyleOptionToolButton, arrowType: i32) void {
-        qtc.QStyleOptionToolButton_SetArrowType(@ptrCast(self.ptr), @bitCast(arrowType));
+    pub fn setArrowType(self: QStyleOptionToolButton, _arrowType: i32) void {
+        qtc.QStyleOptionToolButton_SetArrowType(@ptrCast(self.ptr), @bitCast(_arrowType));
     }
+
+    /// ### DEPRECATED: Use `toolButtonStyle` instead
+    ///
+    pub const ToolButtonStyle = toolButtonStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#toolButtonStyle-var)
     ///
@@ -8964,9 +11616,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn ToolButtonStyle(self: QStyleOptionToolButton) i32 {
+    pub fn toolButtonStyle(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOptionToolButton_ToolButtonStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolButtonStyle` instead
+    ///
+    pub const SetToolButtonStyle = setToolButtonStyle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#toolButtonStyle-var)
     ///
@@ -8974,11 +11630,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` toolButtonStyle: qnamespace_enums.ToolButtonStyle `
+    /// ` _toolButtonStyle: qnamespace_enums.ToolButtonStyle `
     ///
-    pub fn SetToolButtonStyle(self: QStyleOptionToolButton, toolButtonStyle: i32) void {
-        qtc.QStyleOptionToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(toolButtonStyle));
+    pub fn setToolButtonStyle(self: QStyleOptionToolButton, _toolButtonStyle: i32) void {
+        qtc.QStyleOptionToolButton_SetToolButtonStyle(@ptrCast(self.ptr), @bitCast(_toolButtonStyle));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#pos-var)
     ///
@@ -8986,22 +11646,30 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Pos(self: QStyleOptionToolButton) QPoint {
+    pub fn pos(self: QStyleOptionToolButton) QPoint {
         return .{ .ptr = qtc.QStyleOptionToolButton_Pos(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPos` instead
+    ///
+    pub const SetPos = setPos;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#pos-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn SetPos(self: QStyleOptionToolButton, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QStyleOptionToolButton_SetPos(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn setPos(self: QStyleOptionToolButton, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QStyleOptionToolButton_SetPos(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#font-var)
     ///
@@ -9009,22 +11677,30 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Font(self: QStyleOptionToolButton) QFont {
+    pub fn font(self: QStyleOptionToolButton) QFont {
         return .{ .ptr = qtc.QStyleOptionToolButton_Font(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#font-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QStyleOptionToolButton, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QStyleOptionToolButton_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QStyleOptionToolButton, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QStyleOptionToolButton_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#operator-eq)
     ///
@@ -9034,11 +11710,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` param1: QStyleOptionToolButton `
     ///
-    pub fn OperatorAssign(self: QStyleOptionToolButton, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionToolButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionToolButton;
         qtc.QStyleOptionToolButton_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9051,10 +11731,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionToolButton) i32 {
+    pub fn subControls(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9063,11 +11747,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionToolButton, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionToolButton, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -9081,9 +11769,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionToolButton) i32 {
+    pub fn activeSubControls(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -9093,11 +11785,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionToolButton, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionToolButton, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -9107,10 +11803,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Version(self: QStyleOptionToolButton) i32 {
+    pub fn version(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -9119,11 +11819,17 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionToolButton, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionToolButton, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -9133,10 +11839,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Type(self: QStyleOptionToolButton) i32 {
+    pub fn type0(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -9145,11 +11855,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionToolButton, _type: i32) void {
+    pub fn setType(self: QStyleOptionToolButton, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -9163,9 +11877,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionToolButton) i32 {
+    pub fn state(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -9175,11 +11893,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionToolButton, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionToolButton, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -9193,9 +11915,13 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionToolButton) i32 {
+    pub fn direction(self: QStyleOptionToolButton) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -9205,11 +11931,15 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionToolButton, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionToolButton, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -9219,10 +11949,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Rect(self: QStyleOptionToolButton) QRect {
+    pub fn rect(self: QStyleOptionToolButton) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -9231,12 +11965,16 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionToolButton, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionToolButton, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -9246,10 +11984,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn FontMetrics(self: QStyleOptionToolButton) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionToolButton) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -9258,12 +12000,16 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionToolButton, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionToolButton, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -9273,10 +12019,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Palette(self: QStyleOptionToolButton) QPalette {
+    pub fn palette(self: QStyleOptionToolButton) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -9285,12 +12035,16 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionToolButton, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionToolButton, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -9300,10 +12054,14 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn StyleObject(self: QStyleOptionToolButton) QObject {
+    pub fn styleObject(self: QStyleOptionToolButton) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -9312,12 +12070,16 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionToolButton, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionToolButton, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -9329,24 +12091,24 @@ pub const QStyleOptionToolButton = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionToolButton, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionToolButton, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontoolbutton.html#dtor.QStyleOptionToolButton)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionToolButton `
     ///
-    pub fn Delete(self: QStyleOptionToolButton) void {
+    pub fn delete(self: QStyleOptionToolButton) void {
         qtc.QStyleOptionToolButton_Delete(@ptrCast(self.ptr));
     }
 };
@@ -9363,44 +12125,64 @@ pub const QStyleOptionComboBox = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionComboBox object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionComboBox {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionComboBox object in C++ memory
+    ///
+    pub fn new() QStyleOptionComboBox {
         return .{ .ptr = qtc.QStyleOptionComboBox_new() };
     }
 
-    /// New2 constructs a new QStyleOptionComboBox object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionComboBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionComboBox `
     ///
-    pub fn New2(other: anytype) QStyleOptionComboBox {
+    pub fn new2(other: anytype) QStyleOptionComboBox {
         comptime _ = @TypeOf(other)._is_QStyleOptionComboBox;
         return .{ .ptr = qtc.QStyleOptionComboBox_new2(@ptrCast(other.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `editable` instead
+    ///
+    pub const Editable = editable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#editable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Editable(self: QStyleOptionComboBox) bool {
+    pub fn editable(self: QStyleOptionComboBox) bool {
         return qtc.QStyleOptionComboBox_Editable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setEditable` instead
+    ///
+    pub const SetEditable = setEditable;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#editable-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` editable: bool `
+    /// ` _editable: bool `
     ///
-    pub fn SetEditable(self: QStyleOptionComboBox, editable: bool) void {
-        qtc.QStyleOptionComboBox_SetEditable(@ptrCast(self.ptr), editable);
+    pub fn setEditable(self: QStyleOptionComboBox, _editable: bool) void {
+        qtc.QStyleOptionComboBox_SetEditable(@ptrCast(self.ptr), _editable);
     }
+
+    /// ### DEPRECATED: Use `popupRect` instead
+    ///
+    pub const PopupRect = popupRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#popupRect-var)
     ///
@@ -9408,22 +12190,30 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn PopupRect(self: QStyleOptionComboBox) QRect {
+    pub fn popupRect(self: QStyleOptionComboBox) QRect {
         return .{ .ptr = qtc.QStyleOptionComboBox_PopupRect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPopupRect` instead
+    ///
+    pub const SetPopupRect = setPopupRect;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#popupRect-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` popupRect: QRect `
+    /// ` _popupRect: QRect `
     ///
-    pub fn SetPopupRect(self: QStyleOptionComboBox, popupRect: anytype) void {
-        comptime _ = @TypeOf(popupRect)._is_QRect;
-        qtc.QStyleOptionComboBox_SetPopupRect(@ptrCast(self.ptr), @ptrCast(popupRect.ptr));
+    pub fn setPopupRect(self: QStyleOptionComboBox, _popupRect: anytype) void {
+        comptime _ = @TypeOf(_popupRect)._is_QRect;
+        qtc.QStyleOptionComboBox_SetPopupRect(@ptrCast(self.ptr), @ptrCast(_popupRect.ptr));
     }
+
+    /// ### DEPRECATED: Use `frame` instead
+    ///
+    pub const Frame = frame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#frame-var)
     ///
@@ -9431,21 +12221,29 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Frame(self: QStyleOptionComboBox) bool {
+    pub fn frame(self: QStyleOptionComboBox) bool {
         return qtc.QStyleOptionComboBox_Frame(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setFrame` instead
+    ///
+    pub const SetFrame = setFrame;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#frame-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` frame: bool `
+    /// ` _frame: bool `
     ///
-    pub fn SetFrame(self: QStyleOptionComboBox, frame: bool) void {
-        qtc.QStyleOptionComboBox_SetFrame(@ptrCast(self.ptr), frame);
+    pub fn setFrame(self: QStyleOptionComboBox, _frame: bool) void {
+        qtc.QStyleOptionComboBox_SetFrame(@ptrCast(self.ptr), _frame);
     }
+
+    /// ### DEPRECATED: Use `currentText` instead
+    ///
+    pub const CurrentText = currentText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#currentText-var)
     ///
@@ -9455,13 +12253,17 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CurrentText(self: QStyleOptionComboBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn currentText(self: QStyleOptionComboBox, allocator: std.mem.Allocator) []const u8 {
         var currentText_str = qtc.QStyleOptionComboBox_CurrentText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&currentText_str);
-        const currentText_ret = allocator.alloc(u8, currentText_str.len) catch @panic("QStyleOptionComboBox.CurrentText: Memory allocation failed");
+        const currentText_ret = allocator.alloc(u8, currentText_str.len) catch @panic("QStyleOptionComboBox.currentText: Memory allocation failed");
         @memcpy(currentText_ret, currentText_str.data[0..currentText_str.len]);
         return currentText_ret;
     }
+
+    /// ### DEPRECATED: Use `setCurrentText` instead
+    ///
+    pub const SetCurrentText = setCurrentText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#currentText-var)
     ///
@@ -9469,38 +12271,50 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` currentText: []const u8 `
+    /// ` _currentText: []const u8 `
     ///
-    pub fn SetCurrentText(self: QStyleOptionComboBox, currentText: []const u8) void {
+    pub fn setCurrentText(self: QStyleOptionComboBox, _currentText: []const u8) void {
         const currentText_str = qtc.libqt_string{
-            .len = currentText.len,
-            .data = currentText.ptr,
+            .len = _currentText.len,
+            .data = _currentText.ptr,
         };
         qtc.QStyleOptionComboBox_SetCurrentText(@ptrCast(self.ptr), currentText_str);
     }
 
+    /// ### DEPRECATED: Use `currentIcon` instead
+    ///
+    pub const CurrentIcon = currentIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#currentIcon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn CurrentIcon(self: QStyleOptionComboBox) QIcon {
+    pub fn currentIcon(self: QStyleOptionComboBox) QIcon {
         return .{ .ptr = qtc.QStyleOptionComboBox_CurrentIcon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setCurrentIcon` instead
+    ///
+    pub const SetCurrentIcon = setCurrentIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#currentIcon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` currentIcon: QIcon `
+    /// ` _currentIcon: QIcon `
     ///
-    pub fn SetCurrentIcon(self: QStyleOptionComboBox, currentIcon: anytype) void {
-        comptime _ = @TypeOf(currentIcon)._is_QIcon;
-        qtc.QStyleOptionComboBox_SetCurrentIcon(@ptrCast(self.ptr), @ptrCast(currentIcon.ptr));
+    pub fn setCurrentIcon(self: QStyleOptionComboBox, _currentIcon: anytype) void {
+        comptime _ = @TypeOf(_currentIcon)._is_QIcon;
+        qtc.QStyleOptionComboBox_SetCurrentIcon(@ptrCast(self.ptr), @ptrCast(_currentIcon.ptr));
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#iconSize-var)
     ///
@@ -9508,22 +12322,30 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn IconSize(self: QStyleOptionComboBox) QSize {
+    pub fn iconSize(self: QStyleOptionComboBox) QSize {
         return .{ .ptr = qtc.QStyleOptionComboBox_IconSize(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#iconSize-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` iconSize: QSize `
+    /// ` _iconSize: QSize `
     ///
-    pub fn SetIconSize(self: QStyleOptionComboBox, iconSize: anytype) void {
-        comptime _ = @TypeOf(iconSize)._is_QSize;
-        qtc.QStyleOptionComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(iconSize.ptr));
+    pub fn setIconSize(self: QStyleOptionComboBox, _iconSize: anytype) void {
+        comptime _ = @TypeOf(_iconSize)._is_QSize;
+        qtc.QStyleOptionComboBox_SetIconSize(@ptrCast(self.ptr), @ptrCast(_iconSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#textAlignment-var)
     ///
@@ -9535,9 +12357,13 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: QStyleOptionComboBox) i32 {
+    pub fn textAlignment(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOptionComboBox_TextAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#textAlignment-var)
     ///
@@ -9545,11 +12371,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment(self: QStyleOptionComboBox, textAlignment: i32) void {
-        qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self.ptr), @bitCast(textAlignment));
+    pub fn setTextAlignment(self: QStyleOptionComboBox, _textAlignment: i32) void {
+        qtc.QStyleOptionComboBox_SetTextAlignment(@ptrCast(self.ptr), @bitCast(_textAlignment));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#operator-eq)
     ///
@@ -9559,11 +12389,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` param1: QStyleOptionComboBox `
     ///
-    pub fn OperatorAssign(self: QStyleOptionComboBox, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionComboBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionComboBox;
         qtc.QStyleOptionComboBox_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9576,10 +12410,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionComboBox) i32 {
+    pub fn subControls(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -9588,11 +12426,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionComboBox, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionComboBox, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -9606,9 +12448,13 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionComboBox) i32 {
+    pub fn activeSubControls(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -9618,11 +12464,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionComboBox, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionComboBox, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -9632,10 +12482,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Version(self: QStyleOptionComboBox) i32 {
+    pub fn version(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -9644,11 +12498,17 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionComboBox, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionComboBox, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -9658,10 +12518,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Type(self: QStyleOptionComboBox) i32 {
+    pub fn type0(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -9670,11 +12534,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionComboBox, _type: i32) void {
+    pub fn setType(self: QStyleOptionComboBox, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -9688,9 +12556,13 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionComboBox) i32 {
+    pub fn state(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -9700,11 +12572,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionComboBox, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionComboBox, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -9718,9 +12594,13 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionComboBox) i32 {
+    pub fn direction(self: QStyleOptionComboBox) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -9730,11 +12610,15 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionComboBox, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionComboBox, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -9744,10 +12628,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Rect(self: QStyleOptionComboBox) QRect {
+    pub fn rect(self: QStyleOptionComboBox) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -9756,12 +12644,16 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionComboBox, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionComboBox, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -9771,10 +12663,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn FontMetrics(self: QStyleOptionComboBox) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionComboBox) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -9783,12 +12679,16 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionComboBox, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionComboBox, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -9798,10 +12698,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Palette(self: QStyleOptionComboBox) QPalette {
+    pub fn palette(self: QStyleOptionComboBox) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -9810,12 +12714,16 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionComboBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionComboBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -9825,10 +12733,14 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn StyleObject(self: QStyleOptionComboBox) QObject {
+    pub fn styleObject(self: QStyleOptionComboBox) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -9837,12 +12749,16 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionComboBox, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionComboBox, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -9854,24 +12770,24 @@ pub const QStyleOptionComboBox = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionComboBox, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionComboBox, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncombobox.html#dtor.QStyleOptionComboBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionComboBox `
     ///
-    pub fn Delete(self: QStyleOptionComboBox) void {
+    pub fn delete(self: QStyleOptionComboBox) void {
         qtc.QStyleOptionComboBox_Delete(@ptrCast(self.ptr));
     }
 };
@@ -9888,22 +12804,34 @@ pub const QStyleOptionTitleBar = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionTitleBar object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionTitleBar {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionTitleBar object in C++ memory
+    ///
+    pub fn new() QStyleOptionTitleBar {
         return .{ .ptr = qtc.QStyleOptionTitleBar_new() };
     }
 
-    /// New2 constructs a new QStyleOptionTitleBar object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionTitleBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionTitleBar `
     ///
-    pub fn New2(other: anytype) QStyleOptionTitleBar {
+    pub fn new2(other: anytype) QStyleOptionTitleBar {
         comptime _ = @TypeOf(other)._is_QStyleOptionTitleBar;
         return .{ .ptr = qtc.QStyleOptionTitleBar_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#text-var)
     ///
@@ -9913,13 +12841,17 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionTitleBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionTitleBar, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionTitleBar_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTitleBar.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionTitleBar.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#text-var)
     ///
@@ -9927,38 +12859,50 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionTitleBar, text: []const u8) void {
+    pub fn setText(self: QStyleOptionTitleBar, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionTitleBar_SetText(@ptrCast(self.ptr), text_str);
     }
 
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Icon(self: QStyleOptionTitleBar) QIcon {
+    pub fn icon(self: QStyleOptionTitleBar) QIcon {
         return .{ .ptr = qtc.QStyleOptionTitleBar_Icon(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#icon-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: QStyleOptionTitleBar, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QStyleOptionTitleBar_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: QStyleOptionTitleBar, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QStyleOptionTitleBar_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `titleBarState` instead
+    ///
+    pub const TitleBarState = titleBarState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#titleBarState-var)
     ///
@@ -9966,21 +12910,29 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn TitleBarState(self: QStyleOptionTitleBar) i32 {
+    pub fn titleBarState(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOptionTitleBar_TitleBarState(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setTitleBarState` instead
+    ///
+    pub const SetTitleBarState = setTitleBarState;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#titleBarState-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` titleBarState: i32 `
+    /// ` _titleBarState: i32 `
     ///
-    pub fn SetTitleBarState(self: QStyleOptionTitleBar, titleBarState: i32) void {
-        qtc.QStyleOptionTitleBar_SetTitleBarState(@ptrCast(self.ptr), @bitCast(titleBarState));
+    pub fn setTitleBarState(self: QStyleOptionTitleBar, _titleBarState: i32) void {
+        qtc.QStyleOptionTitleBar_SetTitleBarState(@ptrCast(self.ptr), @bitCast(_titleBarState));
     }
+
+    /// ### DEPRECATED: Use `titleBarFlags` instead
+    ///
+    pub const TitleBarFlags = titleBarFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#titleBarFlags-var)
     ///
@@ -9992,9 +12944,13 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn TitleBarFlags(self: QStyleOptionTitleBar) i32 {
+    pub fn titleBarFlags(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOptionTitleBar_TitleBarFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTitleBarFlags` instead
+    ///
+    pub const SetTitleBarFlags = setTitleBarFlags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#titleBarFlags-var)
     ///
@@ -10002,11 +12958,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` titleBarFlags: flag of qnamespace_enums.WindowType `
+    /// ` _titleBarFlags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetTitleBarFlags(self: QStyleOptionTitleBar, titleBarFlags: i32) void {
-        qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self.ptr), @bitCast(titleBarFlags));
+    pub fn setTitleBarFlags(self: QStyleOptionTitleBar, _titleBarFlags: i32) void {
+        qtc.QStyleOptionTitleBar_SetTitleBarFlags(@ptrCast(self.ptr), @bitCast(_titleBarFlags));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#operator-eq)
     ///
@@ -10016,11 +12976,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` param1: QStyleOptionTitleBar `
     ///
-    pub fn OperatorAssign(self: QStyleOptionTitleBar, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionTitleBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionTitleBar;
         qtc.QStyleOptionTitleBar_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10033,10 +12997,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionTitleBar) i32 {
+    pub fn subControls(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10045,11 +13013,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionTitleBar, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionTitleBar, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10063,9 +13035,13 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionTitleBar) i32 {
+    pub fn activeSubControls(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10075,11 +13051,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionTitleBar, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionTitleBar, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -10089,10 +13069,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Version(self: QStyleOptionTitleBar) i32 {
+    pub fn version(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -10101,11 +13085,17 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionTitleBar, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionTitleBar, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -10115,10 +13105,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Type(self: QStyleOptionTitleBar) i32 {
+    pub fn type0(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -10127,11 +13121,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionTitleBar, _type: i32) void {
+    pub fn setType(self: QStyleOptionTitleBar, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -10145,9 +13143,13 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionTitleBar) i32 {
+    pub fn state(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -10157,11 +13159,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionTitleBar, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionTitleBar, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -10175,9 +13181,13 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionTitleBar) i32 {
+    pub fn direction(self: QStyleOptionTitleBar) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -10187,11 +13197,15 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionTitleBar, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionTitleBar, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -10201,10 +13215,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Rect(self: QStyleOptionTitleBar) QRect {
+    pub fn rect(self: QStyleOptionTitleBar) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -10213,12 +13231,16 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionTitleBar, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionTitleBar, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -10228,10 +13250,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn FontMetrics(self: QStyleOptionTitleBar) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionTitleBar) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -10240,12 +13266,16 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionTitleBar, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionTitleBar, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -10255,10 +13285,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Palette(self: QStyleOptionTitleBar) QPalette {
+    pub fn palette(self: QStyleOptionTitleBar) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -10267,12 +13301,16 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionTitleBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionTitleBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -10282,10 +13320,14 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn StyleObject(self: QStyleOptionTitleBar) QObject {
+    pub fn styleObject(self: QStyleOptionTitleBar) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -10294,12 +13336,16 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionTitleBar, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionTitleBar, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -10311,24 +13357,24 @@ pub const QStyleOptionTitleBar = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionTitleBar, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionTitleBar, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiontitlebar.html#dtor.QStyleOptionTitleBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionTitleBar `
     ///
-    pub fn Delete(self: QStyleOptionTitleBar) void {
+    pub fn delete(self: QStyleOptionTitleBar) void {
         qtc.QStyleOptionTitleBar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -10345,22 +13391,34 @@ pub const QStyleOptionGroupBox = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionGroupBox object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionGroupBox {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionGroupBox object in C++ memory
+    ///
+    pub fn new() QStyleOptionGroupBox {
         return .{ .ptr = qtc.QStyleOptionGroupBox_new() };
     }
 
-    /// New2 constructs a new QStyleOptionGroupBox object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionGroupBox object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionGroupBox `
     ///
-    pub fn New2(other: anytype) QStyleOptionGroupBox {
+    pub fn new2(other: anytype) QStyleOptionGroupBox {
         comptime _ = @TypeOf(other)._is_QStyleOptionGroupBox;
         return .{ .ptr = qtc.QStyleOptionGroupBox_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `features` instead
+    ///
+    pub const Features = features;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#features-var)
     ///
@@ -10372,9 +13430,13 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` flag of qstyleoption_enums.FrameFeature `
     ///
-    pub fn Features(self: QStyleOptionGroupBox) i32 {
+    pub fn features(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionGroupBox_Features(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFeatures` instead
+    ///
+    pub const SetFeatures = setFeatures;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#features-var)
     ///
@@ -10382,11 +13444,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` features: flag of qstyleoption_enums.FrameFeature `
+    /// ` _features: flag of qstyleoption_enums.FrameFeature `
     ///
-    pub fn SetFeatures(self: QStyleOptionGroupBox, features: i32) void {
-        qtc.QStyleOptionGroupBox_SetFeatures(@ptrCast(self.ptr), @bitCast(features));
+    pub fn setFeatures(self: QStyleOptionGroupBox, _features: i32) void {
+        qtc.QStyleOptionGroupBox_SetFeatures(@ptrCast(self.ptr), @bitCast(_features));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#text-var)
     ///
@@ -10396,13 +13462,17 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: QStyleOptionGroupBox, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: QStyleOptionGroupBox, allocator: std.mem.Allocator) []const u8 {
         var text_str = qtc.QStyleOptionGroupBox_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&text_str);
-        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionGroupBox.Text: Memory allocation failed");
+        const text_ret = allocator.alloc(u8, text_str.len) catch @panic("QStyleOptionGroupBox.text: Memory allocation failed");
         @memcpy(text_ret, text_str.data[0..text_str.len]);
         return text_ret;
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#text-var)
     ///
@@ -10410,15 +13480,19 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: QStyleOptionGroupBox, text: []const u8) void {
+    pub fn setText(self: QStyleOptionGroupBox, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.QStyleOptionGroupBox_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `textAlignment` instead
+    ///
+    pub const TextAlignment = textAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textAlignment-var)
     ///
@@ -10430,9 +13504,13 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn TextAlignment(self: QStyleOptionGroupBox) i32 {
+    pub fn textAlignment(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionGroupBox_TextAlignment(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextAlignment` instead
+    ///
+    pub const SetTextAlignment = setTextAlignment;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textAlignment-var)
     ///
@@ -10440,11 +13518,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` textAlignment: flag of qnamespace_enums.AlignmentFlag `
+    /// ` _textAlignment: flag of qnamespace_enums.AlignmentFlag `
     ///
-    pub fn SetTextAlignment(self: QStyleOptionGroupBox, textAlignment: i32) void {
-        qtc.QStyleOptionGroupBox_SetTextAlignment(@ptrCast(self.ptr), @bitCast(textAlignment));
+    pub fn setTextAlignment(self: QStyleOptionGroupBox, _textAlignment: i32) void {
+        qtc.QStyleOptionGroupBox_SetTextAlignment(@ptrCast(self.ptr), @bitCast(_textAlignment));
     }
+
+    /// ### DEPRECATED: Use `textColor` instead
+    ///
+    pub const TextColor = textColor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textColor-var)
     ///
@@ -10452,22 +13534,30 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn TextColor(self: QStyleOptionGroupBox) QColor {
+    pub fn textColor(self: QStyleOptionGroupBox) QColor {
         return .{ .ptr = qtc.QStyleOptionGroupBox_TextColor(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setTextColor` instead
+    ///
+    pub const SetTextColor = setTextColor;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#textColor-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` textColor: QColor `
+    /// ` _textColor: QColor `
     ///
-    pub fn SetTextColor(self: QStyleOptionGroupBox, textColor: anytype) void {
-        comptime _ = @TypeOf(textColor)._is_QColor;
-        qtc.QStyleOptionGroupBox_SetTextColor(@ptrCast(self.ptr), @ptrCast(textColor.ptr));
+    pub fn setTextColor(self: QStyleOptionGroupBox, _textColor: anytype) void {
+        comptime _ = @TypeOf(_textColor)._is_QColor;
+        qtc.QStyleOptionGroupBox_SetTextColor(@ptrCast(self.ptr), @ptrCast(_textColor.ptr));
     }
+
+    /// ### DEPRECATED: Use `lineWidth` instead
+    ///
+    pub const LineWidth = lineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#lineWidth-var)
     ///
@@ -10475,21 +13565,29 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn LineWidth(self: QStyleOptionGroupBox) i32 {
+    pub fn lineWidth(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionGroupBox_LineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setLineWidth` instead
+    ///
+    pub const SetLineWidth = setLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#lineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` lineWidth: i32 `
+    /// ` _lineWidth: i32 `
     ///
-    pub fn SetLineWidth(self: QStyleOptionGroupBox, lineWidth: i32) void {
-        qtc.QStyleOptionGroupBox_SetLineWidth(@ptrCast(self.ptr), @bitCast(lineWidth));
+    pub fn setLineWidth(self: QStyleOptionGroupBox, _lineWidth: i32) void {
+        qtc.QStyleOptionGroupBox_SetLineWidth(@ptrCast(self.ptr), @bitCast(_lineWidth));
     }
+
+    /// ### DEPRECATED: Use `midLineWidth` instead
+    ///
+    pub const MidLineWidth = midLineWidth;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#midLineWidth-var)
     ///
@@ -10497,21 +13595,29 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn MidLineWidth(self: QStyleOptionGroupBox) i32 {
+    pub fn midLineWidth(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionGroupBox_MidLineWidth(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setMidLineWidth` instead
+    ///
+    pub const SetMidLineWidth = setMidLineWidth;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#midLineWidth-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` midLineWidth: i32 `
+    /// ` _midLineWidth: i32 `
     ///
-    pub fn SetMidLineWidth(self: QStyleOptionGroupBox, midLineWidth: i32) void {
-        qtc.QStyleOptionGroupBox_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(midLineWidth));
+    pub fn setMidLineWidth(self: QStyleOptionGroupBox, _midLineWidth: i32) void {
+        qtc.QStyleOptionGroupBox_SetMidLineWidth(@ptrCast(self.ptr), @bitCast(_midLineWidth));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#operator-eq)
     ///
@@ -10521,11 +13627,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` param1: QStyleOptionGroupBox `
     ///
-    pub fn OperatorAssign(self: QStyleOptionGroupBox, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionGroupBox, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionGroupBox;
         qtc.QStyleOptionGroupBox_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10538,10 +13648,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionGroupBox) i32 {
+    pub fn subControls(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10550,11 +13664,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionGroupBox, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionGroupBox, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10568,9 +13686,13 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionGroupBox) i32 {
+    pub fn activeSubControls(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10580,11 +13702,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionGroupBox, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionGroupBox, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -10594,10 +13720,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn Version(self: QStyleOptionGroupBox) i32 {
+    pub fn version(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -10606,11 +13736,17 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionGroupBox, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionGroupBox, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -10620,10 +13756,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn Type(self: QStyleOptionGroupBox) i32 {
+    pub fn type0(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -10632,11 +13772,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionGroupBox, _type: i32) void {
+    pub fn setType(self: QStyleOptionGroupBox, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -10650,9 +13794,13 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionGroupBox) i32 {
+    pub fn state(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -10662,11 +13810,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionGroupBox, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionGroupBox, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -10680,9 +13832,13 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionGroupBox) i32 {
+    pub fn direction(self: QStyleOptionGroupBox) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -10692,11 +13848,15 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionGroupBox, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionGroupBox, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -10706,10 +13866,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn Rect(self: QStyleOptionGroupBox) QRect {
+    pub fn rect(self: QStyleOptionGroupBox) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -10718,12 +13882,16 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionGroupBox, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionGroupBox, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -10733,10 +13901,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn FontMetrics(self: QStyleOptionGroupBox) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionGroupBox) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -10745,12 +13917,16 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionGroupBox, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionGroupBox, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -10760,10 +13936,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn Palette(self: QStyleOptionGroupBox) QPalette {
+    pub fn palette(self: QStyleOptionGroupBox) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -10772,12 +13952,16 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionGroupBox, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionGroupBox, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -10787,10 +13971,14 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn StyleObject(self: QStyleOptionGroupBox) QObject {
+    pub fn styleObject(self: QStyleOptionGroupBox) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -10799,12 +13987,16 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionGroupBox, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionGroupBox, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -10816,24 +14008,24 @@ pub const QStyleOptionGroupBox = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionGroupBox, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionGroupBox, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongroupbox.html#dtor.QStyleOptionGroupBox)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionGroupBox `
     ///
-    pub fn Delete(self: QStyleOptionGroupBox) void {
+    pub fn delete(self: QStyleOptionGroupBox) void {
         qtc.QStyleOptionGroupBox_Delete(@ptrCast(self.ptr));
     }
 };
@@ -10850,22 +14042,34 @@ pub const QStyleOptionSizeGrip = extern struct {
     pub const _is_QStyleOptionComplex = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionSizeGrip object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionSizeGrip {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionSizeGrip object in C++ memory
+    ///
+    pub fn new() QStyleOptionSizeGrip {
         return .{ .ptr = qtc.QStyleOptionSizeGrip_new() };
     }
 
-    /// New2 constructs a new QStyleOptionSizeGrip object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionSizeGrip object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionSizeGrip `
     ///
-    pub fn New2(other: anytype) QStyleOptionSizeGrip {
+    pub fn new2(other: anytype) QStyleOptionSizeGrip {
         comptime _ = @TypeOf(other)._is_QStyleOptionSizeGrip;
         return .{ .ptr = qtc.QStyleOptionSizeGrip_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `corner` instead
+    ///
+    pub const Corner = corner;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#corner-var)
     ///
@@ -10877,9 +14081,13 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` qnamespace_enums.Corner `
     ///
-    pub fn Corner(self: QStyleOptionSizeGrip) i32 {
+    pub fn corner(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOptionSizeGrip_Corner(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCorner` instead
+    ///
+    pub const SetCorner = setCorner;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#corner-var)
     ///
@@ -10887,11 +14095,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` corner: qnamespace_enums.Corner `
+    /// ` _corner: qnamespace_enums.Corner `
     ///
-    pub fn SetCorner(self: QStyleOptionSizeGrip, corner: i32) void {
-        qtc.QStyleOptionSizeGrip_SetCorner(@ptrCast(self.ptr), @bitCast(corner));
+    pub fn setCorner(self: QStyleOptionSizeGrip, _corner: i32) void {
+        qtc.QStyleOptionSizeGrip_SetCorner(@ptrCast(self.ptr), @bitCast(_corner));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#operator-eq)
     ///
@@ -10901,11 +14113,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` param1: QStyleOptionSizeGrip `
     ///
-    pub fn OperatorAssign(self: QStyleOptionSizeGrip, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionSizeGrip, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionSizeGrip;
         qtc.QStyleOptionSizeGrip_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `subControls` instead
+    ///
+    pub const SubControls = subControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10918,10 +14134,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn SubControls(self: QStyleOptionSizeGrip) i32 {
+    pub fn subControls(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOptionComplex_SubControls(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setSubControls` instead
+    ///
+    pub const SetSubControls = setSubControls;
+
     /// Inherited from QStyleOptionComplex
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptioncomplex.html#subControls-var)
@@ -10930,11 +14150,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` subControls: flag of qstyle_enums.SubControl `
+    /// ` _subControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetSubControls(self: QStyleOptionSizeGrip, subControls: i32) void {
-        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(subControls));
+    pub fn setSubControls(self: QStyleOptionSizeGrip, _subControls: i32) void {
+        qtc.QStyleOptionComplex_SetSubControls(@ptrCast(self.ptr), @bitCast(_subControls));
     }
+
+    /// ### DEPRECATED: Use `activeSubControls` instead
+    ///
+    pub const ActiveSubControls = activeSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10948,9 +14172,13 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` flag of qstyle_enums.SubControl `
     ///
-    pub fn ActiveSubControls(self: QStyleOptionSizeGrip) i32 {
+    pub fn activeSubControls(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOptionComplex_ActiveSubControls(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActiveSubControls` instead
+    ///
+    pub const SetActiveSubControls = setActiveSubControls;
 
     /// Inherited from QStyleOptionComplex
     ///
@@ -10960,11 +14188,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` activeSubControls: flag of qstyle_enums.SubControl `
+    /// ` _activeSubControls: flag of qstyle_enums.SubControl `
     ///
-    pub fn SetActiveSubControls(self: QStyleOptionSizeGrip, activeSubControls: i32) void {
-        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(activeSubControls));
+    pub fn setActiveSubControls(self: QStyleOptionSizeGrip, _activeSubControls: i32) void {
+        qtc.QStyleOptionComplex_SetActiveSubControls(@ptrCast(self.ptr), @bitCast(_activeSubControls));
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// Inherited from QStyleOption
     ///
@@ -10974,10 +14206,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn Version(self: QStyleOptionSizeGrip) i32 {
+    pub fn version(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -10986,11 +14222,17 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionSizeGrip, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionSizeGrip, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -11000,10 +14242,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn Type(self: QStyleOptionSizeGrip) i32 {
+    pub fn type0(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -11012,11 +14258,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionSizeGrip, _type: i32) void {
+    pub fn setType(self: QStyleOptionSizeGrip, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -11030,9 +14280,13 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionSizeGrip) i32 {
+    pub fn state(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -11042,11 +14296,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionSizeGrip, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionSizeGrip, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -11060,9 +14318,13 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionSizeGrip) i32 {
+    pub fn direction(self: QStyleOptionSizeGrip) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -11072,11 +14334,15 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionSizeGrip, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionSizeGrip, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -11086,10 +14352,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn Rect(self: QStyleOptionSizeGrip) QRect {
+    pub fn rect(self: QStyleOptionSizeGrip) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -11098,12 +14368,16 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionSizeGrip, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionSizeGrip, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -11113,10 +14387,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn FontMetrics(self: QStyleOptionSizeGrip) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionSizeGrip) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -11125,12 +14403,16 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionSizeGrip, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionSizeGrip, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -11140,10 +14422,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn Palette(self: QStyleOptionSizeGrip) QPalette {
+    pub fn palette(self: QStyleOptionSizeGrip) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -11152,12 +14438,16 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionSizeGrip, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionSizeGrip, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -11167,10 +14457,14 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn StyleObject(self: QStyleOptionSizeGrip) QObject {
+    pub fn styleObject(self: QStyleOptionSizeGrip) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -11179,12 +14473,16 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionSizeGrip, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionSizeGrip, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -11196,24 +14494,24 @@ pub const QStyleOptionSizeGrip = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionSizeGrip, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionSizeGrip, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptionsizegrip.html#dtor.QStyleOptionSizeGrip)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionSizeGrip `
     ///
-    pub fn Delete(self: QStyleOptionSizeGrip) void {
+    pub fn delete(self: QStyleOptionSizeGrip) void {
         qtc.QStyleOptionSizeGrip_Delete(@ptrCast(self.ptr));
     }
 };
@@ -11229,32 +14527,34 @@ pub const QStyleOptionGraphicsItem = extern struct {
     pub const _is_QStyleOptionGraphicsItem = {};
     pub const _is_QStyleOption = {};
 
-    /// New constructs a new QStyleOptionGraphicsItem object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleOptionGraphicsItem {
+    pub const New = new;
+
+    /// Allocate a new QStyleOptionGraphicsItem object in C++ memory
+    ///
+    pub fn new() QStyleOptionGraphicsItem {
         return .{ .ptr = qtc.QStyleOptionGraphicsItem_new() };
     }
 
-    /// New2 constructs a new QStyleOptionGraphicsItem object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleOptionGraphicsItem object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QStyleOptionGraphicsItem `
     ///
-    pub fn New2(other: anytype) QStyleOptionGraphicsItem {
+    pub fn new2(other: anytype) QStyleOptionGraphicsItem {
         comptime _ = @TypeOf(other)._is_QStyleOptionGraphicsItem;
         return .{ .ptr = qtc.QStyleOptionGraphicsItem_new2(@ptrCast(other.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#exposedRect-var)
+    /// ### DEPRECATED: Use `exposedRect` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleOptionGraphicsItem `
-    ///
-    pub fn ExposedRect(self: QStyleOptionGraphicsItem) QRectF {
-        return .{ .ptr = qtc.QStyleOptionGraphicsItem_ExposedRect(@ptrCast(self.ptr)) };
-    }
+    pub const ExposedRect = exposedRect;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#exposedRect-var)
     ///
@@ -11262,12 +14562,30 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` exposedRect: QRectF `
-    ///
-    pub fn SetExposedRect(self: QStyleOptionGraphicsItem, exposedRect: anytype) void {
-        comptime _ = @TypeOf(exposedRect)._is_QRectF;
-        qtc.QStyleOptionGraphicsItem_SetExposedRect(@ptrCast(self.ptr), @ptrCast(exposedRect.ptr));
+    pub fn exposedRect(self: QStyleOptionGraphicsItem) QRectF {
+        return .{ .ptr = qtc.QStyleOptionGraphicsItem_ExposedRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setExposedRect` instead
+    ///
+    pub const SetExposedRect = setExposedRect;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#exposedRect-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleOptionGraphicsItem `
+    ///
+    /// ` _exposedRect: QRectF `
+    ///
+    pub fn setExposedRect(self: QStyleOptionGraphicsItem, _exposedRect: anytype) void {
+        comptime _ = @TypeOf(_exposedRect)._is_QRectF;
+        qtc.QStyleOptionGraphicsItem_SetExposedRect(@ptrCast(self.ptr), @ptrCast(_exposedRect.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#operator-eq)
     ///
@@ -11277,10 +14595,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` param1: QStyleOptionGraphicsItem `
     ///
-    pub fn OperatorAssign(self: QStyleOptionGraphicsItem, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleOptionGraphicsItem, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleOptionGraphicsItem;
         qtc.QStyleOptionGraphicsItem_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `levelOfDetailFromTransform` instead
+    ///
+    pub const LevelOfDetailFromTransform = levelOfDetailFromTransform;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#levelOfDetailFromTransform)
     ///
@@ -11288,11 +14610,15 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` worldTransform: QTransform `
     ///
-    pub fn LevelOfDetailFromTransform(worldTransform: anytype) f64 {
+    pub fn levelOfDetailFromTransform(worldTransform: anytype) f64 {
         comptime _ = @TypeOf(worldTransform)._is_QTransform;
         return qtc.QStyleOptionGraphicsItem_LevelOfDetailFromTransform(@ptrCast(worldTransform.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -11301,10 +14627,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn Version(self: QStyleOptionGraphicsItem) i32 {
+    pub fn version(self: QStyleOptionGraphicsItem) i32 {
         return qtc.QStyleOption_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#version-var)
@@ -11313,11 +14643,17 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleOptionGraphicsItem, version: i32) void {
-        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleOptionGraphicsItem, _version: i32) void {
+        qtc.QStyleOption_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleOption
     ///
@@ -11327,10 +14663,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn Type(self: QStyleOptionGraphicsItem) i32 {
+    pub fn type0(self: QStyleOptionGraphicsItem) i32 {
         return qtc.QStyleOption_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#type-var)
@@ -11339,11 +14679,15 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleOptionGraphicsItem, _type: i32) void {
+    pub fn setType(self: QStyleOptionGraphicsItem, _type: i32) void {
         qtc.QStyleOption_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QStyleOption
     ///
@@ -11357,9 +14701,13 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` flag of qstyle_enums.StateFlag `
     ///
-    pub fn State(self: QStyleOptionGraphicsItem) i32 {
+    pub fn state(self: QStyleOptionGraphicsItem) i32 {
         return qtc.QStyleOption_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// Inherited from QStyleOption
     ///
@@ -11369,11 +14717,15 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` state: flag of qstyle_enums.StateFlag `
+    /// ` _state: flag of qstyle_enums.StateFlag `
     ///
-    pub fn SetState(self: QStyleOptionGraphicsItem, state: i32) void {
-        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(state));
+    pub fn setState(self: QStyleOptionGraphicsItem, _state: i32) void {
+        qtc.QStyleOption_SetState(@ptrCast(self.ptr), @bitCast(_state));
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QStyleOption
     ///
@@ -11387,9 +14739,13 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn Direction(self: QStyleOptionGraphicsItem) i32 {
+    pub fn direction(self: QStyleOptionGraphicsItem) i32 {
         return qtc.QStyleOption_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QStyleOption
     ///
@@ -11399,11 +14755,15 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` direction: qnamespace_enums.LayoutDirection `
+    /// ` _direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetDirection(self: QStyleOptionGraphicsItem, direction: i32) void {
-        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QStyleOptionGraphicsItem, _direction: i32) void {
+        qtc.QStyleOption_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QStyleOption
     ///
@@ -11413,10 +14773,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn Rect(self: QStyleOptionGraphicsItem) QRect {
+    pub fn rect(self: QStyleOptionGraphicsItem) QRect {
         return .{ .ptr = qtc.QStyleOption_Rect(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setRect` instead
+    ///
+    pub const SetRect = setRect;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#rect-var)
@@ -11425,12 +14789,16 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` rect: QRect `
+    /// ` _rect: QRect `
     ///
-    pub fn SetRect(self: QStyleOptionGraphicsItem, rect: anytype) void {
-        comptime _ = @TypeOf(rect)._is_QRect;
-        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(rect.ptr));
+    pub fn setRect(self: QStyleOptionGraphicsItem, _rect: anytype) void {
+        comptime _ = @TypeOf(_rect)._is_QRect;
+        qtc.QStyleOption_SetRect(@ptrCast(self.ptr), @ptrCast(_rect.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QStyleOption
     ///
@@ -11440,10 +14808,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn FontMetrics(self: QStyleOptionGraphicsItem) QFontMetrics {
+    pub fn fontMetrics(self: QStyleOptionGraphicsItem) QFontMetrics {
         return .{ .ptr = qtc.QStyleOption_FontMetrics(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setFontMetrics` instead
+    ///
+    pub const SetFontMetrics = setFontMetrics;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#fontMetrics-var)
@@ -11452,12 +14824,16 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` fontMetrics: QFontMetrics `
+    /// ` _fontMetrics: QFontMetrics `
     ///
-    pub fn SetFontMetrics(self: QStyleOptionGraphicsItem, fontMetrics: anytype) void {
-        comptime _ = @TypeOf(fontMetrics)._is_QFontMetrics;
-        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(fontMetrics.ptr));
+    pub fn setFontMetrics(self: QStyleOptionGraphicsItem, _fontMetrics: anytype) void {
+        comptime _ = @TypeOf(_fontMetrics)._is_QFontMetrics;
+        qtc.QStyleOption_SetFontMetrics(@ptrCast(self.ptr), @ptrCast(_fontMetrics.ptr));
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QStyleOption
     ///
@@ -11467,10 +14843,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn Palette(self: QStyleOptionGraphicsItem) QPalette {
+    pub fn palette(self: QStyleOptionGraphicsItem) QPalette {
         return .{ .ptr = qtc.QStyleOption_Palette(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#palette-var)
@@ -11479,12 +14859,16 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QStyleOptionGraphicsItem, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QStyleOptionGraphicsItem, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QStyleOption_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `styleObject` instead
+    ///
+    pub const StyleObject = styleObject;
 
     /// Inherited from QStyleOption
     ///
@@ -11494,10 +14878,14 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn StyleObject(self: QStyleOptionGraphicsItem) QObject {
+    pub fn styleObject(self: QStyleOptionGraphicsItem) QObject {
         return .{ .ptr = qtc.QStyleOption_StyleObject(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setStyleObject` instead
+    ///
+    pub const SetStyleObject = setStyleObject;
+
     /// Inherited from QStyleOption
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoption.html#styleObject-var)
@@ -11506,12 +14894,16 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    /// ` styleObject: QObject `
+    /// ` _styleObject: QObject `
     ///
-    pub fn SetStyleObject(self: QStyleOptionGraphicsItem, styleObject: anytype) void {
-        comptime _ = @TypeOf(styleObject)._is_QObject;
-        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(styleObject.ptr));
+    pub fn setStyleObject(self: QStyleOptionGraphicsItem, _styleObject: anytype) void {
+        comptime _ = @TypeOf(_styleObject)._is_QObject;
+        qtc.QStyleOption_SetStyleObject(@ptrCast(self.ptr), @ptrCast(_styleObject.ptr));
     }
+
+    /// ### DEPRECATED: Use `initFrom` instead
+    ///
+    pub const InitFrom = initFrom;
 
     /// Inherited from QStyleOption
     ///
@@ -11523,24 +14915,24 @@ pub const QStyleOptionGraphicsItem = extern struct {
     ///
     /// ` w: QWidget `
     ///
-    pub fn InitFrom(self: QStyleOptionGraphicsItem, w: anytype) void {
+    pub fn initFrom(self: QStyleOptionGraphicsItem, w: anytype) void {
         comptime _ = @TypeOf(w)._is_QWidget;
         qtc.QStyleOption_InitFrom(@ptrCast(self.ptr), @ptrCast(w.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstyleoptiongraphicsitem.html#dtor.QStyleOptionGraphicsItem)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleOptionGraphicsItem `
     ///
-    pub fn Delete(self: QStyleOptionGraphicsItem) void {
+    pub fn delete(self: QStyleOptionGraphicsItem) void {
         qtc.QStyleOptionGraphicsItem_Delete(@ptrCast(self.ptr));
     }
 };
@@ -11555,44 +14947,64 @@ pub const QStyleHintReturn = extern struct {
 
     pub const _is_QStyleHintReturn = {};
 
-    /// New constructs a new QStyleHintReturn object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleHintReturn {
+    pub const New = new;
+
+    /// Allocate a new QStyleHintReturn object in C++ memory
+    ///
+    pub fn new() QStyleHintReturn {
         return .{ .ptr = qtc.QStyleHintReturn_new() };
     }
 
-    /// New2 constructs a new QStyleHintReturn object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleHintReturn object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStyleHintReturn `
     ///
-    pub fn New2(param1: anytype) QStyleHintReturn {
+    pub fn new2(param1: anytype) QStyleHintReturn {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturn;
         return .{ .ptr = qtc.QStyleHintReturn_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// New3 constructs a new QStyleHintReturn object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QStyleHintReturn object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn New3(version: i32) QStyleHintReturn {
-        return .{ .ptr = qtc.QStyleHintReturn_new3(@bitCast(version)) };
+    pub fn new3(_version: i32) QStyleHintReturn {
+        return .{ .ptr = qtc.QStyleHintReturn_new3(@bitCast(_version)) };
     }
 
-    /// New4 constructs a new QStyleHintReturn object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QStyleHintReturn object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
     /// ` typeVal: i32 `
     ///
-    pub fn New4(version: i32, typeVal: i32) QStyleHintReturn {
-        return .{ .ptr = qtc.QStyleHintReturn_new4(@bitCast(version), @bitCast(typeVal)) };
+    pub fn new4(_version: i32, typeVal: i32) QStyleHintReturn {
+        return .{ .ptr = qtc.QStyleHintReturn_new4(@bitCast(_version), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
     ///
@@ -11600,21 +15012,31 @@ pub const QStyleHintReturn = extern struct {
     ///
     /// ` self: QStyleHintReturn `
     ///
-    pub fn Version(self: QStyleHintReturn) i32 {
+    pub fn version(self: QStyleHintReturn) i32 {
         return qtc.QStyleHintReturn_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleHintReturn `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleHintReturn, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleHintReturn, _version: i32) void {
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#type-var)
     ///
@@ -11622,21 +15044,29 @@ pub const QStyleHintReturn = extern struct {
     ///
     /// ` self: QStyleHintReturn `
     ///
-    pub fn Type(self: QStyleHintReturn) i32 {
+    pub fn type0(self: QStyleHintReturn) i32 {
         return qtc.QStyleHintReturn_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#type-var)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QStyleHintReturn `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleHintReturn, _type: i32) void {
+    pub fn setType(self: QStyleHintReturn, _type: i32) void {
         qtc.QStyleHintReturn_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#operator-eq)
     ///
@@ -11646,24 +15076,24 @@ pub const QStyleHintReturn = extern struct {
     ///
     /// ` param1: QStyleHintReturn `
     ///
-    pub fn OperatorAssign(self: QStyleHintReturn, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleHintReturn, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturn;
         qtc.QStyleHintReturn_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#dtor.QStyleHintReturn)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleHintReturn `
     ///
-    pub fn Delete(self: QStyleHintReturn) void {
+    pub fn delete(self: QStyleHintReturn) void {
         qtc.QStyleHintReturn_Delete(@ptrCast(self.ptr));
     }
 };
@@ -11679,32 +15109,34 @@ pub const QStyleHintReturnMask = extern struct {
     pub const _is_QStyleHintReturnMask = {};
     pub const _is_QStyleHintReturn = {};
 
-    /// New constructs a new QStyleHintReturnMask object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleHintReturnMask {
+    pub const New = new;
+
+    /// Allocate a new QStyleHintReturnMask object in C++ memory
+    ///
+    pub fn new() QStyleHintReturnMask {
         return .{ .ptr = qtc.QStyleHintReturnMask_new() };
     }
 
-    /// New2 constructs a new QStyleHintReturnMask object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleHintReturnMask object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStyleHintReturnMask `
     ///
-    pub fn New2(param1: anytype) QStyleHintReturnMask {
+    pub fn new2(param1: anytype) QStyleHintReturnMask {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturnMask;
         return .{ .ptr = qtc.QStyleHintReturnMask_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#region-var)
+    /// ### DEPRECATED: Use `region` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleHintReturnMask `
-    ///
-    pub fn Region(self: QStyleHintReturnMask) QRegion {
-        return .{ .ptr = qtc.QStyleHintReturnMask_Region(@ptrCast(self.ptr)) };
-    }
+    pub const Region = region;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#region-var)
     ///
@@ -11712,12 +15144,30 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    /// ` region: QRegion `
-    ///
-    pub fn SetRegion(self: QStyleHintReturnMask, region: anytype) void {
-        comptime _ = @TypeOf(region)._is_QRegion;
-        qtc.QStyleHintReturnMask_SetRegion(@ptrCast(self.ptr), @ptrCast(region.ptr));
+    pub fn region(self: QStyleHintReturnMask) QRegion {
+        return .{ .ptr = qtc.QStyleHintReturnMask_Region(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setRegion` instead
+    ///
+    pub const SetRegion = setRegion;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#region-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleHintReturnMask `
+    ///
+    /// ` _region: QRegion `
+    ///
+    pub fn setRegion(self: QStyleHintReturnMask, _region: anytype) void {
+        comptime _ = @TypeOf(_region)._is_QRegion;
+        qtc.QStyleHintReturnMask_SetRegion(@ptrCast(self.ptr), @ptrCast(_region.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#operator-eq)
     ///
@@ -11727,11 +15177,15 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` param1: QStyleHintReturnMask `
     ///
-    pub fn OperatorAssign(self: QStyleHintReturnMask, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleHintReturnMask, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturnMask;
         qtc.QStyleHintReturnMask_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
@@ -11740,10 +15194,14 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    pub fn Version(self: QStyleHintReturnMask) i32 {
+    pub fn version(self: QStyleHintReturnMask) i32 {
         return qtc.QStyleHintReturn_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
@@ -11752,11 +15210,17 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleHintReturnMask, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleHintReturnMask, _version: i32) void {
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleHintReturn
     ///
@@ -11766,10 +15230,14 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    pub fn Type(self: QStyleHintReturnMask) i32 {
+    pub fn type0(self: QStyleHintReturnMask) i32 {
         return qtc.QStyleHintReturn_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#type-var)
@@ -11778,25 +15246,25 @@ pub const QStyleHintReturnMask = extern struct {
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleHintReturnMask, _type: i32) void {
+    pub fn setType(self: QStyleHintReturnMask, _type: i32) void {
         qtc.QStyleHintReturn_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnmask.html#dtor.QStyleHintReturnMask)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleHintReturnMask `
     ///
-    pub fn Delete(self: QStyleHintReturnMask) void {
+    pub fn delete(self: QStyleHintReturnMask) void {
         qtc.QStyleHintReturnMask_Delete(@ptrCast(self.ptr));
     }
 };
@@ -11812,32 +15280,34 @@ pub const QStyleHintReturnVariant = extern struct {
     pub const _is_QStyleHintReturnVariant = {};
     pub const _is_QStyleHintReturn = {};
 
-    /// New constructs a new QStyleHintReturnVariant object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QStyleHintReturnVariant {
+    pub const New = new;
+
+    /// Allocate a new QStyleHintReturnVariant object in C++ memory
+    ///
+    pub fn new() QStyleHintReturnVariant {
         return .{ .ptr = qtc.QStyleHintReturnVariant_new() };
     }
 
-    /// New2 constructs a new QStyleHintReturnVariant object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QStyleHintReturnVariant object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QStyleHintReturnVariant `
     ///
-    pub fn New2(param1: anytype) QStyleHintReturnVariant {
+    pub fn new2(param1: anytype) QStyleHintReturnVariant {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturnVariant;
         return .{ .ptr = qtc.QStyleHintReturnVariant_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#variant-var)
+    /// ### DEPRECATED: Use `variant` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QStyleHintReturnVariant `
-    ///
-    pub fn Variant(self: QStyleHintReturnVariant) QVariant {
-        return .{ .ptr = qtc.QStyleHintReturnVariant_Variant(@ptrCast(self.ptr)) };
-    }
+    pub const Variant = variant;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#variant-var)
     ///
@@ -11845,12 +15315,30 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    /// ` variant: QVariant `
-    ///
-    pub fn SetVariant(self: QStyleHintReturnVariant, variant: anytype) void {
-        comptime _ = @TypeOf(variant)._is_QVariant;
-        qtc.QStyleHintReturnVariant_SetVariant(@ptrCast(self.ptr), @ptrCast(variant.ptr));
+    pub fn variant(self: QStyleHintReturnVariant) QVariant {
+        return .{ .ptr = qtc.QStyleHintReturnVariant_Variant(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setVariant` instead
+    ///
+    pub const SetVariant = setVariant;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#variant-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QStyleHintReturnVariant `
+    ///
+    /// ` _variant: QVariant `
+    ///
+    pub fn setVariant(self: QStyleHintReturnVariant, _variant: anytype) void {
+        comptime _ = @TypeOf(_variant)._is_QVariant;
+        qtc.QStyleHintReturnVariant_SetVariant(@ptrCast(self.ptr), @ptrCast(_variant.ptr));
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#operator-eq)
     ///
@@ -11860,11 +15348,15 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` param1: QStyleHintReturnVariant `
     ///
-    pub fn OperatorAssign(self: QStyleHintReturnVariant, param1: anytype) void {
+    pub fn operatorAssign(self: QStyleHintReturnVariant, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QStyleHintReturnVariant;
         qtc.QStyleHintReturnVariant_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
@@ -11873,10 +15365,14 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    pub fn Version(self: QStyleHintReturnVariant) i32 {
+    pub fn version(self: QStyleHintReturnVariant) i32 {
         return qtc.QStyleHintReturn_Version(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setVersion` instead
+    ///
+    pub const SetVersion = setVersion;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#version-var)
@@ -11885,11 +15381,17 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    /// ` version: i32 `
+    /// ` _version: i32 `
     ///
-    pub fn SetVersion(self: QStyleHintReturnVariant, version: i32) void {
-        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(version));
+    pub fn setVersion(self: QStyleHintReturnVariant, _version: i32) void {
+        qtc.QStyleHintReturn_SetVersion(@ptrCast(self.ptr), @bitCast(_version));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// Inherited from QStyleHintReturn
     ///
@@ -11899,10 +15401,14 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    pub fn Type(self: QStyleHintReturnVariant) i32 {
+    pub fn type0(self: QStyleHintReturnVariant) i32 {
         return qtc.QStyleHintReturn_Type(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
+
     /// Inherited from QStyleHintReturn
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturn.html#type-var)
@@ -11911,25 +15417,25 @@ pub const QStyleHintReturnVariant = extern struct {
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    /// ` type: i32 `
+    /// ` _type: i32 `
     ///
-    pub fn SetType(self: QStyleHintReturnVariant, _type: i32) void {
+    pub fn setType(self: QStyleHintReturnVariant, _type: i32) void {
         qtc.QStyleHintReturn_SetType(@ptrCast(self.ptr), @bitCast(_type));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qstylehintreturnvariant.html#dtor.QStyleHintReturnVariant)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QStyleHintReturnVariant `
     ///
-    pub fn Delete(self: QStyleHintReturnVariant) void {
+    pub fn delete(self: QStyleHintReturnVariant) void {
         qtc.QStyleHintReturnVariant_Delete(@ptrCast(self.ptr));
     }
 };

@@ -28,22 +28,34 @@ pub const QBuffer = extern struct {
     pub const _is_QObject = {};
     pub const _is_QIODeviceBase = {};
 
-    /// New constructs a new QBuffer object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBuffer {
+    pub const New = new;
+
+    /// Allocate a new QBuffer object in C++ memory
+    ///
+    pub fn new() QBuffer {
         return .{ .ptr = qtc.QBuffer_new() };
     }
 
-    /// New2 constructs a new QBuffer object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBuffer object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QBuffer {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QBuffer_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QBuffer {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QBuffer_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -51,9 +63,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn MetaObject(self: QBuffer) QMetaObject {
+    pub fn metaObject(self: QBuffer) QMetaObject {
         return .{ .ptr = qtc.QBuffer_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -65,13 +81,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QBuffer, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QBuffer, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QBuffer_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -81,9 +97,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperMetaObject(self: QBuffer) QMetaObject {
+    pub fn superMetaObject(self: QBuffer) QMetaObject {
         return .{ .ptr = qtc.QBuffer_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -91,10 +111,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QBuffer, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QBuffer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBuffer_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -104,13 +128,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QBuffer_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -120,10 +144,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QBuffer, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QBuffer, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QBuffer_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -135,9 +163,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QBuffer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QBuffer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBuffer_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -147,13 +179,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QBuffer, callback: *const fn (QBuffer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QBuffer, callback: *const fn (QBuffer, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QBuffer_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -167,9 +199,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QBuffer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QBuffer, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QBuffer_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -179,30 +215,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#buffer)
+    /// ### DEPRECATED: Use `buffer` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` allocator: std.mem.Allocator `
-    ///
-    pub fn Buffer(self: QBuffer, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer(@ptrCast(self.ptr));
-        defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Buffer: Memory allocation failed");
-        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
-        return _ret;
-    }
+    pub const Buffer = buffer;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#buffer)
     ///
@@ -212,13 +236,37 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Buffer2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
-        var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer2(@ptrCast(self.ptr));
+    pub fn buffer(self: QBuffer, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Buffer2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.buffer: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `buffer2` instead
+    ///
+    pub const Buffer2 = buffer2;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#buffer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBuffer `
+    ///
+    /// ` allocator: std.mem.Allocator `
+    ///
+    pub fn buffer2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
+        var _bytearray: qtc.libqt_string = qtc.QBuffer_Buffer2(@ptrCast(self.ptr));
+        defer qtc.libqt_string_free(&_bytearray);
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.buffer2: Memory allocation failed");
+        @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
+        return _ret;
+    }
+
+    /// ### DEPRECATED: Use `setData` instead
+    ///
+    pub const SetData = setData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#setData)
     ///
@@ -226,30 +274,38 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: []u8 `
+    /// ` _data: []u8 `
     ///
-    pub fn SetData(self: QBuffer, data: []u8) void {
+    pub fn setData(self: QBuffer, _data: []u8) void {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         qtc.QBuffer_SetData(@ptrCast(self.ptr), data_str);
     }
 
+    /// ### DEPRECATED: Use `setData2` instead
+    ///
+    pub const SetData2 = setData2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#setData)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]const u8 `
+    /// ` _data: [:0]const u8 `
     ///
     /// ` len: isize `
     ///
-    pub fn SetData2(self: QBuffer, data: [:0]const u8, len: isize) void {
-        const data_Cstring = data.ptr;
+    pub fn setData2(self: QBuffer, _data: [:0]const u8, len: isize) void {
+        const data_Cstring = _data.ptr;
         qtc.QBuffer_SetData2(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `data` instead
+    ///
+    pub const Data = data;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#data)
     ///
@@ -259,13 +315,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Data(self: QBuffer, allocator: std.mem.Allocator) []u8 {
+    pub fn data(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QBuffer_Data(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Data: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.data: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#open)
     ///
@@ -273,11 +333,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn Open(self: QBuffer, openMode: i32) bool {
-        return qtc.QBuffer_Open(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn open(self: QBuffer, _openMode: i32) bool {
+        return qtc.QBuffer_Open(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onOpen` instead
+    ///
+    pub const OnOpen = onOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#open)
     ///
@@ -289,13 +353,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) bool `
     ///
-    pub fn OnOpen(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
+    pub fn onOpen(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
         qtc.QBuffer_OnOpen(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperOpen` instead
+    /// ### DEPRECATED: Use `superOpen` instead
     ///
-    pub const QBaseOpen = SuperOpen;
+    pub const SuperOpen = superOpen;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#open)
     ///
@@ -305,11 +369,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperOpen(self: QBuffer, openMode: i32) bool {
-        return qtc.QBuffer_SuperOpen(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superOpen(self: QBuffer, _openMode: i32) bool {
+        return qtc.QBuffer_SuperOpen(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#close)
     ///
@@ -317,9 +385,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Close(self: QBuffer) void {
+    pub fn close(self: QBuffer) void {
         qtc.QBuffer_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClose` instead
+    ///
+    pub const OnClose = onClose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#close)
     ///
@@ -331,13 +403,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnClose(self: QBuffer, callback: *const fn () callconv(.c) void) void {
+    pub fn onClose(self: QBuffer, callback: *const fn () callconv(.c) void) void {
         qtc.QBuffer_OnClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperClose` instead
+    /// ### DEPRECATED: Use `superClose` instead
     ///
-    pub const QBaseClose = SuperClose;
+    pub const SuperClose = superClose;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#close)
     ///
@@ -347,20 +419,28 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperClose(self: QBuffer) void {
+    pub fn superClose(self: QBuffer) void {
         qtc.QBuffer_SuperClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#size)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Size(self: QBuffer) i64 {
+    pub fn size(self: QBuffer) i64 {
         return qtc.QBuffer_Size(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onSize` instead
+    ///
+    pub const OnSize = onSize;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#size)
     ///
     /// Allows for overriding the related default method
@@ -371,13 +451,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnSize(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onSize(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
         qtc.QBuffer_OnSize(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSize` instead
+    /// ### DEPRECATED: Use `superSize` instead
     ///
-    pub const QBaseSize = SuperSize;
+    pub const SuperSize = superSize;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#size)
     ///
@@ -387,9 +467,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperSize(self: QBuffer) i64 {
+    pub fn superSize(self: QBuffer) i64 {
         return qtc.QBuffer_SuperSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#pos)
     ///
@@ -397,9 +481,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Pos(self: QBuffer) i64 {
+    pub fn pos(self: QBuffer) i64 {
         return qtc.QBuffer_Pos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPos` instead
+    ///
+    pub const OnPos = onPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#pos)
     ///
@@ -411,13 +499,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnPos(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onPos(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
         qtc.QBuffer_OnPos(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPos` instead
+    /// ### DEPRECATED: Use `superPos` instead
     ///
-    pub const QBasePos = SuperPos;
+    pub const SuperPos = superPos;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#pos)
     ///
@@ -427,9 +515,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperPos(self: QBuffer) i64 {
+    pub fn superPos(self: QBuffer) i64 {
         return qtc.QBuffer_SuperPos(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seek` instead
+    ///
+    pub const Seek = seek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#seek)
     ///
@@ -439,9 +531,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` off: i64 `
     ///
-    pub fn Seek(self: QBuffer, off: i64) bool {
+    pub fn seek(self: QBuffer, off: i64) bool {
         return qtc.QBuffer_Seek(@ptrCast(self.ptr), @bitCast(off));
     }
+
+    /// ### DEPRECATED: Use `onSeek` instead
+    ///
+    pub const OnSeek = onSeek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#seek)
     ///
@@ -453,13 +549,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, off: i64) callconv(.c) bool `
     ///
-    pub fn OnSeek(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) bool) void {
+    pub fn onSeek(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) bool) void {
         qtc.QBuffer_OnSeek(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSeek` instead
+    /// ### DEPRECATED: Use `superSeek` instead
     ///
-    pub const QBaseSeek = SuperSeek;
+    pub const SuperSeek = superSeek;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#seek)
     ///
@@ -471,20 +567,28 @@ pub const QBuffer = extern struct {
     ///
     /// ` off: i64 `
     ///
-    pub fn SuperSeek(self: QBuffer, off: i64) bool {
+    pub fn superSeek(self: QBuffer, off: i64) bool {
         return qtc.QBuffer_SuperSeek(@ptrCast(self.ptr), @bitCast(off));
     }
 
+    /// ### DEPRECATED: Use `atEnd` instead
+    ///
+    pub const AtEnd = atEnd;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#atEnd)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QBuffer `
     ///
-    pub fn AtEnd(self: QBuffer) bool {
+    pub fn atEnd(self: QBuffer) bool {
         return qtc.QBuffer_AtEnd(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAtEnd` instead
+    ///
+    pub const OnAtEnd = onAtEnd;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#atEnd)
     ///
     /// Allows for overriding the related default method
@@ -495,13 +599,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnAtEnd(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onAtEnd(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
         qtc.QBuffer_OnAtEnd(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperAtEnd` instead
+    /// ### DEPRECATED: Use `superAtEnd` instead
     ///
-    pub const QBaseAtEnd = SuperAtEnd;
+    pub const SuperAtEnd = superAtEnd;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#atEnd)
     ///
@@ -511,9 +615,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperAtEnd(self: QBuffer) bool {
+    pub fn superAtEnd(self: QBuffer) bool {
         return qtc.QBuffer_SuperAtEnd(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `canReadLine` instead
+    ///
+    pub const CanReadLine = canReadLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#canReadLine)
     ///
@@ -521,9 +629,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn CanReadLine(self: QBuffer) bool {
+    pub fn canReadLine(self: QBuffer) bool {
         return qtc.QBuffer_CanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCanReadLine` instead
+    ///
+    pub const OnCanReadLine = onCanReadLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#canReadLine)
     ///
@@ -535,13 +647,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnCanReadLine(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onCanReadLine(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
         qtc.QBuffer_OnCanReadLine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCanReadLine` instead
+    /// ### DEPRECATED: Use `superCanReadLine` instead
     ///
-    pub const QBaseCanReadLine = SuperCanReadLine;
+    pub const SuperCanReadLine = superCanReadLine;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#canReadLine)
     ///
@@ -551,9 +663,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperCanReadLine(self: QBuffer) bool {
+    pub fn superCanReadLine(self: QBuffer) bool {
         return qtc.QBuffer_SuperCanReadLine(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#connectNotify)
     ///
@@ -563,11 +679,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QBuffer, param1: anytype) void {
+    pub fn connectNotify(self: QBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaMethod;
         qtc.QBuffer_ConnectNotify(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#connectNotify)
     ///
     /// Allows for overriding the related default method
@@ -578,13 +698,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, param1: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) void) void {
         qtc.QBuffer_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#connectNotify)
     ///
@@ -596,11 +716,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QBuffer, param1: anytype) void {
+    pub fn superConnectNotify(self: QBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaMethod;
         qtc.QBuffer_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#disconnectNotify)
     ///
     /// ## Parameter(s):
@@ -609,10 +733,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QBuffer, param1: anytype) void {
+    pub fn disconnectNotify(self: QBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaMethod;
         qtc.QBuffer_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#disconnectNotify)
     ///
@@ -624,13 +752,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, param1: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) void) void {
         qtc.QBuffer_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#disconnectNotify)
     ///
@@ -642,10 +770,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QBuffer, param1: anytype) void {
+    pub fn superDisconnectNotify(self: QBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QMetaMethod;
         qtc.QBuffer_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `readData` instead
+    ///
+    pub const ReadData = readData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#readData)
     ///
@@ -653,14 +785,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadData(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn readData(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_ReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadData` instead
+    ///
+    pub const OnReadData = onReadData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#readData)
     ///
@@ -672,13 +808,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadData(self: QBuffer, callback: *const fn (QBuffer, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadData(self: QBuffer, callback: *const fn (QBuffer, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QBuffer_OnReadData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperReadData` instead
+    /// ### DEPRECATED: Use `superReadData` instead
     ///
-    pub const QBaseReadData = SuperReadData;
+    pub const SuperReadData = superReadData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#readData)
     ///
@@ -688,14 +824,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadData(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn superReadData(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_SuperReadData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `writeData` instead
+    ///
+    pub const WriteData = writeData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#writeData)
     ///
@@ -703,14 +843,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]const u8 `
+    /// ` _data: [:0]const u8 `
     ///
     /// ` len: i64 `
     ///
-    pub fn WriteData(self: QBuffer, data: [:0]const u8, len: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn writeData(self: QBuffer, _data: [:0]const u8, len: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_WriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `onWriteData` instead
+    ///
+    pub const OnWriteData = onWriteData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#writeData)
     ///
@@ -722,13 +866,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, data: [*:0]const u8, len: i64) callconv(.c) i64 `
     ///
-    pub fn OnWriteData(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8, i64) callconv(.c) i64) void {
+    pub fn onWriteData(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8, i64) callconv(.c) i64) void {
         qtc.QBuffer_OnWriteData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperWriteData` instead
+    /// ### DEPRECATED: Use `superWriteData` instead
     ///
-    pub const QBaseWriteData = SuperWriteData;
+    pub const SuperWriteData = superWriteData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#writeData)
     ///
@@ -738,14 +882,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]const u8 `
+    /// ` _data: [:0]const u8 `
     ///
     /// ` len: i64 `
     ///
-    pub fn SuperWriteData(self: QBuffer, data: [:0]const u8, len: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn superWriteData(self: QBuffer, _data: [:0]const u8, len: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_SuperWriteData(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -757,15 +905,19 @@ pub const QBuffer = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -779,15 +931,19 @@ pub const QBuffer = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `openMode` instead
+    ///
+    pub const OpenMode = openMode;
 
     /// Inherited from QIODevice
     ///
@@ -801,9 +957,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn OpenMode(self: QBuffer) i32 {
+    pub fn openMode(self: QBuffer) i32 {
         return qtc.QIODevice_OpenMode(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTextModeEnabled` instead
+    ///
+    pub const SetTextModeEnabled = setTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -815,9 +975,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetTextModeEnabled(self: QBuffer, enabled: bool) void {
+    pub fn setTextModeEnabled(self: QBuffer, enabled: bool) void {
         qtc.QIODevice_SetTextModeEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `isTextModeEnabled` instead
+    ///
+    pub const IsTextModeEnabled = isTextModeEnabled;
 
     /// Inherited from QIODevice
     ///
@@ -827,9 +991,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsTextModeEnabled(self: QBuffer) bool {
+    pub fn isTextModeEnabled(self: QBuffer) bool {
         return qtc.QIODevice_IsTextModeEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isOpen` instead
+    ///
+    pub const IsOpen = isOpen;
 
     /// Inherited from QIODevice
     ///
@@ -839,9 +1007,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsOpen(self: QBuffer) bool {
+    pub fn isOpen(self: QBuffer) bool {
         return qtc.QIODevice_IsOpen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// Inherited from QIODevice
     ///
@@ -851,9 +1023,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsReadable(self: QBuffer) bool {
+    pub fn isReadable(self: QBuffer) bool {
         return qtc.QIODevice_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// Inherited from QIODevice
     ///
@@ -863,9 +1039,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsWritable(self: QBuffer) bool {
+    pub fn isWritable(self: QBuffer) bool {
         return qtc.QIODevice_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readChannelCount` instead
+    ///
+    pub const ReadChannelCount = readChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -875,9 +1055,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn ReadChannelCount(self: QBuffer) i32 {
+    pub fn readChannelCount(self: QBuffer) i32 {
         return qtc.QIODevice_ReadChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeChannelCount` instead
+    ///
+    pub const WriteChannelCount = writeChannelCount;
 
     /// Inherited from QIODevice
     ///
@@ -887,9 +1071,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn WriteChannelCount(self: QBuffer) i32 {
+    pub fn writeChannelCount(self: QBuffer) i32 {
         return qtc.QIODevice_WriteChannelCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentReadChannel` instead
+    ///
+    pub const CurrentReadChannel = currentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -899,9 +1087,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn CurrentReadChannel(self: QBuffer) i32 {
+    pub fn currentReadChannel(self: QBuffer) i32 {
         return qtc.QIODevice_CurrentReadChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentReadChannel` instead
+    ///
+    pub const SetCurrentReadChannel = setCurrentReadChannel;
 
     /// Inherited from QIODevice
     ///
@@ -913,9 +1105,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentReadChannel(self: QBuffer, channel: i32) void {
+    pub fn setCurrentReadChannel(self: QBuffer, channel: i32) void {
         qtc.QIODevice_SetCurrentReadChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `currentWriteChannel` instead
+    ///
+    pub const CurrentWriteChannel = currentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -925,9 +1121,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn CurrentWriteChannel(self: QBuffer) i32 {
+    pub fn currentWriteChannel(self: QBuffer) i32 {
         return qtc.QIODevice_CurrentWriteChannel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentWriteChannel` instead
+    ///
+    pub const SetCurrentWriteChannel = setCurrentWriteChannel;
 
     /// Inherited from QIODevice
     ///
@@ -939,9 +1139,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn SetCurrentWriteChannel(self: QBuffer, channel: i32) void {
+    pub fn setCurrentWriteChannel(self: QBuffer, channel: i32) void {
         qtc.QIODevice_SetCurrentWriteChannel(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `read` instead
+    ///
+    pub const Read = read;
 
     /// Inherited from QIODevice
     ///
@@ -951,14 +1155,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn read(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QIODevice_Read(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `read2` instead
+    ///
+    pub const Read2 = read2;
 
     /// Inherited from QIODevice
     ///
@@ -972,13 +1180,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Read2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn read2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Read2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Read2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.read2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readAll` instead
+    ///
+    pub const ReadAll = readAll;
 
     /// Inherited from QIODevice
     ///
@@ -990,13 +1202,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadAll(self: QBuffer, allocator: std.mem.Allocator) []u8 {
+    pub fn readAll(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadAll(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadAll: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.readAll: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readLine` instead
+    ///
+    pub const ReadLine = readLine;
 
     /// Inherited from QIODevice
     ///
@@ -1006,14 +1222,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn readLine(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QIODevice_ReadLine(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `readLine2` instead
+    ///
+    pub const ReadLine2 = readLine2;
 
     /// Inherited from QIODevice
     ///
@@ -1025,13 +1245,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ReadLine2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
+    pub fn readLine2(self: QBuffer, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine2(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadLine2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.readLine2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startTransaction` instead
+    ///
+    pub const StartTransaction = startTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1041,9 +1265,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn StartTransaction(self: QBuffer) void {
+    pub fn startTransaction(self: QBuffer) void {
         qtc.QIODevice_StartTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `commitTransaction` instead
+    ///
+    pub const CommitTransaction = commitTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1053,9 +1281,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn CommitTransaction(self: QBuffer) void {
+    pub fn commitTransaction(self: QBuffer) void {
         qtc.QIODevice_CommitTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rollbackTransaction` instead
+    ///
+    pub const RollbackTransaction = rollbackTransaction;
 
     /// Inherited from QIODevice
     ///
@@ -1065,9 +1297,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn RollbackTransaction(self: QBuffer) void {
+    pub fn rollbackTransaction(self: QBuffer) void {
         qtc.QIODevice_RollbackTransaction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTransactionStarted` instead
+    ///
+    pub const IsTransactionStarted = isTransactionStarted;
 
     /// Inherited from QIODevice
     ///
@@ -1077,10 +1313,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsTransactionStarted(self: QBuffer) bool {
+    pub fn isTransactionStarted(self: QBuffer) bool {
         return qtc.QIODevice_IsTransactionStarted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `write` instead
+    ///
+    pub const Write = write;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
@@ -1089,29 +1329,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]const u8 `
+    /// ` _data: [:0]const u8 `
     ///
     /// ` len: i64 `
     ///
-    pub fn Write(self: QBuffer, data: [:0]const u8, len: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn write(self: QBuffer, _data: [:0]const u8, len: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QIODevice_Write(@ptrCast(self.ptr), data_Cstring, @bitCast(len));
     }
 
-    /// Inherited from QIODevice
+    /// ### DEPRECATED: Use `write2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    /// ` data: [:0]const u8 `
-    ///
-    pub fn Write2(self: QBuffer, data: [:0]const u8) i64 {
-        const data_Cstring = data.ptr;
-        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
-    }
+    pub const Write2 = write2;
 
     /// Inherited from QIODevice
     ///
@@ -1121,15 +1350,38 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: []u8 `
+    /// ` _data: [:0]const u8 `
     ///
-    pub fn Write3(self: QBuffer, data: []u8) i64 {
+    pub fn write2(self: QBuffer, _data: [:0]const u8) i64 {
+        const data_Cstring = _data.ptr;
+        return qtc.QIODevice_Write2(@ptrCast(self.ptr), data_Cstring);
+    }
+
+    /// ### DEPRECATED: Use `write3` instead
+    ///
+    pub const Write3 = write3;
+
+    /// Inherited from QIODevice
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#write)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBuffer `
+    ///
+    /// ` _data: []u8 `
+    ///
+    pub fn write3(self: QBuffer, _data: []u8) i64 {
         const data_str = qtc.libqt_string{
-            .len = data.len,
-            .data = data.ptr,
+            .len = _data.len,
+            .data = _data.ptr,
         };
         return qtc.QIODevice_Write3(@ptrCast(self.ptr), data_str);
     }
+
+    /// ### DEPRECATED: Use `peek` instead
+    ///
+    pub const Peek = peek;
 
     /// Inherited from QIODevice
     ///
@@ -1139,14 +1391,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn peek(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QIODevice_Peek(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `peek2` instead
+    ///
+    pub const Peek2 = peek2;
 
     /// Inherited from QIODevice
     ///
@@ -1160,13 +1416,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn Peek2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn peek2(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_Peek2(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.Peek2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.peek2: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `skip` instead
+    ///
+    pub const Skip = skip;
 
     /// Inherited from QIODevice
     ///
@@ -1178,9 +1438,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn Skip(self: QBuffer, maxSize: i64) i64 {
+    pub fn skip(self: QBuffer, maxSize: i64) i64 {
         return qtc.QIODevice_Skip(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `ungetChar` instead
+    ///
+    pub const UngetChar = ungetChar;
 
     /// Inherited from QIODevice
     ///
@@ -1192,9 +1456,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn UngetChar(self: QBuffer, c: u8) void {
+    pub fn ungetChar(self: QBuffer, c: u8) void {
         qtc.QIODevice_UngetChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `putChar` instead
+    ///
+    pub const PutChar = putChar;
 
     /// Inherited from QIODevice
     ///
@@ -1206,9 +1474,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` c: u8 `
     ///
-    pub fn PutChar(self: QBuffer, c: u8) bool {
+    pub fn putChar(self: QBuffer, c: u8) bool {
         return qtc.QIODevice_PutChar(@ptrCast(self.ptr), @bitCast(c));
     }
+
+    /// ### DEPRECATED: Use `getChar` instead
+    ///
+    pub const GetChar = getChar;
 
     /// Inherited from QIODevice
     ///
@@ -1220,10 +1492,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` c: [:0]u8 `
     ///
-    pub fn GetChar(self: QBuffer, c: [:0]u8) bool {
+    pub fn getChar(self: QBuffer, c: [:0]u8) bool {
         const c_Cstring = c.ptr;
         return qtc.QIODevice_GetChar(@ptrCast(self.ptr), c_Cstring);
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// Inherited from QIODevice
     ///
@@ -1235,13 +1511,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QIODevice_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `readyRead` instead
+    ///
+    pub const ReadyRead = readyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1251,9 +1531,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn ReadyRead(self: QBuffer) void {
+    pub fn readyRead(self: QBuffer) void {
         qtc.QIODevice_ReadyRead(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadyRead` instead
+    ///
+    pub const OnReadyRead = onReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1265,9 +1549,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer) callconv(.c) void `
     ///
-    pub fn OnReadyRead(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
+    pub fn onReadyRead(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelReadyRead` instead
+    ///
+    pub const ChannelReadyRead = channelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1279,9 +1567,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` channel: i32 `
     ///
-    pub fn ChannelReadyRead(self: QBuffer, channel: i32) void {
+    pub fn channelReadyRead(self: QBuffer, channel: i32) void {
         qtc.QIODevice_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(channel));
     }
+
+    /// ### DEPRECATED: Use `onChannelReadyRead` instead
+    ///
+    pub const OnChannelReadyRead = onChannelReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -1293,9 +1585,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, channel: i32) callconv(.c) void `
     ///
-    pub fn OnChannelReadyRead(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) void) void {
+    pub fn onChannelReadyRead(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesWritten` instead
+    ///
+    pub const BytesWritten = bytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1307,9 +1603,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn BytesWritten(self: QBuffer, bytes: i64) void {
+    pub fn bytesWritten(self: QBuffer, bytes: i64) void {
         qtc.QIODevice_BytesWritten(@ptrCast(self.ptr), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onBytesWritten` instead
+    ///
+    pub const OnBytesWritten = onBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1321,9 +1621,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) void) void {
+    pub fn onBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_BytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `channelBytesWritten` instead
+    ///
+    pub const ChannelBytesWritten = channelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1337,9 +1641,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` bytes: i64 `
     ///
-    pub fn ChannelBytesWritten(self: QBuffer, channel: i32, bytes: i64) void {
+    pub fn channelBytesWritten(self: QBuffer, channel: i32, bytes: i64) void {
         qtc.QIODevice_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(channel), @bitCast(bytes));
     }
+
+    /// ### DEPRECATED: Use `onChannelBytesWritten` instead
+    ///
+    pub const OnChannelBytesWritten = onChannelBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -1351,10 +1659,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, channel: i32, bytes: i64) callconv(.c) void `
     ///
-    pub fn OnChannelBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i32, i64) callconv(.c) void) void {
+    pub fn onChannelBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i32, i64) callconv(.c) void) void {
         qtc.QIODevice_Connect_ChannelBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `aboutToClose` instead
+    ///
+    pub const AboutToClose = aboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1363,10 +1675,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn AboutToClose(self: QBuffer) void {
+    pub fn aboutToClose(self: QBuffer) void {
         qtc.QIODevice_AboutToClose(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAboutToClose` instead
+    ///
+    pub const OnAboutToClose = onAboutToClose;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#aboutToClose)
@@ -1377,9 +1693,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer) callconv(.c) void `
     ///
-    pub fn OnAboutToClose(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
+    pub fn onAboutToClose(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
         qtc.QIODevice_Connect_AboutToClose(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readChannelFinished` instead
+    ///
+    pub const ReadChannelFinished = readChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1389,9 +1709,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn ReadChannelFinished(self: QBuffer) void {
+    pub fn readChannelFinished(self: QBuffer) void {
         qtc.QIODevice_ReadChannelFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReadChannelFinished` instead
+    ///
+    pub const OnReadChannelFinished = onReadChannelFinished;
 
     /// Inherited from QIODevice
     ///
@@ -1403,9 +1727,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer) callconv(.c) void `
     ///
-    pub fn OnReadChannelFinished(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
+    pub fn onReadChannelFinished(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
         qtc.QIODevice_Connect_ReadChannelFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLine1` instead
+    ///
+    pub const ReadLine1 = readLine1;
 
     /// Inherited from QIODevice
     ///
@@ -1419,13 +1747,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLine1(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
+    pub fn readLine1(self: QBuffer, allocator: std.mem.Allocator, maxlen: i64) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QIODevice_ReadLine1(@ptrCast(self.ptr), @bitCast(maxlen));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.ReadLine1: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QBuffer.readLine1: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1437,13 +1769,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QBuffer, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBuffer.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1455,13 +1791,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QBuffer, name: []const u8) void {
+    pub fn setObjectName(self: QBuffer, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1471,9 +1811,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsWidgetType(self: QBuffer) bool {
+    pub fn isWidgetType(self: QBuffer) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1483,9 +1827,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsWindowType(self: QBuffer) bool {
+    pub fn isWindowType(self: QBuffer) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1495,9 +1843,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsQuickItemType(self: QBuffer) bool {
+    pub fn isQuickItemType(self: QBuffer) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1507,9 +1859,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SignalsBlocked(self: QBuffer) bool {
+    pub fn signalsBlocked(self: QBuffer) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1521,9 +1877,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QBuffer, b: bool) bool {
+    pub fn blockSignals(self: QBuffer, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1533,9 +1893,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Thread(self: QBuffer) QThread {
+    pub fn thread(self: QBuffer) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1545,12 +1909,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QBuffer, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QBuffer, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1562,9 +1930,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QBuffer, interval: i32) i32 {
+    pub fn startTimer(self: QBuffer, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1576,9 +1948,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QBuffer, time: i64) i32 {
+    pub fn startTimer2(self: QBuffer, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1590,9 +1966,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QBuffer, id: i32) void {
+    pub fn killTimer(self: QBuffer, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1604,9 +1984,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QBuffer, id: i32) void {
+    pub fn killTimer2(self: QBuffer, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1618,15 +2002,19 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QBuffer, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QBuffer, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBuffer.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QBuffer.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1636,12 +2024,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QBuffer, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QBuffer, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1653,10 +2045,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QBuffer, filterObj: anytype) void {
+    pub fn installEventFilter(self: QBuffer, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1668,10 +2064,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QBuffer, obj: anytype) void {
+    pub fn removeEventFilter(self: QBuffer, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1679,7 +2079,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1687,13 +2087,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1701,7 +2105,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1709,13 +2113,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1725,18 +2133,22 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QBuffer, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QBuffer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1744,7 +2156,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1752,13 +2164,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1766,7 +2182,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1774,13 +2190,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1790,9 +2210,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Disconnect3(self: QBuffer) bool {
+    pub fn disconnect3(self: QBuffer) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1804,10 +2228,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QBuffer, receiver: anytype) bool {
+    pub fn disconnect4(self: QBuffer, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1817,10 +2245,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1830,9 +2262,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn DumpObjectTree(self: QBuffer) void {
+    pub fn dumpObjectTree(self: QBuffer) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1842,9 +2278,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn DumpObjectInfo(self: QBuffer) void {
+    pub fn dumpObjectInfo(self: QBuffer) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1858,11 +2298,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QBuffer, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QBuffer, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1874,10 +2318,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QBuffer, name: [:0]const u8) QVariant {
+    pub fn property(self: QBuffer, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1889,7 +2337,7 @@ pub const QBuffer = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QBuffer, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QBuffer, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1897,27 +2345,19 @@ pub const QBuffer = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBuffer.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QBuffer.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QBuffer.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QBuffer.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QBuffer `
-    ///
-    pub fn BindingStorage(self: QBuffer) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1927,9 +2367,29 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn BindingStorage2(self: QBuffer) QBindingStorage {
+    pub fn bindingStorage(self: QBuffer) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QBuffer `
+    ///
+    pub fn bindingStorage2(self: QBuffer) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1939,9 +2399,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Destroyed(self: QBuffer) void {
+    pub fn destroyed(self: QBuffer) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1953,9 +2417,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
+    pub fn onDestroyed(self: QBuffer, callback: *const fn (QBuffer) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1965,9 +2433,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Parent(self: QBuffer) QObject {
+    pub fn parent(self: QBuffer) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1979,10 +2451,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QBuffer, classname: [:0]const u8) bool {
+    pub fn inherits(self: QBuffer, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1992,9 +2468,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn DeleteLater(self: QBuffer) void {
+    pub fn deleteLater(self: QBuffer) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2008,9 +2488,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QBuffer, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QBuffer, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2024,9 +2508,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QBuffer, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QBuffer, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2034,7 +2522,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2044,13 +2532,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2058,7 +2550,7 @@ pub const QBuffer = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2068,13 +2560,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2084,7 +2580,7 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2092,12 +2588,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QBuffer, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QBuffer, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2109,10 +2609,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QBuffer, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QBuffer, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2126,11 +2630,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QBuffer, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QBuffer, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2146,13 +2654,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QBuffer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QBuffer, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2165,11 +2677,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QBuffer, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QBuffer, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2181,10 +2697,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QBuffer, param1: anytype) void {
+    pub fn destroyed1(self: QBuffer, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2196,10 +2716,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QBuffer, callback: *const fn (QBuffer, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QBuffer, callback: *const fn (QBuffer, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `isSequential` instead
+    ///
+    pub const IsSequential = isSequential;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isSequential)
@@ -2210,13 +2734,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn IsSequential(self: QBuffer) bool {
+    pub fn isSequential(self: QBuffer) bool {
         return qtc.QBuffer_IsSequential(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSequential` instead
+    /// ### DEPRECATED: Use `superIsSequential` instead
     ///
-    pub const QBaseIsSequential = SuperIsSequential;
+    pub const SuperIsSequential = superIsSequential;
 
     /// Inherited from QIODevice
     ///
@@ -2228,10 +2752,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperIsSequential(self: QBuffer) bool {
+    pub fn superIsSequential(self: QBuffer) bool {
         return qtc.QBuffer_SuperIsSequential(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onIsSequential` instead
+    ///
+    pub const OnIsSequential = onIsSequential;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#isSequential)
@@ -2244,9 +2772,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnIsSequential(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onIsSequential(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
         qtc.QBuffer_OnIsSequential(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `reset` instead
+    ///
+    pub const Reset = reset;
 
     /// Inherited from QIODevice
     ///
@@ -2258,13 +2790,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Reset(self: QBuffer) bool {
+    pub fn reset(self: QBuffer) bool {
         return qtc.QBuffer_Reset(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperReset` instead
+    /// ### DEPRECATED: Use `superReset` instead
     ///
-    pub const QBaseReset = SuperReset;
+    pub const SuperReset = superReset;
 
     /// Inherited from QIODevice
     ///
@@ -2276,9 +2808,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperReset(self: QBuffer) bool {
+    pub fn superReset(self: QBuffer) bool {
         return qtc.QBuffer_SuperReset(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReset` instead
+    ///
+    pub const OnReset = onReset;
 
     /// Inherited from QIODevice
     ///
@@ -2292,10 +2828,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnReset(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
+    pub fn onReset(self: QBuffer, callback: *const fn () callconv(.c) bool) void {
         qtc.QBuffer_OnReset(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `bytesAvailable` instead
+    ///
+    pub const BytesAvailable = bytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2306,13 +2846,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn BytesAvailable(self: QBuffer) i64 {
+    pub fn bytesAvailable(self: QBuffer) i64 {
         return qtc.QBuffer_BytesAvailable(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesAvailable` instead
+    /// ### DEPRECATED: Use `superBytesAvailable` instead
     ///
-    pub const QBaseBytesAvailable = SuperBytesAvailable;
+    pub const SuperBytesAvailable = superBytesAvailable;
 
     /// Inherited from QIODevice
     ///
@@ -2324,10 +2864,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperBytesAvailable(self: QBuffer) i64 {
+    pub fn superBytesAvailable(self: QBuffer) i64 {
         return qtc.QBuffer_SuperBytesAvailable(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBytesAvailable` instead
+    ///
+    pub const OnBytesAvailable = onBytesAvailable;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#bytesAvailable)
@@ -2340,9 +2884,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesAvailable(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesAvailable(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
         qtc.QBuffer_OnBytesAvailable(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `bytesToWrite` instead
+    ///
+    pub const BytesToWrite = bytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2354,13 +2902,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn BytesToWrite(self: QBuffer) i64 {
+    pub fn bytesToWrite(self: QBuffer) i64 {
         return qtc.QBuffer_BytesToWrite(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperBytesToWrite` instead
+    /// ### DEPRECATED: Use `superBytesToWrite` instead
     ///
-    pub const QBaseBytesToWrite = SuperBytesToWrite;
+    pub const SuperBytesToWrite = superBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2372,9 +2920,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperBytesToWrite(self: QBuffer) i64 {
+    pub fn superBytesToWrite(self: QBuffer) i64 {
         return qtc.QBuffer_SuperBytesToWrite(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onBytesToWrite` instead
+    ///
+    pub const OnBytesToWrite = onBytesToWrite;
 
     /// Inherited from QIODevice
     ///
@@ -2388,10 +2940,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i64 `
     ///
-    pub fn OnBytesToWrite(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
+    pub fn onBytesToWrite(self: QBuffer, callback: *const fn () callconv(.c) i64) void {
         qtc.QBuffer_OnBytesToWrite(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `waitForReadyRead` instead
+    ///
+    pub const WaitForReadyRead = waitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2404,13 +2960,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForReadyRead(self: QBuffer, msecs: i32) bool {
+    pub fn waitForReadyRead(self: QBuffer, msecs: i32) bool {
         return qtc.QBuffer_WaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForReadyRead` instead
+    /// ### DEPRECATED: Use `superWaitForReadyRead` instead
     ///
-    pub const QBaseWaitForReadyRead = SuperWaitForReadyRead;
+    pub const SuperWaitForReadyRead = superWaitForReadyRead;
 
     /// Inherited from QIODevice
     ///
@@ -2424,10 +2980,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForReadyRead(self: QBuffer, msecs: i32) bool {
+    pub fn superWaitForReadyRead(self: QBuffer, msecs: i32) bool {
         return qtc.QBuffer_SuperWaitForReadyRead(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
+    /// ### DEPRECATED: Use `onWaitForReadyRead` instead
+    ///
+    pub const OnWaitForReadyRead = onWaitForReadyRead;
+
     /// Inherited from QIODevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qiodevice.html#waitForReadyRead)
@@ -2440,9 +3000,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForReadyRead(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
+    pub fn onWaitForReadyRead(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
         qtc.QBuffer_OnWaitForReadyRead(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `waitForBytesWritten` instead
+    ///
+    pub const WaitForBytesWritten = waitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2456,13 +3020,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn WaitForBytesWritten(self: QBuffer, msecs: i32) bool {
+    pub fn waitForBytesWritten(self: QBuffer, msecs: i32) bool {
         return qtc.QBuffer_WaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
 
-    /// ### DEPRECATED: Use `SuperWaitForBytesWritten` instead
+    /// ### DEPRECATED: Use `superWaitForBytesWritten` instead
     ///
-    pub const QBaseWaitForBytesWritten = SuperWaitForBytesWritten;
+    pub const SuperWaitForBytesWritten = superWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2476,9 +3040,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SuperWaitForBytesWritten(self: QBuffer, msecs: i32) bool {
+    pub fn superWaitForBytesWritten(self: QBuffer, msecs: i32) bool {
         return qtc.QBuffer_SuperWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `onWaitForBytesWritten` instead
+    ///
+    pub const OnWaitForBytesWritten = onWaitForBytesWritten;
 
     /// Inherited from QIODevice
     ///
@@ -2492,9 +3060,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, msecs: i32) callconv(.c) bool `
     ///
-    pub fn OnWaitForBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
+    pub fn onWaitForBytesWritten(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) bool) void {
         qtc.QBuffer_OnWaitForBytesWritten(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `readLineData` instead
+    ///
+    pub const ReadLineData = readLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2506,18 +3078,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn ReadLineData(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn readLineData(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_ReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
 
-    /// ### DEPRECATED: Use `SuperReadLineData` instead
+    /// ### DEPRECATED: Use `superReadLineData` instead
     ///
-    pub const QBaseReadLineData = SuperReadLineData;
+    pub const SuperReadLineData = superReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2529,14 +3101,18 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` data: [:0]u8 `
+    /// ` _data: [:0]u8 `
     ///
     /// ` maxlen: i64 `
     ///
-    pub fn SuperReadLineData(self: QBuffer, data: [:0]u8, maxlen: i64) i64 {
-        const data_Cstring = data.ptr;
+    pub fn superReadLineData(self: QBuffer, _data: [:0]u8, maxlen: i64) i64 {
+        const data_Cstring = _data.ptr;
         return qtc.QBuffer_SuperReadLineData(@ptrCast(self.ptr), data_Cstring, @bitCast(maxlen));
     }
+
+    /// ### DEPRECATED: Use `onReadLineData` instead
+    ///
+    pub const OnReadLineData = onReadLineData;
 
     /// Inherited from QIODevice
     ///
@@ -2550,9 +3126,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, data: qtc.libqt_string, maxlen: i64) callconv(.c) i64 `
     ///
-    pub fn OnReadLineData(self: QBuffer, callback: *const fn (QBuffer, qtc.libqt_string, i64) callconv(.c) i64) void {
+    pub fn onReadLineData(self: QBuffer, callback: *const fn (QBuffer, qtc.libqt_string, i64) callconv(.c) i64) void {
         qtc.QBuffer_OnReadLineData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `skipData` instead
+    ///
+    pub const SkipData = skipData;
 
     /// Inherited from QIODevice
     ///
@@ -2566,13 +3146,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SkipData(self: QBuffer, maxSize: i64) i64 {
+    pub fn skipData(self: QBuffer, maxSize: i64) i64 {
         return qtc.QBuffer_SkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
 
-    /// ### DEPRECATED: Use `SuperSkipData` instead
+    /// ### DEPRECATED: Use `superSkipData` instead
     ///
-    pub const QBaseSkipData = SuperSkipData;
+    pub const SuperSkipData = superSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2586,9 +3166,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` maxSize: i64 `
     ///
-    pub fn SuperSkipData(self: QBuffer, maxSize: i64) i64 {
+    pub fn superSkipData(self: QBuffer, maxSize: i64) i64 {
         return qtc.QBuffer_SuperSkipData(@ptrCast(self.ptr), @bitCast(maxSize));
     }
+
+    /// ### DEPRECATED: Use `onSkipData` instead
+    ///
+    pub const OnSkipData = onSkipData;
 
     /// Inherited from QIODevice
     ///
@@ -2602,9 +3186,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, maxSize: i64) callconv(.c) i64 `
     ///
-    pub fn OnSkipData(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) i64) void {
+    pub fn onSkipData(self: QBuffer, callback: *const fn (QBuffer, i64) callconv(.c) i64) void {
         qtc.QBuffer_OnSkipData(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2616,16 +3204,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QBuffer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBuffer_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QBuffer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBuffer_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2637,12 +3225,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QBuffer, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBuffer_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QBuffer, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBuffer_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2656,9 +3248,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QBuffer, callback: *const fn (QBuffer, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QBuffer, callback: *const fn (QBuffer, QEvent) callconv(.c) bool) void {
         qtc.QBuffer_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2672,17 +3268,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QBuffer, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QBuffer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBuffer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBuffer_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2696,13 +3292,17 @@ pub const QBuffer = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QBuffer, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QBuffer, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QBuffer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QBuffer_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2716,9 +3316,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QBuffer, callback: *const fn (QBuffer, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QBuffer, callback: *const fn (QBuffer, QObject, QEvent) callconv(.c) bool) void {
         qtc.QBuffer_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2730,16 +3334,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBuffer_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBuffer_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2751,12 +3355,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QBuffer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QBuffer_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2770,9 +3378,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QBuffer, callback: *const fn (QBuffer, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QBuffer, callback: *const fn (QBuffer, QTimerEvent) callconv(.c) void) void {
         qtc.QBuffer_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2784,16 +3396,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBuffer_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBuffer_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2805,12 +3417,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QBuffer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QBuffer_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2824,9 +3440,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QBuffer, callback: *const fn (QBuffer, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QBuffer, callback: *const fn (QBuffer, QChildEvent) callconv(.c) void) void {
         qtc.QBuffer_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2838,16 +3458,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBuffer_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBuffer_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2859,12 +3479,16 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QBuffer, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QBuffer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QBuffer, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QBuffer_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2878,9 +3502,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QBuffer, callback: *const fn (QBuffer, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QBuffer, callback: *const fn (QBuffer, QEvent) callconv(.c) void) void {
         qtc.QBuffer_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setOpenMode` instead
+    ///
+    pub const SetOpenMode = setOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -2892,15 +3520,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SetOpenMode(self: QBuffer, openMode: i32) void {
-        qtc.QBuffer_SetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn setOpenMode(self: QBuffer, _openMode: i32) void {
+        qtc.QBuffer_SetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
 
-    /// ### DEPRECATED: Use `SuperSetOpenMode` instead
+    /// ### DEPRECATED: Use `superSetOpenMode` instead
     ///
-    pub const QBaseSetOpenMode = SuperSetOpenMode;
+    pub const SuperSetOpenMode = superSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -2912,11 +3540,15 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` openMode: flag of qiodevicebase_enums.OpenModeFlag `
+    /// ` _openMode: flag of qiodevicebase_enums.OpenModeFlag `
     ///
-    pub fn SuperSetOpenMode(self: QBuffer, openMode: i32) void {
-        qtc.QBuffer_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(openMode));
+    pub fn superSetOpenMode(self: QBuffer, _openMode: i32) void {
+        qtc.QBuffer_SuperSetOpenMode(@ptrCast(self.ptr), @bitCast(_openMode));
     }
+
+    /// ### DEPRECATED: Use `onSetOpenMode` instead
+    ///
+    pub const OnSetOpenMode = onSetOpenMode;
 
     /// Inherited from QIODevice
     ///
@@ -2930,9 +3562,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, openMode: flag of qiodevicebase_enums.OpenModeFlag) callconv(.c) void `
     ///
-    pub fn OnSetOpenMode(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) void) void {
+    pub fn onSetOpenMode(self: QBuffer, callback: *const fn (QBuffer, i32) callconv(.c) void) void {
         qtc.QBuffer_OnSetOpenMode(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setErrorString` instead
+    ///
+    pub const SetErrorString = setErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -2944,19 +3580,19 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SetErrorString(self: QBuffer, errorString: []const u8) void {
+    pub fn setErrorString(self: QBuffer, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QBuffer_SetErrorString(@ptrCast(self.ptr), errorString_str);
     }
 
-    /// ### DEPRECATED: Use `SuperSetErrorString` instead
+    /// ### DEPRECATED: Use `superSetErrorString` instead
     ///
-    pub const QBaseSetErrorString = SuperSetErrorString;
+    pub const SuperSetErrorString = superSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -2968,15 +3604,19 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    /// ` errorString: []const u8 `
+    /// ` _errorString: []const u8 `
     ///
-    pub fn SuperSetErrorString(self: QBuffer, errorString: []const u8) void {
+    pub fn superSetErrorString(self: QBuffer, _errorString: []const u8) void {
         const errorString_str = qtc.libqt_string{
-            .len = errorString.len,
-            .data = errorString.ptr,
+            .len = _errorString.len,
+            .data = _errorString.ptr,
         };
         qtc.QBuffer_SuperSetErrorString(@ptrCast(self.ptr), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onSetErrorString` instead
+    ///
+    pub const OnSetErrorString = onSetErrorString;
 
     /// Inherited from QIODevice
     ///
@@ -2990,9 +3630,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetErrorString(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetErrorString(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) void) void {
         qtc.QBuffer_OnSetErrorString(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -3004,13 +3648,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Sender(self: QBuffer) QObject {
+    pub fn sender(self: QBuffer) QObject {
         return .{ .ptr = qtc.QBuffer_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -3022,9 +3666,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperSender(self: QBuffer) QObject {
+    pub fn superSender(self: QBuffer) QObject {
         return .{ .ptr = qtc.QBuffer_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -3038,9 +3686,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QBuffer, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QBuffer, callback: *const fn () callconv(.c) QObject) void {
         qtc.QBuffer_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3052,13 +3704,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SenderSignalIndex(self: QBuffer) i32 {
+    pub fn senderSignalIndex(self: QBuffer) i32 {
         return qtc.QBuffer_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3070,9 +3722,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` self: QBuffer `
     ///
-    pub fn SuperSenderSignalIndex(self: QBuffer) i32 {
+    pub fn superSenderSignalIndex(self: QBuffer) i32 {
         return qtc.QBuffer_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3086,9 +3742,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QBuffer, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QBuffer, callback: *const fn () callconv(.c) i32) void {
         qtc.QBuffer_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3102,14 +3762,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QBuffer, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QBuffer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBuffer_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3123,10 +3783,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QBuffer, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QBuffer, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QBuffer_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3140,9 +3804,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) i32) void {
         qtc.QBuffer_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3156,14 +3824,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QBuffer, signal: anytype) bool {
+    pub fn isSignalConnected(self: QBuffer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBuffer_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3177,10 +3845,14 @@ pub const QBuffer = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QBuffer, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QBuffer, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QBuffer_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3194,9 +3866,13 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QBuffer, callback: *const fn (QBuffer, QMetaMethod) callconv(.c) bool) void {
         qtc.QBuffer_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3210,23 +3886,23 @@ pub const QBuffer = extern struct {
     ///
     /// ` callback: *const fn (self: QBuffer, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QBuffer, callback: *const fn (QBuffer, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbuffer.html#dtor.QBuffer)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBuffer `
     ///
-    pub fn Delete(self: QBuffer) void {
+    pub fn delete(self: QBuffer) void {
         qtc.QBuffer_Delete(@ptrCast(self.ptr));
     }
 };

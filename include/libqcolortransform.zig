@@ -13,22 +13,34 @@ pub const QColorTransform = extern struct {
 
     pub const _is_QColorTransform = {};
 
-    /// New constructs a new QColorTransform object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QColorTransform {
+    pub const New = new;
+
+    /// Allocate a new QColorTransform object in C++ memory
+    ///
+    pub fn new() QColorTransform {
         return .{ .ptr = qtc.QColorTransform_new() };
     }
 
-    /// New2 constructs a new QColorTransform object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QColorTransform object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` colorTransform: QColorTransform `
     ///
-    pub fn New2(colorTransform: anytype) QColorTransform {
+    pub fn new2(colorTransform: anytype) QColorTransform {
         comptime _ = @TypeOf(colorTransform)._is_QColorTransform;
         return .{ .ptr = qtc.QColorTransform_new2(@ptrCast(colorTransform.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QColorTransform = extern struct {
     ///
     /// ` other: QColorTransform `
     ///
-    pub fn OperatorAssign(self: QColorTransform, other: anytype) void {
+    pub fn operatorAssign(self: QColorTransform, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QColorTransform;
         qtc.QColorTransform_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#swap)
     ///
@@ -51,10 +67,14 @@ pub const QColorTransform = extern struct {
     ///
     /// ` other: QColorTransform `
     ///
-    pub fn Swap(self: QColorTransform, other: anytype) void {
+    pub fn swap(self: QColorTransform, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QColorTransform;
         qtc.QColorTransform_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isIdentity` instead
+    ///
+    pub const IsIdentity = isIdentity;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#isIdentity)
     ///
@@ -62,9 +82,13 @@ pub const QColorTransform = extern struct {
     ///
     /// ` self: QColorTransform `
     ///
-    pub fn IsIdentity(self: QColorTransform) bool {
+    pub fn isIdentity(self: QColorTransform) bool {
         return qtc.QColorTransform_IsIdentity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `map` instead
+    ///
+    pub const Map = map;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#map)
     ///
@@ -74,9 +98,13 @@ pub const QColorTransform = extern struct {
     ///
     /// ` argb: u32 `
     ///
-    pub fn Map(self: QColorTransform, argb: u32) u32 {
+    pub fn map(self: QColorTransform, argb: u32) u32 {
         return qtc.QColorTransform_Map(@ptrCast(self.ptr), @bitCast(argb));
     }
+
+    /// ### DEPRECATED: Use `map2` instead
+    ///
+    pub const Map2 = map2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#map)
     ///
@@ -86,10 +114,14 @@ pub const QColorTransform = extern struct {
     ///
     /// ` rgba64: QRgba64 `
     ///
-    pub fn Map2(self: QColorTransform, rgba64: anytype) QRgba64 {
+    pub fn map2(self: QColorTransform, rgba64: anytype) QRgba64 {
         comptime _ = @TypeOf(rgba64)._is_QRgba64;
         return .{ .ptr = qtc.QColorTransform_Map2(@ptrCast(self.ptr), @ptrCast(rgba64.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `map5` instead
+    ///
+    pub const Map5 = map5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#map)
     ///
@@ -99,24 +131,24 @@ pub const QColorTransform = extern struct {
     ///
     /// ` color: QColor `
     ///
-    pub fn Map5(self: QColorTransform, color: anytype) QColor {
+    pub fn map5(self: QColorTransform, color: anytype) QColor {
         comptime _ = @TypeOf(color)._is_QColor;
         return .{ .ptr = qtc.QColorTransform_Map5(@ptrCast(self.ptr), @ptrCast(color.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcolortransform.html#dtor.QColorTransform)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QColorTransform `
     ///
-    pub fn Delete(self: QColorTransform) void {
+    pub fn delete(self: QColorTransform) void {
         qtc.QColorTransform_Delete(@ptrCast(self.ptr));
     }
 };

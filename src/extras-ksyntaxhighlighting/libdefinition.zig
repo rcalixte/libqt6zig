@@ -17,22 +17,34 @@ pub const KSyntaxHighlighting__Definition = extern struct {
 
     pub const _is_KSyntaxHighlighting__Definition = {};
 
-    /// New constructs a new KSyntaxHighlighting::Definition object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KSyntaxHighlighting__Definition {
+    pub const New = new;
+
+    /// Allocate a new KSyntaxHighlighting::Definition object in C++ memory
+    ///
+    pub fn new() KSyntaxHighlighting__Definition {
         return .{ .ptr = qtc.KSyntaxHighlighting__Definition_new() };
     }
 
-    /// New2 constructs a new KSyntaxHighlighting::Definition object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KSyntaxHighlighting::Definition object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KSyntaxHighlighting__Definition `
     ///
-    pub fn New2(other: anytype) KSyntaxHighlighting__Definition {
+    pub fn new2(other: anytype) KSyntaxHighlighting__Definition {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__Definition;
         return .{ .ptr = qtc.KSyntaxHighlighting__Definition_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq)
     ///
@@ -42,10 +54,14 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` rhs: KSyntaxHighlighting__Definition `
     ///
-    pub fn OperatorAssign(self: KSyntaxHighlighting__Definition, rhs: anytype) void {
+    pub fn operatorAssign(self: KSyntaxHighlighting__Definition, rhs: anytype) void {
         comptime _ = @TypeOf(rhs)._is_KSyntaxHighlighting__Definition;
         qtc.KSyntaxHighlighting__Definition_OperatorAssign(@ptrCast(self.ptr), @ptrCast(rhs.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-eq-eq)
     ///
@@ -55,10 +71,14 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` other: KSyntaxHighlighting__Definition `
     ///
-    pub fn OperatorEqual(self: KSyntaxHighlighting__Definition, other: anytype) bool {
+    pub fn operatorEqual(self: KSyntaxHighlighting__Definition, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__Definition;
         return qtc.KSyntaxHighlighting__Definition_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#operator-not-eq)
     ///
@@ -68,10 +88,14 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` other: KSyntaxHighlighting__Definition `
     ///
-    pub fn OperatorNotEqual(self: KSyntaxHighlighting__Definition, other: anytype) bool {
+    pub fn operatorNotEqual(self: KSyntaxHighlighting__Definition, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_KSyntaxHighlighting__Definition;
         return qtc.KSyntaxHighlighting__Definition_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isValid)
     ///
@@ -79,9 +103,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn IsValid(self: KSyntaxHighlighting__Definition) bool {
+    pub fn isValid(self: KSyntaxHighlighting__Definition) bool {
         return qtc.KSyntaxHighlighting__Definition_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `filePath` instead
+    ///
+    pub const FilePath = filePath;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#filePath)
     ///
@@ -91,13 +119,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FilePath(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn filePath(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_FilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.FilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.filePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#name)
     ///
@@ -107,13 +139,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `alternativeNames` instead
+    ///
+    pub const AlternativeNames = alternativeNames;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#alternativeNames)
     ///
@@ -123,7 +159,7 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AlternativeNames(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn alternativeNames(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_AlternativeNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -131,15 +167,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.AlternativeNames: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.alternativeNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.AlternativeNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.alternativeNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `translatedName` instead
+    ///
+    pub const TranslatedName = translatedName;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedName)
     ///
@@ -149,13 +189,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TranslatedName(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn translatedName(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_TranslatedName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.TranslatedName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.translatedName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `section` instead
+    ///
+    pub const Section = section;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#section)
     ///
@@ -165,13 +209,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Section(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn section(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Section(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.Section: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.section: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `translatedSection` instead
+    ///
+    pub const TranslatedSection = translatedSection;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#translatedSection)
     ///
@@ -181,13 +229,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TranslatedSection(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn translatedSection(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_TranslatedSection(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.TranslatedSection: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.translatedSection: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mimeTypes` instead
+    ///
+    pub const MimeTypes = mimeTypes;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#mimeTypes)
     ///
@@ -197,7 +249,7 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MimeTypes(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn mimeTypes(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_MimeTypes(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -205,15 +257,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.MimeTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.mimeTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.MimeTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.mimeTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extensions` instead
+    ///
+    pub const Extensions = extensions;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#extensions)
     ///
@@ -223,7 +279,7 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Extensions(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn extensions(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_Extensions(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -231,15 +287,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.Extensions: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.extensions: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.Extensions: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.extensions: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `version` instead
+    ///
+    pub const Version = version;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#version)
     ///
@@ -247,9 +307,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn Version(self: KSyntaxHighlighting__Definition) i32 {
+    pub fn version(self: KSyntaxHighlighting__Definition) i32 {
         return qtc.KSyntaxHighlighting__Definition_Version(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `priority` instead
+    ///
+    pub const Priority = priority;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#priority)
     ///
@@ -257,9 +321,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn Priority(self: KSyntaxHighlighting__Definition) i32 {
+    pub fn priority(self: KSyntaxHighlighting__Definition) i32 {
         return qtc.KSyntaxHighlighting__Definition_Priority(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isHidden)
     ///
@@ -267,9 +335,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn IsHidden(self: KSyntaxHighlighting__Definition) bool {
+    pub fn isHidden(self: KSyntaxHighlighting__Definition) bool {
         return qtc.KSyntaxHighlighting__Definition_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#style)
     ///
@@ -279,13 +351,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Style(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn style(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Style(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.Style: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.style: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `indenter` instead
+    ///
+    pub const Indenter = indenter;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#indenter)
     ///
@@ -295,13 +371,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Indenter(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn indenter(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Indenter(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.Indenter: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.indenter: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `author` instead
+    ///
+    pub const Author = author;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#author)
     ///
@@ -311,13 +391,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Author(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn author(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_Author(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.Author: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.author: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `license` instead
+    ///
+    pub const License = license;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#license)
     ///
@@ -327,13 +411,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn License(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn license(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_License(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.License: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.license: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isWordDelimiter` instead
+    ///
+    pub const IsWordDelimiter = isWordDelimiter;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordDelimiter)
     ///
@@ -343,10 +431,14 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` c: QChar `
     ///
-    pub fn IsWordDelimiter(self: KSyntaxHighlighting__Definition, c: anytype) bool {
+    pub fn isWordDelimiter(self: KSyntaxHighlighting__Definition, c: anytype) bool {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.KSyntaxHighlighting__Definition_IsWordDelimiter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWordWrapDelimiter` instead
+    ///
+    pub const IsWordWrapDelimiter = isWordWrapDelimiter;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#isWordWrapDelimiter)
     ///
@@ -356,10 +448,14 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` c: QChar `
     ///
-    pub fn IsWordWrapDelimiter(self: KSyntaxHighlighting__Definition, c: anytype) bool {
+    pub fn isWordWrapDelimiter(self: KSyntaxHighlighting__Definition, c: anytype) bool {
         comptime _ = @TypeOf(c)._is_QChar;
         return qtc.KSyntaxHighlighting__Definition_IsWordWrapDelimiter(@ptrCast(self.ptr), @ptrCast(c.ptr));
     }
+
+    /// ### DEPRECATED: Use `foldingEnabled` instead
+    ///
+    pub const FoldingEnabled = foldingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingEnabled)
     ///
@@ -367,9 +463,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn FoldingEnabled(self: KSyntaxHighlighting__Definition) bool {
+    pub fn foldingEnabled(self: KSyntaxHighlighting__Definition) bool {
         return qtc.KSyntaxHighlighting__Definition_FoldingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indentationBasedFoldingEnabled` instead
+    ///
+    pub const IndentationBasedFoldingEnabled = indentationBasedFoldingEnabled;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#indentationBasedFoldingEnabled)
     ///
@@ -377,9 +477,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn IndentationBasedFoldingEnabled(self: KSyntaxHighlighting__Definition) bool {
+    pub fn indentationBasedFoldingEnabled(self: KSyntaxHighlighting__Definition) bool {
         return qtc.KSyntaxHighlighting__Definition_IndentationBasedFoldingEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `foldingIgnoreList` instead
+    ///
+    pub const FoldingIgnoreList = foldingIgnoreList;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#foldingIgnoreList)
     ///
@@ -389,7 +493,7 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FoldingIgnoreList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn foldingIgnoreList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_FoldingIgnoreList(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -397,15 +501,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.FoldingIgnoreList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.foldingIgnoreList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.FoldingIgnoreList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.foldingIgnoreList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keywordLists` instead
+    ///
+    pub const KeywordLists = keywordLists;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordLists)
     ///
@@ -415,7 +523,7 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeywordLists(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn keywordLists(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_KeywordLists(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -423,15 +531,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.KeywordLists: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.keywordLists: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.KeywordLists: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.keywordLists: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `keywordList` instead
+    ///
+    pub const KeywordList = keywordList;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#keywordList)
     ///
@@ -441,12 +553,12 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn KeywordList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator, name: []const u8) []const []const u8 {
+    pub fn keywordList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator, _name: []const u8) []const []const u8 {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_KeywordList(@ptrCast(self.ptr), name_str);
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
@@ -455,15 +567,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.KeywordList: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.keywordList: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KSyntaxHighlighting__Definition.KeywordList: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KSyntaxHighlighting__Definition.keywordList: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setKeywordList` instead
+    ///
+    pub const SetKeywordList = setKeywordList;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#setKeywordList)
     ///
@@ -473,21 +589,21 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` content: []const []const u8 `
     ///
-    pub fn SetKeywordList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator, name: []const u8, content: []const []const u8) bool {
+    pub fn setKeywordList(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator, _name: []const u8, content: []const []const u8) bool {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        const content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("KSyntaxHighlighting__Definition.SetKeywordList: Memory allocation failed");
+        const content_arr = allocator.alloc(qtc.libqt_string, content.len) catch @panic("KSyntaxHighlighting__Definition.setKeywordList: Memory allocation failed");
         defer allocator.free(content_arr);
-        for (content, 0..content.len) |item, i|
+        for (content, 0..content.len) |str_item, i|
             content_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const content_list = qtc.libqt_list{
             .len = content.len,
@@ -495,6 +611,10 @@ pub const KSyntaxHighlighting__Definition = extern struct {
         };
         return qtc.KSyntaxHighlighting__Definition_SetKeywordList(@ptrCast(self.ptr), name_str, content_list);
     }
+
+    /// ### DEPRECATED: Use `formats` instead
+    ///
+    pub const Formats = formats;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#formats)
     ///
@@ -504,15 +624,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Formats(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []KSyntaxHighlighting__Format {
+    pub fn formats(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []KSyntaxHighlighting__Format {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_Formats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Format, _arr.len) catch @panic("KSyntaxHighlighting__Definition.Formats: Memory allocation failed");
-        const _data: [*]QtC.KSyntaxHighlighting__Format = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KSyntaxHighlighting__Format, _arr.len) catch @panic("KSyntaxHighlighting__Definition.formats: Memory allocation failed");
+        const _data_val: [*]QtC.KSyntaxHighlighting__Format = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `includedDefinitions` instead
+    ///
+    pub const IncludedDefinitions = includedDefinitions;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#includedDefinitions)
     ///
@@ -522,15 +646,19 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn IncludedDefinitions(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []KSyntaxHighlighting__Definition {
+    pub fn includedDefinitions(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []KSyntaxHighlighting__Definition {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_IncludedDefinitions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("KSyntaxHighlighting__Definition.IncludedDefinitions: Memory allocation failed");
-        const _data: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(KSyntaxHighlighting__Definition, _arr.len) catch @panic("KSyntaxHighlighting__Definition.includedDefinitions: Memory allocation failed");
+        const _data_val: [*]QtC.KSyntaxHighlighting__Definition = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `singleLineCommentMarker` instead
+    ///
+    pub const SingleLineCommentMarker = singleLineCommentMarker;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentMarker)
     ///
@@ -540,13 +668,17 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SingleLineCommentMarker(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
+    pub fn singleLineCommentMarker(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.KSyntaxHighlighting__Definition_SingleLineCommentMarker(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.SingleLineCommentMarker: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KSyntaxHighlighting__Definition.singleLineCommentMarker: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `singleLineCommentPosition` instead
+    ///
+    pub const SingleLineCommentPosition = singleLineCommentPosition;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#singleLineCommentPosition)
     ///
@@ -558,9 +690,13 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` definition_enums.CommentPosition `
     ///
-    pub fn SingleLineCommentPosition(self: KSyntaxHighlighting__Definition) i32 {
+    pub fn singleLineCommentPosition(self: KSyntaxHighlighting__Definition) i32 {
         return qtc.KSyntaxHighlighting__Definition_SingleLineCommentPosition(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `multiLineCommentMarker` instead
+    ///
+    pub const MultiLineCommentMarker = multiLineCommentMarker;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#multiLineCommentMarker)
     ///
@@ -570,27 +706,31 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MultiLineCommentMarker(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) Struct_constu8_constu8 {
+    pub fn multiLineCommentMarker(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) Struct_constu8_constu8 {
         const _pair: qtc.libqt_pair = qtc.KSyntaxHighlighting__Definition_MultiLineCommentMarker(@ptrCast(self.ptr));
         var _first_str: *qtc.libqt_string = @ptrCast(@alignCast(_pair.first));
         defer {
             qtc.libqt_string_free(_first_str);
             qtc.libqt_free(_pair.first);
         }
-        const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KSyntaxHighlighting__Definition.MultiLineCommentMarker: Memory allocation failed");
+        const _first_slice = allocator.alloc(u8, _first_str.len) catch @panic("KSyntaxHighlighting__Definition.multiLineCommentMarker: Memory allocation failed");
         @memcpy(_first_slice, _first_str.data[0.._first_str.len]);
         var _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_pair.second));
         defer {
             qtc.libqt_string_free(_second_str);
             qtc.libqt_free(_pair.second);
         }
-        const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("KSyntaxHighlighting__Definition.MultiLineCommentMarker: Memory allocation failed");
+        const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("KSyntaxHighlighting__Definition.multiLineCommentMarker: Memory allocation failed");
         @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
         return Struct_constu8_constu8{
             .first = _first_slice,
             .second = _second_slice,
         };
     }
+
+    /// ### DEPRECATED: Use `characterEncodings` instead
+    ///
+    pub const CharacterEncodings = characterEncodings;
 
     /// ### [Upstream resources](https://api.kde.org/ksyntaxhighlighting-definition.html#characterEncodings)
     ///
@@ -600,39 +740,39 @@ pub const KSyntaxHighlighting__Definition = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CharacterEncodings(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []Struct_QChar_constu8 {
+    pub fn characterEncodings(self: KSyntaxHighlighting__Definition, allocator: std.mem.Allocator) []Struct_QChar_constu8 {
         const _arr: qtc.libqt_list = qtc.KSyntaxHighlighting__Definition_CharacterEncodings(@ptrCast(self.ptr));
-        const _data: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]qtc.libqt_pair = @ptrCast(@alignCast(_arr.data));
         defer {
             for (0.._arr.len) |i| {
-                qtc.libqt_string_free(@ptrCast(@alignCast(_data[i].second)));
+                qtc.libqt_string_free(@ptrCast(@alignCast(_data_val[i].second)));
             }
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc(Struct_QChar_constu8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.CharacterEncodings: Memory allocation failed");
+        const _ret = allocator.alloc(Struct_QChar_constu8, _arr.len) catch @panic("KSyntaxHighlighting__Definition.characterEncodings: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data[i].second));
-            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("KSyntaxHighlighting__Definition.CharacterEncodings: Memory allocation failed");
+            const _second_str: *qtc.libqt_string = @ptrCast(@alignCast(_data_val[i].second));
+            const _second_slice = allocator.alloc(u8, _second_str.len) catch @panic("KSyntaxHighlighting__Definition.characterEncodings: Memory allocation failed");
             @memcpy(_second_slice, _second_str.data[0.._second_str.len]);
             _ret[i] = Struct_QChar_constu8{
-                .first = .{ .ptr = @ptrCast(_data[i].first) },
+                .first = .{ .ptr = @ptrCast(_data_val[i].first) },
                 .second = _second_slice,
             };
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KSyntaxHighlighting__Definition `
     ///
-    pub fn Delete(self: KSyntaxHighlighting__Definition) void {
+    pub fn delete(self: KSyntaxHighlighting__Definition) void {
         qtc.KSyntaxHighlighting__Definition_Delete(@ptrCast(self.ptr));
     }
 };

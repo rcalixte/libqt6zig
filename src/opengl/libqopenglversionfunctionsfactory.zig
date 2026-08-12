@@ -14,29 +14,40 @@ pub const QOpenGLVersionFunctionsFactory = extern struct {
 
     pub const _is_QOpenGLVersionFunctionsFactory = {};
 
-    /// New constructs a new QOpenGLVersionFunctionsFactory object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QOpenGLVersionFunctionsFactory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLVersionFunctionsFactory `
     ///
-    pub fn New(other: anytype) QOpenGLVersionFunctionsFactory {
+    pub fn new(other: anytype) QOpenGLVersionFunctionsFactory {
         comptime _ = @TypeOf(other)._is_QOpenGLVersionFunctionsFactory;
         return .{ .ptr = qtc.QOpenGLVersionFunctionsFactory_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new QOpenGLVersionFunctionsFactory object and invalidates the source QOpenGLVersionFunctionsFactory object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QOpenGLVersionFunctionsFactory object and invalidate the source QOpenGLVersionFunctionsFactory object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QOpenGLVersionFunctionsFactory `
     ///
-    pub fn New2(other: anytype) QOpenGLVersionFunctionsFactory {
+    pub fn new2(other: anytype) QOpenGLVersionFunctionsFactory {
         comptime _ = @TypeOf(other)._is_QOpenGLVersionFunctionsFactory;
         return .{ .ptr = qtc.QOpenGLVersionFunctionsFactory_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -44,11 +55,14 @@ pub const QOpenGLVersionFunctionsFactory = extern struct {
     ///
     /// ` other: QOpenGLVersionFunctionsFactory `
     ///
-    pub fn CopyAssign(self: QOpenGLVersionFunctionsFactory, other: QOpenGLVersionFunctionsFactory) void {
+    pub fn copyAssign(self: QOpenGLVersionFunctionsFactory, other: QOpenGLVersionFunctionsFactory) void {
         qtc.QOpenGLVersionFunctionsFactory_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -56,15 +70,23 @@ pub const QOpenGLVersionFunctionsFactory = extern struct {
     ///
     /// ` other: QOpenGLVersionFunctionsFactory `
     ///
-    pub fn MoveAssign(self: QOpenGLVersionFunctionsFactory, other: QOpenGLVersionFunctionsFactory) void {
+    pub fn moveAssign(self: QOpenGLVersionFunctionsFactory, other: QOpenGLVersionFunctionsFactory) void {
         qtc.QOpenGLVersionFunctionsFactory_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
+    /// ### DEPRECATED: Use `get` instead
+    ///
+    pub const Get = get;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
-    pub fn Get() QAbstractOpenGLFunctions {
+    pub fn get() QAbstractOpenGLFunctions {
         return .{ .ptr = qtc.QOpenGLVersionFunctionsFactory_Get() };
     }
+
+    /// ### DEPRECATED: Use `get1` instead
+    ///
+    pub const Get1 = get1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
@@ -72,10 +94,14 @@ pub const QOpenGLVersionFunctionsFactory = extern struct {
     ///
     /// ` versionProfile: QOpenGLVersionProfile `
     ///
-    pub fn Get1(versionProfile: anytype) QAbstractOpenGLFunctions {
+    pub fn get1(versionProfile: anytype) QAbstractOpenGLFunctions {
         comptime _ = @TypeOf(versionProfile)._is_QOpenGLVersionProfile;
         return .{ .ptr = qtc.QOpenGLVersionFunctionsFactory_Get1(@ptrCast(versionProfile.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `get2` instead
+    ///
+    pub const Get2 = get2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#get)
     ///
@@ -85,25 +111,25 @@ pub const QOpenGLVersionFunctionsFactory = extern struct {
     ///
     /// ` context: QOpenGLContext `
     ///
-    pub fn Get2(versionProfile: anytype, context: anytype) QAbstractOpenGLFunctions {
+    pub fn get2(versionProfile: anytype, context: anytype) QAbstractOpenGLFunctions {
         comptime _ = @TypeOf(versionProfile)._is_QOpenGLVersionProfile;
         comptime _ = @TypeOf(context)._is_QOpenGLContext;
         return .{ .ptr = qtc.QOpenGLVersionFunctionsFactory_Get2(@ptrCast(versionProfile.ptr), @ptrCast(context.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qopenglversionfunctionsfactory.html#dtor.QOpenGLVersionFunctionsFactory)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QOpenGLVersionFunctionsFactory `
     ///
-    pub fn Delete(self: QOpenGLVersionFunctionsFactory) void {
+    pub fn delete(self: QOpenGLVersionFunctionsFactory) void {
         qtc.QOpenGLVersionFunctionsFactory_Delete(@ptrCast(self.ptr));
     }
 };

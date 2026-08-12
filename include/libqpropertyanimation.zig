@@ -31,59 +31,79 @@ pub const QPropertyAnimation = extern struct {
     pub const _is_QAbstractAnimation = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPropertyAnimation object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPropertyAnimation {
+    pub const New = new;
+
+    /// Allocate a new QPropertyAnimation object in C++ memory
+    ///
+    pub fn new() QPropertyAnimation {
         return .{ .ptr = qtc.QPropertyAnimation_new() };
     }
 
-    /// New2 constructs a new QPropertyAnimation object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPropertyAnimation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` target: QObject `
     ///
-    /// ` propertyName: []u8 `
+    /// ` _propertyName: []u8 `
     ///
-    pub fn New2(target: anytype, propertyName: []u8) QPropertyAnimation {
+    pub fn new2(target: anytype, _propertyName: []u8) QPropertyAnimation {
         comptime _ = @TypeOf(target)._is_QObject;
         const propertyName_str = qtc.libqt_string{
-            .len = propertyName.len,
-            .data = propertyName.ptr,
+            .len = _propertyName.len,
+            .data = _propertyName.ptr,
         };
         return .{ .ptr = qtc.QPropertyAnimation_new2(@ptrCast(target.ptr), propertyName_str) };
     }
 
-    /// New3 constructs a new QPropertyAnimation object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPropertyAnimation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New3(parent: anytype) QPropertyAnimation {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPropertyAnimation_new3(@ptrCast(parent.ptr)) };
+    pub fn new3(_parent: anytype) QPropertyAnimation {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPropertyAnimation_new3(@ptrCast(_parent.ptr)) };
     }
 
-    /// New4 constructs a new QPropertyAnimation object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QPropertyAnimation object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` target: QObject `
     ///
-    /// ` propertyName: []u8 `
+    /// ` _propertyName: []u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New4(target: anytype, propertyName: []u8, parent: anytype) QPropertyAnimation {
+    pub fn new4(target: anytype, _propertyName: []u8, _parent: anytype) QPropertyAnimation {
         comptime _ = @TypeOf(target)._is_QObject;
         const propertyName_str = qtc.libqt_string{
-            .len = propertyName.len,
-            .data = propertyName.ptr,
+            .len = _propertyName.len,
+            .data = _propertyName.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPropertyAnimation_new4(@ptrCast(target.ptr), propertyName_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPropertyAnimation_new4(@ptrCast(target.ptr), propertyName_str, @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -91,9 +111,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn MetaObject(self: QPropertyAnimation) QMetaObject {
+    pub fn metaObject(self: QPropertyAnimation) QMetaObject {
         return .{ .ptr = qtc.QPropertyAnimation_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -105,13 +129,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPropertyAnimation, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPropertyAnimation, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPropertyAnimation_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -121,9 +145,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SuperMetaObject(self: QPropertyAnimation) QMetaObject {
+    pub fn superMetaObject(self: QPropertyAnimation) QMetaObject {
         return .{ .ptr = qtc.QPropertyAnimation_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -131,10 +159,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPropertyAnimation, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPropertyAnimation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPropertyAnimation_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -144,13 +176,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPropertyAnimation_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -160,10 +192,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPropertyAnimation, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPropertyAnimation, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPropertyAnimation_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -175,9 +211,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPropertyAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPropertyAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPropertyAnimation_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -187,13 +227,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPropertyAnimation_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -207,9 +247,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPropertyAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPropertyAnimation, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPropertyAnimation_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -219,14 +263,18 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `targetObject` instead
+    ///
+    pub const TargetObject = targetObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#targetObject)
     ///
@@ -234,9 +282,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn TargetObject(self: QPropertyAnimation) QObject {
+    pub fn targetObject(self: QPropertyAnimation) QObject {
         return .{ .ptr = qtc.QPropertyAnimation_TargetObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setTargetObject` instead
+    ///
+    pub const SetTargetObject = setTargetObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#setTargetObject)
     ///
@@ -246,10 +298,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` target: QObject `
     ///
-    pub fn SetTargetObject(self: QPropertyAnimation, target: anytype) void {
+    pub fn setTargetObject(self: QPropertyAnimation, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QObject;
         qtc.QPropertyAnimation_SetTargetObject(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `propertyName` instead
+    ///
+    pub const PropertyName = propertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#propertyName)
     ///
@@ -259,13 +315,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PropertyName(self: QPropertyAnimation, allocator: std.mem.Allocator) []u8 {
+    pub fn propertyName(self: QPropertyAnimation, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QPropertyAnimation_PropertyName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPropertyAnimation.PropertyName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QPropertyAnimation.propertyName: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setPropertyName` instead
+    ///
+    pub const SetPropertyName = setPropertyName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#setPropertyName)
     ///
@@ -273,15 +333,19 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` propertyName: []u8 `
+    /// ` _propertyName: []u8 `
     ///
-    pub fn SetPropertyName(self: QPropertyAnimation, propertyName: []u8) void {
+    pub fn setPropertyName(self: QPropertyAnimation, _propertyName: []u8) void {
         const propertyName_str = qtc.libqt_string{
-            .len = propertyName.len,
-            .data = propertyName.ptr,
+            .len = _propertyName.len,
+            .data = _propertyName.ptr,
         };
         qtc.QPropertyAnimation_SetPropertyName(@ptrCast(self.ptr), propertyName_str);
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
@@ -289,12 +353,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPropertyAnimation, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPropertyAnimation_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPropertyAnimation, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPropertyAnimation_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
@@ -306,13 +374,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QEvent) callconv(.c) bool) void {
         qtc.QPropertyAnimation_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#event)
     ///
@@ -322,12 +390,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPropertyAnimation, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPropertyAnimation_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPropertyAnimation, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPropertyAnimation_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateCurrentValue` instead
+    ///
+    pub const UpdateCurrentValue = updateCurrentValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
@@ -337,10 +409,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn UpdateCurrentValue(self: QPropertyAnimation, value: anytype) void {
+    pub fn updateCurrentValue(self: QPropertyAnimation, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QPropertyAnimation_UpdateCurrentValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateCurrentValue` instead
+    ///
+    pub const OnUpdateCurrentValue = onUpdateCurrentValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
@@ -352,13 +428,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnUpdateCurrentValue(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant) callconv(.c) void) void {
+    pub fn onUpdateCurrentValue(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateCurrentValue(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateCurrentValue` instead
+    /// ### DEPRECATED: Use `superUpdateCurrentValue` instead
     ///
-    pub const QBaseUpdateCurrentValue = SuperUpdateCurrentValue;
+    pub const SuperUpdateCurrentValue = superUpdateCurrentValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateCurrentValue)
     ///
@@ -370,10 +446,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SuperUpdateCurrentValue(self: QPropertyAnimation, value: anytype) void {
+    pub fn superUpdateCurrentValue(self: QPropertyAnimation, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QPropertyAnimation_SuperUpdateCurrentValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateState` instead
+    ///
+    pub const UpdateState = updateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
@@ -385,9 +465,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn UpdateState(self: QPropertyAnimation, newState: i32, oldState: i32) void {
+    pub fn updateState(self: QPropertyAnimation, newState: i32, oldState: i32) void {
         qtc.QPropertyAnimation_UpdateState(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `onUpdateState` instead
+    ///
+    pub const OnUpdateState = onUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
@@ -399,13 +483,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
-    pub fn OnUpdateState(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32) callconv(.c) void) void {
+    pub fn onUpdateState(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateState(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateState` instead
+    /// ### DEPRECATED: Use `superUpdateState` instead
     ///
-    pub const QBaseUpdateState = SuperUpdateState;
+    pub const SuperUpdateState = superUpdateState;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#updateState)
     ///
@@ -419,9 +503,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn SuperUpdateState(self: QPropertyAnimation, newState: i32, oldState: i32) void {
+    pub fn superUpdateState(self: QPropertyAnimation, newState: i32, oldState: i32) void {
         qtc.QPropertyAnimation_SuperUpdateState(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -433,15 +521,19 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -455,15 +547,19 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `startValue` instead
+    ///
+    pub const StartValue = startValue;
 
     /// Inherited from QVariantAnimation
     ///
@@ -473,9 +569,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn StartValue(self: QPropertyAnimation) QVariant {
+    pub fn startValue(self: QPropertyAnimation) QVariant {
         return .{ .ptr = qtc.QVariantAnimation_StartValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStartValue` instead
+    ///
+    pub const SetStartValue = setStartValue;
 
     /// Inherited from QVariantAnimation
     ///
@@ -487,10 +587,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetStartValue(self: QPropertyAnimation, value: anytype) void {
+    pub fn setStartValue(self: QPropertyAnimation, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QVariantAnimation_SetStartValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `endValue` instead
+    ///
+    pub const EndValue = endValue;
 
     /// Inherited from QVariantAnimation
     ///
@@ -500,9 +604,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn EndValue(self: QPropertyAnimation) QVariant {
+    pub fn endValue(self: QPropertyAnimation) QVariant {
         return .{ .ptr = qtc.QVariantAnimation_EndValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEndValue` instead
+    ///
+    pub const SetEndValue = setEndValue;
 
     /// Inherited from QVariantAnimation
     ///
@@ -514,10 +622,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetEndValue(self: QPropertyAnimation, value: anytype) void {
+    pub fn setEndValue(self: QPropertyAnimation, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QVariantAnimation_SetEndValue(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyValueAt` instead
+    ///
+    pub const KeyValueAt = keyValueAt;
 
     /// Inherited from QVariantAnimation
     ///
@@ -529,9 +641,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` step: f64 `
     ///
-    pub fn KeyValueAt(self: QPropertyAnimation, step: f64) QVariant {
+    pub fn keyValueAt(self: QPropertyAnimation, step: f64) QVariant {
         return .{ .ptr = qtc.QVariantAnimation_KeyValueAt(@ptrCast(self.ptr), @bitCast(step)) };
     }
+
+    /// ### DEPRECATED: Use `setKeyValueAt` instead
+    ///
+    pub const SetKeyValueAt = setKeyValueAt;
 
     /// Inherited from QVariantAnimation
     ///
@@ -545,10 +661,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetKeyValueAt(self: QPropertyAnimation, step: f64, value: anytype) void {
+    pub fn setKeyValueAt(self: QPropertyAnimation, step: f64, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QVariantAnimation_SetKeyValueAt(@ptrCast(self.ptr), @bitCast(step), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `keyValues` instead
+    ///
+    pub const KeyValues = keyValues;
 
     /// Inherited from QVariantAnimation
     ///
@@ -560,14 +680,18 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn KeyValues(self: QPropertyAnimation, allocator: std.mem.Allocator) []Struct_f64_QVariant {
+    pub fn keyValues(self: QPropertyAnimation, allocator: std.mem.Allocator) []Struct_f64_QVariant {
         const _arr: qtc.libqt_list = qtc.QVariantAnimation_KeyValues(@ptrCast(self.ptr));
-        const _data: [*]Struct_f64_QVariant = @ptrCast(@alignCast(_arr.data));
+        const _data_val: [*]Struct_f64_QVariant = @ptrCast(@alignCast(_arr.data));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(Struct_f64_QVariant, _arr.len) catch @panic("QPropertyAnimation.KeyValues: Memory allocation failed");
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(Struct_f64_QVariant, _arr.len) catch @panic("QPropertyAnimation.keyValues: Memory allocation failed");
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setKeyValues` instead
+    ///
+    pub const SetKeyValues = setKeyValues;
 
     /// Inherited from QVariantAnimation
     ///
@@ -579,13 +703,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` values: []Struct_f64_QVariant `
     ///
-    pub fn SetKeyValues(self: QPropertyAnimation, values: []Struct_f64_QVariant) void {
+    pub fn setKeyValues(self: QPropertyAnimation, values: []Struct_f64_QVariant) void {
         const values_list = qtc.libqt_list{
             .len = values.len,
             .data = @ptrCast(values.ptr),
         };
         qtc.QVariantAnimation_SetKeyValues(@ptrCast(self.ptr), values_list);
     }
+
+    /// ### DEPRECATED: Use `currentValue` instead
+    ///
+    pub const CurrentValue = currentValue;
 
     /// Inherited from QVariantAnimation
     ///
@@ -595,9 +723,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn CurrentValue(self: QPropertyAnimation) QVariant {
+    pub fn currentValue(self: QPropertyAnimation) QVariant {
         return .{ .ptr = qtc.QVariantAnimation_CurrentValue(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setDuration` instead
+    ///
+    pub const SetDuration = setDuration;
 
     /// Inherited from QVariantAnimation
     ///
@@ -609,9 +741,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SetDuration(self: QPropertyAnimation, msecs: i32) void {
+    pub fn setDuration(self: QPropertyAnimation, msecs: i32) void {
         qtc.QVariantAnimation_SetDuration(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `easingCurve` instead
+    ///
+    pub const EasingCurve = easingCurve;
 
     /// Inherited from QVariantAnimation
     ///
@@ -621,9 +757,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn EasingCurve(self: QPropertyAnimation) QEasingCurve {
+    pub fn easingCurve(self: QPropertyAnimation) QEasingCurve {
         return .{ .ptr = qtc.QVariantAnimation_EasingCurve(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setEasingCurve` instead
+    ///
+    pub const SetEasingCurve = setEasingCurve;
 
     /// Inherited from QVariantAnimation
     ///
@@ -635,10 +775,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` easing: QEasingCurve `
     ///
-    pub fn SetEasingCurve(self: QPropertyAnimation, easing: anytype) void {
+    pub fn setEasingCurve(self: QPropertyAnimation, easing: anytype) void {
         comptime _ = @TypeOf(easing)._is_QEasingCurve;
         qtc.QVariantAnimation_SetEasingCurve(@ptrCast(self.ptr), @ptrCast(easing.ptr));
     }
+
+    /// ### DEPRECATED: Use `valueChanged` instead
+    ///
+    pub const ValueChanged = valueChanged;
 
     /// Inherited from QVariantAnimation
     ///
@@ -650,10 +794,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn ValueChanged(self: QPropertyAnimation, value: anytype) void {
+    pub fn valueChanged(self: QPropertyAnimation, value: anytype) void {
         comptime _ = @TypeOf(value)._is_QVariant;
         qtc.QVariantAnimation_ValueChanged(@ptrCast(self.ptr), @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `onValueChanged` instead
+    ///
+    pub const OnValueChanged = onValueChanged;
 
     /// Inherited from QVariantAnimation
     ///
@@ -665,9 +813,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, value: QVariant) callconv(.c) void `
     ///
-    pub fn OnValueChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant) callconv(.c) void) void {
+    pub fn onValueChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant) callconv(.c) void) void {
         qtc.QVariantAnimation_Connect_ValueChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `state` instead
+    ///
+    pub const State = state;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -681,9 +833,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` qabstractanimation_enums.State `
     ///
-    pub fn State(self: QPropertyAnimation) i32 {
+    pub fn state(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_State(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -693,9 +849,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Group(self: QPropertyAnimation) QAnimationGroup {
+    pub fn group(self: QPropertyAnimation) QAnimationGroup {
         return .{ .ptr = qtc.QAbstractAnimation_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `direction` instead
+    ///
+    pub const Direction = direction;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -709,9 +869,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` qabstractanimation_enums.Direction `
     ///
-    pub fn Direction(self: QPropertyAnimation) i32 {
+    pub fn direction(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_Direction(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDirection` instead
+    ///
+    pub const SetDirection = setDirection;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -721,11 +885,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn SetDirection(self: QPropertyAnimation, direction: i32) void {
-        qtc.QAbstractAnimation_SetDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn setDirection(self: QPropertyAnimation, _direction: i32) void {
+        qtc.QAbstractAnimation_SetDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `currentTime` instead
+    ///
+    pub const CurrentTime = currentTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -735,9 +903,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn CurrentTime(self: QPropertyAnimation) i32 {
+    pub fn currentTime(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_CurrentTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `currentLoopTime` instead
+    ///
+    pub const CurrentLoopTime = currentLoopTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -747,9 +919,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn CurrentLoopTime(self: QPropertyAnimation) i32 {
+    pub fn currentLoopTime(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_CurrentLoopTime(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loopCount` instead
+    ///
+    pub const LoopCount = loopCount;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -759,9 +935,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn LoopCount(self: QPropertyAnimation) i32 {
+    pub fn loopCount(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_LoopCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLoopCount` instead
+    ///
+    pub const SetLoopCount = setLoopCount;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -771,11 +951,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` loopCount: i32 `
+    /// ` _loopCount: i32 `
     ///
-    pub fn SetLoopCount(self: QPropertyAnimation, loopCount: i32) void {
-        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self.ptr), @bitCast(loopCount));
+    pub fn setLoopCount(self: QPropertyAnimation, _loopCount: i32) void {
+        qtc.QAbstractAnimation_SetLoopCount(@ptrCast(self.ptr), @bitCast(_loopCount));
     }
+
+    /// ### DEPRECATED: Use `currentLoop` instead
+    ///
+    pub const CurrentLoop = currentLoop;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -785,9 +969,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn CurrentLoop(self: QPropertyAnimation) i32 {
+    pub fn currentLoop(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_CurrentLoop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `totalDuration` instead
+    ///
+    pub const TotalDuration = totalDuration;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -797,9 +985,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn TotalDuration(self: QPropertyAnimation) i32 {
+    pub fn totalDuration(self: QPropertyAnimation) i32 {
         return qtc.QAbstractAnimation_TotalDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -809,9 +1001,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Finished(self: QPropertyAnimation) void {
+    pub fn finished(self: QPropertyAnimation) void {
         qtc.QAbstractAnimation_Finished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -823,9 +1019,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation) callconv(.c) void) void {
+    pub fn onFinished(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `stateChanged` instead
+    ///
+    pub const StateChanged = stateChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -839,9 +1039,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` oldState: qabstractanimation_enums.State `
     ///
-    pub fn StateChanged(self: QPropertyAnimation, newState: i32, oldState: i32) void {
+    pub fn stateChanged(self: QPropertyAnimation, newState: i32, oldState: i32) void {
         qtc.QAbstractAnimation_StateChanged(@ptrCast(self.ptr), @bitCast(newState), @bitCast(oldState));
     }
+
+    /// ### DEPRECATED: Use `onStateChanged` instead
+    ///
+    pub const OnStateChanged = onStateChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -853,9 +1057,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, newState: qabstractanimation_enums.State, oldState: qabstractanimation_enums.State) callconv(.c) void `
     ///
-    pub fn OnStateChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32) callconv(.c) void) void {
+    pub fn onStateChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_StateChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `currentLoopChanged` instead
+    ///
+    pub const CurrentLoopChanged = currentLoopChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -865,11 +1073,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` currentLoop: i32 `
+    /// ` _currentLoop: i32 `
     ///
-    pub fn CurrentLoopChanged(self: QPropertyAnimation, currentLoop: i32) void {
-        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(currentLoop));
+    pub fn currentLoopChanged(self: QPropertyAnimation, _currentLoop: i32) void {
+        qtc.QAbstractAnimation_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(_currentLoop));
     }
+
+    /// ### DEPRECATED: Use `onCurrentLoopChanged` instead
+    ///
+    pub const OnCurrentLoopChanged = onCurrentLoopChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -881,9 +1093,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, currentLoop: i32) callconv(.c) void `
     ///
-    pub fn OnCurrentLoopChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
+    pub fn onCurrentLoopChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_CurrentLoopChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `directionChanged` instead
+    ///
+    pub const DirectionChanged = directionChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -895,9 +1111,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: qabstractanimation_enums.Direction `
     ///
-    pub fn DirectionChanged(self: QPropertyAnimation, param1: i32) void {
+    pub fn directionChanged(self: QPropertyAnimation, param1: i32) void {
         qtc.QAbstractAnimation_DirectionChanged(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onDirectionChanged` instead
+    ///
+    pub const OnDirectionChanged = onDirectionChanged;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -909,9 +1129,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, param1: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
-    pub fn OnDirectionChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
+    pub fn onDirectionChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
         qtc.QAbstractAnimation_Connect_DirectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `start` instead
+    ///
+    pub const Start = start;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -921,9 +1145,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Start(self: QPropertyAnimation) void {
+    pub fn start(self: QPropertyAnimation) void {
         qtc.QAbstractAnimation_Start(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pause` instead
+    ///
+    pub const Pause = pause;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -933,9 +1161,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Pause(self: QPropertyAnimation) void {
+    pub fn pause(self: QPropertyAnimation) void {
         qtc.QAbstractAnimation_Pause(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resume0` instead
+    ///
+    pub const Resume = resume0;
+
+    pub const @"resume" = resume0;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -945,9 +1179,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Resume(self: QPropertyAnimation) void {
+    pub fn resume0(self: QPropertyAnimation) void {
         qtc.QAbstractAnimation_Resume(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPaused` instead
+    ///
+    pub const SetPaused = setPaused;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -959,9 +1197,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` paused: bool `
     ///
-    pub fn SetPaused(self: QPropertyAnimation, paused: bool) void {
+    pub fn setPaused(self: QPropertyAnimation, paused: bool) void {
         qtc.QAbstractAnimation_SetPaused(@ptrCast(self.ptr), paused);
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -971,9 +1213,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Stop(self: QPropertyAnimation) void {
+    pub fn stop(self: QPropertyAnimation) void {
         qtc.QAbstractAnimation_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setCurrentTime` instead
+    ///
+    pub const SetCurrentTime = setCurrentTime;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -985,9 +1231,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` msecs: i32 `
     ///
-    pub fn SetCurrentTime(self: QPropertyAnimation, msecs: i32) void {
+    pub fn setCurrentTime(self: QPropertyAnimation, msecs: i32) void {
         qtc.QAbstractAnimation_SetCurrentTime(@ptrCast(self.ptr), @bitCast(msecs));
     }
+
+    /// ### DEPRECATED: Use `start1` instead
+    ///
+    pub const Start1 = start1;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -999,9 +1249,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` policy: qabstractanimation_enums.DeletionPolicy `
     ///
-    pub fn Start1(self: QPropertyAnimation, policy: i32) void {
+    pub fn start1(self: QPropertyAnimation, policy: i32) void {
         qtc.QAbstractAnimation_Start1(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1013,13 +1267,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPropertyAnimation, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPropertyAnimation, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPropertyAnimation.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1031,13 +1289,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPropertyAnimation, name: []const u8) void {
+    pub fn setObjectName(self: QPropertyAnimation, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1047,9 +1309,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn IsWidgetType(self: QPropertyAnimation) bool {
+    pub fn isWidgetType(self: QPropertyAnimation) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1059,9 +1325,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn IsWindowType(self: QPropertyAnimation) bool {
+    pub fn isWindowType(self: QPropertyAnimation) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1071,9 +1341,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn IsQuickItemType(self: QPropertyAnimation) bool {
+    pub fn isQuickItemType(self: QPropertyAnimation) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1083,9 +1357,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SignalsBlocked(self: QPropertyAnimation) bool {
+    pub fn signalsBlocked(self: QPropertyAnimation) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1097,9 +1375,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPropertyAnimation, b: bool) bool {
+    pub fn blockSignals(self: QPropertyAnimation, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1109,9 +1391,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Thread(self: QPropertyAnimation) QThread {
+    pub fn thread(self: QPropertyAnimation) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1121,12 +1407,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPropertyAnimation, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPropertyAnimation, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1138,9 +1428,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPropertyAnimation, interval: i32) i32 {
+    pub fn startTimer(self: QPropertyAnimation, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1152,9 +1446,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPropertyAnimation, time: i64) i32 {
+    pub fn startTimer2(self: QPropertyAnimation, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1166,9 +1464,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPropertyAnimation, id: i32) void {
+    pub fn killTimer(self: QPropertyAnimation, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1180,9 +1482,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPropertyAnimation, id: i32) void {
+    pub fn killTimer2(self: QPropertyAnimation, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1194,15 +1500,19 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPropertyAnimation, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPropertyAnimation, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPropertyAnimation.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPropertyAnimation.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1212,12 +1522,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPropertyAnimation, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPropertyAnimation, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1229,10 +1543,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPropertyAnimation, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPropertyAnimation, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1244,10 +1562,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPropertyAnimation, obj: anytype) void {
+    pub fn removeEventFilter(self: QPropertyAnimation, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1255,7 +1577,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1263,13 +1585,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1277,7 +1603,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1285,13 +1611,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1301,18 +1631,22 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPropertyAnimation, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPropertyAnimation, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1320,7 +1654,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1328,13 +1662,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1342,7 +1680,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1350,13 +1688,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1366,9 +1708,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Disconnect3(self: QPropertyAnimation) bool {
+    pub fn disconnect3(self: QPropertyAnimation) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1380,10 +1726,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPropertyAnimation, receiver: anytype) bool {
+    pub fn disconnect4(self: QPropertyAnimation, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1393,10 +1743,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1406,9 +1760,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn DumpObjectTree(self: QPropertyAnimation) void {
+    pub fn dumpObjectTree(self: QPropertyAnimation) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1418,9 +1776,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn DumpObjectInfo(self: QPropertyAnimation) void {
+    pub fn dumpObjectInfo(self: QPropertyAnimation) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1434,11 +1796,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPropertyAnimation, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPropertyAnimation, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1450,10 +1816,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPropertyAnimation, name: [:0]const u8) QVariant {
+    pub fn property(self: QPropertyAnimation, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1465,7 +1835,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPropertyAnimation, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPropertyAnimation, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1473,27 +1843,19 @@ pub const QPropertyAnimation = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPropertyAnimation.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPropertyAnimation.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPropertyAnimation.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPropertyAnimation.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPropertyAnimation `
-    ///
-    pub fn BindingStorage(self: QPropertyAnimation) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1503,9 +1865,29 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn BindingStorage2(self: QPropertyAnimation) QBindingStorage {
+    pub fn bindingStorage(self: QPropertyAnimation) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPropertyAnimation `
+    ///
+    pub fn bindingStorage2(self: QPropertyAnimation) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1515,9 +1897,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Destroyed(self: QPropertyAnimation) void {
+    pub fn destroyed(self: QPropertyAnimation) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1529,9 +1915,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1541,9 +1931,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Parent(self: QPropertyAnimation) QObject {
+    pub fn parent(self: QPropertyAnimation) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1555,10 +1949,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPropertyAnimation, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPropertyAnimation, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1568,9 +1966,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn DeleteLater(self: QPropertyAnimation) void {
+    pub fn deleteLater(self: QPropertyAnimation) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1584,9 +1986,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPropertyAnimation, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPropertyAnimation, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1600,9 +2006,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPropertyAnimation, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPropertyAnimation, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1610,7 +2020,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1620,13 +2030,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1634,7 +2048,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1644,13 +2058,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1660,7 +2078,7 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1668,12 +2086,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPropertyAnimation, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPropertyAnimation, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1685,10 +2107,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPropertyAnimation, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPropertyAnimation, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1702,11 +2128,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPropertyAnimation, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPropertyAnimation, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1722,13 +2152,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPropertyAnimation, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPropertyAnimation, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1741,11 +2175,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPropertyAnimation, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPropertyAnimation, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1757,10 +2195,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPropertyAnimation, param1: anytype) void {
+    pub fn destroyed1(self: QPropertyAnimation, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1772,9 +2214,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `duration` instead
+    ///
+    pub const Duration = duration;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1786,13 +2232,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Duration(self: QPropertyAnimation) i32 {
+    pub fn duration(self: QPropertyAnimation) i32 {
         return qtc.QPropertyAnimation_Duration(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDuration` instead
+    /// ### DEPRECATED: Use `superDuration` instead
     ///
-    pub const QBaseDuration = SuperDuration;
+    pub const SuperDuration = superDuration;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1804,9 +2250,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SuperDuration(self: QPropertyAnimation) i32 {
+    pub fn superDuration(self: QPropertyAnimation) i32 {
         return qtc.QPropertyAnimation_SuperDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDuration` instead
+    ///
+    pub const OnDuration = onDuration;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1820,9 +2270,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDuration(self: QPropertyAnimation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDuration(self: QPropertyAnimation, callback: *const fn () callconv(.c) i32) void {
         qtc.QPropertyAnimation_OnDuration(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateCurrentTime` instead
+    ///
+    pub const UpdateCurrentTime = updateCurrentTime;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1836,13 +2290,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn UpdateCurrentTime(self: QPropertyAnimation, param1: i32) void {
+    pub fn updateCurrentTime(self: QPropertyAnimation, param1: i32) void {
         qtc.QPropertyAnimation_UpdateCurrentTime(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateCurrentTime` instead
+    /// ### DEPRECATED: Use `superUpdateCurrentTime` instead
     ///
-    pub const QBaseUpdateCurrentTime = SuperUpdateCurrentTime;
+    pub const SuperUpdateCurrentTime = superUpdateCurrentTime;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1856,9 +2310,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperUpdateCurrentTime(self: QPropertyAnimation, param1: i32) void {
+    pub fn superUpdateCurrentTime(self: QPropertyAnimation, param1: i32) void {
         qtc.QPropertyAnimation_SuperUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onUpdateCurrentTime` instead
+    ///
+    pub const OnUpdateCurrentTime = onUpdateCurrentTime;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1872,9 +2330,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, param1: i32) callconv(.c) void `
     ///
-    pub fn OnUpdateCurrentTime(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
+    pub fn onUpdateCurrentTime(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateCurrentTime(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `interpolated` instead
+    ///
+    pub const Interpolated = interpolated;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1892,15 +2354,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` progress: f64 `
     ///
-    pub fn Interpolated(self: QPropertyAnimation, from: anytype, to: anytype, progress: f64) QVariant {
+    pub fn interpolated(self: QPropertyAnimation, from: anytype, to: anytype, progress: f64) QVariant {
         comptime _ = @TypeOf(from)._is_QVariant;
         comptime _ = @TypeOf(to)._is_QVariant;
         return .{ .ptr = qtc.QPropertyAnimation_Interpolated(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr), @bitCast(progress)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInterpolated` instead
+    /// ### DEPRECATED: Use `superInterpolated` instead
     ///
-    pub const QBaseInterpolated = SuperInterpolated;
+    pub const SuperInterpolated = superInterpolated;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1918,11 +2380,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` progress: f64 `
     ///
-    pub fn SuperInterpolated(self: QPropertyAnimation, from: anytype, to: anytype, progress: f64) QVariant {
+    pub fn superInterpolated(self: QPropertyAnimation, from: anytype, to: anytype, progress: f64) QVariant {
         comptime _ = @TypeOf(from)._is_QVariant;
         comptime _ = @TypeOf(to)._is_QVariant;
         return .{ .ptr = qtc.QPropertyAnimation_SuperInterpolated(@ptrCast(self.ptr), @ptrCast(from.ptr), @ptrCast(to.ptr), @bitCast(progress)) };
     }
+
+    /// ### DEPRECATED: Use `onInterpolated` instead
+    ///
+    pub const OnInterpolated = onInterpolated;
 
     /// Inherited from QVariantAnimation
     ///
@@ -1938,9 +2404,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInterpolated(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant, QVariant, f64) callconv(.c) QVariant) void {
+    pub fn onInterpolated(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QVariant, QVariant, f64) callconv(.c) QVariant) void {
         qtc.QPropertyAnimation_OnInterpolated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `updateDirection` instead
+    ///
+    pub const UpdateDirection = updateDirection;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -1952,15 +2422,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn UpdateDirection(self: QPropertyAnimation, direction: i32) void {
-        qtc.QPropertyAnimation_UpdateDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn updateDirection(self: QPropertyAnimation, _direction: i32) void {
+        qtc.QPropertyAnimation_UpdateDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateDirection` instead
+    /// ### DEPRECATED: Use `superUpdateDirection` instead
     ///
-    pub const QBaseUpdateDirection = SuperUpdateDirection;
+    pub const SuperUpdateDirection = superUpdateDirection;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -1972,11 +2442,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` direction: qabstractanimation_enums.Direction `
+    /// ` _direction: qabstractanimation_enums.Direction `
     ///
-    pub fn SuperUpdateDirection(self: QPropertyAnimation, direction: i32) void {
-        qtc.QPropertyAnimation_SuperUpdateDirection(@ptrCast(self.ptr), @bitCast(direction));
+    pub fn superUpdateDirection(self: QPropertyAnimation, _direction: i32) void {
+        qtc.QPropertyAnimation_SuperUpdateDirection(@ptrCast(self.ptr), @bitCast(_direction));
     }
+
+    /// ### DEPRECATED: Use `onUpdateDirection` instead
+    ///
+    pub const OnUpdateDirection = onUpdateDirection;
 
     /// Inherited from QAbstractAnimation
     ///
@@ -1990,9 +2464,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, direction: qabstractanimation_enums.Direction) callconv(.c) void `
     ///
-    pub fn OnUpdateDirection(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
+    pub fn onUpdateDirection(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, i32) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnUpdateDirection(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2006,17 +2484,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPropertyAnimation, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPropertyAnimation, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPropertyAnimation_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPropertyAnimation_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2030,13 +2508,17 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPropertyAnimation, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPropertyAnimation, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPropertyAnimation_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPropertyAnimation_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2050,9 +2532,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPropertyAnimation_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2064,16 +2550,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPropertyAnimation_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPropertyAnimation_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2085,12 +2571,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPropertyAnimation_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPropertyAnimation_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2104,9 +2594,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QTimerEvent) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2118,16 +2612,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPropertyAnimation_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPropertyAnimation_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2139,12 +2633,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPropertyAnimation_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPropertyAnimation_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2158,9 +2656,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QChildEvent) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2172,16 +2674,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPropertyAnimation_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPropertyAnimation_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2193,12 +2695,16 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPropertyAnimation, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPropertyAnimation_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPropertyAnimation, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPropertyAnimation_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2212,9 +2718,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QEvent) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2228,14 +2738,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPropertyAnimation, signal: anytype) void {
+    pub fn connectNotify(self: QPropertyAnimation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPropertyAnimation_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2249,11 +2759,15 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPropertyAnimation, signal: anytype) void {
+    pub fn superConnectNotify(self: QPropertyAnimation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPropertyAnimation_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2266,9 +2780,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2282,14 +2800,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPropertyAnimation, signal: anytype) void {
+    pub fn disconnectNotify(self: QPropertyAnimation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPropertyAnimation_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2303,10 +2821,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPropertyAnimation, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPropertyAnimation, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPropertyAnimation_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2320,9 +2842,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) void) void {
         qtc.QPropertyAnimation_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2334,13 +2860,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Sender(self: QPropertyAnimation) QObject {
+    pub fn sender(self: QPropertyAnimation) QObject {
         return .{ .ptr = qtc.QPropertyAnimation_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2352,9 +2878,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SuperSender(self: QPropertyAnimation) QObject {
+    pub fn superSender(self: QPropertyAnimation) QObject {
         return .{ .ptr = qtc.QPropertyAnimation_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2368,9 +2898,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPropertyAnimation, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPropertyAnimation, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPropertyAnimation_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2382,13 +2916,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SenderSignalIndex(self: QPropertyAnimation) i32 {
+    pub fn senderSignalIndex(self: QPropertyAnimation) i32 {
         return qtc.QPropertyAnimation_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2400,9 +2934,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn SuperSenderSignalIndex(self: QPropertyAnimation) i32 {
+    pub fn superSenderSignalIndex(self: QPropertyAnimation) i32 {
         return qtc.QPropertyAnimation_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2416,9 +2954,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPropertyAnimation, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPropertyAnimation, callback: *const fn () callconv(.c) i32) void {
         qtc.QPropertyAnimation_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2432,14 +2974,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPropertyAnimation, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPropertyAnimation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPropertyAnimation_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2453,10 +2995,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPropertyAnimation, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPropertyAnimation, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPropertyAnimation_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2470,9 +3016,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPropertyAnimation_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2486,14 +3036,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPropertyAnimation, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPropertyAnimation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPropertyAnimation_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2507,10 +3057,14 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPropertyAnimation, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPropertyAnimation, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPropertyAnimation_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2524,9 +3078,13 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, QMetaMethod) callconv(.c) bool) void {
         qtc.QPropertyAnimation_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2540,23 +3098,23 @@ pub const QPropertyAnimation = extern struct {
     ///
     /// ` callback: *const fn (self: QPropertyAnimation, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPropertyAnimation, callback: *const fn (QPropertyAnimation, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpropertyanimation.html#dtor.QPropertyAnimation)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPropertyAnimation `
     ///
-    pub fn Delete(self: QPropertyAnimation) void {
+    pub fn delete(self: QPropertyAnimation) void {
         qtc.QPropertyAnimation_Delete(@ptrCast(self.ptr));
     }
 };

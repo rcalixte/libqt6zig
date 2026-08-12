@@ -12,29 +12,40 @@ pub const KIO__OpenWith = extern struct {
 
     pub const _is_KIO__OpenWith = {};
 
-    /// New constructs a new KIO::OpenWith object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KIO::OpenWith object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KIO__OpenWith `
     ///
-    pub fn New(other: anytype) KIO__OpenWith {
+    pub fn new(other: anytype) KIO__OpenWith {
         comptime _ = @TypeOf(other)._is_KIO__OpenWith;
         return .{ .ptr = qtc.KIO__OpenWith_new(@ptrCast(other.ptr)) };
     }
 
-    /// New2 constructs a new KIO::OpenWith object and invalidates the source KIO::OpenWith object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KIO::OpenWith object and invalidate the source KIO::OpenWith object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KIO__OpenWith `
     ///
-    pub fn New2(other: anytype) KIO__OpenWith {
+    pub fn new2(other: anytype) KIO__OpenWith {
         comptime _ = @TypeOf(other)._is_KIO__OpenWith;
         return .{ .ptr = qtc.KIO__OpenWith_new2(@ptrCast(other.ptr)) };
     }
 
-    /// CopyAssign shallow copies `other` into `self`.
+    /// ### DEPRECATED: Use `copyAssign` instead
+    ///
+    pub const CopyAssign = copyAssign;
+    /// Shallow copy `other` into `self` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -42,11 +53,14 @@ pub const KIO__OpenWith = extern struct {
     ///
     /// ` other: KIO__OpenWith `
     ///
-    pub fn CopyAssign(self: KIO__OpenWith, other: KIO__OpenWith) void {
+    pub fn copyAssign(self: KIO__OpenWith, other: KIO__OpenWith) void {
         qtc.KIO__OpenWith_CopyAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// MoveAssign moves `other` into `self` and invalidates `other`.
+    /// ### DEPRECATED: Use `moveAssign` instead
+    ///
+    pub const MoveAssign = moveAssign;
+    /// Move `other` into `self` and invalidate `other` in C++ memory
     ///
     /// ## Parameters:
     ///
@@ -54,21 +68,21 @@ pub const KIO__OpenWith = extern struct {
     ///
     /// ` other: KIO__OpenWith `
     ///
-    pub fn MoveAssign(self: KIO__OpenWith, other: KIO__OpenWith) void {
+    pub fn moveAssign(self: KIO__OpenWith, other: KIO__OpenWith) void {
         qtc.KIO__OpenWith_MoveAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KIO__OpenWith `
     ///
-    pub fn Delete(self: KIO__OpenWith) void {
+    pub fn delete(self: KIO__OpenWith) void {
         qtc.KIO__OpenWith_Delete(@ptrCast(self.ptr));
     }
 };
@@ -83,32 +97,34 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
 
     pub const _is_KIO__OpenWith__AcceptResult = {};
 
-    /// New constructs a new KIO::OpenWith::AcceptResult object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KIO__OpenWith__AcceptResult {
+    pub const New = new;
+
+    /// Allocate a new KIO::OpenWith::AcceptResult object in C++ memory
+    ///
+    pub fn new() KIO__OpenWith__AcceptResult {
         return .{ .ptr = qtc.KIO__OpenWith__AcceptResult_new() };
     }
 
-    /// New2 constructs a new KIO::OpenWith::AcceptResult object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KIO::OpenWith::AcceptResult object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KIO__OpenWith__AcceptResult `
     ///
-    pub fn New2(param1: anytype) KIO__OpenWith__AcceptResult {
+    pub fn new2(param1: anytype) KIO__OpenWith__AcceptResult {
         comptime _ = @TypeOf(param1)._is_KIO__OpenWith__AcceptResult;
         return .{ .ptr = qtc.KIO__OpenWith__AcceptResult_new2(@ptrCast(param1.ptr)) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
+    /// ### DEPRECATED: Use `accept` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__OpenWith__AcceptResult `
-    ///
-    pub fn Accept(self: KIO__OpenWith__AcceptResult) bool {
-        return qtc.KIO__OpenWith__AcceptResult_Accept(@ptrCast(self.ptr));
-    }
+    pub const Accept = accept;
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
     ///
@@ -116,11 +132,31 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
     ///
     /// ` self: KIO__OpenWith__AcceptResult `
     ///
-    /// ` accept: bool `
-    ///
-    pub fn SetAccept(self: KIO__OpenWith__AcceptResult, accept: bool) void {
-        qtc.KIO__OpenWith__AcceptResult_SetAccept(@ptrCast(self.ptr), accept);
+    pub fn accept(self: KIO__OpenWith__AcceptResult) bool {
+        return qtc.KIO__OpenWith__AcceptResult_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAccept` instead
+    ///
+    pub const SetAccept = setAccept;
+
+    /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#accept-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__OpenWith__AcceptResult `
+    ///
+    /// ` _accept: bool `
+    ///
+    pub fn setAccept(self: KIO__OpenWith__AcceptResult, _accept: bool) void {
+        qtc.KIO__OpenWith__AcceptResult_SetAccept(@ptrCast(self.ptr), _accept);
+    }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
     ///
@@ -130,13 +166,17 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Error(self: KIO__OpenWith__AcceptResult, allocator: std.mem.Allocator) []const u8 {
+    pub fn error0(self: KIO__OpenWith__AcceptResult, allocator: std.mem.Allocator) []const u8 {
         var error_str = qtc.KIO__OpenWith__AcceptResult_Error(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&error_str);
-        const error_ret = allocator.alloc(u8, error_str.len) catch @panic("KIO__OpenWith__AcceptResult.Error: Memory allocation failed");
+        const error_ret = allocator.alloc(u8, error_str.len) catch @panic("KIO__OpenWith__AcceptResult.error0: Memory allocation failed");
         @memcpy(error_ret, error_str.data[0..error_str.len]);
         return error_ret;
     }
+
+    /// ### DEPRECATED: Use `setError` instead
+    ///
+    pub const SetError = setError;
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#error-var)
     ///
@@ -144,9 +184,9 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
     ///
     /// ` self: KIO__OpenWith__AcceptResult `
     ///
-    /// ` error: []const u8 `
+    /// ` _error: []const u8 `
     ///
-    pub fn SetError(self: KIO__OpenWith__AcceptResult, _error: []const u8) void {
+    pub fn setError(self: KIO__OpenWith__AcceptResult, _error: []const u8) void {
         const error_str = qtc.libqt_string{
             .len = _error.len,
             .data = _error.ptr,
@@ -154,15 +194,9 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
         qtc.KIO__OpenWith__AcceptResult_SetError(@ptrCast(self.ptr), error_str);
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
+    /// ### DEPRECATED: Use `rebuildSycoca` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KIO__OpenWith__AcceptResult `
-    ///
-    pub fn RebuildSycoca(self: KIO__OpenWith__AcceptResult) bool {
-        return qtc.KIO__OpenWith__AcceptResult_RebuildSycoca(@ptrCast(self.ptr));
-    }
+    pub const RebuildSycoca = rebuildSycoca;
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
     ///
@@ -170,11 +204,29 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
     ///
     /// ` self: KIO__OpenWith__AcceptResult `
     ///
-    /// ` rebuildSycoca: bool `
-    ///
-    pub fn SetRebuildSycoca(self: KIO__OpenWith__AcceptResult, rebuildSycoca: bool) void {
-        qtc.KIO__OpenWith__AcceptResult_SetRebuildSycoca(@ptrCast(self.ptr), rebuildSycoca);
+    pub fn rebuildSycoca(self: KIO__OpenWith__AcceptResult) bool {
+        return qtc.KIO__OpenWith__AcceptResult_RebuildSycoca(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setRebuildSycoca` instead
+    ///
+    pub const SetRebuildSycoca = setRebuildSycoca;
+
+    /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#rebuildSycoca-var)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KIO__OpenWith__AcceptResult `
+    ///
+    /// ` _rebuildSycoca: bool `
+    ///
+    pub fn setRebuildSycoca(self: KIO__OpenWith__AcceptResult, _rebuildSycoca: bool) void {
+        qtc.KIO__OpenWith__AcceptResult_SetRebuildSycoca(@ptrCast(self.ptr), _rebuildSycoca);
+    }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kio-openwith-acceptresult.html#operator-eq)
     ///
@@ -184,22 +236,22 @@ pub const KIO__OpenWith__AcceptResult = extern struct {
     ///
     /// ` param1: KIO__OpenWith__AcceptResult `
     ///
-    pub fn OperatorAssign(self: KIO__OpenWith__AcceptResult, param1: anytype) void {
+    pub fn operatorAssign(self: KIO__OpenWith__AcceptResult, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KIO__OpenWith__AcceptResult;
         qtc.KIO__OpenWith__AcceptResult_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KIO__OpenWith__AcceptResult `
     ///
-    pub fn Delete(self: KIO__OpenWith__AcceptResult) void {
+    pub fn delete(self: KIO__OpenWith__AcceptResult) void {
         qtc.KIO__OpenWith__AcceptResult_Delete(@ptrCast(self.ptr));
     }
 };

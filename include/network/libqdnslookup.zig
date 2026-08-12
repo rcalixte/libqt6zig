@@ -27,22 +27,34 @@ pub const QDnsDomainNameRecord = extern struct {
 
     pub const _is_QDnsDomainNameRecord = {};
 
-    /// New constructs a new QDnsDomainNameRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsDomainNameRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsDomainNameRecord object in C++ memory
+    ///
+    pub fn new() QDnsDomainNameRecord {
         return .{ .ptr = qtc.QDnsDomainNameRecord_new() };
     }
 
-    /// New2 constructs a new QDnsDomainNameRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsDomainNameRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsDomainNameRecord `
     ///
-    pub fn New2(other: anytype) QDnsDomainNameRecord {
+    pub fn new2(other: anytype) QDnsDomainNameRecord {
         comptime _ = @TypeOf(other)._is_QDnsDomainNameRecord;
         return .{ .ptr = qtc.QDnsDomainNameRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#operator-eq)
     ///
@@ -52,10 +64,14 @@ pub const QDnsDomainNameRecord = extern struct {
     ///
     /// ` other: QDnsDomainNameRecord `
     ///
-    pub fn OperatorAssign(self: QDnsDomainNameRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsDomainNameRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsDomainNameRecord;
         qtc.QDnsDomainNameRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#swap)
     ///
@@ -65,10 +81,14 @@ pub const QDnsDomainNameRecord = extern struct {
     ///
     /// ` other: QDnsDomainNameRecord `
     ///
-    pub fn Swap(self: QDnsDomainNameRecord, other: anytype) void {
+    pub fn swap(self: QDnsDomainNameRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsDomainNameRecord;
         qtc.QDnsDomainNameRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#name)
     ///
@@ -78,13 +98,17 @@ pub const QDnsDomainNameRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsDomainNameRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#timeToLive)
     ///
@@ -92,9 +116,13 @@ pub const QDnsDomainNameRecord = extern struct {
     ///
     /// ` self: QDnsDomainNameRecord `
     ///
-    pub fn TimeToLive(self: QDnsDomainNameRecord) u32 {
+    pub fn timeToLive(self: QDnsDomainNameRecord) u32 {
         return qtc.QDnsDomainNameRecord_TimeToLive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#value)
     ///
@@ -104,27 +132,27 @@ pub const QDnsDomainNameRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn value(self: QDnsDomainNameRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsDomainNameRecord_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsDomainNameRecord.value: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsdomainnamerecord.html#dtor.QDnsDomainNameRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsDomainNameRecord `
     ///
-    pub fn Delete(self: QDnsDomainNameRecord) void {
+    pub fn delete(self: QDnsDomainNameRecord) void {
         qtc.QDnsDomainNameRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -139,22 +167,34 @@ pub const QDnsHostAddressRecord = extern struct {
 
     pub const _is_QDnsHostAddressRecord = {};
 
-    /// New constructs a new QDnsHostAddressRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsHostAddressRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsHostAddressRecord object in C++ memory
+    ///
+    pub fn new() QDnsHostAddressRecord {
         return .{ .ptr = qtc.QDnsHostAddressRecord_new() };
     }
 
-    /// New2 constructs a new QDnsHostAddressRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsHostAddressRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsHostAddressRecord `
     ///
-    pub fn New2(other: anytype) QDnsHostAddressRecord {
+    pub fn new2(other: anytype) QDnsHostAddressRecord {
         comptime _ = @TypeOf(other)._is_QDnsHostAddressRecord;
         return .{ .ptr = qtc.QDnsHostAddressRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#operator-eq)
     ///
@@ -164,10 +204,14 @@ pub const QDnsHostAddressRecord = extern struct {
     ///
     /// ` other: QDnsHostAddressRecord `
     ///
-    pub fn OperatorAssign(self: QDnsHostAddressRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsHostAddressRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsHostAddressRecord;
         qtc.QDnsHostAddressRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#swap)
     ///
@@ -177,10 +221,14 @@ pub const QDnsHostAddressRecord = extern struct {
     ///
     /// ` other: QDnsHostAddressRecord `
     ///
-    pub fn Swap(self: QDnsHostAddressRecord, other: anytype) void {
+    pub fn swap(self: QDnsHostAddressRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsHostAddressRecord;
         qtc.QDnsHostAddressRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#name)
     ///
@@ -190,13 +238,17 @@ pub const QDnsHostAddressRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsHostAddressRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsHostAddressRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsHostAddressRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsHostAddressRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsHostAddressRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#timeToLive)
     ///
@@ -204,9 +256,13 @@ pub const QDnsHostAddressRecord = extern struct {
     ///
     /// ` self: QDnsHostAddressRecord `
     ///
-    pub fn TimeToLive(self: QDnsHostAddressRecord) u32 {
+    pub fn timeToLive(self: QDnsHostAddressRecord) u32 {
         return qtc.QDnsHostAddressRecord_TimeToLive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#value)
     ///
@@ -214,23 +270,23 @@ pub const QDnsHostAddressRecord = extern struct {
     ///
     /// ` self: QDnsHostAddressRecord `
     ///
-    pub fn Value(self: QDnsHostAddressRecord) QHostAddress {
+    pub fn value(self: QDnsHostAddressRecord) QHostAddress {
         return .{ .ptr = qtc.QDnsHostAddressRecord_Value(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnshostaddressrecord.html#dtor.QDnsHostAddressRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsHostAddressRecord `
     ///
-    pub fn Delete(self: QDnsHostAddressRecord) void {
+    pub fn delete(self: QDnsHostAddressRecord) void {
         qtc.QDnsHostAddressRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -245,22 +301,34 @@ pub const QDnsMailExchangeRecord = extern struct {
 
     pub const _is_QDnsMailExchangeRecord = {};
 
-    /// New constructs a new QDnsMailExchangeRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsMailExchangeRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsMailExchangeRecord object in C++ memory
+    ///
+    pub fn new() QDnsMailExchangeRecord {
         return .{ .ptr = qtc.QDnsMailExchangeRecord_new() };
     }
 
-    /// New2 constructs a new QDnsMailExchangeRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsMailExchangeRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsMailExchangeRecord `
     ///
-    pub fn New2(other: anytype) QDnsMailExchangeRecord {
+    pub fn new2(other: anytype) QDnsMailExchangeRecord {
         comptime _ = @TypeOf(other)._is_QDnsMailExchangeRecord;
         return .{ .ptr = qtc.QDnsMailExchangeRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#operator-eq)
     ///
@@ -270,10 +338,14 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` other: QDnsMailExchangeRecord `
     ///
-    pub fn OperatorAssign(self: QDnsMailExchangeRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsMailExchangeRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsMailExchangeRecord;
         qtc.QDnsMailExchangeRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#swap)
     ///
@@ -283,10 +355,14 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` other: QDnsMailExchangeRecord `
     ///
-    pub fn Swap(self: QDnsMailExchangeRecord, other: anytype) void {
+    pub fn swap(self: QDnsMailExchangeRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsMailExchangeRecord;
         qtc.QDnsMailExchangeRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `exchange` instead
+    ///
+    pub const Exchange = exchange;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#exchange)
     ///
@@ -296,13 +372,17 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Exchange(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn exchange(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsMailExchangeRecord_Exchange(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.Exchange: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.exchange: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#name)
     ///
@@ -312,13 +392,17 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsMailExchangeRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsMailExchangeRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsMailExchangeRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `preference` instead
+    ///
+    pub const Preference = preference;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#preference)
     ///
@@ -326,9 +410,13 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` self: QDnsMailExchangeRecord `
     ///
-    pub fn Preference(self: QDnsMailExchangeRecord) u16 {
+    pub fn preference(self: QDnsMailExchangeRecord) u16 {
         return qtc.QDnsMailExchangeRecord_Preference(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#timeToLive)
     ///
@@ -336,23 +424,23 @@ pub const QDnsMailExchangeRecord = extern struct {
     ///
     /// ` self: QDnsMailExchangeRecord `
     ///
-    pub fn TimeToLive(self: QDnsMailExchangeRecord) u32 {
+    pub fn timeToLive(self: QDnsMailExchangeRecord) u32 {
         return qtc.QDnsMailExchangeRecord_TimeToLive(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsmailexchangerecord.html#dtor.QDnsMailExchangeRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsMailExchangeRecord `
     ///
-    pub fn Delete(self: QDnsMailExchangeRecord) void {
+    pub fn delete(self: QDnsMailExchangeRecord) void {
         qtc.QDnsMailExchangeRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -367,22 +455,34 @@ pub const QDnsServiceRecord = extern struct {
 
     pub const _is_QDnsServiceRecord = {};
 
-    /// New constructs a new QDnsServiceRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsServiceRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsServiceRecord object in C++ memory
+    ///
+    pub fn new() QDnsServiceRecord {
         return .{ .ptr = qtc.QDnsServiceRecord_new() };
     }
 
-    /// New2 constructs a new QDnsServiceRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsServiceRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsServiceRecord `
     ///
-    pub fn New2(other: anytype) QDnsServiceRecord {
+    pub fn new2(other: anytype) QDnsServiceRecord {
         comptime _ = @TypeOf(other)._is_QDnsServiceRecord;
         return .{ .ptr = qtc.QDnsServiceRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#operator-eq)
     ///
@@ -392,10 +492,14 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` other: QDnsServiceRecord `
     ///
-    pub fn OperatorAssign(self: QDnsServiceRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsServiceRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsServiceRecord;
         qtc.QDnsServiceRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#swap)
     ///
@@ -405,10 +509,14 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` other: QDnsServiceRecord `
     ///
-    pub fn Swap(self: QDnsServiceRecord, other: anytype) void {
+    pub fn swap(self: QDnsServiceRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsServiceRecord;
         qtc.QDnsServiceRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#name)
     ///
@@ -418,13 +526,17 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsServiceRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `port` instead
+    ///
+    pub const Port = port;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#port)
     ///
@@ -432,9 +544,13 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` self: QDnsServiceRecord `
     ///
-    pub fn Port(self: QDnsServiceRecord) u16 {
+    pub fn port(self: QDnsServiceRecord) u16 {
         return qtc.QDnsServiceRecord_Port(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `priority` instead
+    ///
+    pub const Priority = priority;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#priority)
     ///
@@ -442,9 +558,13 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` self: QDnsServiceRecord `
     ///
-    pub fn Priority(self: QDnsServiceRecord) u16 {
+    pub fn priority(self: QDnsServiceRecord) u16 {
         return qtc.QDnsServiceRecord_Priority(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `target` instead
+    ///
+    pub const Target = target;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#target)
     ///
@@ -454,13 +574,17 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Target(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn target(self: QDnsServiceRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsServiceRecord_Target(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.Target: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsServiceRecord.target: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#timeToLive)
     ///
@@ -468,9 +592,13 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` self: QDnsServiceRecord `
     ///
-    pub fn TimeToLive(self: QDnsServiceRecord) u32 {
+    pub fn timeToLive(self: QDnsServiceRecord) u32 {
         return qtc.QDnsServiceRecord_TimeToLive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `weight` instead
+    ///
+    pub const Weight = weight;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#weight)
     ///
@@ -478,23 +606,23 @@ pub const QDnsServiceRecord = extern struct {
     ///
     /// ` self: QDnsServiceRecord `
     ///
-    pub fn Weight(self: QDnsServiceRecord) u16 {
+    pub fn weight(self: QDnsServiceRecord) u16 {
         return qtc.QDnsServiceRecord_Weight(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnsservicerecord.html#dtor.QDnsServiceRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsServiceRecord `
     ///
-    pub fn Delete(self: QDnsServiceRecord) void {
+    pub fn delete(self: QDnsServiceRecord) void {
         qtc.QDnsServiceRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -509,22 +637,34 @@ pub const QDnsTextRecord = extern struct {
 
     pub const _is_QDnsTextRecord = {};
 
-    /// New constructs a new QDnsTextRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsTextRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsTextRecord object in C++ memory
+    ///
+    pub fn new() QDnsTextRecord {
         return .{ .ptr = qtc.QDnsTextRecord_new() };
     }
 
-    /// New2 constructs a new QDnsTextRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsTextRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsTextRecord `
     ///
-    pub fn New2(other: anytype) QDnsTextRecord {
+    pub fn new2(other: anytype) QDnsTextRecord {
         comptime _ = @TypeOf(other)._is_QDnsTextRecord;
         return .{ .ptr = qtc.QDnsTextRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#operator-eq)
     ///
@@ -534,10 +674,14 @@ pub const QDnsTextRecord = extern struct {
     ///
     /// ` other: QDnsTextRecord `
     ///
-    pub fn OperatorAssign(self: QDnsTextRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsTextRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsTextRecord;
         qtc.QDnsTextRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#swap)
     ///
@@ -547,10 +691,14 @@ pub const QDnsTextRecord = extern struct {
     ///
     /// ` other: QDnsTextRecord `
     ///
-    pub fn Swap(self: QDnsTextRecord, other: anytype) void {
+    pub fn swap(self: QDnsTextRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsTextRecord;
         qtc.QDnsTextRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#name)
     ///
@@ -560,13 +708,17 @@ pub const QDnsTextRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsTextRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsTextRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsTextRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTextRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTextRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#timeToLive)
     ///
@@ -574,9 +726,13 @@ pub const QDnsTextRecord = extern struct {
     ///
     /// ` self: QDnsTextRecord `
     ///
-    pub fn TimeToLive(self: QDnsTextRecord) u32 {
+    pub fn timeToLive(self: QDnsTextRecord) u32 {
         return qtc.QDnsTextRecord_TimeToLive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `values` instead
+    ///
+    pub const Values = values;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#values)
     ///
@@ -586,7 +742,7 @@ pub const QDnsTextRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Values(self: QDnsTextRecord, allocator: std.mem.Allocator) [][]u8 {
+    pub fn values(self: QDnsTextRecord, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QDnsTextRecord_Values(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -594,29 +750,29 @@ pub const QDnsTextRecord = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsTextRecord.Values: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsTextRecord.values: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDnsTextRecord.Values: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDnsTextRecord.values: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstextrecord.html#dtor.QDnsTextRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsTextRecord `
     ///
-    pub fn Delete(self: QDnsTextRecord) void {
+    pub fn delete(self: QDnsTextRecord) void {
         qtc.QDnsTextRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -631,22 +787,34 @@ pub const QDnsTlsAssociationRecord = extern struct {
 
     pub const _is_QDnsTlsAssociationRecord = {};
 
-    /// New constructs a new QDnsTlsAssociationRecord object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsTlsAssociationRecord {
+    pub const New = new;
+
+    /// Allocate a new QDnsTlsAssociationRecord object in C++ memory
+    ///
+    pub fn new() QDnsTlsAssociationRecord {
         return .{ .ptr = qtc.QDnsTlsAssociationRecord_new() };
     }
 
-    /// New2 constructs a new QDnsTlsAssociationRecord object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsTlsAssociationRecord object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QDnsTlsAssociationRecord `
     ///
-    pub fn New2(other: anytype) QDnsTlsAssociationRecord {
+    pub fn new2(other: anytype) QDnsTlsAssociationRecord {
         comptime _ = @TypeOf(other)._is_QDnsTlsAssociationRecord;
         return .{ .ptr = qtc.QDnsTlsAssociationRecord_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#operator-eq)
     ///
@@ -656,10 +824,14 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` other: QDnsTlsAssociationRecord `
     ///
-    pub fn OperatorAssign(self: QDnsTlsAssociationRecord, other: anytype) void {
+    pub fn operatorAssign(self: QDnsTlsAssociationRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsTlsAssociationRecord;
         qtc.QDnsTlsAssociationRecord_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#swap)
     ///
@@ -669,10 +841,14 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` other: QDnsTlsAssociationRecord `
     ///
-    pub fn Swap(self: QDnsTlsAssociationRecord, other: anytype) void {
+    pub fn swap(self: QDnsTlsAssociationRecord, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QDnsTlsAssociationRecord;
         qtc.QDnsTlsAssociationRecord_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#name)
     ///
@@ -682,13 +858,17 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsTlsAssociationRecord_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTlsAssociationRecord.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsTlsAssociationRecord.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `timeToLive` instead
+    ///
+    pub const TimeToLive = timeToLive;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#timeToLive)
     ///
@@ -696,9 +876,13 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` self: QDnsTlsAssociationRecord `
     ///
-    pub fn TimeToLive(self: QDnsTlsAssociationRecord) u32 {
+    pub fn timeToLive(self: QDnsTlsAssociationRecord) u32 {
         return qtc.QDnsTlsAssociationRecord_TimeToLive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `usage` instead
+    ///
+    pub const Usage = usage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#usage)
     ///
@@ -710,9 +894,13 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` qdnslookup_enums.CertificateUsage `
     ///
-    pub fn Usage(self: QDnsTlsAssociationRecord) u8 {
+    pub fn usage(self: QDnsTlsAssociationRecord) u8 {
         return qtc.QDnsTlsAssociationRecord_Usage(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selector` instead
+    ///
+    pub const Selector = selector;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#selector)
     ///
@@ -724,9 +912,13 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` qdnslookup_enums.Selector `
     ///
-    pub fn Selector(self: QDnsTlsAssociationRecord) u8 {
+    pub fn selector(self: QDnsTlsAssociationRecord) u8 {
         return qtc.QDnsTlsAssociationRecord_Selector(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `matchType` instead
+    ///
+    pub const MatchType = matchType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#matchType)
     ///
@@ -738,9 +930,13 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` qdnslookup_enums.MatchingType `
     ///
-    pub fn MatchType(self: QDnsTlsAssociationRecord) u8 {
+    pub fn matchType(self: QDnsTlsAssociationRecord) u8 {
         return qtc.QDnsTlsAssociationRecord_MatchType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#value)
     ///
@@ -750,27 +946,27 @@ pub const QDnsTlsAssociationRecord = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []u8 {
+    pub fn value(self: QDnsTlsAssociationRecord, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QDnsTlsAssociationRecord_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDnsTlsAssociationRecord.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QDnsTlsAssociationRecord.value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnstlsassociationrecord.html#dtor.QDnsTlsAssociationRecord)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsTlsAssociationRecord `
     ///
-    pub fn Delete(self: QDnsTlsAssociationRecord) void {
+    pub fn delete(self: QDnsTlsAssociationRecord) void {
         qtc.QDnsTlsAssociationRecord_Delete(@ptrCast(self.ptr));
     }
 };
@@ -786,213 +982,261 @@ pub const QDnsLookup = extern struct {
     pub const _is_QDnsLookup = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDnsLookup {
+    pub const New = new;
+
+    /// Allocate a new QDnsLookup object in C++ memory
+    ///
+    pub fn new() QDnsLookup {
         return .{ .ptr = qtc.QDnsLookup_new() };
     }
 
-    /// New2 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn New2(typeVal: i32, name: []const u8) QDnsLookup {
+    pub fn new2(typeVal: i32, _name: []const u8) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         return .{ .ptr = qtc.QDnsLookup_new2(@bitCast(typeVal), name_str) };
     }
 
-    /// New3 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    pub fn New3(typeVal: i32, name: []const u8, nameserver: anytype) QDnsLookup {
+    pub fn new3(typeVal: i32, _name: []const u8, _nameserver: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        return .{ .ptr = qtc.QDnsLookup_new3(@bitCast(typeVal), name_str, @ptrCast(nameserver.ptr)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        return .{ .ptr = qtc.QDnsLookup_new3(@bitCast(typeVal), name_str, @ptrCast(_nameserver.ptr)) };
     }
 
-    /// New4 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn New4(typeVal: i32, name: []const u8, nameserver: anytype, port: u16) QDnsLookup {
+    pub fn new4(typeVal: i32, _name: []const u8, _nameserver: anytype, _port: u16) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        return .{ .ptr = qtc.QDnsLookup_new4(@bitCast(typeVal), name_str, @ptrCast(nameserver.ptr), @bitCast(port)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        return .{ .ptr = qtc.QDnsLookup_new4(@bitCast(typeVal), name_str, @ptrCast(_nameserver.ptr), @bitCast(_port)) };
     }
 
-    /// New5 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    pub fn New5(typeVal: i32, name: []const u8, protocol: u8, nameserver: anytype) QDnsLookup {
+    pub fn new5(typeVal: i32, _name: []const u8, protocol: u8, _nameserver: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        return .{ .ptr = qtc.QDnsLookup_new5(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver.ptr)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        return .{ .ptr = qtc.QDnsLookup_new5(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(_nameserver.ptr)) };
     }
 
-    /// New6 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New6(parent: anytype) QDnsLookup {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDnsLookup_new6(@ptrCast(parent.ptr)) };
+    pub fn new6(_parent: anytype) QDnsLookup {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDnsLookup_new6(@ptrCast(_parent.ptr)) };
     }
 
-    /// New7 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New7(typeVal: i32, name: []const u8, parent: anytype) QDnsLookup {
+    pub fn new7(typeVal: i32, _name: []const u8, _parent: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDnsLookup_new7(@bitCast(typeVal), name_str, @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDnsLookup_new7(@bitCast(typeVal), name_str, @ptrCast(_parent.ptr)) };
     }
 
-    /// New8 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new8` instead
+    ///
+    pub const New8 = new8;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New8(typeVal: i32, name: []const u8, nameserver: anytype, parent: anytype) QDnsLookup {
+    pub fn new8(typeVal: i32, _name: []const u8, _nameserver: anytype, _parent: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDnsLookup_new8(@bitCast(typeVal), name_str, @ptrCast(nameserver.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDnsLookup_new8(@bitCast(typeVal), name_str, @ptrCast(_nameserver.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New9 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new9` instead
+    ///
+    pub const New9 = new9;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New9(typeVal: i32, name: []const u8, nameserver: anytype, port: u16, parent: anytype) QDnsLookup {
+    pub fn new9(typeVal: i32, _name: []const u8, _nameserver: anytype, _port: u16, _parent: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDnsLookup_new9(@bitCast(typeVal), name_str, @ptrCast(nameserver.ptr), @bitCast(port), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDnsLookup_new9(@bitCast(typeVal), name_str, @ptrCast(_nameserver.ptr), @bitCast(_port), @ptrCast(_parent.ptr)) };
     }
 
-    /// New10 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new10` instead
+    ///
+    pub const New10 = new10;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn New10(typeVal: i32, name: []const u8, protocol: u8, nameserver: anytype, port: u16) QDnsLookup {
+    pub fn new10(typeVal: i32, _name: []const u8, protocol: u8, _nameserver: anytype, _port: u16) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        return .{ .ptr = qtc.QDnsLookup_new10(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver.ptr), @bitCast(port)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        return .{ .ptr = qtc.QDnsLookup_new10(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(_nameserver.ptr), @bitCast(_port)) };
     }
 
-    /// New11 constructs a new QDnsLookup object.
+    /// ### DEPRECATED: Use `new11` instead
+    ///
+    pub const New11 = new11;
+
+    /// Allocate a new QDnsLookup object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New11(typeVal: i32, name: []const u8, protocol: u8, nameserver: anytype, port: u16, parent: anytype) QDnsLookup {
+    pub fn new11(typeVal: i32, _name: []const u8, protocol: u8, _nameserver: anytype, _port: u16, _parent: anytype) QDnsLookup {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDnsLookup_new11(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(nameserver.ptr), @bitCast(port), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDnsLookup_new11(@bitCast(typeVal), name_str, @bitCast(protocol), @ptrCast(_nameserver.ptr), @bitCast(_port), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1000,9 +1244,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn MetaObject(self: QDnsLookup) QMetaObject {
+    pub fn metaObject(self: QDnsLookup) QMetaObject {
         return .{ .ptr = qtc.QDnsLookup_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1014,13 +1262,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDnsLookup, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDnsLookup, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDnsLookup_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -1030,9 +1278,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SuperMetaObject(self: QDnsLookup) QMetaObject {
+    pub fn superMetaObject(self: QDnsLookup) QMetaObject {
         return .{ .ptr = qtc.QDnsLookup_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -1040,10 +1292,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDnsLookup, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDnsLookup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDnsLookup_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -1053,13 +1309,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDnsLookup_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -1069,10 +1325,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDnsLookup, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDnsLookup, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDnsLookup_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -1084,9 +1344,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDnsLookup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDnsLookup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDnsLookup_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -1096,13 +1360,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDnsLookup, callback: *const fn (QDnsLookup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDnsLookup, callback: *const fn (QDnsLookup, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDnsLookup_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -1116,9 +1380,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDnsLookup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDnsLookup, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDnsLookup_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1128,14 +1396,18 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isAuthenticData` instead
+    ///
+    pub const IsAuthenticData = isAuthenticData;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isAuthenticData)
     ///
@@ -1143,9 +1415,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn IsAuthenticData(self: QDnsLookup) bool {
+    pub fn isAuthenticData(self: QDnsLookup) bool {
         return qtc.QDnsLookup_IsAuthenticData(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `error0` instead
+    ///
+    pub const Error = error0;
+
+    pub const @"error" = error0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#error)
     ///
@@ -1157,9 +1435,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` qdnslookup_enums.Error `
     ///
-    pub fn Error(self: QDnsLookup) i32 {
+    pub fn error0(self: QDnsLookup) i32 {
         return qtc.QDnsLookup_Error(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `errorString` instead
+    ///
+    pub const ErrorString = errorString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#errorString)
     ///
@@ -1169,13 +1451,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ErrorString(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
+    pub fn errorString(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsLookup_ErrorString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.ErrorString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.errorString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isFinished` instead
+    ///
+    pub const IsFinished = isFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isFinished)
     ///
@@ -1183,9 +1469,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn IsFinished(self: QDnsLookup) bool {
+    pub fn isFinished(self: QDnsLookup) bool {
         return qtc.QDnsLookup_IsFinished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#name)
     ///
@@ -1195,13 +1485,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDnsLookup_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setName)
     ///
@@ -1209,15 +1503,21 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QDnsLookup, name: []const u8) void {
+    pub fn setName(self: QDnsLookup, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDnsLookup_SetName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#type)
     ///
@@ -1229,9 +1529,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` qdnslookup_enums.Type `
     ///
-    pub fn Type(self: QDnsLookup) i32 {
+    pub fn type0(self: QDnsLookup) i32 {
         return qtc.QDnsLookup_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setType` instead
+    ///
+    pub const SetType = setType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setType)
     ///
@@ -1241,9 +1545,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    pub fn SetType(self: QDnsLookup, typeVal: i32) void {
+    pub fn setType(self: QDnsLookup, typeVal: i32) void {
         qtc.QDnsLookup_SetType(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `nameserver` instead
+    ///
+    pub const Nameserver = nameserver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserver)
     ///
@@ -1251,9 +1559,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Nameserver(self: QDnsLookup) QHostAddress {
+    pub fn nameserver(self: QDnsLookup) QHostAddress {
         return .{ .ptr = qtc.QDnsLookup_Nameserver(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setNameserver` instead
+    ///
+    pub const SetNameserver = setNameserver;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
@@ -1261,12 +1573,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    pub fn SetNameserver(self: QDnsLookup, nameserver: anytype) void {
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        qtc.QDnsLookup_SetNameserver(@ptrCast(self.ptr), @ptrCast(nameserver.ptr));
+    pub fn setNameserver(self: QDnsLookup, _nameserver: anytype) void {
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        qtc.QDnsLookup_SetNameserver(@ptrCast(self.ptr), @ptrCast(_nameserver.ptr));
     }
+
+    /// ### DEPRECATED: Use `nameserverPort` instead
+    ///
+    pub const NameserverPort = nameserverPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPort)
     ///
@@ -1274,9 +1590,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn NameserverPort(self: QDnsLookup) u16 {
+    pub fn nameserverPort(self: QDnsLookup) u16 {
         return qtc.QDnsLookup_NameserverPort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameserverPort` instead
+    ///
+    pub const SetNameserverPort = setNameserverPort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverPort)
     ///
@@ -1284,11 +1604,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn SetNameserverPort(self: QDnsLookup, port: u16) void {
-        qtc.QDnsLookup_SetNameserverPort(@ptrCast(self.ptr), @bitCast(port));
+    pub fn setNameserverPort(self: QDnsLookup, _port: u16) void {
+        qtc.QDnsLookup_SetNameserverPort(@ptrCast(self.ptr), @bitCast(_port));
     }
+
+    /// ### DEPRECATED: Use `nameserverProtocol` instead
+    ///
+    pub const NameserverProtocol = nameserverProtocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocol)
     ///
@@ -1300,9 +1624,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` qdnslookup_enums.Protocol `
     ///
-    pub fn NameserverProtocol(self: QDnsLookup) u8 {
+    pub fn nameserverProtocol(self: QDnsLookup) u8 {
         return qtc.QDnsLookup_NameserverProtocol(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameserverProtocol` instead
+    ///
+    pub const SetNameserverProtocol = setNameserverProtocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserverProtocol)
     ///
@@ -1312,9 +1640,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    pub fn SetNameserverProtocol(self: QDnsLookup, protocol: u8) void {
+    pub fn setNameserverProtocol(self: QDnsLookup, protocol: u8) void {
         qtc.QDnsLookup_SetNameserverProtocol(@ptrCast(self.ptr), @bitCast(protocol));
     }
+
+    /// ### DEPRECATED: Use `setNameserver2` instead
+    ///
+    pub const SetNameserver2 = setNameserver2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
@@ -1324,12 +1656,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    pub fn SetNameserver2(self: QDnsLookup, protocol: u8, nameserver: anytype) void {
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        qtc.QDnsLookup_SetNameserver2(@ptrCast(self.ptr), @bitCast(protocol), @ptrCast(nameserver.ptr));
+    pub fn setNameserver2(self: QDnsLookup, protocol: u8, _nameserver: anytype) void {
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        qtc.QDnsLookup_SetNameserver2(@ptrCast(self.ptr), @bitCast(protocol), @ptrCast(_nameserver.ptr));
     }
+
+    /// ### DEPRECATED: Use `setNameserver3` instead
+    ///
+    pub const SetNameserver3 = setNameserver3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
@@ -1337,14 +1673,18 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn SetNameserver3(self: QDnsLookup, nameserver: anytype, port: u16) void {
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        qtc.QDnsLookup_SetNameserver3(@ptrCast(self.ptr), @ptrCast(nameserver.ptr), @bitCast(port));
+    pub fn setNameserver3(self: QDnsLookup, _nameserver: anytype, _port: u16) void {
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        qtc.QDnsLookup_SetNameserver3(@ptrCast(self.ptr), @ptrCast(_nameserver.ptr), @bitCast(_port));
     }
+
+    /// ### DEPRECATED: Use `canonicalNameRecords` instead
+    ///
+    pub const CanonicalNameRecords = canonicalNameRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#canonicalNameRecords)
     ///
@@ -1354,15 +1694,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn CanonicalNameRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
+    pub fn canonicalNameRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_CanonicalNameRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.CanonicalNameRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.canonicalNameRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `hostAddressRecords` instead
+    ///
+    pub const HostAddressRecords = hostAddressRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#hostAddressRecords)
     ///
@@ -1372,15 +1716,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn HostAddressRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsHostAddressRecord {
+    pub fn hostAddressRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsHostAddressRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_HostAddressRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsHostAddressRecord, _arr.len) catch @panic("QDnsLookup.HostAddressRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsHostAddressRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsHostAddressRecord, _arr.len) catch @panic("QDnsLookup.hostAddressRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsHostAddressRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `mailExchangeRecords` instead
+    ///
+    pub const MailExchangeRecords = mailExchangeRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#mailExchangeRecords)
     ///
@@ -1390,15 +1738,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn MailExchangeRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsMailExchangeRecord {
+    pub fn mailExchangeRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsMailExchangeRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_MailExchangeRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsMailExchangeRecord, _arr.len) catch @panic("QDnsLookup.MailExchangeRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsMailExchangeRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsMailExchangeRecord, _arr.len) catch @panic("QDnsLookup.mailExchangeRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsMailExchangeRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `nameServerRecords` instead
+    ///
+    pub const NameServerRecords = nameServerRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameServerRecords)
     ///
@@ -1408,15 +1760,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn NameServerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
+    pub fn nameServerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_NameServerRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.NameServerRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.nameServerRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pointerRecords` instead
+    ///
+    pub const PointerRecords = pointerRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#pointerRecords)
     ///
@@ -1426,15 +1782,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PointerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
+    pub fn pointerRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsDomainNameRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_PointerRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.PointerRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsDomainNameRecord, _arr.len) catch @panic("QDnsLookup.pointerRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsDomainNameRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `serviceRecords` instead
+    ///
+    pub const ServiceRecords = serviceRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#serviceRecords)
     ///
@@ -1444,15 +1804,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ServiceRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsServiceRecord {
+    pub fn serviceRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsServiceRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_ServiceRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsServiceRecord, _arr.len) catch @panic("QDnsLookup.ServiceRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsServiceRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsServiceRecord, _arr.len) catch @panic("QDnsLookup.serviceRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsServiceRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `textRecords` instead
+    ///
+    pub const TextRecords = textRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#textRecords)
     ///
@@ -1462,15 +1826,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TextRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTextRecord {
+    pub fn textRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTextRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_TextRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsTextRecord, _arr.len) catch @panic("QDnsLookup.TextRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsTextRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsTextRecord, _arr.len) catch @panic("QDnsLookup.textRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsTextRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tlsAssociationRecords` instead
+    ///
+    pub const TlsAssociationRecords = tlsAssociationRecords;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#tlsAssociationRecords)
     ///
@@ -1480,15 +1848,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn TlsAssociationRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTlsAssociationRecord {
+    pub fn tlsAssociationRecords(self: QDnsLookup, allocator: std.mem.Allocator) []QDnsTlsAssociationRecord {
         const _arr: qtc.libqt_list = qtc.QDnsLookup_TlsAssociationRecords(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDnsTlsAssociationRecord, _arr.len) catch @panic("QDnsLookup.TlsAssociationRecords: Memory allocation failed");
-        const _data: [*]QtC.QDnsTlsAssociationRecord = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDnsTlsAssociationRecord, _arr.len) catch @panic("QDnsLookup.tlsAssociationRecords: Memory allocation failed");
+        const _data_val: [*]QtC.QDnsTlsAssociationRecord = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSslConfiguration` instead
+    ///
+    pub const SetSslConfiguration = setSslConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setSslConfiguration)
     ///
@@ -1496,12 +1868,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` sslConfiguration: QSslConfiguration `
+    /// ` _sslConfiguration: QSslConfiguration `
     ///
-    pub fn SetSslConfiguration(self: QDnsLookup, sslConfiguration: anytype) void {
-        comptime _ = @TypeOf(sslConfiguration)._is_QSslConfiguration;
-        qtc.QDnsLookup_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(sslConfiguration.ptr));
+    pub fn setSslConfiguration(self: QDnsLookup, _sslConfiguration: anytype) void {
+        comptime _ = @TypeOf(_sslConfiguration)._is_QSslConfiguration;
+        qtc.QDnsLookup_SetSslConfiguration(@ptrCast(self.ptr), @ptrCast(_sslConfiguration.ptr));
     }
+
+    /// ### DEPRECATED: Use `sslConfiguration` instead
+    ///
+    pub const SslConfiguration = sslConfiguration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#sslConfiguration)
     ///
@@ -1509,9 +1885,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SslConfiguration(self: QDnsLookup) QSslConfiguration {
+    pub fn sslConfiguration(self: QDnsLookup) QSslConfiguration {
         return .{ .ptr = qtc.QDnsLookup_SslConfiguration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isProtocolSupported` instead
+    ///
+    pub const IsProtocolSupported = isProtocolSupported;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#isProtocolSupported)
     ///
@@ -1519,9 +1899,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    pub fn IsProtocolSupported(protocol: u8) bool {
+    pub fn isProtocolSupported(protocol: u8) bool {
         return qtc.QDnsLookup_IsProtocolSupported(@bitCast(protocol));
     }
+
+    /// ### DEPRECATED: Use `defaultPortForProtocol` instead
+    ///
+    pub const DefaultPortForProtocol = defaultPortForProtocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#defaultPortForProtocol)
     ///
@@ -1529,9 +1913,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    pub fn DefaultPortForProtocol(protocol: u8) u16 {
+    pub fn defaultPortForProtocol(protocol: u8) u16 {
         return qtc.QDnsLookup_DefaultPortForProtocol(@bitCast(protocol));
     }
+
+    /// ### DEPRECATED: Use `abort` instead
+    ///
+    pub const Abort = abort;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#abort)
     ///
@@ -1539,9 +1927,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Abort(self: QDnsLookup) void {
+    pub fn abort(self: QDnsLookup) void {
         qtc.QDnsLookup_Abort(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lookup` instead
+    ///
+    pub const Lookup = lookup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#lookup)
     ///
@@ -1549,9 +1941,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Lookup(self: QDnsLookup) void {
+    pub fn lookup(self: QDnsLookup) void {
         qtc.QDnsLookup_Lookup(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#finished)
     ///
@@ -1559,9 +1955,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Finished(self: QDnsLookup) void {
+    pub fn finished(self: QDnsLookup) void {
         qtc.QDnsLookup_Finished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#finished)
     ///
@@ -1571,9 +1971,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QDnsLookup, callback: *const fn (QDnsLookup) callconv(.c) void) void {
+    pub fn onFinished(self: QDnsLookup, callback: *const fn (QDnsLookup) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nameChanged` instead
+    ///
+    pub const NameChanged = nameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
     ///
@@ -1581,15 +1985,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn NameChanged(self: QDnsLookup, name: []const u8) void {
+    pub fn nameChanged(self: QDnsLookup, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QDnsLookup_NameChanged(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onNameChanged` instead
+    ///
+    pub const OnNameChanged = onNameChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameChanged)
     ///
@@ -1599,9 +2007,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, name: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnNameChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onNameChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `typeChanged` instead
+    ///
+    pub const TypeChanged = typeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
     ///
@@ -1611,9 +2023,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` typeVal: qdnslookup_enums.Type `
     ///
-    pub fn TypeChanged(self: QDnsLookup, typeVal: i32) void {
+    pub fn typeChanged(self: QDnsLookup, typeVal: i32) void {
         qtc.QDnsLookup_TypeChanged(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `onTypeChanged` instead
+    ///
+    pub const OnTypeChanged = onTypeChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#typeChanged)
     ///
@@ -1623,9 +2039,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, typeVal: qdnslookup_enums.Type) callconv(.c) void `
     ///
-    pub fn OnTypeChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, i32) callconv(.c) void) void {
+    pub fn onTypeChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, i32) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_TypeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nameserverChanged` instead
+    ///
+    pub const NameserverChanged = nameserverChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
     ///
@@ -1633,12 +2053,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    pub fn NameserverChanged(self: QDnsLookup, nameserver: anytype) void {
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        qtc.QDnsLookup_NameserverChanged(@ptrCast(self.ptr), @ptrCast(nameserver.ptr));
+    pub fn nameserverChanged(self: QDnsLookup, _nameserver: anytype) void {
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        qtc.QDnsLookup_NameserverChanged(@ptrCast(self.ptr), @ptrCast(_nameserver.ptr));
     }
+
+    /// ### DEPRECATED: Use `onNameserverChanged` instead
+    ///
+    pub const OnNameserverChanged = onNameserverChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverChanged)
     ///
@@ -1648,9 +2072,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, nameserver: QHostAddress) callconv(.c) void `
     ///
-    pub fn OnNameserverChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, QHostAddress) callconv(.c) void) void {
+    pub fn onNameserverChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, QHostAddress) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nameserverPortChanged` instead
+    ///
+    pub const NameserverPortChanged = nameserverPortChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
     ///
@@ -1658,11 +2086,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn NameserverPortChanged(self: QDnsLookup, port: u16) void {
-        qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self.ptr), @bitCast(port));
+    pub fn nameserverPortChanged(self: QDnsLookup, _port: u16) void {
+        qtc.QDnsLookup_NameserverPortChanged(@ptrCast(self.ptr), @bitCast(_port));
     }
+
+    /// ### DEPRECATED: Use `onNameserverPortChanged` instead
+    ///
+    pub const OnNameserverPortChanged = onNameserverPortChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverPortChanged)
     ///
@@ -1672,9 +2104,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, port: u16) callconv(.c) void `
     ///
-    pub fn OnNameserverPortChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, u16) callconv(.c) void) void {
+    pub fn onNameserverPortChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, u16) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverPortChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nameserverProtocolChanged` instead
+    ///
+    pub const NameserverProtocolChanged = nameserverProtocolChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
     ///
@@ -1684,9 +2120,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    pub fn NameserverProtocolChanged(self: QDnsLookup, protocol: u8) void {
+    pub fn nameserverProtocolChanged(self: QDnsLookup, protocol: u8) void {
         qtc.QDnsLookup_NameserverProtocolChanged(@ptrCast(self.ptr), @bitCast(protocol));
     }
+
+    /// ### DEPRECATED: Use `onNameserverProtocolChanged` instead
+    ///
+    pub const OnNameserverProtocolChanged = onNameserverProtocolChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#nameserverProtocolChanged)
     ///
@@ -1696,9 +2136,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, protocol: qdnslookup_enums.Protocol) callconv(.c) void `
     ///
-    pub fn OnNameserverProtocolChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, u8) callconv(.c) void) void {
+    pub fn onNameserverProtocolChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, u8) callconv(.c) void) void {
         qtc.QDnsLookup_Connect_NameserverProtocolChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1710,15 +2154,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1732,15 +2180,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setNameserver32` instead
+    ///
+    pub const SetNameserver32 = setNameserver32;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#setNameserver)
     ///
@@ -1750,14 +2202,18 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` protocol: qdnslookup_enums.Protocol `
     ///
-    /// ` nameserver: QHostAddress `
+    /// ` _nameserver: QHostAddress `
     ///
-    /// ` port: u16 `
+    /// ` _port: u16 `
     ///
-    pub fn SetNameserver32(self: QDnsLookup, protocol: u8, nameserver: anytype, port: u16) void {
-        comptime _ = @TypeOf(nameserver)._is_QHostAddress;
-        qtc.QDnsLookup_SetNameserver32(@ptrCast(self.ptr), @bitCast(protocol), @ptrCast(nameserver.ptr), @bitCast(port));
+    pub fn setNameserver32(self: QDnsLookup, protocol: u8, _nameserver: anytype, _port: u16) void {
+        comptime _ = @TypeOf(_nameserver)._is_QHostAddress;
+        qtc.QDnsLookup_SetNameserver32(@ptrCast(self.ptr), @bitCast(protocol), @ptrCast(_nameserver.ptr), @bitCast(_port));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -1769,13 +2225,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDnsLookup, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDnsLookup.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -1785,15 +2245,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDnsLookup, name: []const u8) void {
+    pub fn setObjectName(self: QDnsLookup, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -1803,9 +2267,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn IsWidgetType(self: QDnsLookup) bool {
+    pub fn isWidgetType(self: QDnsLookup) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -1815,9 +2283,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn IsWindowType(self: QDnsLookup) bool {
+    pub fn isWindowType(self: QDnsLookup) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -1827,9 +2299,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn IsQuickItemType(self: QDnsLookup) bool {
+    pub fn isQuickItemType(self: QDnsLookup) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -1839,9 +2315,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SignalsBlocked(self: QDnsLookup) bool {
+    pub fn signalsBlocked(self: QDnsLookup) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -1853,9 +2333,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDnsLookup, b: bool) bool {
+    pub fn blockSignals(self: QDnsLookup, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -1865,9 +2349,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Thread(self: QDnsLookup) QThread {
+    pub fn thread(self: QDnsLookup) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -1877,12 +2365,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDnsLookup, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDnsLookup, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -1894,9 +2386,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDnsLookup, interval: i32) i32 {
+    pub fn startTimer(self: QDnsLookup, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -1908,9 +2404,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDnsLookup, time: i64) i32 {
+    pub fn startTimer2(self: QDnsLookup, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -1922,9 +2422,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDnsLookup, id: i32) void {
+    pub fn killTimer(self: QDnsLookup, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -1936,9 +2440,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDnsLookup, id: i32) void {
+    pub fn killTimer2(self: QDnsLookup, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1950,15 +2458,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDnsLookup, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDnsLookup, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDnsLookup.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDnsLookup.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1968,12 +2480,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDnsLookup, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDnsLookup, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1985,10 +2501,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDnsLookup, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDnsLookup, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2000,10 +2520,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDnsLookup, obj: anytype) void {
+    pub fn removeEventFilter(self: QDnsLookup, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -2011,7 +2535,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2019,13 +2543,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -2033,7 +2561,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2041,13 +2569,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -2057,18 +2589,22 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDnsLookup, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDnsLookup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -2076,7 +2612,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2084,13 +2620,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -2098,7 +2638,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2106,13 +2646,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -2122,9 +2666,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Disconnect3(self: QDnsLookup) bool {
+    pub fn disconnect3(self: QDnsLookup) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -2136,10 +2684,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDnsLookup, receiver: anytype) bool {
+    pub fn disconnect4(self: QDnsLookup, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -2149,10 +2701,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -2162,9 +2718,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn DumpObjectTree(self: QDnsLookup) void {
+    pub fn dumpObjectTree(self: QDnsLookup) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -2174,9 +2734,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn DumpObjectInfo(self: QDnsLookup) void {
+    pub fn dumpObjectInfo(self: QDnsLookup) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -2186,15 +2750,19 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    /// ` value: QVariant `
+    /// ` _value: QVariant `
     ///
-    pub fn SetProperty(self: QDnsLookup, name: [:0]const u8, value: anytype) bool {
-        const name_Cstring = name.ptr;
-        comptime _ = @TypeOf(value)._is_QVariant;
-        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
+    pub fn setProperty(self: QDnsLookup, _name: [:0]const u8, _value: anytype) bool {
+        const name_Cstring = _name.ptr;
+        comptime _ = @TypeOf(_value)._is_QVariant;
+        return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(_value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -2204,12 +2772,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` name: [:0]const u8 `
+    /// ` _name: [:0]const u8 `
     ///
-    pub fn Property(self: QDnsLookup, name: [:0]const u8) QVariant {
-        const name_Cstring = name.ptr;
+    pub fn property(self: QDnsLookup, _name: [:0]const u8) QVariant {
+        const name_Cstring = _name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -2221,7 +2793,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDnsLookup, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDnsLookup, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -2229,27 +2801,19 @@ pub const QDnsLookup = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsLookup.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDnsLookup.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDnsLookup.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDnsLookup.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDnsLookup `
-    ///
-    pub fn BindingStorage(self: QDnsLookup) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -2259,9 +2823,29 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn BindingStorage2(self: QDnsLookup) QBindingStorage {
+    pub fn bindingStorage(self: QDnsLookup) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDnsLookup `
+    ///
+    pub fn bindingStorage2(self: QDnsLookup) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -2271,9 +2855,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Destroyed(self: QDnsLookup) void {
+    pub fn destroyed(self: QDnsLookup) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -2285,9 +2873,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDnsLookup, callback: *const fn (QDnsLookup) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDnsLookup, callback: *const fn (QDnsLookup) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -2297,9 +2889,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Parent(self: QDnsLookup) QObject {
+    pub fn parent(self: QDnsLookup) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -2311,10 +2907,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDnsLookup, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDnsLookup, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -2324,9 +2924,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn DeleteLater(self: QDnsLookup) void {
+    pub fn deleteLater(self: QDnsLookup) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -2340,9 +2944,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDnsLookup, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDnsLookup, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -2356,9 +2964,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDnsLookup, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDnsLookup, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -2366,7 +2978,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2376,13 +2988,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -2390,7 +3006,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -2400,13 +3016,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -2416,7 +3036,7 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -2424,12 +3044,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDnsLookup, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDnsLookup, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -2441,10 +3065,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDnsLookup, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDnsLookup, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -2458,11 +3086,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDnsLookup, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDnsLookup, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -2478,13 +3110,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDnsLookup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDnsLookup, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -2497,11 +3133,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDnsLookup, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDnsLookup, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -2513,10 +3153,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDnsLookup, param1: anytype) void {
+    pub fn destroyed1(self: QDnsLookup, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -2528,9 +3172,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDnsLookup, callback: *const fn (QDnsLookup, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDnsLookup, callback: *const fn (QDnsLookup, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -2542,16 +3190,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDnsLookup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDnsLookup_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDnsLookup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDnsLookup_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -2563,12 +3211,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDnsLookup, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDnsLookup_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDnsLookup, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDnsLookup_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -2582,9 +3234,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QEvent) callconv(.c) bool) void {
         qtc.QDnsLookup_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -2598,17 +3254,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDnsLookup, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDnsLookup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDnsLookup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDnsLookup_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2622,13 +3278,17 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDnsLookup, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDnsLookup, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDnsLookup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDnsLookup_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -2642,9 +3302,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDnsLookup, callback: *const fn (QDnsLookup, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDnsLookup, callback: *const fn (QDnsLookup, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDnsLookup_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -2656,16 +3320,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDnsLookup_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDnsLookup_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2677,12 +3341,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDnsLookup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDnsLookup_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -2696,9 +3364,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QTimerEvent) callconv(.c) void) void {
         qtc.QDnsLookup_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -2710,16 +3382,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDnsLookup_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDnsLookup_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2731,12 +3403,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDnsLookup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDnsLookup_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -2750,9 +3426,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QChildEvent) callconv(.c) void) void {
         qtc.QDnsLookup_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -2764,16 +3444,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDnsLookup_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDnsLookup_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2785,12 +3465,16 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDnsLookup, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDnsLookup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDnsLookup, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDnsLookup_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -2804,9 +3488,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDnsLookup, callback: *const fn (QDnsLookup, QEvent) callconv(.c) void) void {
         qtc.QDnsLookup_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -2820,14 +3508,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDnsLookup, signal: anytype) void {
+    pub fn connectNotify(self: QDnsLookup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDnsLookup_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2841,11 +3529,15 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDnsLookup, signal: anytype) void {
+    pub fn superConnectNotify(self: QDnsLookup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDnsLookup_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -2858,9 +3550,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) void) void {
         qtc.QDnsLookup_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2874,14 +3570,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDnsLookup, signal: anytype) void {
+    pub fn disconnectNotify(self: QDnsLookup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDnsLookup_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2895,10 +3591,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDnsLookup, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDnsLookup, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDnsLookup_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -2912,9 +3612,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) void) void {
         qtc.QDnsLookup_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -2926,13 +3630,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Sender(self: QDnsLookup) QObject {
+    pub fn sender(self: QDnsLookup) QObject {
         return .{ .ptr = qtc.QDnsLookup_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2944,9 +3648,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SuperSender(self: QDnsLookup) QObject {
+    pub fn superSender(self: QDnsLookup) QObject {
         return .{ .ptr = qtc.QDnsLookup_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2960,9 +3668,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDnsLookup, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDnsLookup, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDnsLookup_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2974,13 +3686,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SenderSignalIndex(self: QDnsLookup) i32 {
+    pub fn senderSignalIndex(self: QDnsLookup) i32 {
         return qtc.QDnsLookup_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2992,9 +3704,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn SuperSenderSignalIndex(self: QDnsLookup) i32 {
+    pub fn superSenderSignalIndex(self: QDnsLookup) i32 {
         return qtc.QDnsLookup_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -3008,9 +3724,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDnsLookup, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDnsLookup, callback: *const fn () callconv(.c) i32) void {
         qtc.QDnsLookup_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -3024,14 +3744,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDnsLookup, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDnsLookup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDnsLookup_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -3045,10 +3765,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDnsLookup, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDnsLookup, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDnsLookup_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -3062,9 +3786,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDnsLookup_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3078,14 +3806,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDnsLookup, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDnsLookup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDnsLookup_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3099,10 +3827,14 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDnsLookup, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDnsLookup, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDnsLookup_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -3116,9 +3848,13 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDnsLookup, callback: *const fn (QDnsLookup, QMetaMethod) callconv(.c) bool) void {
         qtc.QDnsLookup_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -3132,23 +3868,23 @@ pub const QDnsLookup = extern struct {
     ///
     /// ` callback: *const fn (self: QDnsLookup, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDnsLookup, callback: *const fn (QDnsLookup, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdnslookup.html#dtor.QDnsLookup)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDnsLookup `
     ///
-    pub fn Delete(self: QDnsLookup) void {
+    pub fn delete(self: QDnsLookup) void {
         qtc.QDnsLookup_Delete(@ptrCast(self.ptr));
     }
 };

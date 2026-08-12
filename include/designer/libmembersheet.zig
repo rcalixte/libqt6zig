@@ -12,11 +12,19 @@ pub const QDesignerMemberSheetExtension = extern struct {
 
     pub const _is_QDesignerMemberSheetExtension = {};
 
-    /// New constructs a new QDesignerMemberSheetExtension object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerMemberSheetExtension {
+    pub const New = new;
+
+    /// Allocate a new QDesignerMemberSheetExtension object in C++ memory
+    ///
+    pub fn new() QDesignerMemberSheetExtension {
         return .{ .ptr = qtc.QDesignerMemberSheetExtension_new() };
     }
+
+    /// ### DEPRECATED: Use `count` instead
+    ///
+    pub const Count = count;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#count)
     ///
@@ -24,9 +32,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` self: QDesignerMemberSheetExtension `
     ///
-    pub fn Count(self: QDesignerMemberSheetExtension) i32 {
+    pub fn count(self: QDesignerMemberSheetExtension) i32 {
         return qtc.QDesignerMemberSheetExtension_Count(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCount` instead
+    ///
+    pub const OnCount = onCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#count)
     ///
@@ -38,13 +50,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnCount(self: QDesignerMemberSheetExtension, callback: *const fn () callconv(.c) i32) void {
+    pub fn onCount(self: QDesignerMemberSheetExtension, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerMemberSheetExtension_OnCount(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCount` instead
+    /// ### DEPRECATED: Use `superCount` instead
     ///
-    pub const QBaseCount = SuperCount;
+    pub const SuperCount = superCount;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#count)
     ///
@@ -54,9 +66,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` self: QDesignerMemberSheetExtension `
     ///
-    pub fn SuperCount(self: QDesignerMemberSheetExtension) i32 {
+    pub fn superCount(self: QDesignerMemberSheetExtension) i32 {
         return qtc.QDesignerMemberSheetExtension_SuperCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `indexOf` instead
+    ///
+    pub const IndexOf = indexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#indexOf)
     ///
@@ -66,13 +82,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn IndexOf(self: QDesignerMemberSheetExtension, name: []const u8) i32 {
+    pub fn indexOf(self: QDesignerMemberSheetExtension, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         return qtc.QDesignerMemberSheetExtension_IndexOf(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `onIndexOf` instead
+    ///
+    pub const OnIndexOf = onIndexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#indexOf)
     ///
@@ -84,13 +104,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, name: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnIndexOf(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onIndexOf(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDesignerMemberSheetExtension_OnIndexOf(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIndexOf` instead
+    /// ### DEPRECATED: Use `superIndexOf` instead
     ///
-    pub const QBaseIndexOf = SuperIndexOf;
+    pub const SuperIndexOf = superIndexOf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#indexOf)
     ///
@@ -102,7 +122,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SuperIndexOf(self: QDesignerMemberSheetExtension, name: []const u8) i32 {
+    pub fn superIndexOf(self: QDesignerMemberSheetExtension, name: []const u8) i32 {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -110,6 +130,10 @@ pub const QDesignerMemberSheetExtension = extern struct {
         return qtc.QDesignerMemberSheetExtension_SuperIndexOf(@ptrCast(self.ptr), name_str);
     }
 
+    /// ### DEPRECATED: Use `memberName` instead
+    ///
+    pub const MemberName = memberName;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberName)
     ///
     /// ## Parameter(s):
@@ -120,13 +144,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn MemberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn memberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_MemberName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.memberName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMemberName` instead
+    ///
+    pub const OnMemberName = onMemberName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberName)
     ///
@@ -138,13 +166,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnMemberName(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onMemberName(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnMemberName(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMemberName` instead
+    /// ### DEPRECATED: Use `superMemberName` instead
     ///
-    pub const QBaseMemberName = SuperMemberName;
+    pub const SuperMemberName = superMemberName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberName)
     ///
@@ -158,13 +186,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperMemberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superMemberName(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperMemberName(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.memberName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `memberGroup` instead
+    ///
+    pub const MemberGroup = memberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberGroup)
     ///
@@ -176,13 +208,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn MemberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn memberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_MemberGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.memberGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onMemberGroup` instead
+    ///
+    pub const OnMemberGroup = onMemberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberGroup)
     ///
@@ -194,13 +230,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnMemberGroup(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onMemberGroup(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnMemberGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMemberGroup` instead
+    /// ### DEPRECATED: Use `superMemberGroup` instead
     ///
-    pub const QBaseMemberGroup = SuperMemberGroup;
+    pub const SuperMemberGroup = superMemberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#memberGroup)
     ///
@@ -214,13 +250,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperMemberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superMemberGroup(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperMemberGroup(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.MemberGroup: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.memberGroup: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setMemberGroup` instead
+    ///
+    pub const SetMemberGroup = setMemberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setMemberGroup)
     ///
@@ -232,13 +272,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SetMemberGroup(self: QDesignerMemberSheetExtension, index: i32, group: []const u8) void {
+    pub fn setMemberGroup(self: QDesignerMemberSheetExtension, index: i32, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
         qtc.QDesignerMemberSheetExtension_SetMemberGroup(@ptrCast(self.ptr), @bitCast(index), group_str);
     }
+
+    /// ### DEPRECATED: Use `onSetMemberGroup` instead
+    ///
+    pub const OnSetMemberGroup = onSetMemberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setMemberGroup)
     ///
@@ -250,13 +294,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32, group: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnSetMemberGroup(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onSetMemberGroup(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QDesignerMemberSheetExtension_OnSetMemberGroup(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMemberGroup` instead
+    /// ### DEPRECATED: Use `superSetMemberGroup` instead
     ///
-    pub const QBaseSetMemberGroup = SuperSetMemberGroup;
+    pub const SuperSetMemberGroup = superSetMemberGroup;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setMemberGroup)
     ///
@@ -270,13 +314,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` group: []const u8 `
     ///
-    pub fn SuperSetMemberGroup(self: QDesignerMemberSheetExtension, index: i32, group: []const u8) void {
+    pub fn superSetMemberGroup(self: QDesignerMemberSheetExtension, index: i32, group: []const u8) void {
         const group_str = qtc.libqt_string{
             .len = group.len,
             .data = group.ptr,
         };
         qtc.QDesignerMemberSheetExtension_SuperSetMemberGroup(@ptrCast(self.ptr), @bitCast(index), group_str);
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isVisible)
     ///
@@ -286,9 +334,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsVisible(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn isVisible(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_IsVisible(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onIsVisible` instead
+    ///
+    pub const OnIsVisible = onIsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isVisible)
     ///
@@ -300,13 +352,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsVisible(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsVisible(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerMemberSheetExtension_OnIsVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsVisible` instead
+    /// ### DEPRECATED: Use `superIsVisible` instead
     ///
-    pub const QBaseIsVisible = SuperIsVisible;
+    pub const SuperIsVisible = superIsVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isVisible)
     ///
@@ -318,9 +370,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsVisible(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn superIsVisible(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_SuperIsVisible(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setVisible)
     ///
@@ -332,9 +388,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SetVisible(self: QDesignerMemberSheetExtension, index: i32, b: bool) void {
+    pub fn setVisible(self: QDesignerMemberSheetExtension, index: i32, b: bool) void {
         qtc.QDesignerMemberSheetExtension_SetVisible(@ptrCast(self.ptr), @bitCast(index), b);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setVisible)
     ///
@@ -346,13 +406,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32, b: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32, bool) callconv(.c) void) void {
         qtc.QDesignerMemberSheetExtension_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#setVisible)
     ///
@@ -366,10 +426,14 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn SuperSetVisible(self: QDesignerMemberSheetExtension, index: i32, b: bool) void {
+    pub fn superSetVisible(self: QDesignerMemberSheetExtension, index: i32, b: bool) void {
         qtc.QDesignerMemberSheetExtension_SuperSetVisible(@ptrCast(self.ptr), @bitCast(index), b);
     }
 
+    /// ### DEPRECATED: Use `isSignal` instead
+    ///
+    pub const IsSignal = isSignal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSignal)
     ///
     /// ## Parameter(s):
@@ -378,10 +442,14 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsSignal(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn isSignal(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_IsSignal(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onIsSignal` instead
+    ///
+    pub const OnIsSignal = onIsSignal;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSignal)
     ///
     /// Allows for overriding the related default method
@@ -392,13 +460,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsSignal(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsSignal(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerMemberSheetExtension_OnIsSignal(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignal` instead
+    /// ### DEPRECATED: Use `superIsSignal` instead
     ///
-    pub const QBaseIsSignal = SuperIsSignal;
+    pub const SuperIsSignal = superIsSignal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSignal)
     ///
@@ -410,10 +478,14 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsSignal(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn superIsSignal(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_SuperIsSignal(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `isSlot` instead
+    ///
+    pub const IsSlot = isSlot;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSlot)
     ///
     /// ## Parameter(s):
@@ -422,10 +494,14 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn IsSlot(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn isSlot(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_IsSlot(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `onIsSlot` instead
+    ///
+    pub const OnIsSlot = onIsSlot;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSlot)
     ///
     /// Allows for overriding the related default method
@@ -436,13 +512,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnIsSlot(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
+    pub fn onIsSlot(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerMemberSheetExtension_OnIsSlot(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSlot` instead
+    /// ### DEPRECATED: Use `superIsSlot` instead
     ///
-    pub const QBaseIsSlot = SuperIsSlot;
+    pub const SuperIsSlot = superIsSlot;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#isSlot)
     ///
@@ -454,9 +530,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperIsSlot(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn superIsSlot(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_SuperIsSlot(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `inheritedFromWidget` instead
+    ///
+    pub const InheritedFromWidget = inheritedFromWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#inheritedFromWidget)
     ///
@@ -466,9 +546,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn InheritedFromWidget(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn inheritedFromWidget(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_InheritedFromWidget(@ptrCast(self.ptr), @bitCast(index));
     }
+
+    /// ### DEPRECATED: Use `onInheritedFromWidget` instead
+    ///
+    pub const OnInheritedFromWidget = onInheritedFromWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#inheritedFromWidget)
     ///
@@ -480,13 +564,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) bool `
     ///
-    pub fn OnInheritedFromWidget(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
+    pub fn onInheritedFromWidget(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) bool) void {
         qtc.QDesignerMemberSheetExtension_OnInheritedFromWidget(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInheritedFromWidget` instead
+    /// ### DEPRECATED: Use `superInheritedFromWidget` instead
     ///
-    pub const QBaseInheritedFromWidget = SuperInheritedFromWidget;
+    pub const SuperInheritedFromWidget = superInheritedFromWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#inheritedFromWidget)
     ///
@@ -498,10 +582,14 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperInheritedFromWidget(self: QDesignerMemberSheetExtension, index: i32) bool {
+    pub fn superInheritedFromWidget(self: QDesignerMemberSheetExtension, index: i32) bool {
         return qtc.QDesignerMemberSheetExtension_SuperInheritedFromWidget(@ptrCast(self.ptr), @bitCast(index));
     }
 
+    /// ### DEPRECATED: Use `declaredInClass` instead
+    ///
+    pub const DeclaredInClass = declaredInClass;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#declaredInClass)
     ///
     /// ## Parameter(s):
@@ -512,13 +600,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn DeclaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn declaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_DeclaredInClass(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.DeclaredInClass: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.declaredInClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onDeclaredInClass` instead
+    ///
+    pub const OnDeclaredInClass = onDeclaredInClass;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#declaredInClass)
     ///
@@ -530,13 +622,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnDeclaredInClass(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onDeclaredInClass(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnDeclaredInClass(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDeclaredInClass` instead
+    /// ### DEPRECATED: Use `superDeclaredInClass` instead
     ///
-    pub const QBaseDeclaredInClass = SuperDeclaredInClass;
+    pub const SuperDeclaredInClass = superDeclaredInClass;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#declaredInClass)
     ///
@@ -550,13 +642,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperDeclaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superDeclaredInClass(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperDeclaredInClass(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.DeclaredInClass: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.declaredInClass: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `signature` instead
+    ///
+    pub const Signature = signature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#signature)
     ///
@@ -568,13 +664,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn Signature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn signature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_Signature(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.Signature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onSignature` instead
+    ///
+    pub const OnSignature = onSignature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#signature)
     ///
@@ -586,13 +686,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnSignature(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
+    pub fn onSignature(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) [*:0]const u8) void {
         qtc.QDesignerMemberSheetExtension_OnSignature(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSignature` instead
+    /// ### DEPRECATED: Use `superSignature` instead
     ///
-    pub const QBaseSignature = SuperSignature;
+    pub const SuperSignature = superSignature;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#signature)
     ///
@@ -606,13 +706,17 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperSignature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
+    pub fn superSignature(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) []const u8 {
         var _str = qtc.QDesignerMemberSheetExtension_SuperSignature(@ptrCast(self.ptr), @bitCast(index));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.Signature: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerMemberSheetExtension.signature: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parameterTypes` instead
+    ///
+    pub const ParameterTypes = parameterTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterTypes)
     ///
@@ -624,7 +728,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ParameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn parameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_ParameterTypes(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -632,15 +736,19 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onParameterTypes` instead
+    ///
+    pub const OnParameterTypes = onParameterTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterTypes)
     ///
@@ -654,13 +762,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
     ///
-    pub fn OnParameterTypes(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
+    pub fn onParameterTypes(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterTypes(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParameterTypes` instead
+    /// ### DEPRECATED: Use `superParameterTypes` instead
     ///
-    pub const QBaseParameterTypes = SuperParameterTypes;
+    pub const SuperParameterTypes = superParameterTypes;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterTypes)
     ///
@@ -674,7 +782,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperParameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn superParameterTypes(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_SuperParameterTypes(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -682,15 +790,19 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterTypes: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterTypes: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `parameterNames` instead
+    ///
+    pub const ParameterNames = parameterNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterNames)
     ///
@@ -702,7 +814,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn ParameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn parameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_ParameterNames(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -710,15 +822,19 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onParameterNames` instead
+    ///
+    pub const OnParameterNames = onParameterNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterNames)
     ///
@@ -732,13 +848,13 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerMemberSheetExtension, index: i32) callconv(.c) ?[*:null]?[*:0]u8 `
     ///
-    pub fn OnParameterNames(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
+    pub fn onParameterNames(self: QDesignerMemberSheetExtension, callback: *const fn (QDesignerMemberSheetExtension, i32) callconv(.c) ?[*:null]?[*:0]u8) void {
         qtc.QDesignerMemberSheetExtension_OnParameterNames(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperParameterNames` instead
+    /// ### DEPRECATED: Use `superParameterNames` instead
     ///
-    pub const QBaseParameterNames = SuperParameterNames;
+    pub const SuperParameterNames = superParameterNames;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#parameterNames)
     ///
@@ -752,7 +868,7 @@ pub const QDesignerMemberSheetExtension = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn SuperParameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
+    pub fn superParameterNames(self: QDesignerMemberSheetExtension, allocator: std.mem.Allocator, index: i32) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QDesignerMemberSheetExtension_SuperParameterNames(@ptrCast(self.ptr), @bitCast(index));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -760,29 +876,29 @@ pub const QDesignerMemberSheetExtension = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerMemberSheetExtension.ParameterNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerMemberSheetExtension.parameterNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignermembersheetextension.html#dtor.QDesignerMemberSheetExtension)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerMemberSheetExtension `
     ///
-    pub fn Delete(self: QDesignerMemberSheetExtension) void {
+    pub fn delete(self: QDesignerMemberSheetExtension) void {
         qtc.QDesignerMemberSheetExtension_Delete(@ptrCast(self.ptr));
     }
 };

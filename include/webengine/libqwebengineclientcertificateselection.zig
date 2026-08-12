@@ -14,16 +14,24 @@ pub const QWebEngineClientCertificateSelection = extern struct {
 
     pub const _is_QWebEngineClientCertificateSelection = {};
 
-    /// New constructs a new QWebEngineClientCertificateSelection object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebEngineClientCertificateSelection object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QWebEngineClientCertificateSelection `
     ///
-    pub fn New(param1: anytype) QWebEngineClientCertificateSelection {
+    pub fn new(param1: anytype) QWebEngineClientCertificateSelection {
         comptime _ = @TypeOf(param1)._is_QWebEngineClientCertificateSelection;
         return .{ .ptr = qtc.QWebEngineClientCertificateSelection_new(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#operator-eq)
     ///
@@ -33,10 +41,14 @@ pub const QWebEngineClientCertificateSelection = extern struct {
     ///
     /// ` param1: QWebEngineClientCertificateSelection `
     ///
-    pub fn OperatorAssign(self: QWebEngineClientCertificateSelection, param1: anytype) void {
+    pub fn operatorAssign(self: QWebEngineClientCertificateSelection, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWebEngineClientCertificateSelection;
         qtc.QWebEngineClientCertificateSelection_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `host` instead
+    ///
+    pub const Host = host;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#host)
     ///
@@ -44,9 +56,13 @@ pub const QWebEngineClientCertificateSelection = extern struct {
     ///
     /// ` self: QWebEngineClientCertificateSelection `
     ///
-    pub fn Host(self: QWebEngineClientCertificateSelection) QUrl {
+    pub fn host(self: QWebEngineClientCertificateSelection) QUrl {
         return .{ .ptr = qtc.QWebEngineClientCertificateSelection_Host(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `select` instead
+    ///
+    pub const Select = select;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#select)
     ///
@@ -56,10 +72,14 @@ pub const QWebEngineClientCertificateSelection = extern struct {
     ///
     /// ` certificate: QSslCertificate `
     ///
-    pub fn Select(self: QWebEngineClientCertificateSelection, certificate: anytype) void {
+    pub fn select(self: QWebEngineClientCertificateSelection, certificate: anytype) void {
         comptime _ = @TypeOf(certificate)._is_QSslCertificate;
         qtc.QWebEngineClientCertificateSelection_Select(@ptrCast(self.ptr), @ptrCast(certificate.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectNone` instead
+    ///
+    pub const SelectNone = selectNone;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#selectNone)
     ///
@@ -67,9 +87,13 @@ pub const QWebEngineClientCertificateSelection = extern struct {
     ///
     /// ` self: QWebEngineClientCertificateSelection `
     ///
-    pub fn SelectNone(self: QWebEngineClientCertificateSelection) void {
+    pub fn selectNone(self: QWebEngineClientCertificateSelection) void {
         qtc.QWebEngineClientCertificateSelection_SelectNone(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `certificates` instead
+    ///
+    pub const Certificates = certificates;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#certificates)
     ///
@@ -79,29 +103,29 @@ pub const QWebEngineClientCertificateSelection = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Certificates(self: QWebEngineClientCertificateSelection, allocator: std.mem.Allocator) []QSslCertificate {
+    pub fn certificates(self: QWebEngineClientCertificateSelection, allocator: std.mem.Allocator) []QSslCertificate {
         const _arr: qtc.libqt_list = qtc.QWebEngineClientCertificateSelection_Certificates(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QWebEngineClientCertificateSelection.Certificates: Memory allocation failed");
-        const _data: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSslCertificate, _arr.len) catch @panic("QWebEngineClientCertificateSelection.certificates: Memory allocation failed");
+        const _data_val: [*]QtC.QSslCertificate = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineclientcertificateselection.html#dtor.QWebEngineClientCertificateSelection)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineClientCertificateSelection `
     ///
-    pub fn Delete(self: QWebEngineClientCertificateSelection) void {
+    pub fn delete(self: QWebEngineClientCertificateSelection) void {
         qtc.QWebEngineClientCertificateSelection_Delete(@ptrCast(self.ptr));
     }
 };

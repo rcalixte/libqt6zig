@@ -29,15 +29,23 @@ pub const QGeoCodingManager = extern struct {
     pub const _is_QGeoCodingManager = {};
     pub const _is_QObject = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn MetaObject(self: QGeoCodingManager) QMetaObject {
+    pub fn metaObject(self: QGeoCodingManager) QMetaObject {
         return .{ .ptr = qtc.QGeoCodingManager_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -45,10 +53,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QGeoCodingManager, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QGeoCodingManager, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QGeoCodingManager_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -60,9 +72,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QGeoCodingManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QGeoCodingManager, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QGeoCodingManager_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -72,14 +88,18 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerName` instead
+    ///
+    pub const ManagerName = managerName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#managerName)
     ///
@@ -89,13 +109,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ManagerName(self: QGeoCodingManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn managerName(self: QGeoCodingManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QGeoCodingManager_ManagerName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.ManagerName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.managerName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `managerVersion` instead
+    ///
+    pub const ManagerVersion = managerVersion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#managerVersion)
     ///
@@ -103,9 +127,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn ManagerVersion(self: QGeoCodingManager) i32 {
+    pub fn managerVersion(self: QGeoCodingManager) i32 {
         return qtc.QGeoCodingManager_ManagerVersion(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `geocode` instead
+    ///
+    pub const Geocode = geocode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -115,10 +143,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` address: QGeoAddress `
     ///
-    pub fn Geocode(self: QGeoCodingManager, address: anytype) QGeoCodeReply {
+    pub fn geocode(self: QGeoCodingManager, address: anytype) QGeoCodeReply {
         comptime _ = @TypeOf(address)._is_QGeoAddress;
         return .{ .ptr = qtc.QGeoCodingManager_Geocode(@ptrCast(self.ptr), @ptrCast(address.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geocode2` instead
+    ///
+    pub const Geocode2 = geocode2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -128,13 +160,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` searchString: []const u8 `
     ///
-    pub fn Geocode2(self: QGeoCodingManager, searchString: []const u8) QGeoCodeReply {
+    pub fn geocode2(self: QGeoCodingManager, searchString: []const u8) QGeoCodeReply {
         const searchString_str = qtc.libqt_string{
             .len = searchString.len,
             .data = searchString.ptr,
         };
         return .{ .ptr = qtc.QGeoCodingManager_Geocode2(@ptrCast(self.ptr), searchString_str) };
     }
+
+    /// ### DEPRECATED: Use `reverseGeocode` instead
+    ///
+    pub const ReverseGeocode = reverseGeocode;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#reverseGeocode)
     ///
@@ -144,10 +180,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` coordinate: QGeoCoordinate `
     ///
-    pub fn ReverseGeocode(self: QGeoCodingManager, coordinate: anytype) QGeoCodeReply {
+    pub fn reverseGeocode(self: QGeoCodingManager, coordinate: anytype) QGeoCodeReply {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         return .{ .ptr = qtc.QGeoCodingManager_ReverseGeocode(@ptrCast(self.ptr), @ptrCast(coordinate.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#setLocale)
     ///
@@ -155,12 +195,16 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QGeoCodingManager, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QGeoCodingManager_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QGeoCodingManager, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QGeoCodingManager_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#locale)
     ///
@@ -168,9 +212,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Locale(self: QGeoCodingManager) QLocale {
+    pub fn locale(self: QGeoCodingManager) QLocale {
         return .{ .ptr = qtc.QGeoCodingManager_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#finished)
     ///
@@ -180,10 +228,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` reply: QGeoCodeReply `
     ///
-    pub fn Finished(self: QGeoCodingManager, reply: anytype) void {
+    pub fn finished(self: QGeoCodingManager, reply: anytype) void {
         comptime _ = @TypeOf(reply)._is_QGeoCodeReply;
         qtc.QGeoCodingManager_Finished(@ptrCast(self.ptr), @ptrCast(reply.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#finished)
     ///
@@ -193,9 +245,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager, reply: QGeoCodeReply) callconv(.c) void `
     ///
-    pub fn OnFinished(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply) callconv(.c) void) void {
+    pub fn onFinished(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply) callconv(.c) void) void {
         qtc.QGeoCodingManager_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `errorOccurred` instead
+    ///
+    pub const ErrorOccurred = errorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#errorOccurred)
     ///
@@ -207,10 +263,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` errorVal: qgeocodereply_enums.Error `
     ///
-    pub fn ErrorOccurred(self: QGeoCodingManager, reply: anytype, errorVal: i32) void {
+    pub fn errorOccurred(self: QGeoCodingManager, reply: anytype, errorVal: i32) void {
         comptime _ = @TypeOf(reply)._is_QGeoCodeReply;
         qtc.QGeoCodingManager_ErrorOccurred(@ptrCast(self.ptr), @ptrCast(reply.ptr), @bitCast(errorVal));
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred` instead
+    ///
+    pub const OnErrorOccurred = onErrorOccurred;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#errorOccurred)
     ///
@@ -220,9 +280,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager, reply: QGeoCodeReply, errorVal: qgeocodereply_enums.Error) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply, i32) callconv(.c) void) void {
+    pub fn onErrorOccurred(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply, i32) callconv(.c) void) void {
         qtc.QGeoCodingManager_Connect_ErrorOccurred(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -234,15 +298,19 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -256,15 +324,19 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `geocode22` instead
+    ///
+    pub const Geocode22 = geocode22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -276,11 +348,15 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` bounds: QGeoShape `
     ///
-    pub fn Geocode22(self: QGeoCodingManager, address: anytype, bounds: anytype) QGeoCodeReply {
+    pub fn geocode22(self: QGeoCodingManager, address: anytype, bounds: anytype) QGeoCodeReply {
         comptime _ = @TypeOf(address)._is_QGeoAddress;
         comptime _ = @TypeOf(bounds)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoCodingManager_Geocode22(@ptrCast(self.ptr), @ptrCast(address.ptr), @ptrCast(bounds.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geocode23` instead
+    ///
+    pub const Geocode23 = geocode23;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -292,13 +368,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` limit: i32 `
     ///
-    pub fn Geocode23(self: QGeoCodingManager, searchString: []const u8, limit: i32) QGeoCodeReply {
+    pub fn geocode23(self: QGeoCodingManager, searchString: []const u8, limit: i32) QGeoCodeReply {
         const searchString_str = qtc.libqt_string{
             .len = searchString.len,
             .data = searchString.ptr,
         };
         return .{ .ptr = qtc.QGeoCodingManager_Geocode23(@ptrCast(self.ptr), searchString_str, @bitCast(limit)) };
     }
+
+    /// ### DEPRECATED: Use `geocode3` instead
+    ///
+    pub const Geocode3 = geocode3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -312,13 +392,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` offset: i32 `
     ///
-    pub fn Geocode3(self: QGeoCodingManager, searchString: []const u8, limit: i32, offset: i32) QGeoCodeReply {
+    pub fn geocode3(self: QGeoCodingManager, searchString: []const u8, limit: i32, offset: i32) QGeoCodeReply {
         const searchString_str = qtc.libqt_string{
             .len = searchString.len,
             .data = searchString.ptr,
         };
         return .{ .ptr = qtc.QGeoCodingManager_Geocode3(@ptrCast(self.ptr), searchString_str, @bitCast(limit), @bitCast(offset)) };
     }
+
+    /// ### DEPRECATED: Use `geocode4` instead
+    ///
+    pub const Geocode4 = geocode4;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#geocode)
     ///
@@ -334,7 +418,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` bounds: QGeoShape `
     ///
-    pub fn Geocode4(self: QGeoCodingManager, searchString: []const u8, limit: i32, offset: i32, bounds: anytype) QGeoCodeReply {
+    pub fn geocode4(self: QGeoCodingManager, searchString: []const u8, limit: i32, offset: i32, bounds: anytype) QGeoCodeReply {
         const searchString_str = qtc.libqt_string{
             .len = searchString.len,
             .data = searchString.ptr,
@@ -342,6 +426,10 @@ pub const QGeoCodingManager = extern struct {
         comptime _ = @TypeOf(bounds)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoCodingManager_Geocode4(@ptrCast(self.ptr), searchString_str, @bitCast(limit), @bitCast(offset), @ptrCast(bounds.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `reverseGeocode2` instead
+    ///
+    pub const ReverseGeocode2 = reverseGeocode2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#reverseGeocode)
     ///
@@ -353,11 +441,15 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` bounds: QGeoShape `
     ///
-    pub fn ReverseGeocode2(self: QGeoCodingManager, coordinate: anytype, bounds: anytype) QGeoCodeReply {
+    pub fn reverseGeocode2(self: QGeoCodingManager, coordinate: anytype, bounds: anytype) QGeoCodeReply {
         comptime _ = @TypeOf(coordinate)._is_QGeoCoordinate;
         comptime _ = @TypeOf(bounds)._is_QGeoShape;
         return .{ .ptr = qtc.QGeoCodingManager_ReverseGeocode2(@ptrCast(self.ptr), @ptrCast(coordinate.ptr), @ptrCast(bounds.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `errorOccurred3` instead
+    ///
+    pub const ErrorOccurred3 = errorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#errorOccurred)
     ///
@@ -371,7 +463,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` errorString: []const u8 `
     ///
-    pub fn ErrorOccurred3(self: QGeoCodingManager, reply: anytype, errorVal: i32, errorString: []const u8) void {
+    pub fn errorOccurred3(self: QGeoCodingManager, reply: anytype, errorVal: i32, errorString: []const u8) void {
         comptime _ = @TypeOf(reply)._is_QGeoCodeReply;
         const errorString_str = qtc.libqt_string{
             .len = errorString.len,
@@ -379,6 +471,10 @@ pub const QGeoCodingManager = extern struct {
         };
         qtc.QGeoCodingManager_ErrorOccurred3(@ptrCast(self.ptr), @ptrCast(reply.ptr), @bitCast(errorVal), errorString_str);
     }
+
+    /// ### DEPRECATED: Use `onErrorOccurred3` instead
+    ///
+    pub const OnErrorOccurred3 = onErrorOccurred3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#errorOccurred)
     ///
@@ -388,9 +484,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager, reply: QGeoCodeReply, errorVal: qgeocodereply_enums.Error, errorString: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnErrorOccurred3(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply, i32, [*:0]const u8) callconv(.c) void) void {
+    pub fn onErrorOccurred3(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QGeoCodeReply, i32, [*:0]const u8) callconv(.c) void) void {
         qtc.QGeoCodingManager_Connect_ErrorOccurred3(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -400,12 +500,16 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QGeoCodingManager, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QGeoCodingManager, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -417,13 +521,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QGeoCodingManager, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QGeoCodingManager, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -435,13 +543,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QGeoCodingManager, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QGeoCodingManager, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QGeoCodingManager.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -453,13 +565,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QGeoCodingManager, name: []const u8) void {
+    pub fn setObjectName(self: QGeoCodingManager, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -469,9 +585,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn IsWidgetType(self: QGeoCodingManager) bool {
+    pub fn isWidgetType(self: QGeoCodingManager) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -481,9 +601,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn IsWindowType(self: QGeoCodingManager) bool {
+    pub fn isWindowType(self: QGeoCodingManager) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -493,9 +617,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn IsQuickItemType(self: QGeoCodingManager) bool {
+    pub fn isQuickItemType(self: QGeoCodingManager) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -505,9 +633,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn SignalsBlocked(self: QGeoCodingManager) bool {
+    pub fn signalsBlocked(self: QGeoCodingManager) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -519,9 +651,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QGeoCodingManager, b: bool) bool {
+    pub fn blockSignals(self: QGeoCodingManager, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -531,9 +667,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Thread(self: QGeoCodingManager) QThread {
+    pub fn thread(self: QGeoCodingManager) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -543,12 +683,16 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QGeoCodingManager, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QGeoCodingManager, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -560,9 +704,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QGeoCodingManager, interval: i32) i32 {
+    pub fn startTimer(self: QGeoCodingManager, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -574,9 +722,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QGeoCodingManager, time: i64) i32 {
+    pub fn startTimer2(self: QGeoCodingManager, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -588,9 +740,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QGeoCodingManager, id: i32) void {
+    pub fn killTimer(self: QGeoCodingManager, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -602,9 +758,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QGeoCodingManager, id: i32) void {
+    pub fn killTimer2(self: QGeoCodingManager, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -616,15 +776,19 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QGeoCodingManager, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QGeoCodingManager, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGeoCodingManager.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QGeoCodingManager.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -634,12 +798,16 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QGeoCodingManager, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QGeoCodingManager, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -651,10 +819,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QGeoCodingManager, filterObj: anytype) void {
+    pub fn installEventFilter(self: QGeoCodingManager, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -666,10 +838,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QGeoCodingManager, obj: anytype) void {
+    pub fn removeEventFilter(self: QGeoCodingManager, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -677,7 +853,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -685,13 +861,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -699,7 +879,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -707,13 +887,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -723,18 +907,22 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QGeoCodingManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QGeoCodingManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -742,7 +930,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -750,13 +938,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -764,7 +956,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -772,13 +964,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -788,9 +984,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Disconnect3(self: QGeoCodingManager) bool {
+    pub fn disconnect3(self: QGeoCodingManager) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -802,10 +1002,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QGeoCodingManager, receiver: anytype) bool {
+    pub fn disconnect4(self: QGeoCodingManager, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -815,10 +1019,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -828,9 +1036,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn DumpObjectTree(self: QGeoCodingManager) void {
+    pub fn dumpObjectTree(self: QGeoCodingManager) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -840,9 +1052,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn DumpObjectInfo(self: QGeoCodingManager) void {
+    pub fn dumpObjectInfo(self: QGeoCodingManager) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -856,11 +1072,15 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QGeoCodingManager, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QGeoCodingManager, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -872,10 +1092,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QGeoCodingManager, name: [:0]const u8) QVariant {
+    pub fn property(self: QGeoCodingManager, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -887,7 +1111,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QGeoCodingManager, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QGeoCodingManager, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -895,27 +1119,19 @@ pub const QGeoCodingManager = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGeoCodingManager.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QGeoCodingManager.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QGeoCodingManager.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QGeoCodingManager.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QGeoCodingManager `
-    ///
-    pub fn BindingStorage(self: QGeoCodingManager) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -925,9 +1141,29 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn BindingStorage2(self: QGeoCodingManager) QBindingStorage {
+    pub fn bindingStorage(self: QGeoCodingManager) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QGeoCodingManager `
+    ///
+    pub fn bindingStorage2(self: QGeoCodingManager) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -937,9 +1173,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Destroyed(self: QGeoCodingManager) void {
+    pub fn destroyed(self: QGeoCodingManager) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -951,9 +1191,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager) callconv(.c) void) void {
+    pub fn onDestroyed(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -963,9 +1207,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Parent(self: QGeoCodingManager) QObject {
+    pub fn parent(self: QGeoCodingManager) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -977,10 +1225,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QGeoCodingManager, classname: [:0]const u8) bool {
+    pub fn inherits(self: QGeoCodingManager, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -990,9 +1242,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn DeleteLater(self: QGeoCodingManager) void {
+    pub fn deleteLater(self: QGeoCodingManager) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1006,9 +1262,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QGeoCodingManager, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QGeoCodingManager, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1022,9 +1282,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QGeoCodingManager, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QGeoCodingManager, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1032,7 +1296,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1042,13 +1306,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1056,7 +1324,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1066,13 +1334,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1082,7 +1354,7 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` self: QGeoCodingManager `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1090,12 +1362,16 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QGeoCodingManager, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QGeoCodingManager, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1107,10 +1383,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QGeoCodingManager, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QGeoCodingManager, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1124,11 +1404,15 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QGeoCodingManager, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QGeoCodingManager, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1144,13 +1428,17 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QGeoCodingManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QGeoCodingManager, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1163,11 +1451,15 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QGeoCodingManager, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QGeoCodingManager, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1179,10 +1471,14 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QGeoCodingManager, param1: anytype) void {
+    pub fn destroyed1(self: QGeoCodingManager, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1194,9 +1490,13 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -1210,23 +1510,23 @@ pub const QGeoCodingManager = extern struct {
     ///
     /// ` callback: *const fn (self: QGeoCodingManager, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QGeoCodingManager, callback: *const fn (QGeoCodingManager, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qgeocodingmanager.html#dtor.QGeoCodingManager)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QGeoCodingManager `
     ///
-    pub fn Delete(self: QGeoCodingManager) void {
+    pub fn delete(self: QGeoCodingManager) void {
         qtc.QGeoCodingManager_Delete(@ptrCast(self.ptr));
     }
 };

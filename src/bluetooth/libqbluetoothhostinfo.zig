@@ -13,22 +13,34 @@ pub const QBluetoothHostInfo = extern struct {
 
     pub const _is_QBluetoothHostInfo = {};
 
-    /// New constructs a new QBluetoothHostInfo object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QBluetoothHostInfo {
+    pub const New = new;
+
+    /// Allocate a new QBluetoothHostInfo object in C++ memory
+    ///
+    pub fn new() QBluetoothHostInfo {
         return .{ .ptr = qtc.QBluetoothHostInfo_new() };
     }
 
-    /// New2 constructs a new QBluetoothHostInfo object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QBluetoothHostInfo object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QBluetoothHostInfo `
     ///
-    pub fn New2(other: anytype) QBluetoothHostInfo {
+    pub fn new2(other: anytype) QBluetoothHostInfo {
         comptime _ = @TypeOf(other)._is_QBluetoothHostInfo;
         return .{ .ptr = qtc.QBluetoothHostInfo_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#operator-eq)
     ///
@@ -38,10 +50,14 @@ pub const QBluetoothHostInfo = extern struct {
     ///
     /// ` other: QBluetoothHostInfo `
     ///
-    pub fn OperatorAssign(self: QBluetoothHostInfo, other: anytype) void {
+    pub fn operatorAssign(self: QBluetoothHostInfo, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QBluetoothHostInfo;
         qtc.QBluetoothHostInfo_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `address` instead
+    ///
+    pub const Address = address;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#address)
     ///
@@ -49,9 +65,13 @@ pub const QBluetoothHostInfo = extern struct {
     ///
     /// ` self: QBluetoothHostInfo `
     ///
-    pub fn Address(self: QBluetoothHostInfo) QBluetoothAddress {
+    pub fn address(self: QBluetoothHostInfo) QBluetoothAddress {
         return .{ .ptr = qtc.QBluetoothHostInfo_Address(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAddress` instead
+    ///
+    pub const SetAddress = setAddress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#setAddress)
     ///
@@ -59,12 +79,16 @@ pub const QBluetoothHostInfo = extern struct {
     ///
     /// ` self: QBluetoothHostInfo `
     ///
-    /// ` address: QBluetoothAddress `
+    /// ` _address: QBluetoothAddress `
     ///
-    pub fn SetAddress(self: QBluetoothHostInfo, address: anytype) void {
-        comptime _ = @TypeOf(address)._is_QBluetoothAddress;
-        qtc.QBluetoothHostInfo_SetAddress(@ptrCast(self.ptr), @ptrCast(address.ptr));
+    pub fn setAddress(self: QBluetoothHostInfo, _address: anytype) void {
+        comptime _ = @TypeOf(_address)._is_QBluetoothAddress;
+        qtc.QBluetoothHostInfo_SetAddress(@ptrCast(self.ptr), @ptrCast(_address.ptr));
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#name)
     ///
@@ -74,13 +98,17 @@ pub const QBluetoothHostInfo = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QBluetoothHostInfo, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QBluetoothHostInfo, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QBluetoothHostInfo_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothHostInfo.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QBluetoothHostInfo.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#setName)
     ///
@@ -88,29 +116,29 @@ pub const QBluetoothHostInfo = extern struct {
     ///
     /// ` self: QBluetoothHostInfo `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QBluetoothHostInfo, name: []const u8) void {
+    pub fn setName(self: QBluetoothHostInfo, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QBluetoothHostInfo_SetName(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qbluetoothhostinfo.html#dtor.QBluetoothHostInfo)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QBluetoothHostInfo `
     ///
-    pub fn Delete(self: QBluetoothHostInfo) void {
+    pub fn delete(self: QBluetoothHostInfo) void {
         qtc.QBluetoothHostInfo_Delete(@ptrCast(self.ptr));
     }
 };

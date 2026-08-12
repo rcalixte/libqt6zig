@@ -15,23 +15,35 @@ pub const QIPv6Address = extern struct {
 
     pub const _is_QIPv6Address = {};
 
-    /// New constructs a new QIPv6Address object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QIPv6Address {
+    pub const New = new;
+
+    /// Allocate a new QIPv6Address object in C++ memory
+    ///
+    pub fn new() QIPv6Address {
         return .{ .ptr = qtc.QIPv6Address_new() };
     }
 
-    /// New2 constructs a new QIPv6Address object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QIPv6Address object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QIPv6Address `
     ///
-    pub fn New2(param1: anytype) QIPv6Address {
+    pub fn new2(param1: anytype) QIPv6Address {
         comptime _ = @TypeOf(param1)._is_QIPv6Address;
         return .{ .ptr = qtc.QIPv6Address_new2(@ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript` instead
+    ///
+    pub const OperatorSubscript = operatorSubscript;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qipv6address.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -40,10 +52,14 @@ pub const QIPv6Address = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn OperatorSubscript(self: QIPv6Address, index: i32) ?*u8 {
+    pub fn operatorSubscript(self: QIPv6Address, index: i32) ?*u8 {
         return @ptrCast(qtc.QIPv6Address_OperatorSubscript(@ptrCast(self.ptr), @bitCast(index)));
     }
 
+    /// ### DEPRECATED: Use `operatorSubscript2` instead
+    ///
+    pub const OperatorSubscript2 = operatorSubscript2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qipv6address.html#operator-5b-5d)
     ///
     /// ## Parameter(s):
@@ -52,23 +68,23 @@ pub const QIPv6Address = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn OperatorSubscript2(self: QIPv6Address, index: i32) u8 {
+    pub fn operatorSubscript2(self: QIPv6Address, index: i32) u8 {
         return qtc.QIPv6Address_OperatorSubscript2(@ptrCast(self.ptr), @bitCast(index));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qipv6address.html#dtor.QIPv6Address)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QIPv6Address `
     ///
-    pub fn Delete(self: QIPv6Address) void {
+    pub fn delete(self: QIPv6Address) void {
         qtc.QIPv6Address_Delete(@ptrCast(self.ptr));
     }
 };
@@ -83,50 +99,70 @@ pub const QHostAddress = extern struct {
 
     pub const _is_QHostAddress = {};
 
-    /// New constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QHostAddress {
+    pub const New = new;
+
+    /// Allocate a new QHostAddress object in C++ memory
+    ///
+    pub fn new() QHostAddress {
         return .{ .ptr = qtc.QHostAddress_new() };
     }
 
-    /// New2 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ip4Addr: u32 `
     ///
-    pub fn New2(ip4Addr: u32) QHostAddress {
+    pub fn new2(ip4Addr: u32) QHostAddress {
         return .{ .ptr = qtc.QHostAddress_new2(@bitCast(ip4Addr)) };
     }
 
-    /// New3 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ip6Addr: *const u8 `
     ///
-    pub fn New3(ip6Addr: *const u8) QHostAddress {
+    pub fn new3(ip6Addr: *const u8) QHostAddress {
         return .{ .ptr = qtc.QHostAddress_new3(@ptrCast(ip6Addr)) };
     }
 
-    /// New4 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` ip6Addr: QIPv6Address `
     ///
-    pub fn New4(ip6Addr: anytype) QHostAddress {
+    pub fn new4(ip6Addr: anytype) QHostAddress {
         comptime _ = @TypeOf(ip6Addr)._is_QIPv6Address;
         return .{ .ptr = qtc.QHostAddress_new4(@ptrCast(ip6Addr.ptr)) };
     }
 
-    /// New5 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` address: []const u8 `
     ///
-    pub fn New5(address: []const u8) QHostAddress {
+    pub fn new5(address: []const u8) QHostAddress {
         const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
@@ -134,26 +170,38 @@ pub const QHostAddress = extern struct {
         return .{ .ptr = qtc.QHostAddress_new5(address_str) };
     }
 
-    /// New6 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` copyVal: QHostAddress `
+    /// ` copy: QHostAddress `
     ///
-    pub fn New6(copyVal: anytype) QHostAddress {
-        comptime _ = @TypeOf(copyVal)._is_QHostAddress;
-        return .{ .ptr = qtc.QHostAddress_new6(@ptrCast(copyVal.ptr)) };
+    pub fn new6(copy: anytype) QHostAddress {
+        comptime _ = @TypeOf(copy)._is_QHostAddress;
+        return .{ .ptr = qtc.QHostAddress_new6(@ptrCast(copy.ptr)) };
     }
 
-    /// New7 constructs a new QHostAddress object.
+    /// ### DEPRECATED: Use `new7` instead
+    ///
+    pub const New7 = new7;
+
+    /// Allocate a new QHostAddress object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` address: qhostaddress_enums.SpecialAddress `
     ///
-    pub fn New7(address: i32) QHostAddress {
+    pub fn new7(address: i32) QHostAddress {
         return .{ .ptr = qtc.QHostAddress_new7(@bitCast(address)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq)
     ///
@@ -163,10 +211,14 @@ pub const QHostAddress = extern struct {
     ///
     /// ` other: QHostAddress `
     ///
-    pub fn OperatorAssign(self: QHostAddress, other: anytype) void {
+    pub fn operatorAssign(self: QHostAddress, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHostAddress;
         qtc.QHostAddress_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorAssign2` instead
+    ///
+    pub const OperatorAssign2 = operatorAssign2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq)
     ///
@@ -176,9 +228,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: qhostaddress_enums.SpecialAddress `
     ///
-    pub fn OperatorAssign2(self: QHostAddress, address: i32) void {
+    pub fn operatorAssign2(self: QHostAddress, address: i32) void {
         qtc.QHostAddress_OperatorAssign2(@ptrCast(self.ptr), @bitCast(address));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#swap)
     ///
@@ -188,10 +244,14 @@ pub const QHostAddress = extern struct {
     ///
     /// ` other: QHostAddress `
     ///
-    pub fn Swap(self: QHostAddress, other: anytype) void {
+    pub fn swap(self: QHostAddress, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QHostAddress;
         qtc.QHostAddress_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAddress` instead
+    ///
+    pub const SetAddress = setAddress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
@@ -201,9 +261,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` ip4Addr: u32 `
     ///
-    pub fn SetAddress(self: QHostAddress, ip4Addr: u32) void {
+    pub fn setAddress(self: QHostAddress, ip4Addr: u32) void {
         qtc.QHostAddress_SetAddress(@ptrCast(self.ptr), @bitCast(ip4Addr));
     }
+
+    /// ### DEPRECATED: Use `setAddress2` instead
+    ///
+    pub const SetAddress2 = setAddress2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
@@ -213,9 +277,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` ip6Addr: *const u8 `
     ///
-    pub fn SetAddress2(self: QHostAddress, ip6Addr: *const u8) void {
+    pub fn setAddress2(self: QHostAddress, ip6Addr: *const u8) void {
         qtc.QHostAddress_SetAddress2(@ptrCast(self.ptr), @ptrCast(ip6Addr));
     }
+
+    /// ### DEPRECATED: Use `setAddress3` instead
+    ///
+    pub const SetAddress3 = setAddress3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
@@ -225,10 +293,14 @@ pub const QHostAddress = extern struct {
     ///
     /// ` ip6Addr: QIPv6Address `
     ///
-    pub fn SetAddress3(self: QHostAddress, ip6Addr: anytype) void {
+    pub fn setAddress3(self: QHostAddress, ip6Addr: anytype) void {
         comptime _ = @TypeOf(ip6Addr)._is_QIPv6Address;
         qtc.QHostAddress_SetAddress3(@ptrCast(self.ptr), @ptrCast(ip6Addr.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAddress5` instead
+    ///
+    pub const SetAddress5 = setAddress5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
@@ -238,13 +310,17 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: []const u8 `
     ///
-    pub fn SetAddress5(self: QHostAddress, address: []const u8) bool {
+    pub fn setAddress5(self: QHostAddress, address: []const u8) bool {
         const address_str = qtc.libqt_string{
             .len = address.len,
             .data = address.ptr,
         };
         return qtc.QHostAddress_SetAddress5(@ptrCast(self.ptr), address_str);
     }
+
+    /// ### DEPRECATED: Use `setAddress6` instead
+    ///
+    pub const SetAddress6 = setAddress6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setAddress)
     ///
@@ -254,9 +330,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: qhostaddress_enums.SpecialAddress `
     ///
-    pub fn SetAddress6(self: QHostAddress, address: i32) void {
+    pub fn setAddress6(self: QHostAddress, address: i32) void {
         qtc.QHostAddress_SetAddress6(@ptrCast(self.ptr), @bitCast(address));
     }
+
+    /// ### DEPRECATED: Use `protocol` instead
+    ///
+    pub const Protocol = protocol;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#protocol)
     ///
@@ -268,9 +348,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` qabstractsocket_enums.NetworkLayerProtocol `
     ///
-    pub fn Protocol(self: QHostAddress) i32 {
+    pub fn protocol(self: QHostAddress) i32 {
         return qtc.QHostAddress_Protocol(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toIPv4Address` instead
+    ///
+    pub const ToIPv4Address = toIPv4Address;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)
     ///
@@ -278,9 +362,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn ToIPv4Address(self: QHostAddress) u32 {
+    pub fn toIPv4Address(self: QHostAddress) u32 {
         return qtc.QHostAddress_ToIPv4Address(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toIPv6Address` instead
+    ///
+    pub const ToIPv6Address = toIPv6Address;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toIPv6Address)
     ///
@@ -288,9 +376,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn ToIPv6Address(self: QHostAddress) QIPv6Address {
+    pub fn toIPv6Address(self: QHostAddress) QIPv6Address {
         return .{ .ptr = qtc.QHostAddress_ToIPv6Address(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `toString` instead
+    ///
+    pub const ToString = toString;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toString)
     ///
@@ -300,13 +392,17 @@ pub const QHostAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToString(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn toString(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QHostAddress_ToString(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.ToString: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.toString: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `scopeId` instead
+    ///
+    pub const ScopeId = scopeId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#scopeId)
     ///
@@ -316,13 +412,17 @@ pub const QHostAddress = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ScopeId(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
+    pub fn scopeId(self: QHostAddress, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QHostAddress_ScopeId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.ScopeId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QHostAddress.scopeId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setScopeId` instead
+    ///
+    pub const SetScopeId = setScopeId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#setScopeId)
     ///
@@ -332,13 +432,17 @@ pub const QHostAddress = extern struct {
     ///
     /// ` id: []const u8 `
     ///
-    pub fn SetScopeId(self: QHostAddress, id: []const u8) void {
+    pub fn setScopeId(self: QHostAddress, id: []const u8) void {
         const id_str = qtc.libqt_string{
             .len = id.len,
             .data = id.ptr,
         };
         qtc.QHostAddress_SetScopeId(@ptrCast(self.ptr), id_str);
     }
+
+    /// ### DEPRECATED: Use `isEqual` instead
+    ///
+    pub const IsEqual = isEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isEqual)
     ///
@@ -348,11 +452,15 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: QHostAddress `
     ///
-    pub fn IsEqual(self: QHostAddress, address: anytype) bool {
+    pub fn isEqual(self: QHostAddress, address: anytype) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QHostAddress_IsEqual(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
@@ -361,11 +469,15 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: QHostAddress `
     ///
-    pub fn OperatorEqual(self: QHostAddress, address: anytype) bool {
+    pub fn operatorEqual(self: QHostAddress, address: anytype) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QHostAddress_OperatorEqual(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
 
+    /// ### DEPRECATED: Use `operatorEqual2` instead
+    ///
+    pub const OperatorEqual2 = operatorEqual2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-eq-eq)
     ///
     /// ## Parameter(s):
@@ -374,9 +486,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: qhostaddress_enums.SpecialAddress `
     ///
-    pub fn OperatorEqual2(self: QHostAddress, address: i32) bool {
+    pub fn operatorEqual2(self: QHostAddress, address: i32) bool {
         return qtc.QHostAddress_OperatorEqual2(@ptrCast(self.ptr), @bitCast(address));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-not-eq)
     ///
@@ -386,10 +502,14 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: QHostAddress `
     ///
-    pub fn OperatorNotEqual(self: QHostAddress, address: anytype) bool {
+    pub fn operatorNotEqual(self: QHostAddress, address: anytype) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QHostAddress_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(address.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual2` instead
+    ///
+    pub const OperatorNotEqual2 = operatorNotEqual2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#operator-not-eq)
     ///
@@ -399,9 +519,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` address: qhostaddress_enums.SpecialAddress `
     ///
-    pub fn OperatorNotEqual2(self: QHostAddress, address: i32) bool {
+    pub fn operatorNotEqual2(self: QHostAddress, address: i32) bool {
         return qtc.QHostAddress_OperatorNotEqual2(@ptrCast(self.ptr), @bitCast(address));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isNull)
     ///
@@ -409,9 +533,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsNull(self: QHostAddress) bool {
+    pub fn isNull(self: QHostAddress) bool {
         return qtc.QHostAddress_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clear` instead
+    ///
+    pub const Clear = clear;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#clear)
     ///
@@ -419,9 +547,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn Clear(self: QHostAddress) void {
+    pub fn clear(self: QHostAddress) void {
         qtc.QHostAddress_Clear(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isInSubnet` instead
+    ///
+    pub const IsInSubnet = isInSubnet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isInSubnet)
     ///
@@ -433,10 +565,14 @@ pub const QHostAddress = extern struct {
     ///
     /// ` netmask: i32 `
     ///
-    pub fn IsInSubnet(self: QHostAddress, subnet: anytype, netmask: i32) bool {
+    pub fn isInSubnet(self: QHostAddress, subnet: anytype, netmask: i32) bool {
         comptime _ = @TypeOf(subnet)._is_QHostAddress;
         return qtc.QHostAddress_IsInSubnet(@ptrCast(self.ptr), @ptrCast(subnet.ptr), @bitCast(netmask));
     }
+
+    /// ### DEPRECATED: Use `isLoopback` instead
+    ///
+    pub const IsLoopback = isLoopback;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isLoopback)
     ///
@@ -444,9 +580,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsLoopback(self: QHostAddress) bool {
+    pub fn isLoopback(self: QHostAddress) bool {
         return qtc.QHostAddress_IsLoopback(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isGlobal` instead
+    ///
+    pub const IsGlobal = isGlobal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isGlobal)
     ///
@@ -454,9 +594,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsGlobal(self: QHostAddress) bool {
+    pub fn isGlobal(self: QHostAddress) bool {
         return qtc.QHostAddress_IsGlobal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLinkLocal` instead
+    ///
+    pub const IsLinkLocal = isLinkLocal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isLinkLocal)
     ///
@@ -464,9 +608,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsLinkLocal(self: QHostAddress) bool {
+    pub fn isLinkLocal(self: QHostAddress) bool {
         return qtc.QHostAddress_IsLinkLocal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isSiteLocal` instead
+    ///
+    pub const IsSiteLocal = isSiteLocal;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isSiteLocal)
     ///
@@ -474,9 +622,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsSiteLocal(self: QHostAddress) bool {
+    pub fn isSiteLocal(self: QHostAddress) bool {
         return qtc.QHostAddress_IsSiteLocal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isUniqueLocalUnicast` instead
+    ///
+    pub const IsUniqueLocalUnicast = isUniqueLocalUnicast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isUniqueLocalUnicast)
     ///
@@ -484,9 +636,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsUniqueLocalUnicast(self: QHostAddress) bool {
+    pub fn isUniqueLocalUnicast(self: QHostAddress) bool {
         return qtc.QHostAddress_IsUniqueLocalUnicast(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMulticast` instead
+    ///
+    pub const IsMulticast = isMulticast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isMulticast)
     ///
@@ -494,9 +650,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsMulticast(self: QHostAddress) bool {
+    pub fn isMulticast(self: QHostAddress) bool {
         return qtc.QHostAddress_IsMulticast(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isBroadcast` instead
+    ///
+    pub const IsBroadcast = isBroadcast;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isBroadcast)
     ///
@@ -504,9 +664,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsBroadcast(self: QHostAddress) bool {
+    pub fn isBroadcast(self: QHostAddress) bool {
         return qtc.QHostAddress_IsBroadcast(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isPrivateUse` instead
+    ///
+    pub const IsPrivateUse = isPrivateUse;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isPrivateUse)
     ///
@@ -514,9 +678,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn IsPrivateUse(self: QHostAddress) bool {
+    pub fn isPrivateUse(self: QHostAddress) bool {
         return qtc.QHostAddress_IsPrivateUse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `parseSubnet` instead
+    ///
+    pub const ParseSubnet = parseSubnet;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#parseSubnet)
     ///
@@ -524,7 +692,7 @@ pub const QHostAddress = extern struct {
     ///
     /// ` subnet: []const u8 `
     ///
-    pub fn ParseSubnet(subnet: []const u8) Struct_QHostAddress_i32 {
+    pub fn parseSubnet(subnet: []const u8) Struct_QHostAddress_i32 {
         const subnet_str = qtc.libqt_string{
             .len = subnet.len,
             .data = subnet.ptr,
@@ -536,6 +704,10 @@ pub const QHostAddress = extern struct {
         };
     }
 
+    /// ### DEPRECATED: Use `toIPv4Address1` instead
+    ///
+    pub const ToIPv4Address1 = toIPv4Address1;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#toIPv4Address)
     ///
     /// ## Parameter(s):
@@ -544,9 +716,13 @@ pub const QHostAddress = extern struct {
     ///
     /// ` ok: *bool `
     ///
-    pub fn ToIPv4Address1(self: QHostAddress, ok: *bool) u32 {
+    pub fn toIPv4Address1(self: QHostAddress, ok: *bool) u32 {
         return qtc.QHostAddress_ToIPv4Address1(@ptrCast(self.ptr), @ptrCast(ok));
     }
+
+    /// ### DEPRECATED: Use `isEqual2` instead
+    ///
+    pub const IsEqual2 = isEqual2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#isEqual)
     ///
@@ -558,24 +734,24 @@ pub const QHostAddress = extern struct {
     ///
     /// ` mode: flag of qhostaddress_enums.ConversionModeFlag `
     ///
-    pub fn IsEqual2(self: QHostAddress, address: anytype, mode: i32) bool {
+    pub fn isEqual2(self: QHostAddress, address: anytype, mode: i32) bool {
         comptime _ = @TypeOf(address)._is_QHostAddress;
         return qtc.QHostAddress_IsEqual2(@ptrCast(self.ptr), @ptrCast(address.ptr), @bitCast(mode));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qhostaddress.html#dtor.QHostAddress)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QHostAddress `
     ///
-    pub fn Delete(self: QHostAddress) void {
+    pub fn delete(self: QHostAddress) void {
         qtc.QHostAddress_Delete(@ptrCast(self.ptr));
     }
 };

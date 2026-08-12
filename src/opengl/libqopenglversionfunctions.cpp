@@ -119,9 +119,9 @@ intptr_t QOpenGLFunctions_1_0_CoreBackend__Functions_IsEnabled(const QOpenGLFunc
     return reinterpret_cast<intptr_t>(self->IsEnabled);
 }
 
-void QOpenGLFunctions_1_0_CoreBackend__Functions_SetIsEnabled(QOpenGLFunctions_1_0_CoreBackend__Functions* self, intptr_t isEnabled) {
-    auto isEnabled_func = reinterpret_cast<GLboolean (*)(GLenum)>(isEnabled);
-    self->IsEnabled = isEnabled_func;
+void QOpenGLFunctions_1_0_CoreBackend__Functions_SetIsEnabled(QOpenGLFunctions_1_0_CoreBackend__Functions* self, intptr_t IsEnabled) {
+    auto IsEnabled_func = reinterpret_cast<GLboolean (*)(GLenum)>(IsEnabled);
+    self->IsEnabled = IsEnabled_func;
 }
 
 void QOpenGLFunctions_1_0_CoreBackend__Functions_Delete(QOpenGLFunctions_1_0_CoreBackend__Functions* self) {
@@ -132,9 +132,9 @@ intptr_t QOpenGLFunctions_1_1_CoreBackend__Functions_IsTexture(const QOpenGLFunc
     return reinterpret_cast<intptr_t>(self->IsTexture);
 }
 
-void QOpenGLFunctions_1_1_CoreBackend__Functions_SetIsTexture(QOpenGLFunctions_1_1_CoreBackend__Functions* self, intptr_t isTexture) {
-    auto isTexture_func = reinterpret_cast<GLboolean (*)(GLuint)>(isTexture);
-    self->IsTexture = isTexture_func;
+void QOpenGLFunctions_1_1_CoreBackend__Functions_SetIsTexture(QOpenGLFunctions_1_1_CoreBackend__Functions* self, intptr_t IsTexture) {
+    auto IsTexture_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsTexture);
+    self->IsTexture = IsTexture_func;
 }
 
 void QOpenGLFunctions_1_1_CoreBackend__Functions_Delete(QOpenGLFunctions_1_1_CoreBackend__Functions* self) {
@@ -145,27 +145,27 @@ intptr_t QOpenGLFunctions_1_5_CoreBackend__Functions_UnmapBuffer(const QOpenGLFu
     return reinterpret_cast<intptr_t>(self->UnmapBuffer);
 }
 
-void QOpenGLFunctions_1_5_CoreBackend__Functions_SetUnmapBuffer(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t unmapBuffer) {
-    auto unmapBuffer_func = reinterpret_cast<GLboolean (*)(GLenum)>(unmapBuffer);
-    self->UnmapBuffer = unmapBuffer_func;
+void QOpenGLFunctions_1_5_CoreBackend__Functions_SetUnmapBuffer(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t UnmapBuffer) {
+    auto UnmapBuffer_func = reinterpret_cast<GLboolean (*)(GLenum)>(UnmapBuffer);
+    self->UnmapBuffer = UnmapBuffer_func;
 }
 
 intptr_t QOpenGLFunctions_1_5_CoreBackend__Functions_IsBuffer(const QOpenGLFunctions_1_5_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsBuffer);
 }
 
-void QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsBuffer(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t isBuffer) {
-    auto isBuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(isBuffer);
-    self->IsBuffer = isBuffer_func;
+void QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsBuffer(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t IsBuffer) {
+    auto IsBuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsBuffer);
+    self->IsBuffer = IsBuffer_func;
 }
 
 intptr_t QOpenGLFunctions_1_5_CoreBackend__Functions_IsQuery(const QOpenGLFunctions_1_5_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsQuery);
 }
 
-void QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsQuery(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t isQuery) {
-    auto isQuery_func = reinterpret_cast<GLboolean (*)(GLuint)>(isQuery);
-    self->IsQuery = isQuery_func;
+void QOpenGLFunctions_1_5_CoreBackend__Functions_SetIsQuery(QOpenGLFunctions_1_5_CoreBackend__Functions* self, intptr_t IsQuery) {
+    auto IsQuery_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsQuery);
+    self->IsQuery = IsQuery_func;
 }
 
 void QOpenGLFunctions_1_5_CoreBackend__Functions_Delete(QOpenGLFunctions_1_5_CoreBackend__Functions* self) {
@@ -176,36 +176,36 @@ intptr_t QOpenGLFunctions_2_0_CoreBackend__Functions_IsShader(const QOpenGLFunct
     return reinterpret_cast<intptr_t>(self->IsShader);
 }
 
-void QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsShader(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t isShader) {
-    auto isShader_func = reinterpret_cast<GLboolean (*)(GLuint)>(isShader);
-    self->IsShader = isShader_func;
+void QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsShader(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t IsShader) {
+    auto IsShader_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsShader);
+    self->IsShader = IsShader_func;
 }
 
 intptr_t QOpenGLFunctions_2_0_CoreBackend__Functions_IsProgram(const QOpenGLFunctions_2_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsProgram);
 }
 
-void QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsProgram(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t isProgram) {
-    auto isProgram_func = reinterpret_cast<GLboolean (*)(GLuint)>(isProgram);
-    self->IsProgram = isProgram_func;
+void QOpenGLFunctions_2_0_CoreBackend__Functions_SetIsProgram(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t IsProgram) {
+    auto IsProgram_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsProgram);
+    self->IsProgram = IsProgram_func;
 }
 
 intptr_t QOpenGLFunctions_2_0_CoreBackend__Functions_CreateShader(const QOpenGLFunctions_2_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->CreateShader);
 }
 
-void QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateShader(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t createShader) {
-    auto createShader_func = reinterpret_cast<GLuint (*)(GLenum)>(createShader);
-    self->CreateShader = createShader_func;
+void QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateShader(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t CreateShader) {
+    auto CreateShader_func = reinterpret_cast<GLuint (*)(GLenum)>(CreateShader);
+    self->CreateShader = CreateShader_func;
 }
 
 intptr_t QOpenGLFunctions_2_0_CoreBackend__Functions_CreateProgram(const QOpenGLFunctions_2_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->CreateProgram);
 }
 
-void QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateProgram(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t createProgram) {
-    auto createProgram_func = reinterpret_cast<GLuint (*)()>(createProgram);
-    self->CreateProgram = createProgram_func;
+void QOpenGLFunctions_2_0_CoreBackend__Functions_SetCreateProgram(QOpenGLFunctions_2_0_CoreBackend__Functions* self, intptr_t CreateProgram) {
+    auto CreateProgram_func = reinterpret_cast<GLuint (*)()>(CreateProgram);
+    self->CreateProgram = CreateProgram_func;
 }
 
 void QOpenGLFunctions_2_0_CoreBackend__Functions_Delete(QOpenGLFunctions_2_0_CoreBackend__Functions* self) {
@@ -216,36 +216,36 @@ intptr_t QOpenGLFunctions_3_0_CoreBackend__Functions_IsVertexArray(const QOpenGL
     return reinterpret_cast<intptr_t>(self->IsVertexArray);
 }
 
-void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsVertexArray(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t isVertexArray) {
-    auto isVertexArray_func = reinterpret_cast<GLboolean (*)(GLuint)>(isVertexArray);
-    self->IsVertexArray = isVertexArray_func;
+void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsVertexArray(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t IsVertexArray) {
+    auto IsVertexArray_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsVertexArray);
+    self->IsVertexArray = IsVertexArray_func;
 }
 
 intptr_t QOpenGLFunctions_3_0_CoreBackend__Functions_IsFramebuffer(const QOpenGLFunctions_3_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsFramebuffer);
 }
 
-void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsFramebuffer(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t isFramebuffer) {
-    auto isFramebuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(isFramebuffer);
-    self->IsFramebuffer = isFramebuffer_func;
+void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsFramebuffer(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t IsFramebuffer) {
+    auto IsFramebuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsFramebuffer);
+    self->IsFramebuffer = IsFramebuffer_func;
 }
 
 intptr_t QOpenGLFunctions_3_0_CoreBackend__Functions_IsRenderbuffer(const QOpenGLFunctions_3_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsRenderbuffer);
 }
 
-void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsRenderbuffer(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t isRenderbuffer) {
-    auto isRenderbuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(isRenderbuffer);
-    self->IsRenderbuffer = isRenderbuffer_func;
+void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsRenderbuffer(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t IsRenderbuffer) {
+    auto IsRenderbuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsRenderbuffer);
+    self->IsRenderbuffer = IsRenderbuffer_func;
 }
 
 intptr_t QOpenGLFunctions_3_0_CoreBackend__Functions_IsEnabledi(const QOpenGLFunctions_3_0_CoreBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->IsEnabledi);
 }
 
-void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsEnabledi(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t isEnabledi) {
-    auto isEnabledi_func = reinterpret_cast<GLboolean (*)(GLenum, GLuint)>(isEnabledi);
-    self->IsEnabledi = isEnabledi_func;
+void QOpenGLFunctions_3_0_CoreBackend__Functions_SetIsEnabledi(QOpenGLFunctions_3_0_CoreBackend__Functions* self, intptr_t IsEnabledi) {
+    auto IsEnabledi_func = reinterpret_cast<GLboolean (*)(GLenum, GLuint)>(IsEnabledi);
+    self->IsEnabledi = IsEnabledi_func;
 }
 
 void QOpenGLFunctions_3_0_CoreBackend__Functions_Delete(QOpenGLFunctions_3_0_CoreBackend__Functions* self) {
@@ -256,9 +256,9 @@ intptr_t QOpenGLFunctions_3_3_CoreBackend__Functions_IsSampler(const QOpenGLFunc
     return reinterpret_cast<intptr_t>(self->IsSampler);
 }
 
-void QOpenGLFunctions_3_3_CoreBackend__Functions_SetIsSampler(QOpenGLFunctions_3_3_CoreBackend__Functions* self, intptr_t isSampler) {
-    auto isSampler_func = reinterpret_cast<GLboolean (*)(GLuint)>(isSampler);
-    self->IsSampler = isSampler_func;
+void QOpenGLFunctions_3_3_CoreBackend__Functions_SetIsSampler(QOpenGLFunctions_3_3_CoreBackend__Functions* self, intptr_t IsSampler) {
+    auto IsSampler_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsSampler);
+    self->IsSampler = IsSampler_func;
 }
 
 void QOpenGLFunctions_3_3_CoreBackend__Functions_Delete(QOpenGLFunctions_3_3_CoreBackend__Functions* self) {
@@ -269,9 +269,9 @@ intptr_t QOpenGLFunctions_4_0_CoreBackend__Functions_IsTransformFeedback(const Q
     return reinterpret_cast<intptr_t>(self->IsTransformFeedback);
 }
 
-void QOpenGLFunctions_4_0_CoreBackend__Functions_SetIsTransformFeedback(QOpenGLFunctions_4_0_CoreBackend__Functions* self, intptr_t isTransformFeedback) {
-    auto isTransformFeedback_func = reinterpret_cast<GLboolean (*)(GLuint)>(isTransformFeedback);
-    self->IsTransformFeedback = isTransformFeedback_func;
+void QOpenGLFunctions_4_0_CoreBackend__Functions_SetIsTransformFeedback(QOpenGLFunctions_4_0_CoreBackend__Functions* self, intptr_t IsTransformFeedback) {
+    auto IsTransformFeedback_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsTransformFeedback);
+    self->IsTransformFeedback = IsTransformFeedback_func;
 }
 
 void QOpenGLFunctions_4_0_CoreBackend__Functions_Delete(QOpenGLFunctions_4_0_CoreBackend__Functions* self) {
@@ -282,9 +282,9 @@ intptr_t QOpenGLFunctions_4_1_CoreBackend__Functions_IsProgramPipeline(const QOp
     return reinterpret_cast<intptr_t>(self->IsProgramPipeline);
 }
 
-void QOpenGLFunctions_4_1_CoreBackend__Functions_SetIsProgramPipeline(QOpenGLFunctions_4_1_CoreBackend__Functions* self, intptr_t isProgramPipeline) {
-    auto isProgramPipeline_func = reinterpret_cast<GLboolean (*)(GLuint)>(isProgramPipeline);
-    self->IsProgramPipeline = isProgramPipeline_func;
+void QOpenGLFunctions_4_1_CoreBackend__Functions_SetIsProgramPipeline(QOpenGLFunctions_4_1_CoreBackend__Functions* self, intptr_t IsProgramPipeline) {
+    auto IsProgramPipeline_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsProgramPipeline);
+    self->IsProgramPipeline = IsProgramPipeline_func;
 }
 
 void QOpenGLFunctions_4_1_CoreBackend__Functions_Delete(QOpenGLFunctions_4_1_CoreBackend__Functions* self) {
@@ -295,9 +295,9 @@ intptr_t QOpenGLFunctions_4_5_CoreBackend__Functions_UnmapNamedBuffer(const QOpe
     return reinterpret_cast<intptr_t>(self->UnmapNamedBuffer);
 }
 
-void QOpenGLFunctions_4_5_CoreBackend__Functions_SetUnmapNamedBuffer(QOpenGLFunctions_4_5_CoreBackend__Functions* self, intptr_t unmapNamedBuffer) {
-    auto unmapNamedBuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(unmapNamedBuffer);
-    self->UnmapNamedBuffer = unmapNamedBuffer_func;
+void QOpenGLFunctions_4_5_CoreBackend__Functions_SetUnmapNamedBuffer(QOpenGLFunctions_4_5_CoreBackend__Functions* self, intptr_t UnmapNamedBuffer) {
+    auto UnmapNamedBuffer_func = reinterpret_cast<GLboolean (*)(GLuint)>(UnmapNamedBuffer);
+    self->UnmapNamedBuffer = UnmapNamedBuffer_func;
 }
 
 void QOpenGLFunctions_4_5_CoreBackend__Functions_Delete(QOpenGLFunctions_4_5_CoreBackend__Functions* self) {
@@ -308,27 +308,27 @@ intptr_t QOpenGLFunctions_1_0_DeprecatedBackend__Functions_IsList(const QOpenGLF
     return reinterpret_cast<intptr_t>(self->IsList);
 }
 
-void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetIsList(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t isList) {
-    auto isList_func = reinterpret_cast<GLboolean (*)(GLuint)>(isList);
-    self->IsList = isList_func;
+void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetIsList(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t IsList) {
+    auto IsList_func = reinterpret_cast<GLboolean (*)(GLuint)>(IsList);
+    self->IsList = IsList_func;
 }
 
 intptr_t QOpenGLFunctions_1_0_DeprecatedBackend__Functions_RenderMode(const QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->RenderMode);
 }
 
-void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetRenderMode(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t renderMode) {
-    auto renderMode_func = reinterpret_cast<GLint (*)(GLenum)>(renderMode);
-    self->RenderMode = renderMode_func;
+void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetRenderMode(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t RenderMode) {
+    auto RenderMode_func = reinterpret_cast<GLint (*)(GLenum)>(RenderMode);
+    self->RenderMode = RenderMode_func;
 }
 
 intptr_t QOpenGLFunctions_1_0_DeprecatedBackend__Functions_GenLists(const QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self) {
     return reinterpret_cast<intptr_t>(self->GenLists);
 }
 
-void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetGenLists(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t genLists) {
-    auto genLists_func = reinterpret_cast<GLuint (*)(GLsizei)>(genLists);
-    self->GenLists = genLists_func;
+void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_SetGenLists(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self, intptr_t GenLists) {
+    auto GenLists_func = reinterpret_cast<GLuint (*)(GLsizei)>(GenLists);
+    self->GenLists = GenLists_func;
 }
 
 void QOpenGLFunctions_1_0_DeprecatedBackend__Functions_Delete(QOpenGLFunctions_1_0_DeprecatedBackend__Functions* self) {

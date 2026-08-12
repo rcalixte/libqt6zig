@@ -59,15 +59,23 @@ pub const KEncodingFileDialog = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MetaObject(self: KEncodingFileDialog) QMetaObject {
+    pub fn metaObject(self: KEncodingFileDialog) QMetaObject {
         return .{ .ptr = qtc.KEncodingFileDialog_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -75,10 +83,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KEncodingFileDialog, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KEncodingFileDialog, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KEncodingFileDialog_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -90,45 +102,73 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KEncodingFileDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KEncodingFileDialog, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KEncodingFileDialog_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
 
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding` instead
+    ///
+    pub const GetOpenFileNameAndEncoding = getOpenFileNameAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
-    pub fn GetOpenFileNameAndEncoding() KEncodingFileDialog__Result {
+    pub fn getOpenFileNameAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding() };
     }
 
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding` instead
+    ///
+    pub const GetOpenFileNamesAndEncoding = getOpenFileNamesAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
-    pub fn GetOpenFileNamesAndEncoding() KEncodingFileDialog__Result {
+    pub fn getOpenFileNamesAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding() };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding` instead
+    ///
+    pub const GetOpenUrlAndEncoding = getOpenUrlAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
-    pub fn GetOpenUrlAndEncoding() KEncodingFileDialog__Result {
+    pub fn getOpenUrlAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding() };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding` instead
+    ///
+    pub const GetOpenUrlsAndEncoding = getOpenUrlsAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
-    pub fn GetOpenUrlsAndEncoding() KEncodingFileDialog__Result {
+    pub fn getOpenUrlsAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding() };
     }
 
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding` instead
+    ///
+    pub const GetSaveFileNameAndEncoding = getSaveFileNameAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
-    pub fn GetSaveFileNameAndEncoding() KEncodingFileDialog__Result {
+    pub fn getSaveFileNameAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding() };
     }
 
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding` instead
+    ///
+    pub const GetSaveUrlAndEncoding = getSaveUrlAndEncoding;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
-    pub fn GetSaveUrlAndEncoding() KEncodingFileDialog__Result {
+    pub fn getSaveUrlAndEncoding() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding() };
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#sizeHint)
     ///
@@ -136,9 +176,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn SizeHint(self: KEncodingFileDialog) QSize {
+    pub fn sizeHint(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.KEncodingFileDialog_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding1` instead
+    ///
+    pub const GetOpenFileNameAndEncoding1 = getOpenFileNameAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
@@ -146,13 +190,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetOpenFileNameAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNameAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
         };
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding1(encoding_str) };
     }
+
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding2` instead
+    ///
+    pub const GetOpenFileNameAndEncoding2 = getOpenFileNameAndEncoding2;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
@@ -162,7 +210,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetOpenFileNameAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getOpenFileNameAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -170,6 +218,10 @@ pub const KEncodingFileDialog = extern struct {
         comptime _ = @TypeOf(startDir)._is_QUrl;
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding3` instead
+    ///
+    pub const GetOpenFileNameAndEncoding3 = getOpenFileNameAndEncoding3;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
@@ -181,7 +233,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetOpenFileNameAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNameAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -194,31 +246,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetOpenFileNameAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetOpenFileNameAndEncoding4 = getOpenFileNameAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
     ///
@@ -230,11 +260,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetOpenFileNameAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNameAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -244,13 +272,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getOpenFileNameAndEncoding5` instead
+    ///
+    pub const GetOpenFileNameAndEncoding5 = getOpenFileNameAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNameAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getOpenFileNameAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNameAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding1` instead
+    ///
+    pub const GetOpenFileNamesAndEncoding1 = getOpenFileNamesAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
@@ -258,7 +322,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetOpenFileNamesAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNamesAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -266,6 +330,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding1(encoding_str) };
     }
 
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding2` instead
+    ///
+    pub const GetOpenFileNamesAndEncoding2 = getOpenFileNamesAndEncoding2;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ## Parameter(s):
@@ -274,7 +342,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetOpenFileNamesAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getOpenFileNamesAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -283,6 +351,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding3` instead
+    ///
+    pub const GetOpenFileNamesAndEncoding3 = getOpenFileNamesAndEncoding3;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
     /// ## Parameter(s):
@@ -293,7 +365,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetOpenFileNamesAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNamesAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -306,31 +378,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetOpenFileNamesAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetOpenFileNamesAndEncoding4 = getOpenFileNamesAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
     ///
@@ -342,11 +392,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetOpenFileNamesAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenFileNamesAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -356,13 +404,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getOpenFileNamesAndEncoding5` instead
+    ///
+    pub const GetOpenFileNamesAndEncoding5 = getOpenFileNamesAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenFileNamesAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getOpenFileNamesAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenFileNamesAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding1` instead
+    ///
+    pub const GetOpenUrlAndEncoding1 = getOpenUrlAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
@@ -370,7 +454,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetOpenUrlAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -378,6 +462,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding1(encoding_str) };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding2` instead
+    ///
+    pub const GetOpenUrlAndEncoding2 = getOpenUrlAndEncoding2;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ## Parameter(s):
@@ -386,7 +474,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetOpenUrlAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getOpenUrlAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -395,6 +483,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding3` instead
+    ///
+    pub const GetOpenUrlAndEncoding3 = getOpenUrlAndEncoding3;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
     /// ## Parameter(s):
@@ -405,7 +497,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetOpenUrlAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -418,31 +510,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetOpenUrlAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetOpenUrlAndEncoding4 = getOpenUrlAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
     ///
@@ -454,11 +524,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetOpenUrlAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -468,13 +536,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getOpenUrlAndEncoding5` instead
+    ///
+    pub const GetOpenUrlAndEncoding5 = getOpenUrlAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getOpenUrlAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding1` instead
+    ///
+    pub const GetOpenUrlsAndEncoding1 = getOpenUrlsAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
@@ -482,7 +586,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetOpenUrlsAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlsAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -490,6 +594,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding1(encoding_str) };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding2` instead
+    ///
+    pub const GetOpenUrlsAndEncoding2 = getOpenUrlsAndEncoding2;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ## Parameter(s):
@@ -498,7 +606,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetOpenUrlsAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getOpenUrlsAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -507,6 +615,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding3` instead
+    ///
+    pub const GetOpenUrlsAndEncoding3 = getOpenUrlsAndEncoding3;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
     /// ## Parameter(s):
@@ -517,7 +629,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetOpenUrlsAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlsAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -530,31 +642,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetOpenUrlsAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetOpenUrlsAndEncoding4 = getOpenUrlsAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
     ///
@@ -566,11 +656,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetOpenUrlsAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getOpenUrlsAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -580,13 +668,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getOpenUrlsAndEncoding5` instead
+    ///
+    pub const GetOpenUrlsAndEncoding5 = getOpenUrlsAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getOpenUrlsAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getOpenUrlsAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetOpenUrlsAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding1` instead
+    ///
+    pub const GetSaveFileNameAndEncoding1 = getSaveFileNameAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
@@ -594,7 +718,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetSaveFileNameAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveFileNameAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -602,6 +726,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding1(encoding_str) };
     }
 
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding2` instead
+    ///
+    pub const GetSaveFileNameAndEncoding2 = getSaveFileNameAndEncoding2;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ## Parameter(s):
@@ -610,7 +738,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetSaveFileNameAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getSaveFileNameAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -619,6 +747,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding3` instead
+    ///
+    pub const GetSaveFileNameAndEncoding3 = getSaveFileNameAndEncoding3;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
     /// ## Parameter(s):
@@ -629,7 +761,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetSaveFileNameAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveFileNameAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -642,31 +774,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetSaveFileNameAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetSaveFileNameAndEncoding4 = getSaveFileNameAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
     ///
@@ -678,11 +788,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetSaveFileNameAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveFileNameAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -692,13 +800,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getSaveFileNameAndEncoding5` instead
+    ///
+    pub const GetSaveFileNameAndEncoding5 = getSaveFileNameAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveFileNameAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getSaveFileNameAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveFileNameAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding1` instead
+    ///
+    pub const GetSaveUrlAndEncoding1 = getSaveUrlAndEncoding1;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
@@ -706,7 +850,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` encoding: []const u8 `
     ///
-    pub fn GetSaveUrlAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveUrlAndEncoding1(encoding: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -714,6 +858,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding1(encoding_str) };
     }
 
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding2` instead
+    ///
+    pub const GetSaveUrlAndEncoding2 = getSaveUrlAndEncoding2;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ## Parameter(s):
@@ -722,7 +870,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` startDir: QUrl `
     ///
-    pub fn GetSaveUrlAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
+    pub fn getSaveUrlAndEncoding2(encoding: []const u8, startDir: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -731,6 +879,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding2(encoding_str, @ptrCast(startDir.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding3` instead
+    ///
+    pub const GetSaveUrlAndEncoding3 = getSaveUrlAndEncoding3;
+
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
     /// ## Parameter(s):
@@ -741,7 +893,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    pub fn GetSaveUrlAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveUrlAndEncoding3(encoding: []const u8, startDir: anytype, filter: []const u8) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -754,31 +906,9 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding3(encoding_str, @ptrCast(startDir.ptr), filter_str) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding4` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` encoding: []const u8 `
-    ///
-    /// ` startDir: QUrl `
-    ///
-    /// ` filter: []const u8 `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn GetSaveUrlAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype) KEncodingFileDialog__Result {
-        const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
-        };
-        comptime _ = @TypeOf(startDir)._is_QUrl;
-        const filter_str = qtc.libqt_string{
-            .len = filter.len,
-            .data = filter.ptr,
-        };
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr)) };
-    }
+    pub const GetSaveUrlAndEncoding4 = getSaveUrlAndEncoding4;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
     ///
@@ -790,11 +920,9 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filter: []const u8 `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    /// ` title: []const u8 `
-    ///
-    pub fn GetSaveUrlAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+    pub fn getSaveUrlAndEncoding4(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype) KEncodingFileDialog__Result {
         const encoding_str = qtc.libqt_string{
             .len = encoding.len,
             .data = encoding.ptr,
@@ -804,13 +932,49 @@ pub const KEncodingFileDialog = extern struct {
             .len = filter.len,
             .data = filter.ptr,
         };
-        comptime _ = @TypeOf(parent)._is_QWidget;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding4(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `getSaveUrlAndEncoding5` instead
+    ///
+    pub const GetSaveUrlAndEncoding5 = getSaveUrlAndEncoding5;
+
+    /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog.html#getSaveUrlAndEncoding)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` encoding: []const u8 `
+    ///
+    /// ` startDir: QUrl `
+    ///
+    /// ` filter: []const u8 `
+    ///
+    /// ` _parent: QWidget `
+    ///
+    /// ` title: []const u8 `
+    ///
+    pub fn getSaveUrlAndEncoding5(encoding: []const u8, startDir: anytype, filter: []const u8, _parent: anytype, title: []const u8) KEncodingFileDialog__Result {
+        const encoding_str = qtc.libqt_string{
+            .len = encoding.len,
+            .data = encoding.ptr,
+        };
+        comptime _ = @TypeOf(startDir)._is_QUrl;
+        const filter_str = qtc.libqt_string{
+            .len = filter.len,
+            .data = filter.ptr,
+        };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
-        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(parent.ptr), title_str) };
+        return .{ .ptr = qtc.KEncodingFileDialog_GetSaveUrlAndEncoding5(encoding_str, @ptrCast(startDir.ptr), filter_str, @ptrCast(_parent.ptr), title_str) };
     }
+
+    /// ### DEPRECATED: Use `result` instead
+    ///
+    pub const Result = result;
 
     /// Inherited from QDialog
     ///
@@ -820,9 +984,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Result(self: KEncodingFileDialog) i32 {
+    pub fn result(self: KEncodingFileDialog) i32 {
         return qtc.QDialog_Result(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QDialog
     ///
@@ -834,9 +1002,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KEncodingFileDialog, visible: bool) void {
+    pub fn setVisible(self: KEncodingFileDialog, visible: bool) void {
         qtc.QDialog_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QDialog
     ///
@@ -846,9 +1018,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MinimumSizeHint(self: KEncodingFileDialog) QSize {
+    pub fn minimumSizeHint(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QDialog_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeGripEnabled` instead
+    ///
+    pub const SetSizeGripEnabled = setSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -860,9 +1036,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` sizeGripEnabled: bool `
     ///
-    pub fn SetSizeGripEnabled(self: KEncodingFileDialog, sizeGripEnabled: bool) void {
+    pub fn setSizeGripEnabled(self: KEncodingFileDialog, sizeGripEnabled: bool) void {
         qtc.QDialog_SetSizeGripEnabled(@ptrCast(self.ptr), sizeGripEnabled);
     }
+
+    /// ### DEPRECATED: Use `isSizeGripEnabled` instead
+    ///
+    pub const IsSizeGripEnabled = isSizeGripEnabled;
 
     /// Inherited from QDialog
     ///
@@ -872,9 +1052,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsSizeGripEnabled(self: KEncodingFileDialog) bool {
+    pub fn isSizeGripEnabled(self: KEncodingFileDialog) bool {
         return qtc.QDialog_IsSizeGripEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setModal` instead
+    ///
+    pub const SetModal = setModal;
 
     /// Inherited from QDialog
     ///
@@ -886,9 +1070,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` modal: bool `
     ///
-    pub fn SetModal(self: KEncodingFileDialog, modal: bool) void {
+    pub fn setModal(self: KEncodingFileDialog, modal: bool) void {
         qtc.QDialog_SetModal(@ptrCast(self.ptr), modal);
     }
+
+    /// ### DEPRECATED: Use `setResult` instead
+    ///
+    pub const SetResult = setResult;
 
     /// Inherited from QDialog
     ///
@@ -900,9 +1088,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` r: i32 `
     ///
-    pub fn SetResult(self: KEncodingFileDialog, r: i32) void {
+    pub fn setResult(self: KEncodingFileDialog, r: i32) void {
         qtc.QDialog_SetResult(@ptrCast(self.ptr), @bitCast(r));
     }
+
+    /// ### DEPRECATED: Use `finished` instead
+    ///
+    pub const Finished = finished;
 
     /// Inherited from QDialog
     ///
@@ -912,11 +1104,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` result: i32 `
+    /// ` _result: i32 `
     ///
-    pub fn Finished(self: KEncodingFileDialog, result: i32) void {
-        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(result));
+    pub fn finished(self: KEncodingFileDialog, _result: i32) void {
+        qtc.QDialog_Finished(@ptrCast(self.ptr), @bitCast(_result));
     }
+
+    /// ### DEPRECATED: Use `onFinished` instead
+    ///
+    pub const OnFinished = onFinished;
 
     /// Inherited from QDialog
     ///
@@ -928,10 +1124,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, result: i32) callconv(.c) void `
     ///
-    pub fn OnFinished(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, i32) callconv(.c) void) void {
+    pub fn onFinished(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, i32) callconv(.c) void) void {
         qtc.QDialog_Connect_Finished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `accepted` instead
+    ///
+    pub const Accepted = accepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -940,10 +1140,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Accepted(self: KEncodingFileDialog) void {
+    pub fn accepted(self: KEncodingFileDialog) void {
         qtc.QDialog_Accepted(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onAccepted` instead
+    ///
+    pub const OnAccepted = onAccepted;
+
     /// Inherited from QDialog
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdialog.html#accepted)
@@ -954,9 +1158,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog) callconv(.c) void `
     ///
-    pub fn OnAccepted(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
+    pub fn onAccepted(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Accepted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `rejected` instead
+    ///
+    pub const Rejected = rejected;
 
     /// Inherited from QDialog
     ///
@@ -966,9 +1174,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Rejected(self: KEncodingFileDialog) void {
+    pub fn rejected(self: KEncodingFileDialog) void {
         qtc.QDialog_Rejected(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onRejected` instead
+    ///
+    pub const OnRejected = onRejected;
 
     /// Inherited from QDialog
     ///
@@ -980,9 +1192,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog) callconv(.c) void `
     ///
-    pub fn OnRejected(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
+    pub fn onRejected(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
         qtc.QDialog_Connect_Rejected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `open` instead
+    ///
+    pub const Open = open;
 
     /// Inherited from QDialog
     ///
@@ -992,9 +1208,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Open(self: KEncodingFileDialog) void {
+    pub fn open(self: KEncodingFileDialog) void {
         qtc.QDialog_Open(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `exec` instead
+    ///
+    pub const Exec = exec;
 
     /// Inherited from QDialog
     ///
@@ -1004,9 +1224,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Exec(self: KEncodingFileDialog) i32 {
+    pub fn exec(self: KEncodingFileDialog) i32 {
         return qtc.QDialog_Exec(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `done` instead
+    ///
+    pub const Done = done;
 
     /// Inherited from QDialog
     ///
@@ -1018,9 +1242,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn Done(self: KEncodingFileDialog, param1: i32) void {
+    pub fn done(self: KEncodingFileDialog, param1: i32) void {
         qtc.QDialog_Done(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `accept` instead
+    ///
+    pub const Accept = accept;
 
     /// Inherited from QDialog
     ///
@@ -1030,9 +1258,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Accept(self: KEncodingFileDialog) void {
+    pub fn accept(self: KEncodingFileDialog) void {
         qtc.QDialog_Accept(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reject` instead
+    ///
+    pub const Reject = reject;
 
     /// Inherited from QDialog
     ///
@@ -1042,9 +1274,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Reject(self: KEncodingFileDialog) void {
+    pub fn reject(self: KEncodingFileDialog) void {
         qtc.QDialog_Reject(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -1054,9 +1290,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DevType(self: KEncodingFileDialog) i32 {
+    pub fn devType(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1066,9 +1306,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn WinId(self: KEncodingFileDialog) usize {
+    pub fn winId(self: KEncodingFileDialog) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1078,9 +1322,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn CreateWinId(self: KEncodingFileDialog) void {
+    pub fn createWinId(self: KEncodingFileDialog) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1090,9 +1338,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn InternalWinId(self: KEncodingFileDialog) usize {
+    pub fn internalWinId(self: KEncodingFileDialog) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1102,9 +1354,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn EffectiveWinId(self: KEncodingFileDialog) usize {
+    pub fn effectiveWinId(self: KEncodingFileDialog) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1114,9 +1370,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Style(self: KEncodingFileDialog) QStyle {
+    pub fn style(self: KEncodingFileDialog) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1126,12 +1386,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KEncodingFileDialog, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KEncodingFileDialog, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1141,9 +1405,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsTopLevel(self: KEncodingFileDialog) bool {
+    pub fn isTopLevel(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1153,9 +1421,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsWindow(self: KEncodingFileDialog) bool {
+    pub fn isWindow(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1165,9 +1437,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsModal(self: KEncodingFileDialog) bool {
+    pub fn isModal(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1181,9 +1457,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KEncodingFileDialog) i32 {
+    pub fn windowModality(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1193,11 +1473,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KEncodingFileDialog, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KEncodingFileDialog, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1207,9 +1491,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsEnabled(self: KEncodingFileDialog) bool {
+    pub fn isEnabled(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1221,10 +1509,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KEncodingFileDialog, param1: anytype) bool {
+    pub fn isEnabledTo(self: KEncodingFileDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1236,9 +1528,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KEncodingFileDialog, enabled: bool) void {
+    pub fn setEnabled(self: KEncodingFileDialog, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1250,9 +1546,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KEncodingFileDialog, disabled: bool) void {
+    pub fn setDisabled(self: KEncodingFileDialog, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1264,9 +1564,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KEncodingFileDialog, windowModified: bool) void {
+    pub fn setWindowModified(self: KEncodingFileDialog, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1276,9 +1580,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FrameGeometry(self: KEncodingFileDialog) QRect {
+    pub fn frameGeometry(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1288,9 +1596,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Geometry(self: KEncodingFileDialog) QRect {
+    pub fn geometry(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1300,9 +1612,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn NormalGeometry(self: KEncodingFileDialog) QRect {
+    pub fn normalGeometry(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1312,9 +1628,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn X(self: KEncodingFileDialog) i32 {
+    pub fn x(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1324,9 +1644,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Y(self: KEncodingFileDialog) i32 {
+    pub fn y(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1336,9 +1660,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Pos(self: KEncodingFileDialog) QPoint {
+    pub fn pos(self: KEncodingFileDialog) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -1348,9 +1676,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FrameSize(self: KEncodingFileDialog) QSize {
+    pub fn frameSize(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -1360,9 +1692,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Size(self: KEncodingFileDialog) QSize {
+    pub fn size(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -1372,9 +1708,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Width(self: KEncodingFileDialog) i32 {
+    pub fn width(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -1384,9 +1724,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Height(self: KEncodingFileDialog) i32 {
+    pub fn height(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1396,9 +1740,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Rect(self: KEncodingFileDialog) QRect {
+    pub fn rect(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1408,9 +1756,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ChildrenRect(self: KEncodingFileDialog) QRect {
+    pub fn childrenRect(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1420,9 +1772,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ChildrenRegion(self: KEncodingFileDialog) QRegion {
+    pub fn childrenRegion(self: KEncodingFileDialog) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1432,9 +1788,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MinimumSize(self: KEncodingFileDialog) QSize {
+    pub fn minimumSize(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1444,9 +1804,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MaximumSize(self: KEncodingFileDialog) QSize {
+    pub fn maximumSize(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1456,9 +1820,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MinimumWidth(self: KEncodingFileDialog) i32 {
+    pub fn minimumWidth(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1468,9 +1836,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MinimumHeight(self: KEncodingFileDialog) i32 {
+    pub fn minimumHeight(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1480,9 +1852,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MaximumWidth(self: KEncodingFileDialog) i32 {
+    pub fn maximumWidth(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1492,9 +1868,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn MaximumHeight(self: KEncodingFileDialog) i32 {
+    pub fn maximumHeight(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1504,12 +1884,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KEncodingFileDialog, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KEncodingFileDialog, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1523,9 +1907,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KEncodingFileDialog, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KEncodingFileDialog, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1535,12 +1923,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KEncodingFileDialog, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KEncodingFileDialog, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1554,9 +1946,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KEncodingFileDialog, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KEncodingFileDialog, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1568,9 +1964,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KEncodingFileDialog, minw: i32) void {
+    pub fn setMinimumWidth(self: KEncodingFileDialog, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1582,9 +1982,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KEncodingFileDialog, minh: i32) void {
+    pub fn setMinimumHeight(self: KEncodingFileDialog, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1596,9 +2000,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KEncodingFileDialog, maxw: i32) void {
+    pub fn setMaximumWidth(self: KEncodingFileDialog, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1610,9 +2018,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KEncodingFileDialog, maxh: i32) void {
+    pub fn setMaximumHeight(self: KEncodingFileDialog, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1622,9 +2034,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn SizeIncrement(self: KEncodingFileDialog) QSize {
+    pub fn sizeIncrement(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1634,12 +2050,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KEncodingFileDialog, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KEncodingFileDialog, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1653,9 +2073,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KEncodingFileDialog, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KEncodingFileDialog, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1665,9 +2089,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn BaseSize(self: KEncodingFileDialog) QSize {
+    pub fn baseSize(self: KEncodingFileDialog) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1677,12 +2105,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KEncodingFileDialog, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KEncodingFileDialog, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1696,9 +2128,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KEncodingFileDialog, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KEncodingFileDialog, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1710,10 +2146,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KEncodingFileDialog, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KEncodingFileDialog, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1727,9 +2167,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KEncodingFileDialog, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KEncodingFileDialog, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1741,9 +2185,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KEncodingFileDialog, w: i32) void {
+    pub fn setFixedWidth(self: KEncodingFileDialog, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1755,9 +2203,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KEncodingFileDialog, h: i32) void {
+    pub fn setFixedHeight(self: KEncodingFileDialog, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1769,11 +2221,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KEncodingFileDialog, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KEncodingFileDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1784,11 +2240,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KEncodingFileDialog, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KEncodingFileDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1799,11 +2259,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KEncodingFileDialog, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KEncodingFileDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1814,11 +2278,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KEncodingFileDialog, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KEncodingFileDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1829,11 +2297,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KEncodingFileDialog, param1: anytype) QPointF {
+    pub fn mapToParent(self: KEncodingFileDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1844,10 +2316,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KEncodingFileDialog, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KEncodingFileDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1859,10 +2335,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KEncodingFileDialog, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KEncodingFileDialog, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1874,10 +2354,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KEncodingFileDialog, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KEncodingFileDialog, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1891,12 +2375,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1909,11 +2397,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1927,11 +2419,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1945,11 +2441,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KEncodingFileDialog, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1959,9 +2459,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Window(self: KEncodingFileDialog) QWidget {
+    pub fn window(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1971,9 +2475,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn NativeParentWidget(self: KEncodingFileDialog) QWidget {
+    pub fn nativeParentWidget(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1983,9 +2491,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn TopLevelWidget(self: KEncodingFileDialog) QWidget {
+    pub fn topLevelWidget(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1995,9 +2507,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Palette(self: KEncodingFileDialog) QPalette {
+    pub fn palette(self: KEncodingFileDialog) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2007,12 +2523,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KEncodingFileDialog, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KEncodingFileDialog, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2022,11 +2542,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KEncodingFileDialog, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KEncodingFileDialog, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2040,9 +2564,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KEncodingFileDialog) i32 {
+    pub fn backgroundRole(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2052,11 +2580,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KEncodingFileDialog, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KEncodingFileDialog, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2070,9 +2602,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KEncodingFileDialog) i32 {
+    pub fn foregroundRole(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2082,9 +2618,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Font(self: KEncodingFileDialog) QFont {
+    pub fn font(self: KEncodingFileDialog) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2094,12 +2634,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KEncodingFileDialog, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KEncodingFileDialog, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2109,9 +2653,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FontMetrics(self: KEncodingFileDialog) QFontMetrics {
+    pub fn fontMetrics(self: KEncodingFileDialog) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2121,9 +2669,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FontInfo(self: KEncodingFileDialog) QFontInfo {
+    pub fn fontInfo(self: KEncodingFileDialog) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2133,9 +2685,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Cursor(self: KEncodingFileDialog) QCursor {
+    pub fn cursor(self: KEncodingFileDialog) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2145,12 +2701,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KEncodingFileDialog, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KEncodingFileDialog, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2160,9 +2720,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UnsetCursor(self: KEncodingFileDialog) void {
+    pub fn unsetCursor(self: KEncodingFileDialog) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2174,9 +2738,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KEncodingFileDialog, enable: bool) void {
+    pub fn setMouseTracking(self: KEncodingFileDialog, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2186,9 +2754,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn HasMouseTracking(self: KEncodingFileDialog) bool {
+    pub fn hasMouseTracking(self: KEncodingFileDialog) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2198,9 +2770,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UnderMouse(self: KEncodingFileDialog) bool {
+    pub fn underMouse(self: KEncodingFileDialog) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2212,9 +2788,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KEncodingFileDialog, enable: bool) void {
+    pub fn setTabletTracking(self: KEncodingFileDialog, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2224,24 +2804,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn HasTabletTracking(self: KEncodingFileDialog) bool {
+    pub fn hasTabletTracking(self: KEncodingFileDialog) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEncodingFileDialog `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KEncodingFileDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2251,12 +2820,35 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KEncodingFileDialog, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KEncodingFileDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEncodingFileDialog `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KEncodingFileDialog, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2266,9 +2858,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Mask(self: KEncodingFileDialog) QRegion {
+    pub fn mask(self: KEncodingFileDialog) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2278,9 +2874,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ClearMask(self: KEncodingFileDialog) void {
+    pub fn clearMask(self: KEncodingFileDialog) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2292,10 +2892,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KEncodingFileDialog, target: anytype) void {
+    pub fn render(self: KEncodingFileDialog, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2307,10 +2911,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KEncodingFileDialog, painter: anytype) void {
+    pub fn render2(self: KEncodingFileDialog, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2320,9 +2928,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Grab(self: KEncodingFileDialog) QPixmap {
+    pub fn grab(self: KEncodingFileDialog) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2332,9 +2944,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn GraphicsEffect(self: KEncodingFileDialog) QGraphicsEffect {
+    pub fn graphicsEffect(self: KEncodingFileDialog) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2346,10 +2962,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KEncodingFileDialog, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KEncodingFileDialog, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2361,9 +2981,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KEncodingFileDialog, typeVal: i32) void {
+    pub fn grabGesture(self: KEncodingFileDialog, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -2375,9 +2999,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KEncodingFileDialog, typeVal: i32) void {
+    pub fn ungrabGesture(self: KEncodingFileDialog, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2387,15 +3015,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KEncodingFileDialog, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KEncodingFileDialog, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2405,15 +3037,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KEncodingFileDialog, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KEncodingFileDialog, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2425,13 +3061,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2443,13 +3083,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2461,10 +3105,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KEncodingFileDialog, icon: anytype) void {
+    pub fn setWindowIcon(self: KEncodingFileDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2474,9 +3122,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn WindowIcon(self: KEncodingFileDialog) QIcon {
+    pub fn windowIcon(self: KEncodingFileDialog) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2486,15 +3138,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KEncodingFileDialog, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KEncodingFileDialog, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2506,13 +3162,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2522,15 +3182,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KEncodingFileDialog, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KEncodingFileDialog, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2542,13 +3206,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2560,13 +3228,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KEncodingFileDialog, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KEncodingFileDialog, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2578,13 +3250,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3272,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KEncodingFileDialog, level: f64) void {
+    pub fn setWindowOpacity(self: KEncodingFileDialog, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2608,9 +3288,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn WindowOpacity(self: KEncodingFileDialog) f64 {
+    pub fn windowOpacity(self: KEncodingFileDialog) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3304,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsWindowModified(self: KEncodingFileDialog) bool {
+    pub fn isWindowModified(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2632,15 +3320,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KEncodingFileDialog, toolTip: []const u8) void {
+    pub fn setToolTip(self: KEncodingFileDialog, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2652,13 +3344,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2670,9 +3366,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KEncodingFileDialog, msec: i32) void {
+    pub fn setToolTipDuration(self: KEncodingFileDialog, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2682,9 +3382,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ToolTipDuration(self: KEncodingFileDialog) i32 {
+    pub fn toolTipDuration(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2694,15 +3398,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KEncodingFileDialog, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KEncodingFileDialog, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2714,13 +3422,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2730,15 +3442,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KEncodingFileDialog, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KEncodingFileDialog, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2750,13 +3466,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2768,13 +3488,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2786,13 +3510,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KEncodingFileDialog, name: []const u8) void {
+    pub fn setAccessibleName(self: KEncodingFileDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2804,13 +3532,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2822,13 +3554,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KEncodingFileDialog, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KEncodingFileDialog, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2840,9 +3576,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KEncodingFileDialog, direction: i32) void {
+    pub fn setLayoutDirection(self: KEncodingFileDialog, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2856,9 +3596,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KEncodingFileDialog) i32 {
+    pub fn layoutDirection(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2868,9 +3612,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UnsetLayoutDirection(self: KEncodingFileDialog) void {
+    pub fn unsetLayoutDirection(self: KEncodingFileDialog) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2880,12 +3628,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KEncodingFileDialog, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KEncodingFileDialog, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2895,9 +3647,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Locale(self: KEncodingFileDialog) QLocale {
+    pub fn locale(self: KEncodingFileDialog) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2907,9 +3663,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UnsetLocale(self: KEncodingFileDialog) void {
+    pub fn unsetLocale(self: KEncodingFileDialog) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2919,9 +3679,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsRightToLeft(self: KEncodingFileDialog) bool {
+    pub fn isRightToLeft(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2931,9 +3695,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsLeftToRight(self: KEncodingFileDialog) bool {
+    pub fn isLeftToRight(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2943,9 +3711,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn SetFocus(self: KEncodingFileDialog) void {
+    pub fn setFocus(self: KEncodingFileDialog) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2955,9 +3727,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsActiveWindow(self: KEncodingFileDialog) bool {
+    pub fn isActiveWindow(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2967,9 +3743,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ActivateWindow(self: KEncodingFileDialog) void {
+    pub fn activateWindow(self: KEncodingFileDialog) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2979,9 +3759,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ClearFocus(self: KEncodingFileDialog) void {
+    pub fn clearFocus(self: KEncodingFileDialog) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2993,9 +3777,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KEncodingFileDialog, reason: i32) void {
+    pub fn setFocus2(self: KEncodingFileDialog, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3009,9 +3797,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KEncodingFileDialog) i32 {
+    pub fn focusPolicy(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3023,9 +3815,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KEncodingFileDialog, policy: i32) void {
+    pub fn setFocusPolicy(self: KEncodingFileDialog, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3035,9 +3831,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn HasFocus(self: KEncodingFileDialog) bool {
+    pub fn hasFocus(self: KEncodingFileDialog) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3049,11 +3849,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3063,12 +3867,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KEncodingFileDialog, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KEncodingFileDialog, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3078,9 +3886,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FocusProxy(self: KEncodingFileDialog) QWidget {
+    pub fn focusProxy(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3094,9 +3906,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KEncodingFileDialog) i32 {
+    pub fn contextMenuPolicy(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3108,9 +3924,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KEncodingFileDialog, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KEncodingFileDialog, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3120,9 +3940,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn GrabMouse(self: KEncodingFileDialog) void {
+    pub fn grabMouse(self: KEncodingFileDialog) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3134,10 +3958,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn grabMouse2(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3147,9 +3975,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ReleaseMouse(self: KEncodingFileDialog) void {
+    pub fn releaseMouse(self: KEncodingFileDialog) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3159,9 +3991,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn GrabKeyboard(self: KEncodingFileDialog) void {
+    pub fn grabKeyboard(self: KEncodingFileDialog) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3171,9 +4007,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ReleaseKeyboard(self: KEncodingFileDialog) void {
+    pub fn releaseKeyboard(self: KEncodingFileDialog) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3185,10 +4025,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KEncodingFileDialog, key: anytype) i32 {
+    pub fn grabShortcut(self: KEncodingFileDialog, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4044,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KEncodingFileDialog, id: i32) void {
+    pub fn releaseShortcut(self: KEncodingFileDialog, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3214,9 +4062,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KEncodingFileDialog, id: i32) void {
+    pub fn setShortcutEnabled(self: KEncodingFileDialog, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3228,25 +4080,37 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KEncodingFileDialog, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KEncodingFileDialog, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4120,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UpdatesEnabled(self: KEncodingFileDialog) bool {
+    pub fn updatesEnabled(self: KEncodingFileDialog) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3270,9 +4138,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KEncodingFileDialog, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KEncodingFileDialog, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3282,9 +4154,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn GraphicsProxyWidget(self: KEncodingFileDialog) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KEncodingFileDialog) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3294,9 +4170,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Update(self: KEncodingFileDialog) void {
+    pub fn update(self: KEncodingFileDialog) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3306,9 +4186,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Repaint(self: KEncodingFileDialog) void {
+    pub fn repaint(self: KEncodingFileDialog) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3318,17 +4202,21 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KEncodingFileDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -3340,11 +4228,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn update3(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -3355,10 +4247,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn update4(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -3368,17 +4264,21 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KEncodingFileDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3390,10 +4290,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn repaint3(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3405,10 +4309,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn repaint4(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3420,9 +4328,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KEncodingFileDialog, hidden: bool) void {
+    pub fn setHidden(self: KEncodingFileDialog, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3432,9 +4344,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Show(self: KEncodingFileDialog) void {
+    pub fn show(self: KEncodingFileDialog) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3444,9 +4360,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Hide(self: KEncodingFileDialog) void {
+    pub fn hide(self: KEncodingFileDialog) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3456,9 +4376,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ShowMinimized(self: KEncodingFileDialog) void {
+    pub fn showMinimized(self: KEncodingFileDialog) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3468,9 +4392,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ShowMaximized(self: KEncodingFileDialog) void {
+    pub fn showMaximized(self: KEncodingFileDialog) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3480,9 +4408,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ShowFullScreen(self: KEncodingFileDialog) void {
+    pub fn showFullScreen(self: KEncodingFileDialog) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3492,9 +4424,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ShowNormal(self: KEncodingFileDialog) void {
+    pub fn showNormal(self: KEncodingFileDialog) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3504,9 +4440,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Close(self: KEncodingFileDialog) bool {
+    pub fn close(self: KEncodingFileDialog) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3516,9 +4456,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Raise(self: KEncodingFileDialog) void {
+    pub fn raise(self: KEncodingFileDialog) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3528,9 +4472,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Lower(self: KEncodingFileDialog) void {
+    pub fn lower(self: KEncodingFileDialog) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3542,10 +4490,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn stackUnder(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3555,13 +4507,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KEncodingFileDialog, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KEncodingFileDialog, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3573,10 +4529,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn move2(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3590,9 +4550,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KEncodingFileDialog, w: i32, h: i32) void {
+    pub fn resize(self: KEncodingFileDialog, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3604,10 +4568,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn resize2(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3617,17 +4585,21 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KEncodingFileDialog, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KEncodingFileDialog, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3637,12 +4609,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KEncodingFileDialog, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KEncodingFileDialog, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3654,13 +4630,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KEncodingFileDialog, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KEncodingFileDialog, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingFileDialog.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KEncodingFileDialog.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3670,15 +4650,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KEncodingFileDialog, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KEncodingFileDialog, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3688,9 +4672,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn AdjustSize(self: KEncodingFileDialog) void {
+    pub fn adjustSize(self: KEncodingFileDialog) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3700,9 +4688,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsVisible(self: KEncodingFileDialog) bool {
+    pub fn isVisible(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3714,10 +4706,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KEncodingFileDialog, param1: anytype) bool {
+    pub fn isVisibleTo(self: KEncodingFileDialog, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3727,9 +4723,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsHidden(self: KEncodingFileDialog) bool {
+    pub fn isHidden(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3739,9 +4739,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsMinimized(self: KEncodingFileDialog) bool {
+    pub fn isMinimized(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3751,9 +4755,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsMaximized(self: KEncodingFileDialog) bool {
+    pub fn isMaximized(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3763,9 +4771,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsFullScreen(self: KEncodingFileDialog) bool {
+    pub fn isFullScreen(self: KEncodingFileDialog) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3779,9 +4791,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KEncodingFileDialog) i32 {
+    pub fn windowState(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3793,9 +4809,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KEncodingFileDialog, state: i32) void {
+    pub fn setWindowState(self: KEncodingFileDialog, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3807,9 +4827,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KEncodingFileDialog, state: i32) void {
+    pub fn overrideWindowState(self: KEncodingFileDialog, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3819,9 +4843,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn SizePolicy(self: KEncodingFileDialog) QSizePolicy {
+    pub fn sizePolicy(self: KEncodingFileDialog) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3831,12 +4859,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KEncodingFileDialog, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KEncodingFileDialog, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3850,9 +4882,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KEncodingFileDialog, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KEncodingFileDialog, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -3864,9 +4900,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KEncodingFileDialog, param1: i32) i32 {
+    pub fn heightForWidth(self: KEncodingFileDialog, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -3876,9 +4916,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn HasHeightForWidth(self: KEncodingFileDialog) bool {
+    pub fn hasHeightForWidth(self: KEncodingFileDialog) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3888,9 +4932,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn VisibleRegion(self: KEncodingFileDialog) QRegion {
+    pub fn visibleRegion(self: KEncodingFileDialog) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3908,9 +4956,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KEncodingFileDialog, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KEncodingFileDialog, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3922,10 +4974,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KEncodingFileDialog, margins: anytype) void {
+    pub fn setContentsMargins2(self: KEncodingFileDialog, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3935,9 +4991,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ContentsMargins(self: KEncodingFileDialog) QMargins {
+    pub fn contentsMargins(self: KEncodingFileDialog) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3947,9 +5007,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ContentsRect(self: KEncodingFileDialog) QRect {
+    pub fn contentsRect(self: KEncodingFileDialog) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3959,9 +5023,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Layout(self: KEncodingFileDialog) QLayout {
+    pub fn layout(self: KEncodingFileDialog) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3971,12 +5039,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KEncodingFileDialog, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KEncodingFileDialog, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3986,24 +5058,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn UpdateGeometry(self: KEncodingFileDialog) void {
+    pub fn updateGeometry(self: KEncodingFileDialog) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEncodingFileDialog `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KEncodingFileDialog, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4013,14 +5074,37 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KEncodingFileDialog, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEncodingFileDialog `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KEncodingFileDialog, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KEncodingFileDialog, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4034,9 +5118,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KEncodingFileDialog, dx: i32, dy: i32) void {
+    pub fn scroll(self: KEncodingFileDialog, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4052,10 +5140,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KEncodingFileDialog, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KEncodingFileDialog, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4065,9 +5157,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn FocusWidget(self: KEncodingFileDialog) QWidget {
+    pub fn focusWidget(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4077,9 +5173,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn NextInFocusChain(self: KEncodingFileDialog) QWidget {
+    pub fn nextInFocusChain(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4089,9 +5189,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn PreviousInFocusChain(self: KEncodingFileDialog) QWidget {
+    pub fn previousInFocusChain(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4101,9 +5205,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn AcceptDrops(self: KEncodingFileDialog) bool {
+    pub fn acceptDrops(self: KEncodingFileDialog) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4115,9 +5223,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KEncodingFileDialog, on: bool) void {
+    pub fn setAcceptDrops(self: KEncodingFileDialog, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4129,10 +5241,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KEncodingFileDialog, action: anytype) void {
+    pub fn addAction(self: KEncodingFileDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4142,15 +5258,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KEncodingFileDialog, actions: []QAction) void {
+    pub fn addActions(self: KEncodingFileDialog, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4162,16 +5282,20 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KEncodingFileDialog, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KEncodingFileDialog, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4185,11 +5309,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KEncodingFileDialog, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KEncodingFileDialog, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4201,10 +5329,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KEncodingFileDialog, action: anytype) void {
+    pub fn removeAction(self: KEncodingFileDialog, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4216,15 +5348,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KEncodingFileDialog.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KEncodingFileDialog.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4236,13 +5372,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KEncodingFileDialog, text: []const u8) QAction {
+    pub fn addAction2(self: KEncodingFileDialog, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -4256,7 +5396,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KEncodingFileDialog, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KEncodingFileDialog, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4265,6 +5405,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4277,7 +5421,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KEncodingFileDialog, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KEncodingFileDialog, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4285,6 +5429,10 @@ pub const KEncodingFileDialog = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -4300,7 +5448,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KEncodingFileDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KEncodingFileDialog, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -4310,6 +5458,10 @@ pub const KEncodingFileDialog = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -4318,9 +5470,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ParentWidget(self: KEncodingFileDialog) QWidget {
+    pub fn parentWidget(self: KEncodingFileDialog) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4332,9 +5488,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KEncodingFileDialog, typeVal: i32) void {
+    pub fn setWindowFlags(self: KEncodingFileDialog, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4348,9 +5508,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KEncodingFileDialog) i32 {
+    pub fn windowFlags(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4362,9 +5526,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KEncodingFileDialog, param1: i32) void {
+    pub fn setWindowFlag(self: KEncodingFileDialog, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4376,9 +5544,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KEncodingFileDialog, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KEncodingFileDialog, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -4392,9 +5564,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KEncodingFileDialog) i32 {
+    pub fn windowType(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -4404,9 +5580,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4416,13 +5596,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KEncodingFileDialog, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KEncodingFileDialog, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4434,10 +5618,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KEncodingFileDialog, p: anytype) QWidget {
+    pub fn childAt2(self: KEncodingFileDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4449,10 +5637,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KEncodingFileDialog, p: anytype) QWidget {
+    pub fn childAt3(self: KEncodingFileDialog, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4464,9 +5656,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KEncodingFileDialog, param1: i32) void {
+    pub fn setAttribute(self: KEncodingFileDialog, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4478,9 +5674,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KEncodingFileDialog, param1: i32) bool {
+    pub fn testAttribute(self: KEncodingFileDialog, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -4490,9 +5690,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn PaintEngine(self: KEncodingFileDialog) QPaintEngine {
+    pub fn paintEngine(self: KEncodingFileDialog) QPaintEngine {
         return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4502,9 +5706,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn EnsurePolished(self: KEncodingFileDialog) void {
+    pub fn ensurePolished(self: KEncodingFileDialog) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4516,10 +5724,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KEncodingFileDialog, child: anytype) bool {
+    pub fn isAncestorOf(self: KEncodingFileDialog, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4529,9 +5741,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn AutoFillBackground(self: KEncodingFileDialog) bool {
+    pub fn autoFillBackground(self: KEncodingFileDialog) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4543,9 +5759,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KEncodingFileDialog, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KEncodingFileDialog, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4555,9 +5775,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn BackingStore(self: KEncodingFileDialog) QBackingStore {
+    pub fn backingStore(self: KEncodingFileDialog) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4567,9 +5791,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn WindowHandle(self: KEncodingFileDialog) QWindow {
+    pub fn windowHandle(self: KEncodingFileDialog) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4579,9 +5807,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Screen(self: KEncodingFileDialog) QScreen {
+    pub fn screen(self: KEncodingFileDialog) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4591,12 +5823,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KEncodingFileDialog, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KEncodingFileDialog, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4604,12 +5840,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4621,13 +5861,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KEncodingFileDialog, title: []const u8) void {
+    pub fn windowTitleChanged(self: KEncodingFileDialog, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4639,9 +5883,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4653,10 +5901,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KEncodingFileDialog, icon: anytype) void {
+    pub fn windowIconChanged(self: KEncodingFileDialog, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4668,9 +5920,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4682,13 +5938,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KEncodingFileDialog, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KEncodingFileDialog, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4700,9 +5960,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4712,12 +5976,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KEncodingFileDialog, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KEncodingFileDialog, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4729,9 +5997,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -4743,9 +6015,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KEncodingFileDialog, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KEncodingFileDialog, param1: i32) QVariant {
         return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4759,9 +6035,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KEncodingFileDialog) i32 {
+    pub fn inputMethodHints(self: KEncodingFileDialog) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4773,9 +6053,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KEncodingFileDialog, hints: i32) void {
+    pub fn setInputMethodHints(self: KEncodingFileDialog, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4789,11 +6073,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KEncodingFileDialog, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KEncodingFileDialog, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4809,13 +6097,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KEncodingFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KEncodingFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4832,12 +6124,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KEncodingFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KEncodingFileDialog, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4851,11 +6147,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4871,12 +6171,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4894,12 +6198,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KEncodingFileDialog, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4911,10 +6219,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KEncodingFileDialog, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KEncodingFileDialog, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4928,9 +6240,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KEncodingFileDialog, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KEncodingFileDialog, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4944,10 +6260,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KEncodingFileDialog, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KEncodingFileDialog, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4961,9 +6281,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KEncodingFileDialog, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KEncodingFileDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4977,9 +6301,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KEncodingFileDialog, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KEncodingFileDialog, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4993,9 +6321,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KEncodingFileDialog, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KEncodingFileDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5009,25 +6341,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KEncodingFileDialog, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KEncodingFileDialog, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5035,17 +6355,41 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5057,13 +6401,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KEncodingFileDialog, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KEncodingFileDialog.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5075,13 +6423,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KEncodingFileDialog, name: []const u8) void {
+    pub fn setObjectName(self: KEncodingFileDialog, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5091,9 +6443,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsWidgetType(self: KEncodingFileDialog) bool {
+    pub fn isWidgetType(self: KEncodingFileDialog) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5103,9 +6459,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsWindowType(self: KEncodingFileDialog) bool {
+    pub fn isWindowType(self: KEncodingFileDialog) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5115,9 +6475,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn IsQuickItemType(self: KEncodingFileDialog) bool {
+    pub fn isQuickItemType(self: KEncodingFileDialog) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5127,9 +6491,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn SignalsBlocked(self: KEncodingFileDialog) bool {
+    pub fn signalsBlocked(self: KEncodingFileDialog) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5141,9 +6509,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KEncodingFileDialog, b: bool) bool {
+    pub fn blockSignals(self: KEncodingFileDialog, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5153,9 +6525,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Thread(self: KEncodingFileDialog) QThread {
+    pub fn thread(self: KEncodingFileDialog) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5165,12 +6541,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KEncodingFileDialog, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KEncodingFileDialog, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5182,9 +6562,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KEncodingFileDialog, interval: i32) i32 {
+    pub fn startTimer(self: KEncodingFileDialog, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5196,9 +6580,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KEncodingFileDialog, time: i64) i32 {
+    pub fn startTimer2(self: KEncodingFileDialog, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5210,9 +6598,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KEncodingFileDialog, id: i32) void {
+    pub fn killTimer(self: KEncodingFileDialog, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5224,9 +6616,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KEncodingFileDialog, id: i32) void {
+    pub fn killTimer2(self: KEncodingFileDialog, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5238,15 +6634,19 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KEncodingFileDialog, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KEncodingFileDialog.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KEncodingFileDialog.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5258,10 +6658,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KEncodingFileDialog, filterObj: anytype) void {
+    pub fn installEventFilter(self: KEncodingFileDialog, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5273,10 +6677,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KEncodingFileDialog, obj: anytype) void {
+    pub fn removeEventFilter(self: KEncodingFileDialog, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5284,7 +6692,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5292,13 +6700,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5306,7 +6718,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5314,13 +6726,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5330,18 +6746,22 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KEncodingFileDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KEncodingFileDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5349,7 +6769,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5357,13 +6777,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5371,7 +6795,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5379,13 +6803,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -5395,9 +6823,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Disconnect3(self: KEncodingFileDialog) bool {
+    pub fn disconnect3(self: KEncodingFileDialog) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -5409,10 +6841,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KEncodingFileDialog, receiver: anytype) bool {
+    pub fn disconnect4(self: KEncodingFileDialog, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -5422,10 +6858,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -5435,9 +6875,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DumpObjectTree(self: KEncodingFileDialog) void {
+    pub fn dumpObjectTree(self: KEncodingFileDialog) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5447,9 +6891,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DumpObjectInfo(self: KEncodingFileDialog) void {
+    pub fn dumpObjectInfo(self: KEncodingFileDialog) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5463,11 +6911,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KEncodingFileDialog, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KEncodingFileDialog, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5479,10 +6931,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KEncodingFileDialog, name: [:0]const u8) QVariant {
+    pub fn property(self: KEncodingFileDialog, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5494,7 +6950,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KEncodingFileDialog, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KEncodingFileDialog, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5502,27 +6958,19 @@ pub const KEncodingFileDialog = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KEncodingFileDialog.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KEncodingFileDialog.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KEncodingFileDialog.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KEncodingFileDialog.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KEncodingFileDialog `
-    ///
-    pub fn BindingStorage(self: KEncodingFileDialog) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5532,9 +6980,29 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn BindingStorage2(self: KEncodingFileDialog) QBindingStorage {
+    pub fn bindingStorage(self: KEncodingFileDialog) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KEncodingFileDialog `
+    ///
+    pub fn bindingStorage2(self: KEncodingFileDialog) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5544,9 +7012,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Destroyed(self: KEncodingFileDialog) void {
+    pub fn destroyed(self: KEncodingFileDialog) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5558,9 +7030,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
+    pub fn onDestroyed(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5570,9 +7046,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Parent(self: KEncodingFileDialog) QObject {
+    pub fn parent(self: KEncodingFileDialog) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5584,10 +7064,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KEncodingFileDialog, classname: [:0]const u8) bool {
+    pub fn inherits(self: KEncodingFileDialog, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5597,9 +7081,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DeleteLater(self: KEncodingFileDialog) void {
+    pub fn deleteLater(self: KEncodingFileDialog) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5613,9 +7101,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KEncodingFileDialog, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KEncodingFileDialog, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5629,9 +7121,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KEncodingFileDialog, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KEncodingFileDialog, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5639,7 +7135,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5649,13 +7145,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5663,7 +7163,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5673,13 +7173,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5689,7 +7193,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5697,12 +7201,16 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KEncodingFileDialog, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KEncodingFileDialog, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5714,10 +7222,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KEncodingFileDialog, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KEncodingFileDialog, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5731,11 +7243,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KEncodingFileDialog, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KEncodingFileDialog, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5751,13 +7267,17 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KEncodingFileDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KEncodingFileDialog, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5770,11 +7290,15 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KEncodingFileDialog, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KEncodingFileDialog, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5786,10 +7310,14 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KEncodingFileDialog, param1: anytype) void {
+    pub fn destroyed1(self: KEncodingFileDialog, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5801,9 +7329,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5813,9 +7345,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn PaintingActive(self: KEncodingFileDialog) bool {
+    pub fn paintingActive(self: KEncodingFileDialog) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5825,9 +7361,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn WidthMM(self: KEncodingFileDialog) i32 {
+    pub fn widthMM(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5837,9 +7377,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn HeightMM(self: KEncodingFileDialog) i32 {
+    pub fn heightMM(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5849,9 +7393,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn LogicalDpiX(self: KEncodingFileDialog) i32 {
+    pub fn logicalDpiX(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5861,9 +7409,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn LogicalDpiY(self: KEncodingFileDialog) i32 {
+    pub fn logicalDpiY(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5873,9 +7425,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn PhysicalDpiX(self: KEncodingFileDialog) i32 {
+    pub fn physicalDpiX(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5885,9 +7441,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn PhysicalDpiY(self: KEncodingFileDialog) i32 {
+    pub fn physicalDpiY(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5897,9 +7457,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DevicePixelRatio(self: KEncodingFileDialog) f64 {
+    pub fn devicePixelRatio(self: KEncodingFileDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5909,9 +7473,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn DevicePixelRatioF(self: KEncodingFileDialog) f64 {
+    pub fn devicePixelRatioF(self: KEncodingFileDialog) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5921,9 +7489,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn ColorCount(self: KEncodingFileDialog) i32 {
+    pub fn colorCount(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5933,17 +7505,25 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` self: KEncodingFileDialog `
     ///
-    pub fn Depth(self: KEncodingFileDialog) i32 {
+    pub fn depth(self: KEncodingFileDialog) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5955,9 +7535,13 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
+    pub fn encodeMetricF(metric: i32, value: f64) i32 {
         return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -5971,7 +7555,7 @@ pub const KEncodingFileDialog = extern struct {
     ///
     /// ` callback: *const fn (self: KEncodingFileDialog, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KEncodingFileDialog, callback: *const fn (KEncodingFileDialog, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 };
@@ -5986,22 +7570,34 @@ pub const KEncodingFileDialog__Result = extern struct {
 
     pub const _is_KEncodingFileDialog__Result = {};
 
-    /// New constructs a new KEncodingFileDialog::Result object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KEncodingFileDialog__Result {
+    pub const New = new;
+
+    /// Allocate a new KEncodingFileDialog::Result object in C++ memory
+    ///
+    pub fn new() KEncodingFileDialog__Result {
         return .{ .ptr = qtc.KEncodingFileDialog__Result_new() };
     }
 
-    /// New2 constructs a new KEncodingFileDialog::Result object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KEncodingFileDialog::Result object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: KEncodingFileDialog__Result `
     ///
-    pub fn New2(param1: anytype) KEncodingFileDialog__Result {
+    pub fn new2(param1: anytype) KEncodingFileDialog__Result {
         comptime _ = @TypeOf(param1)._is_KEncodingFileDialog__Result;
         return .{ .ptr = qtc.KEncodingFileDialog__Result_new2(@ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fileNames` instead
+    ///
+    pub const FileNames = fileNames;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
     ///
@@ -6011,7 +7607,7 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn FileNames(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn fileNames(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []const []const u8 {
         const fileNames_arr: qtc.libqt_list = qtc.KEncodingFileDialog__Result_FileNames(@ptrCast(self.ptr));
         var fileNames_str: [*]qtc.libqt_string = @ptrCast(@alignCast(fileNames_arr.data));
         defer {
@@ -6019,15 +7615,19 @@ pub const KEncodingFileDialog__Result = extern struct {
                 qtc.libqt_string_free(@ptrCast(&fileNames_str[i]));
             qtc.libqt_free(fileNames_arr.data);
         }
-        const fileNames_ret = allocator.alloc([]const u8, fileNames_arr.len) catch @panic("KEncodingFileDialog__Result.FileNames: Memory allocation failed");
+        const fileNames_ret = allocator.alloc([]const u8, fileNames_arr.len) catch @panic("KEncodingFileDialog__Result.fileNames: Memory allocation failed");
         for (0..fileNames_arr.len) |i| {
-            const fileNames_data = fileNames_str[i];
-            const fileNames_buf = allocator.alloc(u8, fileNames_data.len) catch @panic("KEncodingFileDialog__Result.FileNames: Memory allocation failed");
-            @memcpy(fileNames_buf, fileNames_data.data[0..fileNames_data.len]);
+            const fileNames_data_val = fileNames_str[i];
+            const fileNames_buf = allocator.alloc(u8, fileNames_data_val.len) catch @panic("KEncodingFileDialog__Result.fileNames: Memory allocation failed");
+            @memcpy(fileNames_buf, fileNames_data_val.data[0..fileNames_data_val.len]);
             fileNames_ret[i] = fileNames_buf;
         }
         return fileNames_ret;
     }
+
+    /// ### DEPRECATED: Use `setFileNames` instead
+    ///
+    pub const SetFileNames = setFileNames;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#fileNames-var)
     ///
@@ -6037,18 +7637,18 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    /// ` fileNames: []const []const u8 `
+    /// ` _fileNames: []const []const u8 `
     ///
-    pub fn SetFileNames(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator, fileNames: []const []const u8) void {
-        const fileNames_arr = allocator.alloc(qtc.libqt_string, fileNames.len) catch @panic("KEncodingFileDialog__Result.SetFileNames: Memory allocation failed");
+    pub fn setFileNames(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator, _fileNames: []const []const u8) void {
+        const fileNames_arr = allocator.alloc(qtc.libqt_string, _fileNames.len) catch @panic("KEncodingFileDialog__Result.setFileNames: Memory allocation failed");
         defer allocator.free(fileNames_arr);
-        for (fileNames, 0..fileNames.len) |item, i|
+        for (_fileNames, 0.._fileNames.len) |str_item, i|
             fileNames_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const fileNames_list = qtc.libqt_list{
-            .len = fileNames.len,
+            .len = _fileNames.len,
             .data = fileNames_arr.ptr,
         };
         qtc.KEncodingFileDialog__Result_SetFileNames(@ptrCast(self.ptr), fileNames_list);
@@ -6066,11 +7666,15 @@ pub const KEncodingFileDialog__Result = extern struct {
         const URLs_arr: qtc.libqt_list = qtc.KEncodingFileDialog__Result_URLs(@ptrCast(self.ptr));
         defer qtc.libqt_free(URLs_arr.data);
         const URLs_ret = allocator.alloc(QUrl, URLs_arr.len) catch @panic("KEncodingFileDialog__Result.URLs: Memory allocation failed");
-        const URLs_data: [*]QtC.QUrl = @ptrCast(@alignCast(URLs_arr.data));
-        for (0..URLs_arr.len) |ii|
-            URLs_ret[ii] = .{ .ptr = URLs_data[ii] };
+        const URLs_data_val: [*]QtC.QUrl = @ptrCast(@alignCast(URLs_arr.data));
+        for (0..URLs_arr.len) |j|
+            URLs_ret[j] = .{ .ptr = URLs_data_val[j] };
         return URLs_ret;
     }
+
+    /// ### DEPRECATED: Use `setURLs` instead
+    ///
+    pub const SetURLs = setURLs;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#URLs-var)
     ///
@@ -6078,15 +7682,19 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` self: KEncodingFileDialog__Result `
     ///
-    /// ` URLs: []QUrl `
+    /// ` _URLs: []QUrl `
     ///
-    pub fn SetURLs(self: KEncodingFileDialog__Result, _URLs: []QUrl) void {
+    pub fn setURLs(self: KEncodingFileDialog__Result, _URLs: []QUrl) void {
         const URLs_list = qtc.libqt_list{
             .len = _URLs.len,
             .data = @ptrCast(_URLs.ptr),
         };
         qtc.KEncodingFileDialog__Result_SetURLs(@ptrCast(self.ptr), URLs_list);
     }
+
+    /// ### DEPRECATED: Use `encoding` instead
+    ///
+    pub const Encoding = encoding;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
     ///
@@ -6096,13 +7704,17 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Encoding(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []const u8 {
+    pub fn encoding(self: KEncodingFileDialog__Result, allocator: std.mem.Allocator) []const u8 {
         var encoding_str = qtc.KEncodingFileDialog__Result_Encoding(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&encoding_str);
-        const encoding_ret = allocator.alloc(u8, encoding_str.len) catch @panic("KEncodingFileDialog__Result.Encoding: Memory allocation failed");
+        const encoding_ret = allocator.alloc(u8, encoding_str.len) catch @panic("KEncodingFileDialog__Result.encoding: Memory allocation failed");
         @memcpy(encoding_ret, encoding_str.data[0..encoding_str.len]);
         return encoding_ret;
     }
+
+    /// ### DEPRECATED: Use `setEncoding` instead
+    ///
+    pub const SetEncoding = setEncoding;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#encoding-var)
     ///
@@ -6110,15 +7722,19 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` self: KEncodingFileDialog__Result `
     ///
-    /// ` encoding: []const u8 `
+    /// ` _encoding: []const u8 `
     ///
-    pub fn SetEncoding(self: KEncodingFileDialog__Result, encoding: []const u8) void {
+    pub fn setEncoding(self: KEncodingFileDialog__Result, _encoding: []const u8) void {
         const encoding_str = qtc.libqt_string{
-            .len = encoding.len,
-            .data = encoding.ptr,
+            .len = _encoding.len,
+            .data = _encoding.ptr,
         };
         qtc.KEncodingFileDialog__Result_SetEncoding(@ptrCast(self.ptr), encoding_str);
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kencodingfiledialog-result.html#operator-eq)
     ///
@@ -6128,22 +7744,22 @@ pub const KEncodingFileDialog__Result = extern struct {
     ///
     /// ` param1: KEncodingFileDialog__Result `
     ///
-    pub fn OperatorAssign(self: KEncodingFileDialog__Result, param1: anytype) void {
+    pub fn operatorAssign(self: KEncodingFileDialog__Result, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_KEncodingFileDialog__Result;
         qtc.KEncodingFileDialog__Result_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KEncodingFileDialog__Result `
     ///
-    pub fn Delete(self: KEncodingFileDialog__Result) void {
+    pub fn delete(self: KEncodingFileDialog__Result) void {
         qtc.KEncodingFileDialog__Result_Delete(@ptrCast(self.ptr));
     }
 };

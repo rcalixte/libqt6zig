@@ -14,39 +14,55 @@ pub const QLowEnergyDescriptorData = extern struct {
 
     pub const _is_QLowEnergyDescriptorData = {};
 
-    /// New constructs a new QLowEnergyDescriptorData object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QLowEnergyDescriptorData {
+    pub const New = new;
+
+    /// Allocate a new QLowEnergyDescriptorData object in C++ memory
+    ///
+    pub fn new() QLowEnergyDescriptorData {
         return .{ .ptr = qtc.QLowEnergyDescriptorData_new() };
     }
 
-    /// New2 constructs a new QLowEnergyDescriptorData object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QLowEnergyDescriptorData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` uuid: QBluetoothUuid `
+    /// ` _uuid: QBluetoothUuid `
     ///
-    /// ` value: []u8 `
+    /// ` _value: []u8 `
     ///
-    pub fn New2(uuid: anytype, value: []u8) QLowEnergyDescriptorData {
-        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
+    pub fn new2(_uuid: anytype, _value: []u8) QLowEnergyDescriptorData {
+        comptime _ = @TypeOf(_uuid)._is_QBluetoothUuid;
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
-        return .{ .ptr = qtc.QLowEnergyDescriptorData_new2(@ptrCast(uuid.ptr), value_str) };
+        return .{ .ptr = qtc.QLowEnergyDescriptorData_new2(@ptrCast(_uuid.ptr), value_str) };
     }
 
-    /// New3 constructs a new QLowEnergyDescriptorData object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QLowEnergyDescriptorData object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QLowEnergyDescriptorData `
     ///
-    pub fn New3(other: anytype) QLowEnergyDescriptorData {
+    pub fn new3(other: anytype) QLowEnergyDescriptorData {
         comptime _ = @TypeOf(other)._is_QLowEnergyDescriptorData;
         return .{ .ptr = qtc.QLowEnergyDescriptorData_new3(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#operator-eq)
     ///
@@ -56,10 +72,14 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` other: QLowEnergyDescriptorData `
     ///
-    pub fn OperatorAssign(self: QLowEnergyDescriptorData, other: anytype) void {
+    pub fn operatorAssign(self: QLowEnergyDescriptorData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLowEnergyDescriptorData;
         qtc.QLowEnergyDescriptorData_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#value)
     ///
@@ -69,13 +89,17 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Value(self: QLowEnergyDescriptorData, allocator: std.mem.Allocator) []u8 {
+    pub fn value(self: QLowEnergyDescriptorData, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QLowEnergyDescriptorData_Value(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyDescriptorData.Value: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QLowEnergyDescriptorData.value: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setValue)
     ///
@@ -83,15 +107,19 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    /// ` value: []u8 `
+    /// ` _value: []u8 `
     ///
-    pub fn SetValue(self: QLowEnergyDescriptorData, value: []u8) void {
+    pub fn setValue(self: QLowEnergyDescriptorData, _value: []u8) void {
         const value_str = qtc.libqt_string{
-            .len = value.len,
-            .data = value.ptr,
+            .len = _value.len,
+            .data = _value.ptr,
         };
         qtc.QLowEnergyDescriptorData_SetValue(@ptrCast(self.ptr), value_str);
     }
+
+    /// ### DEPRECATED: Use `uuid` instead
+    ///
+    pub const Uuid = uuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#uuid)
     ///
@@ -99,9 +127,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    pub fn Uuid(self: QLowEnergyDescriptorData) QBluetoothUuid {
+    pub fn uuid(self: QLowEnergyDescriptorData) QBluetoothUuid {
         return .{ .ptr = qtc.QLowEnergyDescriptorData_Uuid(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUuid` instead
+    ///
+    pub const SetUuid = setUuid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setUuid)
     ///
@@ -109,12 +141,16 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    /// ` uuid: QBluetoothUuid `
+    /// ` _uuid: QBluetoothUuid `
     ///
-    pub fn SetUuid(self: QLowEnergyDescriptorData, uuid: anytype) void {
-        comptime _ = @TypeOf(uuid)._is_QBluetoothUuid;
-        qtc.QLowEnergyDescriptorData_SetUuid(@ptrCast(self.ptr), @ptrCast(uuid.ptr));
+    pub fn setUuid(self: QLowEnergyDescriptorData, _uuid: anytype) void {
+        comptime _ = @TypeOf(_uuid)._is_QBluetoothUuid;
+        qtc.QLowEnergyDescriptorData_SetUuid(@ptrCast(self.ptr), @ptrCast(_uuid.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#isValid)
     ///
@@ -122,9 +158,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    pub fn IsValid(self: QLowEnergyDescriptorData) bool {
+    pub fn isValid(self: QLowEnergyDescriptorData) bool {
         return qtc.QLowEnergyDescriptorData_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadPermissions` instead
+    ///
+    pub const SetReadPermissions = setReadPermissions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setReadPermissions)
     ///
@@ -134,9 +174,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` readable: bool `
     ///
-    pub fn SetReadPermissions(self: QLowEnergyDescriptorData, readable: bool) void {
+    pub fn setReadPermissions(self: QLowEnergyDescriptorData, readable: bool) void {
         qtc.QLowEnergyDescriptorData_SetReadPermissions(@ptrCast(self.ptr), readable);
     }
+
+    /// ### DEPRECATED: Use `isReadable` instead
+    ///
+    pub const IsReadable = isReadable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#isReadable)
     ///
@@ -144,9 +188,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    pub fn IsReadable(self: QLowEnergyDescriptorData) bool {
+    pub fn isReadable(self: QLowEnergyDescriptorData) bool {
         return qtc.QLowEnergyDescriptorData_IsReadable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `readConstraints` instead
+    ///
+    pub const ReadConstraints = readConstraints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#readConstraints)
     ///
@@ -158,9 +206,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` flag of qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn ReadConstraints(self: QLowEnergyDescriptorData) i32 {
+    pub fn readConstraints(self: QLowEnergyDescriptorData) i32 {
         return qtc.QLowEnergyDescriptorData_ReadConstraints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWritePermissions` instead
+    ///
+    pub const SetWritePermissions = setWritePermissions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setWritePermissions)
     ///
@@ -170,9 +222,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` writable: bool `
     ///
-    pub fn SetWritePermissions(self: QLowEnergyDescriptorData, writable: bool) void {
+    pub fn setWritePermissions(self: QLowEnergyDescriptorData, writable: bool) void {
         qtc.QLowEnergyDescriptorData_SetWritePermissions(@ptrCast(self.ptr), writable);
     }
+
+    /// ### DEPRECATED: Use `isWritable` instead
+    ///
+    pub const IsWritable = isWritable;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#isWritable)
     ///
@@ -180,9 +236,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    pub fn IsWritable(self: QLowEnergyDescriptorData) bool {
+    pub fn isWritable(self: QLowEnergyDescriptorData) bool {
         return qtc.QLowEnergyDescriptorData_IsWritable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `writeConstraints` instead
+    ///
+    pub const WriteConstraints = writeConstraints;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#writeConstraints)
     ///
@@ -194,9 +254,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` flag of qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn WriteConstraints(self: QLowEnergyDescriptorData) i32 {
+    pub fn writeConstraints(self: QLowEnergyDescriptorData) i32 {
         return qtc.QLowEnergyDescriptorData_WriteConstraints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#swap)
     ///
@@ -206,10 +270,14 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` other: QLowEnergyDescriptorData `
     ///
-    pub fn Swap(self: QLowEnergyDescriptorData, other: anytype) void {
+    pub fn swap(self: QLowEnergyDescriptorData, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QLowEnergyDescriptorData;
         qtc.QLowEnergyDescriptorData_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `setReadPermissions2` instead
+    ///
+    pub const SetReadPermissions2 = setReadPermissions2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setReadPermissions)
     ///
@@ -221,9 +289,13 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` constraints: flag of qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn SetReadPermissions2(self: QLowEnergyDescriptorData, readable: bool, constraints: i32) void {
+    pub fn setReadPermissions2(self: QLowEnergyDescriptorData, readable: bool, constraints: i32) void {
         qtc.QLowEnergyDescriptorData_SetReadPermissions2(@ptrCast(self.ptr), readable, @bitCast(constraints));
     }
+
+    /// ### DEPRECATED: Use `setWritePermissions2` instead
+    ///
+    pub const SetWritePermissions2 = setWritePermissions2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#setWritePermissions)
     ///
@@ -235,23 +307,23 @@ pub const QLowEnergyDescriptorData = extern struct {
     ///
     /// ` constraints: flag of qbluetooth_enums.AttAccessConstraint `
     ///
-    pub fn SetWritePermissions2(self: QLowEnergyDescriptorData, writable: bool, constraints: i32) void {
+    pub fn setWritePermissions2(self: QLowEnergyDescriptorData, writable: bool, constraints: i32) void {
         qtc.QLowEnergyDescriptorData_SetWritePermissions2(@ptrCast(self.ptr), writable, @bitCast(constraints));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlowenergydescriptordata.html#dtor.QLowEnergyDescriptorData)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QLowEnergyDescriptorData `
     ///
-    pub fn Delete(self: QLowEnergyDescriptorData) void {
+    pub fn delete(self: QLowEnergyDescriptorData) void {
         qtc.QLowEnergyDescriptorData_Delete(@ptrCast(self.ptr));
     }
 };

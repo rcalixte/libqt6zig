@@ -16,22 +16,34 @@ pub const QCameraFormat = extern struct {
 
     pub const _is_QCameraFormat = {};
 
-    /// New constructs a new QCameraFormat object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCameraFormat {
+    pub const New = new;
+
+    /// Allocate a new QCameraFormat object in C++ memory
+    ///
+    pub fn new() QCameraFormat {
         return .{ .ptr = qtc.QCameraFormat_new() };
     }
 
-    /// New2 constructs a new QCameraFormat object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCameraFormat object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCameraFormat `
     ///
-    pub fn New2(other: anytype) QCameraFormat {
+    pub fn new2(other: anytype) QCameraFormat {
         comptime _ = @TypeOf(other)._is_QCameraFormat;
         return .{ .ptr = qtc.QCameraFormat_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq)
     ///
@@ -41,10 +53,14 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` other: QCameraFormat `
     ///
-    pub fn OperatorAssign(self: QCameraFormat, other: anytype) void {
+    pub fn operatorAssign(self: QCameraFormat, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCameraFormat;
         qtc.QCameraFormat_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `pixelFormat` instead
+    ///
+    pub const PixelFormat = pixelFormat;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#pixelFormat)
     ///
@@ -56,9 +72,13 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` qvideoframeformat_enums.PixelFormat `
     ///
-    pub fn PixelFormat(self: QCameraFormat) i32 {
+    pub fn pixelFormat(self: QCameraFormat) i32 {
         return qtc.QCameraFormat_PixelFormat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `resolution` instead
+    ///
+    pub const Resolution = resolution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#resolution)
     ///
@@ -66,9 +86,13 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` self: QCameraFormat `
     ///
-    pub fn Resolution(self: QCameraFormat) QSize {
+    pub fn resolution(self: QCameraFormat) QSize {
         return .{ .ptr = qtc.QCameraFormat_Resolution(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minFrameRate` instead
+    ///
+    pub const MinFrameRate = minFrameRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#minFrameRate)
     ///
@@ -76,9 +100,13 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` self: QCameraFormat `
     ///
-    pub fn MinFrameRate(self: QCameraFormat) f32 {
+    pub fn minFrameRate(self: QCameraFormat) f32 {
         return qtc.QCameraFormat_MinFrameRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maxFrameRate` instead
+    ///
+    pub const MaxFrameRate = maxFrameRate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#maxFrameRate)
     ///
@@ -86,9 +114,13 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` self: QCameraFormat `
     ///
-    pub fn MaxFrameRate(self: QCameraFormat) f32 {
+    pub fn maxFrameRate(self: QCameraFormat) f32 {
         return qtc.QCameraFormat_MaxFrameRate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#isNull)
     ///
@@ -96,9 +128,13 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` self: QCameraFormat `
     ///
-    pub fn IsNull(self: QCameraFormat) bool {
+    pub fn isNull(self: QCameraFormat) bool {
         return qtc.QCameraFormat_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-eq-eq)
     ///
@@ -108,10 +144,14 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` other: QCameraFormat `
     ///
-    pub fn OperatorEqual(self: QCameraFormat, other: anytype) bool {
+    pub fn operatorEqual(self: QCameraFormat, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QCameraFormat;
         return qtc.QCameraFormat_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#operator-not-eq)
     ///
@@ -121,24 +161,24 @@ pub const QCameraFormat = extern struct {
     ///
     /// ` other: QCameraFormat `
     ///
-    pub fn OperatorNotEqual(self: QCameraFormat, other: anytype) bool {
+    pub fn operatorNotEqual(self: QCameraFormat, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QCameraFormat;
         return qtc.QCameraFormat_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameraformat.html#dtor.QCameraFormat)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCameraFormat `
     ///
-    pub fn Delete(self: QCameraFormat) void {
+    pub fn delete(self: QCameraFormat) void {
         qtc.QCameraFormat_Delete(@ptrCast(self.ptr));
     }
 };
@@ -153,22 +193,34 @@ pub const QCameraDevice = extern struct {
 
     pub const _is_QCameraDevice = {};
 
-    /// New constructs a new QCameraDevice object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QCameraDevice {
+    pub const New = new;
+
+    /// Allocate a new QCameraDevice object in C++ memory
+    ///
+    pub fn new() QCameraDevice {
         return .{ .ptr = qtc.QCameraDevice_new() };
     }
 
-    /// New2 constructs a new QCameraDevice object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QCameraDevice object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QCameraDevice `
     ///
-    pub fn New2(other: anytype) QCameraDevice {
+    pub fn new2(other: anytype) QCameraDevice {
         comptime _ = @TypeOf(other)._is_QCameraDevice;
         return .{ .ptr = qtc.QCameraDevice_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq)
     ///
@@ -178,10 +230,14 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` other: QCameraDevice `
     ///
-    pub fn OperatorAssign(self: QCameraDevice, other: anytype) void {
+    pub fn operatorAssign(self: QCameraDevice, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QCameraDevice;
         qtc.QCameraDevice_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-eq-eq)
     ///
@@ -191,10 +247,14 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` other: QCameraDevice `
     ///
-    pub fn OperatorEqual(self: QCameraDevice, other: anytype) bool {
+    pub fn operatorEqual(self: QCameraDevice, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QCameraDevice;
         return qtc.QCameraDevice_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#operator-not-eq)
     ///
@@ -204,10 +264,14 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` other: QCameraDevice `
     ///
-    pub fn OperatorNotEqual(self: QCameraDevice, other: anytype) bool {
+    pub fn operatorNotEqual(self: QCameraDevice, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QCameraDevice;
         return qtc.QCameraDevice_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isNull` instead
+    ///
+    pub const IsNull = isNull;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#isNull)
     ///
@@ -215,9 +279,13 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` self: QCameraDevice `
     ///
-    pub fn IsNull(self: QCameraDevice) bool {
+    pub fn isNull(self: QCameraDevice) bool {
         return qtc.QCameraDevice_IsNull(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#id)
     ///
@@ -227,13 +295,17 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Id(self: QCameraDevice, allocator: std.mem.Allocator) []u8 {
+    pub fn id(self: QCameraDevice, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QCameraDevice_Id(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCameraDevice.Id: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QCameraDevice.id: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `description` instead
+    ///
+    pub const Description = description;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#description)
     ///
@@ -243,13 +315,17 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Description(self: QCameraDevice, allocator: std.mem.Allocator) []const u8 {
+    pub fn description(self: QCameraDevice, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QCameraDevice_Description(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCameraDevice.Description: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QCameraDevice.description: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `isDefault` instead
+    ///
+    pub const IsDefault = isDefault;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#isDefault)
     ///
@@ -257,9 +333,13 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` self: QCameraDevice `
     ///
-    pub fn IsDefault(self: QCameraDevice) bool {
+    pub fn isDefault(self: QCameraDevice) bool {
         return qtc.QCameraDevice_IsDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#position)
     ///
@@ -271,9 +351,13 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` qcameradevice_enums.Position `
     ///
-    pub fn Position(self: QCameraDevice) i32 {
+    pub fn position(self: QCameraDevice) i32 {
         return qtc.QCameraDevice_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `photoResolutions` instead
+    ///
+    pub const PhotoResolutions = photoResolutions;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#photoResolutions)
     ///
@@ -283,15 +367,19 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PhotoResolutions(self: QCameraDevice, allocator: std.mem.Allocator) []QSize {
+    pub fn photoResolutions(self: QCameraDevice, allocator: std.mem.Allocator) []QSize {
         const _arr: qtc.libqt_list = qtc.QCameraDevice_PhotoResolutions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QCameraDevice.PhotoResolutions: Memory allocation failed");
-        const _data: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QSize, _arr.len) catch @panic("QCameraDevice.photoResolutions: Memory allocation failed");
+        const _data_val: [*]QtC.QSize = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `videoFormats` instead
+    ///
+    pub const VideoFormats = videoFormats;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#videoFormats)
     ///
@@ -301,15 +389,19 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn VideoFormats(self: QCameraDevice, allocator: std.mem.Allocator) []QCameraFormat {
+    pub fn videoFormats(self: QCameraDevice, allocator: std.mem.Allocator) []QCameraFormat {
         const _arr: qtc.libqt_list = qtc.QCameraDevice_VideoFormats(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QCameraFormat, _arr.len) catch @panic("QCameraDevice.VideoFormats: Memory allocation failed");
-        const _data: [*]QtC.QCameraFormat = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QCameraFormat, _arr.len) catch @panic("QCameraDevice.videoFormats: Memory allocation failed");
+        const _data_val: [*]QtC.QCameraFormat = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `correctionAngle` instead
+    ///
+    pub const CorrectionAngle = correctionAngle;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#correctionAngle)
     ///
@@ -321,23 +413,23 @@ pub const QCameraDevice = extern struct {
     ///
     /// ` qtvideo_enums.Rotation `
     ///
-    pub fn CorrectionAngle(self: QCameraDevice) i32 {
+    pub fn correctionAngle(self: QCameraDevice) i32 {
         return qtc.QCameraDevice_CorrectionAngle(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qcameradevice.html#dtor.QCameraDevice)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QCameraDevice `
     ///
-    pub fn Delete(self: QCameraDevice) void {
+    pub fn delete(self: QCameraDevice) void {
         qtc.QCameraDevice_Delete(@ptrCast(self.ptr));
     }
 };

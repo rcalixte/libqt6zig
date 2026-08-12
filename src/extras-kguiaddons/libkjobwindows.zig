@@ -13,19 +13,27 @@ pub const KJobWindows = extern struct {
 
     pub const _is_KJobWindows = {};
 
+    /// ### DEPRECATED: Use `setWindow` instead
+    ///
+    pub const SetWindow = setWindow;
+
     /// ### [Upstream resources](https://api.kde.org/kjobwindows.html#setWindow)
     ///
     /// ## Parameter(s):
     ///
     /// ` job: QObject `
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn SetWindow(job: anytype, window: anytype) void {
+    pub fn setWindow(job: anytype, _window: anytype) void {
         comptime _ = @TypeOf(job)._is_QObject;
-        comptime _ = @TypeOf(window)._is_QWindow;
-        qtc.KJobWindows_SetWindow(@ptrCast(job.ptr), @ptrCast(window.ptr));
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        qtc.KJobWindows_SetWindow(@ptrCast(job.ptr), @ptrCast(_window.ptr));
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// ### [Upstream resources](https://api.kde.org/kjobwindows.html#window)
     ///
@@ -33,7 +41,7 @@ pub const KJobWindows = extern struct {
     ///
     /// ` job: QObject `
     ///
-    pub fn Window(job: anytype) QWindow {
+    pub fn window(job: anytype) QWindow {
         comptime _ = @TypeOf(job)._is_QObject;
         return .{ .ptr = qtc.KJobWindows_Window(@ptrCast(job.ptr)) };
     }

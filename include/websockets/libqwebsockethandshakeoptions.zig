@@ -12,22 +12,34 @@ pub const QWebSocketHandshakeOptions = extern struct {
 
     pub const _is_QWebSocketHandshakeOptions = {};
 
-    /// New constructs a new QWebSocketHandshakeOptions object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QWebSocketHandshakeOptions {
+    pub const New = new;
+
+    /// Allocate a new QWebSocketHandshakeOptions object in C++ memory
+    ///
+    pub fn new() QWebSocketHandshakeOptions {
         return .{ .ptr = qtc.QWebSocketHandshakeOptions_new() };
     }
 
-    /// New2 constructs a new QWebSocketHandshakeOptions object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QWebSocketHandshakeOptions object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QWebSocketHandshakeOptions `
     ///
-    pub fn New2(other: anytype) QWebSocketHandshakeOptions {
+    pub fn new2(other: anytype) QWebSocketHandshakeOptions {
         comptime _ = @TypeOf(other)._is_QWebSocketHandshakeOptions;
         return .{ .ptr = qtc.QWebSocketHandshakeOptions_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QWebSocketHandshakeOptions = extern struct {
     ///
     /// ` other: QWebSocketHandshakeOptions `
     ///
-    pub fn OperatorAssign(self: QWebSocketHandshakeOptions, other: anytype) void {
+    pub fn operatorAssign(self: QWebSocketHandshakeOptions, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebSocketHandshakeOptions;
         qtc.QWebSocketHandshakeOptions_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QWebSocketHandshakeOptions = extern struct {
     ///
     /// ` other: QWebSocketHandshakeOptions `
     ///
-    pub fn Swap(self: QWebSocketHandshakeOptions, other: anytype) void {
+    pub fn swap(self: QWebSocketHandshakeOptions, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QWebSocketHandshakeOptions;
         qtc.QWebSocketHandshakeOptions_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `subprotocols` instead
+    ///
+    pub const Subprotocols = subprotocols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#subprotocols)
     ///
@@ -63,7 +83,7 @@ pub const QWebSocketHandshakeOptions = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Subprotocols(self: QWebSocketHandshakeOptions, allocator: std.mem.Allocator) []const []const u8 {
+    pub fn subprotocols(self: QWebSocketHandshakeOptions, allocator: std.mem.Allocator) []const []const u8 {
         const _arr: qtc.libqt_list = qtc.QWebSocketHandshakeOptions_Subprotocols(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -71,15 +91,19 @@ pub const QWebSocketHandshakeOptions = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketHandshakeOptions.Subprotocols: Memory allocation failed");
+        const _ret = allocator.alloc([]const u8, _arr.len) catch @panic("QWebSocketHandshakeOptions.subprotocols: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebSocketHandshakeOptions.Subprotocols: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebSocketHandshakeOptions.subprotocols: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setSubprotocols` instead
+    ///
+    pub const SetSubprotocols = setSubprotocols;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#setSubprotocols)
     ///
@@ -91,13 +115,13 @@ pub const QWebSocketHandshakeOptions = extern struct {
     ///
     /// ` protocols: []const []const u8 `
     ///
-    pub fn SetSubprotocols(self: QWebSocketHandshakeOptions, allocator: std.mem.Allocator, protocols: []const []const u8) void {
-        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketHandshakeOptions.SetSubprotocols: Memory allocation failed");
+    pub fn setSubprotocols(self: QWebSocketHandshakeOptions, allocator: std.mem.Allocator, protocols: []const []const u8) void {
+        const protocols_arr = allocator.alloc(qtc.libqt_string, protocols.len) catch @panic("QWebSocketHandshakeOptions.setSubprotocols: Memory allocation failed");
         defer allocator.free(protocols_arr);
-        for (protocols, 0..protocols.len) |item, i|
+        for (protocols, 0..protocols.len) |str_item, i|
             protocols_arr[i] = .{
-                .len = item.len,
-                .data = item.ptr,
+                .len = str_item.len,
+                .data = str_item.ptr,
             };
         const protocols_list = qtc.libqt_list{
             .len = protocols.len,
@@ -106,19 +130,19 @@ pub const QWebSocketHandshakeOptions = extern struct {
         qtc.QWebSocketHandshakeOptions_SetSubprotocols(@ptrCast(self.ptr), protocols_list);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebsockethandshakeoptions.html#dtor.QWebSocketHandshakeOptions)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebSocketHandshakeOptions `
     ///
-    pub fn Delete(self: QWebSocketHandshakeOptions) void {
+    pub fn delete(self: QWebSocketHandshakeOptions) void {
         qtc.QWebSocketHandshakeOptions_Delete(@ptrCast(self.ptr));
     }
 };

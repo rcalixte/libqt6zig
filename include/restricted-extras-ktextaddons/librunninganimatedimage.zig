@@ -14,39 +14,38 @@ pub const TextEmoticonsCore__RunningAnimatedImage = extern struct {
 
     pub const _is_TextEmoticonsCore__RunningAnimatedImage = {};
 
-    /// New constructs a new TextEmoticonsCore::RunningAnimatedImage object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new TextEmoticonsCore::RunningAnimatedImage object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` idx: QModelIndex `
     ///
-    pub fn New(idx: anytype) TextEmoticonsCore__RunningAnimatedImage {
+    pub fn new(idx: anytype) TextEmoticonsCore__RunningAnimatedImage {
         comptime _ = @TypeOf(idx)._is_QModelIndex;
         return .{ .ptr = qtc.TextEmoticonsCore__RunningAnimatedImage_new(@ptrCast(idx.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `index` instead
+    ///
+    pub const Index = index;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextEmoticonsCore__RunningAnimatedImage `
     ///
-    pub fn Index(self: TextEmoticonsCore__RunningAnimatedImage) QPersistentModelIndex {
+    pub fn index(self: TextEmoticonsCore__RunningAnimatedImage) QPersistentModelIndex {
         return .{ .ptr = qtc.TextEmoticonsCore__RunningAnimatedImage_Index(@ptrCast(self.ptr)) };
     }
 
-    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
+    /// ### DEPRECATED: Use `setIndex` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: TextEmoticonsCore__RunningAnimatedImage `
-    ///
-    /// ` index: QPersistentModelIndex `
-    ///
-    pub fn SetIndex(self: TextEmoticonsCore__RunningAnimatedImage, index: anytype) void {
-        comptime _ = @TypeOf(index)._is_QPersistentModelIndex;
-        qtc.TextEmoticonsCore__RunningAnimatedImage_SetIndex(@ptrCast(self.ptr), @ptrCast(index.ptr));
-    }
+    pub const SetIndex = setIndex;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
     ///
@@ -54,36 +53,57 @@ pub const TextEmoticonsCore__RunningAnimatedImage = extern struct {
     ///
     /// ` self: TextEmoticonsCore__RunningAnimatedImage `
     ///
-    pub fn Movie(self: TextEmoticonsCore__RunningAnimatedImage) QMovie {
+    /// ` _index: QPersistentModelIndex `
+    ///
+    pub fn setIndex(self: TextEmoticonsCore__RunningAnimatedImage, _index: anytype) void {
+        comptime _ = @TypeOf(_index)._is_QPersistentModelIndex;
+        qtc.TextEmoticonsCore__RunningAnimatedImage_SetIndex(@ptrCast(self.ptr), @ptrCast(_index.ptr));
+    }
+
+    /// ### DEPRECATED: Use `movie` instead
+    ///
+    pub const Movie = movie;
+
+    /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: TextEmoticonsCore__RunningAnimatedImage `
+    ///
+    pub fn movie(self: TextEmoticonsCore__RunningAnimatedImage) QMovie {
         return .{ .ptr = qtc.TextEmoticonsCore__RunningAnimatedImage_Movie(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `setMovie` instead
+    ///
+    pub const SetMovie = setMovie;
+
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: TextEmoticonsCore__RunningAnimatedImage `
     ///
-    /// ` movie: QMovie `
+    /// ` _movie: QMovie `
     ///
-    pub fn SetMovie(self: TextEmoticonsCore__RunningAnimatedImage, movie: anytype) void {
-        comptime _ = @TypeOf(movie)._is_QMovie;
-        qtc.TextEmoticonsCore__RunningAnimatedImage_SetMovie(@ptrCast(self.ptr), @ptrCast(movie.ptr));
+    pub fn setMovie(self: TextEmoticonsCore__RunningAnimatedImage, _movie: anytype) void {
+        comptime _ = @TypeOf(_movie)._is_QMovie;
+        qtc.TextEmoticonsCore__RunningAnimatedImage_SetMovie(@ptrCast(self.ptr), @ptrCast(_movie.ptr));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/legacy/ktextaddons/html/classTextEmoticonsCore_1_1RunningAnimatedImage.html)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: TextEmoticonsCore__RunningAnimatedImage `
     ///
-    pub fn Delete(self: TextEmoticonsCore__RunningAnimatedImage) void {
+    pub fn delete(self: TextEmoticonsCore__RunningAnimatedImage) void {
         qtc.TextEmoticonsCore__RunningAnimatedImage_Delete(@ptrCast(self.ptr));
     }
 };

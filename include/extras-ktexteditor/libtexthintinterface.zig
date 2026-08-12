@@ -14,11 +14,19 @@ pub const KTextEditor__TextHintProvider = extern struct {
 
     pub const _is_KTextEditor__TextHintProvider = {};
 
-    /// New constructs a new KTextEditor::TextHintProvider object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KTextEditor__TextHintProvider {
+    pub const New = new;
+
+    /// Allocate a new KTextEditor::TextHintProvider object in C++ memory
+    ///
+    pub fn new() KTextEditor__TextHintProvider {
         return .{ .ptr = qtc.KTextEditor__TextHintProvider_new() };
     }
+
+    /// ### DEPRECATED: Use `textHint` instead
+    ///
+    pub const TextHint = textHint;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
@@ -32,15 +40,19 @@ pub const KTextEditor__TextHintProvider = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    pub fn TextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
+    pub fn textHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__TextHintProvider_TextHint(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__TextHintProvider.TextHint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__TextHintProvider.textHint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `onTextHint` instead
+    ///
+    pub const OnTextHint = onTextHint;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
@@ -52,13 +64,13 @@ pub const KTextEditor__TextHintProvider = extern struct {
     ///
     /// ` callback: *const fn (self: KTextEditor__TextHintProvider, view: KTextEditor__View, position: KTextEditor__Cursor) callconv(.c) [*:0]const u8 `
     ///
-    pub fn OnTextHint(self: KTextEditor__TextHintProvider, callback: *const fn (KTextEditor__TextHintProvider, KTextEditor__View, KTextEditor__Cursor) callconv(.c) [*:0]const u8) void {
+    pub fn onTextHint(self: KTextEditor__TextHintProvider, callback: *const fn (KTextEditor__TextHintProvider, KTextEditor__View, KTextEditor__Cursor) callconv(.c) [*:0]const u8) void {
         qtc.KTextEditor__TextHintProvider_OnTextHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperTextHint` instead
+    /// ### DEPRECATED: Use `superTextHint` instead
     ///
-    pub const QBaseTextHint = SuperTextHint;
+    pub const SuperTextHint = superTextHint;
 
     /// ### [Upstream resources](https://api.kde.org/ktexteditor-texthintprovider.html#textHint)
     ///
@@ -74,27 +86,27 @@ pub const KTextEditor__TextHintProvider = extern struct {
     ///
     /// ` position: KTextEditor__Cursor `
     ///
-    pub fn SuperTextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
+    pub fn superTextHint(self: KTextEditor__TextHintProvider, allocator: std.mem.Allocator, view: anytype, position: anytype) []const u8 {
         comptime _ = @TypeOf(view)._is_KTextEditor__View;
         comptime _ = @TypeOf(position)._is_KTextEditor__Cursor;
         var _str = qtc.KTextEditor__TextHintProvider_SuperTextHint(@ptrCast(self.ptr), @ptrCast(view.ptr), @ptrCast(position.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__TextHintProvider.TextHint: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KTextEditor__TextHintProvider.textHint: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KTextEditor__TextHintProvider `
     ///
-    pub fn Delete(self: KTextEditor__TextHintProvider) void {
+    pub fn delete(self: KTextEditor__TextHintProvider) void {
         qtc.KTextEditor__TextHintProvider_Delete(@ptrCast(self.ptr));
     }
 };

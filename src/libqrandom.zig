@@ -11,13 +11,21 @@ pub const QRandomGenerator = extern struct {
 
     pub const _is_QRandomGenerator = {};
 
-    /// New constructs a new QRandomGenerator object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QRandomGenerator {
+    pub const New = new;
+
+    /// Allocate a new QRandomGenerator object in C++ memory
+    ///
+    pub fn new() QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_new() };
     }
 
-    /// New2 constructs a new QRandomGenerator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QRandomGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -25,11 +33,15 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, len: isize) QRandomGenerator {
+    pub fn new2(seedBuffer: *const u32, len: isize) QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_new2(@ptrCast(seedBuffer), @bitCast(len)) };
     }
 
-    /// New3 constructs a new QRandomGenerator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QRandomGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -37,30 +49,42 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` end: *const u32 `
     ///
-    pub fn New3(begin: *const u32, end: *const u32) QRandomGenerator {
+    pub fn new3(begin: *const u32, end: *const u32) QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_new3(@ptrCast(begin), @ptrCast(end)) };
     }
 
-    /// New4 constructs a new QRandomGenerator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QRandomGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QRandomGenerator `
     ///
-    pub fn New4(other: anytype) QRandomGenerator {
+    pub fn new4(other: anytype) QRandomGenerator {
         comptime _ = @TypeOf(other)._is_QRandomGenerator;
         return .{ .ptr = qtc.QRandomGenerator_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QRandomGenerator object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QRandomGenerator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` seedValue: u32 `
     ///
-    pub fn New5(seedValue: u32) QRandomGenerator {
+    pub fn new5(seedValue: u32) QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_new5(@bitCast(seedValue)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#operator-eq)
     ///
@@ -70,10 +94,14 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` other: QRandomGenerator `
     ///
-    pub fn OperatorAssign(self: QRandomGenerator, other: anytype) void {
+    pub fn operatorAssign(self: QRandomGenerator, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QRandomGenerator;
         qtc.QRandomGenerator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `generate` instead
+    ///
+    pub const Generate = generate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#generate)
     ///
@@ -81,9 +109,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn Generate(self: QRandomGenerator) u32 {
+    pub fn generate(self: QRandomGenerator) u32 {
         return qtc.QRandomGenerator_Generate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `generate64` instead
+    ///
+    pub const Generate64 = generate64;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#generate64)
     ///
@@ -91,9 +123,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn Generate64(self: QRandomGenerator) u64 {
+    pub fn generate64(self: QRandomGenerator) u64 {
         return qtc.QRandomGenerator_Generate64(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `generateDouble` instead
+    ///
+    pub const GenerateDouble = generateDouble;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#generateDouble)
     ///
@@ -101,9 +137,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn GenerateDouble(self: QRandomGenerator) f64 {
+    pub fn generateDouble(self: QRandomGenerator) f64 {
         return qtc.QRandomGenerator_GenerateDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bounded` instead
+    ///
+    pub const Bounded = bounded;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -113,10 +153,14 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: f64 `
     ///
-    pub fn Bounded(self: QRandomGenerator, highest: f64) f64 {
+    pub fn bounded(self: QRandomGenerator, highest: f64) f64 {
         return qtc.QRandomGenerator_Bounded(@ptrCast(self.ptr), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded2` instead
+    ///
+    pub const Bounded2 = bounded2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ## Parameter(s):
@@ -125,10 +169,14 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded2(self: QRandomGenerator, highest: u32) u32 {
+    pub fn bounded2(self: QRandomGenerator, highest: u32) u32 {
         return qtc.QRandomGenerator_Bounded2(@ptrCast(self.ptr), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded3` instead
+    ///
+    pub const Bounded3 = bounded3;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ## Parameter(s):
@@ -139,10 +187,14 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded3(self: QRandomGenerator, lowest: u32, highest: u32) u32 {
+    pub fn bounded3(self: QRandomGenerator, lowest: u32, highest: u32) u32 {
         return qtc.QRandomGenerator_Bounded3(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded4` instead
+    ///
+    pub const Bounded4 = bounded4;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
     /// ## Parameter(s):
@@ -151,9 +203,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded4(self: QRandomGenerator, highest: i32) i32 {
+    pub fn bounded4(self: QRandomGenerator, highest: i32) i32 {
         return qtc.QRandomGenerator_Bounded4(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded5` instead
+    ///
+    pub const Bounded5 = bounded5;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -165,9 +221,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded5(self: QRandomGenerator, lowest: i32, highest: i32) i32 {
+    pub fn bounded5(self: QRandomGenerator, lowest: i32, highest: i32) i32 {
         return qtc.QRandomGenerator_Bounded5(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded6` instead
+    ///
+    pub const Bounded6 = bounded6;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -177,9 +237,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded6(self: QRandomGenerator, highest: u64) u64 {
+    pub fn bounded6(self: QRandomGenerator, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded6(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded7` instead
+    ///
+    pub const Bounded7 = bounded7;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -191,9 +255,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded7(self: QRandomGenerator, lowest: u64, highest: u64) u64 {
+    pub fn bounded7(self: QRandomGenerator, lowest: u64, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded7(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded8` instead
+    ///
+    pub const Bounded8 = bounded8;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -203,9 +271,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded8(self: QRandomGenerator, highest: i64) i64 {
+    pub fn bounded8(self: QRandomGenerator, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded8(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded9` instead
+    ///
+    pub const Bounded9 = bounded9;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -217,9 +289,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded9(self: QRandomGenerator, lowest: i64, highest: i64) i64 {
+    pub fn bounded9(self: QRandomGenerator, lowest: i64, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded9(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded10` instead
+    ///
+    pub const Bounded10 = bounded10;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -231,9 +307,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded10(self: QRandomGenerator, lowest: i32, highest: i64) i64 {
+    pub fn bounded10(self: QRandomGenerator, lowest: i32, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded10(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded11` instead
+    ///
+    pub const Bounded11 = bounded11;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -245,9 +325,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded11(self: QRandomGenerator, lowest: i64, highest: i32) i64 {
+    pub fn bounded11(self: QRandomGenerator, lowest: i64, highest: i32) i64 {
         return qtc.QRandomGenerator_Bounded11(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded12` instead
+    ///
+    pub const Bounded12 = bounded12;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -259,9 +343,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded12(self: QRandomGenerator, lowest: u32, highest: u64) u64 {
+    pub fn bounded12(self: QRandomGenerator, lowest: u32, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded12(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded13` instead
+    ///
+    pub const Bounded13 = bounded13;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
     ///
@@ -273,9 +361,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded13(self: QRandomGenerator, lowest: u64, highest: u32) u64 {
+    pub fn bounded13(self: QRandomGenerator, lowest: u64, highest: u32) u64 {
         return qtc.QRandomGenerator_Bounded13(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `generate2` instead
+    ///
+    pub const Generate2 = generate2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#generate)
     ///
@@ -287,9 +379,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` end: *u32 `
     ///
-    pub fn Generate2(self: QRandomGenerator, begin: *u32, end: *u32) void {
+    pub fn generate2(self: QRandomGenerator, begin: *u32, end: *u32) void {
         qtc.QRandomGenerator_Generate2(@ptrCast(self.ptr), @ptrCast(begin), @ptrCast(end));
     }
+
+    /// ### DEPRECATED: Use `operatorCall` instead
+    ///
+    pub const OperatorCall = operatorCall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#operator-28-29)
     ///
@@ -297,9 +393,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn OperatorCall(self: QRandomGenerator) u32 {
+    pub fn operatorCall(self: QRandomGenerator) u32 {
         return qtc.QRandomGenerator_OperatorCall(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seed` instead
+    ///
+    pub const Seed = seed;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#seed)
     ///
@@ -307,9 +407,13 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn Seed(self: QRandomGenerator) void {
+    pub fn seed(self: QRandomGenerator) void {
         qtc.QRandomGenerator_Seed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `discard` instead
+    ///
+    pub const Discard = discard;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#discard)
     ///
@@ -319,39 +423,63 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` z: usize `
     ///
-    pub fn Discard(self: QRandomGenerator, z: usize) void {
+    pub fn discard(self: QRandomGenerator, z: usize) void {
         qtc.QRandomGenerator_Discard(@ptrCast(self.ptr), @bitCast(z));
     }
 
+    /// ### DEPRECATED: Use `min` instead
+    ///
+    pub const Min = min;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#min)
     ///
-    pub fn Min() u32 {
+    pub fn min() u32 {
         return qtc.QRandomGenerator_Min();
     }
 
+    /// ### DEPRECATED: Use `max` instead
+    ///
+    pub const Max = max;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#max)
     ///
-    pub fn Max() u32 {
+    pub fn max() u32 {
         return qtc.QRandomGenerator_Max();
     }
 
+    /// ### DEPRECATED: Use `system` instead
+    ///
+    pub const System = system;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#system)
     ///
-    pub fn System() QRandomGenerator {
+    pub fn system() QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_System() };
     }
 
+    /// ### DEPRECATED: Use `global` instead
+    ///
+    pub const Global = global;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#global)
     ///
-    pub fn Global() QRandomGenerator {
+    pub fn global() QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_Global() };
     }
 
+    /// ### DEPRECATED: Use `securelySeeded` instead
+    ///
+    pub const SecurelySeeded = securelySeeded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#securelySeeded)
     ///
-    pub fn SecurelySeeded() QRandomGenerator {
+    pub fn securelySeeded() QRandomGenerator {
         return .{ .ptr = qtc.QRandomGenerator_SecurelySeeded() };
     }
+
+    /// ### DEPRECATED: Use `seed1` instead
+    ///
+    pub const Seed1 = seed1;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#seed)
     ///
@@ -361,23 +489,23 @@ pub const QRandomGenerator = extern struct {
     ///
     /// ` s: u32 `
     ///
-    pub fn Seed1(self: QRandomGenerator, s: u32) void {
+    pub fn seed1(self: QRandomGenerator, s: u32) void {
         qtc.QRandomGenerator_Seed1(@ptrCast(self.ptr), @bitCast(s));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#dtor.QRandomGenerator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QRandomGenerator `
     ///
-    pub fn Delete(self: QRandomGenerator) void {
+    pub fn delete(self: QRandomGenerator) void {
         qtc.QRandomGenerator_Delete(@ptrCast(self.ptr));
     }
 };
@@ -393,13 +521,21 @@ pub const QRandomGenerator64 = extern struct {
     pub const _is_QRandomGenerator64 = {};
     pub const _is_QRandomGenerator = {};
 
-    /// New constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QRandomGenerator64 {
+    pub const New = new;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
+    ///
+    pub fn new() QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_new() };
     }
 
-    /// New2 constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -407,11 +543,15 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` len: isize `
     ///
-    pub fn New2(seedBuffer: *const u32, len: isize) QRandomGenerator64 {
+    pub fn new2(seedBuffer: *const u32, len: isize) QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_new2(@ptrCast(seedBuffer), @bitCast(len)) };
     }
 
-    /// New3 constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -419,41 +559,57 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` end: *const u32 `
     ///
-    pub fn New3(begin: *const u32, end: *const u32) QRandomGenerator64 {
+    pub fn new3(begin: *const u32, end: *const u32) QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_new3(@ptrCast(begin), @ptrCast(end)) };
     }
 
-    /// New4 constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QRandomGenerator `
     ///
-    pub fn New4(other: anytype) QRandomGenerator64 {
+    pub fn new4(other: anytype) QRandomGenerator64 {
         comptime _ = @TypeOf(other)._is_QRandomGenerator;
         return .{ .ptr = qtc.QRandomGenerator64_new4(@ptrCast(other.ptr)) };
     }
 
-    /// New5 constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` param1: QRandomGenerator64 `
     ///
-    pub fn New5(param1: anytype) QRandomGenerator64 {
+    pub fn new5(param1: anytype) QRandomGenerator64 {
         comptime _ = @TypeOf(param1)._is_QRandomGenerator64;
         return .{ .ptr = qtc.QRandomGenerator64_new5(@ptrCast(param1.ptr)) };
     }
 
-    /// New6 constructs a new QRandomGenerator64 object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QRandomGenerator64 object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` seedValue: u32 `
     ///
-    pub fn New6(seedValue: u32) QRandomGenerator64 {
+    pub fn new6(seedValue: u32) QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_new6(@bitCast(seedValue)) };
     }
+
+    /// ### DEPRECATED: Use `generate` instead
+    ///
+    pub const Generate = generate;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#generate)
     ///
@@ -461,9 +617,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn Generate(self: QRandomGenerator64) u64 {
+    pub fn generate(self: QRandomGenerator64) u64 {
         return qtc.QRandomGenerator64_Generate(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorCall` instead
+    ///
+    pub const OperatorCall = operatorCall;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator-28-29)
     ///
@@ -471,9 +631,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn OperatorCall(self: QRandomGenerator64) usize {
+    pub fn operatorCall(self: QRandomGenerator64) usize {
         return qtc.QRandomGenerator64_OperatorCall(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `discard` instead
+    ///
+    pub const Discard = discard;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#discard)
     ///
@@ -483,39 +647,63 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` z: usize `
     ///
-    pub fn Discard(self: QRandomGenerator64, z: usize) void {
+    pub fn discard(self: QRandomGenerator64, z: usize) void {
         qtc.QRandomGenerator64_Discard(@ptrCast(self.ptr), @bitCast(z));
     }
 
+    /// ### DEPRECATED: Use `min` instead
+    ///
+    pub const Min = min;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#min)
     ///
-    pub fn Min() usize {
+    pub fn min() usize {
         return qtc.QRandomGenerator64_Min();
     }
 
+    /// ### DEPRECATED: Use `max` instead
+    ///
+    pub const Max = max;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#max)
     ///
-    pub fn Max() usize {
+    pub fn max() usize {
         return qtc.QRandomGenerator64_Max();
     }
 
+    /// ### DEPRECATED: Use `system` instead
+    ///
+    pub const System = system;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#system)
     ///
-    pub fn System() QRandomGenerator64 {
+    pub fn system() QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_System() };
     }
 
+    /// ### DEPRECATED: Use `global` instead
+    ///
+    pub const Global = global;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#global)
     ///
-    pub fn Global() QRandomGenerator64 {
+    pub fn global() QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_Global() };
     }
 
+    /// ### DEPRECATED: Use `securelySeeded` instead
+    ///
+    pub const SecurelySeeded = securelySeeded;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#securelySeeded)
     ///
-    pub fn SecurelySeeded() QRandomGenerator64 {
+    pub fn securelySeeded() QRandomGenerator64 {
         return .{ .ptr = qtc.QRandomGenerator64_SecurelySeeded() };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#operator-eq)
     ///
@@ -525,10 +713,14 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` param1: QRandomGenerator64 `
     ///
-    pub fn OperatorAssign(self: QRandomGenerator64, param1: anytype) void {
+    pub fn operatorAssign(self: QRandomGenerator64, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRandomGenerator64;
         qtc.QRandomGenerator64_OperatorAssign(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `generate64` instead
+    ///
+    pub const Generate64 = generate64;
 
     /// Inherited from QRandomGenerator
     ///
@@ -538,9 +730,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn Generate64(self: QRandomGenerator64) u64 {
+    pub fn generate64(self: QRandomGenerator64) u64 {
         return qtc.QRandomGenerator_Generate64(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `generateDouble` instead
+    ///
+    pub const GenerateDouble = generateDouble;
 
     /// Inherited from QRandomGenerator
     ///
@@ -550,9 +746,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn GenerateDouble(self: QRandomGenerator64) f64 {
+    pub fn generateDouble(self: QRandomGenerator64) f64 {
         return qtc.QRandomGenerator_GenerateDouble(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `bounded` instead
+    ///
+    pub const Bounded = bounded;
 
     /// Inherited from QRandomGenerator
     ///
@@ -564,10 +764,14 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: f64 `
     ///
-    pub fn Bounded(self: QRandomGenerator64, highest: f64) f64 {
+    pub fn bounded(self: QRandomGenerator64, highest: f64) f64 {
         return qtc.QRandomGenerator_Bounded(@ptrCast(self.ptr), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded2` instead
+    ///
+    pub const Bounded2 = bounded2;
+
     /// Inherited from QRandomGenerator
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
@@ -578,10 +782,14 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded2(self: QRandomGenerator64, highest: u32) u32 {
+    pub fn bounded2(self: QRandomGenerator64, highest: u32) u32 {
         return qtc.QRandomGenerator_Bounded2(@ptrCast(self.ptr), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded3` instead
+    ///
+    pub const Bounded3 = bounded3;
+
     /// Inherited from QRandomGenerator
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
@@ -594,10 +802,14 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded3(self: QRandomGenerator64, lowest: u32, highest: u32) u32 {
+    pub fn bounded3(self: QRandomGenerator64, lowest: u32, highest: u32) u32 {
         return qtc.QRandomGenerator_Bounded3(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
 
+    /// ### DEPRECATED: Use `bounded4` instead
+    ///
+    pub const Bounded4 = bounded4;
+
     /// Inherited from QRandomGenerator
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator.html#bounded)
@@ -608,9 +820,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded4(self: QRandomGenerator64, highest: i32) i32 {
+    pub fn bounded4(self: QRandomGenerator64, highest: i32) i32 {
         return qtc.QRandomGenerator_Bounded4(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded5` instead
+    ///
+    pub const Bounded5 = bounded5;
 
     /// Inherited from QRandomGenerator
     ///
@@ -624,9 +840,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded5(self: QRandomGenerator64, lowest: i32, highest: i32) i32 {
+    pub fn bounded5(self: QRandomGenerator64, lowest: i32, highest: i32) i32 {
         return qtc.QRandomGenerator_Bounded5(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded6` instead
+    ///
+    pub const Bounded6 = bounded6;
 
     /// Inherited from QRandomGenerator
     ///
@@ -638,9 +858,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded6(self: QRandomGenerator64, highest: u64) u64 {
+    pub fn bounded6(self: QRandomGenerator64, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded6(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded7` instead
+    ///
+    pub const Bounded7 = bounded7;
 
     /// Inherited from QRandomGenerator
     ///
@@ -654,9 +878,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded7(self: QRandomGenerator64, lowest: u64, highest: u64) u64 {
+    pub fn bounded7(self: QRandomGenerator64, lowest: u64, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded7(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded8` instead
+    ///
+    pub const Bounded8 = bounded8;
 
     /// Inherited from QRandomGenerator
     ///
@@ -668,9 +896,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded8(self: QRandomGenerator64, highest: i64) i64 {
+    pub fn bounded8(self: QRandomGenerator64, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded8(@ptrCast(self.ptr), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded9` instead
+    ///
+    pub const Bounded9 = bounded9;
 
     /// Inherited from QRandomGenerator
     ///
@@ -684,9 +916,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded9(self: QRandomGenerator64, lowest: i64, highest: i64) i64 {
+    pub fn bounded9(self: QRandomGenerator64, lowest: i64, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded9(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded10` instead
+    ///
+    pub const Bounded10 = bounded10;
 
     /// Inherited from QRandomGenerator
     ///
@@ -700,9 +936,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i64 `
     ///
-    pub fn Bounded10(self: QRandomGenerator64, lowest: i32, highest: i64) i64 {
+    pub fn bounded10(self: QRandomGenerator64, lowest: i32, highest: i64) i64 {
         return qtc.QRandomGenerator_Bounded10(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded11` instead
+    ///
+    pub const Bounded11 = bounded11;
 
     /// Inherited from QRandomGenerator
     ///
@@ -716,9 +956,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: i32 `
     ///
-    pub fn Bounded11(self: QRandomGenerator64, lowest: i64, highest: i32) i64 {
+    pub fn bounded11(self: QRandomGenerator64, lowest: i64, highest: i32) i64 {
         return qtc.QRandomGenerator_Bounded11(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded12` instead
+    ///
+    pub const Bounded12 = bounded12;
 
     /// Inherited from QRandomGenerator
     ///
@@ -732,9 +976,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u64 `
     ///
-    pub fn Bounded12(self: QRandomGenerator64, lowest: u32, highest: u64) u64 {
+    pub fn bounded12(self: QRandomGenerator64, lowest: u32, highest: u64) u64 {
         return qtc.QRandomGenerator_Bounded12(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `bounded13` instead
+    ///
+    pub const Bounded13 = bounded13;
 
     /// Inherited from QRandomGenerator
     ///
@@ -748,9 +996,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` highest: u32 `
     ///
-    pub fn Bounded13(self: QRandomGenerator64, lowest: u64, highest: u32) u64 {
+    pub fn bounded13(self: QRandomGenerator64, lowest: u64, highest: u32) u64 {
         return qtc.QRandomGenerator_Bounded13(@ptrCast(self.ptr), @bitCast(lowest), @bitCast(highest));
     }
+
+    /// ### DEPRECATED: Use `generate2` instead
+    ///
+    pub const Generate2 = generate2;
 
     /// Inherited from QRandomGenerator
     ///
@@ -764,9 +1016,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` end: *u32 `
     ///
-    pub fn Generate2(self: QRandomGenerator64, begin: *u32, end: *u32) void {
+    pub fn generate2(self: QRandomGenerator64, begin: *u32, end: *u32) void {
         qtc.QRandomGenerator_Generate2(@ptrCast(self.ptr), @ptrCast(begin), @ptrCast(end));
     }
+
+    /// ### DEPRECATED: Use `seed` instead
+    ///
+    pub const Seed = seed;
 
     /// Inherited from QRandomGenerator
     ///
@@ -776,9 +1032,13 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn Seed(self: QRandomGenerator64) void {
+    pub fn seed(self: QRandomGenerator64) void {
         qtc.QRandomGenerator_Seed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `seed1` instead
+    ///
+    pub const Seed1 = seed1;
 
     /// Inherited from QRandomGenerator
     ///
@@ -790,23 +1050,23 @@ pub const QRandomGenerator64 = extern struct {
     ///
     /// ` s: u32 `
     ///
-    pub fn Seed1(self: QRandomGenerator64, s: u32) void {
+    pub fn seed1(self: QRandomGenerator64, s: u32) void {
         qtc.QRandomGenerator_Seed1(@ptrCast(self.ptr), @bitCast(s));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qrandomgenerator64.html#dtor.QRandomGenerator64)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QRandomGenerator64 `
     ///
-    pub fn Delete(self: QRandomGenerator64) void {
+    pub fn delete(self: QRandomGenerator64) void {
         qtc.QRandomGenerator64_Delete(@ptrCast(self.ptr));
     }
 };

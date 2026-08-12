@@ -40,22 +40,34 @@ pub const QDesignerFormEditorInterface = extern struct {
     pub const _is_QDesignerFormEditorInterface = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QDesignerFormEditorInterface object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QDesignerFormEditorInterface {
+    pub const New = new;
+
+    /// Allocate a new QDesignerFormEditorInterface object in C++ memory
+    ///
+    pub fn new() QDesignerFormEditorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_new() };
     }
 
-    /// New2 constructs a new QDesignerFormEditorInterface object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QDesignerFormEditorInterface object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(parent: anytype) QDesignerFormEditorInterface {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QDesignerFormEditorInterface_new2(@ptrCast(parent.ptr)) };
+    pub fn new2(_parent: anytype) QDesignerFormEditorInterface {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QDesignerFormEditorInterface_new2(@ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -63,9 +75,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn MetaObject(self: QDesignerFormEditorInterface) QMetaObject {
+    pub fn metaObject(self: QDesignerFormEditorInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,13 +93,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QDesignerFormEditorInterface_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -93,9 +109,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SuperMetaObject(self: QDesignerFormEditorInterface) QMetaObject {
+    pub fn superMetaObject(self: QDesignerFormEditorInterface) QMetaObject {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -103,10 +123,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QDesignerFormEditorInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QDesignerFormEditorInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerFormEditorInterface_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -116,13 +140,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QDesignerFormEditorInterface_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -132,10 +156,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QDesignerFormEditorInterface, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QDesignerFormEditorInterface, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QDesignerFormEditorInterface_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -147,9 +175,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QDesignerFormEditorInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QDesignerFormEditorInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerFormEditorInterface_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -159,13 +191,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QDesignerFormEditorInterface_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -179,9 +211,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QDesignerFormEditorInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QDesignerFormEditorInterface, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QDesignerFormEditorInterface_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -191,14 +227,18 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `extensionManager` instead
+    ///
+    pub const ExtensionManager = extensionManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#extensionManager)
     ///
@@ -206,9 +246,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn ExtensionManager(self: QDesignerFormEditorInterface) QExtensionManager {
+    pub fn extensionManager(self: QDesignerFormEditorInterface) QExtensionManager {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_ExtensionManager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevel` instead
+    ///
+    pub const TopLevel = topLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#topLevel)
     ///
@@ -216,9 +260,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn TopLevel(self: QDesignerFormEditorInterface) QWidget {
+    pub fn topLevel(self: QDesignerFormEditorInterface) QWidget {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_TopLevel(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `widgetBox` instead
+    ///
+    pub const WidgetBox = widgetBox;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#widgetBox)
     ///
@@ -226,9 +274,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn WidgetBox(self: QDesignerFormEditorInterface) QDesignerWidgetBoxInterface {
+    pub fn widgetBox(self: QDesignerFormEditorInterface) QDesignerWidgetBoxInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_WidgetBox(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `propertyEditor` instead
+    ///
+    pub const PropertyEditor = propertyEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#propertyEditor)
     ///
@@ -236,9 +288,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn PropertyEditor(self: QDesignerFormEditorInterface) QDesignerPropertyEditorInterface {
+    pub fn propertyEditor(self: QDesignerFormEditorInterface) QDesignerPropertyEditorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_PropertyEditor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `objectInspector` instead
+    ///
+    pub const ObjectInspector = objectInspector;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#objectInspector)
     ///
@@ -246,9 +302,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn ObjectInspector(self: QDesignerFormEditorInterface) QDesignerObjectInspectorInterface {
+    pub fn objectInspector(self: QDesignerFormEditorInterface) QDesignerObjectInspectorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_ObjectInspector(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `formWindowManager` instead
+    ///
+    pub const FormWindowManager = formWindowManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#formWindowManager)
     ///
@@ -256,9 +316,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn FormWindowManager(self: QDesignerFormEditorInterface) QDesignerFormWindowManagerInterface {
+    pub fn formWindowManager(self: QDesignerFormEditorInterface) QDesignerFormWindowManagerInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_FormWindowManager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `widgetDataBase` instead
+    ///
+    pub const WidgetDataBase = widgetDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#widgetDataBase)
     ///
@@ -266,9 +330,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn WidgetDataBase(self: QDesignerFormEditorInterface) QDesignerWidgetDataBaseInterface {
+    pub fn widgetDataBase(self: QDesignerFormEditorInterface) QDesignerWidgetDataBaseInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_WidgetDataBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaDataBase` instead
+    ///
+    pub const MetaDataBase = metaDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#metaDataBase)
     ///
@@ -276,9 +344,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn MetaDataBase(self: QDesignerFormEditorInterface) QDesignerMetaDataBaseInterface {
+    pub fn metaDataBase(self: QDesignerFormEditorInterface) QDesignerMetaDataBaseInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_MetaDataBase(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `promotion` instead
+    ///
+    pub const Promotion = promotion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#promotion)
     ///
@@ -286,9 +358,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Promotion(self: QDesignerFormEditorInterface) QDesignerPromotionInterface {
+    pub fn promotion(self: QDesignerFormEditorInterface) QDesignerPromotionInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_Promotion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `widgetFactory` instead
+    ///
+    pub const WidgetFactory = widgetFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#widgetFactory)
     ///
@@ -296,9 +372,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn WidgetFactory(self: QDesignerFormEditorInterface) QDesignerWidgetFactoryInterface {
+    pub fn widgetFactory(self: QDesignerFormEditorInterface) QDesignerWidgetFactoryInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_WidgetFactory(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `actionEditor` instead
+    ///
+    pub const ActionEditor = actionEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#actionEditor)
     ///
@@ -306,9 +386,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn ActionEditor(self: QDesignerFormEditorInterface) QDesignerActionEditorInterface {
+    pub fn actionEditor(self: QDesignerFormEditorInterface) QDesignerActionEditorInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_ActionEditor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `integration` instead
+    ///
+    pub const Integration = integration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#integration)
     ///
@@ -316,9 +400,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Integration(self: QDesignerFormEditorInterface) QDesignerIntegrationInterface {
+    pub fn integration(self: QDesignerFormEditorInterface) QDesignerIntegrationInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_Integration(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `settingsManager` instead
+    ///
+    pub const SettingsManager = settingsManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#settingsManager)
     ///
@@ -326,9 +414,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SettingsManager(self: QDesignerFormEditorInterface) QDesignerSettingsInterface {
+    pub fn settingsManager(self: QDesignerFormEditorInterface) QDesignerSettingsInterface {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_SettingsManager(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `resourceLocation` instead
+    ///
+    pub const ResourceLocation = resourceLocation;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#resourceLocation)
     ///
@@ -338,13 +430,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ResourceLocation(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn resourceLocation(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QDesignerFormEditorInterface_ResourceLocation(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.ResourceLocation: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.resourceLocation: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `optionsPages` instead
+    ///
+    pub const OptionsPages = optionsPages;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#optionsPages)
     ///
@@ -354,15 +450,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn OptionsPages(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QDesignerOptionsPageInterface {
+    pub fn optionsPages(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QDesignerOptionsPageInterface {
         const _arr: qtc.libqt_list = qtc.QDesignerFormEditorInterface_OptionsPages(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QDesignerOptionsPageInterface, _arr.len) catch @panic("QDesignerFormEditorInterface.OptionsPages: Memory allocation failed");
-        const _data: [*]QtC.QDesignerOptionsPageInterface = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QDesignerOptionsPageInterface, _arr.len) catch @panic("QDesignerFormEditorInterface.optionsPages: Memory allocation failed");
+        const _data_val: [*]QtC.QDesignerOptionsPageInterface = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setTopLevel` instead
+    ///
+    pub const SetTopLevel = setTopLevel;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setTopLevel)
     ///
@@ -370,12 +470,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` topLevel: QWidget `
+    /// ` _topLevel: QWidget `
     ///
-    pub fn SetTopLevel(self: QDesignerFormEditorInterface, topLevel: anytype) void {
-        comptime _ = @TypeOf(topLevel)._is_QWidget;
-        qtc.QDesignerFormEditorInterface_SetTopLevel(@ptrCast(self.ptr), @ptrCast(topLevel.ptr));
+    pub fn setTopLevel(self: QDesignerFormEditorInterface, _topLevel: anytype) void {
+        comptime _ = @TypeOf(_topLevel)._is_QWidget;
+        qtc.QDesignerFormEditorInterface_SetTopLevel(@ptrCast(self.ptr), @ptrCast(_topLevel.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidgetBox` instead
+    ///
+    pub const SetWidgetBox = setWidgetBox;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetBox)
     ///
@@ -383,12 +487,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` widgetBox: QDesignerWidgetBoxInterface `
+    /// ` _widgetBox: QDesignerWidgetBoxInterface `
     ///
-    pub fn SetWidgetBox(self: QDesignerFormEditorInterface, widgetBox: anytype) void {
-        comptime _ = @TypeOf(widgetBox)._is_QDesignerWidgetBoxInterface;
-        qtc.QDesignerFormEditorInterface_SetWidgetBox(@ptrCast(self.ptr), @ptrCast(widgetBox.ptr));
+    pub fn setWidgetBox(self: QDesignerFormEditorInterface, _widgetBox: anytype) void {
+        comptime _ = @TypeOf(_widgetBox)._is_QDesignerWidgetBoxInterface;
+        qtc.QDesignerFormEditorInterface_SetWidgetBox(@ptrCast(self.ptr), @ptrCast(_widgetBox.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPropertyEditor` instead
+    ///
+    pub const SetPropertyEditor = setPropertyEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPropertyEditor)
     ///
@@ -396,12 +504,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` propertyEditor: QDesignerPropertyEditorInterface `
+    /// ` _propertyEditor: QDesignerPropertyEditorInterface `
     ///
-    pub fn SetPropertyEditor(self: QDesignerFormEditorInterface, propertyEditor: anytype) void {
-        comptime _ = @TypeOf(propertyEditor)._is_QDesignerPropertyEditorInterface;
-        qtc.QDesignerFormEditorInterface_SetPropertyEditor(@ptrCast(self.ptr), @ptrCast(propertyEditor.ptr));
+    pub fn setPropertyEditor(self: QDesignerFormEditorInterface, _propertyEditor: anytype) void {
+        comptime _ = @TypeOf(_propertyEditor)._is_QDesignerPropertyEditorInterface;
+        qtc.QDesignerFormEditorInterface_SetPropertyEditor(@ptrCast(self.ptr), @ptrCast(_propertyEditor.ptr));
     }
+
+    /// ### DEPRECATED: Use `setObjectInspector` instead
+    ///
+    pub const SetObjectInspector = setObjectInspector;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setObjectInspector)
     ///
@@ -409,12 +521,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` objectInspector: QDesignerObjectInspectorInterface `
+    /// ` _objectInspector: QDesignerObjectInspectorInterface `
     ///
-    pub fn SetObjectInspector(self: QDesignerFormEditorInterface, objectInspector: anytype) void {
-        comptime _ = @TypeOf(objectInspector)._is_QDesignerObjectInspectorInterface;
-        qtc.QDesignerFormEditorInterface_SetObjectInspector(@ptrCast(self.ptr), @ptrCast(objectInspector.ptr));
+    pub fn setObjectInspector(self: QDesignerFormEditorInterface, _objectInspector: anytype) void {
+        comptime _ = @TypeOf(_objectInspector)._is_QDesignerObjectInspectorInterface;
+        qtc.QDesignerFormEditorInterface_SetObjectInspector(@ptrCast(self.ptr), @ptrCast(_objectInspector.ptr));
     }
+
+    /// ### DEPRECATED: Use `setActionEditor` instead
+    ///
+    pub const SetActionEditor = setActionEditor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setActionEditor)
     ///
@@ -422,12 +538,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` actionEditor: QDesignerActionEditorInterface `
+    /// ` _actionEditor: QDesignerActionEditorInterface `
     ///
-    pub fn SetActionEditor(self: QDesignerFormEditorInterface, actionEditor: anytype) void {
-        comptime _ = @TypeOf(actionEditor)._is_QDesignerActionEditorInterface;
-        qtc.QDesignerFormEditorInterface_SetActionEditor(@ptrCast(self.ptr), @ptrCast(actionEditor.ptr));
+    pub fn setActionEditor(self: QDesignerFormEditorInterface, _actionEditor: anytype) void {
+        comptime _ = @TypeOf(_actionEditor)._is_QDesignerActionEditorInterface;
+        qtc.QDesignerFormEditorInterface_SetActionEditor(@ptrCast(self.ptr), @ptrCast(_actionEditor.ptr));
     }
+
+    /// ### DEPRECATED: Use `setIntegration` instead
+    ///
+    pub const SetIntegration = setIntegration;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setIntegration)
     ///
@@ -435,12 +555,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` integration: QDesignerIntegrationInterface `
+    /// ` _integration: QDesignerIntegrationInterface `
     ///
-    pub fn SetIntegration(self: QDesignerFormEditorInterface, integration: anytype) void {
-        comptime _ = @TypeOf(integration)._is_QDesignerIntegrationInterface;
-        qtc.QDesignerFormEditorInterface_SetIntegration(@ptrCast(self.ptr), @ptrCast(integration.ptr));
+    pub fn setIntegration(self: QDesignerFormEditorInterface, _integration: anytype) void {
+        comptime _ = @TypeOf(_integration)._is_QDesignerIntegrationInterface;
+        qtc.QDesignerFormEditorInterface_SetIntegration(@ptrCast(self.ptr), @ptrCast(_integration.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSettingsManager` instead
+    ///
+    pub const SetSettingsManager = setSettingsManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setSettingsManager)
     ///
@@ -448,12 +572,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` settingsManager: QDesignerSettingsInterface `
+    /// ` _settingsManager: QDesignerSettingsInterface `
     ///
-    pub fn SetSettingsManager(self: QDesignerFormEditorInterface, settingsManager: anytype) void {
-        comptime _ = @TypeOf(settingsManager)._is_QDesignerSettingsInterface;
-        qtc.QDesignerFormEditorInterface_SetSettingsManager(@ptrCast(self.ptr), @ptrCast(settingsManager.ptr));
+    pub fn setSettingsManager(self: QDesignerFormEditorInterface, _settingsManager: anytype) void {
+        comptime _ = @TypeOf(_settingsManager)._is_QDesignerSettingsInterface;
+        qtc.QDesignerFormEditorInterface_SetSettingsManager(@ptrCast(self.ptr), @ptrCast(_settingsManager.ptr));
     }
+
+    /// ### DEPRECATED: Use `setOptionsPages` instead
+    ///
+    pub const SetOptionsPages = setOptionsPages;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setOptionsPages)
     ///
@@ -461,15 +589,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` optionsPages: []QDesignerOptionsPageInterface `
+    /// ` _optionsPages: []QDesignerOptionsPageInterface `
     ///
-    pub fn SetOptionsPages(self: QDesignerFormEditorInterface, optionsPages: []QDesignerOptionsPageInterface) void {
+    pub fn setOptionsPages(self: QDesignerFormEditorInterface, _optionsPages: []QDesignerOptionsPageInterface) void {
         const optionsPages_list = qtc.libqt_list{
-            .len = optionsPages.len,
-            .data = @ptrCast(optionsPages.ptr),
+            .len = _optionsPages.len,
+            .data = @ptrCast(_optionsPages.ptr),
         };
         qtc.QDesignerFormEditorInterface_SetOptionsPages(@ptrCast(self.ptr), optionsPages_list);
     }
+
+    /// ### DEPRECATED: Use `pluginInstances` instead
+    ///
+    pub const PluginInstances = pluginInstances;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#pluginInstances)
     ///
@@ -479,15 +611,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn PluginInstances(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn pluginInstances(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QDesignerFormEditorInterface_PluginInstances(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormEditorInterface.PluginInstances: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormEditorInterface.pluginInstances: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `createIcon` instead
+    ///
+    pub const CreateIcon = createIcon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#createIcon)
     ///
@@ -495,7 +631,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn CreateIcon(name: []const u8) QIcon {
+    pub fn createIcon(name: []const u8) QIcon {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
@@ -503,18 +639,26 @@ pub const QDesignerFormEditorInterface = extern struct {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_CreateIcon(name_str) };
     }
 
+    /// ### DEPRECATED: Use `setFormManager` instead
+    ///
+    pub const SetFormManager = setFormManager;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` formWindowManager: QDesignerFormWindowManagerInterface `
+    /// ` _formWindowManager: QDesignerFormWindowManagerInterface `
     ///
-    pub fn SetFormManager(self: QDesignerFormEditorInterface, formWindowManager: anytype) void {
-        comptime _ = @TypeOf(formWindowManager)._is_QDesignerFormWindowManagerInterface;
-        qtc.QDesignerFormEditorInterface_SetFormManager(@ptrCast(self.ptr), @ptrCast(formWindowManager.ptr));
+    pub fn setFormManager(self: QDesignerFormEditorInterface, _formWindowManager: anytype) void {
+        comptime _ = @TypeOf(_formWindowManager)._is_QDesignerFormWindowManagerInterface;
+        qtc.QDesignerFormEditorInterface_SetFormManager(@ptrCast(self.ptr), @ptrCast(_formWindowManager.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetFormManager` instead
+    ///
+    pub const OnSetFormManager = onSetFormManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
     ///
@@ -526,13 +670,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, formWindowManager: QDesignerFormWindowManagerInterface) callconv(.c) void `
     ///
-    pub fn OnSetFormManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerFormWindowManagerInterface) callconv(.c) void) void {
+    pub fn onSetFormManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerFormWindowManagerInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetFormManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetFormManager` instead
+    /// ### DEPRECATED: Use `superSetFormManager` instead
     ///
-    pub const QBaseSetFormManager = SuperSetFormManager;
+    pub const SuperSetFormManager = superSetFormManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setFormManager)
     ///
@@ -542,12 +686,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` formWindowManager: QDesignerFormWindowManagerInterface `
+    /// ` _formWindowManager: QDesignerFormWindowManagerInterface `
     ///
-    pub fn SuperSetFormManager(self: QDesignerFormEditorInterface, formWindowManager: anytype) void {
-        comptime _ = @TypeOf(formWindowManager)._is_QDesignerFormWindowManagerInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetFormManager(@ptrCast(self.ptr), @ptrCast(formWindowManager.ptr));
+    pub fn superSetFormManager(self: QDesignerFormEditorInterface, _formWindowManager: anytype) void {
+        comptime _ = @TypeOf(_formWindowManager)._is_QDesignerFormWindowManagerInterface;
+        qtc.QDesignerFormEditorInterface_SuperSetFormManager(@ptrCast(self.ptr), @ptrCast(_formWindowManager.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMetaDataBase` instead
+    ///
+    pub const SetMetaDataBase = setMetaDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
     ///
@@ -555,12 +703,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` metaDataBase: QDesignerMetaDataBaseInterface `
+    /// ` _metaDataBase: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SetMetaDataBase(self: QDesignerFormEditorInterface, metaDataBase: anytype) void {
-        comptime _ = @TypeOf(metaDataBase)._is_QDesignerMetaDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SetMetaDataBase(@ptrCast(self.ptr), @ptrCast(metaDataBase.ptr));
+    pub fn setMetaDataBase(self: QDesignerFormEditorInterface, _metaDataBase: anytype) void {
+        comptime _ = @TypeOf(_metaDataBase)._is_QDesignerMetaDataBaseInterface;
+        qtc.QDesignerFormEditorInterface_SetMetaDataBase(@ptrCast(self.ptr), @ptrCast(_metaDataBase.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetMetaDataBase` instead
+    ///
+    pub const OnSetMetaDataBase = onSetMetaDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
     ///
@@ -572,13 +724,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, metaDataBase: QDesignerMetaDataBaseInterface) callconv(.c) void `
     ///
-    pub fn OnSetMetaDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerMetaDataBaseInterface) callconv(.c) void) void {
+    pub fn onSetMetaDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerMetaDataBaseInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetMetaDataBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetMetaDataBase` instead
+    /// ### DEPRECATED: Use `superSetMetaDataBase` instead
     ///
-    pub const QBaseSetMetaDataBase = SuperSetMetaDataBase;
+    pub const SuperSetMetaDataBase = superSetMetaDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setMetaDataBase)
     ///
@@ -588,12 +740,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` metaDataBase: QDesignerMetaDataBaseInterface `
+    /// ` _metaDataBase: QDesignerMetaDataBaseInterface `
     ///
-    pub fn SuperSetMetaDataBase(self: QDesignerFormEditorInterface, metaDataBase: anytype) void {
-        comptime _ = @TypeOf(metaDataBase)._is_QDesignerMetaDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetMetaDataBase(@ptrCast(self.ptr), @ptrCast(metaDataBase.ptr));
+    pub fn superSetMetaDataBase(self: QDesignerFormEditorInterface, _metaDataBase: anytype) void {
+        comptime _ = @TypeOf(_metaDataBase)._is_QDesignerMetaDataBaseInterface;
+        qtc.QDesignerFormEditorInterface_SuperSetMetaDataBase(@ptrCast(self.ptr), @ptrCast(_metaDataBase.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidgetDataBase` instead
+    ///
+    pub const SetWidgetDataBase = setWidgetDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
     ///
@@ -601,12 +757,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` widgetDataBase: QDesignerWidgetDataBaseInterface `
+    /// ` _widgetDataBase: QDesignerWidgetDataBaseInterface `
     ///
-    pub fn SetWidgetDataBase(self: QDesignerFormEditorInterface, widgetDataBase: anytype) void {
-        comptime _ = @TypeOf(widgetDataBase)._is_QDesignerWidgetDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(widgetDataBase.ptr));
+    pub fn setWidgetDataBase(self: QDesignerFormEditorInterface, _widgetDataBase: anytype) void {
+        comptime _ = @TypeOf(_widgetDataBase)._is_QDesignerWidgetDataBaseInterface;
+        qtc.QDesignerFormEditorInterface_SetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(_widgetDataBase.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetWidgetDataBase` instead
+    ///
+    pub const OnSetWidgetDataBase = onSetWidgetDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
     ///
@@ -618,13 +778,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, widgetDataBase: QDesignerWidgetDataBaseInterface) callconv(.c) void `
     ///
-    pub fn OnSetWidgetDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetDataBaseInterface) callconv(.c) void) void {
+    pub fn onSetWidgetDataBase(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetDataBaseInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetWidgetDataBase(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetWidgetDataBase` instead
+    /// ### DEPRECATED: Use `superSetWidgetDataBase` instead
     ///
-    pub const QBaseSetWidgetDataBase = SuperSetWidgetDataBase;
+    pub const SuperSetWidgetDataBase = superSetWidgetDataBase;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetDataBase)
     ///
@@ -634,12 +794,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` widgetDataBase: QDesignerWidgetDataBaseInterface `
+    /// ` _widgetDataBase: QDesignerWidgetDataBaseInterface `
     ///
-    pub fn SuperSetWidgetDataBase(self: QDesignerFormEditorInterface, widgetDataBase: anytype) void {
-        comptime _ = @TypeOf(widgetDataBase)._is_QDesignerWidgetDataBaseInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(widgetDataBase.ptr));
+    pub fn superSetWidgetDataBase(self: QDesignerFormEditorInterface, _widgetDataBase: anytype) void {
+        comptime _ = @TypeOf(_widgetDataBase)._is_QDesignerWidgetDataBaseInterface;
+        qtc.QDesignerFormEditorInterface_SuperSetWidgetDataBase(@ptrCast(self.ptr), @ptrCast(_widgetDataBase.ptr));
     }
+
+    /// ### DEPRECATED: Use `setPromotion` instead
+    ///
+    pub const SetPromotion = setPromotion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
     ///
@@ -647,12 +811,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` promotion: QDesignerPromotionInterface `
+    /// ` _promotion: QDesignerPromotionInterface `
     ///
-    pub fn SetPromotion(self: QDesignerFormEditorInterface, promotion: anytype) void {
-        comptime _ = @TypeOf(promotion)._is_QDesignerPromotionInterface;
-        qtc.QDesignerFormEditorInterface_SetPromotion(@ptrCast(self.ptr), @ptrCast(promotion.ptr));
+    pub fn setPromotion(self: QDesignerFormEditorInterface, _promotion: anytype) void {
+        comptime _ = @TypeOf(_promotion)._is_QDesignerPromotionInterface;
+        qtc.QDesignerFormEditorInterface_SetPromotion(@ptrCast(self.ptr), @ptrCast(_promotion.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetPromotion` instead
+    ///
+    pub const OnSetPromotion = onSetPromotion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
     ///
@@ -664,13 +832,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, promotion: QDesignerPromotionInterface) callconv(.c) void `
     ///
-    pub fn OnSetPromotion(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerPromotionInterface) callconv(.c) void) void {
+    pub fn onSetPromotion(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerPromotionInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetPromotion(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetPromotion` instead
+    /// ### DEPRECATED: Use `superSetPromotion` instead
     ///
-    pub const QBaseSetPromotion = SuperSetPromotion;
+    pub const SuperSetPromotion = superSetPromotion;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setPromotion)
     ///
@@ -680,12 +848,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` promotion: QDesignerPromotionInterface `
+    /// ` _promotion: QDesignerPromotionInterface `
     ///
-    pub fn SuperSetPromotion(self: QDesignerFormEditorInterface, promotion: anytype) void {
-        comptime _ = @TypeOf(promotion)._is_QDesignerPromotionInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetPromotion(@ptrCast(self.ptr), @ptrCast(promotion.ptr));
+    pub fn superSetPromotion(self: QDesignerFormEditorInterface, _promotion: anytype) void {
+        comptime _ = @TypeOf(_promotion)._is_QDesignerPromotionInterface;
+        qtc.QDesignerFormEditorInterface_SuperSetPromotion(@ptrCast(self.ptr), @ptrCast(_promotion.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWidgetFactory` instead
+    ///
+    pub const SetWidgetFactory = setWidgetFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
     ///
@@ -693,12 +865,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` widgetFactory: QDesignerWidgetFactoryInterface `
+    /// ` _widgetFactory: QDesignerWidgetFactoryInterface `
     ///
-    pub fn SetWidgetFactory(self: QDesignerFormEditorInterface, widgetFactory: anytype) void {
-        comptime _ = @TypeOf(widgetFactory)._is_QDesignerWidgetFactoryInterface;
-        qtc.QDesignerFormEditorInterface_SetWidgetFactory(@ptrCast(self.ptr), @ptrCast(widgetFactory.ptr));
+    pub fn setWidgetFactory(self: QDesignerFormEditorInterface, _widgetFactory: anytype) void {
+        comptime _ = @TypeOf(_widgetFactory)._is_QDesignerWidgetFactoryInterface;
+        qtc.QDesignerFormEditorInterface_SetWidgetFactory(@ptrCast(self.ptr), @ptrCast(_widgetFactory.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetWidgetFactory` instead
+    ///
+    pub const OnSetWidgetFactory = onSetWidgetFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
     ///
@@ -710,13 +886,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, widgetFactory: QDesignerWidgetFactoryInterface) callconv(.c) void `
     ///
-    pub fn OnSetWidgetFactory(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetFactoryInterface) callconv(.c) void) void {
+    pub fn onSetWidgetFactory(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QDesignerWidgetFactoryInterface) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetWidgetFactory(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetWidgetFactory` instead
+    /// ### DEPRECATED: Use `superSetWidgetFactory` instead
     ///
-    pub const QBaseSetWidgetFactory = SuperSetWidgetFactory;
+    pub const SuperSetWidgetFactory = superSetWidgetFactory;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setWidgetFactory)
     ///
@@ -726,12 +902,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` widgetFactory: QDesignerWidgetFactoryInterface `
+    /// ` _widgetFactory: QDesignerWidgetFactoryInterface `
     ///
-    pub fn SuperSetWidgetFactory(self: QDesignerFormEditorInterface, widgetFactory: anytype) void {
-        comptime _ = @TypeOf(widgetFactory)._is_QDesignerWidgetFactoryInterface;
-        qtc.QDesignerFormEditorInterface_SuperSetWidgetFactory(@ptrCast(self.ptr), @ptrCast(widgetFactory.ptr));
+    pub fn superSetWidgetFactory(self: QDesignerFormEditorInterface, _widgetFactory: anytype) void {
+        comptime _ = @TypeOf(_widgetFactory)._is_QDesignerWidgetFactoryInterface;
+        qtc.QDesignerFormEditorInterface_SuperSetWidgetFactory(@ptrCast(self.ptr), @ptrCast(_widgetFactory.ptr));
     }
+
+    /// ### DEPRECATED: Use `setExtensionManager` instead
+    ///
+    pub const SetExtensionManager = setExtensionManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
     ///
@@ -739,12 +919,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` extensionManager: QExtensionManager `
+    /// ` _extensionManager: QExtensionManager `
     ///
-    pub fn SetExtensionManager(self: QDesignerFormEditorInterface, extensionManager: anytype) void {
-        comptime _ = @TypeOf(extensionManager)._is_QExtensionManager;
-        qtc.QDesignerFormEditorInterface_SetExtensionManager(@ptrCast(self.ptr), @ptrCast(extensionManager.ptr));
+    pub fn setExtensionManager(self: QDesignerFormEditorInterface, _extensionManager: anytype) void {
+        comptime _ = @TypeOf(_extensionManager)._is_QExtensionManager;
+        qtc.QDesignerFormEditorInterface_SetExtensionManager(@ptrCast(self.ptr), @ptrCast(_extensionManager.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSetExtensionManager` instead
+    ///
+    pub const OnSetExtensionManager = onSetExtensionManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
     ///
@@ -756,13 +940,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, extensionManager: QExtensionManager) callconv(.c) void `
     ///
-    pub fn OnSetExtensionManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QExtensionManager) callconv(.c) void) void {
+    pub fn onSetExtensionManager(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QExtensionManager) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnSetExtensionManager(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSetExtensionManager` instead
+    /// ### DEPRECATED: Use `superSetExtensionManager` instead
     ///
-    pub const QBaseSetExtensionManager = SuperSetExtensionManager;
+    pub const SuperSetExtensionManager = superSetExtensionManager;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#setExtensionManager)
     ///
@@ -772,12 +956,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` extensionManager: QExtensionManager `
+    /// ` _extensionManager: QExtensionManager `
     ///
-    pub fn SuperSetExtensionManager(self: QDesignerFormEditorInterface, extensionManager: anytype) void {
-        comptime _ = @TypeOf(extensionManager)._is_QExtensionManager;
-        qtc.QDesignerFormEditorInterface_SuperSetExtensionManager(@ptrCast(self.ptr), @ptrCast(extensionManager.ptr));
+    pub fn superSetExtensionManager(self: QDesignerFormEditorInterface, _extensionManager: anytype) void {
+        comptime _ = @TypeOf(_extensionManager)._is_QExtensionManager;
+        qtc.QDesignerFormEditorInterface_SuperSetExtensionManager(@ptrCast(self.ptr), @ptrCast(_extensionManager.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -789,15 +977,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -811,15 +1003,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -831,13 +1027,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QDesignerFormEditorInterface.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -849,13 +1049,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QDesignerFormEditorInterface, name: []const u8) void {
+    pub fn setObjectName(self: QDesignerFormEditorInterface, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -865,9 +1069,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn IsWidgetType(self: QDesignerFormEditorInterface) bool {
+    pub fn isWidgetType(self: QDesignerFormEditorInterface) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -877,9 +1085,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn IsWindowType(self: QDesignerFormEditorInterface) bool {
+    pub fn isWindowType(self: QDesignerFormEditorInterface) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -889,9 +1101,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn IsQuickItemType(self: QDesignerFormEditorInterface) bool {
+    pub fn isQuickItemType(self: QDesignerFormEditorInterface) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -901,9 +1117,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SignalsBlocked(self: QDesignerFormEditorInterface) bool {
+    pub fn signalsBlocked(self: QDesignerFormEditorInterface) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -915,9 +1135,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QDesignerFormEditorInterface, b: bool) bool {
+    pub fn blockSignals(self: QDesignerFormEditorInterface, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -927,9 +1151,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Thread(self: QDesignerFormEditorInterface) QThread {
+    pub fn thread(self: QDesignerFormEditorInterface) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -939,12 +1167,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QDesignerFormEditorInterface, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QDesignerFormEditorInterface, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -956,9 +1188,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QDesignerFormEditorInterface, interval: i32) i32 {
+    pub fn startTimer(self: QDesignerFormEditorInterface, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -970,9 +1206,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QDesignerFormEditorInterface, time: i64) i32 {
+    pub fn startTimer2(self: QDesignerFormEditorInterface, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -984,9 +1224,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QDesignerFormEditorInterface, id: i32) void {
+    pub fn killTimer(self: QDesignerFormEditorInterface, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -998,9 +1242,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QDesignerFormEditorInterface, id: i32) void {
+    pub fn killTimer2(self: QDesignerFormEditorInterface, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -1012,15 +1260,19 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormEditorInterface.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QDesignerFormEditorInterface.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -1030,12 +1282,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QDesignerFormEditorInterface, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QDesignerFormEditorInterface, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1047,10 +1303,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QDesignerFormEditorInterface, filterObj: anytype) void {
+    pub fn installEventFilter(self: QDesignerFormEditorInterface, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1062,10 +1322,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QDesignerFormEditorInterface, obj: anytype) void {
+    pub fn removeEventFilter(self: QDesignerFormEditorInterface, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1073,7 +1337,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1081,13 +1345,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1095,7 +1363,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1103,13 +1371,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1119,18 +1391,22 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QDesignerFormEditorInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QDesignerFormEditorInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1138,7 +1414,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1146,13 +1422,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1160,7 +1440,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1168,13 +1448,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1184,9 +1468,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Disconnect3(self: QDesignerFormEditorInterface) bool {
+    pub fn disconnect3(self: QDesignerFormEditorInterface) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1198,10 +1486,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QDesignerFormEditorInterface, receiver: anytype) bool {
+    pub fn disconnect4(self: QDesignerFormEditorInterface, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1211,10 +1503,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1224,9 +1520,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn DumpObjectTree(self: QDesignerFormEditorInterface) void {
+    pub fn dumpObjectTree(self: QDesignerFormEditorInterface) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1236,9 +1536,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn DumpObjectInfo(self: QDesignerFormEditorInterface) void {
+    pub fn dumpObjectInfo(self: QDesignerFormEditorInterface) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1252,11 +1556,15 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QDesignerFormEditorInterface, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QDesignerFormEditorInterface, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1268,10 +1576,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QDesignerFormEditorInterface, name: [:0]const u8) QVariant {
+    pub fn property(self: QDesignerFormEditorInterface, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1283,7 +1595,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QDesignerFormEditorInterface, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1291,27 +1603,19 @@ pub const QDesignerFormEditorInterface = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerFormEditorInterface.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QDesignerFormEditorInterface.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QDesignerFormEditorInterface.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QDesignerFormEditorInterface.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QDesignerFormEditorInterface `
-    ///
-    pub fn BindingStorage(self: QDesignerFormEditorInterface) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1321,9 +1625,29 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn BindingStorage2(self: QDesignerFormEditorInterface) QBindingStorage {
+    pub fn bindingStorage(self: QDesignerFormEditorInterface) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QDesignerFormEditorInterface `
+    ///
+    pub fn bindingStorage2(self: QDesignerFormEditorInterface) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1333,9 +1657,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Destroyed(self: QDesignerFormEditorInterface) void {
+    pub fn destroyed(self: QDesignerFormEditorInterface) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1347,9 +1675,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface) callconv(.c) void) void {
+    pub fn onDestroyed(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1359,9 +1691,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Parent(self: QDesignerFormEditorInterface) QObject {
+    pub fn parent(self: QDesignerFormEditorInterface) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1373,10 +1709,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QDesignerFormEditorInterface, classname: [:0]const u8) bool {
+    pub fn inherits(self: QDesignerFormEditorInterface, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1386,9 +1726,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn DeleteLater(self: QDesignerFormEditorInterface) void {
+    pub fn deleteLater(self: QDesignerFormEditorInterface) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1402,9 +1746,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QDesignerFormEditorInterface, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QDesignerFormEditorInterface, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1418,9 +1766,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QDesignerFormEditorInterface, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QDesignerFormEditorInterface, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1428,7 +1780,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1438,13 +1790,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1452,7 +1808,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1462,13 +1818,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1478,7 +1838,7 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1486,12 +1846,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QDesignerFormEditorInterface, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QDesignerFormEditorInterface, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1503,10 +1867,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QDesignerFormEditorInterface, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QDesignerFormEditorInterface, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1520,11 +1888,15 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QDesignerFormEditorInterface, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QDesignerFormEditorInterface, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1540,13 +1912,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QDesignerFormEditorInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QDesignerFormEditorInterface, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1559,11 +1935,15 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QDesignerFormEditorInterface, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QDesignerFormEditorInterface, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1575,10 +1955,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QDesignerFormEditorInterface, param1: anytype) void {
+    pub fn destroyed1(self: QDesignerFormEditorInterface, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1590,9 +1974,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1604,16 +1992,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QDesignerFormEditorInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerFormEditorInterface_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QDesignerFormEditorInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerFormEditorInterface_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1625,12 +2013,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QDesignerFormEditorInterface, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerFormEditorInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QDesignerFormEditorInterface, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerFormEditorInterface_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1644,9 +2036,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QEvent) callconv(.c) bool) void {
         qtc.QDesignerFormEditorInterface_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1660,17 +2056,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QDesignerFormEditorInterface, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QDesignerFormEditorInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerFormEditorInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerFormEditorInterface_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1684,13 +2080,17 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QDesignerFormEditorInterface, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QDesignerFormEditorInterface, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QDesignerFormEditorInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QDesignerFormEditorInterface_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1704,9 +2104,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QObject, QEvent) callconv(.c) bool) void {
         qtc.QDesignerFormEditorInterface_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1718,16 +2122,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerFormEditorInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerFormEditorInterface_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1739,12 +2143,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QDesignerFormEditorInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QDesignerFormEditorInterface_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1758,9 +2166,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QTimerEvent) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1772,16 +2184,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerFormEditorInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerFormEditorInterface_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1793,12 +2205,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QDesignerFormEditorInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QDesignerFormEditorInterface_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1812,9 +2228,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QChildEvent) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1826,16 +2246,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerFormEditorInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerFormEditorInterface_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1847,12 +2267,16 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QDesignerFormEditorInterface, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QDesignerFormEditorInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QDesignerFormEditorInterface, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QDesignerFormEditorInterface_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1866,9 +2290,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QEvent) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1882,14 +2310,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
+    pub fn connectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerFormEditorInterface_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1903,11 +2331,15 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
+    pub fn superConnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerFormEditorInterface_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1920,9 +2352,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1936,14 +2372,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
+    pub fn disconnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerFormEditorInterface_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1957,10 +2393,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QDesignerFormEditorInterface, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QDesignerFormEditorInterface_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1974,9 +2414,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) void) void {
         qtc.QDesignerFormEditorInterface_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1988,13 +2432,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Sender(self: QDesignerFormEditorInterface) QObject {
+    pub fn sender(self: QDesignerFormEditorInterface) QObject {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -2006,9 +2450,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SuperSender(self: QDesignerFormEditorInterface) QObject {
+    pub fn superSender(self: QDesignerFormEditorInterface) QObject {
         return .{ .ptr = qtc.QDesignerFormEditorInterface_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -2022,9 +2470,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) QObject) void {
         qtc.QDesignerFormEditorInterface_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2036,13 +2488,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SenderSignalIndex(self: QDesignerFormEditorInterface) i32 {
+    pub fn senderSignalIndex(self: QDesignerFormEditorInterface) i32 {
         return qtc.QDesignerFormEditorInterface_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2054,9 +2506,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn SuperSenderSignalIndex(self: QDesignerFormEditorInterface) i32 {
+    pub fn superSenderSignalIndex(self: QDesignerFormEditorInterface) i32 {
         return qtc.QDesignerFormEditorInterface_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2070,9 +2526,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QDesignerFormEditorInterface, callback: *const fn () callconv(.c) i32) void {
         qtc.QDesignerFormEditorInterface_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2086,14 +2546,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QDesignerFormEditorInterface, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QDesignerFormEditorInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerFormEditorInterface_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2107,10 +2567,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QDesignerFormEditorInterface, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QDesignerFormEditorInterface, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QDesignerFormEditorInterface_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2124,9 +2588,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) i32) void {
         qtc.QDesignerFormEditorInterface_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2140,14 +2608,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
+    pub fn isSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerFormEditorInterface_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2161,10 +2629,14 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QDesignerFormEditorInterface, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QDesignerFormEditorInterface_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2178,9 +2650,13 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, QMetaMethod) callconv(.c) bool) void {
         qtc.QDesignerFormEditorInterface_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2194,23 +2670,23 @@ pub const QDesignerFormEditorInterface = extern struct {
     ///
     /// ` callback: *const fn (self: QDesignerFormEditorInterface, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QDesignerFormEditorInterface, callback: *const fn (QDesignerFormEditorInterface, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qdesignerformeditorinterface.html#dtor.QDesignerFormEditorInterface)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QDesignerFormEditorInterface `
     ///
-    pub fn Delete(self: QDesignerFormEditorInterface) void {
+    pub fn delete(self: QDesignerFormEditorInterface) void {
         qtc.QDesignerFormEditorInterface_Delete(@ptrCast(self.ptr));
     }
 };

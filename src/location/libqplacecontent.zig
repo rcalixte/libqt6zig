@@ -16,32 +16,48 @@ pub const QPlaceContent = extern struct {
 
     pub const _is_QPlaceContent = {};
 
-    /// New constructs a new QPlaceContent object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceContent {
+    pub const New = new;
+
+    /// Allocate a new QPlaceContent object in C++ memory
+    ///
+    pub fn new() QPlaceContent {
         return .{ .ptr = qtc.QPlaceContent_new() };
     }
 
-    /// New2 constructs a new QPlaceContent object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceContent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceContent `
     ///
-    pub fn New2(other: anytype) QPlaceContent {
+    pub fn new2(other: anytype) QPlaceContent {
         comptime _ = @TypeOf(other)._is_QPlaceContent;
         return .{ .ptr = qtc.QPlaceContent_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new QPlaceContent object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QPlaceContent object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` typeVal: qplacecontent_enums.Type `
     ///
-    pub fn New3(typeVal: i32) QPlaceContent {
+    pub fn new3(typeVal: i32) QPlaceContent {
         return .{ .ptr = qtc.QPlaceContent_new3(@bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#operator-eq)
     ///
@@ -51,10 +67,14 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` other: QPlaceContent `
     ///
-    pub fn OperatorAssign(self: QPlaceContent, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceContent, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContent;
         qtc.QPlaceContent_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#swap)
     ///
@@ -64,10 +84,14 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` other: QPlaceContent `
     ///
-    pub fn Swap(self: QPlaceContent, other: anytype) void {
+    pub fn swap(self: QPlaceContent, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceContent;
         qtc.QPlaceContent_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `detach` instead
+    ///
+    pub const Detach = detach;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#detach)
     ///
@@ -75,9 +99,13 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    pub fn Detach(self: QPlaceContent) void {
+    pub fn detach(self: QPlaceContent) void {
         qtc.QPlaceContent_Detach(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorEqual` instead
+    ///
+    pub const OperatorEqual = operatorEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#operator-eq-eq)
     ///
@@ -87,10 +115,14 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` other: QPlaceContent `
     ///
-    pub fn OperatorEqual(self: QPlaceContent, other: anytype) bool {
+    pub fn operatorEqual(self: QPlaceContent, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPlaceContent;
         return qtc.QPlaceContent_OperatorEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorNotEqual` instead
+    ///
+    pub const OperatorNotEqual = operatorNotEqual;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#operator-not-eq)
     ///
@@ -100,10 +132,16 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` other: QPlaceContent `
     ///
-    pub fn OperatorNotEqual(self: QPlaceContent, other: anytype) bool {
+    pub fn operatorNotEqual(self: QPlaceContent, other: anytype) bool {
         comptime _ = @TypeOf(other)._is_QPlaceContent;
         return qtc.QPlaceContent_OperatorNotEqual(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#type)
     ///
@@ -115,9 +153,13 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` qplacecontent_enums.Type `
     ///
-    pub fn Type(self: QPlaceContent) i32 {
+    pub fn type0(self: QPlaceContent) i32 {
         return qtc.QPlaceContent_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dataTags` instead
+    ///
+    pub const DataTags = dataTags;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#dataTags)
     ///
@@ -131,14 +173,18 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` []qplacecontent_enums.DataTag `
     ///
-    pub fn DataTags(self: QPlaceContent, allocator: std.mem.Allocator) []i32 {
+    pub fn dataTags(self: QPlaceContent, allocator: std.mem.Allocator) []i32 {
         const _arr: qtc.libqt_list = qtc.QPlaceContent_DataTags(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QPlaceContent.DataTags: Memory allocation failed");
-        const _data: [*]i32 = @ptrCast(@alignCast(_arr.data));
-        @memcpy(_ret, _data[0.._arr.len]);
+        const _ret = allocator.alloc(i32, _arr.len) catch @panic("QPlaceContent.dataTags: Memory allocation failed");
+        const _data_val: [*]i32 = @ptrCast(@alignCast(_arr.data));
+        @memcpy(_ret, _data_val[0.._arr.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `value` instead
+    ///
+    pub const Value = value;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#value)
     ///
@@ -148,9 +194,13 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` tag: qplacecontent_enums.DataTag `
     ///
-    pub fn Value(self: QPlaceContent, tag: i32) QVariant {
+    pub fn value(self: QPlaceContent, tag: i32) QVariant {
         return .{ .ptr = qtc.QPlaceContent_Value(@ptrCast(self.ptr), @bitCast(tag)) };
     }
+
+    /// ### DEPRECATED: Use `setValue` instead
+    ///
+    pub const SetValue = setValue;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#setValue)
     ///
@@ -162,10 +212,14 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` param2: QVariant `
     ///
-    pub fn SetValue(self: QPlaceContent, tag: i32, param2: anytype) void {
+    pub fn setValue(self: QPlaceContent, tag: i32, param2: anytype) void {
         comptime _ = @TypeOf(param2)._is_QVariant;
         qtc.QPlaceContent_SetValue(@ptrCast(self.ptr), @bitCast(tag), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `supplier` instead
+    ///
+    pub const Supplier = supplier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#supplier)
     ///
@@ -173,9 +227,13 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    pub fn Supplier(self: QPlaceContent) QPlaceSupplier {
+    pub fn supplier(self: QPlaceContent) QPlaceSupplier {
         return .{ .ptr = qtc.QPlaceContent_Supplier(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSupplier` instead
+    ///
+    pub const SetSupplier = setSupplier;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#setSupplier)
     ///
@@ -183,12 +241,16 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    /// ` supplier: QPlaceSupplier `
+    /// ` _supplier: QPlaceSupplier `
     ///
-    pub fn SetSupplier(self: QPlaceContent, supplier: anytype) void {
-        comptime _ = @TypeOf(supplier)._is_QPlaceSupplier;
-        qtc.QPlaceContent_SetSupplier(@ptrCast(self.ptr), @ptrCast(supplier.ptr));
+    pub fn setSupplier(self: QPlaceContent, _supplier: anytype) void {
+        comptime _ = @TypeOf(_supplier)._is_QPlaceSupplier;
+        qtc.QPlaceContent_SetSupplier(@ptrCast(self.ptr), @ptrCast(_supplier.ptr));
     }
+
+    /// ### DEPRECATED: Use `user` instead
+    ///
+    pub const User = user;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#user)
     ///
@@ -196,9 +258,13 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    pub fn User(self: QPlaceContent) QPlaceUser {
+    pub fn user(self: QPlaceContent) QPlaceUser {
         return .{ .ptr = qtc.QPlaceContent_User(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setUser` instead
+    ///
+    pub const SetUser = setUser;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#setUser)
     ///
@@ -206,12 +272,16 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    /// ` user: QPlaceUser `
+    /// ` _user: QPlaceUser `
     ///
-    pub fn SetUser(self: QPlaceContent, user: anytype) void {
-        comptime _ = @TypeOf(user)._is_QPlaceUser;
-        qtc.QPlaceContent_SetUser(@ptrCast(self.ptr), @ptrCast(user.ptr));
+    pub fn setUser(self: QPlaceContent, _user: anytype) void {
+        comptime _ = @TypeOf(_user)._is_QPlaceUser;
+        qtc.QPlaceContent_SetUser(@ptrCast(self.ptr), @ptrCast(_user.ptr));
     }
+
+    /// ### DEPRECATED: Use `attribution` instead
+    ///
+    pub const Attribution = attribution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#attribution)
     ///
@@ -221,13 +291,17 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Attribution(self: QPlaceContent, allocator: std.mem.Allocator) []const u8 {
+    pub fn attribution(self: QPlaceContent, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceContent_Attribution(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContent.Attribution: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceContent.attribution: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAttribution` instead
+    ///
+    pub const SetAttribution = setAttribution;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#setAttribution)
     ///
@@ -235,29 +309,29 @@ pub const QPlaceContent = extern struct {
     ///
     /// ` self: QPlaceContent `
     ///
-    /// ` attribution: []const u8 `
+    /// ` _attribution: []const u8 `
     ///
-    pub fn SetAttribution(self: QPlaceContent, attribution: []const u8) void {
+    pub fn setAttribution(self: QPlaceContent, _attribution: []const u8) void {
         const attribution_str = qtc.libqt_string{
-            .len = attribution.len,
-            .data = attribution.ptr,
+            .len = _attribution.len,
+            .data = _attribution.ptr,
         };
         qtc.QPlaceContent_SetAttribution(@ptrCast(self.ptr), attribution_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplacecontent.html#dtor.QPlaceContent)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceContent `
     ///
-    pub fn Delete(self: QPlaceContent) void {
+    pub fn delete(self: QPlaceContent) void {
         qtc.QPlaceContent_Delete(@ptrCast(self.ptr));
     }
 };

@@ -34,42 +34,54 @@ pub const QPieLegendMarker = extern struct {
     pub const _is_QLegendMarker = {};
     pub const _is_QObject = {};
 
-    /// New constructs a new QPieLegendMarker object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QPieLegendMarker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` series: QPieSeries `
+    /// ` _series: QPieSeries `
     ///
-    /// ` slice: QPieSlice `
+    /// ` _slice: QPieSlice `
     ///
     /// ` legend: QLegend `
     ///
-    pub fn New(series: anytype, slice: anytype, legend: anytype) QPieLegendMarker {
-        comptime _ = @TypeOf(series)._is_QPieSeries;
-        comptime _ = @TypeOf(slice)._is_QPieSlice;
+    pub fn new(_series: anytype, _slice: anytype, legend: anytype) QPieLegendMarker {
+        comptime _ = @TypeOf(_series)._is_QPieSeries;
+        comptime _ = @TypeOf(_slice)._is_QPieSlice;
         comptime _ = @TypeOf(legend)._is_QLegend;
-        return .{ .ptr = qtc.QPieLegendMarker_new(@ptrCast(series.ptr), @ptrCast(slice.ptr), @ptrCast(legend.ptr)) };
+        return .{ .ptr = qtc.QPieLegendMarker_new(@ptrCast(_series.ptr), @ptrCast(_slice.ptr), @ptrCast(legend.ptr)) };
     }
 
-    /// New2 constructs a new QPieLegendMarker object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPieLegendMarker object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` series: QPieSeries `
+    /// ` _series: QPieSeries `
     ///
-    /// ` slice: QPieSlice `
+    /// ` _slice: QPieSlice `
     ///
     /// ` legend: QLegend `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn New2(series: anytype, slice: anytype, legend: anytype, parent: anytype) QPieLegendMarker {
-        comptime _ = @TypeOf(series)._is_QPieSeries;
-        comptime _ = @TypeOf(slice)._is_QPieSlice;
+    pub fn new2(_series: anytype, _slice: anytype, legend: anytype, _parent: anytype) QPieLegendMarker {
+        comptime _ = @TypeOf(_series)._is_QPieSeries;
+        comptime _ = @TypeOf(_slice)._is_QPieSlice;
         comptime _ = @TypeOf(legend)._is_QLegend;
-        comptime _ = @TypeOf(parent)._is_QObject;
-        return .{ .ptr = qtc.QPieLegendMarker_new2(@ptrCast(series.ptr), @ptrCast(slice.ptr), @ptrCast(legend.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        return .{ .ptr = qtc.QPieLegendMarker_new2(@ptrCast(_series.ptr), @ptrCast(_slice.ptr), @ptrCast(legend.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -77,9 +89,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn MetaObject(self: QPieLegendMarker) QMetaObject {
+    pub fn metaObject(self: QPieLegendMarker) QMetaObject {
         return .{ .ptr = qtc.QPieLegendMarker_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -91,13 +107,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QPieLegendMarker, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QPieLegendMarker, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QPieLegendMarker_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -107,9 +123,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SuperMetaObject(self: QPieLegendMarker) QMetaObject {
+    pub fn superMetaObject(self: QPieLegendMarker) QMetaObject {
         return .{ .ptr = qtc.QPieLegendMarker_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -117,10 +137,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QPieLegendMarker, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QPieLegendMarker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPieLegendMarker_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -130,13 +154,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QPieLegendMarker_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -146,10 +170,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QPieLegendMarker, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QPieLegendMarker, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QPieLegendMarker_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -161,9 +189,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QPieLegendMarker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QPieLegendMarker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPieLegendMarker_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -173,13 +205,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QPieLegendMarker_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -193,9 +225,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QPieLegendMarker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QPieLegendMarker, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QPieLegendMarker_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -205,14 +241,20 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `type0` instead
+    ///
+    pub const Type = type0;
+
+    pub const @"type" = type0;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#type)
     ///
@@ -224,9 +266,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` qlegendmarker_enums.LegendMarkerType `
     ///
-    pub fn Type(self: QPieLegendMarker) i32 {
+    pub fn type0(self: QPieLegendMarker) i32 {
         return qtc.QPieLegendMarker_Type(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onType` instead
+    ///
+    pub const OnType = onType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#type)
     ///
@@ -238,13 +284,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnType(self: QPieLegendMarker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onType(self: QPieLegendMarker, callback: *const fn () callconv(.c) i32) void {
         qtc.QPieLegendMarker_OnType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperType` instead
+    /// ### DEPRECATED: Use `superType` instead
     ///
-    pub const QBaseType = SuperType;
+    pub const SuperType = superType;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#type)
     ///
@@ -258,9 +304,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` qlegendmarker_enums.LegendMarkerType `
     ///
-    pub fn SuperType(self: QPieLegendMarker) i32 {
+    pub fn superType(self: QPieLegendMarker) i32 {
         return qtc.QPieLegendMarker_SuperType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `series` instead
+    ///
+    pub const Series = series;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#series)
     ///
@@ -268,9 +318,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Series(self: QPieLegendMarker) QPieSeries {
+    pub fn series(self: QPieLegendMarker) QPieSeries {
         return .{ .ptr = qtc.QPieLegendMarker_Series(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSeries` instead
+    ///
+    pub const OnSeries = onSeries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#series)
     ///
@@ -282,13 +336,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPieSeries `
     ///
-    pub fn OnSeries(self: QPieLegendMarker, callback: *const fn () callconv(.c) QPieSeries) void {
+    pub fn onSeries(self: QPieLegendMarker, callback: *const fn () callconv(.c) QPieSeries) void {
         qtc.QPieLegendMarker_OnSeries(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSeries` instead
+    /// ### DEPRECATED: Use `superSeries` instead
     ///
-    pub const QBaseSeries = SuperSeries;
+    pub const SuperSeries = superSeries;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#series)
     ///
@@ -298,9 +352,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SuperSeries(self: QPieLegendMarker) QPieSeries {
+    pub fn superSeries(self: QPieLegendMarker) QPieSeries {
         return .{ .ptr = qtc.QPieLegendMarker_SuperSeries(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `slice` instead
+    ///
+    pub const Slice = slice;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#slice)
     ///
@@ -308,9 +366,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Slice(self: QPieLegendMarker) QPieSlice {
+    pub fn slice(self: QPieLegendMarker) QPieSlice {
         return .{ .ptr = qtc.QPieLegendMarker_Slice(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -322,15 +384,19 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -344,15 +410,19 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `label` instead
+    ///
+    pub const Label = label;
 
     /// Inherited from QLegendMarker
     ///
@@ -364,13 +434,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Label(self: QPieLegendMarker, allocator: std.mem.Allocator) []const u8 {
+    pub fn label(self: QPieLegendMarker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QLegendMarker_Label(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.Label: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.label: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setLabel` instead
+    ///
+    pub const SetLabel = setLabel;
 
     /// Inherited from QLegendMarker
     ///
@@ -380,15 +454,19 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` label: []const u8 `
+    /// ` _label: []const u8 `
     ///
-    pub fn SetLabel(self: QPieLegendMarker, label: []const u8) void {
+    pub fn setLabel(self: QPieLegendMarker, _label: []const u8) void {
         const label_str = qtc.libqt_string{
-            .len = label.len,
-            .data = label.ptr,
+            .len = _label.len,
+            .data = _label.ptr,
         };
         qtc.QLegendMarker_SetLabel(@ptrCast(self.ptr), label_str);
     }
+
+    /// ### DEPRECATED: Use `labelBrush` instead
+    ///
+    pub const LabelBrush = labelBrush;
 
     /// Inherited from QLegendMarker
     ///
@@ -398,9 +476,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn LabelBrush(self: QPieLegendMarker) QBrush {
+    pub fn labelBrush(self: QPieLegendMarker) QBrush {
         return .{ .ptr = qtc.QLegendMarker_LabelBrush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLabelBrush` instead
+    ///
+    pub const SetLabelBrush = setLabelBrush;
 
     /// Inherited from QLegendMarker
     ///
@@ -410,12 +492,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetLabelBrush(self: QPieLegendMarker, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QLegendMarker_SetLabelBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setLabelBrush(self: QPieLegendMarker, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QLegendMarker_SetLabelBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QLegendMarker
     ///
@@ -425,9 +511,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Font(self: QPieLegendMarker) QFont {
+    pub fn font(self: QPieLegendMarker) QFont {
         return .{ .ptr = qtc.QLegendMarker_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QLegendMarker
     ///
@@ -437,12 +527,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QPieLegendMarker, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QLegendMarker_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QPieLegendMarker, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QLegendMarker_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `pen` instead
+    ///
+    pub const Pen = pen;
 
     /// Inherited from QLegendMarker
     ///
@@ -452,9 +546,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Pen(self: QPieLegendMarker) QPen {
+    pub fn pen(self: QPieLegendMarker) QPen {
         return .{ .ptr = qtc.QLegendMarker_Pen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPen` instead
+    ///
+    pub const SetPen = setPen;
 
     /// Inherited from QLegendMarker
     ///
@@ -464,12 +562,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` pen: QPen `
+    /// ` _pen: QPen `
     ///
-    pub fn SetPen(self: QPieLegendMarker, pen: anytype) void {
-        comptime _ = @TypeOf(pen)._is_QPen;
-        qtc.QLegendMarker_SetPen(@ptrCast(self.ptr), @ptrCast(pen.ptr));
+    pub fn setPen(self: QPieLegendMarker, _pen: anytype) void {
+        comptime _ = @TypeOf(_pen)._is_QPen;
+        qtc.QLegendMarker_SetPen(@ptrCast(self.ptr), @ptrCast(_pen.ptr));
     }
+
+    /// ### DEPRECATED: Use `brush` instead
+    ///
+    pub const Brush = brush;
 
     /// Inherited from QLegendMarker
     ///
@@ -479,9 +581,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Brush(self: QPieLegendMarker) QBrush {
+    pub fn brush(self: QPieLegendMarker) QBrush {
         return .{ .ptr = qtc.QLegendMarker_Brush(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBrush` instead
+    ///
+    pub const SetBrush = setBrush;
 
     /// Inherited from QLegendMarker
     ///
@@ -491,12 +597,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` brush: QBrush `
+    /// ` _brush: QBrush `
     ///
-    pub fn SetBrush(self: QPieLegendMarker, brush: anytype) void {
-        comptime _ = @TypeOf(brush)._is_QBrush;
-        qtc.QLegendMarker_SetBrush(@ptrCast(self.ptr), @ptrCast(brush.ptr));
+    pub fn setBrush(self: QPieLegendMarker, _brush: anytype) void {
+        comptime _ = @TypeOf(_brush)._is_QBrush;
+        qtc.QLegendMarker_SetBrush(@ptrCast(self.ptr), @ptrCast(_brush.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QLegendMarker
     ///
@@ -506,9 +616,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn IsVisible(self: QPieLegendMarker) bool {
+    pub fn isVisible(self: QPieLegendMarker) bool {
         return qtc.QLegendMarker_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QLegendMarker
     ///
@@ -520,9 +634,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QPieLegendMarker, visible: bool) void {
+    pub fn setVisible(self: QPieLegendMarker, visible: bool) void {
         qtc.QLegendMarker_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `shape` instead
+    ///
+    pub const Shape = shape;
 
     /// Inherited from QLegendMarker
     ///
@@ -536,9 +654,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` qlegend_enums.MarkerShape `
     ///
-    pub fn Shape(self: QPieLegendMarker) i32 {
+    pub fn shape(self: QPieLegendMarker) i32 {
         return qtc.QLegendMarker_Shape(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setShape` instead
+    ///
+    pub const SetShape = setShape;
 
     /// Inherited from QLegendMarker
     ///
@@ -548,11 +670,15 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` shape: qlegend_enums.MarkerShape `
+    /// ` _shape: qlegend_enums.MarkerShape `
     ///
-    pub fn SetShape(self: QPieLegendMarker, shape: i32) void {
-        qtc.QLegendMarker_SetShape(@ptrCast(self.ptr), @bitCast(shape));
+    pub fn setShape(self: QPieLegendMarker, _shape: i32) void {
+        qtc.QLegendMarker_SetShape(@ptrCast(self.ptr), @bitCast(_shape));
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from QLegendMarker
     ///
@@ -562,9 +688,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Clicked(self: QPieLegendMarker) void {
+    pub fn clicked(self: QPieLegendMarker) void {
         qtc.QLegendMarker_Clicked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from QLegendMarker
     ///
@@ -576,9 +706,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnClicked(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onClicked(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hovered` instead
+    ///
+    pub const Hovered = hovered;
 
     /// Inherited from QLegendMarker
     ///
@@ -590,9 +724,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` status: bool `
     ///
-    pub fn Hovered(self: QPieLegendMarker, status: bool) void {
+    pub fn hovered(self: QPieLegendMarker, status: bool) void {
         qtc.QLegendMarker_Hovered(@ptrCast(self.ptr), status);
     }
+
+    /// ### DEPRECATED: Use `onHovered` instead
+    ///
+    pub const OnHovered = onHovered;
 
     /// Inherited from QLegendMarker
     ///
@@ -604,10 +742,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, status: bool) callconv(.c) void `
     ///
-    pub fn OnHovered(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, bool) callconv(.c) void) void {
+    pub fn onHovered(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, bool) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_Hovered(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `labelChanged` instead
+    ///
+    pub const LabelChanged = labelChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
@@ -616,10 +758,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn LabelChanged(self: QPieLegendMarker) void {
+    pub fn labelChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_LabelChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLabelChanged` instead
+    ///
+    pub const OnLabelChanged = onLabelChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelChanged)
@@ -630,10 +776,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnLabelChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onLabelChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `labelBrushChanged` instead
+    ///
+    pub const LabelBrushChanged = labelBrushChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
@@ -642,10 +792,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn LabelBrushChanged(self: QPieLegendMarker) void {
+    pub fn labelBrushChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_LabelBrushChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onLabelBrushChanged` instead
+    ///
+    pub const OnLabelBrushChanged = onLabelBrushChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#labelBrushChanged)
@@ -656,10 +810,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnLabelBrushChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onLabelBrushChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_LabelBrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `fontChanged` instead
+    ///
+    pub const FontChanged = fontChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
@@ -668,10 +826,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn FontChanged(self: QPieLegendMarker) void {
+    pub fn fontChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_FontChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFontChanged` instead
+    ///
+    pub const OnFontChanged = onFontChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#fontChanged)
@@ -682,10 +844,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnFontChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onFontChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_FontChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `penChanged` instead
+    ///
+    pub const PenChanged = penChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
@@ -694,10 +860,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn PenChanged(self: QPieLegendMarker) void {
+    pub fn penChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_PenChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPenChanged` instead
+    ///
+    pub const OnPenChanged = onPenChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#penChanged)
@@ -708,10 +878,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnPenChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onPenChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_PenChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `brushChanged` instead
+    ///
+    pub const BrushChanged = brushChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
@@ -720,10 +894,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn BrushChanged(self: QPieLegendMarker) void {
+    pub fn brushChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_BrushChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onBrushChanged` instead
+    ///
+    pub const OnBrushChanged = onBrushChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#brushChanged)
@@ -734,10 +912,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnBrushChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onBrushChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_BrushChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `visibleChanged` instead
+    ///
+    pub const VisibleChanged = visibleChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
@@ -746,10 +928,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn VisibleChanged(self: QPieLegendMarker) void {
+    pub fn visibleChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_VisibleChanged(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onVisibleChanged` instead
+    ///
+    pub const OnVisibleChanged = onVisibleChanged;
+
     /// Inherited from QLegendMarker
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qlegendmarker.html#visibleChanged)
@@ -760,9 +946,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnVisibleChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onVisibleChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_VisibleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `shapeChanged` instead
+    ///
+    pub const ShapeChanged = shapeChanged;
 
     /// Inherited from QLegendMarker
     ///
@@ -772,9 +962,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn ShapeChanged(self: QPieLegendMarker) void {
+    pub fn shapeChanged(self: QPieLegendMarker) void {
         qtc.QLegendMarker_ShapeChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShapeChanged` instead
+    ///
+    pub const OnShapeChanged = onShapeChanged;
 
     /// Inherited from QLegendMarker
     ///
@@ -786,9 +980,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnShapeChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onShapeChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QLegendMarker_Connect_ShapeChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -800,13 +998,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QPieLegendMarker, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QPieLegendMarker, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPieLegendMarker.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -818,13 +1020,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QPieLegendMarker, name: []const u8) void {
+    pub fn setObjectName(self: QPieLegendMarker, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -834,9 +1040,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn IsWidgetType(self: QPieLegendMarker) bool {
+    pub fn isWidgetType(self: QPieLegendMarker) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -846,9 +1056,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn IsWindowType(self: QPieLegendMarker) bool {
+    pub fn isWindowType(self: QPieLegendMarker) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -858,9 +1072,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn IsQuickItemType(self: QPieLegendMarker) bool {
+    pub fn isQuickItemType(self: QPieLegendMarker) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -870,9 +1088,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SignalsBlocked(self: QPieLegendMarker) bool {
+    pub fn signalsBlocked(self: QPieLegendMarker) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -884,9 +1106,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QPieLegendMarker, b: bool) bool {
+    pub fn blockSignals(self: QPieLegendMarker, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -896,9 +1122,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Thread(self: QPieLegendMarker) QThread {
+    pub fn thread(self: QPieLegendMarker) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -908,12 +1138,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QPieLegendMarker, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QPieLegendMarker, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -925,9 +1159,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QPieLegendMarker, interval: i32) i32 {
+    pub fn startTimer(self: QPieLegendMarker, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -939,9 +1177,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QPieLegendMarker, time: i64) i32 {
+    pub fn startTimer2(self: QPieLegendMarker, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -953,9 +1195,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QPieLegendMarker, id: i32) void {
+    pub fn killTimer(self: QPieLegendMarker, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -967,9 +1213,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QPieLegendMarker, id: i32) void {
+    pub fn killTimer2(self: QPieLegendMarker, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -981,15 +1231,19 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QPieLegendMarker, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QPieLegendMarker, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPieLegendMarker.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QPieLegendMarker.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setParent` instead
+    ///
+    pub const SetParent = setParent;
 
     /// Inherited from QObject
     ///
@@ -999,12 +1253,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` parent: QObject `
+    /// ` _parent: QObject `
     ///
-    pub fn SetParent(self: QPieLegendMarker, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QObject;
-        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
+    pub fn setParent(self: QPieLegendMarker, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QObject;
+        qtc.QObject_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1016,10 +1274,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QPieLegendMarker, filterObj: anytype) void {
+    pub fn installEventFilter(self: QPieLegendMarker, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1031,10 +1293,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QPieLegendMarker, obj: anytype) void {
+    pub fn removeEventFilter(self: QPieLegendMarker, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -1042,7 +1308,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1050,13 +1316,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -1064,7 +1334,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1072,13 +1342,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -1088,18 +1362,22 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QPieLegendMarker, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QPieLegendMarker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -1107,7 +1385,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1115,13 +1393,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -1129,7 +1411,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1137,13 +1419,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -1153,9 +1439,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Disconnect3(self: QPieLegendMarker) bool {
+    pub fn disconnect3(self: QPieLegendMarker) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -1167,10 +1457,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QPieLegendMarker, receiver: anytype) bool {
+    pub fn disconnect4(self: QPieLegendMarker, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -1180,10 +1474,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -1193,9 +1491,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn DumpObjectTree(self: QPieLegendMarker) void {
+    pub fn dumpObjectTree(self: QPieLegendMarker) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -1205,9 +1507,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn DumpObjectInfo(self: QPieLegendMarker) void {
+    pub fn dumpObjectInfo(self: QPieLegendMarker) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -1221,11 +1527,15 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QPieLegendMarker, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QPieLegendMarker, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -1237,10 +1547,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QPieLegendMarker, name: [:0]const u8) QVariant {
+    pub fn property(self: QPieLegendMarker, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -1252,7 +1566,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QPieLegendMarker, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QPieLegendMarker, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -1260,27 +1574,19 @@ pub const QPieLegendMarker = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPieLegendMarker.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QPieLegendMarker.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QPieLegendMarker.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QPieLegendMarker.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QPieLegendMarker `
-    ///
-    pub fn BindingStorage(self: QPieLegendMarker) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -1290,9 +1596,29 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn BindingStorage2(self: QPieLegendMarker) QBindingStorage {
+    pub fn bindingStorage(self: QPieLegendMarker) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QPieLegendMarker `
+    ///
+    pub fn bindingStorage2(self: QPieLegendMarker) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -1302,9 +1628,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Destroyed(self: QPieLegendMarker) void {
+    pub fn destroyed(self: QPieLegendMarker) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -1316,9 +1646,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
+    pub fn onDestroyed(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -1328,9 +1662,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Parent(self: QPieLegendMarker) QObject {
+    pub fn parent(self: QPieLegendMarker) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -1342,10 +1680,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QPieLegendMarker, classname: [:0]const u8) bool {
+    pub fn inherits(self: QPieLegendMarker, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -1355,9 +1697,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn DeleteLater(self: QPieLegendMarker) void {
+    pub fn deleteLater(self: QPieLegendMarker) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -1371,9 +1717,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QPieLegendMarker, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QPieLegendMarker, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -1387,9 +1737,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QPieLegendMarker, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QPieLegendMarker, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -1397,7 +1751,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1407,13 +1761,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -1421,7 +1779,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -1431,13 +1789,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -1447,7 +1809,7 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -1455,12 +1817,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QPieLegendMarker, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QPieLegendMarker, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -1472,10 +1838,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QPieLegendMarker, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QPieLegendMarker, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -1489,11 +1859,15 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QPieLegendMarker, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QPieLegendMarker, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -1509,13 +1883,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QPieLegendMarker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QPieLegendMarker, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -1528,11 +1906,15 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QPieLegendMarker, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QPieLegendMarker, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -1544,10 +1926,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QPieLegendMarker, param1: anytype) void {
+    pub fn destroyed1(self: QPieLegendMarker, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -1559,9 +1945,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QObject
     ///
@@ -1573,16 +1963,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: QPieLegendMarker, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPieLegendMarker_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: QPieLegendMarker, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPieLegendMarker_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QObject
     ///
@@ -1594,12 +1984,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: QPieLegendMarker, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPieLegendMarker_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: QPieLegendMarker, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPieLegendMarker_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QObject
     ///
@@ -1613,9 +2007,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QEvent) callconv(.c) bool) void {
         qtc.QPieLegendMarker_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -1629,17 +2027,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QPieLegendMarker, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QPieLegendMarker, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPieLegendMarker_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPieLegendMarker_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1653,13 +2051,17 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QPieLegendMarker, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QPieLegendMarker, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QPieLegendMarker_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QPieLegendMarker_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -1673,9 +2075,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QObject, QEvent) callconv(.c) bool) void {
         qtc.QPieLegendMarker_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -1687,16 +2093,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPieLegendMarker_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPieLegendMarker_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1708,12 +2114,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QPieLegendMarker_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QPieLegendMarker_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -1727,9 +2137,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QTimerEvent) callconv(.c) void) void {
         qtc.QPieLegendMarker_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -1741,16 +2155,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPieLegendMarker_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPieLegendMarker_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1762,12 +2176,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QPieLegendMarker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QPieLegendMarker_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -1781,9 +2199,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QChildEvent) callconv(.c) void) void {
         qtc.QPieLegendMarker_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -1795,16 +2217,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPieLegendMarker_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPieLegendMarker_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1816,12 +2238,16 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QPieLegendMarker, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QPieLegendMarker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QPieLegendMarker, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QPieLegendMarker_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -1835,9 +2261,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QEvent) callconv(.c) void) void {
         qtc.QPieLegendMarker_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -1851,14 +2281,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QPieLegendMarker, signal: anytype) void {
+    pub fn connectNotify(self: QPieLegendMarker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPieLegendMarker_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1872,11 +2302,15 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QPieLegendMarker, signal: anytype) void {
+    pub fn superConnectNotify(self: QPieLegendMarker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPieLegendMarker_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -1889,9 +2323,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) void) void {
         qtc.QPieLegendMarker_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1905,14 +2343,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QPieLegendMarker, signal: anytype) void {
+    pub fn disconnectNotify(self: QPieLegendMarker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPieLegendMarker_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1926,10 +2364,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QPieLegendMarker, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QPieLegendMarker, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QPieLegendMarker_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -1943,9 +2385,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) void) void {
         qtc.QPieLegendMarker_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -1957,13 +2403,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Sender(self: QPieLegendMarker) QObject {
+    pub fn sender(self: QPieLegendMarker) QObject {
         return .{ .ptr = qtc.QPieLegendMarker_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -1975,9 +2421,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SuperSender(self: QPieLegendMarker) QObject {
+    pub fn superSender(self: QPieLegendMarker) QObject {
         return .{ .ptr = qtc.QPieLegendMarker_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -1991,9 +2441,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QPieLegendMarker, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QPieLegendMarker, callback: *const fn () callconv(.c) QObject) void {
         qtc.QPieLegendMarker_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2005,13 +2459,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SenderSignalIndex(self: QPieLegendMarker) i32 {
+    pub fn senderSignalIndex(self: QPieLegendMarker) i32 {
         return qtc.QPieLegendMarker_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2023,9 +2477,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn SuperSenderSignalIndex(self: QPieLegendMarker) i32 {
+    pub fn superSenderSignalIndex(self: QPieLegendMarker) i32 {
         return qtc.QPieLegendMarker_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -2039,9 +2497,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QPieLegendMarker, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QPieLegendMarker, callback: *const fn () callconv(.c) i32) void {
         qtc.QPieLegendMarker_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -2055,14 +2517,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QPieLegendMarker, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QPieLegendMarker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPieLegendMarker_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -2076,10 +2538,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QPieLegendMarker, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QPieLegendMarker, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QPieLegendMarker_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -2093,9 +2559,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) i32) void {
         qtc.QPieLegendMarker_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2109,14 +2579,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QPieLegendMarker, signal: anytype) bool {
+    pub fn isSignalConnected(self: QPieLegendMarker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPieLegendMarker_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2130,10 +2600,14 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QPieLegendMarker, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QPieLegendMarker, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QPieLegendMarker_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -2147,9 +2621,13 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, QMetaMethod) callconv(.c) bool) void {
         qtc.QPieLegendMarker_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -2163,23 +2641,23 @@ pub const QPieLegendMarker = extern struct {
     ///
     /// ` callback: *const fn (self: QPieLegendMarker, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QPieLegendMarker, callback: *const fn (QPieLegendMarker, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpielegendmarker-qtcharts.html#dtor.QPieLegendMarker)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPieLegendMarker `
     ///
-    pub fn Delete(self: QPieLegendMarker) void {
+    pub fn delete(self: QPieLegendMarker) void {
         qtc.QPieLegendMarker_Delete(@ptrCast(self.ptr));
     }
 };

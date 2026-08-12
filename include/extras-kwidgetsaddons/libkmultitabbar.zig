@@ -82,45 +82,65 @@ pub const KMultiTabBar = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new KMultiTabBar object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new KMultiTabBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) KMultiTabBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KMultiTabBar_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) KMultiTabBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KMultiTabBar_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new KMultiTabBar object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() KMultiTabBar {
+    pub const New2 = new2;
+
+    /// Allocate a new KMultiTabBar object in C++ memory
+    ///
+    pub fn new2() KMultiTabBar {
         return .{ .ptr = qtc.KMultiTabBar_new2() };
     }
 
-    /// New3 constructs a new KMultiTabBar object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KMultiTabBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pos: kmultitabbar_enums.KMultiTabBarPosition `
+    /// ` _pos: kmultitabbar_enums.KMultiTabBarPosition `
     ///
-    pub fn New3(pos: i32) KMultiTabBar {
-        return .{ .ptr = qtc.KMultiTabBar_new3(@bitCast(pos)) };
+    pub fn new3(_pos: i32) KMultiTabBar {
+        return .{ .ptr = qtc.KMultiTabBar_new3(@bitCast(_pos)) };
     }
 
-    /// New4 constructs a new KMultiTabBar object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KMultiTabBar object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` pos: kmultitabbar_enums.KMultiTabBarPosition `
+    /// ` _pos: kmultitabbar_enums.KMultiTabBarPosition `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New4(pos: i32, parent: anytype) KMultiTabBar {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.KMultiTabBar_new4(@bitCast(pos), @ptrCast(parent.ptr)) };
+    pub fn new4(_pos: i32, _parent: anytype) KMultiTabBar {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.KMultiTabBar_new4(@bitCast(_pos), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -128,9 +148,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MetaObject(self: KMultiTabBar) QMetaObject {
+    pub fn metaObject(self: KMultiTabBar) QMetaObject {
         return .{ .ptr = qtc.KMultiTabBar_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -142,13 +166,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: KMultiTabBar, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: KMultiTabBar, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.KMultiTabBar_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -158,9 +182,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperMetaObject(self: KMultiTabBar) QMetaObject {
+    pub fn superMetaObject(self: KMultiTabBar) QMetaObject {
         return .{ .ptr = qtc.KMultiTabBar_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -168,10 +196,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KMultiTabBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KMultiTabBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMultiTabBar_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -181,13 +213,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.KMultiTabBar_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -197,10 +229,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: KMultiTabBar, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: KMultiTabBar, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMultiTabBar_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -212,9 +248,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KMultiTabBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KMultiTabBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMultiTabBar_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -224,13 +264,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.KMultiTabBar_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -244,9 +284,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: KMultiTabBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: KMultiTabBar, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMultiTabBar_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -256,14 +300,18 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendButton` instead
+    ///
+    pub const AppendButton = appendButton;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
@@ -273,10 +321,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn AppendButton(self: KMultiTabBar, icon: anytype) i32 {
+    pub fn appendButton(self: KMultiTabBar, icon: anytype) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return qtc.KMultiTabBar_AppendButton(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeButton` instead
+    ///
+    pub const RemoveButton = removeButton;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#removeButton)
     ///
@@ -286,9 +338,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn RemoveButton(self: KMultiTabBar, id: i32) void {
+    pub fn removeButton(self: KMultiTabBar, id: i32) void {
         qtc.KMultiTabBar_RemoveButton(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `appendTab` instead
+    ///
+    pub const AppendTab = appendTab;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
@@ -298,10 +354,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn AppendTab(self: KMultiTabBar, icon: anytype) i32 {
+    pub fn appendTab(self: KMultiTabBar, icon: anytype) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return qtc.KMultiTabBar_AppendTab(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeTab` instead
+    ///
+    pub const RemoveTab = removeTab;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#removeTab)
     ///
@@ -311,9 +371,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn RemoveTab(self: KMultiTabBar, id: i32) void {
+    pub fn removeTab(self: KMultiTabBar, id: i32) void {
         qtc.KMultiTabBar_RemoveTab(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setTab` instead
+    ///
+    pub const SetTab = setTab;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#setTab)
     ///
@@ -325,9 +389,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` state: bool `
     ///
-    pub fn SetTab(self: KMultiTabBar, id: i32, state: bool) void {
+    pub fn setTab(self: KMultiTabBar, id: i32, state: bool) void {
         qtc.KMultiTabBar_SetTab(@ptrCast(self.ptr), @bitCast(id), state);
     }
+
+    /// ### DEPRECATED: Use `isTabRaised` instead
+    ///
+    pub const IsTabRaised = isTabRaised;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#isTabRaised)
     ///
@@ -337,9 +405,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn IsTabRaised(self: KMultiTabBar, id: i32) bool {
+    pub fn isTabRaised(self: KMultiTabBar, id: i32) bool {
         return qtc.KMultiTabBar_IsTabRaised(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `button` instead
+    ///
+    pub const Button = button;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#button)
     ///
@@ -349,9 +421,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn Button(self: KMultiTabBar, id: i32) KMultiTabBarButton {
+    pub fn button(self: KMultiTabBar, id: i32) KMultiTabBarButton {
         return .{ .ptr = qtc.KMultiTabBar_Button(@ptrCast(self.ptr), @bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `tab` instead
+    ///
+    pub const Tab = tab;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#tab)
     ///
@@ -361,9 +437,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn Tab(self: KMultiTabBar, id: i32) KMultiTabBarTab {
+    pub fn tab(self: KMultiTabBar, id: i32) KMultiTabBarTab {
         return .{ .ptr = qtc.KMultiTabBar_Tab(@ptrCast(self.ptr), @bitCast(id)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#setPosition)
     ///
@@ -371,11 +451,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` pos: kmultitabbar_enums.KMultiTabBarPosition `
+    /// ` _pos: kmultitabbar_enums.KMultiTabBarPosition `
     ///
-    pub fn SetPosition(self: KMultiTabBar, pos: i32) void {
-        qtc.KMultiTabBar_SetPosition(@ptrCast(self.ptr), @bitCast(pos));
+    pub fn setPosition(self: KMultiTabBar, _pos: i32) void {
+        qtc.KMultiTabBar_SetPosition(@ptrCast(self.ptr), @bitCast(_pos));
     }
+
+    /// ### DEPRECATED: Use `position` instead
+    ///
+    pub const Position = position;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#position)
     ///
@@ -387,9 +471,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` kmultitabbar_enums.KMultiTabBarPosition `
     ///
-    pub fn Position(self: KMultiTabBar) i32 {
+    pub fn position(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_Position(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#setStyle)
     ///
@@ -397,11 +485,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` style: kmultitabbar_enums.KMultiTabBarStyle `
+    /// ` _style: kmultitabbar_enums.KMultiTabBarStyle `
     ///
-    pub fn SetStyle(self: KMultiTabBar, style: i32) void {
-        qtc.KMultiTabBar_SetStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setStyle(self: KMultiTabBar, _style: i32) void {
+        qtc.KMultiTabBar_SetStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `tabStyle` instead
+    ///
+    pub const TabStyle = tabStyle;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#tabStyle)
     ///
@@ -413,9 +505,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` kmultitabbar_enums.KMultiTabBarStyle `
     ///
-    pub fn TabStyle(self: KMultiTabBar) i32 {
+    pub fn tabStyle(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_TabStyle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontChange` instead
+    ///
+    pub const FontChange = fontChange;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
@@ -425,10 +521,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn FontChange(self: KMultiTabBar, param1: anytype) void {
+    pub fn fontChange(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFont;
         qtc.KMultiTabBar_FontChange(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFontChange` instead
+    ///
+    pub const OnFontChange = onFontChange;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
@@ -440,13 +540,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: QFont) callconv(.c) void `
     ///
-    pub fn OnFontChange(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFont) callconv(.c) void) void {
+    pub fn onFontChange(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFont) callconv(.c) void) void {
         qtc.KMultiTabBar_OnFontChange(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperFontChange` instead
+    /// ### DEPRECATED: Use `superFontChange` instead
     ///
-    pub const QBaseFontChange = SuperFontChange;
+    pub const SuperFontChange = superFontChange;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#fontChange)
     ///
@@ -458,10 +558,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QFont `
     ///
-    pub fn SuperFontChange(self: KMultiTabBar, param1: anytype) void {
+    pub fn superFontChange(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QFont;
         qtc.KMultiTabBar_SuperFontChange(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
@@ -471,10 +575,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn paintEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KMultiTabBar_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
@@ -486,13 +594,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPaintEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#paintEvent)
     ///
@@ -504,10 +612,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn superPaintEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.KMultiTabBar_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateSeparator` instead
+    ///
+    pub const UpdateSeparator = updateSeparator;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
@@ -515,9 +627,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UpdateSeparator(self: KMultiTabBar) void {
+    pub fn updateSeparator(self: KMultiTabBar) void {
         qtc.KMultiTabBar_UpdateSeparator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onUpdateSeparator` instead
+    ///
+    pub const OnUpdateSeparator = onUpdateSeparator;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
@@ -529,13 +645,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateSeparator(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateSeparator(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
         qtc.KMultiTabBar_OnUpdateSeparator(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateSeparator` instead
+    /// ### DEPRECATED: Use `superUpdateSeparator` instead
     ///
-    pub const QBaseUpdateSeparator = SuperUpdateSeparator;
+    pub const SuperUpdateSeparator = superUpdateSeparator;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#updateSeparator)
     ///
@@ -545,9 +661,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperUpdateSeparator(self: KMultiTabBar) void {
+    pub fn superUpdateSeparator(self: KMultiTabBar) void {
         qtc.KMultiTabBar_SuperUpdateSeparator(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -559,15 +679,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -581,15 +705,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `appendButton2` instead
+    ///
+    pub const AppendButton2 = appendButton2;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
@@ -601,10 +729,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn AppendButton2(self: KMultiTabBar, icon: anytype, id: i32) i32 {
+    pub fn appendButton2(self: KMultiTabBar, icon: anytype, id: i32) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return qtc.KMultiTabBar_AppendButton2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `appendButton3` instead
+    ///
+    pub const AppendButton3 = appendButton3;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
@@ -618,11 +750,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` popup: QMenu `
     ///
-    pub fn AppendButton3(self: KMultiTabBar, icon: anytype, id: i32, popup: anytype) i32 {
+    pub fn appendButton3(self: KMultiTabBar, icon: anytype, id: i32, popup: anytype) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         comptime _ = @TypeOf(popup)._is_QMenu;
         return qtc.KMultiTabBar_AppendButton3(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id), @ptrCast(popup.ptr));
     }
+
+    /// ### DEPRECATED: Use `appendButton4` instead
+    ///
+    pub const AppendButton4 = appendButton4;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendButton)
     ///
@@ -638,7 +774,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` not_used_yet: []const u8 `
     ///
-    pub fn AppendButton4(self: KMultiTabBar, icon: anytype, id: i32, popup: anytype, not_used_yet: []const u8) i32 {
+    pub fn appendButton4(self: KMultiTabBar, icon: anytype, id: i32, popup: anytype, not_used_yet: []const u8) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         comptime _ = @TypeOf(popup)._is_QMenu;
         const not_used_yet_str = qtc.libqt_string{
@@ -647,6 +783,10 @@ pub const KMultiTabBar = extern struct {
         };
         return qtc.KMultiTabBar_AppendButton4(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id), @ptrCast(popup.ptr), not_used_yet_str);
     }
+
+    /// ### DEPRECATED: Use `appendTab2` instead
+    ///
+    pub const AppendTab2 = appendTab2;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
@@ -658,10 +798,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn AppendTab2(self: KMultiTabBar, icon: anytype, id: i32) i32 {
+    pub fn appendTab2(self: KMultiTabBar, icon: anytype, id: i32) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         return qtc.KMultiTabBar_AppendTab2(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `appendTab3` instead
+    ///
+    pub const AppendTab3 = appendTab3;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#appendTab)
     ///
@@ -675,7 +819,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AppendTab3(self: KMultiTabBar, icon: anytype, id: i32, text: []const u8) i32 {
+    pub fn appendTab3(self: KMultiTabBar, icon: anytype, id: i32, text: []const u8) i32 {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -683,6 +827,10 @@ pub const KMultiTabBar = extern struct {
         };
         return qtc.KMultiTabBar_AppendTab3(@ptrCast(self.ptr), @ptrCast(icon.ptr), @bitCast(id), text_str);
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -692,9 +840,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn WinId(self: KMultiTabBar) usize {
+    pub fn winId(self: KMultiTabBar) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -704,9 +856,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn CreateWinId(self: KMultiTabBar) void {
+    pub fn createWinId(self: KMultiTabBar) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -716,9 +872,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn InternalWinId(self: KMultiTabBar) usize {
+    pub fn internalWinId(self: KMultiTabBar) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -728,9 +888,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn EffectiveWinId(self: KMultiTabBar) usize {
+    pub fn effectiveWinId(self: KMultiTabBar) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -740,9 +904,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Style(self: KMultiTabBar) QStyle {
+    pub fn style(self: KMultiTabBar) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -752,9 +920,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsTopLevel(self: KMultiTabBar) bool {
+    pub fn isTopLevel(self: KMultiTabBar) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -764,9 +936,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsWindow(self: KMultiTabBar) bool {
+    pub fn isWindow(self: KMultiTabBar) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -776,9 +952,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsModal(self: KMultiTabBar) bool {
+    pub fn isModal(self: KMultiTabBar) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -792,9 +972,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KMultiTabBar) i32 {
+    pub fn windowModality(self: KMultiTabBar) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -804,11 +988,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KMultiTabBar, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KMultiTabBar, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -818,9 +1006,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsEnabled(self: KMultiTabBar) bool {
+    pub fn isEnabled(self: KMultiTabBar) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -832,10 +1024,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KMultiTabBar, param1: anytype) bool {
+    pub fn isEnabledTo(self: KMultiTabBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -847,9 +1043,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KMultiTabBar, enabled: bool) void {
+    pub fn setEnabled(self: KMultiTabBar, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -861,9 +1061,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KMultiTabBar, disabled: bool) void {
+    pub fn setDisabled(self: KMultiTabBar, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -875,9 +1079,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KMultiTabBar, windowModified: bool) void {
+    pub fn setWindowModified(self: KMultiTabBar, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -887,9 +1095,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FrameGeometry(self: KMultiTabBar) QRect {
+    pub fn frameGeometry(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -899,9 +1111,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Geometry(self: KMultiTabBar) QRect {
+    pub fn geometry(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -911,9 +1127,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn NormalGeometry(self: KMultiTabBar) QRect {
+    pub fn normalGeometry(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -923,9 +1143,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn X(self: KMultiTabBar) i32 {
+    pub fn x(self: KMultiTabBar) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -935,9 +1159,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Y(self: KMultiTabBar) i32 {
+    pub fn y(self: KMultiTabBar) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -947,9 +1175,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Pos(self: KMultiTabBar) QPoint {
+    pub fn pos(self: KMultiTabBar) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -959,9 +1191,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FrameSize(self: KMultiTabBar) QSize {
+    pub fn frameSize(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -971,9 +1207,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Size(self: KMultiTabBar) QSize {
+    pub fn size(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -983,9 +1223,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Width(self: KMultiTabBar) i32 {
+    pub fn width(self: KMultiTabBar) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -995,9 +1239,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Height(self: KMultiTabBar) i32 {
+    pub fn height(self: KMultiTabBar) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -1007,9 +1255,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Rect(self: KMultiTabBar) QRect {
+    pub fn rect(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -1019,9 +1271,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ChildrenRect(self: KMultiTabBar) QRect {
+    pub fn childrenRect(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -1031,9 +1287,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ChildrenRegion(self: KMultiTabBar) QRegion {
+    pub fn childrenRegion(self: KMultiTabBar) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1043,9 +1303,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MinimumSize(self: KMultiTabBar) QSize {
+    pub fn minimumSize(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1055,9 +1319,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MaximumSize(self: KMultiTabBar) QSize {
+    pub fn maximumSize(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1067,9 +1335,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MinimumWidth(self: KMultiTabBar) i32 {
+    pub fn minimumWidth(self: KMultiTabBar) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1079,9 +1351,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MinimumHeight(self: KMultiTabBar) i32 {
+    pub fn minimumHeight(self: KMultiTabBar) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1091,9 +1367,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MaximumWidth(self: KMultiTabBar) i32 {
+    pub fn maximumWidth(self: KMultiTabBar) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1103,9 +1383,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MaximumHeight(self: KMultiTabBar) i32 {
+    pub fn maximumHeight(self: KMultiTabBar) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -1115,12 +1399,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KMultiTabBar, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KMultiTabBar, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1134,9 +1422,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KMultiTabBar, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KMultiTabBar, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -1146,12 +1438,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KMultiTabBar, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KMultiTabBar, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -1165,9 +1461,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KMultiTabBar, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KMultiTabBar, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1179,9 +1479,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KMultiTabBar, minw: i32) void {
+    pub fn setMinimumWidth(self: KMultiTabBar, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1193,9 +1497,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KMultiTabBar, minh: i32) void {
+    pub fn setMinimumHeight(self: KMultiTabBar, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1207,9 +1515,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KMultiTabBar, maxw: i32) void {
+    pub fn setMaximumWidth(self: KMultiTabBar, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1221,9 +1533,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KMultiTabBar, maxh: i32) void {
+    pub fn setMaximumHeight(self: KMultiTabBar, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1233,9 +1549,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SizeIncrement(self: KMultiTabBar) QSize {
+    pub fn sizeIncrement(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1245,12 +1565,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KMultiTabBar, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KMultiTabBar, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1264,9 +1588,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KMultiTabBar, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KMultiTabBar, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1276,9 +1604,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn BaseSize(self: KMultiTabBar) QSize {
+    pub fn baseSize(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1288,12 +1620,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KMultiTabBar, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KMultiTabBar, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1307,9 +1643,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KMultiTabBar, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KMultiTabBar, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1321,10 +1661,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KMultiTabBar, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KMultiTabBar, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1338,9 +1682,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KMultiTabBar, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KMultiTabBar, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1352,9 +1700,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KMultiTabBar, w: i32) void {
+    pub fn setFixedWidth(self: KMultiTabBar, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1366,9 +1718,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KMultiTabBar, h: i32) void {
+    pub fn setFixedHeight(self: KMultiTabBar, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1380,11 +1736,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KMultiTabBar, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KMultiTabBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1395,11 +1755,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KMultiTabBar, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KMultiTabBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1410,11 +1774,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KMultiTabBar, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KMultiTabBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1425,11 +1793,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KMultiTabBar, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KMultiTabBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1440,11 +1812,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KMultiTabBar, param1: anytype) QPointF {
+    pub fn mapToParent(self: KMultiTabBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1455,10 +1831,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KMultiTabBar, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KMultiTabBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1470,10 +1850,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KMultiTabBar, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KMultiTabBar, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1485,10 +1869,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KMultiTabBar, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KMultiTabBar, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1502,12 +1890,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KMultiTabBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KMultiTabBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1520,11 +1912,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KMultiTabBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KMultiTabBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1538,11 +1934,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KMultiTabBar, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KMultiTabBar, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1556,11 +1956,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KMultiTabBar, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KMultiTabBar, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1570,9 +1974,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Window(self: KMultiTabBar) QWidget {
+    pub fn window(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1582,9 +1990,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn NativeParentWidget(self: KMultiTabBar) QWidget {
+    pub fn nativeParentWidget(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1594,9 +2006,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn TopLevelWidget(self: KMultiTabBar) QWidget {
+    pub fn topLevelWidget(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1606,9 +2022,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Palette(self: KMultiTabBar) QPalette {
+    pub fn palette(self: KMultiTabBar) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1618,12 +2038,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KMultiTabBar, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KMultiTabBar, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1633,11 +2057,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KMultiTabBar, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KMultiTabBar, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1651,9 +2079,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KMultiTabBar) i32 {
+    pub fn backgroundRole(self: KMultiTabBar) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1663,11 +2095,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KMultiTabBar, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KMultiTabBar, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1681,9 +2117,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KMultiTabBar) i32 {
+    pub fn foregroundRole(self: KMultiTabBar) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1693,9 +2133,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Font(self: KMultiTabBar) QFont {
+    pub fn font(self: KMultiTabBar) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1705,12 +2149,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KMultiTabBar, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KMultiTabBar, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1720,9 +2168,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FontMetrics(self: KMultiTabBar) QFontMetrics {
+    pub fn fontMetrics(self: KMultiTabBar) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1732,9 +2184,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FontInfo(self: KMultiTabBar) QFontInfo {
+    pub fn fontInfo(self: KMultiTabBar) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1744,9 +2200,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Cursor(self: KMultiTabBar) QCursor {
+    pub fn cursor(self: KMultiTabBar) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1756,12 +2216,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KMultiTabBar, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KMultiTabBar, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1771,9 +2235,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UnsetCursor(self: KMultiTabBar) void {
+    pub fn unsetCursor(self: KMultiTabBar) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1785,9 +2253,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KMultiTabBar, enable: bool) void {
+    pub fn setMouseTracking(self: KMultiTabBar, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1797,9 +2269,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn HasMouseTracking(self: KMultiTabBar) bool {
+    pub fn hasMouseTracking(self: KMultiTabBar) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1809,9 +2285,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UnderMouse(self: KMultiTabBar) bool {
+    pub fn underMouse(self: KMultiTabBar) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1823,9 +2303,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KMultiTabBar, enable: bool) void {
+    pub fn setTabletTracking(self: KMultiTabBar, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1835,24 +2319,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn HasTabletTracking(self: KMultiTabBar) bool {
+    pub fn hasTabletTracking(self: KMultiTabBar) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBar `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KMultiTabBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1862,12 +2335,35 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KMultiTabBar, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KMultiTabBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBar `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KMultiTabBar, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1877,9 +2373,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Mask(self: KMultiTabBar) QRegion {
+    pub fn mask(self: KMultiTabBar) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1889,9 +2389,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ClearMask(self: KMultiTabBar) void {
+    pub fn clearMask(self: KMultiTabBar) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1903,10 +2407,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KMultiTabBar, target: anytype) void {
+    pub fn render(self: KMultiTabBar, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1918,10 +2426,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KMultiTabBar, painter: anytype) void {
+    pub fn render2(self: KMultiTabBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1931,9 +2443,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Grab(self: KMultiTabBar) QPixmap {
+    pub fn grab(self: KMultiTabBar) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1943,9 +2459,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn GraphicsEffect(self: KMultiTabBar) QGraphicsEffect {
+    pub fn graphicsEffect(self: KMultiTabBar) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1957,10 +2477,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KMultiTabBar, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KMultiTabBar, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1972,9 +2496,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KMultiTabBar, typeVal: i32) void {
+    pub fn grabGesture(self: KMultiTabBar, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1986,9 +2514,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KMultiTabBar, typeVal: i32) void {
+    pub fn ungrabGesture(self: KMultiTabBar, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1998,15 +2530,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KMultiTabBar, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KMultiTabBar, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2016,15 +2552,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KMultiTabBar, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KMultiTabBar, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -2036,13 +2576,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -2054,13 +2598,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2072,10 +2620,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KMultiTabBar, icon: anytype) void {
+    pub fn setWindowIcon(self: KMultiTabBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -2085,9 +2637,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn WindowIcon(self: KMultiTabBar) QIcon {
+    pub fn windowIcon(self: KMultiTabBar) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2097,15 +2653,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KMultiTabBar, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KMultiTabBar, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -2117,13 +2677,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -2133,15 +2697,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KMultiTabBar, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KMultiTabBar, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -2153,13 +2721,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2171,13 +2743,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KMultiTabBar, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KMultiTabBar, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2189,13 +2765,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2207,9 +2787,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KMultiTabBar, level: f64) void {
+    pub fn setWindowOpacity(self: KMultiTabBar, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2219,9 +2803,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn WindowOpacity(self: KMultiTabBar) f64 {
+    pub fn windowOpacity(self: KMultiTabBar) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2231,9 +2819,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsWindowModified(self: KMultiTabBar) bool {
+    pub fn isWindowModified(self: KMultiTabBar) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2243,15 +2835,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KMultiTabBar, toolTip: []const u8) void {
+    pub fn setToolTip(self: KMultiTabBar, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2263,13 +2859,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2281,9 +2881,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KMultiTabBar, msec: i32) void {
+    pub fn setToolTipDuration(self: KMultiTabBar, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2897,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ToolTipDuration(self: KMultiTabBar) i32 {
+    pub fn toolTipDuration(self: KMultiTabBar) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2305,15 +2913,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KMultiTabBar, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KMultiTabBar, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2325,13 +2937,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2341,15 +2957,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KMultiTabBar, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KMultiTabBar, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2361,13 +2981,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2379,13 +3003,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2397,13 +3025,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KMultiTabBar, name: []const u8) void {
+    pub fn setAccessibleName(self: KMultiTabBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2415,13 +3047,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2433,13 +3069,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KMultiTabBar, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KMultiTabBar, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2451,9 +3091,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KMultiTabBar, direction: i32) void {
+    pub fn setLayoutDirection(self: KMultiTabBar, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2467,9 +3111,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KMultiTabBar) i32 {
+    pub fn layoutDirection(self: KMultiTabBar) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2479,9 +3127,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UnsetLayoutDirection(self: KMultiTabBar) void {
+    pub fn unsetLayoutDirection(self: KMultiTabBar) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2491,12 +3143,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KMultiTabBar, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KMultiTabBar, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2506,9 +3162,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Locale(self: KMultiTabBar) QLocale {
+    pub fn locale(self: KMultiTabBar) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2518,9 +3178,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UnsetLocale(self: KMultiTabBar) void {
+    pub fn unsetLocale(self: KMultiTabBar) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2530,9 +3194,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsRightToLeft(self: KMultiTabBar) bool {
+    pub fn isRightToLeft(self: KMultiTabBar) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2542,9 +3210,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsLeftToRight(self: KMultiTabBar) bool {
+    pub fn isLeftToRight(self: KMultiTabBar) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2554,9 +3226,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SetFocus(self: KMultiTabBar) void {
+    pub fn setFocus(self: KMultiTabBar) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2566,9 +3242,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsActiveWindow(self: KMultiTabBar) bool {
+    pub fn isActiveWindow(self: KMultiTabBar) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2578,9 +3258,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ActivateWindow(self: KMultiTabBar) void {
+    pub fn activateWindow(self: KMultiTabBar) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2590,9 +3274,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ClearFocus(self: KMultiTabBar) void {
+    pub fn clearFocus(self: KMultiTabBar) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2604,9 +3292,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KMultiTabBar, reason: i32) void {
+    pub fn setFocus2(self: KMultiTabBar, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3312,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KMultiTabBar) i32 {
+    pub fn focusPolicy(self: KMultiTabBar) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2634,9 +3330,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KMultiTabBar, policy: i32) void {
+    pub fn setFocusPolicy(self: KMultiTabBar, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2646,9 +3346,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn HasFocus(self: KMultiTabBar) bool {
+    pub fn hasFocus(self: KMultiTabBar) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2660,11 +3364,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2674,12 +3382,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KMultiTabBar, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KMultiTabBar, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2689,9 +3401,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FocusProxy(self: KMultiTabBar) QWidget {
+    pub fn focusProxy(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2705,9 +3421,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KMultiTabBar) i32 {
+    pub fn contextMenuPolicy(self: KMultiTabBar) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2719,9 +3439,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KMultiTabBar, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KMultiTabBar, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2731,9 +3455,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn GrabMouse(self: KMultiTabBar) void {
+    pub fn grabMouse(self: KMultiTabBar) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2745,10 +3473,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KMultiTabBar, param1: anytype) void {
+    pub fn grabMouse2(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2758,9 +3490,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ReleaseMouse(self: KMultiTabBar) void {
+    pub fn releaseMouse(self: KMultiTabBar) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3506,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn GrabKeyboard(self: KMultiTabBar) void {
+    pub fn grabKeyboard(self: KMultiTabBar) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3522,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ReleaseKeyboard(self: KMultiTabBar) void {
+    pub fn releaseKeyboard(self: KMultiTabBar) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2796,10 +3540,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KMultiTabBar, key: anytype) i32 {
+    pub fn grabShortcut(self: KMultiTabBar, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2811,9 +3559,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KMultiTabBar, id: i32) void {
+    pub fn releaseShortcut(self: KMultiTabBar, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2825,9 +3577,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KMultiTabBar, id: i32) void {
+    pub fn setShortcutEnabled(self: KMultiTabBar, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2839,25 +3595,37 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KMultiTabBar, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: KMultiTabBar, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2867,9 +3635,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UpdatesEnabled(self: KMultiTabBar) bool {
+    pub fn updatesEnabled(self: KMultiTabBar) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2881,9 +3653,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KMultiTabBar, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KMultiTabBar, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2893,9 +3669,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn GraphicsProxyWidget(self: KMultiTabBar) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KMultiTabBar) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2905,9 +3685,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Update(self: KMultiTabBar) void {
+    pub fn update(self: KMultiTabBar) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2917,9 +3701,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Repaint(self: KMultiTabBar) void {
+    pub fn repaint(self: KMultiTabBar) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2929,17 +3717,21 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KMultiTabBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KMultiTabBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2951,11 +3743,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KMultiTabBar, param1: anytype) void {
+    pub fn update3(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2966,10 +3762,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KMultiTabBar, param1: anytype) void {
+    pub fn update4(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2979,17 +3779,21 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KMultiTabBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KMultiTabBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -3001,10 +3805,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KMultiTabBar, param1: anytype) void {
+    pub fn repaint3(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -3016,10 +3824,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KMultiTabBar, param1: anytype) void {
+    pub fn repaint4(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -3031,9 +3843,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KMultiTabBar, hidden: bool) void {
+    pub fn setHidden(self: KMultiTabBar, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -3043,9 +3859,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Show(self: KMultiTabBar) void {
+    pub fn show(self: KMultiTabBar) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -3055,9 +3875,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Hide(self: KMultiTabBar) void {
+    pub fn hide(self: KMultiTabBar) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3067,9 +3891,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ShowMinimized(self: KMultiTabBar) void {
+    pub fn showMinimized(self: KMultiTabBar) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3079,9 +3907,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ShowMaximized(self: KMultiTabBar) void {
+    pub fn showMaximized(self: KMultiTabBar) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3091,9 +3923,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ShowFullScreen(self: KMultiTabBar) void {
+    pub fn showFullScreen(self: KMultiTabBar) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -3103,9 +3939,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ShowNormal(self: KMultiTabBar) void {
+    pub fn showNormal(self: KMultiTabBar) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -3115,9 +3955,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Close(self: KMultiTabBar) bool {
+    pub fn close(self: KMultiTabBar) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -3127,9 +3971,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Raise(self: KMultiTabBar) void {
+    pub fn raise(self: KMultiTabBar) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -3139,9 +3987,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Lower(self: KMultiTabBar) void {
+    pub fn lower(self: KMultiTabBar) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -3153,10 +4005,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KMultiTabBar, param1: anytype) void {
+    pub fn stackUnder(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -3166,13 +4022,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KMultiTabBar, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KMultiTabBar, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3184,10 +4044,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KMultiTabBar, param1: anytype) void {
+    pub fn move2(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3201,9 +4065,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KMultiTabBar, w: i32, h: i32) void {
+    pub fn resize(self: KMultiTabBar, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3215,10 +4083,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KMultiTabBar, param1: anytype) void {
+    pub fn resize2(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3228,17 +4100,21 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KMultiTabBar, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KMultiTabBar, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3248,12 +4124,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KMultiTabBar, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KMultiTabBar, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3265,13 +4145,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KMultiTabBar, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KMultiTabBar, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBar.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBar.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3281,15 +4165,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KMultiTabBar, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KMultiTabBar, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3299,9 +4187,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn AdjustSize(self: KMultiTabBar) void {
+    pub fn adjustSize(self: KMultiTabBar) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3311,9 +4203,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsVisible(self: KMultiTabBar) bool {
+    pub fn isVisible(self: KMultiTabBar) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3325,10 +4221,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KMultiTabBar, param1: anytype) bool {
+    pub fn isVisibleTo(self: KMultiTabBar, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3338,9 +4238,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsHidden(self: KMultiTabBar) bool {
+    pub fn isHidden(self: KMultiTabBar) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3350,9 +4254,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsMinimized(self: KMultiTabBar) bool {
+    pub fn isMinimized(self: KMultiTabBar) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3362,9 +4270,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsMaximized(self: KMultiTabBar) bool {
+    pub fn isMaximized(self: KMultiTabBar) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3374,9 +4286,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsFullScreen(self: KMultiTabBar) bool {
+    pub fn isFullScreen(self: KMultiTabBar) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3390,9 +4306,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KMultiTabBar) i32 {
+    pub fn windowState(self: KMultiTabBar) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3404,9 +4324,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KMultiTabBar, state: i32) void {
+    pub fn setWindowState(self: KMultiTabBar, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3418,9 +4342,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KMultiTabBar, state: i32) void {
+    pub fn overrideWindowState(self: KMultiTabBar, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3430,9 +4358,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SizePolicy(self: KMultiTabBar) QSizePolicy {
+    pub fn sizePolicy(self: KMultiTabBar) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3442,12 +4374,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KMultiTabBar, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KMultiTabBar, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3461,9 +4397,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KMultiTabBar, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KMultiTabBar, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3473,9 +4413,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn VisibleRegion(self: KMultiTabBar) QRegion {
+    pub fn visibleRegion(self: KMultiTabBar) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3493,9 +4437,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KMultiTabBar, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KMultiTabBar, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3507,10 +4455,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KMultiTabBar, margins: anytype) void {
+    pub fn setContentsMargins2(self: KMultiTabBar, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3520,9 +4472,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ContentsMargins(self: KMultiTabBar) QMargins {
+    pub fn contentsMargins(self: KMultiTabBar) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3532,9 +4488,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ContentsRect(self: KMultiTabBar) QRect {
+    pub fn contentsRect(self: KMultiTabBar) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3544,9 +4504,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Layout(self: KMultiTabBar) QLayout {
+    pub fn layout(self: KMultiTabBar) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3556,12 +4520,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KMultiTabBar, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KMultiTabBar, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3571,24 +4539,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UpdateGeometry(self: KMultiTabBar) void {
+    pub fn updateGeometry(self: KMultiTabBar) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBar `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KMultiTabBar, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3598,14 +4555,37 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KMultiTabBar, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBar `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KMultiTabBar, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KMultiTabBar, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3619,9 +4599,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KMultiTabBar, dx: i32, dy: i32) void {
+    pub fn scroll(self: KMultiTabBar, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3637,10 +4621,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KMultiTabBar, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KMultiTabBar, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3650,9 +4638,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FocusWidget(self: KMultiTabBar) QWidget {
+    pub fn focusWidget(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3662,9 +4654,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn NextInFocusChain(self: KMultiTabBar) QWidget {
+    pub fn nextInFocusChain(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3674,9 +4670,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn PreviousInFocusChain(self: KMultiTabBar) QWidget {
+    pub fn previousInFocusChain(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3686,9 +4686,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn AcceptDrops(self: KMultiTabBar) bool {
+    pub fn acceptDrops(self: KMultiTabBar) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3700,9 +4704,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KMultiTabBar, on: bool) void {
+    pub fn setAcceptDrops(self: KMultiTabBar, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3714,10 +4722,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KMultiTabBar, action: anytype) void {
+    pub fn addAction(self: KMultiTabBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3727,15 +4739,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KMultiTabBar, actions: []QAction) void {
+    pub fn addActions(self: KMultiTabBar, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3747,16 +4763,20 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KMultiTabBar, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KMultiTabBar, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3770,11 +4790,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KMultiTabBar, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KMultiTabBar, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3786,10 +4810,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KMultiTabBar, action: anytype) void {
+    pub fn removeAction(self: KMultiTabBar, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3801,15 +4829,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KMultiTabBar, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KMultiTabBar, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBar.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBar.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3821,13 +4853,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: KMultiTabBar, text: []const u8) QAction {
+    pub fn addAction2(self: KMultiTabBar, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3841,7 +4877,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: KMultiTabBar, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: KMultiTabBar, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3850,6 +4886,10 @@ pub const KMultiTabBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3862,7 +4902,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: KMultiTabBar, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: KMultiTabBar, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3870,6 +4910,10 @@ pub const KMultiTabBar = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3885,7 +4929,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: KMultiTabBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: KMultiTabBar, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3895,6 +4939,10 @@ pub const KMultiTabBar = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3903,9 +4951,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ParentWidget(self: KMultiTabBar) QWidget {
+    pub fn parentWidget(self: KMultiTabBar) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3917,9 +4969,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KMultiTabBar, typeVal: i32) void {
+    pub fn setWindowFlags(self: KMultiTabBar, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3933,9 +4989,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KMultiTabBar) i32 {
+    pub fn windowFlags(self: KMultiTabBar) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3947,9 +5007,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KMultiTabBar, param1: i32) void {
+    pub fn setWindowFlag(self: KMultiTabBar, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3961,9 +5025,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KMultiTabBar, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KMultiTabBar, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3977,9 +5045,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KMultiTabBar) i32 {
+    pub fn windowType(self: KMultiTabBar) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3989,9 +5061,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -4001,13 +5077,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KMultiTabBar, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KMultiTabBar, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -4019,10 +5099,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KMultiTabBar, p: anytype) QWidget {
+    pub fn childAt2(self: KMultiTabBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -4034,10 +5118,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KMultiTabBar, p: anytype) QWidget {
+    pub fn childAt3(self: KMultiTabBar, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4049,9 +5137,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KMultiTabBar, param1: i32) void {
+    pub fn setAttribute(self: KMultiTabBar, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -4063,9 +5155,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KMultiTabBar, param1: i32) bool {
+    pub fn testAttribute(self: KMultiTabBar, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -4075,9 +5171,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn EnsurePolished(self: KMultiTabBar) void {
+    pub fn ensurePolished(self: KMultiTabBar) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -4089,10 +5189,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KMultiTabBar, child: anytype) bool {
+    pub fn isAncestorOf(self: KMultiTabBar, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4102,9 +5206,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn AutoFillBackground(self: KMultiTabBar) bool {
+    pub fn autoFillBackground(self: KMultiTabBar) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -4116,9 +5224,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KMultiTabBar, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KMultiTabBar, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -4128,9 +5240,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn BackingStore(self: KMultiTabBar) QBackingStore {
+    pub fn backingStore(self: KMultiTabBar) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -4140,9 +5256,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn WindowHandle(self: KMultiTabBar) QWindow {
+    pub fn windowHandle(self: KMultiTabBar) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -4152,9 +5272,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Screen(self: KMultiTabBar) QScreen {
+    pub fn screen(self: KMultiTabBar) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -4164,12 +5288,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KMultiTabBar, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KMultiTabBar, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4177,12 +5305,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4194,13 +5326,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KMultiTabBar, title: []const u8) void {
+    pub fn windowTitleChanged(self: KMultiTabBar, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4212,9 +5348,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4226,10 +5366,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KMultiTabBar, icon: anytype) void {
+    pub fn windowIconChanged(self: KMultiTabBar, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4241,9 +5385,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4255,13 +5403,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KMultiTabBar, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KMultiTabBar, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4273,9 +5425,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4285,12 +5441,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KMultiTabBar, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KMultiTabBar, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4302,9 +5462,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4318,9 +5482,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KMultiTabBar) i32 {
+    pub fn inputMethodHints(self: KMultiTabBar) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4332,9 +5500,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KMultiTabBar, hints: i32) void {
+    pub fn setInputMethodHints(self: KMultiTabBar, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4348,11 +5520,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KMultiTabBar, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KMultiTabBar, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4368,13 +5544,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KMultiTabBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KMultiTabBar, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4391,12 +5571,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KMultiTabBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KMultiTabBar, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4410,11 +5594,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KMultiTabBar, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KMultiTabBar, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4430,12 +5618,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KMultiTabBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KMultiTabBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4453,12 +5645,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KMultiTabBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KMultiTabBar, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4470,10 +5666,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KMultiTabBar, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KMultiTabBar, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4487,9 +5687,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KMultiTabBar, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KMultiTabBar, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4503,10 +5707,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KMultiTabBar, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KMultiTabBar, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4520,9 +5728,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KMultiTabBar, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: KMultiTabBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4536,9 +5748,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KMultiTabBar, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: KMultiTabBar, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4552,9 +5768,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KMultiTabBar, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KMultiTabBar, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4568,25 +5788,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KMultiTabBar, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KMultiTabBar, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4594,17 +5802,41 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4616,13 +5848,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KMultiTabBar, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBar.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4634,13 +5870,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KMultiTabBar, name: []const u8) void {
+    pub fn setObjectName(self: KMultiTabBar, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4650,9 +5890,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsWidgetType(self: KMultiTabBar) bool {
+    pub fn isWidgetType(self: KMultiTabBar) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4662,9 +5906,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsWindowType(self: KMultiTabBar) bool {
+    pub fn isWindowType(self: KMultiTabBar) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4674,9 +5922,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn IsQuickItemType(self: KMultiTabBar) bool {
+    pub fn isQuickItemType(self: KMultiTabBar) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4686,9 +5938,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SignalsBlocked(self: KMultiTabBar) bool {
+    pub fn signalsBlocked(self: KMultiTabBar) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4700,9 +5956,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KMultiTabBar, b: bool) bool {
+    pub fn blockSignals(self: KMultiTabBar, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4712,9 +5972,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Thread(self: KMultiTabBar) QThread {
+    pub fn thread(self: KMultiTabBar) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4724,12 +5988,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KMultiTabBar, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KMultiTabBar, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4741,9 +6009,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KMultiTabBar, interval: i32) i32 {
+    pub fn startTimer(self: KMultiTabBar, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4755,9 +6027,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KMultiTabBar, time: i64) i32 {
+    pub fn startTimer2(self: KMultiTabBar, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4769,9 +6045,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: KMultiTabBar, id: i32) void {
+    pub fn killTimer(self: KMultiTabBar, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4783,9 +6063,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: KMultiTabBar, id: i32) void {
+    pub fn killTimer2(self: KMultiTabBar, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4797,15 +6081,19 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KMultiTabBar, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KMultiTabBar, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBar.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBar.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4817,10 +6105,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KMultiTabBar, filterObj: anytype) void {
+    pub fn installEventFilter(self: KMultiTabBar, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4832,10 +6124,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KMultiTabBar, obj: anytype) void {
+    pub fn removeEventFilter(self: KMultiTabBar, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4843,7 +6139,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4851,13 +6147,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4865,7 +6165,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4873,13 +6173,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4889,18 +6193,22 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KMultiTabBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KMultiTabBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4908,7 +6216,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4916,13 +6224,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4930,7 +6242,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4938,13 +6250,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4954,9 +6270,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Disconnect3(self: KMultiTabBar) bool {
+    pub fn disconnect3(self: KMultiTabBar) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4968,10 +6288,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KMultiTabBar, receiver: anytype) bool {
+    pub fn disconnect4(self: KMultiTabBar, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4981,10 +6305,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4994,9 +6322,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DumpObjectTree(self: KMultiTabBar) void {
+    pub fn dumpObjectTree(self: KMultiTabBar) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -5006,9 +6338,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DumpObjectInfo(self: KMultiTabBar) void {
+    pub fn dumpObjectInfo(self: KMultiTabBar) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -5022,11 +6358,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KMultiTabBar, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KMultiTabBar, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -5038,10 +6378,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KMultiTabBar, name: [:0]const u8) QVariant {
+    pub fn property(self: KMultiTabBar, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -5053,7 +6397,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KMultiTabBar, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KMultiTabBar, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -5061,27 +6405,19 @@ pub const KMultiTabBar = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBar.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBar.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMultiTabBar.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMultiTabBar.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBar `
-    ///
-    pub fn BindingStorage(self: KMultiTabBar) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -5091,9 +6427,29 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn BindingStorage2(self: KMultiTabBar) QBindingStorage {
+    pub fn bindingStorage(self: KMultiTabBar) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBar `
+    ///
+    pub fn bindingStorage2(self: KMultiTabBar) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -5103,9 +6459,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Destroyed(self: KMultiTabBar) void {
+    pub fn destroyed(self: KMultiTabBar) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -5117,9 +6477,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KMultiTabBar, callback: *const fn (KMultiTabBar) callconv(.c) void) void {
+    pub fn onDestroyed(self: KMultiTabBar, callback: *const fn (KMultiTabBar) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -5129,9 +6493,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Parent(self: KMultiTabBar) QObject {
+    pub fn parent(self: KMultiTabBar) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -5143,10 +6511,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KMultiTabBar, classname: [:0]const u8) bool {
+    pub fn inherits(self: KMultiTabBar, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -5156,9 +6528,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DeleteLater(self: KMultiTabBar) void {
+    pub fn deleteLater(self: KMultiTabBar) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -5172,9 +6548,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KMultiTabBar, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KMultiTabBar, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5188,9 +6568,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KMultiTabBar, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KMultiTabBar, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5198,7 +6582,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5208,13 +6592,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5222,7 +6610,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5232,13 +6620,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5248,7 +6640,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5256,12 +6648,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KMultiTabBar, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KMultiTabBar, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5273,10 +6669,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KMultiTabBar, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KMultiTabBar, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5290,11 +6690,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KMultiTabBar, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KMultiTabBar, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5310,13 +6714,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KMultiTabBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KMultiTabBar, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5329,11 +6737,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KMultiTabBar, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KMultiTabBar, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5345,10 +6757,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KMultiTabBar, param1: anytype) void {
+    pub fn destroyed1(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5360,9 +6776,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5372,9 +6792,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn PaintingActive(self: KMultiTabBar) bool {
+    pub fn paintingActive(self: KMultiTabBar) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5384,9 +6808,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn WidthMM(self: KMultiTabBar) i32 {
+    pub fn widthMM(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5396,9 +6824,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn HeightMM(self: KMultiTabBar) i32 {
+    pub fn heightMM(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5408,9 +6840,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn LogicalDpiX(self: KMultiTabBar) i32 {
+    pub fn logicalDpiX(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5420,9 +6856,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn LogicalDpiY(self: KMultiTabBar) i32 {
+    pub fn logicalDpiY(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5432,9 +6872,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn PhysicalDpiX(self: KMultiTabBar) i32 {
+    pub fn physicalDpiX(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5444,9 +6888,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn PhysicalDpiY(self: KMultiTabBar) i32 {
+    pub fn physicalDpiY(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5456,9 +6904,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DevicePixelRatio(self: KMultiTabBar) f64 {
+    pub fn devicePixelRatio(self: KMultiTabBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5468,9 +6920,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DevicePixelRatioF(self: KMultiTabBar) f64 {
+    pub fn devicePixelRatioF(self: KMultiTabBar) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5480,9 +6936,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn ColorCount(self: KMultiTabBar) i32 {
+    pub fn colorCount(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5492,17 +6952,25 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Depth(self: KMultiTabBar) i32 {
+    pub fn depth(self: KMultiTabBar) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5510,13 +6978,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5528,13 +7000,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn DevType(self: KMultiTabBar) i32 {
+    pub fn devType(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5546,9 +7018,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperDevType(self: KMultiTabBar) i32 {
+    pub fn superDevType(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5562,9 +7038,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: KMultiTabBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: KMultiTabBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KMultiTabBar_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5578,13 +7058,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KMultiTabBar, visible: bool) void {
+    pub fn setVisible(self: KMultiTabBar, visible: bool) void {
         qtc.KMultiTabBar_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5598,9 +7078,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: KMultiTabBar, visible: bool) void {
+    pub fn superSetVisible(self: KMultiTabBar, visible: bool) void {
         qtc.KMultiTabBar_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5614,10 +7098,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: KMultiTabBar, callback: *const fn (KMultiTabBar, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: KMultiTabBar, callback: *const fn (KMultiTabBar, bool) callconv(.c) void) void {
         qtc.KMultiTabBar_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5628,13 +7116,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SizeHint(self: KMultiTabBar) QSize {
+    pub fn sizeHint(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.KMultiTabBar_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5646,10 +7134,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperSizeHint(self: KMultiTabBar) QSize {
+    pub fn superSizeHint(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.KMultiTabBar_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5664,9 +7156,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: KMultiTabBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: KMultiTabBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMultiTabBar_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5678,13 +7174,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn MinimumSizeHint(self: KMultiTabBar) QSize {
+    pub fn minimumSizeHint(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.KMultiTabBar_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5696,9 +7192,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperMinimumSizeHint(self: KMultiTabBar) QSize {
+    pub fn superMinimumSizeHint(self: KMultiTabBar) QSize {
         return .{ .ptr = qtc.KMultiTabBar_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5714,9 +7214,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: KMultiTabBar, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: KMultiTabBar, callback: *const fn () callconv(.c) QSize) void {
         qtc.KMultiTabBar_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5730,13 +7234,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KMultiTabBar, param1: i32) i32 {
+    pub fn heightForWidth(self: KMultiTabBar, param1: i32) i32 {
         return qtc.KMultiTabBar_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5750,9 +7254,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: KMultiTabBar, param1: i32) i32 {
+    pub fn superHeightForWidth(self: KMultiTabBar, param1: i32) i32 {
         return qtc.KMultiTabBar_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5766,9 +7274,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) i32) void {
         qtc.KMultiTabBar_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5780,13 +7292,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn HasHeightForWidth(self: KMultiTabBar) bool {
+    pub fn hasHeightForWidth(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5798,9 +7310,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperHasHeightForWidth(self: KMultiTabBar) bool {
+    pub fn superHasHeightForWidth(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5814,9 +7330,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KMultiTabBar_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5828,13 +7348,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn PaintEngine(self: KMultiTabBar) QPaintEngine {
+    pub fn paintEngine(self: KMultiTabBar) QPaintEngine {
         return .{ .ptr = qtc.KMultiTabBar_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5846,9 +7366,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperPaintEngine(self: KMultiTabBar) QPaintEngine {
+    pub fn superPaintEngine(self: KMultiTabBar) QPaintEngine {
         return .{ .ptr = qtc.KMultiTabBar_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5862,9 +7386,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: KMultiTabBar, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: KMultiTabBar, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.KMultiTabBar_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// Inherited from QWidget
     ///
@@ -5876,16 +7404,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn Event(self: KMultiTabBar, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMultiTabBar_Event(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn event(self: KMultiTabBar, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMultiTabBar_Event(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// Inherited from QWidget
     ///
@@ -5897,12 +7425,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEvent(self: KMultiTabBar, event: anytype) bool {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMultiTabBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEvent(self: KMultiTabBar, _event: anytype) bool {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMultiTabBar_SuperEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// Inherited from QWidget
     ///
@@ -5916,10 +7448,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) bool) void {
         qtc.KMultiTabBar_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5930,16 +7466,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5951,12 +7487,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5970,10 +7510,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5984,16 +7528,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6005,12 +7549,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6024,10 +7572,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6038,16 +7590,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6059,12 +7611,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -6078,10 +7634,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -6092,16 +7652,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6113,12 +7673,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.KMultiTabBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.KMultiTabBar_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6132,9 +7696,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMouseEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6146,16 +7714,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMultiTabBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMultiTabBar_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6167,12 +7735,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.KMultiTabBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.KMultiTabBar_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -6186,10 +7758,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QWheelEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -6200,16 +7776,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMultiTabBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMultiTabBar_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6221,12 +7797,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMultiTabBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMultiTabBar_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6240,10 +7820,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QKeyEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6254,16 +7838,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMultiTabBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMultiTabBar_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6275,12 +7859,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.KMultiTabBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.KMultiTabBar_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6294,10 +7882,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QKeyEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6308,16 +7900,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMultiTabBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMultiTabBar_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6329,12 +7921,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMultiTabBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMultiTabBar_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6348,10 +7944,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFocusEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6362,16 +7962,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMultiTabBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMultiTabBar_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6383,12 +7983,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.KMultiTabBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.KMultiTabBar_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6402,9 +8006,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QFocusEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6416,16 +8024,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMultiTabBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMultiTabBar_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6437,12 +8045,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.KMultiTabBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.KMultiTabBar_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6456,9 +8068,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEnterEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6470,16 +8086,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMultiTabBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMultiTabBar_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6491,12 +8107,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMultiTabBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMultiTabBar_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6510,9 +8130,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6524,16 +8148,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMultiTabBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMultiTabBar_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6545,12 +8169,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.KMultiTabBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.KMultiTabBar_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6564,9 +8192,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMoveEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6578,16 +8210,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KMultiTabBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KMultiTabBar_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6599,12 +8231,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.KMultiTabBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.KMultiTabBar_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6618,9 +8254,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QResizeEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6632,16 +8272,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KMultiTabBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KMultiTabBar_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6653,12 +8293,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.KMultiTabBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.KMultiTabBar_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6672,9 +8316,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QCloseEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6686,16 +8334,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KMultiTabBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KMultiTabBar_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6707,12 +8355,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.KMultiTabBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.KMultiTabBar_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6726,9 +8378,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QContextMenuEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6740,16 +8396,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMultiTabBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMultiTabBar_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6761,12 +8417,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.KMultiTabBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.KMultiTabBar_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6780,9 +8440,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QTabletEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6794,16 +8458,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMultiTabBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMultiTabBar_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6815,12 +8479,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.KMultiTabBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.KMultiTabBar_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6834,9 +8502,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QActionEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6848,16 +8520,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMultiTabBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMultiTabBar_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6869,12 +8541,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.KMultiTabBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.KMultiTabBar_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6888,9 +8564,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragEnterEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6902,16 +8582,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMultiTabBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMultiTabBar_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6923,12 +8603,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.KMultiTabBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.KMultiTabBar_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6942,9 +8626,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragMoveEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6956,16 +8644,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMultiTabBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMultiTabBar_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6977,12 +8665,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.KMultiTabBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.KMultiTabBar_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6996,9 +8688,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDragLeaveEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7010,16 +8706,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMultiTabBar_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMultiTabBar_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7031,12 +8727,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.KMultiTabBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.KMultiTabBar_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -7050,9 +8750,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QDropEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -7064,16 +8768,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KMultiTabBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KMultiTabBar_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7085,12 +8789,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.KMultiTabBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.KMultiTabBar_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -7104,9 +8812,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QShowEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7118,16 +8830,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMultiTabBar_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMultiTabBar_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7139,12 +8851,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.KMultiTabBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.KMultiTabBar_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -7158,9 +8874,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QHideEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7178,7 +8898,7 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: KMultiTabBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: KMultiTabBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7186,9 +8906,9 @@ pub const KMultiTabBar = extern struct {
         return qtc.KMultiTabBar_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7206,13 +8926,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: KMultiTabBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: KMultiTabBar, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.KMultiTabBar_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7226,9 +8950,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.KMultiTabBar_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7242,14 +8970,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn changeEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMultiTabBar_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7263,10 +8991,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn superChangeEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.KMultiTabBar_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7280,9 +9012,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7296,13 +9032,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: KMultiTabBar, param1: i32) i32 {
+    pub fn metric(self: KMultiTabBar, param1: i32) i32 {
         return qtc.KMultiTabBar_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7316,9 +9052,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: KMultiTabBar, param1: i32) i32 {
+    pub fn superMetric(self: KMultiTabBar, param1: i32) i32 {
         return qtc.KMultiTabBar_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7332,9 +9072,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) i32) void {
         qtc.KMultiTabBar_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7348,14 +9092,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: KMultiTabBar, painter: anytype) void {
+    pub fn initPainter(self: KMultiTabBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMultiTabBar_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7369,10 +9113,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: KMultiTabBar, painter: anytype) void {
+    pub fn superInitPainter(self: KMultiTabBar, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.KMultiTabBar_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7386,9 +9134,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPainter) callconv(.c) void) void {
         qtc.KMultiTabBar_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7402,14 +9154,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: KMultiTabBar, offset: anytype) QPaintDevice {
+    pub fn redirected(self: KMultiTabBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMultiTabBar_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7423,10 +9175,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: KMultiTabBar, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: KMultiTabBar, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.KMultiTabBar_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7440,9 +9196,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QPoint) callconv(.c) QPaintDevice) void {
         qtc.KMultiTabBar_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7454,13 +9214,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SharedPainter(self: KMultiTabBar) QPainter {
+    pub fn sharedPainter(self: KMultiTabBar) QPainter {
         return .{ .ptr = qtc.KMultiTabBar_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7472,9 +9232,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperSharedPainter(self: KMultiTabBar) QPainter {
+    pub fn superSharedPainter(self: KMultiTabBar) QPainter {
         return .{ .ptr = qtc.KMultiTabBar_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7488,9 +9252,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: KMultiTabBar, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: KMultiTabBar, callback: *const fn () callconv(.c) QPainter) void {
         qtc.KMultiTabBar_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7504,14 +9272,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn inputMethodEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMultiTabBar_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7525,10 +9293,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: KMultiTabBar, param1: anytype) void {
+    pub fn superInputMethodEvent(self: KMultiTabBar, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.KMultiTabBar_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7542,9 +9314,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QInputMethodEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7558,13 +9334,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KMultiTabBar, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KMultiTabBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KMultiTabBar_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7578,9 +9354,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: KMultiTabBar, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: KMultiTabBar, param1: i32) QVariant {
         return .{ .ptr = qtc.KMultiTabBar_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7596,9 +9376,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32) callconv(.c) QVariant) void {
         qtc.KMultiTabBar_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7612,13 +9396,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: KMultiTabBar, next: bool) bool {
+    pub fn focusNextPrevChild(self: KMultiTabBar, next: bool) bool {
         return qtc.KMultiTabBar_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7632,9 +9416,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: KMultiTabBar, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: KMultiTabBar, next: bool) bool {
         return qtc.KMultiTabBar_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7648,9 +9436,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: KMultiTabBar, callback: *const fn (KMultiTabBar, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: KMultiTabBar, callback: *const fn (KMultiTabBar, bool) callconv(.c) bool) void {
         qtc.KMultiTabBar_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -7664,17 +9456,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KMultiTabBar, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KMultiTabBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMultiTabBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMultiTabBar_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7688,13 +9480,17 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: KMultiTabBar, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: KMultiTabBar, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.KMultiTabBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.KMultiTabBar_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -7708,9 +9504,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QObject, QEvent) callconv(.c) bool) void {
         qtc.KMultiTabBar_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7722,16 +9522,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMultiTabBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMultiTabBar_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7743,12 +9543,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.KMultiTabBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.KMultiTabBar_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7762,9 +9566,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QTimerEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7776,16 +9584,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMultiTabBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMultiTabBar_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7797,12 +9605,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.KMultiTabBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.KMultiTabBar_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7816,9 +9628,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QChildEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7830,16 +9646,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMultiTabBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMultiTabBar_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7851,12 +9667,16 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: KMultiTabBar, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.KMultiTabBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: KMultiTabBar, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.KMultiTabBar_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7870,9 +9690,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QEvent) callconv(.c) void) void {
         qtc.KMultiTabBar_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7886,14 +9710,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: KMultiTabBar, signal: anytype) void {
+    pub fn connectNotify(self: KMultiTabBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMultiTabBar_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7907,11 +9731,15 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: KMultiTabBar, signal: anytype) void {
+    pub fn superConnectNotify(self: KMultiTabBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMultiTabBar_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7924,9 +9752,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) void) void {
         qtc.KMultiTabBar_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7940,14 +9772,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: KMultiTabBar, signal: anytype) void {
+    pub fn disconnectNotify(self: KMultiTabBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMultiTabBar_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7961,10 +9793,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: KMultiTabBar, signal: anytype) void {
+    pub fn superDisconnectNotify(self: KMultiTabBar, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.KMultiTabBar_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7978,10 +9814,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) void) void {
         qtc.KMultiTabBar_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7992,13 +9832,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn UpdateMicroFocus(self: KMultiTabBar) void {
+    pub fn updateMicroFocus(self: KMultiTabBar) void {
         qtc.KMultiTabBar_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8010,10 +9850,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperUpdateMicroFocus(self: KMultiTabBar) void {
+    pub fn superUpdateMicroFocus(self: KMultiTabBar) void {
         qtc.KMultiTabBar_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8026,10 +9870,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
         qtc.KMultiTabBar_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8040,13 +9888,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Create(self: KMultiTabBar) void {
+    pub fn create(self: KMultiTabBar) void {
         qtc.KMultiTabBar_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8058,10 +9906,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperCreate(self: KMultiTabBar) void {
+    pub fn superCreate(self: KMultiTabBar) void {
         qtc.KMultiTabBar_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8074,9 +9926,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
         qtc.KMultiTabBar_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8088,13 +9944,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Destroy(self: KMultiTabBar) void {
+    pub fn destroy(self: KMultiTabBar) void {
         qtc.KMultiTabBar_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8106,9 +9962,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperDestroy(self: KMultiTabBar) void {
+    pub fn superDestroy(self: KMultiTabBar) void {
         qtc.KMultiTabBar_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8122,10 +9982,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: KMultiTabBar, callback: *const fn () callconv(.c) void) void {
         qtc.KMultiTabBar_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8136,13 +10000,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FocusNextChild(self: KMultiTabBar) bool {
+    pub fn focusNextChild(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8154,10 +10018,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperFocusNextChild(self: KMultiTabBar) bool {
+    pub fn superFocusNextChild(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8170,9 +10038,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KMultiTabBar_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8184,13 +10056,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn FocusPreviousChild(self: KMultiTabBar) bool {
+    pub fn focusPreviousChild(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8202,9 +10074,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperFocusPreviousChild(self: KMultiTabBar) bool {
+    pub fn superFocusPreviousChild(self: KMultiTabBar) bool {
         return qtc.KMultiTabBar_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8218,9 +10094,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: KMultiTabBar, callback: *const fn () callconv(.c) bool) void {
         qtc.KMultiTabBar_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8232,13 +10112,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Sender(self: KMultiTabBar) QObject {
+    pub fn sender(self: KMultiTabBar) QObject {
         return .{ .ptr = qtc.KMultiTabBar_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8250,9 +10130,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperSender(self: KMultiTabBar) QObject {
+    pub fn superSender(self: KMultiTabBar) QObject {
         return .{ .ptr = qtc.KMultiTabBar_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8266,9 +10150,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: KMultiTabBar, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: KMultiTabBar, callback: *const fn () callconv(.c) QObject) void {
         qtc.KMultiTabBar_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8280,13 +10168,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SenderSignalIndex(self: KMultiTabBar) i32 {
+    pub fn senderSignalIndex(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8298,9 +10186,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn SuperSenderSignalIndex(self: KMultiTabBar) i32 {
+    pub fn superSenderSignalIndex(self: KMultiTabBar) i32 {
         return qtc.KMultiTabBar_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8314,9 +10206,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: KMultiTabBar, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: KMultiTabBar, callback: *const fn () callconv(.c) i32) void {
         qtc.KMultiTabBar_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8330,14 +10226,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: KMultiTabBar, signal: [:0]const u8) i32 {
+    pub fn receivers(self: KMultiTabBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMultiTabBar_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8351,10 +10247,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: KMultiTabBar, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: KMultiTabBar, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.KMultiTabBar_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8368,9 +10268,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) i32) void {
         qtc.KMultiTabBar_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8384,14 +10288,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: KMultiTabBar, signal: anytype) bool {
+    pub fn isSignalConnected(self: KMultiTabBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMultiTabBar_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8405,10 +10309,14 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: KMultiTabBar, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: KMultiTabBar, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.KMultiTabBar_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8422,9 +10330,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: KMultiTabBar, callback: *const fn (KMultiTabBar, QMetaMethod) callconv(.c) bool) void {
         qtc.KMultiTabBar_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8440,13 +10352,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: KMultiTabBar, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: KMultiTabBar, metricA: i32, metricB: i32) f64 {
         return qtc.KMultiTabBar_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8462,9 +10374,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: KMultiTabBar, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: KMultiTabBar, metricA: i32, metricB: i32) f64 {
         return qtc.KMultiTabBar_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8478,9 +10394,13 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: KMultiTabBar, callback: *const fn (KMultiTabBar, i32, i32) callconv(.c) f64) void {
         qtc.KMultiTabBar_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8494,23 +10414,23 @@ pub const KMultiTabBar = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBar, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KMultiTabBar, callback: *const fn (KMultiTabBar, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbar.html#dtor.KMultiTabBar)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMultiTabBar `
     ///
-    pub fn Delete(self: KMultiTabBar) void {
+    pub fn delete(self: KMultiTabBar) void {
         qtc.KMultiTabBar_Delete(@ptrCast(self.ptr));
     }
 };
@@ -8530,15 +10450,23 @@ pub const KMultiTabBarButton = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MetaObject(self: KMultiTabBarButton) QMetaObject {
+    pub fn metaObject(self: KMultiTabBarButton) QMetaObject {
         return .{ .ptr = qtc.KMultiTabBarButton_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -8546,10 +10474,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KMultiTabBarButton, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KMultiTabBarButton, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMultiTabBarButton_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -8561,9 +10493,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KMultiTabBarButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KMultiTabBarButton, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMultiTabBarButton_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8573,14 +10509,18 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbarbutton.html#id)
     ///
@@ -8588,9 +10528,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Id(self: KMultiTabBarButton) i32 {
+    pub fn id(self: KMultiTabBarButton) i32 {
         return qtc.KMultiTabBarButton_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbarbutton.html#setText)
     ///
@@ -8598,15 +10542,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KMultiTabBarButton, text: []const u8) void {
+    pub fn setText(self: KMultiTabBarButton, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KMultiTabBarButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
@@ -8614,11 +10562,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn Clicked(self: KMultiTabBarButton, id: i32) void {
-        qtc.KMultiTabBarButton_Clicked(@ptrCast(self.ptr), @bitCast(id));
+    pub fn clicked(self: KMultiTabBarButton, _id: i32) void {
+        qtc.KMultiTabBarButton_Clicked(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbarbutton.html#clicked)
     ///
@@ -8628,9 +10580,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, id: i32) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, i32) callconv(.c) void) void {
+    pub fn onClicked(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, i32) callconv(.c) void) void {
         qtc.KMultiTabBarButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8642,15 +10598,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -8664,15 +10624,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// Inherited from QPushButton
     ///
@@ -8682,9 +10646,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn SizeHint(self: KMultiTabBarButton) QSize {
+    pub fn sizeHint(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QPushButton_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QPushButton
     ///
@@ -8694,9 +10662,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MinimumSizeHint(self: KMultiTabBarButton) QSize {
+    pub fn minimumSizeHint(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QPushButton_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `autoDefault` instead
+    ///
+    pub const AutoDefault = autoDefault;
 
     /// Inherited from QPushButton
     ///
@@ -8706,9 +10678,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoDefault(self: KMultiTabBarButton) bool {
+    pub fn autoDefault(self: KMultiTabBarButton) bool {
         return qtc.QPushButton_AutoDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDefault` instead
+    ///
+    pub const SetAutoDefault = setAutoDefault;
 
     /// Inherited from QPushButton
     ///
@@ -8718,11 +10694,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` autoDefault: bool `
+    /// ` _autoDefault: bool `
     ///
-    pub fn SetAutoDefault(self: KMultiTabBarButton, autoDefault: bool) void {
-        qtc.QPushButton_SetAutoDefault(@ptrCast(self.ptr), autoDefault);
+    pub fn setAutoDefault(self: KMultiTabBarButton, _autoDefault: bool) void {
+        qtc.QPushButton_SetAutoDefault(@ptrCast(self.ptr), _autoDefault);
     }
+
+    /// ### DEPRECATED: Use `isDefault` instead
+    ///
+    pub const IsDefault = isDefault;
 
     /// Inherited from QPushButton
     ///
@@ -8732,9 +10712,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsDefault(self: KMultiTabBarButton) bool {
+    pub fn isDefault(self: KMultiTabBarButton) bool {
         return qtc.QPushButton_IsDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefault` instead
+    ///
+    pub const SetDefault = setDefault;
 
     /// Inherited from QPushButton
     ///
@@ -8746,9 +10730,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` defaultVal: bool `
     ///
-    pub fn SetDefault(self: KMultiTabBarButton, defaultVal: bool) void {
+    pub fn setDefault(self: KMultiTabBarButton, defaultVal: bool) void {
         qtc.QPushButton_SetDefault(@ptrCast(self.ptr), defaultVal);
     }
+
+    /// ### DEPRECATED: Use `setMenu` instead
+    ///
+    pub const SetMenu = setMenu;
 
     /// Inherited from QPushButton
     ///
@@ -8758,12 +10746,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` menu: QMenu `
+    /// ` _menu: QMenu `
     ///
-    pub fn SetMenu(self: KMultiTabBarButton, menu: anytype) void {
-        comptime _ = @TypeOf(menu)._is_QMenu;
-        qtc.QPushButton_SetMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
+    pub fn setMenu(self: KMultiTabBarButton, _menu: anytype) void {
+        comptime _ = @TypeOf(_menu)._is_QMenu;
+        qtc.QPushButton_SetMenu(@ptrCast(self.ptr), @ptrCast(_menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `menu` instead
+    ///
+    pub const Menu = menu;
 
     /// Inherited from QPushButton
     ///
@@ -8773,9 +10765,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Menu(self: KMultiTabBarButton) QMenu {
+    pub fn menu(self: KMultiTabBarButton) QMenu {
         return .{ .ptr = qtc.QPushButton_Menu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFlat` instead
+    ///
+    pub const SetFlat = setFlat;
 
     /// Inherited from QPushButton
     ///
@@ -8787,9 +10783,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` flat: bool `
     ///
-    pub fn SetFlat(self: KMultiTabBarButton, flat: bool) void {
+    pub fn setFlat(self: KMultiTabBarButton, flat: bool) void {
         qtc.QPushButton_SetFlat(@ptrCast(self.ptr), flat);
     }
+
+    /// ### DEPRECATED: Use `isFlat` instead
+    ///
+    pub const IsFlat = isFlat;
 
     /// Inherited from QPushButton
     ///
@@ -8799,9 +10799,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsFlat(self: KMultiTabBarButton) bool {
+    pub fn isFlat(self: KMultiTabBarButton) bool {
         return qtc.QPushButton_IsFlat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMenu` instead
+    ///
+    pub const ShowMenu = showMenu;
 
     /// Inherited from QPushButton
     ///
@@ -8811,9 +10815,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ShowMenu(self: KMultiTabBarButton) void {
+    pub fn showMenu(self: KMultiTabBarButton) void {
         qtc.QPushButton_ShowMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -8825,13 +10833,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -8841,12 +10853,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KMultiTabBarButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KMultiTabBarButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -8856,9 +10872,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Icon(self: KMultiTabBarButton) QIcon {
+    pub fn icon(self: KMultiTabBarButton) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -8868,9 +10888,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IconSize(self: KMultiTabBarButton) QSize {
+    pub fn iconSize(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -8882,10 +10906,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: KMultiTabBarButton, key: anytype) void {
+    pub fn setShortcut(self: KMultiTabBarButton, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -8895,9 +10923,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Shortcut(self: KMultiTabBarButton) QKeySequence {
+    pub fn shortcut(self: KMultiTabBarButton) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -8909,9 +10941,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: KMultiTabBarButton, checkable: bool) void {
+    pub fn setCheckable(self: KMultiTabBarButton, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -8921,9 +10957,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsCheckable(self: KMultiTabBarButton) bool {
+    pub fn isCheckable(self: KMultiTabBarButton) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -8933,9 +10973,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsChecked(self: KMultiTabBarButton) bool {
+    pub fn isChecked(self: KMultiTabBarButton) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -8947,9 +10991,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: KMultiTabBarButton, down: bool) void {
+    pub fn setDown(self: KMultiTabBarButton, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -8959,9 +11007,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsDown(self: KMultiTabBarButton) bool {
+    pub fn isDown(self: KMultiTabBarButton) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -8971,11 +11023,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: KMultiTabBarButton, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: KMultiTabBarButton, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -8985,9 +11041,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoRepeat(self: KMultiTabBarButton) bool {
+    pub fn autoRepeat(self: KMultiTabBarButton) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -8997,11 +11057,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: KMultiTabBarButton, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: KMultiTabBarButton, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -9011,9 +11075,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoRepeatDelay(self: KMultiTabBarButton) i32 {
+    pub fn autoRepeatDelay(self: KMultiTabBarButton) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -9023,11 +11091,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: KMultiTabBarButton, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: KMultiTabBarButton, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -9037,9 +11109,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoRepeatInterval(self: KMultiTabBarButton) i32 {
+    pub fn autoRepeatInterval(self: KMultiTabBarButton) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -9049,11 +11125,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: KMultiTabBarButton, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: KMultiTabBarButton, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -9063,9 +11143,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoExclusive(self: KMultiTabBarButton) bool {
+    pub fn autoExclusive(self: KMultiTabBarButton) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -9075,9 +11159,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Group(self: KMultiTabBarButton) QButtonGroup {
+    pub fn group(self: KMultiTabBarButton) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -9087,12 +11175,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KMultiTabBarButton, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KMultiTabBarButton, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -9102,9 +11194,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AnimateClick(self: KMultiTabBarButton) void {
+    pub fn animateClick(self: KMultiTabBarButton) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -9114,9 +11210,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Click(self: KMultiTabBarButton) void {
+    pub fn click(self: KMultiTabBarButton) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -9126,9 +11226,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Toggle(self: KMultiTabBarButton) void {
+    pub fn toggle(self: KMultiTabBarButton) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -9140,10 +11244,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: KMultiTabBarButton, checked: bool) void {
+    pub fn setChecked(self: KMultiTabBarButton, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -9152,10 +11260,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Pressed(self: KMultiTabBarButton) void {
+    pub fn pressed(self: KMultiTabBarButton) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -9166,9 +11278,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
+    pub fn onPressed(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
 
     /// Inherited from QAbstractButton
     ///
@@ -9178,9 +11294,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Released(self: KMultiTabBarButton) void {
+    pub fn released(self: KMultiTabBarButton) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
 
     /// Inherited from QAbstractButton
     ///
@@ -9192,10 +11312,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton) callconv(.c) void `
     ///
-    pub fn OnReleased(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
+    pub fn onReleased(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -9206,10 +11330,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: KMultiTabBarButton, checked: bool) void {
+    pub fn toggled(self: KMultiTabBarButton, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -9220,9 +11348,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, bool) callconv(.c) void) void {
+    pub fn onToggled(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -9234,9 +11366,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: KMultiTabBarButton, checked: bool) void {
+    pub fn clicked1(self: KMultiTabBarButton, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -9248,9 +11384,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -9260,9 +11400,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DevType(self: KMultiTabBarButton) i32 {
+    pub fn devType(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -9272,9 +11416,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn WinId(self: KMultiTabBarButton) usize {
+    pub fn winId(self: KMultiTabBarButton) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -9284,9 +11432,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn CreateWinId(self: KMultiTabBarButton) void {
+    pub fn createWinId(self: KMultiTabBarButton) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -9296,9 +11448,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn InternalWinId(self: KMultiTabBarButton) usize {
+    pub fn internalWinId(self: KMultiTabBarButton) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -9308,9 +11464,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn EffectiveWinId(self: KMultiTabBarButton) usize {
+    pub fn effectiveWinId(self: KMultiTabBarButton) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -9320,9 +11480,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Style(self: KMultiTabBarButton) QStyle {
+    pub fn style(self: KMultiTabBarButton) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -9332,12 +11496,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: KMultiTabBarButton, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: KMultiTabBarButton, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -9347,9 +11515,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsTopLevel(self: KMultiTabBarButton) bool {
+    pub fn isTopLevel(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -9359,9 +11531,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsWindow(self: KMultiTabBarButton) bool {
+    pub fn isWindow(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -9371,9 +11547,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsModal(self: KMultiTabBarButton) bool {
+    pub fn isModal(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -9387,9 +11567,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KMultiTabBarButton) i32 {
+    pub fn windowModality(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -9399,11 +11583,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KMultiTabBarButton, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KMultiTabBarButton, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9413,9 +11601,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsEnabled(self: KMultiTabBarButton) bool {
+    pub fn isEnabled(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -9427,10 +11619,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KMultiTabBarButton, param1: anytype) bool {
+    pub fn isEnabledTo(self: KMultiTabBarButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -9442,9 +11638,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KMultiTabBarButton, enabled: bool) void {
+    pub fn setEnabled(self: KMultiTabBarButton, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -9456,9 +11656,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KMultiTabBarButton, disabled: bool) void {
+    pub fn setDisabled(self: KMultiTabBarButton, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -9470,9 +11674,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KMultiTabBarButton, windowModified: bool) void {
+    pub fn setWindowModified(self: KMultiTabBarButton, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9482,9 +11690,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FrameGeometry(self: KMultiTabBarButton) QRect {
+    pub fn frameGeometry(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -9494,9 +11706,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Geometry(self: KMultiTabBarButton) QRect {
+    pub fn geometry(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -9506,9 +11722,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn NormalGeometry(self: KMultiTabBarButton) QRect {
+    pub fn normalGeometry(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -9518,9 +11738,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn X(self: KMultiTabBarButton) i32 {
+    pub fn x(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -9530,9 +11754,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Y(self: KMultiTabBarButton) i32 {
+    pub fn y(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -9542,9 +11770,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Pos(self: KMultiTabBarButton) QPoint {
+    pub fn pos(self: KMultiTabBarButton) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -9554,9 +11786,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FrameSize(self: KMultiTabBarButton) QSize {
+    pub fn frameSize(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -9566,9 +11802,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Size(self: KMultiTabBarButton) QSize {
+    pub fn size(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -9578,9 +11818,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Width(self: KMultiTabBarButton) i32 {
+    pub fn width(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -9590,9 +11834,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Height(self: KMultiTabBarButton) i32 {
+    pub fn height(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -9602,9 +11850,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Rect(self: KMultiTabBarButton) QRect {
+    pub fn rect(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -9614,9 +11866,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ChildrenRect(self: KMultiTabBarButton) QRect {
+    pub fn childrenRect(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -9626,9 +11882,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ChildrenRegion(self: KMultiTabBarButton) QRegion {
+    pub fn childrenRegion(self: KMultiTabBarButton) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9638,9 +11898,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MinimumSize(self: KMultiTabBarButton) QSize {
+    pub fn minimumSize(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -9650,9 +11914,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MaximumSize(self: KMultiTabBarButton) QSize {
+    pub fn maximumSize(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9662,9 +11930,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MinimumWidth(self: KMultiTabBarButton) i32 {
+    pub fn minimumWidth(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9674,9 +11946,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MinimumHeight(self: KMultiTabBarButton) i32 {
+    pub fn minimumHeight(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9686,9 +11962,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MaximumWidth(self: KMultiTabBarButton) i32 {
+    pub fn maximumWidth(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9698,9 +11978,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn MaximumHeight(self: KMultiTabBarButton) i32 {
+    pub fn maximumHeight(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -9710,12 +11994,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KMultiTabBarButton, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KMultiTabBarButton, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -9729,9 +12017,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KMultiTabBarButton, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KMultiTabBarButton, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -9741,12 +12033,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KMultiTabBarButton, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KMultiTabBarButton, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -9760,9 +12056,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KMultiTabBarButton, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KMultiTabBarButton, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9774,9 +12074,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KMultiTabBarButton, minw: i32) void {
+    pub fn setMinimumWidth(self: KMultiTabBarButton, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9788,9 +12092,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KMultiTabBarButton, minh: i32) void {
+    pub fn setMinimumHeight(self: KMultiTabBarButton, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -9802,9 +12110,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KMultiTabBarButton, maxw: i32) void {
+    pub fn setMaximumWidth(self: KMultiTabBarButton, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -9816,9 +12128,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KMultiTabBarButton, maxh: i32) void {
+    pub fn setMaximumHeight(self: KMultiTabBarButton, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -9828,9 +12144,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn SizeIncrement(self: KMultiTabBarButton) QSize {
+    pub fn sizeIncrement(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -9840,12 +12160,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KMultiTabBarButton, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KMultiTabBarButton, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -9859,9 +12183,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KMultiTabBarButton, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KMultiTabBarButton, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -9871,9 +12199,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn BaseSize(self: KMultiTabBarButton) QSize {
+    pub fn baseSize(self: KMultiTabBarButton) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -9883,12 +12215,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KMultiTabBarButton, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KMultiTabBarButton, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -9902,9 +12238,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KMultiTabBarButton, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KMultiTabBarButton, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -9916,10 +12256,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KMultiTabBarButton, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KMultiTabBarButton, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -9933,9 +12277,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KMultiTabBarButton, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KMultiTabBarButton, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -9947,9 +12295,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KMultiTabBarButton, w: i32) void {
+    pub fn setFixedWidth(self: KMultiTabBarButton, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -9961,9 +12313,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KMultiTabBarButton, h: i32) void {
+    pub fn setFixedHeight(self: KMultiTabBarButton, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -9975,11 +12331,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KMultiTabBarButton, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KMultiTabBarButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -9990,11 +12350,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KMultiTabBarButton, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KMultiTabBarButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10005,11 +12369,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KMultiTabBarButton, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KMultiTabBarButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -10020,11 +12388,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KMultiTabBarButton, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KMultiTabBarButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10035,11 +12407,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KMultiTabBarButton, param1: anytype) QPointF {
+    pub fn mapToParent(self: KMultiTabBarButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -10050,10 +12426,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KMultiTabBarButton, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KMultiTabBarButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -10065,10 +12445,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KMultiTabBarButton, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KMultiTabBarButton, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -10080,10 +12464,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KMultiTabBarButton, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KMultiTabBarButton, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -10097,12 +12485,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -10115,11 +12507,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -10133,11 +12529,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -10151,11 +12551,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KMultiTabBarButton, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -10165,9 +12569,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Window(self: KMultiTabBarButton) QWidget {
+    pub fn window(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -10177,9 +12585,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn NativeParentWidget(self: KMultiTabBarButton) QWidget {
+    pub fn nativeParentWidget(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -10189,9 +12601,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn TopLevelWidget(self: KMultiTabBarButton) QWidget {
+    pub fn topLevelWidget(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -10201,9 +12617,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Palette(self: KMultiTabBarButton) QPalette {
+    pub fn palette(self: KMultiTabBarButton) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -10213,12 +12633,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KMultiTabBarButton, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KMultiTabBarButton, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10228,11 +12652,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KMultiTabBarButton, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KMultiTabBarButton, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10246,9 +12674,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KMultiTabBarButton) i32 {
+    pub fn backgroundRole(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10258,11 +12690,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KMultiTabBarButton, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KMultiTabBarButton, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -10276,9 +12712,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KMultiTabBarButton) i32 {
+    pub fn foregroundRole(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -10288,9 +12728,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Font(self: KMultiTabBarButton) QFont {
+    pub fn font(self: KMultiTabBarButton) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -10300,12 +12744,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KMultiTabBarButton, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KMultiTabBarButton, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -10315,9 +12763,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FontMetrics(self: KMultiTabBarButton) QFontMetrics {
+    pub fn fontMetrics(self: KMultiTabBarButton) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -10327,9 +12779,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FontInfo(self: KMultiTabBarButton) QFontInfo {
+    pub fn fontInfo(self: KMultiTabBarButton) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -10339,9 +12795,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Cursor(self: KMultiTabBarButton) QCursor {
+    pub fn cursor(self: KMultiTabBarButton) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -10351,12 +12811,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KMultiTabBarButton, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KMultiTabBarButton, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -10366,9 +12830,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UnsetCursor(self: KMultiTabBarButton) void {
+    pub fn unsetCursor(self: KMultiTabBarButton) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10380,9 +12848,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KMultiTabBarButton, enable: bool) void {
+    pub fn setMouseTracking(self: KMultiTabBarButton, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -10392,9 +12864,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn HasMouseTracking(self: KMultiTabBarButton) bool {
+    pub fn hasMouseTracking(self: KMultiTabBarButton) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -10404,9 +12880,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UnderMouse(self: KMultiTabBarButton) bool {
+    pub fn underMouse(self: KMultiTabBarButton) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10418,9 +12898,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KMultiTabBarButton, enable: bool) void {
+    pub fn setTabletTracking(self: KMultiTabBarButton, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -10430,24 +12914,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn HasTabletTracking(self: KMultiTabBarButton) bool {
+    pub fn hasTabletTracking(self: KMultiTabBarButton) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarButton `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KMultiTabBarButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -10457,12 +12930,35 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KMultiTabBarButton, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KMultiTabBarButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KMultiTabBarButton, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -10472,9 +12968,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Mask(self: KMultiTabBarButton) QRegion {
+    pub fn mask(self: KMultiTabBarButton) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -10484,9 +12984,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ClearMask(self: KMultiTabBarButton) void {
+    pub fn clearMask(self: KMultiTabBarButton) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -10498,10 +13002,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KMultiTabBarButton, target: anytype) void {
+    pub fn render(self: KMultiTabBarButton, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -10513,10 +13021,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KMultiTabBarButton, painter: anytype) void {
+    pub fn render2(self: KMultiTabBarButton, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -10526,9 +13038,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Grab(self: KMultiTabBarButton) QPixmap {
+    pub fn grab(self: KMultiTabBarButton) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10538,9 +13054,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn GraphicsEffect(self: KMultiTabBarButton) QGraphicsEffect {
+    pub fn graphicsEffect(self: KMultiTabBarButton) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -10552,10 +13072,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KMultiTabBarButton, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KMultiTabBarButton, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10567,9 +13091,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KMultiTabBarButton, typeVal: i32) void {
+    pub fn grabGesture(self: KMultiTabBarButton, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -10581,9 +13109,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KMultiTabBarButton, typeVal: i32) void {
+    pub fn ungrabGesture(self: KMultiTabBarButton, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10593,15 +13125,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KMultiTabBarButton, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KMultiTabBarButton, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10611,15 +13147,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KMultiTabBarButton, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KMultiTabBarButton, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -10631,13 +13171,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -10649,13 +13193,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10665,12 +13213,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KMultiTabBarButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KMultiTabBarButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -10680,9 +13232,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn WindowIcon(self: KMultiTabBarButton) QIcon {
+    pub fn windowIcon(self: KMultiTabBarButton) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10692,15 +13248,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KMultiTabBarButton, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KMultiTabBarButton, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -10712,13 +13272,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -10728,15 +13292,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KMultiTabBarButton, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KMultiTabBarButton, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -10748,13 +13316,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -10766,13 +13338,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KMultiTabBarButton, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KMultiTabBarButton, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -10784,13 +13360,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -10802,9 +13382,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KMultiTabBarButton, level: f64) void {
+    pub fn setWindowOpacity(self: KMultiTabBarButton, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -10814,9 +13398,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn WindowOpacity(self: KMultiTabBarButton) f64 {
+    pub fn windowOpacity(self: KMultiTabBarButton) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -10826,9 +13414,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsWindowModified(self: KMultiTabBarButton) bool {
+    pub fn isWindowModified(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -10838,15 +13430,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KMultiTabBarButton, toolTip: []const u8) void {
+    pub fn setToolTip(self: KMultiTabBarButton, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -10858,13 +13454,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -10876,9 +13476,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KMultiTabBarButton, msec: i32) void {
+    pub fn setToolTipDuration(self: KMultiTabBarButton, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -10888,9 +13492,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ToolTipDuration(self: KMultiTabBarButton) i32 {
+    pub fn toolTipDuration(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -10900,15 +13508,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KMultiTabBarButton, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KMultiTabBarButton, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -10920,13 +13532,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -10936,15 +13552,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KMultiTabBarButton, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KMultiTabBarButton, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -10956,13 +13576,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -10974,13 +13598,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -10992,13 +13620,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KMultiTabBarButton, name: []const u8) void {
+    pub fn setAccessibleName(self: KMultiTabBarButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11010,13 +13642,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -11028,13 +13664,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KMultiTabBarButton, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KMultiTabBarButton, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11046,9 +13686,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KMultiTabBarButton, direction: i32) void {
+    pub fn setLayoutDirection(self: KMultiTabBarButton, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11062,9 +13706,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KMultiTabBarButton) i32 {
+    pub fn layoutDirection(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -11074,9 +13722,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UnsetLayoutDirection(self: KMultiTabBarButton) void {
+    pub fn unsetLayoutDirection(self: KMultiTabBarButton) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -11086,12 +13738,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KMultiTabBarButton, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KMultiTabBarButton, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -11101,9 +13757,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Locale(self: KMultiTabBarButton) QLocale {
+    pub fn locale(self: KMultiTabBarButton) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -11113,9 +13773,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UnsetLocale(self: KMultiTabBarButton) void {
+    pub fn unsetLocale(self: KMultiTabBarButton) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -11125,9 +13789,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsRightToLeft(self: KMultiTabBarButton) bool {
+    pub fn isRightToLeft(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -11137,9 +13805,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsLeftToRight(self: KMultiTabBarButton) bool {
+    pub fn isLeftToRight(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -11149,9 +13821,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn SetFocus(self: KMultiTabBarButton) void {
+    pub fn setFocus(self: KMultiTabBarButton) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -11161,9 +13837,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsActiveWindow(self: KMultiTabBarButton) bool {
+    pub fn isActiveWindow(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -11173,9 +13853,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ActivateWindow(self: KMultiTabBarButton) void {
+    pub fn activateWindow(self: KMultiTabBarButton) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -11185,9 +13869,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ClearFocus(self: KMultiTabBarButton) void {
+    pub fn clearFocus(self: KMultiTabBarButton) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -11199,9 +13887,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KMultiTabBarButton, reason: i32) void {
+    pub fn setFocus2(self: KMultiTabBarButton, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11215,9 +13907,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KMultiTabBarButton) i32 {
+    pub fn focusPolicy(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11229,9 +13925,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KMultiTabBarButton, policy: i32) void {
+    pub fn setFocusPolicy(self: KMultiTabBarButton, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -11241,9 +13941,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn HasFocus(self: KMultiTabBarButton) bool {
+    pub fn hasFocus(self: KMultiTabBarButton) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -11255,11 +13959,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11269,12 +13977,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KMultiTabBarButton, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KMultiTabBarButton, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -11284,9 +13996,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FocusProxy(self: KMultiTabBarButton) QWidget {
+    pub fn focusProxy(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11300,9 +14016,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KMultiTabBarButton) i32 {
+    pub fn contextMenuPolicy(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -11314,9 +14034,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KMultiTabBarButton, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KMultiTabBarButton, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -11326,9 +14050,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn GrabMouse(self: KMultiTabBarButton) void {
+    pub fn grabMouse(self: KMultiTabBarButton) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -11340,10 +14068,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn grabMouse2(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -11353,9 +14085,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ReleaseMouse(self: KMultiTabBarButton) void {
+    pub fn releaseMouse(self: KMultiTabBarButton) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11365,9 +14101,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn GrabKeyboard(self: KMultiTabBarButton) void {
+    pub fn grabKeyboard(self: KMultiTabBarButton) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -11377,9 +14117,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ReleaseKeyboard(self: KMultiTabBarButton) void {
+    pub fn releaseKeyboard(self: KMultiTabBarButton) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11391,10 +14135,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KMultiTabBarButton, key: anytype) i32 {
+    pub fn grabShortcut(self: KMultiTabBarButton, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -11404,11 +14152,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KMultiTabBarButton, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
+    pub fn releaseShortcut(self: KMultiTabBarButton, _id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11418,11 +14170,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KMultiTabBarButton, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setShortcutEnabled(self: KMultiTabBarButton, _id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -11432,27 +14188,39 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KMultiTabBarButton, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setShortcutAutoRepeat(self: KMultiTabBarButton, _id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11462,9 +14230,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UpdatesEnabled(self: KMultiTabBarButton) bool {
+    pub fn updatesEnabled(self: KMultiTabBarButton) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -11476,9 +14248,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KMultiTabBarButton, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KMultiTabBarButton, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -11488,9 +14264,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn GraphicsProxyWidget(self: KMultiTabBarButton) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KMultiTabBarButton) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -11500,9 +14280,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Update(self: KMultiTabBarButton) void {
+    pub fn update(self: KMultiTabBarButton) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -11512,9 +14296,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Repaint(self: KMultiTabBarButton) void {
+    pub fn repaint(self: KMultiTabBarButton) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -11524,17 +14312,21 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KMultiTabBarButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KMultiTabBarButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -11546,11 +14338,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn update3(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -11561,10 +14357,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn update4(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -11574,17 +14374,21 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KMultiTabBarButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KMultiTabBarButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -11596,10 +14400,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn repaint3(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -11611,10 +14419,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn repaint4(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -11626,9 +14438,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KMultiTabBarButton, visible: bool) void {
+    pub fn setVisible(self: KMultiTabBarButton, visible: bool) void {
         qtc.QWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -11640,9 +14456,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KMultiTabBarButton, hidden: bool) void {
+    pub fn setHidden(self: KMultiTabBarButton, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -11652,9 +14472,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Show(self: KMultiTabBarButton) void {
+    pub fn show(self: KMultiTabBarButton) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -11664,9 +14488,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Hide(self: KMultiTabBarButton) void {
+    pub fn hide(self: KMultiTabBarButton) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -11676,9 +14504,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ShowMinimized(self: KMultiTabBarButton) void {
+    pub fn showMinimized(self: KMultiTabBarButton) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -11688,9 +14520,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ShowMaximized(self: KMultiTabBarButton) void {
+    pub fn showMaximized(self: KMultiTabBarButton) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -11700,9 +14536,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ShowFullScreen(self: KMultiTabBarButton) void {
+    pub fn showFullScreen(self: KMultiTabBarButton) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -11712,9 +14552,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ShowNormal(self: KMultiTabBarButton) void {
+    pub fn showNormal(self: KMultiTabBarButton) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -11724,9 +14568,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Close(self: KMultiTabBarButton) bool {
+    pub fn close(self: KMultiTabBarButton) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -11736,9 +14584,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Raise(self: KMultiTabBarButton) void {
+    pub fn raise(self: KMultiTabBarButton) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -11748,9 +14600,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Lower(self: KMultiTabBarButton) void {
+    pub fn lower(self: KMultiTabBarButton) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -11762,10 +14618,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn stackUnder(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -11775,13 +14635,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KMultiTabBarButton, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KMultiTabBarButton, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -11793,10 +14657,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn move2(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -11810,9 +14678,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KMultiTabBarButton, w: i32, h: i32) void {
+    pub fn resize(self: KMultiTabBarButton, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -11824,10 +14696,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn resize2(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11837,17 +14713,21 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KMultiTabBarButton, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KMultiTabBarButton, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -11857,12 +14737,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KMultiTabBarButton, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KMultiTabBarButton, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11874,13 +14758,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KMultiTabBarButton, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KMultiTabBarButton, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBarButton.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBarButton.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -11890,15 +14778,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KMultiTabBarButton, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KMultiTabBarButton, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -11908,9 +14800,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AdjustSize(self: KMultiTabBarButton) void {
+    pub fn adjustSize(self: KMultiTabBarButton) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -11920,9 +14816,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsVisible(self: KMultiTabBarButton) bool {
+    pub fn isVisible(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -11934,10 +14834,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KMultiTabBarButton, param1: anytype) bool {
+    pub fn isVisibleTo(self: KMultiTabBarButton, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -11947,9 +14851,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsHidden(self: KMultiTabBarButton) bool {
+    pub fn isHidden(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -11959,9 +14867,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsMinimized(self: KMultiTabBarButton) bool {
+    pub fn isMinimized(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -11971,9 +14883,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsMaximized(self: KMultiTabBarButton) bool {
+    pub fn isMaximized(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -11983,9 +14899,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsFullScreen(self: KMultiTabBarButton) bool {
+    pub fn isFullScreen(self: KMultiTabBarButton) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -11999,9 +14919,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KMultiTabBarButton) i32 {
+    pub fn windowState(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12013,9 +14937,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KMultiTabBarButton, state: i32) void {
+    pub fn setWindowState(self: KMultiTabBarButton, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -12027,9 +14955,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KMultiTabBarButton, state: i32) void {
+    pub fn overrideWindowState(self: KMultiTabBarButton, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12039,9 +14971,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn SizePolicy(self: KMultiTabBarButton) QSizePolicy {
+    pub fn sizePolicy(self: KMultiTabBarButton) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -12051,12 +14987,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KMultiTabBarButton, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KMultiTabBarButton, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -12070,9 +15010,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KMultiTabBarButton, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KMultiTabBarButton, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12084,9 +15028,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KMultiTabBarButton, param1: i32) i32 {
+    pub fn heightForWidth(self: KMultiTabBarButton, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -12096,9 +15044,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn HasHeightForWidth(self: KMultiTabBarButton) bool {
+    pub fn hasHeightForWidth(self: KMultiTabBarButton) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -12108,9 +15060,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn VisibleRegion(self: KMultiTabBarButton) QRegion {
+    pub fn visibleRegion(self: KMultiTabBarButton) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12128,9 +15084,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KMultiTabBarButton, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KMultiTabBarButton, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -12142,10 +15102,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KMultiTabBarButton, margins: anytype) void {
+    pub fn setContentsMargins2(self: KMultiTabBarButton, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -12155,9 +15119,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ContentsMargins(self: KMultiTabBarButton) QMargins {
+    pub fn contentsMargins(self: KMultiTabBarButton) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -12167,9 +15135,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ContentsRect(self: KMultiTabBarButton) QRect {
+    pub fn contentsRect(self: KMultiTabBarButton) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -12179,9 +15151,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Layout(self: KMultiTabBarButton) QLayout {
+    pub fn layout(self: KMultiTabBarButton) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -12191,12 +15167,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KMultiTabBarButton, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KMultiTabBarButton, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -12206,24 +15186,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn UpdateGeometry(self: KMultiTabBarButton) void {
+    pub fn updateGeometry(self: KMultiTabBarButton) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarButton `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KMultiTabBarButton, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -12233,14 +15202,37 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KMultiTabBarButton, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KMultiTabBarButton, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KMultiTabBarButton, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -12254,9 +15246,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KMultiTabBarButton, dx: i32, dy: i32) void {
+    pub fn scroll(self: KMultiTabBarButton, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -12272,10 +15268,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KMultiTabBarButton, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KMultiTabBarButton, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -12285,9 +15285,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn FocusWidget(self: KMultiTabBarButton) QWidget {
+    pub fn focusWidget(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12297,9 +15301,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn NextInFocusChain(self: KMultiTabBarButton) QWidget {
+    pub fn nextInFocusChain(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -12309,9 +15317,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn PreviousInFocusChain(self: KMultiTabBarButton) QWidget {
+    pub fn previousInFocusChain(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12321,9 +15333,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AcceptDrops(self: KMultiTabBarButton) bool {
+    pub fn acceptDrops(self: KMultiTabBarButton) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -12335,9 +15351,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KMultiTabBarButton, on: bool) void {
+    pub fn setAcceptDrops(self: KMultiTabBarButton, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -12349,10 +15369,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KMultiTabBarButton, action: anytype) void {
+    pub fn addAction(self: KMultiTabBarButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -12362,15 +15386,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KMultiTabBarButton, actions: []QAction) void {
+    pub fn addActions(self: KMultiTabBarButton, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -12382,16 +15410,20 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KMultiTabBarButton, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KMultiTabBarButton, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -12405,11 +15437,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KMultiTabBarButton, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KMultiTabBarButton, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -12421,10 +15457,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KMultiTabBarButton, action: anytype) void {
+    pub fn removeAction(self: KMultiTabBarButton, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -12436,15 +15476,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KMultiTabBarButton, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KMultiTabBarButton, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBarButton.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBarButton.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -12454,36 +15498,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KMultiTabBarButton, text: []const u8) QAction {
+    pub fn addAction2(self: KMultiTabBarButton, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarButton `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: KMultiTabBarButton, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -12493,18 +15520,22 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: KMultiTabBarButton, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: KMultiTabBarButton, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -12514,21 +15545,50 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: KMultiTabBarButton, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: KMultiTabBarButton, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: KMultiTabBarButton, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -12538,9 +15598,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ParentWidget(self: KMultiTabBarButton) QWidget {
+    pub fn parentWidget(self: KMultiTabBarButton) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12552,9 +15616,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KMultiTabBarButton, typeVal: i32) void {
+    pub fn setWindowFlags(self: KMultiTabBarButton, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12568,9 +15636,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KMultiTabBarButton) i32 {
+    pub fn windowFlags(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -12582,9 +15654,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KMultiTabBarButton, param1: i32) void {
+    pub fn setWindowFlag(self: KMultiTabBarButton, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -12596,9 +15672,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KMultiTabBarButton, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KMultiTabBarButton, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -12612,9 +15692,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KMultiTabBarButton) i32 {
+    pub fn windowType(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -12624,9 +15708,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -12636,13 +15724,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KMultiTabBarButton, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KMultiTabBarButton, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -12654,10 +15746,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KMultiTabBarButton, p: anytype) QWidget {
+    pub fn childAt2(self: KMultiTabBarButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -12669,10 +15765,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KMultiTabBarButton, p: anytype) QWidget {
+    pub fn childAt3(self: KMultiTabBarButton, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12684,9 +15784,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KMultiTabBarButton, param1: i32) void {
+    pub fn setAttribute(self: KMultiTabBarButton, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -12698,9 +15802,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KMultiTabBarButton, param1: i32) bool {
+    pub fn testAttribute(self: KMultiTabBarButton, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -12710,9 +15818,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn PaintEngine(self: KMultiTabBarButton) QPaintEngine {
+    pub fn paintEngine(self: KMultiTabBarButton) QPaintEngine {
         return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -12722,9 +15834,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn EnsurePolished(self: KMultiTabBarButton) void {
+    pub fn ensurePolished(self: KMultiTabBarButton) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -12736,10 +15852,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KMultiTabBarButton, child: anytype) bool {
+    pub fn isAncestorOf(self: KMultiTabBarButton, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12749,9 +15869,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn AutoFillBackground(self: KMultiTabBarButton) bool {
+    pub fn autoFillBackground(self: KMultiTabBarButton) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -12763,9 +15887,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KMultiTabBarButton, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KMultiTabBarButton, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -12775,9 +15903,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn BackingStore(self: KMultiTabBarButton) QBackingStore {
+    pub fn backingStore(self: KMultiTabBarButton) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -12787,9 +15919,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn WindowHandle(self: KMultiTabBarButton) QWindow {
+    pub fn windowHandle(self: KMultiTabBarButton) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -12799,9 +15935,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Screen(self: KMultiTabBarButton) QScreen {
+    pub fn screen(self: KMultiTabBarButton) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -12811,12 +15951,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KMultiTabBarButton, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KMultiTabBarButton, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -12824,12 +15968,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -12841,13 +15989,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KMultiTabBarButton, title: []const u8) void {
+    pub fn windowTitleChanged(self: KMultiTabBarButton, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -12859,9 +16011,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -12871,12 +16027,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KMultiTabBarButton, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KMultiTabBarButton, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -12888,9 +16048,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -12902,13 +16066,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KMultiTabBarButton, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KMultiTabBarButton, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -12920,9 +16088,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -12932,12 +16104,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KMultiTabBarButton, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KMultiTabBarButton, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -12949,9 +16125,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -12963,9 +16143,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KMultiTabBarButton, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KMultiTabBarButton, param1: i32) QVariant {
         return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -12979,9 +16163,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KMultiTabBarButton) i32 {
+    pub fn inputMethodHints(self: KMultiTabBarButton) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -12993,9 +16181,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KMultiTabBarButton, hints: i32) void {
+    pub fn setInputMethodHints(self: KMultiTabBarButton, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -13009,11 +16201,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KMultiTabBarButton, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KMultiTabBarButton, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -13029,13 +16225,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KMultiTabBarButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KMultiTabBarButton, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -13052,12 +16252,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KMultiTabBarButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KMultiTabBarButton, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -13071,11 +16275,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -13091,12 +16299,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -13114,12 +16326,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KMultiTabBarButton, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -13131,10 +16347,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KMultiTabBarButton, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KMultiTabBarButton, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -13148,9 +16368,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KMultiTabBarButton, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KMultiTabBarButton, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -13164,10 +16388,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KMultiTabBarButton, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KMultiTabBarButton, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -13177,13 +16405,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KMultiTabBarButton, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
+    pub fn setShortcutEnabled2(self: KMultiTabBarButton, _id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(_id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -13193,13 +16425,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KMultiTabBarButton, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
+    pub fn setShortcutAutoRepeat2(self: KMultiTabBarButton, _id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(_id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -13213,9 +16449,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KMultiTabBarButton, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KMultiTabBarButton, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -13229,25 +16469,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KMultiTabBarButton, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KMultiTabBarButton, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -13255,17 +16483,41 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -13277,13 +16529,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KMultiTabBarButton, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KMultiTabBarButton, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -13295,13 +16551,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KMultiTabBarButton, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarButton.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -13313,13 +16573,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KMultiTabBarButton, name: []const u8) void {
+    pub fn setObjectName(self: KMultiTabBarButton, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -13329,9 +16593,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsWidgetType(self: KMultiTabBarButton) bool {
+    pub fn isWidgetType(self: KMultiTabBarButton) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -13341,9 +16609,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsWindowType(self: KMultiTabBarButton) bool {
+    pub fn isWindowType(self: KMultiTabBarButton) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -13353,9 +16625,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn IsQuickItemType(self: KMultiTabBarButton) bool {
+    pub fn isQuickItemType(self: KMultiTabBarButton) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -13365,9 +16641,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn SignalsBlocked(self: KMultiTabBarButton) bool {
+    pub fn signalsBlocked(self: KMultiTabBarButton) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -13379,9 +16659,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KMultiTabBarButton, b: bool) bool {
+    pub fn blockSignals(self: KMultiTabBarButton, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -13391,9 +16675,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Thread(self: KMultiTabBarButton) QThread {
+    pub fn thread(self: KMultiTabBarButton) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -13403,12 +16691,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KMultiTabBarButton, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KMultiTabBarButton, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -13420,9 +16712,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KMultiTabBarButton, interval: i32) i32 {
+    pub fn startTimer(self: KMultiTabBarButton, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -13434,23 +16730,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KMultiTabBarButton, time: i64) i32 {
+    pub fn startTimer2(self: KMultiTabBarButton, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `killTimer` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarButton `
-    ///
-    /// ` id: i32 `
-    ///
-    pub fn KillTimer(self: KMultiTabBarButton, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
-    }
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -13460,11 +16746,33 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` id: qnamespace_enums.TimerId `
+    /// ` _id: i32 `
     ///
-    pub fn KillTimer2(self: KMultiTabBarButton, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
+    pub fn killTimer(self: KMultiTabBarButton, _id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    /// ` _id: qnamespace_enums.TimerId `
+    ///
+    pub fn killTimer2(self: KMultiTabBarButton, _id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(_id));
+    }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -13476,15 +16784,19 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KMultiTabBarButton, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KMultiTabBarButton, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBarButton.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBarButton.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13496,10 +16808,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KMultiTabBarButton, filterObj: anytype) void {
+    pub fn installEventFilter(self: KMultiTabBarButton, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -13511,10 +16827,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KMultiTabBarButton, obj: anytype) void {
+    pub fn removeEventFilter(self: KMultiTabBarButton, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -13522,7 +16842,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13530,13 +16850,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -13544,7 +16868,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13552,13 +16876,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -13568,18 +16896,22 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KMultiTabBarButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KMultiTabBarButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -13587,7 +16919,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13595,13 +16927,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -13609,7 +16945,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13617,13 +16953,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -13633,9 +16973,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Disconnect3(self: KMultiTabBarButton) bool {
+    pub fn disconnect3(self: KMultiTabBarButton) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -13647,10 +16991,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KMultiTabBarButton, receiver: anytype) bool {
+    pub fn disconnect4(self: KMultiTabBarButton, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -13660,10 +17008,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -13673,9 +17025,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DumpObjectTree(self: KMultiTabBarButton) void {
+    pub fn dumpObjectTree(self: KMultiTabBarButton) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -13685,9 +17041,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DumpObjectInfo(self: KMultiTabBarButton) void {
+    pub fn dumpObjectInfo(self: KMultiTabBarButton) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -13701,11 +17061,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KMultiTabBarButton, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KMultiTabBarButton, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -13717,10 +17081,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KMultiTabBarButton, name: [:0]const u8) QVariant {
+    pub fn property(self: KMultiTabBarButton, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -13732,7 +17100,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KMultiTabBarButton, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KMultiTabBarButton, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -13740,27 +17108,19 @@ pub const KMultiTabBarButton = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBarButton.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBarButton.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMultiTabBarButton.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMultiTabBarButton.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarButton `
-    ///
-    pub fn BindingStorage(self: KMultiTabBarButton) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -13770,9 +17130,29 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn BindingStorage2(self: KMultiTabBarButton) QBindingStorage {
+    pub fn bindingStorage(self: KMultiTabBarButton) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarButton `
+    ///
+    pub fn bindingStorage2(self: KMultiTabBarButton) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -13782,9 +17162,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Destroyed(self: KMultiTabBarButton) void {
+    pub fn destroyed(self: KMultiTabBarButton) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -13796,9 +17180,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
+    pub fn onDestroyed(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -13808,9 +17196,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Parent(self: KMultiTabBarButton) QObject {
+    pub fn parent(self: KMultiTabBarButton) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -13822,10 +17214,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KMultiTabBarButton, classname: [:0]const u8) bool {
+    pub fn inherits(self: KMultiTabBarButton, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -13835,9 +17231,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DeleteLater(self: KMultiTabBarButton) void {
+    pub fn deleteLater(self: KMultiTabBarButton) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -13851,9 +17251,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KMultiTabBarButton, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KMultiTabBarButton, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -13867,9 +17271,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KMultiTabBarButton, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KMultiTabBarButton, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -13877,7 +17285,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13887,13 +17295,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -13901,7 +17313,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -13911,13 +17323,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -13927,7 +17343,7 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -13935,12 +17351,16 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KMultiTabBarButton, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KMultiTabBarButton, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -13952,10 +17372,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KMultiTabBarButton, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KMultiTabBarButton, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -13969,11 +17393,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KMultiTabBarButton, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KMultiTabBarButton, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -13989,13 +17417,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KMultiTabBarButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KMultiTabBarButton, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -14008,11 +17440,15 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KMultiTabBarButton, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KMultiTabBarButton, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -14024,10 +17460,14 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KMultiTabBarButton, param1: anytype) void {
+    pub fn destroyed1(self: KMultiTabBarButton, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -14039,9 +17479,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -14051,9 +17495,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn PaintingActive(self: KMultiTabBarButton) bool {
+    pub fn paintingActive(self: KMultiTabBarButton) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14063,9 +17511,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn WidthMM(self: KMultiTabBarButton) i32 {
+    pub fn widthMM(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -14075,9 +17527,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn HeightMM(self: KMultiTabBarButton) i32 {
+    pub fn heightMM(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14087,9 +17543,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn LogicalDpiX(self: KMultiTabBarButton) i32 {
+    pub fn logicalDpiX(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14099,9 +17559,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn LogicalDpiY(self: KMultiTabBarButton) i32 {
+    pub fn logicalDpiY(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -14111,9 +17575,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn PhysicalDpiX(self: KMultiTabBarButton) i32 {
+    pub fn physicalDpiX(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -14123,9 +17591,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn PhysicalDpiY(self: KMultiTabBarButton) i32 {
+    pub fn physicalDpiY(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -14135,9 +17607,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DevicePixelRatio(self: KMultiTabBarButton) f64 {
+    pub fn devicePixelRatio(self: KMultiTabBarButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14147,9 +17623,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn DevicePixelRatioF(self: KMultiTabBarButton) f64 {
+    pub fn devicePixelRatioF(self: KMultiTabBarButton) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -14159,9 +17639,13 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn ColorCount(self: KMultiTabBarButton) i32 {
+    pub fn colorCount(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -14171,17 +17655,25 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Depth(self: KMultiTabBarButton) i32 {
+    pub fn depth(self: KMultiTabBarButton) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -14189,13 +17681,17 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -14209,23 +17705,23 @@ pub const KMultiTabBarButton = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarButton, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KMultiTabBarButton, callback: *const fn (KMultiTabBarButton, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbarbutton.html#dtor.KMultiTabBarButton)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMultiTabBarButton `
     ///
-    pub fn Delete(self: KMultiTabBarButton) void {
+    pub fn delete(self: KMultiTabBarButton) void {
         qtc.KMultiTabBarButton_Delete(@ptrCast(self.ptr));
     }
 };
@@ -14246,15 +17742,23 @@ pub const KMultiTabBarTab = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MetaObject(self: KMultiTabBarTab) QMetaObject {
+    pub fn metaObject(self: KMultiTabBarTab) QMetaObject {
         return .{ .ptr = qtc.KMultiTabBarTab_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -14262,10 +17766,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: KMultiTabBarTab, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: KMultiTabBarTab, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.KMultiTabBarTab_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -14277,9 +17785,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: KMultiTabBarTab, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: KMultiTabBarTab, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.KMultiTabBarTab_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -14289,14 +17801,18 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#sizeHint)
     ///
@@ -14304,9 +17820,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn SizeHint(self: KMultiTabBarTab) QSize {
+    pub fn sizeHint(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.KMultiTabBarTab_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#minimumSizeHint)
     ///
@@ -14314,9 +17834,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MinimumSizeHint(self: KMultiTabBarTab) QSize {
+    pub fn minimumSizeHint(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.KMultiTabBarTab_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPosition` instead
+    ///
+    pub const SetPosition = setPosition;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#setPosition)
     ///
@@ -14324,11 +17848,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` position: kmultitabbar_enums.KMultiTabBarPosition `
+    /// ` _position: kmultitabbar_enums.KMultiTabBarPosition `
     ///
-    pub fn SetPosition(self: KMultiTabBarTab, position: i32) void {
-        qtc.KMultiTabBarTab_SetPosition(@ptrCast(self.ptr), @bitCast(position));
+    pub fn setPosition(self: KMultiTabBarTab, _position: i32) void {
+        qtc.KMultiTabBarTab_SetPosition(@ptrCast(self.ptr), @bitCast(_position));
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#setStyle)
     ///
@@ -14336,11 +17864,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` style: kmultitabbar_enums.KMultiTabBarStyle `
+    /// ` _style: kmultitabbar_enums.KMultiTabBarStyle `
     ///
-    pub fn SetStyle(self: KMultiTabBarTab, style: i32) void {
-        qtc.KMultiTabBarTab_SetStyle(@ptrCast(self.ptr), @bitCast(style));
+    pub fn setStyle(self: KMultiTabBarTab, _style: i32) void {
+        qtc.KMultiTabBarTab_SetStyle(@ptrCast(self.ptr), @bitCast(_style));
     }
+
+    /// ### DEPRECATED: Use `setState` instead
+    ///
+    pub const SetState = setState;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#setState)
     ///
@@ -14350,9 +17882,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` state: bool `
     ///
-    pub fn SetState(self: KMultiTabBarTab, state: bool) void {
+    pub fn setState(self: KMultiTabBarTab, state: bool) void {
         qtc.KMultiTabBarTab_SetState(@ptrCast(self.ptr), state);
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -14364,15 +17900,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -14386,15 +17926,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `id` instead
+    ///
+    pub const Id = id;
 
     /// Inherited from KMultiTabBarButton
     ///
@@ -14404,9 +17948,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Id(self: KMultiTabBarTab) i32 {
+    pub fn id(self: KMultiTabBarTab) i32 {
         return qtc.KMultiTabBarButton_Id(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setText` instead
+    ///
+    pub const SetText = setText;
 
     /// Inherited from KMultiTabBarButton
     ///
@@ -14416,15 +17964,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn SetText(self: KMultiTabBarTab, text: []const u8) void {
+    pub fn setText(self: KMultiTabBarTab, _text: []const u8) void {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         qtc.KMultiTabBarButton_SetText(@ptrCast(self.ptr), text_str);
     }
+
+    /// ### DEPRECATED: Use `clicked` instead
+    ///
+    pub const Clicked = clicked;
 
     /// Inherited from KMultiTabBarButton
     ///
@@ -14434,11 +17986,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn Clicked(self: KMultiTabBarTab, id: i32) void {
-        qtc.KMultiTabBarButton_Clicked(@ptrCast(self.ptr), @bitCast(id));
+    pub fn clicked(self: KMultiTabBarTab, _id: i32) void {
+        qtc.KMultiTabBarButton_Clicked(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `onClicked` instead
+    ///
+    pub const OnClicked = onClicked;
 
     /// Inherited from KMultiTabBarButton
     ///
@@ -14450,9 +18006,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, id: i32) callconv(.c) void `
     ///
-    pub fn OnClicked(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, i32) callconv(.c) void) void {
+    pub fn onClicked(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, i32) callconv(.c) void) void {
         qtc.KMultiTabBarButton_Connect_Clicked(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `autoDefault` instead
+    ///
+    pub const AutoDefault = autoDefault;
 
     /// Inherited from QPushButton
     ///
@@ -14462,9 +18022,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoDefault(self: KMultiTabBarTab) bool {
+    pub fn autoDefault(self: KMultiTabBarTab) bool {
         return qtc.QPushButton_AutoDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoDefault` instead
+    ///
+    pub const SetAutoDefault = setAutoDefault;
 
     /// Inherited from QPushButton
     ///
@@ -14474,11 +18038,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` autoDefault: bool `
+    /// ` _autoDefault: bool `
     ///
-    pub fn SetAutoDefault(self: KMultiTabBarTab, autoDefault: bool) void {
-        qtc.QPushButton_SetAutoDefault(@ptrCast(self.ptr), autoDefault);
+    pub fn setAutoDefault(self: KMultiTabBarTab, _autoDefault: bool) void {
+        qtc.QPushButton_SetAutoDefault(@ptrCast(self.ptr), _autoDefault);
     }
+
+    /// ### DEPRECATED: Use `isDefault` instead
+    ///
+    pub const IsDefault = isDefault;
 
     /// Inherited from QPushButton
     ///
@@ -14488,9 +18056,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsDefault(self: KMultiTabBarTab) bool {
+    pub fn isDefault(self: KMultiTabBarTab) bool {
         return qtc.QPushButton_IsDefault(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDefault` instead
+    ///
+    pub const SetDefault = setDefault;
 
     /// Inherited from QPushButton
     ///
@@ -14502,9 +18074,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` defaultVal: bool `
     ///
-    pub fn SetDefault(self: KMultiTabBarTab, defaultVal: bool) void {
+    pub fn setDefault(self: KMultiTabBarTab, defaultVal: bool) void {
         qtc.QPushButton_SetDefault(@ptrCast(self.ptr), defaultVal);
     }
+
+    /// ### DEPRECATED: Use `setMenu` instead
+    ///
+    pub const SetMenu = setMenu;
 
     /// Inherited from QPushButton
     ///
@@ -14514,12 +18090,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` menu: QMenu `
+    /// ` _menu: QMenu `
     ///
-    pub fn SetMenu(self: KMultiTabBarTab, menu: anytype) void {
-        comptime _ = @TypeOf(menu)._is_QMenu;
-        qtc.QPushButton_SetMenu(@ptrCast(self.ptr), @ptrCast(menu.ptr));
+    pub fn setMenu(self: KMultiTabBarTab, _menu: anytype) void {
+        comptime _ = @TypeOf(_menu)._is_QMenu;
+        qtc.QPushButton_SetMenu(@ptrCast(self.ptr), @ptrCast(_menu.ptr));
     }
+
+    /// ### DEPRECATED: Use `menu` instead
+    ///
+    pub const Menu = menu;
 
     /// Inherited from QPushButton
     ///
@@ -14529,9 +18109,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Menu(self: KMultiTabBarTab) QMenu {
+    pub fn menu(self: KMultiTabBarTab) QMenu {
         return .{ .ptr = qtc.QPushButton_Menu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFlat` instead
+    ///
+    pub const SetFlat = setFlat;
 
     /// Inherited from QPushButton
     ///
@@ -14543,9 +18127,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` flat: bool `
     ///
-    pub fn SetFlat(self: KMultiTabBarTab, flat: bool) void {
+    pub fn setFlat(self: KMultiTabBarTab, flat: bool) void {
         qtc.QPushButton_SetFlat(@ptrCast(self.ptr), flat);
     }
+
+    /// ### DEPRECATED: Use `isFlat` instead
+    ///
+    pub const IsFlat = isFlat;
 
     /// Inherited from QPushButton
     ///
@@ -14555,9 +18143,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsFlat(self: KMultiTabBarTab) bool {
+    pub fn isFlat(self: KMultiTabBarTab) bool {
         return qtc.QPushButton_IsFlat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMenu` instead
+    ///
+    pub const ShowMenu = showMenu;
 
     /// Inherited from QPushButton
     ///
@@ -14567,9 +18159,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ShowMenu(self: KMultiTabBarTab) void {
+    pub fn showMenu(self: KMultiTabBarTab) void {
         qtc.QPushButton_ShowMenu(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `text` instead
+    ///
+    pub const Text = text;
 
     /// Inherited from QAbstractButton
     ///
@@ -14581,13 +18177,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Text(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn text(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QAbstractButton_Text(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.Text: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.text: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setIcon` instead
+    ///
+    pub const SetIcon = setIcon;
 
     /// Inherited from QAbstractButton
     ///
@@ -14597,12 +18197,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetIcon(self: KMultiTabBarTab, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setIcon(self: KMultiTabBarTab, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QAbstractButton_SetIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// Inherited from QAbstractButton
     ///
@@ -14612,9 +18216,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Icon(self: KMultiTabBarTab) QIcon {
+    pub fn icon(self: KMultiTabBarTab) QIcon {
         return .{ .ptr = qtc.QAbstractButton_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconSize` instead
+    ///
+    pub const IconSize = iconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -14624,9 +18232,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IconSize(self: KMultiTabBarTab) QSize {
+    pub fn iconSize(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QAbstractButton_IconSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setShortcut` instead
+    ///
+    pub const SetShortcut = setShortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -14638,10 +18250,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn SetShortcut(self: KMultiTabBarTab, key: anytype) void {
+    pub fn setShortcut(self: KMultiTabBarTab, key: anytype) void {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         qtc.QAbstractButton_SetShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `shortcut` instead
+    ///
+    pub const Shortcut = shortcut;
 
     /// Inherited from QAbstractButton
     ///
@@ -14651,9 +18267,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Shortcut(self: KMultiTabBarTab) QKeySequence {
+    pub fn shortcut(self: KMultiTabBarTab) QKeySequence {
         return .{ .ptr = qtc.QAbstractButton_Shortcut(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCheckable` instead
+    ///
+    pub const SetCheckable = setCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -14665,9 +18285,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` checkable: bool `
     ///
-    pub fn SetCheckable(self: KMultiTabBarTab, checkable: bool) void {
+    pub fn setCheckable(self: KMultiTabBarTab, checkable: bool) void {
         qtc.QAbstractButton_SetCheckable(@ptrCast(self.ptr), checkable);
     }
+
+    /// ### DEPRECATED: Use `isCheckable` instead
+    ///
+    pub const IsCheckable = isCheckable;
 
     /// Inherited from QAbstractButton
     ///
@@ -14677,9 +18301,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsCheckable(self: KMultiTabBarTab) bool {
+    pub fn isCheckable(self: KMultiTabBarTab) bool {
         return qtc.QAbstractButton_IsCheckable(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isChecked` instead
+    ///
+    pub const IsChecked = isChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -14689,9 +18317,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsChecked(self: KMultiTabBarTab) bool {
+    pub fn isChecked(self: KMultiTabBarTab) bool {
         return qtc.QAbstractButton_IsChecked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setDown` instead
+    ///
+    pub const SetDown = setDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -14703,9 +18335,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` down: bool `
     ///
-    pub fn SetDown(self: KMultiTabBarTab, down: bool) void {
+    pub fn setDown(self: KMultiTabBarTab, down: bool) void {
         qtc.QAbstractButton_SetDown(@ptrCast(self.ptr), down);
     }
+
+    /// ### DEPRECATED: Use `isDown` instead
+    ///
+    pub const IsDown = isDown;
 
     /// Inherited from QAbstractButton
     ///
@@ -14715,9 +18351,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsDown(self: KMultiTabBarTab) bool {
+    pub fn isDown(self: KMultiTabBarTab) bool {
         return qtc.QAbstractButton_IsDown(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeat` instead
+    ///
+    pub const SetAutoRepeat = setAutoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -14727,11 +18367,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` autoRepeat: bool `
+    /// ` _autoRepeat: bool `
     ///
-    pub fn SetAutoRepeat(self: KMultiTabBarTab, autoRepeat: bool) void {
-        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), autoRepeat);
+    pub fn setAutoRepeat(self: KMultiTabBarTab, _autoRepeat: bool) void {
+        qtc.QAbstractButton_SetAutoRepeat(@ptrCast(self.ptr), _autoRepeat);
     }
+
+    /// ### DEPRECATED: Use `autoRepeat` instead
+    ///
+    pub const AutoRepeat = autoRepeat;
 
     /// Inherited from QAbstractButton
     ///
@@ -14741,9 +18385,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoRepeat(self: KMultiTabBarTab) bool {
+    pub fn autoRepeat(self: KMultiTabBarTab) bool {
         return qtc.QAbstractButton_AutoRepeat(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatDelay` instead
+    ///
+    pub const SetAutoRepeatDelay = setAutoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -14753,11 +18401,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` autoRepeatDelay: i32 `
+    /// ` _autoRepeatDelay: i32 `
     ///
-    pub fn SetAutoRepeatDelay(self: KMultiTabBarTab, autoRepeatDelay: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(autoRepeatDelay));
+    pub fn setAutoRepeatDelay(self: KMultiTabBarTab, _autoRepeatDelay: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatDelay(@ptrCast(self.ptr), @bitCast(_autoRepeatDelay));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatDelay` instead
+    ///
+    pub const AutoRepeatDelay = autoRepeatDelay;
 
     /// Inherited from QAbstractButton
     ///
@@ -14767,9 +18419,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoRepeatDelay(self: KMultiTabBarTab) i32 {
+    pub fn autoRepeatDelay(self: KMultiTabBarTab) i32 {
         return qtc.QAbstractButton_AutoRepeatDelay(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoRepeatInterval` instead
+    ///
+    pub const SetAutoRepeatInterval = setAutoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -14779,11 +18435,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` autoRepeatInterval: i32 `
+    /// ` _autoRepeatInterval: i32 `
     ///
-    pub fn SetAutoRepeatInterval(self: KMultiTabBarTab, autoRepeatInterval: i32) void {
-        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(autoRepeatInterval));
+    pub fn setAutoRepeatInterval(self: KMultiTabBarTab, _autoRepeatInterval: i32) void {
+        qtc.QAbstractButton_SetAutoRepeatInterval(@ptrCast(self.ptr), @bitCast(_autoRepeatInterval));
     }
+
+    /// ### DEPRECATED: Use `autoRepeatInterval` instead
+    ///
+    pub const AutoRepeatInterval = autoRepeatInterval;
 
     /// Inherited from QAbstractButton
     ///
@@ -14793,9 +18453,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoRepeatInterval(self: KMultiTabBarTab) i32 {
+    pub fn autoRepeatInterval(self: KMultiTabBarTab) i32 {
         return qtc.QAbstractButton_AutoRepeatInterval(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoExclusive` instead
+    ///
+    pub const SetAutoExclusive = setAutoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -14805,11 +18469,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` autoExclusive: bool `
+    /// ` _autoExclusive: bool `
     ///
-    pub fn SetAutoExclusive(self: KMultiTabBarTab, autoExclusive: bool) void {
-        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), autoExclusive);
+    pub fn setAutoExclusive(self: KMultiTabBarTab, _autoExclusive: bool) void {
+        qtc.QAbstractButton_SetAutoExclusive(@ptrCast(self.ptr), _autoExclusive);
     }
+
+    /// ### DEPRECATED: Use `autoExclusive` instead
+    ///
+    pub const AutoExclusive = autoExclusive;
 
     /// Inherited from QAbstractButton
     ///
@@ -14819,9 +18487,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoExclusive(self: KMultiTabBarTab) bool {
+    pub fn autoExclusive(self: KMultiTabBarTab) bool {
         return qtc.QAbstractButton_AutoExclusive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `group` instead
+    ///
+    pub const Group = group;
 
     /// Inherited from QAbstractButton
     ///
@@ -14831,9 +18503,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Group(self: KMultiTabBarTab) QButtonGroup {
+    pub fn group(self: KMultiTabBarTab) QButtonGroup {
         return .{ .ptr = qtc.QAbstractButton_Group(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setIconSize` instead
+    ///
+    pub const SetIconSize = setIconSize;
 
     /// Inherited from QAbstractButton
     ///
@@ -14843,12 +18519,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` size: QSize `
+    /// ` _size: QSize `
     ///
-    pub fn SetIconSize(self: KMultiTabBarTab, size: anytype) void {
-        comptime _ = @TypeOf(size)._is_QSize;
-        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(size.ptr));
+    pub fn setIconSize(self: KMultiTabBarTab, _size: anytype) void {
+        comptime _ = @TypeOf(_size)._is_QSize;
+        qtc.QAbstractButton_SetIconSize(@ptrCast(self.ptr), @ptrCast(_size.ptr));
     }
+
+    /// ### DEPRECATED: Use `animateClick` instead
+    ///
+    pub const AnimateClick = animateClick;
 
     /// Inherited from QAbstractButton
     ///
@@ -14858,9 +18538,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AnimateClick(self: KMultiTabBarTab) void {
+    pub fn animateClick(self: KMultiTabBarTab) void {
         qtc.QAbstractButton_AnimateClick(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `click` instead
+    ///
+    pub const Click = click;
 
     /// Inherited from QAbstractButton
     ///
@@ -14870,9 +18554,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Click(self: KMultiTabBarTab) void {
+    pub fn click(self: KMultiTabBarTab) void {
         qtc.QAbstractButton_Click(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `toggle` instead
+    ///
+    pub const Toggle = toggle;
 
     /// Inherited from QAbstractButton
     ///
@@ -14882,9 +18570,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Toggle(self: KMultiTabBarTab) void {
+    pub fn toggle(self: KMultiTabBarTab) void {
         qtc.QAbstractButton_Toggle(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setChecked` instead
+    ///
+    pub const SetChecked = setChecked;
 
     /// Inherited from QAbstractButton
     ///
@@ -14896,10 +18588,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn SetChecked(self: KMultiTabBarTab, checked: bool) void {
+    pub fn setChecked(self: KMultiTabBarTab, checked: bool) void {
         qtc.QAbstractButton_SetChecked(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `pressed` instead
+    ///
+    pub const Pressed = pressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -14908,10 +18604,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Pressed(self: KMultiTabBarTab) void {
+    pub fn pressed(self: KMultiTabBarTab) void {
         qtc.QAbstractButton_Pressed(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onPressed` instead
+    ///
+    pub const OnPressed = onPressed;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#pressed)
@@ -14922,9 +18622,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab) callconv(.c) void `
     ///
-    pub fn OnPressed(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
+    pub fn onPressed(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Pressed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `released` instead
+    ///
+    pub const Released = released;
 
     /// Inherited from QAbstractButton
     ///
@@ -14934,9 +18638,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Released(self: KMultiTabBarTab) void {
+    pub fn released(self: KMultiTabBarTab) void {
         qtc.QAbstractButton_Released(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onReleased` instead
+    ///
+    pub const OnReleased = onReleased;
 
     /// Inherited from QAbstractButton
     ///
@@ -14948,10 +18656,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab) callconv(.c) void `
     ///
-    pub fn OnReleased(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
+    pub fn onReleased(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Released(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `toggled` instead
+    ///
+    pub const Toggled = toggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -14962,10 +18674,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Toggled(self: KMultiTabBarTab, checked: bool) void {
+    pub fn toggled(self: KMultiTabBarTab, checked: bool) void {
         qtc.QAbstractButton_Toggled(@ptrCast(self.ptr), checked);
     }
 
+    /// ### DEPRECATED: Use `onToggled` instead
+    ///
+    pub const OnToggled = onToggled;
+
     /// Inherited from QAbstractButton
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qabstractbutton.html#toggled)
@@ -14976,9 +18692,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, checked: bool) callconv(.c) void `
     ///
-    pub fn OnToggled(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, bool) callconv(.c) void) void {
+    pub fn onToggled(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Toggled(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `clicked1` instead
+    ///
+    pub const Clicked1 = clicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -14990,9 +18710,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn Clicked1(self: KMultiTabBarTab, checked: bool) void {
+    pub fn clicked1(self: KMultiTabBarTab, checked: bool) void {
         qtc.QAbstractButton_Clicked1(@ptrCast(self.ptr), checked);
     }
+
+    /// ### DEPRECATED: Use `onClicked1` instead
+    ///
+    pub const OnClicked1 = onClicked1;
 
     /// Inherited from QAbstractButton
     ///
@@ -15004,9 +18728,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, checked: bool) callconv(.c) void `
     ///
-    pub fn OnClicked1(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, bool) callconv(.c) void) void {
+    pub fn onClicked1(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, bool) callconv(.c) void) void {
         qtc.QAbstractButton_Connect_Clicked1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -15016,9 +18744,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DevType(self: KMultiTabBarTab) i32 {
+    pub fn devType(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_DevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -15028,9 +18760,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn WinId(self: KMultiTabBarTab) usize {
+    pub fn winId(self: KMultiTabBarTab) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -15040,9 +18776,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn CreateWinId(self: KMultiTabBarTab) void {
+    pub fn createWinId(self: KMultiTabBarTab) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -15052,9 +18792,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn InternalWinId(self: KMultiTabBarTab) usize {
+    pub fn internalWinId(self: KMultiTabBarTab) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -15064,9 +18808,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn EffectiveWinId(self: KMultiTabBarTab) usize {
+    pub fn effectiveWinId(self: KMultiTabBarTab) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -15076,9 +18824,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Style(self: KMultiTabBarTab) QStyle {
+    pub fn style(self: KMultiTabBarTab) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -15088,9 +18840,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsTopLevel(self: KMultiTabBarTab) bool {
+    pub fn isTopLevel(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -15100,9 +18856,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsWindow(self: KMultiTabBarTab) bool {
+    pub fn isWindow(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -15112,9 +18872,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsModal(self: KMultiTabBarTab) bool {
+    pub fn isModal(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -15128,9 +18892,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: KMultiTabBarTab) i32 {
+    pub fn windowModality(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -15140,11 +18908,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: KMultiTabBarTab, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: KMultiTabBarTab, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -15154,9 +18926,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsEnabled(self: KMultiTabBarTab) bool {
+    pub fn isEnabled(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -15168,10 +18944,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: KMultiTabBarTab, param1: anytype) bool {
+    pub fn isEnabledTo(self: KMultiTabBarTab, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -15183,9 +18963,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: KMultiTabBarTab, enabled: bool) void {
+    pub fn setEnabled(self: KMultiTabBarTab, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -15197,9 +18981,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: KMultiTabBarTab, disabled: bool) void {
+    pub fn setDisabled(self: KMultiTabBarTab, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -15211,9 +18999,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: KMultiTabBarTab, windowModified: bool) void {
+    pub fn setWindowModified(self: KMultiTabBarTab, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -15223,9 +19015,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FrameGeometry(self: KMultiTabBarTab) QRect {
+    pub fn frameGeometry(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -15235,9 +19031,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Geometry(self: KMultiTabBarTab) QRect {
+    pub fn geometry(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -15247,9 +19047,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn NormalGeometry(self: KMultiTabBarTab) QRect {
+    pub fn normalGeometry(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -15259,9 +19063,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn X(self: KMultiTabBarTab) i32 {
+    pub fn x(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -15271,9 +19079,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Y(self: KMultiTabBarTab) i32 {
+    pub fn y(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -15283,9 +19095,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Pos(self: KMultiTabBarTab) QPoint {
+    pub fn pos(self: KMultiTabBarTab) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -15295,9 +19111,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FrameSize(self: KMultiTabBarTab) QSize {
+    pub fn frameSize(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -15307,9 +19127,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Size(self: KMultiTabBarTab) QSize {
+    pub fn size(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -15319,9 +19143,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Width(self: KMultiTabBarTab) i32 {
+    pub fn width(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -15331,9 +19159,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Height(self: KMultiTabBarTab) i32 {
+    pub fn height(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -15343,9 +19175,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Rect(self: KMultiTabBarTab) QRect {
+    pub fn rect(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -15355,9 +19191,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ChildrenRect(self: KMultiTabBarTab) QRect {
+    pub fn childrenRect(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -15367,9 +19207,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ChildrenRegion(self: KMultiTabBarTab) QRegion {
+    pub fn childrenRegion(self: KMultiTabBarTab) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -15379,9 +19223,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MinimumSize(self: KMultiTabBarTab) QSize {
+    pub fn minimumSize(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -15391,9 +19239,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MaximumSize(self: KMultiTabBarTab) QSize {
+    pub fn maximumSize(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -15403,9 +19255,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MinimumWidth(self: KMultiTabBarTab) i32 {
+    pub fn minimumWidth(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -15415,9 +19271,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MinimumHeight(self: KMultiTabBarTab) i32 {
+    pub fn minimumHeight(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -15427,9 +19287,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MaximumWidth(self: KMultiTabBarTab) i32 {
+    pub fn maximumWidth(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -15439,9 +19303,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn MaximumHeight(self: KMultiTabBarTab) i32 {
+    pub fn maximumHeight(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -15451,12 +19319,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: KMultiTabBarTab, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: KMultiTabBarTab, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -15470,9 +19342,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: KMultiTabBarTab, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: KMultiTabBarTab, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -15482,12 +19358,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: KMultiTabBarTab, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: KMultiTabBarTab, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -15501,9 +19381,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: KMultiTabBarTab, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: KMultiTabBarTab, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -15515,9 +19399,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: KMultiTabBarTab, minw: i32) void {
+    pub fn setMinimumWidth(self: KMultiTabBarTab, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -15529,9 +19417,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: KMultiTabBarTab, minh: i32) void {
+    pub fn setMinimumHeight(self: KMultiTabBarTab, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -15543,9 +19435,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: KMultiTabBarTab, maxw: i32) void {
+    pub fn setMaximumWidth(self: KMultiTabBarTab, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -15557,9 +19453,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: KMultiTabBarTab, maxh: i32) void {
+    pub fn setMaximumHeight(self: KMultiTabBarTab, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -15569,9 +19469,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn SizeIncrement(self: KMultiTabBarTab) QSize {
+    pub fn sizeIncrement(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -15581,12 +19485,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: KMultiTabBarTab, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: KMultiTabBarTab, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -15600,9 +19508,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: KMultiTabBarTab, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: KMultiTabBarTab, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -15612,9 +19524,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn BaseSize(self: KMultiTabBarTab) QSize {
+    pub fn baseSize(self: KMultiTabBarTab) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -15624,12 +19540,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: KMultiTabBarTab, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: KMultiTabBarTab, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -15643,9 +19563,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: KMultiTabBarTab, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: KMultiTabBarTab, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -15657,10 +19581,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: KMultiTabBarTab, fixedSize: anytype) void {
+    pub fn setFixedSize(self: KMultiTabBarTab, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -15674,9 +19602,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: KMultiTabBarTab, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: KMultiTabBarTab, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -15688,9 +19620,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: KMultiTabBarTab, w: i32) void {
+    pub fn setFixedWidth(self: KMultiTabBarTab, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -15702,9 +19638,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: KMultiTabBarTab, h: i32) void {
+    pub fn setFixedHeight(self: KMultiTabBarTab, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -15716,11 +19656,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: KMultiTabBarTab, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: KMultiTabBarTab, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -15731,11 +19675,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: KMultiTabBarTab, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: KMultiTabBarTab, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -15746,11 +19694,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: KMultiTabBarTab, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: KMultiTabBarTab, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -15761,11 +19713,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: KMultiTabBarTab, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: KMultiTabBarTab, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -15776,11 +19732,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: KMultiTabBarTab, param1: anytype) QPointF {
+    pub fn mapToParent(self: KMultiTabBarTab, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -15791,10 +19751,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: KMultiTabBarTab, param1: anytype) QPoint {
+    pub fn mapToParent2(self: KMultiTabBarTab, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -15806,10 +19770,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: KMultiTabBarTab, param1: anytype) QPointF {
+    pub fn mapFromParent(self: KMultiTabBarTab, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -15821,10 +19789,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: KMultiTabBarTab, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: KMultiTabBarTab, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -15838,12 +19810,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -15856,11 +19832,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -15874,11 +19854,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -15892,11 +19876,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: KMultiTabBarTab, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -15906,9 +19894,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Window(self: KMultiTabBarTab) QWidget {
+    pub fn window(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -15918,9 +19910,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn NativeParentWidget(self: KMultiTabBarTab) QWidget {
+    pub fn nativeParentWidget(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -15930,9 +19926,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn TopLevelWidget(self: KMultiTabBarTab) QWidget {
+    pub fn topLevelWidget(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -15942,9 +19942,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Palette(self: KMultiTabBarTab) QPalette {
+    pub fn palette(self: KMultiTabBarTab) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -15954,12 +19958,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: KMultiTabBarTab, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: KMultiTabBarTab, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -15969,11 +19977,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: KMultiTabBarTab, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: KMultiTabBarTab, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -15987,9 +19999,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: KMultiTabBarTab) i32 {
+    pub fn backgroundRole(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -15999,11 +20015,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: KMultiTabBarTab, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: KMultiTabBarTab, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -16017,9 +20037,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: KMultiTabBarTab) i32 {
+    pub fn foregroundRole(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -16029,9 +20053,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Font(self: KMultiTabBarTab) QFont {
+    pub fn font(self: KMultiTabBarTab) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -16041,12 +20069,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: KMultiTabBarTab, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: KMultiTabBarTab, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -16056,9 +20088,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FontMetrics(self: KMultiTabBarTab) QFontMetrics {
+    pub fn fontMetrics(self: KMultiTabBarTab) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -16068,9 +20104,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FontInfo(self: KMultiTabBarTab) QFontInfo {
+    pub fn fontInfo(self: KMultiTabBarTab) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -16080,9 +20120,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Cursor(self: KMultiTabBarTab) QCursor {
+    pub fn cursor(self: KMultiTabBarTab) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -16092,12 +20136,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: KMultiTabBarTab, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: KMultiTabBarTab, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -16107,9 +20155,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UnsetCursor(self: KMultiTabBarTab) void {
+    pub fn unsetCursor(self: KMultiTabBarTab) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -16121,9 +20173,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: KMultiTabBarTab, enable: bool) void {
+    pub fn setMouseTracking(self: KMultiTabBarTab, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -16133,9 +20189,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn HasMouseTracking(self: KMultiTabBarTab) bool {
+    pub fn hasMouseTracking(self: KMultiTabBarTab) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -16145,9 +20205,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UnderMouse(self: KMultiTabBarTab) bool {
+    pub fn underMouse(self: KMultiTabBarTab) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -16159,9 +20223,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: KMultiTabBarTab, enable: bool) void {
+    pub fn setTabletTracking(self: KMultiTabBarTab, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -16171,24 +20239,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn HasTabletTracking(self: KMultiTabBarTab) bool {
+    pub fn hasTabletTracking(self: KMultiTabBarTab) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarTab `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: KMultiTabBarTab, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -16198,12 +20255,35 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: KMultiTabBarTab, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: KMultiTabBarTab, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: KMultiTabBarTab, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -16213,9 +20293,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Mask(self: KMultiTabBarTab) QRegion {
+    pub fn mask(self: KMultiTabBarTab) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -16225,9 +20309,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ClearMask(self: KMultiTabBarTab) void {
+    pub fn clearMask(self: KMultiTabBarTab) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -16239,10 +20327,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: KMultiTabBarTab, target: anytype) void {
+    pub fn render(self: KMultiTabBarTab, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -16254,10 +20346,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: KMultiTabBarTab, painter: anytype) void {
+    pub fn render2(self: KMultiTabBarTab, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -16267,9 +20363,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Grab(self: KMultiTabBarTab) QPixmap {
+    pub fn grab(self: KMultiTabBarTab) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -16279,9 +20379,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn GraphicsEffect(self: KMultiTabBarTab) QGraphicsEffect {
+    pub fn graphicsEffect(self: KMultiTabBarTab) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -16293,10 +20397,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: KMultiTabBarTab, effect: anytype) void {
+    pub fn setGraphicsEffect(self: KMultiTabBarTab, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -16308,9 +20416,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: KMultiTabBarTab, typeVal: i32) void {
+    pub fn grabGesture(self: KMultiTabBarTab, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -16322,9 +20434,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: KMultiTabBarTab, typeVal: i32) void {
+    pub fn ungrabGesture(self: KMultiTabBarTab, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -16334,15 +20450,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: KMultiTabBarTab, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: KMultiTabBarTab, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -16352,15 +20472,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: KMultiTabBarTab, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: KMultiTabBarTab, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -16372,13 +20496,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -16390,13 +20518,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -16406,12 +20538,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: KMultiTabBarTab, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: KMultiTabBarTab, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -16421,9 +20557,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn WindowIcon(self: KMultiTabBarTab) QIcon {
+    pub fn windowIcon(self: KMultiTabBarTab) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -16433,15 +20573,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: KMultiTabBarTab, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: KMultiTabBarTab, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -16453,13 +20597,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -16469,15 +20617,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: KMultiTabBarTab, windowRole: []const u8) void {
+    pub fn setWindowRole(self: KMultiTabBarTab, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -16489,13 +20641,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -16507,13 +20663,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: KMultiTabBarTab, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: KMultiTabBarTab, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -16525,13 +20685,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -16543,9 +20707,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: KMultiTabBarTab, level: f64) void {
+    pub fn setWindowOpacity(self: KMultiTabBarTab, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -16555,9 +20723,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn WindowOpacity(self: KMultiTabBarTab) f64 {
+    pub fn windowOpacity(self: KMultiTabBarTab) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -16567,9 +20739,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsWindowModified(self: KMultiTabBarTab) bool {
+    pub fn isWindowModified(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -16579,15 +20755,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: KMultiTabBarTab, toolTip: []const u8) void {
+    pub fn setToolTip(self: KMultiTabBarTab, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -16599,13 +20779,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -16617,9 +20801,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: KMultiTabBarTab, msec: i32) void {
+    pub fn setToolTipDuration(self: KMultiTabBarTab, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -16629,9 +20817,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ToolTipDuration(self: KMultiTabBarTab) i32 {
+    pub fn toolTipDuration(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -16641,15 +20833,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: KMultiTabBarTab, statusTip: []const u8) void {
+    pub fn setStatusTip(self: KMultiTabBarTab, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -16661,13 +20857,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -16677,15 +20877,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: KMultiTabBarTab, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: KMultiTabBarTab, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -16697,13 +20901,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -16715,13 +20923,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -16733,13 +20945,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: KMultiTabBarTab, name: []const u8) void {
+    pub fn setAccessibleName(self: KMultiTabBarTab, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -16751,13 +20967,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -16769,13 +20989,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: KMultiTabBarTab, description: []const u8) void {
+    pub fn setAccessibleDescription(self: KMultiTabBarTab, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -16787,9 +21011,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: KMultiTabBarTab, direction: i32) void {
+    pub fn setLayoutDirection(self: KMultiTabBarTab, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -16803,9 +21031,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: KMultiTabBarTab) i32 {
+    pub fn layoutDirection(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -16815,9 +21047,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UnsetLayoutDirection(self: KMultiTabBarTab) void {
+    pub fn unsetLayoutDirection(self: KMultiTabBarTab) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -16827,12 +21063,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: KMultiTabBarTab, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: KMultiTabBarTab, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -16842,9 +21082,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Locale(self: KMultiTabBarTab) QLocale {
+    pub fn locale(self: KMultiTabBarTab) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -16854,9 +21098,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UnsetLocale(self: KMultiTabBarTab) void {
+    pub fn unsetLocale(self: KMultiTabBarTab) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -16866,9 +21114,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsRightToLeft(self: KMultiTabBarTab) bool {
+    pub fn isRightToLeft(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -16878,9 +21130,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsLeftToRight(self: KMultiTabBarTab) bool {
+    pub fn isLeftToRight(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -16890,9 +21146,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn SetFocus(self: KMultiTabBarTab) void {
+    pub fn setFocus(self: KMultiTabBarTab) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -16902,9 +21162,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsActiveWindow(self: KMultiTabBarTab) bool {
+    pub fn isActiveWindow(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -16914,9 +21178,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ActivateWindow(self: KMultiTabBarTab) void {
+    pub fn activateWindow(self: KMultiTabBarTab) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -16926,9 +21194,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ClearFocus(self: KMultiTabBarTab) void {
+    pub fn clearFocus(self: KMultiTabBarTab) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -16940,9 +21212,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: KMultiTabBarTab, reason: i32) void {
+    pub fn setFocus2(self: KMultiTabBarTab, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -16956,9 +21232,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: KMultiTabBarTab) i32 {
+    pub fn focusPolicy(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -16970,9 +21250,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: KMultiTabBarTab, policy: i32) void {
+    pub fn setFocusPolicy(self: KMultiTabBarTab, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -16982,9 +21266,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn HasFocus(self: KMultiTabBarTab) bool {
+    pub fn hasFocus(self: KMultiTabBarTab) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -16996,11 +21284,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -17010,12 +21302,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: KMultiTabBarTab, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: KMultiTabBarTab, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -17025,9 +21321,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FocusProxy(self: KMultiTabBarTab) QWidget {
+    pub fn focusProxy(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -17041,9 +21341,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: KMultiTabBarTab) i32 {
+    pub fn contextMenuPolicy(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -17055,9 +21359,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: KMultiTabBarTab, policy: i32) void {
+    pub fn setContextMenuPolicy(self: KMultiTabBarTab, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -17067,9 +21375,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn GrabMouse(self: KMultiTabBarTab) void {
+    pub fn grabMouse(self: KMultiTabBarTab) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -17081,10 +21393,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn grabMouse2(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -17094,9 +21410,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ReleaseMouse(self: KMultiTabBarTab) void {
+    pub fn releaseMouse(self: KMultiTabBarTab) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -17106,9 +21426,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn GrabKeyboard(self: KMultiTabBarTab) void {
+    pub fn grabKeyboard(self: KMultiTabBarTab) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -17118,9 +21442,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ReleaseKeyboard(self: KMultiTabBarTab) void {
+    pub fn releaseKeyboard(self: KMultiTabBarTab) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -17132,10 +21460,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: KMultiTabBarTab, key: anytype) i32 {
+    pub fn grabShortcut(self: KMultiTabBarTab, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -17145,11 +21477,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn ReleaseShortcut(self: KMultiTabBarTab, id: i32) void {
-        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
+    pub fn releaseShortcut(self: KMultiTabBarTab, _id: i32) void {
+        qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -17159,11 +21495,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: KMultiTabBarTab, id: i32) void {
-        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setShortcutEnabled(self: KMultiTabBarTab, _id: i32) void {
+        qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -17173,27 +21513,39 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: KMultiTabBarTab, id: i32) void {
-        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
+    pub fn setShortcutAutoRepeat(self: KMultiTabBarTab, _id: i32) void {
+        qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -17203,9 +21555,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UpdatesEnabled(self: KMultiTabBarTab) bool {
+    pub fn updatesEnabled(self: KMultiTabBarTab) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -17217,9 +21573,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: KMultiTabBarTab, enable: bool) void {
+    pub fn setUpdatesEnabled(self: KMultiTabBarTab, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -17229,9 +21589,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn GraphicsProxyWidget(self: KMultiTabBarTab) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: KMultiTabBarTab) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -17241,9 +21605,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Update(self: KMultiTabBarTab) void {
+    pub fn update(self: KMultiTabBarTab) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -17253,9 +21621,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Repaint(self: KMultiTabBarTab) void {
+    pub fn repaint(self: KMultiTabBarTab) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -17265,17 +21637,21 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: KMultiTabBarTab, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: KMultiTabBarTab, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -17287,11 +21663,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn update3(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -17302,10 +21682,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn update4(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -17315,17 +21699,21 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: KMultiTabBarTab, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: KMultiTabBarTab, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -17337,10 +21725,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn repaint3(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -17352,10 +21744,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn repaint4(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -17367,9 +21763,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: KMultiTabBarTab, visible: bool) void {
+    pub fn setVisible(self: KMultiTabBarTab, visible: bool) void {
         qtc.QWidget_SetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -17381,9 +21781,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: KMultiTabBarTab, hidden: bool) void {
+    pub fn setHidden(self: KMultiTabBarTab, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -17393,9 +21797,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Show(self: KMultiTabBarTab) void {
+    pub fn show(self: KMultiTabBarTab) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -17405,9 +21813,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Hide(self: KMultiTabBarTab) void {
+    pub fn hide(self: KMultiTabBarTab) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -17417,9 +21829,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ShowMinimized(self: KMultiTabBarTab) void {
+    pub fn showMinimized(self: KMultiTabBarTab) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -17429,9 +21845,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ShowMaximized(self: KMultiTabBarTab) void {
+    pub fn showMaximized(self: KMultiTabBarTab) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -17441,9 +21861,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ShowFullScreen(self: KMultiTabBarTab) void {
+    pub fn showFullScreen(self: KMultiTabBarTab) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -17453,9 +21877,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ShowNormal(self: KMultiTabBarTab) void {
+    pub fn showNormal(self: KMultiTabBarTab) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -17465,9 +21893,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Close(self: KMultiTabBarTab) bool {
+    pub fn close(self: KMultiTabBarTab) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -17477,9 +21909,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Raise(self: KMultiTabBarTab) void {
+    pub fn raise(self: KMultiTabBarTab) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -17489,9 +21925,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Lower(self: KMultiTabBarTab) void {
+    pub fn lower(self: KMultiTabBarTab) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -17503,10 +21943,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn stackUnder(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -17516,13 +21960,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: KMultiTabBarTab, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: KMultiTabBarTab, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -17534,10 +21982,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn move2(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -17551,9 +22003,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: KMultiTabBarTab, w: i32, h: i32) void {
+    pub fn resize(self: KMultiTabBarTab, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -17565,10 +22021,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn resize2(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -17578,17 +22038,21 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: KMultiTabBarTab, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: KMultiTabBarTab, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -17598,12 +22062,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: KMultiTabBarTab, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: KMultiTabBarTab, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -17615,13 +22083,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: KMultiTabBarTab, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: KMultiTabBarTab, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBarTab.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("KMultiTabBarTab.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -17631,15 +22103,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: KMultiTabBarTab, geometry: []u8) bool {
+    pub fn restoreGeometry(self: KMultiTabBarTab, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -17649,9 +22125,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AdjustSize(self: KMultiTabBarTab) void {
+    pub fn adjustSize(self: KMultiTabBarTab) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -17661,9 +22141,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsVisible(self: KMultiTabBarTab) bool {
+    pub fn isVisible(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -17675,10 +22159,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: KMultiTabBarTab, param1: anytype) bool {
+    pub fn isVisibleTo(self: KMultiTabBarTab, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -17688,9 +22176,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsHidden(self: KMultiTabBarTab) bool {
+    pub fn isHidden(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -17700,9 +22192,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsMinimized(self: KMultiTabBarTab) bool {
+    pub fn isMinimized(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -17712,9 +22208,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsMaximized(self: KMultiTabBarTab) bool {
+    pub fn isMaximized(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -17724,9 +22224,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsFullScreen(self: KMultiTabBarTab) bool {
+    pub fn isFullScreen(self: KMultiTabBarTab) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -17740,9 +22244,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: KMultiTabBarTab) i32 {
+    pub fn windowState(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -17754,9 +22262,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: KMultiTabBarTab, state: i32) void {
+    pub fn setWindowState(self: KMultiTabBarTab, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -17768,9 +22280,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: KMultiTabBarTab, state: i32) void {
+    pub fn overrideWindowState(self: KMultiTabBarTab, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -17780,9 +22296,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn SizePolicy(self: KMultiTabBarTab) QSizePolicy {
+    pub fn sizePolicy(self: KMultiTabBarTab) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -17792,12 +22312,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: KMultiTabBarTab, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: KMultiTabBarTab, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -17811,9 +22335,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: KMultiTabBarTab, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: KMultiTabBarTab, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -17825,9 +22353,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: KMultiTabBarTab, param1: i32) i32 {
+    pub fn heightForWidth(self: KMultiTabBarTab, param1: i32) i32 {
         return qtc.QWidget_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -17837,9 +22369,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn HasHeightForWidth(self: KMultiTabBarTab) bool {
+    pub fn hasHeightForWidth(self: KMultiTabBarTab) bool {
         return qtc.QWidget_HasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -17849,9 +22385,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn VisibleRegion(self: KMultiTabBarTab) QRegion {
+    pub fn visibleRegion(self: KMultiTabBarTab) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -17869,9 +22409,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: KMultiTabBarTab, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: KMultiTabBarTab, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -17883,10 +22427,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: KMultiTabBarTab, margins: anytype) void {
+    pub fn setContentsMargins2(self: KMultiTabBarTab, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -17896,9 +22444,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ContentsMargins(self: KMultiTabBarTab) QMargins {
+    pub fn contentsMargins(self: KMultiTabBarTab) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -17908,9 +22460,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ContentsRect(self: KMultiTabBarTab) QRect {
+    pub fn contentsRect(self: KMultiTabBarTab) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -17920,9 +22476,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Layout(self: KMultiTabBarTab) QLayout {
+    pub fn layout(self: KMultiTabBarTab) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -17932,12 +22492,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: KMultiTabBarTab, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: KMultiTabBarTab, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -17947,24 +22511,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn UpdateGeometry(self: KMultiTabBarTab) void {
+    pub fn updateGeometry(self: KMultiTabBarTab) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarTab `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: KMultiTabBarTab, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -17974,14 +22527,37 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: KMultiTabBarTab, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: KMultiTabBarTab, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: KMultiTabBarTab, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -17995,9 +22571,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: KMultiTabBarTab, dx: i32, dy: i32) void {
+    pub fn scroll(self: KMultiTabBarTab, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -18013,10 +22593,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: KMultiTabBarTab, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: KMultiTabBarTab, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -18026,9 +22610,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn FocusWidget(self: KMultiTabBarTab) QWidget {
+    pub fn focusWidget(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -18038,9 +22626,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn NextInFocusChain(self: KMultiTabBarTab) QWidget {
+    pub fn nextInFocusChain(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -18050,9 +22642,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn PreviousInFocusChain(self: KMultiTabBarTab) QWidget {
+    pub fn previousInFocusChain(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -18062,9 +22658,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AcceptDrops(self: KMultiTabBarTab) bool {
+    pub fn acceptDrops(self: KMultiTabBarTab) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -18076,9 +22676,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: KMultiTabBarTab, on: bool) void {
+    pub fn setAcceptDrops(self: KMultiTabBarTab, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -18090,10 +22694,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: KMultiTabBarTab, action: anytype) void {
+    pub fn addAction(self: KMultiTabBarTab, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -18103,15 +22711,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: KMultiTabBarTab, actions: []QAction) void {
+    pub fn addActions(self: KMultiTabBarTab, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -18123,16 +22735,20 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: KMultiTabBarTab, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: KMultiTabBarTab, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -18146,11 +22762,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: KMultiTabBarTab, before: anytype, action: anytype) void {
+    pub fn insertAction(self: KMultiTabBarTab, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -18162,10 +22782,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: KMultiTabBarTab, action: anytype) void {
+    pub fn removeAction(self: KMultiTabBarTab, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -18177,15 +22801,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: KMultiTabBarTab, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: KMultiTabBarTab, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBarTab.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("KMultiTabBarTab.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -18195,36 +22823,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` text: []const u8 `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction2(self: KMultiTabBarTab, text: []const u8) QAction {
+    pub fn addAction2(self: KMultiTabBarTab, _text: []const u8) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `addAction3` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarTab `
-    ///
-    /// ` icon: QIcon `
-    ///
-    /// ` text: []const u8 `
-    ///
-    pub fn AddAction3(self: KMultiTabBarTab, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
-        };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
-    }
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -18234,18 +22845,22 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` text: []const u8 `
+    /// ` _icon: QIcon `
     ///
-    /// ` shortcut: QKeySequence `
+    /// ` _text: []const u8 `
     ///
-    pub fn AddAction4(self: KMultiTabBarTab, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction3(self: KMultiTabBarTab, _icon: anytype, _text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -18255,21 +22870,50 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` icon: QIcon `
+    /// ` _text: []const u8 `
     ///
-    /// ` text: []const u8 `
+    /// ` _shortcut: QKeySequence `
     ///
-    /// ` shortcut: QKeySequence `
-    ///
-    pub fn AddAction5(self: KMultiTabBarTab, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction4(self: KMultiTabBarTab, _text: []const u8, _shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
-            .len = text.len,
-            .data = text.ptr,
+            .len = _text.len,
+            .data = _text.ptr,
         };
-        comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(_shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    /// ` _icon: QIcon `
+    ///
+    /// ` _text: []const u8 `
+    ///
+    /// ` _shortcut: QKeySequence `
+    ///
+    pub fn addAction5(self: KMultiTabBarTab, _icon: anytype, _text: []const u8, _shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        const text_str = qtc.libqt_string{
+            .len = _text.len,
+            .data = _text.ptr,
+        };
+        comptime _ = @TypeOf(_shortcut)._is_QKeySequence;
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(_shortcut.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -18279,9 +22923,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ParentWidget(self: KMultiTabBarTab) QWidget {
+    pub fn parentWidget(self: KMultiTabBarTab) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -18293,9 +22941,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: KMultiTabBarTab, typeVal: i32) void {
+    pub fn setWindowFlags(self: KMultiTabBarTab, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -18309,9 +22961,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: KMultiTabBarTab) i32 {
+    pub fn windowFlags(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -18323,9 +22979,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: KMultiTabBarTab, param1: i32) void {
+    pub fn setWindowFlag(self: KMultiTabBarTab, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -18337,9 +22997,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: KMultiTabBarTab, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: KMultiTabBarTab, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -18353,9 +23017,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: KMultiTabBarTab) i32 {
+    pub fn windowType(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -18365,9 +23033,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -18377,13 +23049,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: KMultiTabBarTab, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: KMultiTabBarTab, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -18395,10 +23071,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: KMultiTabBarTab, p: anytype) QWidget {
+    pub fn childAt2(self: KMultiTabBarTab, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -18410,10 +23090,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: KMultiTabBarTab, p: anytype) QWidget {
+    pub fn childAt3(self: KMultiTabBarTab, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -18425,9 +23109,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: KMultiTabBarTab, param1: i32) void {
+    pub fn setAttribute(self: KMultiTabBarTab, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -18439,9 +23127,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: KMultiTabBarTab, param1: i32) bool {
+    pub fn testAttribute(self: KMultiTabBarTab, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -18451,9 +23143,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn PaintEngine(self: KMultiTabBarTab) QPaintEngine {
+    pub fn paintEngine(self: KMultiTabBarTab) QPaintEngine {
         return .{ .ptr = qtc.QWidget_PaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -18463,9 +23159,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn EnsurePolished(self: KMultiTabBarTab) void {
+    pub fn ensurePolished(self: KMultiTabBarTab) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -18477,10 +23177,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: KMultiTabBarTab, child: anytype) bool {
+    pub fn isAncestorOf(self: KMultiTabBarTab, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -18490,9 +23194,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn AutoFillBackground(self: KMultiTabBarTab) bool {
+    pub fn autoFillBackground(self: KMultiTabBarTab) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -18504,9 +23212,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: KMultiTabBarTab, enabled: bool) void {
+    pub fn setAutoFillBackground(self: KMultiTabBarTab, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -18516,9 +23228,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn BackingStore(self: KMultiTabBarTab) QBackingStore {
+    pub fn backingStore(self: KMultiTabBarTab) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -18528,9 +23244,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn WindowHandle(self: KMultiTabBarTab) QWindow {
+    pub fn windowHandle(self: KMultiTabBarTab) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -18540,9 +23260,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Screen(self: KMultiTabBarTab) QScreen {
+    pub fn screen(self: KMultiTabBarTab) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -18552,12 +23276,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: KMultiTabBarTab, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: KMultiTabBarTab, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -18565,12 +23293,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -18582,13 +23314,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: KMultiTabBarTab, title: []const u8) void {
+    pub fn windowTitleChanged(self: KMultiTabBarTab, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -18600,9 +23336,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -18612,12 +23352,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: KMultiTabBarTab, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: KMultiTabBarTab, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -18629,9 +23373,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -18643,13 +23391,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: KMultiTabBarTab, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: KMultiTabBarTab, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -18661,9 +23413,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -18673,12 +23429,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: KMultiTabBarTab, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: KMultiTabBarTab, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -18690,9 +23450,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -18704,9 +23468,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: KMultiTabBarTab, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: KMultiTabBarTab, param1: i32) QVariant {
         return .{ .ptr = qtc.QWidget_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -18720,9 +23488,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: KMultiTabBarTab) i32 {
+    pub fn inputMethodHints(self: KMultiTabBarTab) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -18734,9 +23506,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: KMultiTabBarTab, hints: i32) void {
+    pub fn setInputMethodHints(self: KMultiTabBarTab, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -18750,11 +23526,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: KMultiTabBarTab, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: KMultiTabBarTab, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -18770,13 +23550,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: KMultiTabBarTab, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: KMultiTabBarTab, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -18793,12 +23577,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: KMultiTabBarTab, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: KMultiTabBarTab, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -18812,11 +23600,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -18832,12 +23624,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -18855,12 +23651,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: KMultiTabBarTab, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -18872,10 +23672,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: KMultiTabBarTab, rectangle: anytype) QPixmap {
+    pub fn grab1(self: KMultiTabBarTab, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -18889,9 +23693,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: KMultiTabBarTab, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: KMultiTabBarTab, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -18905,10 +23713,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: KMultiTabBarTab, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: KMultiTabBarTab, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -18918,13 +23730,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: KMultiTabBarTab, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
+    pub fn setShortcutEnabled2(self: KMultiTabBarTab, _id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(_id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -18934,13 +23750,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: i32 `
+    /// ` _id: i32 `
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: KMultiTabBarTab, id: i32, enable: bool) void {
-        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
+    pub fn setShortcutAutoRepeat2(self: KMultiTabBarTab, _id: i32, enable: bool) void {
+        qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(_id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -18954,9 +23774,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: KMultiTabBarTab, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: KMultiTabBarTab, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -18970,25 +23794,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: KMultiTabBarTab, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: KMultiTabBarTab, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -18996,17 +23808,41 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -19018,13 +23854,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: KMultiTabBarTab, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: KMultiTabBarTab, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QObject_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -19036,13 +23876,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: KMultiTabBarTab, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("KMultiTabBarTab.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -19054,13 +23898,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: KMultiTabBarTab, name: []const u8) void {
+    pub fn setObjectName(self: KMultiTabBarTab, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -19070,9 +23918,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsWidgetType(self: KMultiTabBarTab) bool {
+    pub fn isWidgetType(self: KMultiTabBarTab) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -19082,9 +23934,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsWindowType(self: KMultiTabBarTab) bool {
+    pub fn isWindowType(self: KMultiTabBarTab) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -19094,9 +23950,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn IsQuickItemType(self: KMultiTabBarTab) bool {
+    pub fn isQuickItemType(self: KMultiTabBarTab) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -19106,9 +23966,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn SignalsBlocked(self: KMultiTabBarTab) bool {
+    pub fn signalsBlocked(self: KMultiTabBarTab) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -19120,9 +23984,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: KMultiTabBarTab, b: bool) bool {
+    pub fn blockSignals(self: KMultiTabBarTab, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -19132,9 +24000,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Thread(self: KMultiTabBarTab) QThread {
+    pub fn thread(self: KMultiTabBarTab) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -19144,12 +24016,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: KMultiTabBarTab, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: KMultiTabBarTab, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -19161,9 +24037,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: KMultiTabBarTab, interval: i32) i32 {
+    pub fn startTimer(self: KMultiTabBarTab, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -19175,23 +24055,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: KMultiTabBarTab, time: i64) i32 {
+    pub fn startTimer2(self: KMultiTabBarTab, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `killTimer` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarTab `
-    ///
-    /// ` id: i32 `
-    ///
-    pub fn KillTimer(self: KMultiTabBarTab, id: i32) void {
-        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
-    }
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -19201,11 +24071,33 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` id: qnamespace_enums.TimerId `
+    /// ` _id: i32 `
     ///
-    pub fn KillTimer2(self: KMultiTabBarTab, id: i32) void {
-        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
+    pub fn killTimer(self: KMultiTabBarTab, _id: i32) void {
+        qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(_id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#killTimer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    /// ` _id: qnamespace_enums.TimerId `
+    ///
+    pub fn killTimer2(self: KMultiTabBarTab, _id: i32) void {
+        qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(_id));
+    }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -19217,15 +24109,19 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: KMultiTabBarTab, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: KMultiTabBarTab, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBarTab.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("KMultiTabBarTab.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -19237,10 +24133,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: KMultiTabBarTab, filterObj: anytype) void {
+    pub fn installEventFilter(self: KMultiTabBarTab, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -19252,10 +24152,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: KMultiTabBarTab, obj: anytype) void {
+    pub fn removeEventFilter(self: KMultiTabBarTab, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -19263,7 +24167,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -19271,13 +24175,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -19285,7 +24193,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -19293,13 +24201,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -19309,18 +24221,22 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: KMultiTabBarTab, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: KMultiTabBarTab, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -19328,7 +24244,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -19336,13 +24252,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -19350,7 +24270,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -19358,13 +24278,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -19374,9 +24298,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Disconnect3(self: KMultiTabBarTab) bool {
+    pub fn disconnect3(self: KMultiTabBarTab) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -19388,10 +24316,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: KMultiTabBarTab, receiver: anytype) bool {
+    pub fn disconnect4(self: KMultiTabBarTab, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -19401,10 +24333,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -19414,9 +24350,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DumpObjectTree(self: KMultiTabBarTab) void {
+    pub fn dumpObjectTree(self: KMultiTabBarTab) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -19426,9 +24366,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DumpObjectInfo(self: KMultiTabBarTab) void {
+    pub fn dumpObjectInfo(self: KMultiTabBarTab) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -19442,11 +24386,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: KMultiTabBarTab, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: KMultiTabBarTab, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -19458,10 +24406,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: KMultiTabBarTab, name: [:0]const u8) QVariant {
+    pub fn property(self: KMultiTabBarTab, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -19473,7 +24425,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: KMultiTabBarTab, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: KMultiTabBarTab, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -19481,27 +24433,19 @@ pub const KMultiTabBarTab = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBarTab.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("KMultiTabBarTab.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("KMultiTabBarTab.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("KMultiTabBarTab.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: KMultiTabBarTab `
-    ///
-    pub fn BindingStorage(self: KMultiTabBarTab) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -19511,9 +24455,29 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn BindingStorage2(self: KMultiTabBarTab) QBindingStorage {
+    pub fn bindingStorage(self: KMultiTabBarTab) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: KMultiTabBarTab `
+    ///
+    pub fn bindingStorage2(self: KMultiTabBarTab) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -19523,9 +24487,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Destroyed(self: KMultiTabBarTab) void {
+    pub fn destroyed(self: KMultiTabBarTab) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -19537,9 +24505,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
+    pub fn onDestroyed(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -19549,9 +24521,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Parent(self: KMultiTabBarTab) QObject {
+    pub fn parent(self: KMultiTabBarTab) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -19563,10 +24539,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: KMultiTabBarTab, classname: [:0]const u8) bool {
+    pub fn inherits(self: KMultiTabBarTab, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -19576,9 +24556,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DeleteLater(self: KMultiTabBarTab) void {
+    pub fn deleteLater(self: KMultiTabBarTab) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -19592,9 +24576,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: KMultiTabBarTab, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: KMultiTabBarTab, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -19608,9 +24596,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: KMultiTabBarTab, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: KMultiTabBarTab, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -19618,7 +24610,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -19628,13 +24620,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -19642,7 +24638,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -19652,13 +24648,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -19668,7 +24668,7 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -19676,12 +24676,16 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: KMultiTabBarTab, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: KMultiTabBarTab, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -19693,10 +24697,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: KMultiTabBarTab, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: KMultiTabBarTab, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -19710,11 +24718,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: KMultiTabBarTab, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: KMultiTabBarTab, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -19730,13 +24742,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: KMultiTabBarTab, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: KMultiTabBarTab, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -19749,11 +24765,15 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: KMultiTabBarTab, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: KMultiTabBarTab, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -19765,10 +24785,14 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: KMultiTabBarTab, param1: anytype) void {
+    pub fn destroyed1(self: KMultiTabBarTab, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -19780,9 +24804,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -19792,9 +24820,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn PaintingActive(self: KMultiTabBarTab) bool {
+    pub fn paintingActive(self: KMultiTabBarTab) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -19804,9 +24836,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn WidthMM(self: KMultiTabBarTab) i32 {
+    pub fn widthMM(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -19816,9 +24852,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn HeightMM(self: KMultiTabBarTab) i32 {
+    pub fn heightMM(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -19828,9 +24868,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn LogicalDpiX(self: KMultiTabBarTab) i32 {
+    pub fn logicalDpiX(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -19840,9 +24884,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn LogicalDpiY(self: KMultiTabBarTab) i32 {
+    pub fn logicalDpiY(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -19852,9 +24900,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn PhysicalDpiX(self: KMultiTabBarTab) i32 {
+    pub fn physicalDpiX(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -19864,9 +24916,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn PhysicalDpiY(self: KMultiTabBarTab) i32 {
+    pub fn physicalDpiY(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -19876,9 +24932,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DevicePixelRatio(self: KMultiTabBarTab) f64 {
+    pub fn devicePixelRatio(self: KMultiTabBarTab) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -19888,9 +24948,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn DevicePixelRatioF(self: KMultiTabBarTab) f64 {
+    pub fn devicePixelRatioF(self: KMultiTabBarTab) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -19900,9 +24964,13 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn ColorCount(self: KMultiTabBarTab) i32 {
+    pub fn colorCount(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -19912,17 +24980,25 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Depth(self: KMultiTabBarTab) i32 {
+    pub fn depth(self: KMultiTabBarTab) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -19930,13 +25006,17 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -19950,23 +25030,23 @@ pub const KMultiTabBarTab = extern struct {
     ///
     /// ` callback: *const fn (self: KMultiTabBarTab, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: KMultiTabBarTab, callback: *const fn (KMultiTabBarTab, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kmultitabbartab.html#dtor.KMultiTabBarTab)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KMultiTabBarTab `
     ///
-    pub fn Delete(self: KMultiTabBarTab) void {
+    pub fn delete(self: KMultiTabBarTab) void {
         qtc.KMultiTabBarTab_Delete(@ptrCast(self.ptr));
     }
 };

@@ -13,35 +13,51 @@ pub const KPixmapSequence = extern struct {
 
     pub const _is_KPixmapSequence = {};
 
-    /// New constructs a new KPixmapSequence object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() KPixmapSequence {
+    pub const New = new;
+
+    /// Allocate a new KPixmapSequence object in C++ memory
+    ///
+    pub fn new() KPixmapSequence {
         return .{ .ptr = qtc.KPixmapSequence_new() };
     }
 
-    /// New2 constructs a new KPixmapSequence object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new KPixmapSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: KPixmapSequence `
     ///
-    pub fn New2(other: anytype) KPixmapSequence {
+    pub fn new2(other: anytype) KPixmapSequence {
         comptime _ = @TypeOf(other)._is_KPixmapSequence;
         return .{ .ptr = qtc.KPixmapSequence_new2(@ptrCast(other.ptr)) };
     }
 
-    /// New3 constructs a new KPixmapSequence object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new KPixmapSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` pixmap: QPixmap `
     ///
-    pub fn New3(pixmap: anytype) KPixmapSequence {
+    pub fn new3(pixmap: anytype) KPixmapSequence {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
         return .{ .ptr = qtc.KPixmapSequence_new3(@ptrCast(pixmap.ptr)) };
     }
 
-    /// New4 constructs a new KPixmapSequence object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new KPixmapSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -49,7 +65,7 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` size: i32 `
     ///
-    pub fn New4(fullPath: []const u8, size: i32) KPixmapSequence {
+    pub fn new4(fullPath: []const u8, size: i32) KPixmapSequence {
         const fullPath_str = qtc.libqt_string{
             .len = fullPath.len,
             .data = fullPath.ptr,
@@ -57,19 +73,27 @@ pub const KPixmapSequence = extern struct {
         return .{ .ptr = qtc.KPixmapSequence_new4(fullPath_str, @bitCast(size)) };
     }
 
-    /// New5 constructs a new KPixmapSequence object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new KPixmapSequence object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` pixmap: QPixmap `
     ///
-    /// ` frameSize: QSize `
+    /// ` _frameSize: QSize `
     ///
-    pub fn New5(pixmap: anytype, frameSize: anytype) KPixmapSequence {
+    pub fn new5(pixmap: anytype, _frameSize: anytype) KPixmapSequence {
         comptime _ = @TypeOf(pixmap)._is_QPixmap;
-        comptime _ = @TypeOf(frameSize)._is_QSize;
-        return .{ .ptr = qtc.KPixmapSequence_new5(@ptrCast(pixmap.ptr), @ptrCast(frameSize.ptr)) };
+        comptime _ = @TypeOf(_frameSize)._is_QSize;
+        return .{ .ptr = qtc.KPixmapSequence_new5(@ptrCast(pixmap.ptr), @ptrCast(_frameSize.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#operator-eq)
     ///
@@ -79,10 +103,14 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` other: KPixmapSequence `
     ///
-    pub fn OperatorAssign(self: KPixmapSequence, other: anytype) void {
+    pub fn operatorAssign(self: KPixmapSequence, other: anytype) void {
         comptime _ = @TypeOf(other)._is_KPixmapSequence;
         qtc.KPixmapSequence_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `isValid` instead
+    ///
+    pub const IsValid = isValid;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#isValid)
     ///
@@ -90,9 +118,13 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` self: KPixmapSequence `
     ///
-    pub fn IsValid(self: KPixmapSequence) bool {
+    pub fn isValid(self: KPixmapSequence) bool {
         return qtc.KPixmapSequence_IsValid(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEmpty` instead
+    ///
+    pub const IsEmpty = isEmpty;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#isEmpty)
     ///
@@ -100,9 +132,13 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` self: KPixmapSequence `
     ///
-    pub fn IsEmpty(self: KPixmapSequence) bool {
+    pub fn isEmpty(self: KPixmapSequence) bool {
         return qtc.KPixmapSequence_IsEmpty(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameSize)
     ///
@@ -110,9 +146,13 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` self: KPixmapSequence `
     ///
-    pub fn FrameSize(self: KPixmapSequence) QSize {
+    pub fn frameSize(self: KPixmapSequence) QSize {
         return .{ .ptr = qtc.KPixmapSequence_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameCount` instead
+    ///
+    pub const FrameCount = frameCount;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameCount)
     ///
@@ -120,9 +160,13 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` self: KPixmapSequence `
     ///
-    pub fn FrameCount(self: KPixmapSequence) i32 {
+    pub fn frameCount(self: KPixmapSequence) i32 {
         return qtc.KPixmapSequence_FrameCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `frameAt` instead
+    ///
+    pub const FrameAt = frameAt;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#frameAt)
     ///
@@ -132,23 +176,23 @@ pub const KPixmapSequence = extern struct {
     ///
     /// ` index: i32 `
     ///
-    pub fn FrameAt(self: KPixmapSequence, index: i32) QPixmap {
+    pub fn frameAt(self: KPixmapSequence, index: i32) QPixmap {
         return .{ .ptr = qtc.KPixmapSequence_FrameAt(@ptrCast(self.ptr), @bitCast(index)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://api.kde.org/kpixmapsequence.html#dtor.KPixmapSequence)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: KPixmapSequence `
     ///
-    pub fn Delete(self: KPixmapSequence) void {
+    pub fn delete(self: KPixmapSequence) void {
         qtc.KPixmapSequence_Delete(@ptrCast(self.ptr));
     }
 };

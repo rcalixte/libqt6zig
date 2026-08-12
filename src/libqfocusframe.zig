@@ -80,22 +80,34 @@ pub const QFocusFrame = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QFocusFrame object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QFocusFrame object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QFocusFrame {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QFocusFrame_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QFocusFrame {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QFocusFrame_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QFocusFrame object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QFocusFrame {
+    pub const New2 = new2;
+
+    /// Allocate a new QFocusFrame object in C++ memory
+    ///
+    pub fn new2() QFocusFrame {
         return .{ .ptr = qtc.QFocusFrame_new2() };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -103,9 +115,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MetaObject(self: QFocusFrame) QMetaObject {
+    pub fn metaObject(self: QFocusFrame) QMetaObject {
         return .{ .ptr = qtc.QFocusFrame_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -117,13 +133,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QFocusFrame, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QFocusFrame, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QFocusFrame_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -133,9 +149,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperMetaObject(self: QFocusFrame) QMetaObject {
+    pub fn superMetaObject(self: QFocusFrame) QMetaObject {
         return .{ .ptr = qtc.QFocusFrame_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -143,10 +163,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QFocusFrame, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QFocusFrame, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFocusFrame_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -156,13 +180,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QFocusFrame_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -172,10 +196,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QFocusFrame, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QFocusFrame, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QFocusFrame_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -187,9 +215,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QFocusFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QFocusFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFocusFrame_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -199,13 +231,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QFocusFrame, callback: *const fn (QFocusFrame, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QFocusFrame, callback: *const fn (QFocusFrame, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QFocusFrame_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -219,9 +251,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QFocusFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QFocusFrame, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QFocusFrame_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -231,14 +267,18 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWidget` instead
+    ///
+    pub const SetWidget = setWidget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#setWidget)
     ///
@@ -246,12 +286,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` widget: QWidget `
+    /// ` _widget: QWidget `
     ///
-    pub fn SetWidget(self: QFocusFrame, widget: anytype) void {
-        comptime _ = @TypeOf(widget)._is_QWidget;
-        qtc.QFocusFrame_SetWidget(@ptrCast(self.ptr), @ptrCast(widget.ptr));
+    pub fn setWidget(self: QFocusFrame, _widget: anytype) void {
+        comptime _ = @TypeOf(_widget)._is_QWidget;
+        qtc.QFocusFrame_SetWidget(@ptrCast(self.ptr), @ptrCast(_widget.ptr));
     }
+
+    /// ### DEPRECATED: Use `widget` instead
+    ///
+    pub const Widget = widget;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#widget)
     ///
@@ -259,9 +303,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Widget(self: QFocusFrame) QWidget {
+    pub fn widget(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QFocusFrame_Widget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#event)
     ///
@@ -271,10 +319,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn Event(self: QFocusFrame, e: anytype) bool {
+    pub fn event(self: QFocusFrame, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QFocusFrame_Event(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#event)
     ///
@@ -286,13 +338,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, e: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) bool) void {
         qtc.QFocusFrame_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#event)
     ///
@@ -304,10 +356,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` e: QEvent `
     ///
-    pub fn SuperEvent(self: QFocusFrame, e: anytype) bool {
+    pub fn superEvent(self: QFocusFrame, e: anytype) bool {
         comptime _ = @TypeOf(e)._is_QEvent;
         return qtc.QFocusFrame_SuperEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#eventFilter)
     ///
@@ -319,11 +375,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn EventFilter(self: QFocusFrame, param1: anytype, param2: anytype) bool {
+    pub fn eventFilter(self: QFocusFrame, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QFocusFrame_EventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#eventFilter)
     ///
@@ -335,13 +395,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: QObject, param2: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QFocusFrame, callback: *const fn (QFocusFrame, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QFocusFrame, callback: *const fn (QFocusFrame, QObject, QEvent) callconv(.c) bool) void {
         qtc.QFocusFrame_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#eventFilter)
     ///
@@ -355,11 +415,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QEvent `
     ///
-    pub fn SuperEventFilter(self: QFocusFrame, param1: anytype, param2: anytype) bool {
+    pub fn superEventFilter(self: QFocusFrame, param1: anytype, param2: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QObject;
         comptime _ = @TypeOf(param2)._is_QEvent;
         return qtc.QFocusFrame_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#paintEvent)
     ///
@@ -369,10 +433,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn paintEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QFocusFrame_PaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#paintEvent)
     ///
@@ -384,13 +452,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QPaintEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#paintEvent)
     ///
@@ -402,10 +470,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn superPaintEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPaintEvent;
         qtc.QFocusFrame_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `initStyleOption` instead
+    ///
+    pub const InitStyleOption = initStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#initStyleOption)
     ///
@@ -415,10 +487,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` option: QStyleOption `
     ///
-    pub fn InitStyleOption(self: QFocusFrame, option: anytype) void {
+    pub fn initStyleOption(self: QFocusFrame, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         qtc.QFocusFrame_InitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitStyleOption` instead
+    ///
+    pub const OnInitStyleOption = onInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#initStyleOption)
     ///
@@ -430,13 +506,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, option: QStyleOption) callconv(.c) void `
     ///
-    pub fn OnInitStyleOption(self: QFocusFrame, callback: *const fn (QFocusFrame, QStyleOption) callconv(.c) void) void {
+    pub fn onInitStyleOption(self: QFocusFrame, callback: *const fn (QFocusFrame, QStyleOption) callconv(.c) void) void {
         qtc.QFocusFrame_OnInitStyleOption(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperInitStyleOption` instead
+    /// ### DEPRECATED: Use `superInitStyleOption` instead
     ///
-    pub const QBaseInitStyleOption = SuperInitStyleOption;
+    pub const SuperInitStyleOption = superInitStyleOption;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#initStyleOption)
     ///
@@ -448,10 +524,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` option: QStyleOption `
     ///
-    pub fn SuperInitStyleOption(self: QFocusFrame, option: anytype) void {
+    pub fn superInitStyleOption(self: QFocusFrame, option: anytype) void {
         comptime _ = @TypeOf(option)._is_QStyleOption;
         qtc.QFocusFrame_SuperInitStyleOption(@ptrCast(self.ptr), @ptrCast(option.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -463,15 +543,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -485,15 +569,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -503,9 +591,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn WinId(self: QFocusFrame) usize {
+    pub fn winId(self: QFocusFrame) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -515,9 +607,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn CreateWinId(self: QFocusFrame) void {
+    pub fn createWinId(self: QFocusFrame) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -527,9 +623,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn InternalWinId(self: QFocusFrame) usize {
+    pub fn internalWinId(self: QFocusFrame) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -539,9 +639,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn EffectiveWinId(self: QFocusFrame) usize {
+    pub fn effectiveWinId(self: QFocusFrame) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -551,9 +655,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Style(self: QFocusFrame) QStyle {
+    pub fn style(self: QFocusFrame) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -563,12 +671,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QFocusFrame, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QFocusFrame, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -578,9 +690,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsTopLevel(self: QFocusFrame) bool {
+    pub fn isTopLevel(self: QFocusFrame) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -590,9 +706,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsWindow(self: QFocusFrame) bool {
+    pub fn isWindow(self: QFocusFrame) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -602,9 +722,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsModal(self: QFocusFrame) bool {
+    pub fn isModal(self: QFocusFrame) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -618,9 +742,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QFocusFrame) i32 {
+    pub fn windowModality(self: QFocusFrame) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -630,11 +758,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QFocusFrame, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QFocusFrame, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -644,9 +776,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsEnabled(self: QFocusFrame) bool {
+    pub fn isEnabled(self: QFocusFrame) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -658,10 +794,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QFocusFrame, param1: anytype) bool {
+    pub fn isEnabledTo(self: QFocusFrame, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -673,9 +813,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QFocusFrame, enabled: bool) void {
+    pub fn setEnabled(self: QFocusFrame, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -687,9 +831,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QFocusFrame, disabled: bool) void {
+    pub fn setDisabled(self: QFocusFrame, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -701,9 +849,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QFocusFrame, windowModified: bool) void {
+    pub fn setWindowModified(self: QFocusFrame, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -713,9 +865,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FrameGeometry(self: QFocusFrame) QRect {
+    pub fn frameGeometry(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -725,9 +881,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Geometry(self: QFocusFrame) QRect {
+    pub fn geometry(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -737,9 +897,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn NormalGeometry(self: QFocusFrame) QRect {
+    pub fn normalGeometry(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -749,9 +913,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn X(self: QFocusFrame) i32 {
+    pub fn x(self: QFocusFrame) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -761,9 +929,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Y(self: QFocusFrame) i32 {
+    pub fn y(self: QFocusFrame) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -773,9 +945,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Pos(self: QFocusFrame) QPoint {
+    pub fn pos(self: QFocusFrame) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -785,9 +961,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FrameSize(self: QFocusFrame) QSize {
+    pub fn frameSize(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -797,9 +977,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Size(self: QFocusFrame) QSize {
+    pub fn size(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -809,9 +993,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Width(self: QFocusFrame) i32 {
+    pub fn width(self: QFocusFrame) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -821,9 +1009,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Height(self: QFocusFrame) i32 {
+    pub fn height(self: QFocusFrame) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -833,9 +1025,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Rect(self: QFocusFrame) QRect {
+    pub fn rect(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -845,9 +1041,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ChildrenRect(self: QFocusFrame) QRect {
+    pub fn childrenRect(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -857,9 +1057,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ChildrenRegion(self: QFocusFrame) QRegion {
+    pub fn childrenRegion(self: QFocusFrame) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -869,9 +1073,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MinimumSize(self: QFocusFrame) QSize {
+    pub fn minimumSize(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -881,9 +1089,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MaximumSize(self: QFocusFrame) QSize {
+    pub fn maximumSize(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -893,9 +1105,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MinimumWidth(self: QFocusFrame) i32 {
+    pub fn minimumWidth(self: QFocusFrame) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -905,9 +1121,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MinimumHeight(self: QFocusFrame) i32 {
+    pub fn minimumHeight(self: QFocusFrame) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -917,9 +1137,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MaximumWidth(self: QFocusFrame) i32 {
+    pub fn maximumWidth(self: QFocusFrame) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -929,9 +1153,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MaximumHeight(self: QFocusFrame) i32 {
+    pub fn maximumHeight(self: QFocusFrame) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -941,12 +1169,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QFocusFrame, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QFocusFrame, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -960,9 +1192,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QFocusFrame, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QFocusFrame, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -972,12 +1208,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QFocusFrame, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QFocusFrame, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -991,9 +1231,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QFocusFrame, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QFocusFrame, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1005,9 +1249,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QFocusFrame, minw: i32) void {
+    pub fn setMinimumWidth(self: QFocusFrame, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1019,9 +1267,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QFocusFrame, minh: i32) void {
+    pub fn setMinimumHeight(self: QFocusFrame, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -1033,9 +1285,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QFocusFrame, maxw: i32) void {
+    pub fn setMaximumWidth(self: QFocusFrame, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -1047,9 +1303,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QFocusFrame, maxh: i32) void {
+    pub fn setMaximumHeight(self: QFocusFrame, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1059,9 +1319,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SizeIncrement(self: QFocusFrame) QSize {
+    pub fn sizeIncrement(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -1071,12 +1335,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QFocusFrame, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QFocusFrame, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -1090,9 +1358,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QFocusFrame, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QFocusFrame, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -1102,9 +1374,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn BaseSize(self: QFocusFrame) QSize {
+    pub fn baseSize(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -1114,12 +1390,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QFocusFrame, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QFocusFrame, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -1133,9 +1413,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QFocusFrame, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QFocusFrame, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -1147,10 +1431,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QFocusFrame, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QFocusFrame, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -1164,9 +1452,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QFocusFrame, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QFocusFrame, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -1178,9 +1470,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QFocusFrame, w: i32) void {
+    pub fn setFixedWidth(self: QFocusFrame, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -1192,9 +1488,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QFocusFrame, h: i32) void {
+    pub fn setFixedHeight(self: QFocusFrame, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -1206,11 +1506,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QFocusFrame, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QFocusFrame, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -1221,11 +1525,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QFocusFrame, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QFocusFrame, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1236,11 +1544,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QFocusFrame, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QFocusFrame, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -1251,11 +1563,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QFocusFrame, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QFocusFrame, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1266,11 +1582,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QFocusFrame, param1: anytype) QPointF {
+    pub fn mapToParent(self: QFocusFrame, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -1281,10 +1601,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QFocusFrame, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QFocusFrame, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -1296,10 +1620,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QFocusFrame, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QFocusFrame, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -1311,10 +1639,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QFocusFrame, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QFocusFrame, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -1328,12 +1660,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QFocusFrame, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QFocusFrame, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -1346,11 +1682,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QFocusFrame, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QFocusFrame, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -1364,11 +1704,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QFocusFrame, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QFocusFrame, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -1382,11 +1726,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QFocusFrame, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QFocusFrame, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -1396,9 +1744,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Window(self: QFocusFrame) QWidget {
+    pub fn window(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -1408,9 +1760,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn NativeParentWidget(self: QFocusFrame) QWidget {
+    pub fn nativeParentWidget(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -1420,9 +1776,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn TopLevelWidget(self: QFocusFrame) QWidget {
+    pub fn topLevelWidget(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -1432,9 +1792,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Palette(self: QFocusFrame) QPalette {
+    pub fn palette(self: QFocusFrame) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -1444,12 +1808,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QFocusFrame, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QFocusFrame, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1459,11 +1827,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QFocusFrame, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QFocusFrame, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1477,9 +1849,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QFocusFrame) i32 {
+    pub fn backgroundRole(self: QFocusFrame) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1489,11 +1865,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QFocusFrame, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QFocusFrame, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -1507,9 +1887,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QFocusFrame) i32 {
+    pub fn foregroundRole(self: QFocusFrame) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -1519,9 +1903,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Font(self: QFocusFrame) QFont {
+    pub fn font(self: QFocusFrame) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -1531,12 +1919,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QFocusFrame, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QFocusFrame, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -1546,9 +1938,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FontMetrics(self: QFocusFrame) QFontMetrics {
+    pub fn fontMetrics(self: QFocusFrame) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -1558,9 +1954,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FontInfo(self: QFocusFrame) QFontInfo {
+    pub fn fontInfo(self: QFocusFrame) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -1570,9 +1970,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Cursor(self: QFocusFrame) QCursor {
+    pub fn cursor(self: QFocusFrame) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -1582,12 +1986,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QFocusFrame, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QFocusFrame, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -1597,9 +2005,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UnsetCursor(self: QFocusFrame) void {
+    pub fn unsetCursor(self: QFocusFrame) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1611,9 +2023,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QFocusFrame, enable: bool) void {
+    pub fn setMouseTracking(self: QFocusFrame, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -1623,9 +2039,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn HasMouseTracking(self: QFocusFrame) bool {
+    pub fn hasMouseTracking(self: QFocusFrame) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -1635,9 +2055,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UnderMouse(self: QFocusFrame) bool {
+    pub fn underMouse(self: QFocusFrame) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1649,9 +2073,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QFocusFrame, enable: bool) void {
+    pub fn setTabletTracking(self: QFocusFrame, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -1661,24 +2089,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn HasTabletTracking(self: QFocusFrame) bool {
+    pub fn hasTabletTracking(self: QFocusFrame) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFocusFrame `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QFocusFrame, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -1688,12 +2105,35 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QFocusFrame, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QFocusFrame, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFocusFrame `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QFocusFrame, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -1703,9 +2143,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Mask(self: QFocusFrame) QRegion {
+    pub fn mask(self: QFocusFrame) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -1715,9 +2159,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ClearMask(self: QFocusFrame) void {
+    pub fn clearMask(self: QFocusFrame) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -1729,10 +2177,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QFocusFrame, target: anytype) void {
+    pub fn render(self: QFocusFrame, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -1744,10 +2196,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QFocusFrame, painter: anytype) void {
+    pub fn render2(self: QFocusFrame, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -1757,9 +2213,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Grab(self: QFocusFrame) QPixmap {
+    pub fn grab(self: QFocusFrame) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1769,9 +2229,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn GraphicsEffect(self: QFocusFrame) QGraphicsEffect {
+    pub fn graphicsEffect(self: QFocusFrame) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -1783,10 +2247,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QFocusFrame, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QFocusFrame, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1798,9 +2266,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QFocusFrame, typeVal: i32) void {
+    pub fn grabGesture(self: QFocusFrame, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -1812,9 +2284,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QFocusFrame, typeVal: i32) void {
+    pub fn ungrabGesture(self: QFocusFrame, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1824,15 +2300,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QFocusFrame, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QFocusFrame, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1842,15 +2322,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QFocusFrame, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QFocusFrame, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -1862,13 +2346,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -1880,13 +2368,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1898,10 +2390,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QFocusFrame, icon: anytype) void {
+    pub fn setWindowIcon(self: QFocusFrame, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -1911,9 +2407,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn WindowIcon(self: QFocusFrame) QIcon {
+    pub fn windowIcon(self: QFocusFrame) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1923,15 +2423,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QFocusFrame, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QFocusFrame, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -1943,13 +2447,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -1959,15 +2467,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QFocusFrame, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QFocusFrame, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -1979,13 +2491,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -1997,13 +2513,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QFocusFrame, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QFocusFrame, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -2015,13 +2535,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2033,9 +2557,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QFocusFrame, level: f64) void {
+    pub fn setWindowOpacity(self: QFocusFrame, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -2045,9 +2573,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn WindowOpacity(self: QFocusFrame) f64 {
+    pub fn windowOpacity(self: QFocusFrame) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -2057,9 +2589,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsWindowModified(self: QFocusFrame) bool {
+    pub fn isWindowModified(self: QFocusFrame) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -2069,15 +2605,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QFocusFrame, toolTip: []const u8) void {
+    pub fn setToolTip(self: QFocusFrame, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -2089,13 +2629,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2107,9 +2651,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QFocusFrame, msec: i32) void {
+    pub fn setToolTipDuration(self: QFocusFrame, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -2119,9 +2667,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ToolTipDuration(self: QFocusFrame) i32 {
+    pub fn toolTipDuration(self: QFocusFrame) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -2131,15 +2683,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QFocusFrame, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QFocusFrame, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -2151,13 +2707,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2167,15 +2727,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QFocusFrame, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QFocusFrame, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -2187,13 +2751,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2205,13 +2773,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -2223,13 +2795,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QFocusFrame, name: []const u8) void {
+    pub fn setAccessibleName(self: QFocusFrame, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2241,13 +2817,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -2259,13 +2839,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QFocusFrame, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QFocusFrame, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2277,9 +2861,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QFocusFrame, direction: i32) void {
+    pub fn setLayoutDirection(self: QFocusFrame, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2293,9 +2881,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QFocusFrame) i32 {
+    pub fn layoutDirection(self: QFocusFrame) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -2305,9 +2897,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UnsetLayoutDirection(self: QFocusFrame) void {
+    pub fn unsetLayoutDirection(self: QFocusFrame) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -2317,12 +2913,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QFocusFrame, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QFocusFrame, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -2332,9 +2932,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Locale(self: QFocusFrame) QLocale {
+    pub fn locale(self: QFocusFrame) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -2344,9 +2948,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UnsetLocale(self: QFocusFrame) void {
+    pub fn unsetLocale(self: QFocusFrame) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -2356,9 +2964,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsRightToLeft(self: QFocusFrame) bool {
+    pub fn isRightToLeft(self: QFocusFrame) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -2368,9 +2980,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsLeftToRight(self: QFocusFrame) bool {
+    pub fn isLeftToRight(self: QFocusFrame) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -2380,9 +2996,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SetFocus(self: QFocusFrame) void {
+    pub fn setFocus(self: QFocusFrame) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -2392,9 +3012,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsActiveWindow(self: QFocusFrame) bool {
+    pub fn isActiveWindow(self: QFocusFrame) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -2404,9 +3028,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ActivateWindow(self: QFocusFrame) void {
+    pub fn activateWindow(self: QFocusFrame) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -2416,9 +3044,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ClearFocus(self: QFocusFrame) void {
+    pub fn clearFocus(self: QFocusFrame) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -2430,9 +3062,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QFocusFrame, reason: i32) void {
+    pub fn setFocus2(self: QFocusFrame, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2446,9 +3082,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QFocusFrame) i32 {
+    pub fn focusPolicy(self: QFocusFrame) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2460,9 +3100,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QFocusFrame, policy: i32) void {
+    pub fn setFocusPolicy(self: QFocusFrame, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -2472,9 +3116,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn HasFocus(self: QFocusFrame) bool {
+    pub fn hasFocus(self: QFocusFrame) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -2486,11 +3134,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2500,12 +3152,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QFocusFrame, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QFocusFrame, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -2515,9 +3171,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FocusProxy(self: QFocusFrame) QWidget {
+    pub fn focusProxy(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2531,9 +3191,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QFocusFrame) i32 {
+    pub fn contextMenuPolicy(self: QFocusFrame) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -2545,9 +3209,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QFocusFrame, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QFocusFrame, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -2557,9 +3225,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn GrabMouse(self: QFocusFrame) void {
+    pub fn grabMouse(self: QFocusFrame) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -2571,10 +3243,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QFocusFrame, param1: anytype) void {
+    pub fn grabMouse2(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -2584,9 +3260,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ReleaseMouse(self: QFocusFrame) void {
+    pub fn releaseMouse(self: QFocusFrame) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2596,9 +3276,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn GrabKeyboard(self: QFocusFrame) void {
+    pub fn grabKeyboard(self: QFocusFrame) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -2608,9 +3292,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ReleaseKeyboard(self: QFocusFrame) void {
+    pub fn releaseKeyboard(self: QFocusFrame) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2622,10 +3310,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QFocusFrame, key: anytype) i32 {
+    pub fn grabShortcut(self: QFocusFrame, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -2637,9 +3329,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QFocusFrame, id: i32) void {
+    pub fn releaseShortcut(self: QFocusFrame, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2651,9 +3347,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QFocusFrame, id: i32) void {
+    pub fn setShortcutEnabled(self: QFocusFrame, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -2665,25 +3365,37 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QFocusFrame, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QFocusFrame, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2693,9 +3405,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UpdatesEnabled(self: QFocusFrame) bool {
+    pub fn updatesEnabled(self: QFocusFrame) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -2707,9 +3423,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QFocusFrame, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QFocusFrame, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -2719,9 +3439,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn GraphicsProxyWidget(self: QFocusFrame) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QFocusFrame) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -2731,9 +3455,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Update(self: QFocusFrame) void {
+    pub fn update(self: QFocusFrame) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -2743,9 +3471,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Repaint(self: QFocusFrame) void {
+    pub fn repaint(self: QFocusFrame) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -2755,17 +3487,21 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QFocusFrame, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QFocusFrame, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -2777,11 +3513,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QFocusFrame, param1: anytype) void {
+    pub fn update3(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -2792,10 +3532,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QFocusFrame, param1: anytype) void {
+    pub fn update4(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -2805,17 +3549,21 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QFocusFrame, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QFocusFrame, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -2827,10 +3575,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QFocusFrame, param1: anytype) void {
+    pub fn repaint3(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -2842,10 +3594,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QFocusFrame, param1: anytype) void {
+    pub fn repaint4(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -2857,9 +3613,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QFocusFrame, hidden: bool) void {
+    pub fn setHidden(self: QFocusFrame, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -2869,9 +3629,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Show(self: QFocusFrame) void {
+    pub fn show(self: QFocusFrame) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -2881,9 +3645,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Hide(self: QFocusFrame) void {
+    pub fn hide(self: QFocusFrame) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -2893,9 +3661,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ShowMinimized(self: QFocusFrame) void {
+    pub fn showMinimized(self: QFocusFrame) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -2905,9 +3677,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ShowMaximized(self: QFocusFrame) void {
+    pub fn showMaximized(self: QFocusFrame) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -2917,9 +3693,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ShowFullScreen(self: QFocusFrame) void {
+    pub fn showFullScreen(self: QFocusFrame) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -2929,9 +3709,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ShowNormal(self: QFocusFrame) void {
+    pub fn showNormal(self: QFocusFrame) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -2941,9 +3725,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Close(self: QFocusFrame) bool {
+    pub fn close(self: QFocusFrame) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -2953,9 +3741,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Raise(self: QFocusFrame) void {
+    pub fn raise(self: QFocusFrame) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -2965,9 +3757,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Lower(self: QFocusFrame) void {
+    pub fn lower(self: QFocusFrame) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -2979,10 +3775,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QFocusFrame, param1: anytype) void {
+    pub fn stackUnder(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -2992,13 +3792,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QFocusFrame, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QFocusFrame, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -3010,10 +3814,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QFocusFrame, param1: anytype) void {
+    pub fn move2(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -3027,9 +3835,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QFocusFrame, w: i32, h: i32) void {
+    pub fn resize(self: QFocusFrame, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -3041,10 +3853,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QFocusFrame, param1: anytype) void {
+    pub fn resize2(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3054,17 +3870,21 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QFocusFrame, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QFocusFrame, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -3074,12 +3894,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QFocusFrame, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QFocusFrame, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3091,13 +3915,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QFocusFrame, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QFocusFrame, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFocusFrame.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QFocusFrame.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3107,15 +3935,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QFocusFrame, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QFocusFrame, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -3125,9 +3957,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn AdjustSize(self: QFocusFrame) void {
+    pub fn adjustSize(self: QFocusFrame) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -3137,9 +3973,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsVisible(self: QFocusFrame) bool {
+    pub fn isVisible(self: QFocusFrame) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -3151,10 +3991,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QFocusFrame, param1: anytype) bool {
+    pub fn isVisibleTo(self: QFocusFrame, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -3164,9 +4008,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsHidden(self: QFocusFrame) bool {
+    pub fn isHidden(self: QFocusFrame) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -3176,9 +4024,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsMinimized(self: QFocusFrame) bool {
+    pub fn isMinimized(self: QFocusFrame) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -3188,9 +4040,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsMaximized(self: QFocusFrame) bool {
+    pub fn isMaximized(self: QFocusFrame) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -3200,9 +4056,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsFullScreen(self: QFocusFrame) bool {
+    pub fn isFullScreen(self: QFocusFrame) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -3216,9 +4076,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QFocusFrame) i32 {
+    pub fn windowState(self: QFocusFrame) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3230,9 +4094,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QFocusFrame, state: i32) void {
+    pub fn setWindowState(self: QFocusFrame, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -3244,9 +4112,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QFocusFrame, state: i32) void {
+    pub fn overrideWindowState(self: QFocusFrame, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3256,9 +4128,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SizePolicy(self: QFocusFrame) QSizePolicy {
+    pub fn sizePolicy(self: QFocusFrame) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -3268,12 +4144,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QFocusFrame, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QFocusFrame, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -3287,9 +4167,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QFocusFrame, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QFocusFrame, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -3299,9 +4183,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn VisibleRegion(self: QFocusFrame) QRegion {
+    pub fn visibleRegion(self: QFocusFrame) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3319,9 +4207,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QFocusFrame, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QFocusFrame, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -3333,10 +4225,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QFocusFrame, margins: anytype) void {
+    pub fn setContentsMargins2(self: QFocusFrame, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -3346,9 +4242,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ContentsMargins(self: QFocusFrame) QMargins {
+    pub fn contentsMargins(self: QFocusFrame) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -3358,9 +4258,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ContentsRect(self: QFocusFrame) QRect {
+    pub fn contentsRect(self: QFocusFrame) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -3370,9 +4274,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Layout(self: QFocusFrame) QLayout {
+    pub fn layout(self: QFocusFrame) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -3382,12 +4290,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QFocusFrame, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QFocusFrame, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -3397,24 +4309,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UpdateGeometry(self: QFocusFrame) void {
+    pub fn updateGeometry(self: QFocusFrame) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFocusFrame `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QFocusFrame, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -3424,14 +4325,37 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QFocusFrame, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFocusFrame `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QFocusFrame, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QFocusFrame, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -3445,9 +4369,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QFocusFrame, dx: i32, dy: i32) void {
+    pub fn scroll(self: QFocusFrame, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -3463,10 +4391,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QFocusFrame, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QFocusFrame, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -3476,9 +4408,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FocusWidget(self: QFocusFrame) QWidget {
+    pub fn focusWidget(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3488,9 +4424,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn NextInFocusChain(self: QFocusFrame) QWidget {
+    pub fn nextInFocusChain(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -3500,9 +4440,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn PreviousInFocusChain(self: QFocusFrame) QWidget {
+    pub fn previousInFocusChain(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3512,9 +4456,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn AcceptDrops(self: QFocusFrame) bool {
+    pub fn acceptDrops(self: QFocusFrame) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -3526,9 +4474,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QFocusFrame, on: bool) void {
+    pub fn setAcceptDrops(self: QFocusFrame, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -3540,10 +4492,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QFocusFrame, action: anytype) void {
+    pub fn addAction(self: QFocusFrame, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -3553,15 +4509,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QFocusFrame, actions: []QAction) void {
+    pub fn addActions(self: QFocusFrame, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -3573,16 +4533,20 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QFocusFrame, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QFocusFrame, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -3596,11 +4560,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QFocusFrame, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QFocusFrame, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -3612,10 +4580,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QFocusFrame, action: anytype) void {
+    pub fn removeAction(self: QFocusFrame, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -3627,15 +4599,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QFocusFrame, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QFocusFrame, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFocusFrame.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QFocusFrame.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -3647,13 +4623,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QFocusFrame, text: []const u8) QAction {
+    pub fn addAction2(self: QFocusFrame, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
 
     /// Inherited from QWidget
     ///
@@ -3667,7 +4647,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QFocusFrame, icon: anytype, text: []const u8) QAction {
+    pub fn addAction3(self: QFocusFrame, icon: anytype, text: []const u8) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3676,6 +4656,10 @@ pub const QFocusFrame = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -3688,7 +4672,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QFocusFrame, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QFocusFrame, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -3696,6 +4680,10 @@ pub const QFocusFrame = extern struct {
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
 
     /// Inherited from QWidget
     ///
@@ -3711,7 +4699,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QFocusFrame, icon: anytype, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction5(self: QFocusFrame, icon: anytype, text: []const u8, shortcut: anytype) QAction {
         comptime _ = @TypeOf(icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
@@ -3721,6 +4709,10 @@ pub const QFocusFrame = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#parentWidget)
@@ -3729,9 +4721,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ParentWidget(self: QFocusFrame) QWidget {
+    pub fn parentWidget(self: QFocusFrame) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3743,9 +4739,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QFocusFrame, typeVal: i32) void {
+    pub fn setWindowFlags(self: QFocusFrame, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3759,9 +4759,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QFocusFrame) i32 {
+    pub fn windowFlags(self: QFocusFrame) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -3773,9 +4777,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QFocusFrame, param1: i32) void {
+    pub fn setWindowFlag(self: QFocusFrame, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -3787,9 +4795,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QFocusFrame, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QFocusFrame, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -3803,9 +4815,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QFocusFrame) i32 {
+    pub fn windowType(self: QFocusFrame) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -3815,9 +4831,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -3827,13 +4847,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QFocusFrame, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QFocusFrame, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -3845,10 +4869,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QFocusFrame, p: anytype) QWidget {
+    pub fn childAt2(self: QFocusFrame, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -3860,10 +4888,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QFocusFrame, p: anytype) QWidget {
+    pub fn childAt3(self: QFocusFrame, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3875,9 +4907,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QFocusFrame, param1: i32) void {
+    pub fn setAttribute(self: QFocusFrame, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -3889,9 +4925,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QFocusFrame, param1: i32) bool {
+    pub fn testAttribute(self: QFocusFrame, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -3901,9 +4941,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn EnsurePolished(self: QFocusFrame) void {
+    pub fn ensurePolished(self: QFocusFrame) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -3915,10 +4959,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QFocusFrame, child: anytype) bool {
+    pub fn isAncestorOf(self: QFocusFrame, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3928,9 +4976,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn AutoFillBackground(self: QFocusFrame) bool {
+    pub fn autoFillBackground(self: QFocusFrame) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -3942,9 +4994,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QFocusFrame, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QFocusFrame, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -3954,9 +5010,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn BackingStore(self: QFocusFrame) QBackingStore {
+    pub fn backingStore(self: QFocusFrame) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -3966,9 +5026,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn WindowHandle(self: QFocusFrame) QWindow {
+    pub fn windowHandle(self: QFocusFrame) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -3978,9 +5042,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Screen(self: QFocusFrame) QScreen {
+    pub fn screen(self: QFocusFrame) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -3990,12 +5058,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QFocusFrame, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QFocusFrame, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -4003,12 +5075,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4020,13 +5096,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QFocusFrame, title: []const u8) void {
+    pub fn windowTitleChanged(self: QFocusFrame, title: []const u8) void {
         const title_str = qtc.libqt_string{
             .len = title.len,
             .data = title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -4038,9 +5118,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4052,10 +5136,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QFocusFrame, icon: anytype) void {
+    pub fn windowIconChanged(self: QFocusFrame, icon: anytype) void {
         comptime _ = @TypeOf(icon)._is_QIcon;
         qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -4067,9 +5155,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4081,13 +5173,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QFocusFrame, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QFocusFrame, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -4099,9 +5195,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4111,12 +5211,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QFocusFrame, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QFocusFrame, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -4128,9 +5232,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QFocusFrame, callback: *const fn (QFocusFrame, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QFocusFrame, callback: *const fn (QFocusFrame, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4144,9 +5252,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QFocusFrame) i32 {
+    pub fn inputMethodHints(self: QFocusFrame) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -4158,9 +5270,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QFocusFrame, hints: i32) void {
+    pub fn setInputMethodHints(self: QFocusFrame, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -4174,11 +5290,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QFocusFrame, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QFocusFrame, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -4194,13 +5314,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QFocusFrame, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QFocusFrame, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -4217,12 +5341,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QFocusFrame, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QFocusFrame, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -4236,11 +5364,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QFocusFrame, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QFocusFrame, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -4256,12 +5388,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QFocusFrame, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QFocusFrame, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -4279,12 +5415,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QFocusFrame, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QFocusFrame, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -4296,10 +5436,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QFocusFrame, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QFocusFrame, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -4313,9 +5457,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QFocusFrame, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QFocusFrame, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -4329,10 +5477,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QFocusFrame, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QFocusFrame, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -4346,9 +5498,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QFocusFrame, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QFocusFrame, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -4362,9 +5518,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QFocusFrame, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QFocusFrame, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -4378,9 +5538,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QFocusFrame, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QFocusFrame, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -4394,25 +5558,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QFocusFrame, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QFocusFrame, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -4420,17 +5572,41 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -4442,13 +5618,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QFocusFrame, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QFocusFrame.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -4460,13 +5640,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QFocusFrame, name: []const u8) void {
+    pub fn setObjectName(self: QFocusFrame, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -4476,9 +5660,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsWidgetType(self: QFocusFrame) bool {
+    pub fn isWidgetType(self: QFocusFrame) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -4488,9 +5676,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsWindowType(self: QFocusFrame) bool {
+    pub fn isWindowType(self: QFocusFrame) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -4500,9 +5692,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn IsQuickItemType(self: QFocusFrame) bool {
+    pub fn isQuickItemType(self: QFocusFrame) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -4512,9 +5708,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SignalsBlocked(self: QFocusFrame) bool {
+    pub fn signalsBlocked(self: QFocusFrame) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -4526,9 +5726,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QFocusFrame, b: bool) bool {
+    pub fn blockSignals(self: QFocusFrame, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -4538,9 +5742,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Thread(self: QFocusFrame) QThread {
+    pub fn thread(self: QFocusFrame) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -4550,12 +5758,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QFocusFrame, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QFocusFrame, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -4567,9 +5779,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QFocusFrame, interval: i32) i32 {
+    pub fn startTimer(self: QFocusFrame, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -4581,9 +5797,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QFocusFrame, time: i64) i32 {
+    pub fn startTimer2(self: QFocusFrame, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -4595,9 +5815,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QFocusFrame, id: i32) void {
+    pub fn killTimer(self: QFocusFrame, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -4609,9 +5833,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QFocusFrame, id: i32) void {
+    pub fn killTimer2(self: QFocusFrame, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -4623,15 +5851,19 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QFocusFrame, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QFocusFrame, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFocusFrame.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QFocusFrame.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4643,10 +5875,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QFocusFrame, filterObj: anytype) void {
+    pub fn installEventFilter(self: QFocusFrame, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -4658,10 +5894,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QFocusFrame, obj: anytype) void {
+    pub fn removeEventFilter(self: QFocusFrame, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -4669,7 +5909,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4677,13 +5917,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -4691,7 +5935,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4699,13 +5943,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -4715,18 +5963,22 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QFocusFrame, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QFocusFrame, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -4734,7 +5986,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -4742,13 +5994,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -4756,7 +6012,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -4764,13 +6020,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -4780,9 +6040,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Disconnect3(self: QFocusFrame) bool {
+    pub fn disconnect3(self: QFocusFrame) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -4794,10 +6058,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QFocusFrame, receiver: anytype) bool {
+    pub fn disconnect4(self: QFocusFrame, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -4807,10 +6075,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -4820,9 +6092,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DumpObjectTree(self: QFocusFrame) void {
+    pub fn dumpObjectTree(self: QFocusFrame) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -4832,9 +6108,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DumpObjectInfo(self: QFocusFrame) void {
+    pub fn dumpObjectInfo(self: QFocusFrame) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -4848,11 +6128,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QFocusFrame, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QFocusFrame, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -4864,10 +6148,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QFocusFrame, name: [:0]const u8) QVariant {
+    pub fn property(self: QFocusFrame, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -4879,7 +6167,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QFocusFrame, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QFocusFrame, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -4887,27 +6175,19 @@ pub const QFocusFrame = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFocusFrame.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QFocusFrame.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QFocusFrame.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QFocusFrame.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QFocusFrame `
-    ///
-    pub fn BindingStorage(self: QFocusFrame) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -4917,9 +6197,29 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn BindingStorage2(self: QFocusFrame) QBindingStorage {
+    pub fn bindingStorage(self: QFocusFrame) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QFocusFrame `
+    ///
+    pub fn bindingStorage2(self: QFocusFrame) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -4929,9 +6229,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Destroyed(self: QFocusFrame) void {
+    pub fn destroyed(self: QFocusFrame) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -4943,9 +6247,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QFocusFrame, callback: *const fn (QFocusFrame) callconv(.c) void) void {
+    pub fn onDestroyed(self: QFocusFrame, callback: *const fn (QFocusFrame) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -4955,9 +6263,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Parent(self: QFocusFrame) QObject {
+    pub fn parent(self: QFocusFrame) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -4969,10 +6281,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QFocusFrame, classname: [:0]const u8) bool {
+    pub fn inherits(self: QFocusFrame, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -4982,9 +6298,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DeleteLater(self: QFocusFrame) void {
+    pub fn deleteLater(self: QFocusFrame) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -4998,9 +6318,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QFocusFrame, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QFocusFrame, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -5014,9 +6338,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QFocusFrame, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QFocusFrame, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -5024,7 +6352,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5034,13 +6362,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -5048,7 +6380,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5058,13 +6390,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -5074,7 +6410,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5082,12 +6418,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QFocusFrame, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QFocusFrame, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -5099,10 +6439,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QFocusFrame, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QFocusFrame, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -5116,11 +6460,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QFocusFrame, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QFocusFrame, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -5136,13 +6484,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QFocusFrame, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QFocusFrame, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -5155,11 +6507,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QFocusFrame, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QFocusFrame, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -5171,10 +6527,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QFocusFrame, param1: anytype) void {
+    pub fn destroyed1(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -5186,9 +6546,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QFocusFrame, callback: *const fn (QFocusFrame, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QFocusFrame, callback: *const fn (QFocusFrame, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -5198,9 +6562,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn PaintingActive(self: QFocusFrame) bool {
+    pub fn paintingActive(self: QFocusFrame) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5210,9 +6578,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn WidthMM(self: QFocusFrame) i32 {
+    pub fn widthMM(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -5222,9 +6594,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn HeightMM(self: QFocusFrame) i32 {
+    pub fn heightMM(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5234,9 +6610,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn LogicalDpiX(self: QFocusFrame) i32 {
+    pub fn logicalDpiX(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5246,9 +6626,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn LogicalDpiY(self: QFocusFrame) i32 {
+    pub fn logicalDpiY(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -5258,9 +6642,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn PhysicalDpiX(self: QFocusFrame) i32 {
+    pub fn physicalDpiX(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -5270,9 +6658,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn PhysicalDpiY(self: QFocusFrame) i32 {
+    pub fn physicalDpiY(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -5282,9 +6674,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DevicePixelRatio(self: QFocusFrame) f64 {
+    pub fn devicePixelRatio(self: QFocusFrame) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5294,9 +6690,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DevicePixelRatioF(self: QFocusFrame) f64 {
+    pub fn devicePixelRatioF(self: QFocusFrame) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -5306,9 +6706,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn ColorCount(self: QFocusFrame) i32 {
+    pub fn colorCount(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -5318,17 +6722,25 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Depth(self: QFocusFrame) i32 {
+    pub fn depth(self: QFocusFrame) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -5336,13 +6748,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -5354,13 +6770,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn DevType(self: QFocusFrame) i32 {
+    pub fn devType(self: QFocusFrame) i32 {
         return qtc.QFocusFrame_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -5372,9 +6788,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperDevType(self: QFocusFrame) i32 {
+    pub fn superDevType(self: QFocusFrame) i32 {
         return qtc.QFocusFrame_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -5388,9 +6808,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QFocusFrame, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QFocusFrame, callback: *const fn () callconv(.c) i32) void {
         qtc.QFocusFrame_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -5404,13 +6828,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QFocusFrame, visible: bool) void {
+    pub fn setVisible(self: QFocusFrame, visible: bool) void {
         qtc.QFocusFrame_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5424,9 +6848,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QFocusFrame, visible: bool) void {
+    pub fn superSetVisible(self: QFocusFrame, visible: bool) void {
         qtc.QFocusFrame_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -5440,10 +6868,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QFocusFrame, callback: *const fn (QFocusFrame, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QFocusFrame, callback: *const fn (QFocusFrame, bool) callconv(.c) void) void {
         qtc.QFocusFrame_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5454,13 +6886,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SizeHint(self: QFocusFrame) QSize {
+    pub fn sizeHint(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QFocusFrame_SizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5472,10 +6904,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperSizeHint(self: QFocusFrame) QSize {
+    pub fn superSizeHint(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QFocusFrame_SuperSizeHint(@ptrCast(self.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#sizeHint)
@@ -5490,9 +6926,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QFocusFrame, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QFocusFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFocusFrame_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5504,13 +6944,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn MinimumSizeHint(self: QFocusFrame) QSize {
+    pub fn minimumSizeHint(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QFocusFrame_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5522,9 +6962,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperMinimumSizeHint(self: QFocusFrame) QSize {
+    pub fn superMinimumSizeHint(self: QFocusFrame) QSize {
         return .{ .ptr = qtc.QFocusFrame_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -5540,9 +6984,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QFocusFrame, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QFocusFrame, callback: *const fn () callconv(.c) QSize) void {
         qtc.QFocusFrame_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5556,13 +7004,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QFocusFrame, param1: i32) i32 {
+    pub fn heightForWidth(self: QFocusFrame, param1: i32) i32 {
         return qtc.QFocusFrame_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5576,9 +7024,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QFocusFrame, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QFocusFrame, param1: i32) i32 {
         return qtc.QFocusFrame_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5592,9 +7044,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) i32) void {
         qtc.QFocusFrame_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5606,13 +7062,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn HasHeightForWidth(self: QFocusFrame) bool {
+    pub fn hasHeightForWidth(self: QFocusFrame) bool {
         return qtc.QFocusFrame_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5624,9 +7080,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperHasHeightForWidth(self: QFocusFrame) bool {
+    pub fn superHasHeightForWidth(self: QFocusFrame) bool {
         return qtc.QFocusFrame_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -5640,9 +7100,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
         qtc.QFocusFrame_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5654,13 +7118,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn PaintEngine(self: QFocusFrame) QPaintEngine {
+    pub fn paintEngine(self: QFocusFrame) QPaintEngine {
         return .{ .ptr = qtc.QFocusFrame_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5672,9 +7136,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperPaintEngine(self: QFocusFrame) QPaintEngine {
+    pub fn superPaintEngine(self: QFocusFrame) QPaintEngine {
         return .{ .ptr = qtc.QFocusFrame_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -5688,10 +7156,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QFocusFrame, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QFocusFrame, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QFocusFrame_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -5702,16 +7174,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5723,12 +7195,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5742,10 +7218,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -5756,16 +7236,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5777,12 +7257,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -5796,10 +7280,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -5810,16 +7298,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5831,12 +7319,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -5850,10 +7342,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -5864,16 +7360,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5885,12 +7381,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QFocusFrame_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QFocusFrame_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -5904,9 +7404,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMouseEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5918,16 +7422,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QFocusFrame_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QFocusFrame_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5939,12 +7443,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QFocusFrame_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QFocusFrame_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -5958,10 +7466,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QWheelEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -5972,16 +7484,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QFocusFrame_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QFocusFrame_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -5993,12 +7505,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QFocusFrame_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QFocusFrame_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6012,10 +7528,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QKeyEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -6026,16 +7546,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QFocusFrame_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QFocusFrame_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6047,12 +7567,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QFocusFrame_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QFocusFrame_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6066,10 +7590,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QKeyEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -6080,16 +7608,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QFocusFrame_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QFocusFrame_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6101,12 +7629,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QFocusFrame_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QFocusFrame_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -6120,10 +7652,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QFocusEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -6134,16 +7670,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QFocusFrame_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QFocusFrame_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6155,12 +7691,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QFocusFrame_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QFocusFrame_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -6174,9 +7714,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QFocusEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6188,16 +7732,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QFocusFrame_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QFocusFrame_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6209,12 +7753,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QFocusFrame_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QFocusFrame_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6228,9 +7776,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEnterEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6242,16 +7794,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFocusFrame_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFocusFrame_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6263,12 +7815,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFocusFrame_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFocusFrame_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6282,9 +7838,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6296,16 +7856,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QFocusFrame_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QFocusFrame_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6317,12 +7877,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QFocusFrame_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QFocusFrame_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6336,9 +7900,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QMoveEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6350,16 +7918,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QFocusFrame_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QFocusFrame_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6371,12 +7939,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QFocusFrame_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QFocusFrame_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6390,9 +7962,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QResizeEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6404,16 +7980,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QFocusFrame_CloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn closeEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QFocusFrame_CloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6425,12 +8001,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QCloseEvent `
+    /// ` _event: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QCloseEvent;
-        qtc.QFocusFrame_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCloseEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QCloseEvent;
+        qtc.QFocusFrame_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6444,9 +8024,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QCloseEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6458,16 +8042,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QFocusFrame_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn contextMenuEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QFocusFrame_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6479,12 +8063,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QContextMenuEvent `
+    /// ` _event: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QContextMenuEvent;
-        qtc.QFocusFrame_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superContextMenuEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QContextMenuEvent;
+        qtc.QFocusFrame_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// Inherited from QWidget
     ///
@@ -6498,9 +8086,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QContextMenuEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6512,16 +8104,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QFocusFrame_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QFocusFrame_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6533,12 +8125,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QFocusFrame_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QFocusFrame_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -6552,9 +8148,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QTabletEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6566,16 +8166,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QFocusFrame_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QFocusFrame_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6587,12 +8187,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QFocusFrame_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QFocusFrame_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -6606,9 +8210,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QActionEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6620,16 +8228,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QFocusFrame_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragEnterEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QFocusFrame_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6641,12 +8249,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragEnterEvent `
+    /// ` _event: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragEnterEvent;
-        qtc.QFocusFrame_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragEnterEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragEnterEvent;
+        qtc.QFocusFrame_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -6660,9 +8272,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragEnterEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6674,16 +8290,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QFocusFrame_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragMoveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QFocusFrame_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6695,12 +8311,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragMoveEvent `
+    /// ` _event: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragMoveEvent;
-        qtc.QFocusFrame_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragMoveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragMoveEvent;
+        qtc.QFocusFrame_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6714,9 +8334,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragMoveEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6728,16 +8352,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QFocusFrame_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dragLeaveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QFocusFrame_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6749,12 +8373,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDragLeaveEvent `
+    /// ` _event: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDragLeaveEvent;
-        qtc.QFocusFrame_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDragLeaveEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDragLeaveEvent;
+        qtc.QFocusFrame_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -6768,9 +8396,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6782,16 +8414,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn DropEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QFocusFrame_DropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn dropEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QFocusFrame_DropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6803,12 +8435,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QDropEvent `
+    /// ` _event: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QDropEvent;
-        qtc.QFocusFrame_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superDropEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QDropEvent;
+        qtc.QFocusFrame_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// Inherited from QWidget
     ///
@@ -6822,9 +8458,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QDropEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// Inherited from QWidget
     ///
@@ -6836,16 +8476,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn ShowEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QFocusFrame_ShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn showEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QFocusFrame_ShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6857,12 +8497,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QShowEvent `
+    /// ` _event: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QShowEvent;
-        qtc.QFocusFrame_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superShowEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QShowEvent;
+        qtc.QFocusFrame_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// Inherited from QWidget
     ///
@@ -6876,9 +8520,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QShowEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6890,16 +8538,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn HideEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QFocusFrame_HideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn hideEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QFocusFrame_HideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6911,12 +8559,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QHideEvent `
+    /// ` _event: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QHideEvent;
-        qtc.QFocusFrame_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superHideEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QHideEvent;
+        qtc.QFocusFrame_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// Inherited from QWidget
     ///
@@ -6930,9 +8582,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QHideEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6950,7 +8606,7 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QFocusFrame, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QFocusFrame, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -6958,9 +8614,9 @@ pub const QFocusFrame = extern struct {
         return qtc.QFocusFrame_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6978,13 +8634,17 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QFocusFrame, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QFocusFrame, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QFocusFrame_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -6998,9 +8658,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QFocusFrame_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7014,14 +8678,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn changeEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QFocusFrame_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7035,10 +8699,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn superChangeEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QFocusFrame_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7052,9 +8720,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7068,13 +8740,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QFocusFrame, param1: i32) i32 {
+    pub fn metric(self: QFocusFrame, param1: i32) i32 {
         return qtc.QFocusFrame_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7088,9 +8760,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QFocusFrame, param1: i32) i32 {
+    pub fn superMetric(self: QFocusFrame, param1: i32) i32 {
         return qtc.QFocusFrame_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7104,9 +8780,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) i32) void {
         qtc.QFocusFrame_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7120,14 +8800,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QFocusFrame, painter: anytype) void {
+    pub fn initPainter(self: QFocusFrame, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QFocusFrame_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7141,10 +8821,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QFocusFrame, painter: anytype) void {
+    pub fn superInitPainter(self: QFocusFrame, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QFocusFrame_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7158,9 +8842,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QFocusFrame, callback: *const fn (QFocusFrame, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QFocusFrame, callback: *const fn (QFocusFrame, QPainter) callconv(.c) void) void {
         qtc.QFocusFrame_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7174,14 +8862,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QFocusFrame, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QFocusFrame, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QFocusFrame_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7195,10 +8883,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QFocusFrame, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QFocusFrame, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QFocusFrame_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7212,9 +8904,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QFocusFrame, callback: *const fn (QFocusFrame, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QFocusFrame, callback: *const fn (QFocusFrame, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QFocusFrame_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7226,13 +8922,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SharedPainter(self: QFocusFrame) QPainter {
+    pub fn sharedPainter(self: QFocusFrame) QPainter {
         return .{ .ptr = qtc.QFocusFrame_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7244,9 +8940,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperSharedPainter(self: QFocusFrame) QPainter {
+    pub fn superSharedPainter(self: QFocusFrame) QPainter {
         return .{ .ptr = qtc.QFocusFrame_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -7260,9 +8960,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QFocusFrame, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QFocusFrame, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QFocusFrame_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7276,14 +8980,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn inputMethodEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QFocusFrame_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7297,10 +9001,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QFocusFrame, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QFocusFrame, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QFocusFrame_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -7314,9 +9022,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QInputMethodEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7330,13 +9042,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QFocusFrame, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QFocusFrame, param1: i32) QVariant {
         return .{ .ptr = qtc.QFocusFrame_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7350,9 +9062,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QFocusFrame, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QFocusFrame, param1: i32) QVariant {
         return .{ .ptr = qtc.QFocusFrame_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -7368,9 +9084,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QFocusFrame, callback: *const fn (QFocusFrame, i32) callconv(.c) QVariant) void {
         qtc.QFocusFrame_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7384,13 +9104,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QFocusFrame, next: bool) bool {
+    pub fn focusNextPrevChild(self: QFocusFrame, next: bool) bool {
         return qtc.QFocusFrame_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7404,9 +9124,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QFocusFrame, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QFocusFrame, next: bool) bool {
         return qtc.QFocusFrame_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -7420,9 +9144,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QFocusFrame, callback: *const fn (QFocusFrame, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QFocusFrame, callback: *const fn (QFocusFrame, bool) callconv(.c) bool) void {
         qtc.QFocusFrame_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -7434,16 +9162,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFocusFrame_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFocusFrame_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7455,12 +9183,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QFocusFrame_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QFocusFrame_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -7474,9 +9206,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QTimerEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -7488,16 +9224,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QFocusFrame_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QFocusFrame_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7509,12 +9245,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QFocusFrame_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QFocusFrame_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -7528,9 +9268,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QChildEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -7542,16 +9286,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFocusFrame_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFocusFrame_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7563,12 +9307,16 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QFocusFrame, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QFocusFrame_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QFocusFrame, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QFocusFrame_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -7582,9 +9330,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QFocusFrame, callback: *const fn (QFocusFrame, QEvent) callconv(.c) void) void {
         qtc.QFocusFrame_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -7598,14 +9350,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QFocusFrame, signal: anytype) void {
+    pub fn connectNotify(self: QFocusFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFocusFrame_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7619,11 +9371,15 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QFocusFrame, signal: anytype) void {
+    pub fn superConnectNotify(self: QFocusFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFocusFrame_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -7636,9 +9392,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) void) void {
         qtc.QFocusFrame_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7652,14 +9412,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QFocusFrame, signal: anytype) void {
+    pub fn disconnectNotify(self: QFocusFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFocusFrame_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7673,10 +9433,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QFocusFrame, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QFocusFrame, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QFocusFrame_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -7690,10 +9454,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) void) void {
         qtc.QFocusFrame_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7704,13 +9472,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn UpdateMicroFocus(self: QFocusFrame) void {
+    pub fn updateMicroFocus(self: QFocusFrame) void {
         qtc.QFocusFrame_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -7722,10 +9490,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperUpdateMicroFocus(self: QFocusFrame) void {
+    pub fn superUpdateMicroFocus(self: QFocusFrame) void {
         qtc.QFocusFrame_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -7738,10 +9510,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
         qtc.QFocusFrame_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7752,13 +9528,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Create(self: QFocusFrame) void {
+    pub fn create(self: QFocusFrame) void {
         qtc.QFocusFrame_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -7770,10 +9546,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperCreate(self: QFocusFrame) void {
+    pub fn superCreate(self: QFocusFrame) void {
         qtc.QFocusFrame_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -7786,9 +9566,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
         qtc.QFocusFrame_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -7800,13 +9584,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Destroy(self: QFocusFrame) void {
+    pub fn destroy(self: QFocusFrame) void {
         qtc.QFocusFrame_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7818,9 +9602,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperDestroy(self: QFocusFrame) void {
+    pub fn superDestroy(self: QFocusFrame) void {
         qtc.QFocusFrame_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -7834,10 +9622,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QFocusFrame, callback: *const fn () callconv(.c) void) void {
         qtc.QFocusFrame_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7848,13 +9640,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FocusNextChild(self: QFocusFrame) bool {
+    pub fn focusNextChild(self: QFocusFrame) bool {
         return qtc.QFocusFrame_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -7866,10 +9658,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperFocusNextChild(self: QFocusFrame) bool {
+    pub fn superFocusNextChild(self: QFocusFrame) bool {
         return qtc.QFocusFrame_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -7882,9 +9678,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
         qtc.QFocusFrame_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7896,13 +9696,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn FocusPreviousChild(self: QFocusFrame) bool {
+    pub fn focusPreviousChild(self: QFocusFrame) bool {
         return qtc.QFocusFrame_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7914,9 +9714,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperFocusPreviousChild(self: QFocusFrame) bool {
+    pub fn superFocusPreviousChild(self: QFocusFrame) bool {
         return qtc.QFocusFrame_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -7930,9 +9734,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QFocusFrame, callback: *const fn () callconv(.c) bool) void {
         qtc.QFocusFrame_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -7944,13 +9752,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Sender(self: QFocusFrame) QObject {
+    pub fn sender(self: QFocusFrame) QObject {
         return .{ .ptr = qtc.QFocusFrame_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -7962,9 +9770,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperSender(self: QFocusFrame) QObject {
+    pub fn superSender(self: QFocusFrame) QObject {
         return .{ .ptr = qtc.QFocusFrame_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -7978,9 +9790,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QFocusFrame, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QFocusFrame, callback: *const fn () callconv(.c) QObject) void {
         qtc.QFocusFrame_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -7992,13 +9808,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SenderSignalIndex(self: QFocusFrame) i32 {
+    pub fn senderSignalIndex(self: QFocusFrame) i32 {
         return qtc.QFocusFrame_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8010,9 +9826,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn SuperSenderSignalIndex(self: QFocusFrame) i32 {
+    pub fn superSenderSignalIndex(self: QFocusFrame) i32 {
         return qtc.QFocusFrame_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8026,9 +9846,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QFocusFrame, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QFocusFrame, callback: *const fn () callconv(.c) i32) void {
         qtc.QFocusFrame_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8042,14 +9866,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QFocusFrame, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QFocusFrame, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFocusFrame_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8063,10 +9887,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QFocusFrame, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QFocusFrame, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QFocusFrame_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8080,9 +9908,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) i32) void {
         qtc.QFocusFrame_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8096,14 +9928,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QFocusFrame, signal: anytype) bool {
+    pub fn isSignalConnected(self: QFocusFrame, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFocusFrame_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8117,10 +9949,14 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QFocusFrame, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QFocusFrame, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QFocusFrame_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8134,9 +9970,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QFocusFrame, callback: *const fn (QFocusFrame, QMetaMethod) callconv(.c) bool) void {
         qtc.QFocusFrame_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8152,13 +9992,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QFocusFrame, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QFocusFrame, metricA: i32, metricB: i32) f64 {
         return qtc.QFocusFrame_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8174,9 +10014,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QFocusFrame, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QFocusFrame, metricA: i32, metricB: i32) f64 {
         return qtc.QFocusFrame_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -8190,9 +10034,13 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QFocusFrame, callback: *const fn (QFocusFrame, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QFocusFrame, callback: *const fn (QFocusFrame, i32, i32) callconv(.c) f64) void {
         qtc.QFocusFrame_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -8206,23 +10054,23 @@ pub const QFocusFrame = extern struct {
     ///
     /// ` callback: *const fn (self: QFocusFrame, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QFocusFrame, callback: *const fn (QFocusFrame, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qfocusframe.html#dtor.QFocusFrame)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QFocusFrame `
     ///
-    pub fn Delete(self: QFocusFrame) void {
+    pub fn delete(self: QFocusFrame) void {
         qtc.QFocusFrame_Delete(@ptrCast(self.ptr));
     }
 };

@@ -11,8 +11,8 @@ QUrl* QUrl_new() {
     return new QUrl();
 }
 
-QUrl* QUrl_new2(const QUrl* copyVal) {
-    return new QUrl(*copyVal);
+QUrl* QUrl_new2(const QUrl* copy) {
+    return new QUrl(*copy);
 }
 
 QUrl* QUrl_new3(const libqt_string url) {
@@ -25,8 +25,8 @@ QUrl* QUrl_new4(const libqt_string url, int mode) {
     return new QUrl(url_QString, static_cast<QUrl::ParsingMode>(mode));
 }
 
-void QUrl_OperatorAssign(QUrl* self, const QUrl* copyVal) {
-    self->operator=(*copyVal);
+void QUrl_OperatorAssign(QUrl* self, const QUrl* copy) {
+    self->operator=(*copy);
 }
 
 void QUrl_OperatorAssign2(QUrl* self, const libqt_string url) {

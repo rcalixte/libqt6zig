@@ -93,72 +93,100 @@ pub const QWebEngineView = extern struct {
     pub const _is_QObject = {};
     pub const _is_QPaintDevice = {};
 
-    /// New constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QWebEngineView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New(parent: anytype) QWebEngineView {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWebEngineView_new(@ptrCast(parent.ptr)) };
+    pub fn new(_parent: anytype) QWebEngineView {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWebEngineView_new(@ptrCast(_parent.ptr)) };
     }
 
-    /// New2 constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new2` instead
     ///
-    pub fn New2() QWebEngineView {
+    pub const New2 = new2;
+
+    /// Allocate a new QWebEngineView object in C++ memory
+    ///
+    pub fn new2() QWebEngineView {
         return .{ .ptr = qtc.QWebEngineView_new2() };
     }
 
-    /// New3 constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QWebEngineView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` profile: QWebEngineProfile `
     ///
-    pub fn New3(profile: anytype) QWebEngineView {
+    pub fn new3(profile: anytype) QWebEngineView {
         comptime _ = @TypeOf(profile)._is_QWebEngineProfile;
         return .{ .ptr = qtc.QWebEngineView_new3(@ptrCast(profile.ptr)) };
     }
 
-    /// New4 constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QWebEngineView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` page: QWebEnginePage `
+    /// ` _page: QWebEnginePage `
     ///
-    pub fn New4(page: anytype) QWebEngineView {
-        comptime _ = @TypeOf(page)._is_QWebEnginePage;
-        return .{ .ptr = qtc.QWebEngineView_new4(@ptrCast(page.ptr)) };
+    pub fn new4(_page: anytype) QWebEngineView {
+        comptime _ = @TypeOf(_page)._is_QWebEnginePage;
+        return .{ .ptr = qtc.QWebEngineView_new4(@ptrCast(_page.ptr)) };
     }
 
-    /// New5 constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QWebEngineView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` profile: QWebEngineProfile `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New5(profile: anytype, parent: anytype) QWebEngineView {
+    pub fn new5(profile: anytype, _parent: anytype) QWebEngineView {
         comptime _ = @TypeOf(profile)._is_QWebEngineProfile;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWebEngineView_new5(@ptrCast(profile.ptr), @ptrCast(parent.ptr)) };
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWebEngineView_new5(@ptrCast(profile.ptr), @ptrCast(_parent.ptr)) };
     }
 
-    /// New6 constructs a new QWebEngineView object.
+    /// ### DEPRECATED: Use `new6` instead
+    ///
+    pub const New6 = new6;
+
+    /// Allocate a new QWebEngineView object in C++ memory
     ///
     /// ## Parameter(s):
     ///
-    /// ` page: QWebEnginePage `
+    /// ` _page: QWebEnginePage `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
     ///
-    pub fn New6(page: anytype, parent: anytype) QWebEngineView {
-        comptime _ = @TypeOf(page)._is_QWebEnginePage;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWebEngineView_new6(@ptrCast(page.ptr), @ptrCast(parent.ptr)) };
+    pub fn new6(_page: anytype, _parent: anytype) QWebEngineView {
+        comptime _ = @TypeOf(_page)._is_QWebEnginePage;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWebEngineView_new6(@ptrCast(_page.ptr), @ptrCast(_parent.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metaObject` instead
+    ///
+    pub const MetaObject = metaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -166,9 +194,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MetaObject(self: QWebEngineView) QMetaObject {
+    pub fn metaObject(self: QWebEngineView) QMetaObject {
         return .{ .ptr = qtc.QWebEngineView_MetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMetaObject` instead
+    ///
+    pub const OnMetaObject = onMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -180,13 +212,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QMetaObject `
     ///
-    pub fn OnMetaObject(self: QWebEngineView, callback: *const fn () callconv(.c) QMetaObject) void {
+    pub fn onMetaObject(self: QWebEngineView, callback: *const fn () callconv(.c) QMetaObject) void {
         qtc.QWebEngineView_OnMetaObject(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetaObject` instead
+    /// ### DEPRECATED: Use `superMetaObject` instead
     ///
-    pub const QBaseMetaObject = SuperMetaObject;
+    pub const SuperMetaObject = superMetaObject;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#metaObject)
     ///
@@ -196,9 +228,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperMetaObject(self: QWebEngineView) QMetaObject {
+    pub fn superMetaObject(self: QWebEngineView) QMetaObject {
         return .{ .ptr = qtc.QWebEngineView_SuperMetaObject(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `metacast` instead
+    ///
+    pub const Metacast = metacast;
 
     /// ## Parameter(s):
     ///
@@ -206,10 +242,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn Metacast(self: QWebEngineView, param1: [:0]const u8) ?*anyopaque {
+    pub fn metacast(self: QWebEngineView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEngineView_Metacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onMetacast` instead
+    ///
+    pub const OnMetacast = onMetacast;
 
     /// Allows for overriding the related default method
     ///
@@ -219,13 +259,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: [*:0]const u8) callconv(.c) ?*anyopaque `
     ///
-    pub fn OnMetacast(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
+    pub fn onMetacast(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) ?*anyopaque) void {
         qtc.QWebEngineView_OnMetacast(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacast` instead
+    /// ### DEPRECATED: Use `superMetacast` instead
     ///
-    pub const QBaseMetacast = SuperMetacast;
+    pub const SuperMetacast = superMetacast;
 
     /// Base class method implementation
     ///
@@ -235,10 +275,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: [:0]const u8 `
     ///
-    pub fn SuperMetacast(self: QWebEngineView, param1: [:0]const u8) ?*anyopaque {
+    pub fn superMetacast(self: QWebEngineView, param1: [:0]const u8) ?*anyopaque {
         const param1_Cstring = param1.ptr;
         return qtc.QWebEngineView_SuperMetacast(@ptrCast(self.ptr), param1_Cstring);
     }
+
+    /// ### DEPRECATED: Use `metacall` instead
+    ///
+    pub const Metacall = metacall;
 
     /// ## Parameter(s):
     ///
@@ -250,9 +294,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn Metacall(self: QWebEngineView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn metacall(self: QWebEngineView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebEngineView_Metacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `onMetacall` instead
+    ///
+    pub const OnMetacall = onMetacall;
 
     /// Allows for overriding the related default method
     ///
@@ -262,13 +310,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: qobjectdefs_enums.Call, param2: i32, param3: *?*anyopaque) callconv(.c) i32 `
     ///
-    pub fn OnMetacall(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
+    pub fn onMetacall(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32, *?*anyopaque) callconv(.c) i32) void {
         qtc.QWebEngineView_OnMetacall(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperMetacall` instead
+    /// ### DEPRECATED: Use `superMetacall` instead
     ///
-    pub const QBaseMetacall = SuperMetacall;
+    pub const SuperMetacall = superMetacall;
 
     /// Base class method implementation
     ///
@@ -282,9 +330,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param3: *?*anyopaque `
     ///
-    pub fn SuperMetacall(self: QWebEngineView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
+    pub fn superMetacall(self: QWebEngineView, param1: i32, param2: i32, param3: *?*anyopaque) i32 {
         return qtc.QWebEngineView_SuperMetacall(@ptrCast(self.ptr), @bitCast(param1), @bitCast(param2), @ptrCast(param3));
     }
+
+    /// ### DEPRECATED: Use `tr` instead
+    ///
+    pub const Tr = tr;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -294,25 +346,33 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` s: [:0]const u8 `
     ///
-    pub fn Tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
+    pub fn tr(allocator: std.mem.Allocator, s: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         var _str = qtc.QObject_Tr(s_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.Tr: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.tr: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `forPage` instead
+    ///
+    pub const ForPage = forPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#forPage)
     ///
     /// ## Parameter(s):
     ///
-    /// ` page: QWebEnginePage `
+    /// ` _page: QWebEnginePage `
     ///
-    pub fn ForPage(page: anytype) QWebEngineView {
-        comptime _ = @TypeOf(page)._is_QWebEnginePage;
-        return .{ .ptr = qtc.QWebEngineView_ForPage(@ptrCast(page.ptr)) };
+    pub fn forPage(_page: anytype) QWebEngineView {
+        comptime _ = @TypeOf(_page)._is_QWebEnginePage;
+        return .{ .ptr = qtc.QWebEngineView_ForPage(@ptrCast(_page.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `page` instead
+    ///
+    pub const Page = page;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#page)
     ///
@@ -320,9 +380,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Page(self: QWebEngineView) QWebEnginePage {
+    pub fn page(self: QWebEngineView) QWebEnginePage {
         return .{ .ptr = qtc.QWebEngineView_Page(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPage` instead
+    ///
+    pub const SetPage = setPage;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setPage)
     ///
@@ -330,12 +394,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` page: QWebEnginePage `
+    /// ` _page: QWebEnginePage `
     ///
-    pub fn SetPage(self: QWebEngineView, page: anytype) void {
-        comptime _ = @TypeOf(page)._is_QWebEnginePage;
-        qtc.QWebEngineView_SetPage(@ptrCast(self.ptr), @ptrCast(page.ptr));
+    pub fn setPage(self: QWebEngineView, _page: anytype) void {
+        comptime _ = @TypeOf(_page)._is_QWebEnginePage;
+        qtc.QWebEngineView_SetPage(@ptrCast(self.ptr), @ptrCast(_page.ptr));
     }
+
+    /// ### DEPRECATED: Use `load` instead
+    ///
+    pub const Load = load;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#load)
     ///
@@ -343,12 +411,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn Load(self: QWebEngineView, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.QWebEngineView_Load(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn load(self: QWebEngineView, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.QWebEngineView_Load(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `load2` instead
+    ///
+    pub const Load2 = load2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#load)
     ///
@@ -358,10 +430,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` request: QWebEngineHttpRequest `
     ///
-    pub fn Load2(self: QWebEngineView, request: anytype) void {
+    pub fn load2(self: QWebEngineView, request: anytype) void {
         comptime _ = @TypeOf(request)._is_QWebEngineHttpRequest;
         qtc.QWebEngineView_Load2(@ptrCast(self.ptr), @ptrCast(request.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHtml` instead
+    ///
+    pub const SetHtml = setHtml;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setHtml)
     ///
@@ -371,13 +447,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` html: []const u8 `
     ///
-    pub fn SetHtml(self: QWebEngineView, html: []const u8) void {
+    pub fn setHtml(self: QWebEngineView, html: []const u8) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
         };
         qtc.QWebEngineView_SetHtml(@ptrCast(self.ptr), html_str);
     }
+
+    /// ### DEPRECATED: Use `setContent` instead
+    ///
+    pub const SetContent = setContent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setContent)
     ///
@@ -387,7 +467,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` data: []u8 `
     ///
-    pub fn SetContent(self: QWebEngineView, data: []u8) void {
+    pub fn setContent(self: QWebEngineView, data: []u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -395,15 +475,23 @@ pub const QWebEngineView = extern struct {
         qtc.QWebEngineView_SetContent(@ptrCast(self.ptr), data_str);
     }
 
+    /// ### DEPRECATED: Use `history` instead
+    ///
+    pub const History = history;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#history)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn History(self: QWebEngineView) QWebEngineHistory {
+    pub fn history(self: QWebEngineView) QWebEngineHistory {
         return .{ .ptr = qtc.QWebEngineView_History(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `title` instead
+    ///
+    pub const Title = title;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#title)
     ///
@@ -413,13 +501,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Title(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn title(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineView_Title(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.Title: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.title: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUrl` instead
+    ///
+    pub const SetUrl = setUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setUrl)
     ///
@@ -427,12 +519,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` url: QUrl `
+    /// ` _url: QUrl `
     ///
-    pub fn SetUrl(self: QWebEngineView, url: anytype) void {
-        comptime _ = @TypeOf(url)._is_QUrl;
-        qtc.QWebEngineView_SetUrl(@ptrCast(self.ptr), @ptrCast(url.ptr));
+    pub fn setUrl(self: QWebEngineView, _url: anytype) void {
+        comptime _ = @TypeOf(_url)._is_QUrl;
+        qtc.QWebEngineView_SetUrl(@ptrCast(self.ptr), @ptrCast(_url.ptr));
     }
+
+    /// ### DEPRECATED: Use `url` instead
+    ///
+    pub const Url = url;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#url)
     ///
@@ -440,9 +536,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Url(self: QWebEngineView) QUrl {
+    pub fn url(self: QWebEngineView) QUrl {
         return .{ .ptr = qtc.QWebEngineView_Url(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `iconUrl` instead
+    ///
+    pub const IconUrl = iconUrl;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#iconUrl)
     ///
@@ -450,9 +550,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IconUrl(self: QWebEngineView) QUrl {
+    pub fn iconUrl(self: QWebEngineView) QUrl {
         return .{ .ptr = qtc.QWebEngineView_IconUrl(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `icon` instead
+    ///
+    pub const Icon = icon;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#icon)
     ///
@@ -460,9 +564,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Icon(self: QWebEngineView) QIcon {
+    pub fn icon(self: QWebEngineView) QIcon {
         return .{ .ptr = qtc.QWebEngineView_Icon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `hasSelection` instead
+    ///
+    pub const HasSelection = hasSelection;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#hasSelection)
     ///
@@ -470,9 +578,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HasSelection(self: QWebEngineView) bool {
+    pub fn hasSelection(self: QWebEngineView) bool {
         return qtc.QWebEngineView_HasSelection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `selectedText` instead
+    ///
+    pub const SelectedText = selectedText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#selectedText)
     ///
@@ -482,13 +594,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SelectedText(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn selectedText(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWebEngineView_SelectedText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.SelectedText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.selectedText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `pageAction` instead
+    ///
+    pub const PageAction = pageAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#pageAction)
     ///
@@ -498,9 +614,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` action: qwebenginepage_enums.WebAction `
     ///
-    pub fn PageAction(self: QWebEngineView, action: i32) QAction {
+    pub fn pageAction(self: QWebEngineView, action: i32) QAction {
         return .{ .ptr = qtc.QWebEngineView_PageAction(@ptrCast(self.ptr), @bitCast(action)) };
     }
+
+    /// ### DEPRECATED: Use `triggerPageAction` instead
+    ///
+    pub const TriggerPageAction = triggerPageAction;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#triggerPageAction)
     ///
@@ -510,9 +630,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` action: qwebenginepage_enums.WebAction `
     ///
-    pub fn TriggerPageAction(self: QWebEngineView, action: i32) void {
+    pub fn triggerPageAction(self: QWebEngineView, action: i32) void {
         qtc.QWebEngineView_TriggerPageAction(@ptrCast(self.ptr), @bitCast(action));
     }
+
+    /// ### DEPRECATED: Use `zoomFactor` instead
+    ///
+    pub const ZoomFactor = zoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#zoomFactor)
     ///
@@ -520,9 +644,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ZoomFactor(self: QWebEngineView) f64 {
+    pub fn zoomFactor(self: QWebEngineView) f64 {
         return qtc.QWebEngineView_ZoomFactor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setZoomFactor` instead
+    ///
+    pub const SetZoomFactor = setZoomFactor;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setZoomFactor)
     ///
@@ -532,9 +660,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` factor: f64 `
     ///
-    pub fn SetZoomFactor(self: QWebEngineView, factor: f64) void {
+    pub fn setZoomFactor(self: QWebEngineView, factor: f64) void {
         qtc.QWebEngineView_SetZoomFactor(@ptrCast(self.ptr), @bitCast(factor));
     }
+
+    /// ### DEPRECATED: Use `findText` instead
+    ///
+    pub const FindText = findText;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
     ///
@@ -544,7 +676,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` subString: []const u8 `
     ///
-    pub fn FindText(self: QWebEngineView, subString: []const u8) void {
+    pub fn findText(self: QWebEngineView, subString: []const u8) void {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
@@ -552,15 +684,23 @@ pub const QWebEngineView = extern struct {
         qtc.QWebEngineView_FindText(@ptrCast(self.ptr), subString_str);
     }
 
+    /// ### DEPRECATED: Use `sizeHint` instead
+    ///
+    pub const SizeHint = sizeHint;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#sizeHint)
     ///
     /// ## Parameter(s):
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SizeHint(self: QWebEngineView) QSize {
+    pub fn sizeHint(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWebEngineView_SizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSizeHint` instead
+    ///
+    pub const OnSizeHint = onSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#sizeHint)
     ///
@@ -574,13 +714,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWebEngineView_OnSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperSizeHint` instead
+    /// ### DEPRECATED: Use `superSizeHint` instead
     ///
-    pub const QBaseSizeHint = SuperSizeHint;
+    pub const SuperSizeHint = superSizeHint;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#sizeHint)
     ///
@@ -590,9 +730,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperSizeHint(self: QWebEngineView) QSize {
+    pub fn superSizeHint(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWebEngineView_SuperSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `settings` instead
+    ///
+    pub const Settings = settings;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#settings)
     ///
@@ -600,9 +744,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Settings(self: QWebEngineView) QWebEngineSettings {
+    pub fn settings(self: QWebEngineView) QWebEngineSettings {
         return .{ .ptr = qtc.QWebEngineView_Settings(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `createStandardContextMenu` instead
+    ///
+    pub const CreateStandardContextMenu = createStandardContextMenu;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#createStandardContextMenu)
     ///
@@ -610,9 +758,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn CreateStandardContextMenu(self: QWebEngineView) QMenu {
+    pub fn createStandardContextMenu(self: QWebEngineView) QMenu {
         return .{ .ptr = qtc.QWebEngineView_CreateStandardContextMenu(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `lastContextMenuRequest` instead
+    ///
+    pub const LastContextMenuRequest = lastContextMenuRequest;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#lastContextMenuRequest)
     ///
@@ -620,9 +772,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn LastContextMenuRequest(self: QWebEngineView) QWebEngineContextMenuRequest {
+    pub fn lastContextMenuRequest(self: QWebEngineView) QWebEngineContextMenuRequest {
         return .{ .ptr = qtc.QWebEngineView_LastContextMenuRequest(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `printToPdf` instead
+    ///
+    pub const PrintToPdf = printToPdf;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
@@ -632,13 +788,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn PrintToPdf(self: QWebEngineView, filePath: []const u8) void {
+    pub fn printToPdf(self: QWebEngineView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWebEngineView_PrintToPdf(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `printToPdf2` instead
+    ///
+    pub const PrintToPdf2 = printToPdf2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
@@ -648,9 +808,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
     ///
-    pub fn PrintToPdf2(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void) void {
+    pub fn printToPdf2(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void) void {
         qtc.QWebEngineView_PrintToPdf2(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)));
     }
+
+    /// ### DEPRECATED: Use `print` instead
+    ///
+    pub const Print = print;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#print)
     ///
@@ -660,10 +824,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` printer: QPrinter `
     ///
-    pub fn Print(self: QWebEngineView, printer: anytype) void {
+    pub fn print(self: QWebEngineView, printer: anytype) void {
         comptime _ = @TypeOf(printer)._is_QPrinter;
         qtc.QWebEngineView_Print(@ptrCast(self.ptr), @ptrCast(printer.ptr));
     }
+
+    /// ### DEPRECATED: Use `stop` instead
+    ///
+    pub const Stop = stop;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#stop)
     ///
@@ -671,9 +839,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Stop(self: QWebEngineView) void {
+    pub fn stop(self: QWebEngineView) void {
         qtc.QWebEngineView_Stop(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `back` instead
+    ///
+    pub const Back = back;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#back)
     ///
@@ -681,9 +853,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Back(self: QWebEngineView) void {
+    pub fn back(self: QWebEngineView) void {
         qtc.QWebEngineView_Back(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `forward` instead
+    ///
+    pub const Forward = forward;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#forward)
     ///
@@ -691,9 +867,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Forward(self: QWebEngineView) void {
+    pub fn forward(self: QWebEngineView) void {
         qtc.QWebEngineView_Forward(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `reload` instead
+    ///
+    pub const Reload = reload;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#reload)
     ///
@@ -701,9 +881,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Reload(self: QWebEngineView) void {
+    pub fn reload(self: QWebEngineView) void {
         qtc.QWebEngineView_Reload(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `loadStarted` instead
+    ///
+    pub const LoadStarted = loadStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadStarted)
     ///
@@ -711,9 +895,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn LoadStarted(self: QWebEngineView) void {
+    pub fn loadStarted(self: QWebEngineView) void {
         qtc.QWebEngineView_LoadStarted(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLoadStarted` instead
+    ///
+    pub const OnLoadStarted = onLoadStarted;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadStarted)
     ///
@@ -723,9 +911,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView) callconv(.c) void `
     ///
-    pub fn OnLoadStarted(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
+    pub fn onLoadStarted(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_LoadStarted(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `loadProgress` instead
+    ///
+    pub const LoadProgress = loadProgress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadProgress)
     ///
@@ -735,9 +927,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` progress: i32 `
     ///
-    pub fn LoadProgress(self: QWebEngineView, progress: i32) void {
+    pub fn loadProgress(self: QWebEngineView, progress: i32) void {
         qtc.QWebEngineView_LoadProgress(@ptrCast(self.ptr), @bitCast(progress));
     }
+
+    /// ### DEPRECATED: Use `onLoadProgress` instead
+    ///
+    pub const OnLoadProgress = onLoadProgress;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadProgress)
     ///
@@ -747,9 +943,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, progress: i32) callconv(.c) void `
     ///
-    pub fn OnLoadProgress(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) void) void {
+    pub fn onLoadProgress(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_LoadProgress(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `loadFinished` instead
+    ///
+    pub const LoadFinished = loadFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadFinished)
     ///
@@ -759,9 +959,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: bool `
     ///
-    pub fn LoadFinished(self: QWebEngineView, param1: bool) void {
+    pub fn loadFinished(self: QWebEngineView, param1: bool) void {
         qtc.QWebEngineView_LoadFinished(@ptrCast(self.ptr), param1);
     }
+
+    /// ### DEPRECATED: Use `onLoadFinished` instead
+    ///
+    pub const OnLoadFinished = onLoadFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#loadFinished)
     ///
@@ -771,9 +975,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: bool) callconv(.c) void `
     ///
-    pub fn OnLoadFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
+    pub fn onLoadFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_LoadFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `titleChanged` instead
+    ///
+    pub const TitleChanged = titleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#titleChanged)
     ///
@@ -781,15 +989,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn TitleChanged(self: QWebEngineView, title: []const u8) void {
+    pub fn titleChanged(self: QWebEngineView, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWebEngineView_TitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onTitleChanged` instead
+    ///
+    pub const OnTitleChanged = onTitleChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#titleChanged)
     ///
@@ -799,9 +1011,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnTitleChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onTitleChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_TitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `selectionChanged` instead
+    ///
+    pub const SelectionChanged = selectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#selectionChanged)
     ///
@@ -809,9 +1025,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SelectionChanged(self: QWebEngineView) void {
+    pub fn selectionChanged(self: QWebEngineView) void {
         qtc.QWebEngineView_SelectionChanged(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSelectionChanged` instead
+    ///
+    pub const OnSelectionChanged = onSelectionChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#selectionChanged)
     ///
@@ -821,9 +1041,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView) callconv(.c) void `
     ///
-    pub fn OnSelectionChanged(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
+    pub fn onSelectionChanged(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_SelectionChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `urlChanged` instead
+    ///
+    pub const UrlChanged = urlChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#urlChanged)
     ///
@@ -833,11 +1057,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QUrl `
     ///
-    pub fn UrlChanged(self: QWebEngineView, param1: anytype) void {
+    pub fn urlChanged(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.QWebEngineView_UrlChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUrlChanged` instead
+    ///
+    pub const OnUrlChanged = onUrlChanged;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#urlChanged)
     ///
     /// ## Parameters:
@@ -846,9 +1074,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnUrlChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QUrl) callconv(.c) void) void {
+    pub fn onUrlChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QUrl) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_UrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconUrlChanged` instead
+    ///
+    pub const IconUrlChanged = iconUrlChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#iconUrlChanged)
     ///
@@ -858,10 +1090,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QUrl `
     ///
-    pub fn IconUrlChanged(self: QWebEngineView, param1: anytype) void {
+    pub fn iconUrlChanged(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QUrl;
         qtc.QWebEngineView_IconUrlChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconUrlChanged` instead
+    ///
+    pub const OnIconUrlChanged = onIconUrlChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#iconUrlChanged)
     ///
@@ -871,9 +1107,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QUrl) callconv(.c) void `
     ///
-    pub fn OnIconUrlChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QUrl) callconv(.c) void) void {
+    pub fn onIconUrlChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QUrl) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_IconUrlChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `iconChanged` instead
+    ///
+    pub const IconChanged = iconChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#iconChanged)
     ///
@@ -883,10 +1123,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QIcon `
     ///
-    pub fn IconChanged(self: QWebEngineView, param1: anytype) void {
+    pub fn iconChanged(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QIcon;
         qtc.QWebEngineView_IconChanged(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIconChanged` instead
+    ///
+    pub const OnIconChanged = onIconChanged;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#iconChanged)
     ///
@@ -896,9 +1140,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QIcon) callconv(.c) void `
     ///
-    pub fn OnIconChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QIcon) callconv(.c) void) void {
+    pub fn onIconChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QIcon) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_IconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `renderProcessTerminated` instead
+    ///
+    pub const RenderProcessTerminated = renderProcessTerminated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#renderProcessTerminated)
     ///
@@ -910,9 +1158,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` exitCode: i32 `
     ///
-    pub fn RenderProcessTerminated(self: QWebEngineView, terminationStatus: i32, exitCode: i32) void {
+    pub fn renderProcessTerminated(self: QWebEngineView, terminationStatus: i32, exitCode: i32) void {
         qtc.QWebEngineView_RenderProcessTerminated(@ptrCast(self.ptr), @bitCast(terminationStatus), @bitCast(exitCode));
     }
+
+    /// ### DEPRECATED: Use `onRenderProcessTerminated` instead
+    ///
+    pub const OnRenderProcessTerminated = onRenderProcessTerminated;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#renderProcessTerminated)
     ///
@@ -922,9 +1174,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, terminationStatus: qwebenginepage_enums.RenderProcessTerminationStatus, exitCode: i32) callconv(.c) void `
     ///
-    pub fn OnRenderProcessTerminated(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32) callconv(.c) void) void {
+    pub fn onRenderProcessTerminated(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_RenderProcessTerminated(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `pdfPrintingFinished` instead
+    ///
+    pub const PdfPrintingFinished = pdfPrintingFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#pdfPrintingFinished)
     ///
@@ -936,13 +1192,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` success: bool `
     ///
-    pub fn PdfPrintingFinished(self: QWebEngineView, filePath: []const u8, success: bool) void {
+    pub fn pdfPrintingFinished(self: QWebEngineView, filePath: []const u8, success: bool) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWebEngineView_PdfPrintingFinished(@ptrCast(self.ptr), filePath_str, success);
     }
+
+    /// ### DEPRECATED: Use `onPdfPrintingFinished` instead
+    ///
+    pub const OnPdfPrintingFinished = onPdfPrintingFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#pdfPrintingFinished)
     ///
@@ -952,9 +1212,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, filePath: [*:0]const u8, success: bool) callconv(.c) void `
     ///
-    pub fn OnPdfPrintingFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8, bool) callconv(.c) void) void {
+    pub fn onPdfPrintingFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PdfPrintingFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `printRequested` instead
+    ///
+    pub const PrintRequested = printRequested;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printRequested)
     ///
@@ -962,9 +1226,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PrintRequested(self: QWebEngineView) void {
+    pub fn printRequested(self: QWebEngineView) void {
         qtc.QWebEngineView_PrintRequested(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrintRequested` instead
+    ///
+    pub const OnPrintRequested = onPrintRequested;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printRequested)
     ///
@@ -974,9 +1242,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView) callconv(.c) void `
     ///
-    pub fn OnPrintRequested(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
+    pub fn onPrintRequested(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PrintRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `printRequestedByFrame` instead
+    ///
+    pub const PrintRequestedByFrame = printRequestedByFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printRequestedByFrame)
     ///
@@ -986,10 +1258,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` frame: QWebEngineFrame `
     ///
-    pub fn PrintRequestedByFrame(self: QWebEngineView, frame: anytype) void {
+    pub fn printRequestedByFrame(self: QWebEngineView, frame: anytype) void {
         comptime _ = @TypeOf(frame)._is_QWebEngineFrame;
         qtc.QWebEngineView_PrintRequestedByFrame(@ptrCast(self.ptr), @ptrCast(frame.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPrintRequestedByFrame` instead
+    ///
+    pub const OnPrintRequestedByFrame = onPrintRequestedByFrame;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printRequestedByFrame)
     ///
@@ -999,9 +1275,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, frame: QWebEngineFrame) callconv(.c) void `
     ///
-    pub fn OnPrintRequestedByFrame(self: QWebEngineView, callback: *const fn (QWebEngineView, QWebEngineFrame) callconv(.c) void) void {
+    pub fn onPrintRequestedByFrame(self: QWebEngineView, callback: *const fn (QWebEngineView, QWebEngineFrame) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PrintRequestedByFrame(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `printFinished` instead
+    ///
+    pub const PrintFinished = printFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printFinished)
     ///
@@ -1011,9 +1291,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` success: bool `
     ///
-    pub fn PrintFinished(self: QWebEngineView, success: bool) void {
+    pub fn printFinished(self: QWebEngineView, success: bool) void {
         qtc.QWebEngineView_PrintFinished(@ptrCast(self.ptr), success);
     }
+
+    /// ### DEPRECATED: Use `onPrintFinished` instead
+    ///
+    pub const OnPrintFinished = onPrintFinished;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printFinished)
     ///
@@ -1023,9 +1307,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, success: bool) callconv(.c) void `
     ///
-    pub fn OnPrintFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
+    pub fn onPrintFinished(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
         qtc.QWebEngineView_Connect_PrintFinished(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `createWindow` instead
+    ///
+    pub const CreateWindow = createWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#createWindow)
     ///
@@ -1035,9 +1323,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qwebenginepage_enums.WebWindowType `
     ///
-    pub fn CreateWindow(self: QWebEngineView, typeVal: i32) QWebEngineView {
+    pub fn createWindow(self: QWebEngineView, typeVal: i32) QWebEngineView {
         return .{ .ptr = qtc.QWebEngineView_CreateWindow(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `onCreateWindow` instead
+    ///
+    pub const OnCreateWindow = onCreateWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#createWindow)
     ///
@@ -1049,13 +1341,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, typeVal: qwebenginepage_enums.WebWindowType) callconv(.c) QWebEngineView `
     ///
-    pub fn OnCreateWindow(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) QWebEngineView) void {
+    pub fn onCreateWindow(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) QWebEngineView) void {
         qtc.QWebEngineView_OnCreateWindow(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCreateWindow` instead
+    /// ### DEPRECATED: Use `superCreateWindow` instead
     ///
-    pub const QBaseCreateWindow = SuperCreateWindow;
+    pub const SuperCreateWindow = superCreateWindow;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#createWindow)
     ///
@@ -1067,9 +1359,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qwebenginepage_enums.WebWindowType `
     ///
-    pub fn SuperCreateWindow(self: QWebEngineView, typeVal: i32) QWebEngineView {
+    pub fn superCreateWindow(self: QWebEngineView, typeVal: i32) QWebEngineView {
         return .{ .ptr = qtc.QWebEngineView_SuperCreateWindow(@ptrCast(self.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuEvent` instead
+    ///
+    pub const ContextMenuEvent = contextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#contextMenuEvent)
     ///
@@ -1079,10 +1375,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn ContextMenuEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn contextMenuEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QWebEngineView_ContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onContextMenuEvent` instead
+    ///
+    pub const OnContextMenuEvent = onContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#contextMenuEvent)
     ///
@@ -1094,13 +1394,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QContextMenuEvent) callconv(.c) void `
     ///
-    pub fn OnContextMenuEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QContextMenuEvent) callconv(.c) void) void {
+    pub fn onContextMenuEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QContextMenuEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnContextMenuEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperContextMenuEvent` instead
+    /// ### DEPRECATED: Use `superContextMenuEvent` instead
     ///
-    pub const QBaseContextMenuEvent = SuperContextMenuEvent;
+    pub const SuperContextMenuEvent = superContextMenuEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#contextMenuEvent)
     ///
@@ -1112,10 +1412,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QContextMenuEvent `
     ///
-    pub fn SuperContextMenuEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superContextMenuEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QContextMenuEvent;
         qtc.QWebEngineView_SuperContextMenuEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `event` instead
+    ///
+    pub const Event = event;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#event)
     ///
@@ -1125,10 +1429,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn Event(self: QWebEngineView, param1: anytype) bool {
+    pub fn event(self: QWebEngineView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QWebEngineView_Event(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEvent` instead
+    ///
+    pub const OnEvent = onEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#event)
     ///
@@ -1140,13 +1448,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) bool) void {
+    pub fn onEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) bool) void {
         qtc.QWebEngineView_OnEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperEvent` instead
+    /// ### DEPRECATED: Use `superEvent` instead
     ///
-    pub const QBaseEvent = SuperEvent;
+    pub const SuperEvent = superEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#event)
     ///
@@ -1158,10 +1466,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperEvent(self: QWebEngineView, param1: anytype) bool {
+    pub fn superEvent(self: QWebEngineView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QEvent;
         return qtc.QWebEngineView_SuperEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `showEvent` instead
+    ///
+    pub const ShowEvent = showEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#showEvent)
     ///
@@ -1171,10 +1483,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn ShowEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn showEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QWebEngineView_ShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onShowEvent` instead
+    ///
+    pub const OnShowEvent = onShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#showEvent)
     ///
@@ -1186,13 +1502,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QShowEvent) callconv(.c) void `
     ///
-    pub fn OnShowEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QShowEvent) callconv(.c) void) void {
+    pub fn onShowEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QShowEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnShowEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperShowEvent` instead
+    /// ### DEPRECATED: Use `superShowEvent` instead
     ///
-    pub const QBaseShowEvent = SuperShowEvent;
+    pub const SuperShowEvent = superShowEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#showEvent)
     ///
@@ -1204,10 +1520,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QShowEvent `
     ///
-    pub fn SuperShowEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superShowEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QShowEvent;
         qtc.QWebEngineView_SuperShowEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `hideEvent` instead
+    ///
+    pub const HideEvent = hideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#hideEvent)
     ///
@@ -1217,10 +1537,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QHideEvent `
     ///
-    pub fn HideEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn hideEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QHideEvent;
         qtc.QWebEngineView_HideEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHideEvent` instead
+    ///
+    pub const OnHideEvent = onHideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#hideEvent)
     ///
@@ -1232,13 +1556,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QHideEvent) callconv(.c) void `
     ///
-    pub fn OnHideEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QHideEvent) callconv(.c) void) void {
+    pub fn onHideEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QHideEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnHideEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperHideEvent` instead
+    /// ### DEPRECATED: Use `superHideEvent` instead
     ///
-    pub const QBaseHideEvent = SuperHideEvent;
+    pub const SuperHideEvent = superHideEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#hideEvent)
     ///
@@ -1250,10 +1574,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QHideEvent `
     ///
-    pub fn SuperHideEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superHideEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QHideEvent;
         qtc.QWebEngineView_SuperHideEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `closeEvent` instead
+    ///
+    pub const CloseEvent = closeEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#closeEvent)
     ///
@@ -1263,10 +1591,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn CloseEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn closeEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QWebEngineView_CloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCloseEvent` instead
+    ///
+    pub const OnCloseEvent = onCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#closeEvent)
     ///
@@ -1278,13 +1610,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QCloseEvent) callconv(.c) void `
     ///
-    pub fn OnCloseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QCloseEvent) callconv(.c) void) void {
+    pub fn onCloseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QCloseEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnCloseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperCloseEvent` instead
+    /// ### DEPRECATED: Use `superCloseEvent` instead
     ///
-    pub const QBaseCloseEvent = SuperCloseEvent;
+    pub const SuperCloseEvent = superCloseEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#closeEvent)
     ///
@@ -1296,10 +1628,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QCloseEvent `
     ///
-    pub fn SuperCloseEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superCloseEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCloseEvent;
         qtc.QWebEngineView_SuperCloseEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragEnterEvent` instead
+    ///
+    pub const DragEnterEvent = dragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragEnterEvent)
     ///
@@ -1309,10 +1645,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn DragEnterEvent(self: QWebEngineView, e: anytype) void {
+    pub fn dragEnterEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.QWebEngineView_DragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragEnterEvent` instead
+    ///
+    pub const OnDragEnterEvent = onDragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragEnterEvent)
     ///
@@ -1324,13 +1664,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, e: QDragEnterEvent) callconv(.c) void `
     ///
-    pub fn OnDragEnterEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragEnterEvent) callconv(.c) void) void {
+    pub fn onDragEnterEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragEnterEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnDragEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragEnterEvent` instead
+    /// ### DEPRECATED: Use `superDragEnterEvent` instead
     ///
-    pub const QBaseDragEnterEvent = SuperDragEnterEvent;
+    pub const SuperDragEnterEvent = superDragEnterEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragEnterEvent)
     ///
@@ -1342,10 +1682,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragEnterEvent `
     ///
-    pub fn SuperDragEnterEvent(self: QWebEngineView, e: anytype) void {
+    pub fn superDragEnterEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragEnterEvent;
         qtc.QWebEngineView_SuperDragEnterEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragLeaveEvent` instead
+    ///
+    pub const DragLeaveEvent = dragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragLeaveEvent)
     ///
@@ -1355,10 +1699,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn DragLeaveEvent(self: QWebEngineView, e: anytype) void {
+    pub fn dragLeaveEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.QWebEngineView_DragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragLeaveEvent` instead
+    ///
+    pub const OnDragLeaveEvent = onDragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragLeaveEvent)
     ///
@@ -1370,13 +1718,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, e: QDragLeaveEvent) callconv(.c) void `
     ///
-    pub fn OnDragLeaveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragLeaveEvent) callconv(.c) void) void {
+    pub fn onDragLeaveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragLeaveEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnDragLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragLeaveEvent` instead
+    /// ### DEPRECATED: Use `superDragLeaveEvent` instead
     ///
-    pub const QBaseDragLeaveEvent = SuperDragLeaveEvent;
+    pub const SuperDragLeaveEvent = superDragLeaveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragLeaveEvent)
     ///
@@ -1388,10 +1736,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragLeaveEvent `
     ///
-    pub fn SuperDragLeaveEvent(self: QWebEngineView, e: anytype) void {
+    pub fn superDragLeaveEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragLeaveEvent;
         qtc.QWebEngineView_SuperDragLeaveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dragMoveEvent` instead
+    ///
+    pub const DragMoveEvent = dragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragMoveEvent)
     ///
@@ -1401,10 +1753,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn DragMoveEvent(self: QWebEngineView, e: anytype) void {
+    pub fn dragMoveEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.QWebEngineView_DragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDragMoveEvent` instead
+    ///
+    pub const OnDragMoveEvent = onDragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragMoveEvent)
     ///
@@ -1416,13 +1772,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, e: QDragMoveEvent) callconv(.c) void `
     ///
-    pub fn OnDragMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragMoveEvent) callconv(.c) void) void {
+    pub fn onDragMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDragMoveEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnDragMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDragMoveEvent` instead
+    /// ### DEPRECATED: Use `superDragMoveEvent` instead
     ///
-    pub const QBaseDragMoveEvent = SuperDragMoveEvent;
+    pub const SuperDragMoveEvent = superDragMoveEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dragMoveEvent)
     ///
@@ -1434,10 +1790,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDragMoveEvent `
     ///
-    pub fn SuperDragMoveEvent(self: QWebEngineView, e: anytype) void {
+    pub fn superDragMoveEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDragMoveEvent;
         qtc.QWebEngineView_SuperDragMoveEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `dropEvent` instead
+    ///
+    pub const DropEvent = dropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dropEvent)
     ///
@@ -1447,10 +1807,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn DropEvent(self: QWebEngineView, e: anytype) void {
+    pub fn dropEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.QWebEngineView_DropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDropEvent` instead
+    ///
+    pub const OnDropEvent = onDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dropEvent)
     ///
@@ -1462,13 +1826,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, e: QDropEvent) callconv(.c) void `
     ///
-    pub fn OnDropEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDropEvent) callconv(.c) void) void {
+    pub fn onDropEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QDropEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnDropEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `SuperDropEvent` instead
+    /// ### DEPRECATED: Use `superDropEvent` instead
     ///
-    pub const QBaseDropEvent = SuperDropEvent;
+    pub const SuperDropEvent = superDropEvent;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dropEvent)
     ///
@@ -1480,10 +1844,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` e: QDropEvent `
     ///
-    pub fn SuperDropEvent(self: QWebEngineView, e: anytype) void {
+    pub fn superDropEvent(self: QWebEngineView, e: anytype) void {
         comptime _ = @TypeOf(e)._is_QDropEvent;
         qtc.QWebEngineView_SuperDropEvent(@ptrCast(self.ptr), @ptrCast(e.ptr));
     }
+
+    /// ### DEPRECATED: Use `tr2` instead
+    ///
+    pub const Tr2 = tr2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1495,15 +1863,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` c: [:0]const u8 `
     ///
-    pub fn Tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
+    pub fn tr2(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr2(s_Cstring, c_Cstring);
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.Tr2: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.tr2: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `tr3` instead
+    ///
+    pub const Tr3 = tr3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#tr)
     ///
@@ -1517,15 +1889,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn Tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
+    pub fn tr3(allocator: std.mem.Allocator, s: [:0]const u8, c: [:0]const u8, n: i32) []const u8 {
         const s_Cstring = s.ptr;
         const c_Cstring = c.ptr;
         var _str = qtc.QObject_Tr3(s_Cstring, c_Cstring, @bitCast(n));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.Tr3: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.tr3: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setHtml2` instead
+    ///
+    pub const SetHtml2 = setHtml2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setHtml)
     ///
@@ -1537,7 +1913,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn SetHtml2(self: QWebEngineView, html: []const u8, baseUrl: anytype) void {
+    pub fn setHtml2(self: QWebEngineView, html: []const u8, baseUrl: anytype) void {
         const html_str = qtc.libqt_string{
             .len = html.len,
             .data = html.ptr,
@@ -1545,6 +1921,10 @@ pub const QWebEngineView = extern struct {
         comptime _ = @TypeOf(baseUrl)._is_QUrl;
         qtc.QWebEngineView_SetHtml2(@ptrCast(self.ptr), html_str, @ptrCast(baseUrl.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContent2` instead
+    ///
+    pub const SetContent2 = setContent2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setContent)
     ///
@@ -1556,7 +1936,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` mimeType: []const u8 `
     ///
-    pub fn SetContent2(self: QWebEngineView, data: []u8, mimeType: []const u8) void {
+    pub fn setContent2(self: QWebEngineView, data: []u8, mimeType: []const u8) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1567,6 +1947,10 @@ pub const QWebEngineView = extern struct {
         };
         qtc.QWebEngineView_SetContent2(@ptrCast(self.ptr), data_str, mimeType_str);
     }
+
+    /// ### DEPRECATED: Use `setContent3` instead
+    ///
+    pub const SetContent3 = setContent3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#setContent)
     ///
@@ -1580,7 +1964,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` baseUrl: QUrl `
     ///
-    pub fn SetContent3(self: QWebEngineView, data: []u8, mimeType: []const u8, baseUrl: anytype) void {
+    pub fn setContent3(self: QWebEngineView, data: []u8, mimeType: []const u8, baseUrl: anytype) void {
         const data_str = qtc.libqt_string{
             .len = data.len,
             .data = data.ptr,
@@ -1593,6 +1977,10 @@ pub const QWebEngineView = extern struct {
         qtc.QWebEngineView_SetContent3(@ptrCast(self.ptr), data_str, mimeType_str, @ptrCast(baseUrl.ptr));
     }
 
+    /// ### DEPRECATED: Use `triggerPageAction2` instead
+    ///
+    pub const TriggerPageAction2 = triggerPageAction2;
+
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#triggerPageAction)
     ///
     /// ## Parameter(s):
@@ -1603,9 +1991,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` checked: bool `
     ///
-    pub fn TriggerPageAction2(self: QWebEngineView, action: i32, checked: bool) void {
+    pub fn triggerPageAction2(self: QWebEngineView, action: i32, checked: bool) void {
         qtc.QWebEngineView_TriggerPageAction2(@ptrCast(self.ptr), @bitCast(action), checked);
     }
+
+    /// ### DEPRECATED: Use `findText2` instead
+    ///
+    pub const FindText2 = findText2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
     ///
@@ -1617,13 +2009,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` options: flag of qwebenginepage_enums.FindFlag `
     ///
-    pub fn FindText2(self: QWebEngineView, subString: []const u8, options: i32) void {
+    pub fn findText2(self: QWebEngineView, subString: []const u8, options: i32) void {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
         };
         qtc.QWebEngineView_FindText2(@ptrCast(self.ptr), subString_str, @bitCast(options));
     }
+
+    /// ### DEPRECATED: Use `findText3` instead
+    ///
+    pub const FindText3 = findText3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#findText)
     ///
@@ -1637,7 +2033,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` resultCallback: *const fn (funcparam1: QWebEngineFindTextResult) callconv(.c) void `
     ///
-    pub fn FindText3(self: QWebEngineView, subString: []const u8, options: i32, resultCallback: *const fn (QWebEngineFindTextResult) callconv(.c) void) void {
+    pub fn findText3(self: QWebEngineView, subString: []const u8, options: i32, resultCallback: *const fn (QWebEngineFindTextResult) callconv(.c) void) void {
         const subString_str = qtc.libqt_string{
             .len = subString.len,
             .data = subString.ptr,
@@ -1645,24 +2041,9 @@ pub const QWebEngineView = extern struct {
         qtc.QWebEngineView_FindText3(@ptrCast(self.ptr), subString_str, @bitCast(options), @bitCast(@intFromPtr(resultCallback)));
     }
 
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    /// ### DEPRECATED: Use `printToPdf22` instead
     ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineView `
-    ///
-    /// ` filePath: []const u8 `
-    ///
-    /// ` layout: QPageLayout `
-    ///
-    pub fn PrintToPdf22(self: QWebEngineView, filePath: []const u8, layout: anytype) void {
-        const filePath_str = qtc.libqt_string{
-            .len = filePath.len,
-            .data = filePath.ptr,
-        };
-        comptime _ = @TypeOf(layout)._is_QPageLayout;
-        qtc.QWebEngineView_PrintToPdf22(@ptrCast(self.ptr), filePath_str, @ptrCast(layout.ptr));
-    }
+    pub const PrintToPdf22 = printToPdf22;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
@@ -1672,19 +2053,20 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    /// ` layout: QPageLayout `
+    /// ` _layout: QPageLayout `
     ///
-    /// ` ranges: QPageRanges `
-    ///
-    pub fn PrintToPdf3(self: QWebEngineView, filePath: []const u8, layout: anytype, ranges: anytype) void {
+    pub fn printToPdf22(self: QWebEngineView, filePath: []const u8, _layout: anytype) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
-        comptime _ = @TypeOf(layout)._is_QPageLayout;
-        comptime _ = @TypeOf(ranges)._is_QPageRanges;
-        qtc.QWebEngineView_PrintToPdf3(@ptrCast(self.ptr), filePath_str, @ptrCast(layout.ptr), @ptrCast(ranges.ptr));
+        comptime _ = @TypeOf(_layout)._is_QPageLayout;
+        qtc.QWebEngineView_PrintToPdf22(@ptrCast(self.ptr), filePath_str, @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `printToPdf3` instead
+    ///
+    pub const PrintToPdf3 = printToPdf3;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
     ///
@@ -1692,32 +2074,66 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    /// ` filePath: []const u8 `
     ///
-    /// ` layout: QPageLayout `
-    ///
-    pub fn PrintToPdf23(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QPageLayout;
-        qtc.QWebEngineView_PrintToPdf23(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout.ptr));
-    }
-
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineView `
-    ///
-    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
-    ///
-    /// ` layout: QPageLayout `
+    /// ` _layout: QPageLayout `
     ///
     /// ` ranges: QPageRanges `
     ///
-    pub fn PrintToPdf32(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, layout: anytype, ranges: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QPageLayout;
+    pub fn printToPdf3(self: QWebEngineView, filePath: []const u8, _layout: anytype, ranges: anytype) void {
+        const filePath_str = qtc.libqt_string{
+            .len = filePath.len,
+            .data = filePath.ptr,
+        };
+        comptime _ = @TypeOf(_layout)._is_QPageLayout;
         comptime _ = @TypeOf(ranges)._is_QPageRanges;
-        qtc.QWebEngineView_PrintToPdf32(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(layout.ptr), @ptrCast(ranges.ptr));
+        qtc.QWebEngineView_PrintToPdf3(@ptrCast(self.ptr), filePath_str, @ptrCast(_layout.ptr), @ptrCast(ranges.ptr));
     }
+
+    /// ### DEPRECATED: Use `printToPdf23` instead
+    ///
+    pub const PrintToPdf23 = printToPdf23;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineView `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    /// ` _layout: QPageLayout `
+    ///
+    pub fn printToPdf23(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QPageLayout;
+        qtc.QWebEngineView_PrintToPdf23(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(_layout.ptr));
+    }
+
+    /// ### DEPRECATED: Use `printToPdf32` instead
+    ///
+    pub const PrintToPdf32 = printToPdf32;
+
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#printToPdf)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineView `
+    ///
+    /// ` resultCallback: *const fn (funcparam1: qtc.libqt_string) callconv(.c) void `
+    ///
+    /// ` _layout: QPageLayout `
+    ///
+    /// ` ranges: QPageRanges `
+    ///
+    pub fn printToPdf32(self: QWebEngineView, resultCallback: *const fn (qtc.libqt_string) callconv(.c) void, _layout: anytype, ranges: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QPageLayout;
+        comptime _ = @TypeOf(ranges)._is_QPageRanges;
+        qtc.QWebEngineView_PrintToPdf32(@ptrCast(self.ptr), @bitCast(@intFromPtr(resultCallback)), @ptrCast(_layout.ptr), @ptrCast(ranges.ptr));
+    }
+
+    /// ### DEPRECATED: Use `winId` instead
+    ///
+    pub const WinId = winId;
 
     /// Inherited from QWidget
     ///
@@ -1727,9 +2143,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn WinId(self: QWebEngineView) usize {
+    pub fn winId(self: QWebEngineView) usize {
         return qtc.QWidget_WinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWinId` instead
+    ///
+    pub const CreateWinId = createWinId;
 
     /// Inherited from QWidget
     ///
@@ -1739,9 +2159,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn CreateWinId(self: QWebEngineView) void {
+    pub fn createWinId(self: QWebEngineView) void {
         qtc.QWidget_CreateWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `internalWinId` instead
+    ///
+    pub const InternalWinId = internalWinId;
 
     /// Inherited from QWidget
     ///
@@ -1751,9 +2175,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn InternalWinId(self: QWebEngineView) usize {
+    pub fn internalWinId(self: QWebEngineView) usize {
         return qtc.QWidget_InternalWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `effectiveWinId` instead
+    ///
+    pub const EffectiveWinId = effectiveWinId;
 
     /// Inherited from QWidget
     ///
@@ -1763,9 +2191,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn EffectiveWinId(self: QWebEngineView) usize {
+    pub fn effectiveWinId(self: QWebEngineView) usize {
         return qtc.QWidget_EffectiveWinId(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `style` instead
+    ///
+    pub const Style = style;
 
     /// Inherited from QWidget
     ///
@@ -1775,9 +2207,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Style(self: QWebEngineView) QStyle {
+    pub fn style(self: QWebEngineView) QStyle {
         return .{ .ptr = qtc.QWidget_Style(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setStyle` instead
+    ///
+    pub const SetStyle = setStyle;
 
     /// Inherited from QWidget
     ///
@@ -1787,12 +2223,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` style: QStyle `
+    /// ` _style: QStyle `
     ///
-    pub fn SetStyle(self: QWebEngineView, style: anytype) void {
-        comptime _ = @TypeOf(style)._is_QStyle;
-        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(style.ptr));
+    pub fn setStyle(self: QWebEngineView, _style: anytype) void {
+        comptime _ = @TypeOf(_style)._is_QStyle;
+        qtc.QWidget_SetStyle(@ptrCast(self.ptr), @ptrCast(_style.ptr));
     }
+
+    /// ### DEPRECATED: Use `isTopLevel` instead
+    ///
+    pub const IsTopLevel = isTopLevel;
 
     /// Inherited from QWidget
     ///
@@ -1802,9 +2242,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsTopLevel(self: QWebEngineView) bool {
+    pub fn isTopLevel(self: QWebEngineView) bool {
         return qtc.QWidget_IsTopLevel(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindow` instead
+    ///
+    pub const IsWindow = isWindow;
 
     /// Inherited from QWidget
     ///
@@ -1814,9 +2258,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsWindow(self: QWebEngineView) bool {
+    pub fn isWindow(self: QWebEngineView) bool {
         return qtc.QWidget_IsWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isModal` instead
+    ///
+    pub const IsModal = isModal;
 
     /// Inherited from QWidget
     ///
@@ -1826,9 +2274,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsModal(self: QWebEngineView) bool {
+    pub fn isModal(self: QWebEngineView) bool {
         return qtc.QWidget_IsModal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowModality` instead
+    ///
+    pub const WindowModality = windowModality;
 
     /// Inherited from QWidget
     ///
@@ -1842,9 +2294,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qnamespace_enums.WindowModality `
     ///
-    pub fn WindowModality(self: QWebEngineView) i32 {
+    pub fn windowModality(self: QWebEngineView) i32 {
         return qtc.QWidget_WindowModality(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowModality` instead
+    ///
+    pub const SetWindowModality = setWindowModality;
 
     /// Inherited from QWidget
     ///
@@ -1854,11 +2310,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` windowModality: qnamespace_enums.WindowModality `
+    /// ` _windowModality: qnamespace_enums.WindowModality `
     ///
-    pub fn SetWindowModality(self: QWebEngineView, windowModality: i32) void {
-        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(windowModality));
+    pub fn setWindowModality(self: QWebEngineView, _windowModality: i32) void {
+        qtc.QWidget_SetWindowModality(@ptrCast(self.ptr), @bitCast(_windowModality));
     }
+
+    /// ### DEPRECATED: Use `isEnabled` instead
+    ///
+    pub const IsEnabled = isEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1868,9 +2328,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsEnabled(self: QWebEngineView) bool {
+    pub fn isEnabled(self: QWebEngineView) bool {
         return qtc.QWidget_IsEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isEnabledTo` instead
+    ///
+    pub const IsEnabledTo = isEnabledTo;
 
     /// Inherited from QWidget
     ///
@@ -1882,10 +2346,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsEnabledTo(self: QWebEngineView, param1: anytype) bool {
+    pub fn isEnabledTo(self: QWebEngineView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsEnabledTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setEnabled` instead
+    ///
+    pub const SetEnabled = setEnabled;
 
     /// Inherited from QWidget
     ///
@@ -1897,9 +2365,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetEnabled(self: QWebEngineView, enabled: bool) void {
+    pub fn setEnabled(self: QWebEngineView, enabled: bool) void {
         qtc.QWidget_SetEnabled(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `setDisabled` instead
+    ///
+    pub const SetDisabled = setDisabled;
 
     /// Inherited from QWidget
     ///
@@ -1911,9 +2383,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` disabled: bool `
     ///
-    pub fn SetDisabled(self: QWebEngineView, disabled: bool) void {
+    pub fn setDisabled(self: QWebEngineView, disabled: bool) void {
         qtc.QWidget_SetDisabled(@ptrCast(self.ptr), disabled);
     }
+
+    /// ### DEPRECATED: Use `setWindowModified` instead
+    ///
+    pub const SetWindowModified = setWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -1925,9 +2401,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` windowModified: bool `
     ///
-    pub fn SetWindowModified(self: QWebEngineView, windowModified: bool) void {
+    pub fn setWindowModified(self: QWebEngineView, windowModified: bool) void {
         qtc.QWidget_SetWindowModified(@ptrCast(self.ptr), windowModified);
     }
+
+    /// ### DEPRECATED: Use `frameGeometry` instead
+    ///
+    pub const FrameGeometry = frameGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1937,9 +2417,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FrameGeometry(self: QWebEngineView) QRect {
+    pub fn frameGeometry(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_FrameGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `geometry` instead
+    ///
+    pub const Geometry = geometry;
 
     /// Inherited from QWidget
     ///
@@ -1949,9 +2433,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Geometry(self: QWebEngineView) QRect {
+    pub fn geometry(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_Geometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `normalGeometry` instead
+    ///
+    pub const NormalGeometry = normalGeometry;
 
     /// Inherited from QWidget
     ///
@@ -1961,9 +2449,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn NormalGeometry(self: QWebEngineView) QRect {
+    pub fn normalGeometry(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_NormalGeometry(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `x` instead
+    ///
+    pub const X = x;
 
     /// Inherited from QWidget
     ///
@@ -1973,9 +2465,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn X(self: QWebEngineView) i32 {
+    pub fn x(self: QWebEngineView) i32 {
         return qtc.QWidget_X(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `y` instead
+    ///
+    pub const Y = y;
 
     /// Inherited from QWidget
     ///
@@ -1985,9 +2481,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Y(self: QWebEngineView) i32 {
+    pub fn y(self: QWebEngineView) i32 {
         return qtc.QWidget_Y(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `pos` instead
+    ///
+    pub const Pos = pos;
 
     /// Inherited from QWidget
     ///
@@ -1997,9 +2497,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Pos(self: QWebEngineView) QPoint {
+    pub fn pos(self: QWebEngineView) QPoint {
         return .{ .ptr = qtc.QWidget_Pos(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `frameSize` instead
+    ///
+    pub const FrameSize = frameSize;
 
     /// Inherited from QWidget
     ///
@@ -2009,9 +2513,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FrameSize(self: QWebEngineView) QSize {
+    pub fn frameSize(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_FrameSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `size` instead
+    ///
+    pub const Size = size;
 
     /// Inherited from QWidget
     ///
@@ -2021,9 +2529,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Size(self: QWebEngineView) QSize {
+    pub fn size(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_Size(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `width` instead
+    ///
+    pub const Width = width;
 
     /// Inherited from QWidget
     ///
@@ -2033,9 +2545,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Width(self: QWebEngineView) i32 {
+    pub fn width(self: QWebEngineView) i32 {
         return qtc.QWidget_Width(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `height` instead
+    ///
+    pub const Height = height;
 
     /// Inherited from QWidget
     ///
@@ -2045,9 +2561,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Height(self: QWebEngineView) i32 {
+    pub fn height(self: QWebEngineView) i32 {
         return qtc.QWidget_Height(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `rect` instead
+    ///
+    pub const Rect = rect;
 
     /// Inherited from QWidget
     ///
@@ -2057,9 +2577,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Rect(self: QWebEngineView) QRect {
+    pub fn rect(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_Rect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRect` instead
+    ///
+    pub const ChildrenRect = childrenRect;
 
     /// Inherited from QWidget
     ///
@@ -2069,9 +2593,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ChildrenRect(self: QWebEngineView) QRect {
+    pub fn childrenRect(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_ChildrenRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childrenRegion` instead
+    ///
+    pub const ChildrenRegion = childrenRegion;
 
     /// Inherited from QWidget
     ///
@@ -2081,9 +2609,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ChildrenRegion(self: QWebEngineView) QRegion {
+    pub fn childrenRegion(self: QWebEngineView) QRegion {
         return .{ .ptr = qtc.QWidget_ChildrenRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumSize` instead
+    ///
+    pub const MinimumSize = minimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2093,9 +2625,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MinimumSize(self: QWebEngineView) QSize {
+    pub fn minimumSize(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_MinimumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `maximumSize` instead
+    ///
+    pub const MaximumSize = maximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2105,9 +2641,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MaximumSize(self: QWebEngineView) QSize {
+    pub fn maximumSize(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_MaximumSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `minimumWidth` instead
+    ///
+    pub const MinimumWidth = minimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2117,9 +2657,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MinimumWidth(self: QWebEngineView) i32 {
+    pub fn minimumWidth(self: QWebEngineView) i32 {
         return qtc.QWidget_MinimumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `minimumHeight` instead
+    ///
+    pub const MinimumHeight = minimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2129,9 +2673,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MinimumHeight(self: QWebEngineView) i32 {
+    pub fn minimumHeight(self: QWebEngineView) i32 {
         return qtc.QWidget_MinimumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumWidth` instead
+    ///
+    pub const MaximumWidth = maximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2141,9 +2689,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MaximumWidth(self: QWebEngineView) i32 {
+    pub fn maximumWidth(self: QWebEngineView) i32 {
         return qtc.QWidget_MaximumWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `maximumHeight` instead
+    ///
+    pub const MaximumHeight = maximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2153,9 +2705,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MaximumHeight(self: QWebEngineView) i32 {
+    pub fn maximumHeight(self: QWebEngineView) i32 {
         return qtc.QWidget_MaximumHeight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize` instead
+    ///
+    pub const SetMinimumSize = setMinimumSize;
 
     /// Inherited from QWidget
     ///
@@ -2165,12 +2721,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` minimumSize: QSize `
+    /// ` _minimumSize: QSize `
     ///
-    pub fn SetMinimumSize(self: QWebEngineView, minimumSize: anytype) void {
-        comptime _ = @TypeOf(minimumSize)._is_QSize;
-        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(minimumSize.ptr));
+    pub fn setMinimumSize(self: QWebEngineView, _minimumSize: anytype) void {
+        comptime _ = @TypeOf(_minimumSize)._is_QSize;
+        qtc.QWidget_SetMinimumSize(@ptrCast(self.ptr), @ptrCast(_minimumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMinimumSize2` instead
+    ///
+    pub const SetMinimumSize2 = setMinimumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2184,9 +2744,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumSize2(self: QWebEngineView, minw: i32, minh: i32) void {
+    pub fn setMinimumSize2(self: QWebEngineView, minw: i32, minh: i32) void {
         qtc.QWidget_SetMinimumSize2(@ptrCast(self.ptr), @bitCast(minw), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize` instead
+    ///
+    pub const SetMaximumSize = setMaximumSize;
 
     /// Inherited from QWidget
     ///
@@ -2196,12 +2760,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` maximumSize: QSize `
+    /// ` _maximumSize: QSize `
     ///
-    pub fn SetMaximumSize(self: QWebEngineView, maximumSize: anytype) void {
-        comptime _ = @TypeOf(maximumSize)._is_QSize;
-        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(maximumSize.ptr));
+    pub fn setMaximumSize(self: QWebEngineView, _maximumSize: anytype) void {
+        comptime _ = @TypeOf(_maximumSize)._is_QSize;
+        qtc.QWidget_SetMaximumSize(@ptrCast(self.ptr), @ptrCast(_maximumSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMaximumSize2` instead
+    ///
+    pub const SetMaximumSize2 = setMaximumSize2;
 
     /// Inherited from QWidget
     ///
@@ -2215,9 +2783,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumSize2(self: QWebEngineView, maxw: i32, maxh: i32) void {
+    pub fn setMaximumSize2(self: QWebEngineView, maxw: i32, maxh: i32) void {
         qtc.QWidget_SetMaximumSize2(@ptrCast(self.ptr), @bitCast(maxw), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `setMinimumWidth` instead
+    ///
+    pub const SetMinimumWidth = setMinimumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2229,9 +2801,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` minw: i32 `
     ///
-    pub fn SetMinimumWidth(self: QWebEngineView, minw: i32) void {
+    pub fn setMinimumWidth(self: QWebEngineView, minw: i32) void {
         qtc.QWidget_SetMinimumWidth(@ptrCast(self.ptr), @bitCast(minw));
     }
+
+    /// ### DEPRECATED: Use `setMinimumHeight` instead
+    ///
+    pub const SetMinimumHeight = setMinimumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2243,9 +2819,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` minh: i32 `
     ///
-    pub fn SetMinimumHeight(self: QWebEngineView, minh: i32) void {
+    pub fn setMinimumHeight(self: QWebEngineView, minh: i32) void {
         qtc.QWidget_SetMinimumHeight(@ptrCast(self.ptr), @bitCast(minh));
     }
+
+    /// ### DEPRECATED: Use `setMaximumWidth` instead
+    ///
+    pub const SetMaximumWidth = setMaximumWidth;
 
     /// Inherited from QWidget
     ///
@@ -2257,9 +2837,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` maxw: i32 `
     ///
-    pub fn SetMaximumWidth(self: QWebEngineView, maxw: i32) void {
+    pub fn setMaximumWidth(self: QWebEngineView, maxw: i32) void {
         qtc.QWidget_SetMaximumWidth(@ptrCast(self.ptr), @bitCast(maxw));
     }
+
+    /// ### DEPRECATED: Use `setMaximumHeight` instead
+    ///
+    pub const SetMaximumHeight = setMaximumHeight;
 
     /// Inherited from QWidget
     ///
@@ -2271,9 +2855,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` maxh: i32 `
     ///
-    pub fn SetMaximumHeight(self: QWebEngineView, maxh: i32) void {
+    pub fn setMaximumHeight(self: QWebEngineView, maxh: i32) void {
         qtc.QWidget_SetMaximumHeight(@ptrCast(self.ptr), @bitCast(maxh));
     }
+
+    /// ### DEPRECATED: Use `sizeIncrement` instead
+    ///
+    pub const SizeIncrement = sizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2283,9 +2871,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SizeIncrement(self: QWebEngineView) QSize {
+    pub fn sizeIncrement(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_SizeIncrement(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement` instead
+    ///
+    pub const SetSizeIncrement = setSizeIncrement;
 
     /// Inherited from QWidget
     ///
@@ -2295,12 +2887,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` sizeIncrement: QSize `
+    /// ` _sizeIncrement: QSize `
     ///
-    pub fn SetSizeIncrement(self: QWebEngineView, sizeIncrement: anytype) void {
-        comptime _ = @TypeOf(sizeIncrement)._is_QSize;
-        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(sizeIncrement.ptr));
+    pub fn setSizeIncrement(self: QWebEngineView, _sizeIncrement: anytype) void {
+        comptime _ = @TypeOf(_sizeIncrement)._is_QSize;
+        qtc.QWidget_SetSizeIncrement(@ptrCast(self.ptr), @ptrCast(_sizeIncrement.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizeIncrement2` instead
+    ///
+    pub const SetSizeIncrement2 = setSizeIncrement2;
 
     /// Inherited from QWidget
     ///
@@ -2314,9 +2910,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetSizeIncrement2(self: QWebEngineView, w: i32, h: i32) void {
+    pub fn setSizeIncrement2(self: QWebEngineView, w: i32, h: i32) void {
         qtc.QWidget_SetSizeIncrement2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `baseSize` instead
+    ///
+    pub const BaseSize = baseSize;
 
     /// Inherited from QWidget
     ///
@@ -2326,9 +2926,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn BaseSize(self: QWebEngineView) QSize {
+    pub fn baseSize(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWidget_BaseSize(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setBaseSize` instead
+    ///
+    pub const SetBaseSize = setBaseSize;
 
     /// Inherited from QWidget
     ///
@@ -2338,12 +2942,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` baseSize: QSize `
+    /// ` _baseSize: QSize `
     ///
-    pub fn SetBaseSize(self: QWebEngineView, baseSize: anytype) void {
-        comptime _ = @TypeOf(baseSize)._is_QSize;
-        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(baseSize.ptr));
+    pub fn setBaseSize(self: QWebEngineView, _baseSize: anytype) void {
+        comptime _ = @TypeOf(_baseSize)._is_QSize;
+        qtc.QWidget_SetBaseSize(@ptrCast(self.ptr), @ptrCast(_baseSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBaseSize2` instead
+    ///
+    pub const SetBaseSize2 = setBaseSize2;
 
     /// Inherited from QWidget
     ///
@@ -2357,9 +2965,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` baseh: i32 `
     ///
-    pub fn SetBaseSize2(self: QWebEngineView, basew: i32, baseh: i32) void {
+    pub fn setBaseSize2(self: QWebEngineView, basew: i32, baseh: i32) void {
         qtc.QWidget_SetBaseSize2(@ptrCast(self.ptr), @bitCast(basew), @bitCast(baseh));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize` instead
+    ///
+    pub const SetFixedSize = setFixedSize;
 
     /// Inherited from QWidget
     ///
@@ -2371,10 +2983,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` fixedSize: QSize `
     ///
-    pub fn SetFixedSize(self: QWebEngineView, fixedSize: anytype) void {
+    pub fn setFixedSize(self: QWebEngineView, fixedSize: anytype) void {
         comptime _ = @TypeOf(fixedSize)._is_QSize;
         qtc.QWidget_SetFixedSize(@ptrCast(self.ptr), @ptrCast(fixedSize.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFixedSize2` instead
+    ///
+    pub const SetFixedSize2 = setFixedSize2;
 
     /// Inherited from QWidget
     ///
@@ -2388,9 +3004,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedSize2(self: QWebEngineView, w: i32, h: i32) void {
+    pub fn setFixedSize2(self: QWebEngineView, w: i32, h: i32) void {
         qtc.QWidget_SetFixedSize2(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setFixedWidth` instead
+    ///
+    pub const SetFixedWidth = setFixedWidth;
 
     /// Inherited from QWidget
     ///
@@ -2402,9 +3022,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` w: i32 `
     ///
-    pub fn SetFixedWidth(self: QWebEngineView, w: i32) void {
+    pub fn setFixedWidth(self: QWebEngineView, w: i32) void {
         qtc.QWidget_SetFixedWidth(@ptrCast(self.ptr), @bitCast(w));
     }
+
+    /// ### DEPRECATED: Use `setFixedHeight` instead
+    ///
+    pub const SetFixedHeight = setFixedHeight;
 
     /// Inherited from QWidget
     ///
@@ -2416,9 +3040,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn SetFixedHeight(self: QWebEngineView, h: i32) void {
+    pub fn setFixedHeight(self: QWebEngineView, h: i32) void {
         qtc.QWidget_SetFixedHeight(@ptrCast(self.ptr), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `mapToGlobal` instead
+    ///
+    pub const MapToGlobal = mapToGlobal;
 
     /// Inherited from QWidget
     ///
@@ -2430,11 +3058,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToGlobal(self: QWebEngineView, param1: anytype) QPointF {
+    pub fn mapToGlobal(self: QWebEngineView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToGlobal2` instead
+    ///
+    pub const MapToGlobal2 = mapToGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToGlobal)
@@ -2445,11 +3077,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToGlobal2(self: QWebEngineView, param1: anytype) QPoint {
+    pub fn mapToGlobal2(self: QWebEngineView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal` instead
+    ///
+    pub const MapFromGlobal = mapFromGlobal;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2460,11 +3096,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromGlobal(self: QWebEngineView, param1: anytype) QPointF {
+    pub fn mapFromGlobal(self: QWebEngineView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromGlobal(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapFromGlobal2` instead
+    ///
+    pub const MapFromGlobal2 = mapFromGlobal2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapFromGlobal)
@@ -2475,11 +3115,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromGlobal2(self: QWebEngineView, param1: anytype) QPoint {
+    pub fn mapFromGlobal2(self: QWebEngineView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromGlobal2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent` instead
+    ///
+    pub const MapToParent = mapToParent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2490,11 +3134,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapToParent(self: QWebEngineView, param1: anytype) QPointF {
+    pub fn mapToParent(self: QWebEngineView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapToParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapToParent2` instead
+    ///
+    pub const MapToParent2 = mapToParent2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapToParent)
@@ -2505,10 +3153,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapToParent2(self: QWebEngineView, param1: anytype) QPoint {
+    pub fn mapToParent2(self: QWebEngineView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapToParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent` instead
+    ///
+    pub const MapFromParent = mapFromParent;
 
     /// Inherited from QWidget
     ///
@@ -2520,10 +3172,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPointF `
     ///
-    pub fn MapFromParent(self: QWebEngineView, param1: anytype) QPointF {
+    pub fn mapFromParent(self: QWebEngineView, param1: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFromParent(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFromParent2` instead
+    ///
+    pub const MapFromParent2 = mapFromParent2;
 
     /// Inherited from QWidget
     ///
@@ -2535,10 +3191,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn MapFromParent2(self: QWebEngineView, param1: anytype) QPoint {
+    pub fn mapFromParent2(self: QWebEngineView, param1: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFromParent2(@ptrCast(self.ptr), @ptrCast(param1.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapTo` instead
+    ///
+    pub const MapTo = mapTo;
 
     /// Inherited from QWidget
     ///
@@ -2552,12 +3212,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapTo(self: QWebEngineView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapTo(self: QWebEngineView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapTo(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `mapTo2` instead
+    ///
+    pub const MapTo2 = mapTo2;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mapTo)
@@ -2570,11 +3234,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapTo2(self: QWebEngineView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapTo2(self: QWebEngineView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapTo2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom` instead
+    ///
+    pub const MapFrom = mapFrom;
 
     /// Inherited from QWidget
     ///
@@ -2588,11 +3256,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param2: QPointF `
     ///
-    pub fn MapFrom(self: QWebEngineView, param1: anytype, param2: anytype) QPointF {
+    pub fn mapFrom(self: QWebEngineView, param1: anytype, param2: anytype) QPointF {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPointF;
         return .{ .ptr = qtc.QWidget_MapFrom(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `mapFrom2` instead
+    ///
+    pub const MapFrom2 = mapFrom2;
 
     /// Inherited from QWidget
     ///
@@ -2606,11 +3278,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param2: QPoint `
     ///
-    pub fn MapFrom2(self: QWebEngineView, param1: anytype, param2: anytype) QPoint {
+    pub fn mapFrom2(self: QWebEngineView, param1: anytype, param2: anytype) QPoint {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QPoint;
         return .{ .ptr = qtc.QWidget_MapFrom2(@ptrCast(self.ptr), @ptrCast(param1.ptr), @ptrCast(param2.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `window` instead
+    ///
+    pub const Window = window;
 
     /// Inherited from QWidget
     ///
@@ -2620,9 +3296,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Window(self: QWebEngineView) QWidget {
+    pub fn window(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_Window(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nativeParentWidget` instead
+    ///
+    pub const NativeParentWidget = nativeParentWidget;
 
     /// Inherited from QWidget
     ///
@@ -2632,9 +3312,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn NativeParentWidget(self: QWebEngineView) QWidget {
+    pub fn nativeParentWidget(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_NativeParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `topLevelWidget` instead
+    ///
+    pub const TopLevelWidget = topLevelWidget;
 
     /// Inherited from QWidget
     ///
@@ -2644,9 +3328,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn TopLevelWidget(self: QWebEngineView) QWidget {
+    pub fn topLevelWidget(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_TopLevelWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `palette` instead
+    ///
+    pub const Palette = palette;
 
     /// Inherited from QWidget
     ///
@@ -2656,9 +3344,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Palette(self: QWebEngineView) QPalette {
+    pub fn palette(self: QWebEngineView) QPalette {
         return .{ .ptr = qtc.QWidget_Palette(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setPalette` instead
+    ///
+    pub const SetPalette = setPalette;
 
     /// Inherited from QWidget
     ///
@@ -2668,12 +3360,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` palette: QPalette `
+    /// ` _palette: QPalette `
     ///
-    pub fn SetPalette(self: QWebEngineView, palette: anytype) void {
-        comptime _ = @TypeOf(palette)._is_QPalette;
-        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(palette.ptr));
+    pub fn setPalette(self: QWebEngineView, _palette: anytype) void {
+        comptime _ = @TypeOf(_palette)._is_QPalette;
+        qtc.QWidget_SetPalette(@ptrCast(self.ptr), @ptrCast(_palette.ptr));
     }
+
+    /// ### DEPRECATED: Use `setBackgroundRole` instead
+    ///
+    pub const SetBackgroundRole = setBackgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2683,11 +3379,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` backgroundRole: qpalette_enums.ColorRole `
+    /// ` _backgroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetBackgroundRole(self: QWebEngineView, backgroundRole: i32) void {
-        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(backgroundRole));
+    pub fn setBackgroundRole(self: QWebEngineView, _backgroundRole: i32) void {
+        qtc.QWidget_SetBackgroundRole(@ptrCast(self.ptr), @bitCast(_backgroundRole));
     }
+
+    /// ### DEPRECATED: Use `backgroundRole` instead
+    ///
+    pub const BackgroundRole = backgroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2701,9 +3401,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn BackgroundRole(self: QWebEngineView) i32 {
+    pub fn backgroundRole(self: QWebEngineView) i32 {
         return qtc.QWidget_BackgroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setForegroundRole` instead
+    ///
+    pub const SetForegroundRole = setForegroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2713,11 +3417,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` foregroundRole: qpalette_enums.ColorRole `
+    /// ` _foregroundRole: qpalette_enums.ColorRole `
     ///
-    pub fn SetForegroundRole(self: QWebEngineView, foregroundRole: i32) void {
-        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(foregroundRole));
+    pub fn setForegroundRole(self: QWebEngineView, _foregroundRole: i32) void {
+        qtc.QWidget_SetForegroundRole(@ptrCast(self.ptr), @bitCast(_foregroundRole));
     }
+
+    /// ### DEPRECATED: Use `foregroundRole` instead
+    ///
+    pub const ForegroundRole = foregroundRole;
 
     /// Inherited from QWidget
     ///
@@ -2731,9 +3439,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qpalette_enums.ColorRole `
     ///
-    pub fn ForegroundRole(self: QWebEngineView) i32 {
+    pub fn foregroundRole(self: QWebEngineView) i32 {
         return qtc.QWidget_ForegroundRole(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `font` instead
+    ///
+    pub const Font = font;
 
     /// Inherited from QWidget
     ///
@@ -2743,9 +3455,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Font(self: QWebEngineView) QFont {
+    pub fn font(self: QWebEngineView) QFont {
         return .{ .ptr = qtc.QWidget_Font(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setFont` instead
+    ///
+    pub const SetFont = setFont;
 
     /// Inherited from QWidget
     ///
@@ -2755,12 +3471,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` font: QFont `
+    /// ` _font: QFont `
     ///
-    pub fn SetFont(self: QWebEngineView, font: anytype) void {
-        comptime _ = @TypeOf(font)._is_QFont;
-        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(font.ptr));
+    pub fn setFont(self: QWebEngineView, _font: anytype) void {
+        comptime _ = @TypeOf(_font)._is_QFont;
+        qtc.QWidget_SetFont(@ptrCast(self.ptr), @ptrCast(_font.ptr));
     }
+
+    /// ### DEPRECATED: Use `fontMetrics` instead
+    ///
+    pub const FontMetrics = fontMetrics;
 
     /// Inherited from QWidget
     ///
@@ -2770,9 +3490,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FontMetrics(self: QWebEngineView) QFontMetrics {
+    pub fn fontMetrics(self: QWebEngineView) QFontMetrics {
         return .{ .ptr = qtc.QWidget_FontMetrics(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `fontInfo` instead
+    ///
+    pub const FontInfo = fontInfo;
 
     /// Inherited from QWidget
     ///
@@ -2782,9 +3506,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FontInfo(self: QWebEngineView) QFontInfo {
+    pub fn fontInfo(self: QWebEngineView) QFontInfo {
         return .{ .ptr = qtc.QWidget_FontInfo(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `cursor` instead
+    ///
+    pub const Cursor = cursor;
 
     /// Inherited from QWidget
     ///
@@ -2794,9 +3522,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Cursor(self: QWebEngineView) QCursor {
+    pub fn cursor(self: QWebEngineView) QCursor {
         return .{ .ptr = qtc.QWidget_Cursor(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setCursor` instead
+    ///
+    pub const SetCursor = setCursor;
 
     /// Inherited from QWidget
     ///
@@ -2806,12 +3538,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` cursor: QCursor `
+    /// ` _cursor: QCursor `
     ///
-    pub fn SetCursor(self: QWebEngineView, cursor: anytype) void {
-        comptime _ = @TypeOf(cursor)._is_QCursor;
-        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(cursor.ptr));
+    pub fn setCursor(self: QWebEngineView, _cursor: anytype) void {
+        comptime _ = @TypeOf(_cursor)._is_QCursor;
+        qtc.QWidget_SetCursor(@ptrCast(self.ptr), @ptrCast(_cursor.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetCursor` instead
+    ///
+    pub const UnsetCursor = unsetCursor;
 
     /// Inherited from QWidget
     ///
@@ -2821,9 +3557,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UnsetCursor(self: QWebEngineView) void {
+    pub fn unsetCursor(self: QWebEngineView) void {
         qtc.QWidget_UnsetCursor(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMouseTracking` instead
+    ///
+    pub const SetMouseTracking = setMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2835,9 +3575,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetMouseTracking(self: QWebEngineView, enable: bool) void {
+    pub fn setMouseTracking(self: QWebEngineView, enable: bool) void {
         qtc.QWidget_SetMouseTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasMouseTracking` instead
+    ///
+    pub const HasMouseTracking = hasMouseTracking;
 
     /// Inherited from QWidget
     ///
@@ -2847,9 +3591,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HasMouseTracking(self: QWebEngineView) bool {
+    pub fn hasMouseTracking(self: QWebEngineView) bool {
         return qtc.QWidget_HasMouseTracking(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `underMouse` instead
+    ///
+    pub const UnderMouse = underMouse;
 
     /// Inherited from QWidget
     ///
@@ -2859,9 +3607,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UnderMouse(self: QWebEngineView) bool {
+    pub fn underMouse(self: QWebEngineView) bool {
         return qtc.QWidget_UnderMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabletTracking` instead
+    ///
+    pub const SetTabletTracking = setTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2873,9 +3625,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetTabletTracking(self: QWebEngineView, enable: bool) void {
+    pub fn setTabletTracking(self: QWebEngineView, enable: bool) void {
         qtc.QWidget_SetTabletTracking(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `hasTabletTracking` instead
+    ///
+    pub const HasTabletTracking = hasTabletTracking;
 
     /// Inherited from QWidget
     ///
@@ -2885,24 +3641,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HasTabletTracking(self: QWebEngineView) bool {
+    pub fn hasTabletTracking(self: QWebEngineView) bool {
         return qtc.QWidget_HasTabletTracking(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setMask` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineView `
-    ///
-    /// ` mask: QBitmap `
-    ///
-    pub fn SetMask(self: QWebEngineView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QBitmap;
-        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(mask.ptr));
-    }
+    pub const SetMask = setMask;
 
     /// Inherited from QWidget
     ///
@@ -2912,12 +3657,35 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` mask: QRegion `
+    /// ` _mask: QBitmap `
     ///
-    pub fn SetMask2(self: QWebEngineView, mask: anytype) void {
-        comptime _ = @TypeOf(mask)._is_QRegion;
-        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(mask.ptr));
+    pub fn setMask(self: QWebEngineView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QBitmap;
+        qtc.QWidget_SetMask(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
     }
+
+    /// ### DEPRECATED: Use `setMask2` instead
+    ///
+    pub const SetMask2 = setMask2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setMask)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineView `
+    ///
+    /// ` _mask: QRegion `
+    ///
+    pub fn setMask2(self: QWebEngineView, _mask: anytype) void {
+        comptime _ = @TypeOf(_mask)._is_QRegion;
+        qtc.QWidget_SetMask2(@ptrCast(self.ptr), @ptrCast(_mask.ptr));
+    }
+
+    /// ### DEPRECATED: Use `mask` instead
+    ///
+    pub const Mask = mask;
 
     /// Inherited from QWidget
     ///
@@ -2927,9 +3695,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Mask(self: QWebEngineView) QRegion {
+    pub fn mask(self: QWebEngineView) QRegion {
         return .{ .ptr = qtc.QWidget_Mask(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `clearMask` instead
+    ///
+    pub const ClearMask = clearMask;
 
     /// Inherited from QWidget
     ///
@@ -2939,9 +3711,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ClearMask(self: QWebEngineView) void {
+    pub fn clearMask(self: QWebEngineView) void {
         qtc.QWidget_ClearMask(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `render` instead
+    ///
+    pub const Render = render;
 
     /// Inherited from QWidget
     ///
@@ -2953,10 +3729,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` target: QPaintDevice `
     ///
-    pub fn Render(self: QWebEngineView, target: anytype) void {
+    pub fn render(self: QWebEngineView, target: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         qtc.QWidget_Render(@ptrCast(self.ptr), @ptrCast(target.ptr));
     }
+
+    /// ### DEPRECATED: Use `render2` instead
+    ///
+    pub const Render2 = render2;
 
     /// Inherited from QWidget
     ///
@@ -2968,10 +3748,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn Render2(self: QWebEngineView, painter: anytype) void {
+    pub fn render2(self: QWebEngineView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWidget_Render2(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `grab` instead
+    ///
+    pub const Grab = grab;
 
     /// Inherited from QWidget
     ///
@@ -2981,9 +3765,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Grab(self: QWebEngineView) QPixmap {
+    pub fn grab(self: QWebEngineView) QPixmap {
         return .{ .ptr = qtc.QWidget_Grab(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `graphicsEffect` instead
+    ///
+    pub const GraphicsEffect = graphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -2993,9 +3781,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn GraphicsEffect(self: QWebEngineView) QGraphicsEffect {
+    pub fn graphicsEffect(self: QWebEngineView) QGraphicsEffect {
         return .{ .ptr = qtc.QWidget_GraphicsEffect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setGraphicsEffect` instead
+    ///
+    pub const SetGraphicsEffect = setGraphicsEffect;
 
     /// Inherited from QWidget
     ///
@@ -3007,10 +3799,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` effect: QGraphicsEffect `
     ///
-    pub fn SetGraphicsEffect(self: QWebEngineView, effect: anytype) void {
+    pub fn setGraphicsEffect(self: QWebEngineView, effect: anytype) void {
         comptime _ = @TypeOf(effect)._is_QGraphicsEffect;
         qtc.QWidget_SetGraphicsEffect(@ptrCast(self.ptr), @ptrCast(effect.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabGesture` instead
+    ///
+    pub const GrabGesture = grabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3022,9 +3818,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn GrabGesture(self: QWebEngineView, typeVal: i32) void {
+    pub fn grabGesture(self: QWebEngineView, typeVal: i32) void {
         qtc.QWidget_GrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `ungrabGesture` instead
+    ///
+    pub const UngrabGesture = ungrabGesture;
 
     /// Inherited from QWidget
     ///
@@ -3036,9 +3836,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.GestureType `
     ///
-    pub fn UngrabGesture(self: QWebEngineView, typeVal: i32) void {
+    pub fn ungrabGesture(self: QWebEngineView, typeVal: i32) void {
         qtc.QWidget_UngrabGesture(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `setWindowTitle` instead
+    ///
+    pub const SetWindowTitle = setWindowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3048,15 +3852,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` windowTitle: []const u8 `
+    /// ` _windowTitle: []const u8 `
     ///
-    pub fn SetWindowTitle(self: QWebEngineView, windowTitle: []const u8) void {
+    pub fn setWindowTitle(self: QWebEngineView, _windowTitle: []const u8) void {
         const windowTitle_str = qtc.libqt_string{
-            .len = windowTitle.len,
-            .data = windowTitle.ptr,
+            .len = _windowTitle.len,
+            .data = _windowTitle.ptr,
         };
         qtc.QWidget_SetWindowTitle(@ptrCast(self.ptr), windowTitle_str);
     }
+
+    /// ### DEPRECATED: Use `setStyleSheet` instead
+    ///
+    pub const SetStyleSheet = setStyleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3066,15 +3874,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` styleSheet: []const u8 `
+    /// ` _styleSheet: []const u8 `
     ///
-    pub fn SetStyleSheet(self: QWebEngineView, styleSheet: []const u8) void {
+    pub fn setStyleSheet(self: QWebEngineView, _styleSheet: []const u8) void {
         const styleSheet_str = qtc.libqt_string{
-            .len = styleSheet.len,
-            .data = styleSheet.ptr,
+            .len = _styleSheet.len,
+            .data = _styleSheet.ptr,
         };
         qtc.QWidget_SetStyleSheet(@ptrCast(self.ptr), styleSheet_str);
     }
+
+    /// ### DEPRECATED: Use `styleSheet` instead
+    ///
+    pub const StyleSheet = styleSheet;
 
     /// Inherited from QWidget
     ///
@@ -3086,13 +3898,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StyleSheet(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn styleSheet(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StyleSheet(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.StyleSheet: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.styleSheet: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `windowTitle` instead
+    ///
+    pub const WindowTitle = windowTitle;
 
     /// Inherited from QWidget
     ///
@@ -3104,13 +3920,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowTitle(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowTitle(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowTitle(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.WindowTitle: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.windowTitle: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowIcon` instead
+    ///
+    pub const SetWindowIcon = setWindowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3120,12 +3940,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn SetWindowIcon(self: QWebEngineView, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn setWindowIcon(self: QWebEngineView, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_SetWindowIcon(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowIcon` instead
+    ///
+    pub const WindowIcon = windowIcon;
 
     /// Inherited from QWidget
     ///
@@ -3135,9 +3959,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn WindowIcon(self: QWebEngineView) QIcon {
+    pub fn windowIcon(self: QWebEngineView) QIcon {
         return .{ .ptr = qtc.QWidget_WindowIcon(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowIconText` instead
+    ///
+    pub const SetWindowIconText = setWindowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3147,15 +3975,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` windowIconText: []const u8 `
+    /// ` _windowIconText: []const u8 `
     ///
-    pub fn SetWindowIconText(self: QWebEngineView, windowIconText: []const u8) void {
+    pub fn setWindowIconText(self: QWebEngineView, _windowIconText: []const u8) void {
         const windowIconText_str = qtc.libqt_string{
-            .len = windowIconText.len,
-            .data = windowIconText.ptr,
+            .len = _windowIconText.len,
+            .data = _windowIconText.ptr,
         };
         qtc.QWidget_SetWindowIconText(@ptrCast(self.ptr), windowIconText_str);
     }
+
+    /// ### DEPRECATED: Use `windowIconText` instead
+    ///
+    pub const WindowIconText = windowIconText;
 
     /// Inherited from QWidget
     ///
@@ -3167,13 +3999,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowIconText(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowIconText(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowIconText(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.WindowIconText: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.windowIconText: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowRole` instead
+    ///
+    pub const SetWindowRole = setWindowRole;
 
     /// Inherited from QWidget
     ///
@@ -3183,15 +4019,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` windowRole: []const u8 `
+    /// ` _windowRole: []const u8 `
     ///
-    pub fn SetWindowRole(self: QWebEngineView, windowRole: []const u8) void {
+    pub fn setWindowRole(self: QWebEngineView, _windowRole: []const u8) void {
         const windowRole_str = qtc.libqt_string{
-            .len = windowRole.len,
-            .data = windowRole.ptr,
+            .len = _windowRole.len,
+            .data = _windowRole.ptr,
         };
         qtc.QWidget_SetWindowRole(@ptrCast(self.ptr), windowRole_str);
     }
+
+    /// ### DEPRECATED: Use `windowRole` instead
+    ///
+    pub const WindowRole = windowRole;
 
     /// Inherited from QWidget
     ///
@@ -3203,13 +4043,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowRole(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowRole(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowRole(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.WindowRole: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.windowRole: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowFilePath` instead
+    ///
+    pub const SetWindowFilePath = setWindowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3221,13 +4065,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` filePath: []const u8 `
     ///
-    pub fn SetWindowFilePath(self: QWebEngineView, filePath: []const u8) void {
+    pub fn setWindowFilePath(self: QWebEngineView, filePath: []const u8) void {
         const filePath_str = qtc.libqt_string{
             .len = filePath.len,
             .data = filePath.ptr,
         };
         qtc.QWidget_SetWindowFilePath(@ptrCast(self.ptr), filePath_str);
     }
+
+    /// ### DEPRECATED: Use `windowFilePath` instead
+    ///
+    pub const WindowFilePath = windowFilePath;
 
     /// Inherited from QWidget
     ///
@@ -3239,13 +4087,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WindowFilePath(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn windowFilePath(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WindowFilePath(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.WindowFilePath: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.windowFilePath: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWindowOpacity` instead
+    ///
+    pub const SetWindowOpacity = setWindowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3257,9 +4109,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` level: f64 `
     ///
-    pub fn SetWindowOpacity(self: QWebEngineView, level: f64) void {
+    pub fn setWindowOpacity(self: QWebEngineView, level: f64) void {
         qtc.QWidget_SetWindowOpacity(@ptrCast(self.ptr), @bitCast(level));
     }
+
+    /// ### DEPRECATED: Use `windowOpacity` instead
+    ///
+    pub const WindowOpacity = windowOpacity;
 
     /// Inherited from QWidget
     ///
@@ -3269,9 +4125,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn WindowOpacity(self: QWebEngineView) f64 {
+    pub fn windowOpacity(self: QWebEngineView) f64 {
         return qtc.QWidget_WindowOpacity(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowModified` instead
+    ///
+    pub const IsWindowModified = isWindowModified;
 
     /// Inherited from QWidget
     ///
@@ -3281,9 +4141,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsWindowModified(self: QWebEngineView) bool {
+    pub fn isWindowModified(self: QWebEngineView) bool {
         return qtc.QWidget_IsWindowModified(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setToolTip` instead
+    ///
+    pub const SetToolTip = setToolTip;
 
     /// Inherited from QWidget
     ///
@@ -3293,15 +4157,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` toolTip: []const u8 `
+    /// ` _toolTip: []const u8 `
     ///
-    pub fn SetToolTip(self: QWebEngineView, toolTip: []const u8) void {
+    pub fn setToolTip(self: QWebEngineView, _toolTip: []const u8) void {
         const toolTip_str = qtc.libqt_string{
-            .len = toolTip.len,
-            .data = toolTip.ptr,
+            .len = _toolTip.len,
+            .data = _toolTip.ptr,
         };
         qtc.QWidget_SetToolTip(@ptrCast(self.ptr), toolTip_str);
     }
+
+    /// ### DEPRECATED: Use `toolTip` instead
+    ///
+    pub const ToolTip = toolTip;
 
     /// Inherited from QWidget
     ///
@@ -3313,13 +4181,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ToolTip(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn toolTip(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_ToolTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.ToolTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.toolTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setToolTipDuration` instead
+    ///
+    pub const SetToolTipDuration = setToolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3331,9 +4203,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` msec: i32 `
     ///
-    pub fn SetToolTipDuration(self: QWebEngineView, msec: i32) void {
+    pub fn setToolTipDuration(self: QWebEngineView, msec: i32) void {
         qtc.QWidget_SetToolTipDuration(@ptrCast(self.ptr), @bitCast(msec));
     }
+
+    /// ### DEPRECATED: Use `toolTipDuration` instead
+    ///
+    pub const ToolTipDuration = toolTipDuration;
 
     /// Inherited from QWidget
     ///
@@ -3343,9 +4219,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ToolTipDuration(self: QWebEngineView) i32 {
+    pub fn toolTipDuration(self: QWebEngineView) i32 {
         return qtc.QWidget_ToolTipDuration(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setStatusTip` instead
+    ///
+    pub const SetStatusTip = setStatusTip;
 
     /// Inherited from QWidget
     ///
@@ -3355,15 +4235,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` statusTip: []const u8 `
+    /// ` _statusTip: []const u8 `
     ///
-    pub fn SetStatusTip(self: QWebEngineView, statusTip: []const u8) void {
+    pub fn setStatusTip(self: QWebEngineView, _statusTip: []const u8) void {
         const statusTip_str = qtc.libqt_string{
-            .len = statusTip.len,
-            .data = statusTip.ptr,
+            .len = _statusTip.len,
+            .data = _statusTip.ptr,
         };
         qtc.QWidget_SetStatusTip(@ptrCast(self.ptr), statusTip_str);
     }
+
+    /// ### DEPRECATED: Use `statusTip` instead
+    ///
+    pub const StatusTip = statusTip;
 
     /// Inherited from QWidget
     ///
@@ -3375,13 +4259,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn StatusTip(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn statusTip(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_StatusTip(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.StatusTip: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.statusTip: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setWhatsThis` instead
+    ///
+    pub const SetWhatsThis = setWhatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3391,15 +4279,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` whatsThis: []const u8 `
+    /// ` _whatsThis: []const u8 `
     ///
-    pub fn SetWhatsThis(self: QWebEngineView, whatsThis: []const u8) void {
+    pub fn setWhatsThis(self: QWebEngineView, _whatsThis: []const u8) void {
         const whatsThis_str = qtc.libqt_string{
-            .len = whatsThis.len,
-            .data = whatsThis.ptr,
+            .len = _whatsThis.len,
+            .data = _whatsThis.ptr,
         };
         qtc.QWidget_SetWhatsThis(@ptrCast(self.ptr), whatsThis_str);
     }
+
+    /// ### DEPRECATED: Use `whatsThis` instead
+    ///
+    pub const WhatsThis = whatsThis;
 
     /// Inherited from QWidget
     ///
@@ -3411,13 +4303,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn WhatsThis(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn whatsThis(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_WhatsThis(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.WhatsThis: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.whatsThis: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `accessibleName` instead
+    ///
+    pub const AccessibleName = accessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3429,13 +4325,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleName(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleName(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.AccessibleName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.accessibleName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleName` instead
+    ///
+    pub const SetAccessibleName = setAccessibleName;
 
     /// Inherited from QWidget
     ///
@@ -3447,13 +4347,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetAccessibleName(self: QWebEngineView, name: []const u8) void {
+    pub fn setAccessibleName(self: QWebEngineView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QWidget_SetAccessibleName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `accessibleDescription` instead
+    ///
+    pub const AccessibleDescription = accessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3465,13 +4369,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn AccessibleDescription(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn accessibleDescription(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QWidget_AccessibleDescription(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.AccessibleDescription: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.accessibleDescription: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setAccessibleDescription` instead
+    ///
+    pub const SetAccessibleDescription = setAccessibleDescription;
 
     /// Inherited from QWidget
     ///
@@ -3483,13 +4391,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` description: []const u8 `
     ///
-    pub fn SetAccessibleDescription(self: QWebEngineView, description: []const u8) void {
+    pub fn setAccessibleDescription(self: QWebEngineView, description: []const u8) void {
         const description_str = qtc.libqt_string{
             .len = description.len,
             .data = description.ptr,
         };
         qtc.QWidget_SetAccessibleDescription(@ptrCast(self.ptr), description_str);
     }
+
+    /// ### DEPRECATED: Use `setLayoutDirection` instead
+    ///
+    pub const SetLayoutDirection = setLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3501,9 +4413,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` direction: qnamespace_enums.LayoutDirection `
     ///
-    pub fn SetLayoutDirection(self: QWebEngineView, direction: i32) void {
+    pub fn setLayoutDirection(self: QWebEngineView, direction: i32) void {
         qtc.QWidget_SetLayoutDirection(@ptrCast(self.ptr), @bitCast(direction));
     }
+
+    /// ### DEPRECATED: Use `layoutDirection` instead
+    ///
+    pub const LayoutDirection = layoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3517,9 +4433,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qnamespace_enums.LayoutDirection `
     ///
-    pub fn LayoutDirection(self: QWebEngineView) i32 {
+    pub fn layoutDirection(self: QWebEngineView) i32 {
         return qtc.QWidget_LayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `unsetLayoutDirection` instead
+    ///
+    pub const UnsetLayoutDirection = unsetLayoutDirection;
 
     /// Inherited from QWidget
     ///
@@ -3529,9 +4449,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UnsetLayoutDirection(self: QWebEngineView) void {
+    pub fn unsetLayoutDirection(self: QWebEngineView) void {
         qtc.QWidget_UnsetLayoutDirection(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setLocale` instead
+    ///
+    pub const SetLocale = setLocale;
 
     /// Inherited from QWidget
     ///
@@ -3541,12 +4465,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` locale: QLocale `
+    /// ` _locale: QLocale `
     ///
-    pub fn SetLocale(self: QWebEngineView, locale: anytype) void {
-        comptime _ = @TypeOf(locale)._is_QLocale;
-        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(locale.ptr));
+    pub fn setLocale(self: QWebEngineView, _locale: anytype) void {
+        comptime _ = @TypeOf(_locale)._is_QLocale;
+        qtc.QWidget_SetLocale(@ptrCast(self.ptr), @ptrCast(_locale.ptr));
     }
+
+    /// ### DEPRECATED: Use `locale` instead
+    ///
+    pub const Locale = locale;
 
     /// Inherited from QWidget
     ///
@@ -3556,9 +4484,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Locale(self: QWebEngineView) QLocale {
+    pub fn locale(self: QWebEngineView) QLocale {
         return .{ .ptr = qtc.QWidget_Locale(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `unsetLocale` instead
+    ///
+    pub const UnsetLocale = unsetLocale;
 
     /// Inherited from QWidget
     ///
@@ -3568,9 +4500,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UnsetLocale(self: QWebEngineView) void {
+    pub fn unsetLocale(self: QWebEngineView) void {
         qtc.QWidget_UnsetLocale(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isRightToLeft` instead
+    ///
+    pub const IsRightToLeft = isRightToLeft;
 
     /// Inherited from QWidget
     ///
@@ -3580,9 +4516,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsRightToLeft(self: QWebEngineView) bool {
+    pub fn isRightToLeft(self: QWebEngineView) bool {
         return qtc.QWidget_IsRightToLeft(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isLeftToRight` instead
+    ///
+    pub const IsLeftToRight = isLeftToRight;
 
     /// Inherited from QWidget
     ///
@@ -3592,9 +4532,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsLeftToRight(self: QWebEngineView) bool {
+    pub fn isLeftToRight(self: QWebEngineView) bool {
         return qtc.QWidget_IsLeftToRight(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus` instead
+    ///
+    pub const SetFocus = setFocus;
 
     /// Inherited from QWidget
     ///
@@ -3604,9 +4548,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SetFocus(self: QWebEngineView) void {
+    pub fn setFocus(self: QWebEngineView) void {
         qtc.QWidget_SetFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isActiveWindow` instead
+    ///
+    pub const IsActiveWindow = isActiveWindow;
 
     /// Inherited from QWidget
     ///
@@ -3616,9 +4564,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsActiveWindow(self: QWebEngineView) bool {
+    pub fn isActiveWindow(self: QWebEngineView) bool {
         return qtc.QWidget_IsActiveWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `activateWindow` instead
+    ///
+    pub const ActivateWindow = activateWindow;
 
     /// Inherited from QWidget
     ///
@@ -3628,9 +4580,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ActivateWindow(self: QWebEngineView) void {
+    pub fn activateWindow(self: QWebEngineView) void {
         qtc.QWidget_ActivateWindow(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `clearFocus` instead
+    ///
+    pub const ClearFocus = clearFocus;
 
     /// Inherited from QWidget
     ///
@@ -3640,9 +4596,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ClearFocus(self: QWebEngineView) void {
+    pub fn clearFocus(self: QWebEngineView) void {
         qtc.QWidget_ClearFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocus2` instead
+    ///
+    pub const SetFocus2 = setFocus2;
 
     /// Inherited from QWidget
     ///
@@ -3654,9 +4614,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` reason: qnamespace_enums.FocusReason `
     ///
-    pub fn SetFocus2(self: QWebEngineView, reason: i32) void {
+    pub fn setFocus2(self: QWebEngineView, reason: i32) void {
         qtc.QWidget_SetFocus2(@ptrCast(self.ptr), @bitCast(reason));
     }
+
+    /// ### DEPRECATED: Use `focusPolicy` instead
+    ///
+    pub const FocusPolicy = focusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3670,9 +4634,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qnamespace_enums.FocusPolicy `
     ///
-    pub fn FocusPolicy(self: QWebEngineView) i32 {
+    pub fn focusPolicy(self: QWebEngineView) i32 {
         return qtc.QWidget_FocusPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusPolicy` instead
+    ///
+    pub const SetFocusPolicy = setFocusPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3684,9 +4652,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` policy: qnamespace_enums.FocusPolicy `
     ///
-    pub fn SetFocusPolicy(self: QWebEngineView, policy: i32) void {
+    pub fn setFocusPolicy(self: QWebEngineView, policy: i32) void {
         qtc.QWidget_SetFocusPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `hasFocus` instead
+    ///
+    pub const HasFocus = hasFocus;
 
     /// Inherited from QWidget
     ///
@@ -3696,9 +4668,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HasFocus(self: QWebEngineView) bool {
+    pub fn hasFocus(self: QWebEngineView) bool {
         return qtc.QWidget_HasFocus(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setTabOrder` instead
+    ///
+    pub const SetTabOrder = setTabOrder;
 
     /// Inherited from QWidget
     ///
@@ -3710,11 +4686,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param2: QWidget `
     ///
-    pub fn SetTabOrder(param1: anytype, param2: anytype) void {
+    pub fn setTabOrder(param1: anytype, param2: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         comptime _ = @TypeOf(param2)._is_QWidget;
         qtc.QWidget_SetTabOrder(@ptrCast(param1.ptr), @ptrCast(param2.ptr));
     }
+
+    /// ### DEPRECATED: Use `setFocusProxy` instead
+    ///
+    pub const SetFocusProxy = setFocusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3724,12 +4704,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` focusProxy: QWidget `
+    /// ` _focusProxy: QWidget `
     ///
-    pub fn SetFocusProxy(self: QWebEngineView, focusProxy: anytype) void {
-        comptime _ = @TypeOf(focusProxy)._is_QWidget;
-        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(focusProxy.ptr));
+    pub fn setFocusProxy(self: QWebEngineView, _focusProxy: anytype) void {
+        comptime _ = @TypeOf(_focusProxy)._is_QWidget;
+        qtc.QWidget_SetFocusProxy(@ptrCast(self.ptr), @ptrCast(_focusProxy.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusProxy` instead
+    ///
+    pub const FocusProxy = focusProxy;
 
     /// Inherited from QWidget
     ///
@@ -3739,9 +4723,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FocusProxy(self: QWebEngineView) QWidget {
+    pub fn focusProxy(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusProxy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contextMenuPolicy` instead
+    ///
+    pub const ContextMenuPolicy = contextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3755,9 +4743,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn ContextMenuPolicy(self: QWebEngineView) i32 {
+    pub fn contextMenuPolicy(self: QWebEngineView) i32 {
         return qtc.QWidget_ContextMenuPolicy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setContextMenuPolicy` instead
+    ///
+    pub const SetContextMenuPolicy = setContextMenuPolicy;
 
     /// Inherited from QWidget
     ///
@@ -3769,9 +4761,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` policy: qnamespace_enums.ContextMenuPolicy `
     ///
-    pub fn SetContextMenuPolicy(self: QWebEngineView, policy: i32) void {
+    pub fn setContextMenuPolicy(self: QWebEngineView, policy: i32) void {
         qtc.QWidget_SetContextMenuPolicy(@ptrCast(self.ptr), @bitCast(policy));
     }
+
+    /// ### DEPRECATED: Use `grabMouse` instead
+    ///
+    pub const GrabMouse = grabMouse;
 
     /// Inherited from QWidget
     ///
@@ -3781,9 +4777,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn GrabMouse(self: QWebEngineView) void {
+    pub fn grabMouse(self: QWebEngineView) void {
         qtc.QWidget_GrabMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabMouse2` instead
+    ///
+    pub const GrabMouse2 = grabMouse2;
 
     /// Inherited from QWidget
     ///
@@ -3795,10 +4795,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QCursor `
     ///
-    pub fn GrabMouse2(self: QWebEngineView, param1: anytype) void {
+    pub fn grabMouse2(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QCursor;
         qtc.QWidget_GrabMouse2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseMouse` instead
+    ///
+    pub const ReleaseMouse = releaseMouse;
 
     /// Inherited from QWidget
     ///
@@ -3808,9 +4812,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ReleaseMouse(self: QWebEngineView) void {
+    pub fn releaseMouse(self: QWebEngineView) void {
         qtc.QWidget_ReleaseMouse(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabKeyboard` instead
+    ///
+    pub const GrabKeyboard = grabKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3820,9 +4828,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn GrabKeyboard(self: QWebEngineView) void {
+    pub fn grabKeyboard(self: QWebEngineView) void {
         qtc.QWidget_GrabKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseKeyboard` instead
+    ///
+    pub const ReleaseKeyboard = releaseKeyboard;
 
     /// Inherited from QWidget
     ///
@@ -3832,9 +4844,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ReleaseKeyboard(self: QWebEngineView) void {
+    pub fn releaseKeyboard(self: QWebEngineView) void {
         qtc.QWidget_ReleaseKeyboard(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut` instead
+    ///
+    pub const GrabShortcut = grabShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3846,10 +4862,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` key: QKeySequence `
     ///
-    pub fn GrabShortcut(self: QWebEngineView, key: anytype) i32 {
+    pub fn grabShortcut(self: QWebEngineView, key: anytype) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut(@ptrCast(self.ptr), @ptrCast(key.ptr));
     }
+
+    /// ### DEPRECATED: Use `releaseShortcut` instead
+    ///
+    pub const ReleaseShortcut = releaseShortcut;
 
     /// Inherited from QWidget
     ///
@@ -3861,9 +4881,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn ReleaseShortcut(self: QWebEngineView, id: i32) void {
+    pub fn releaseShortcut(self: QWebEngineView, id: i32) void {
         qtc.QWidget_ReleaseShortcut(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled` instead
+    ///
+    pub const SetShortcutEnabled = setShortcutEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3875,9 +4899,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutEnabled(self: QWebEngineView, id: i32) void {
+    pub fn setShortcutEnabled(self: QWebEngineView, id: i32) void {
         qtc.QWidget_SetShortcutEnabled(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat` instead
+    ///
+    pub const SetShortcutAutoRepeat = setShortcutAutoRepeat;
 
     /// Inherited from QWidget
     ///
@@ -3889,25 +4917,37 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn SetShortcutAutoRepeat(self: QWebEngineView, id: i32) void {
+    pub fn setShortcutAutoRepeat(self: QWebEngineView, id: i32) void {
         qtc.QWidget_SetShortcutAutoRepeat(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `mouseGrabber` instead
+    ///
+    pub const MouseGrabber = mouseGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseGrabber)
     ///
-    pub fn MouseGrabber() QWidget {
+    pub fn mouseGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_MouseGrabber() };
     }
+
+    /// ### DEPRECATED: Use `keyboardGrabber` instead
+    ///
+    pub const KeyboardGrabber = keyboardGrabber;
 
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyboardGrabber)
     ///
-    pub fn KeyboardGrabber() QWidget {
+    pub fn keyboardGrabber() QWidget {
         return .{ .ptr = qtc.QWidget_KeyboardGrabber() };
     }
+
+    /// ### DEPRECATED: Use `updatesEnabled` instead
+    ///
+    pub const UpdatesEnabled = updatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3917,9 +4957,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UpdatesEnabled(self: QWebEngineView) bool {
+    pub fn updatesEnabled(self: QWebEngineView) bool {
         return qtc.QWidget_UpdatesEnabled(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setUpdatesEnabled` instead
+    ///
+    pub const SetUpdatesEnabled = setUpdatesEnabled;
 
     /// Inherited from QWidget
     ///
@@ -3931,9 +4975,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetUpdatesEnabled(self: QWebEngineView, enable: bool) void {
+    pub fn setUpdatesEnabled(self: QWebEngineView, enable: bool) void {
         qtc.QWidget_SetUpdatesEnabled(@ptrCast(self.ptr), enable);
     }
+
+    /// ### DEPRECATED: Use `graphicsProxyWidget` instead
+    ///
+    pub const GraphicsProxyWidget = graphicsProxyWidget;
 
     /// Inherited from QWidget
     ///
@@ -3943,9 +4991,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn GraphicsProxyWidget(self: QWebEngineView) QGraphicsProxyWidget {
+    pub fn graphicsProxyWidget(self: QWebEngineView) QGraphicsProxyWidget {
         return .{ .ptr = qtc.QWidget_GraphicsProxyWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `update` instead
+    ///
+    pub const Update = update;
 
     /// Inherited from QWidget
     ///
@@ -3955,9 +5007,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Update(self: QWebEngineView) void {
+    pub fn update(self: QWebEngineView) void {
         qtc.QWidget_Update(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint` instead
+    ///
+    pub const Repaint = repaint;
 
     /// Inherited from QWidget
     ///
@@ -3967,9 +5023,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Repaint(self: QWebEngineView) void {
+    pub fn repaint(self: QWebEngineView) void {
         qtc.QWidget_Repaint(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `update2` instead
+    ///
+    pub const Update2 = update2;
 
     /// Inherited from QWidget
     ///
@@ -3979,17 +5039,21 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Update2(self: QWebEngineView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn update2(self: QWebEngineView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Update2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `update3` instead
+    ///
+    pub const Update3 = update3;
 
     /// Inherited from QWidget
     ///
@@ -4001,11 +5065,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Update3(self: QWebEngineView, param1: anytype) void {
+    pub fn update3(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Update3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
+    /// ### DEPRECATED: Use `update4` instead
+    ///
+    pub const Update4 = update4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#update)
@@ -4016,10 +5084,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Update4(self: QWebEngineView, param1: anytype) void {
+    pub fn update4(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Update4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint2` instead
+    ///
+    pub const Repaint2 = repaint2;
 
     /// Inherited from QWidget
     ///
@@ -4029,17 +5101,21 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn Repaint2(self: QWebEngineView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn repaint2(self: QWebEngineView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_Repaint2(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `repaint3` instead
+    ///
+    pub const Repaint3 = repaint3;
 
     /// Inherited from QWidget
     ///
@@ -4051,10 +5127,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QRect `
     ///
-    pub fn Repaint3(self: QWebEngineView, param1: anytype) void {
+    pub fn repaint3(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRect;
         qtc.QWidget_Repaint3(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `repaint4` instead
+    ///
+    pub const Repaint4 = repaint4;
 
     /// Inherited from QWidget
     ///
@@ -4066,10 +5146,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QRegion `
     ///
-    pub fn Repaint4(self: QWebEngineView, param1: anytype) void {
+    pub fn repaint4(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QRegion;
         qtc.QWidget_Repaint4(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setHidden` instead
+    ///
+    pub const SetHidden = setHidden;
 
     /// Inherited from QWidget
     ///
@@ -4081,9 +5165,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` hidden: bool `
     ///
-    pub fn SetHidden(self: QWebEngineView, hidden: bool) void {
+    pub fn setHidden(self: QWebEngineView, hidden: bool) void {
         qtc.QWidget_SetHidden(@ptrCast(self.ptr), hidden);
     }
+
+    /// ### DEPRECATED: Use `show` instead
+    ///
+    pub const Show = show;
 
     /// Inherited from QWidget
     ///
@@ -4093,9 +5181,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Show(self: QWebEngineView) void {
+    pub fn show(self: QWebEngineView) void {
         qtc.QWidget_Show(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `hide` instead
+    ///
+    pub const Hide = hide;
 
     /// Inherited from QWidget
     ///
@@ -4105,9 +5197,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Hide(self: QWebEngineView) void {
+    pub fn hide(self: QWebEngineView) void {
         qtc.QWidget_Hide(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMinimized` instead
+    ///
+    pub const ShowMinimized = showMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4117,9 +5213,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ShowMinimized(self: QWebEngineView) void {
+    pub fn showMinimized(self: QWebEngineView) void {
         qtc.QWidget_ShowMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showMaximized` instead
+    ///
+    pub const ShowMaximized = showMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4129,9 +5229,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ShowMaximized(self: QWebEngineView) void {
+    pub fn showMaximized(self: QWebEngineView) void {
         qtc.QWidget_ShowMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showFullScreen` instead
+    ///
+    pub const ShowFullScreen = showFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4141,9 +5245,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ShowFullScreen(self: QWebEngineView) void {
+    pub fn showFullScreen(self: QWebEngineView) void {
         qtc.QWidget_ShowFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `showNormal` instead
+    ///
+    pub const ShowNormal = showNormal;
 
     /// Inherited from QWidget
     ///
@@ -4153,9 +5261,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ShowNormal(self: QWebEngineView) void {
+    pub fn showNormal(self: QWebEngineView) void {
         qtc.QWidget_ShowNormal(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `close` instead
+    ///
+    pub const Close = close;
 
     /// Inherited from QWidget
     ///
@@ -4165,9 +5277,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Close(self: QWebEngineView) bool {
+    pub fn close(self: QWebEngineView) bool {
         return qtc.QWidget_Close(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `raise` instead
+    ///
+    pub const Raise = raise;
 
     /// Inherited from QWidget
     ///
@@ -4177,9 +5293,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Raise(self: QWebEngineView) void {
+    pub fn raise(self: QWebEngineView) void {
         qtc.QWidget_Raise(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `lower` instead
+    ///
+    pub const Lower = lower;
 
     /// Inherited from QWidget
     ///
@@ -4189,9 +5309,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Lower(self: QWebEngineView) void {
+    pub fn lower(self: QWebEngineView) void {
         qtc.QWidget_Lower(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `stackUnder` instead
+    ///
+    pub const StackUnder = stackUnder;
 
     /// Inherited from QWidget
     ///
@@ -4203,10 +5327,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn StackUnder(self: QWebEngineView, param1: anytype) void {
+    pub fn stackUnder(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QWidget;
         qtc.QWidget_StackUnder(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `move` instead
+    ///
+    pub const Move = move;
 
     /// Inherited from QWidget
     ///
@@ -4216,13 +5344,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn Move(self: QWebEngineView, x: i32, y: i32) void {
-        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(x), @bitCast(y));
+    pub fn move(self: QWebEngineView, _x: i32, _y: i32) void {
+        qtc.QWidget_Move(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y));
     }
+
+    /// ### DEPRECATED: Use `move2` instead
+    ///
+    pub const Move2 = move2;
 
     /// Inherited from QWidget
     ///
@@ -4234,10 +5366,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QPoint `
     ///
-    pub fn Move2(self: QWebEngineView, param1: anytype) void {
+    pub fn move2(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QPoint;
         qtc.QWidget_Move2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `resize` instead
+    ///
+    pub const Resize = resize;
 
     /// Inherited from QWidget
     ///
@@ -4251,9 +5387,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` h: i32 `
     ///
-    pub fn Resize(self: QWebEngineView, w: i32, h: i32) void {
+    pub fn resize(self: QWebEngineView, w: i32, h: i32) void {
         qtc.QWidget_Resize(@ptrCast(self.ptr), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `resize2` instead
+    ///
+    pub const Resize2 = resize2;
 
     /// Inherited from QWidget
     ///
@@ -4265,10 +5405,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QSize `
     ///
-    pub fn Resize2(self: QWebEngineView, param1: anytype) void {
+    pub fn resize2(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QSize;
         qtc.QWidget_Resize2(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `setGeometry` instead
+    ///
+    pub const SetGeometry = setGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4278,17 +5422,21 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
     /// ` w: i32 `
     ///
     /// ` h: i32 `
     ///
-    pub fn SetGeometry(self: QWebEngineView, x: i32, y: i32, w: i32, h: i32) void {
-        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(x), @bitCast(y), @bitCast(w), @bitCast(h));
+    pub fn setGeometry(self: QWebEngineView, _x: i32, _y: i32, w: i32, h: i32) void {
+        qtc.QWidget_SetGeometry(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y), @bitCast(w), @bitCast(h));
     }
+
+    /// ### DEPRECATED: Use `setGeometry2` instead
+    ///
+    pub const SetGeometry2 = setGeometry2;
 
     /// Inherited from QWidget
     ///
@@ -4298,12 +5446,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` geometry: QRect `
+    /// ` _geometry: QRect `
     ///
-    pub fn SetGeometry2(self: QWebEngineView, geometry: anytype) void {
-        comptime _ = @TypeOf(geometry)._is_QRect;
-        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(geometry.ptr));
+    pub fn setGeometry2(self: QWebEngineView, _geometry: anytype) void {
+        comptime _ = @TypeOf(_geometry)._is_QRect;
+        qtc.QWidget_SetGeometry2(@ptrCast(self.ptr), @ptrCast(_geometry.ptr));
     }
+
+    /// ### DEPRECATED: Use `saveGeometry` instead
+    ///
+    pub const SaveGeometry = saveGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4315,13 +5467,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn SaveGeometry(self: QWebEngineView, allocator: std.mem.Allocator) []u8 {
+    pub fn saveGeometry(self: QWebEngineView, allocator: std.mem.Allocator) []u8 {
         var _bytearray: qtc.libqt_string = qtc.QWidget_SaveGeometry(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_bytearray);
-        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineView.SaveGeometry: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _bytearray.len) catch @panic("QWebEngineView.saveGeometry: Memory allocation failed");
         @memcpy(_ret, _bytearray.data[0.._bytearray.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `restoreGeometry` instead
+    ///
+    pub const RestoreGeometry = restoreGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4331,15 +5487,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` geometry: []u8 `
+    /// ` _geometry: []u8 `
     ///
-    pub fn RestoreGeometry(self: QWebEngineView, geometry: []u8) bool {
+    pub fn restoreGeometry(self: QWebEngineView, _geometry: []u8) bool {
         const geometry_str = qtc.libqt_string{
-            .len = geometry.len,
-            .data = geometry.ptr,
+            .len = _geometry.len,
+            .data = _geometry.ptr,
         };
         return qtc.QWidget_RestoreGeometry(@ptrCast(self.ptr), geometry_str);
     }
+
+    /// ### DEPRECATED: Use `adjustSize` instead
+    ///
+    pub const AdjustSize = adjustSize;
 
     /// Inherited from QWidget
     ///
@@ -4349,9 +5509,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn AdjustSize(self: QWebEngineView) void {
+    pub fn adjustSize(self: QWebEngineView) void {
         qtc.QWidget_AdjustSize(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisible` instead
+    ///
+    pub const IsVisible = isVisible;
 
     /// Inherited from QWidget
     ///
@@ -4361,9 +5525,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsVisible(self: QWebEngineView) bool {
+    pub fn isVisible(self: QWebEngineView) bool {
         return qtc.QWidget_IsVisible(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isVisibleTo` instead
+    ///
+    pub const IsVisibleTo = isVisibleTo;
 
     /// Inherited from QWidget
     ///
@@ -4375,10 +5543,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QWidget `
     ///
-    pub fn IsVisibleTo(self: QWebEngineView, param1: anytype) bool {
+    pub fn isVisibleTo(self: QWebEngineView, param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QWidget;
         return qtc.QWidget_IsVisibleTo(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `isHidden` instead
+    ///
+    pub const IsHidden = isHidden;
 
     /// Inherited from QWidget
     ///
@@ -4388,9 +5560,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsHidden(self: QWebEngineView) bool {
+    pub fn isHidden(self: QWebEngineView) bool {
         return qtc.QWidget_IsHidden(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMinimized` instead
+    ///
+    pub const IsMinimized = isMinimized;
 
     /// Inherited from QWidget
     ///
@@ -4400,9 +5576,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsMinimized(self: QWebEngineView) bool {
+    pub fn isMinimized(self: QWebEngineView) bool {
         return qtc.QWidget_IsMinimized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isMaximized` instead
+    ///
+    pub const IsMaximized = isMaximized;
 
     /// Inherited from QWidget
     ///
@@ -4412,9 +5592,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsMaximized(self: QWebEngineView) bool {
+    pub fn isMaximized(self: QWebEngineView) bool {
         return qtc.QWidget_IsMaximized(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isFullScreen` instead
+    ///
+    pub const IsFullScreen = isFullScreen;
 
     /// Inherited from QWidget
     ///
@@ -4424,9 +5608,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsFullScreen(self: QWebEngineView) bool {
+    pub fn isFullScreen(self: QWebEngineView) bool {
         return qtc.QWidget_IsFullScreen(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `windowState` instead
+    ///
+    pub const WindowState = windowState;
 
     /// Inherited from QWidget
     ///
@@ -4440,9 +5628,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowState `
     ///
-    pub fn WindowState(self: QWebEngineView) i32 {
+    pub fn windowState(self: QWebEngineView) i32 {
         return qtc.QWidget_WindowState(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowState` instead
+    ///
+    pub const SetWindowState = setWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4454,9 +5646,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn SetWindowState(self: QWebEngineView, state: i32) void {
+    pub fn setWindowState(self: QWebEngineView, state: i32) void {
         qtc.QWidget_SetWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowState` instead
+    ///
+    pub const OverrideWindowState = overrideWindowState;
 
     /// Inherited from QWidget
     ///
@@ -4468,9 +5664,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` state: flag of qnamespace_enums.WindowState `
     ///
-    pub fn OverrideWindowState(self: QWebEngineView, state: i32) void {
+    pub fn overrideWindowState(self: QWebEngineView, state: i32) void {
         qtc.QWidget_OverrideWindowState(@ptrCast(self.ptr), @bitCast(state));
     }
+
+    /// ### DEPRECATED: Use `sizePolicy` instead
+    ///
+    pub const SizePolicy = sizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4480,9 +5680,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SizePolicy(self: QWebEngineView) QSizePolicy {
+    pub fn sizePolicy(self: QWebEngineView) QSizePolicy {
         return .{ .ptr = qtc.QWidget_SizePolicy(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy` instead
+    ///
+    pub const SetSizePolicy = setSizePolicy;
 
     /// Inherited from QWidget
     ///
@@ -4492,12 +5696,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` sizePolicy: QSizePolicy `
+    /// ` _sizePolicy: QSizePolicy `
     ///
-    pub fn SetSizePolicy(self: QWebEngineView, sizePolicy: anytype) void {
-        comptime _ = @TypeOf(sizePolicy)._is_QSizePolicy;
-        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(sizePolicy.ptr));
+    pub fn setSizePolicy(self: QWebEngineView, _sizePolicy: anytype) void {
+        comptime _ = @TypeOf(_sizePolicy)._is_QSizePolicy;
+        qtc.QWidget_SetSizePolicy(@ptrCast(self.ptr), @ptrCast(_sizePolicy.ptr));
     }
+
+    /// ### DEPRECATED: Use `setSizePolicy2` instead
+    ///
+    pub const SetSizePolicy2 = setSizePolicy2;
 
     /// Inherited from QWidget
     ///
@@ -4511,9 +5719,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` vertical: qsizepolicy_enums.Policy `
     ///
-    pub fn SetSizePolicy2(self: QWebEngineView, horizontal: i32, vertical: i32) void {
+    pub fn setSizePolicy2(self: QWebEngineView, horizontal: i32, vertical: i32) void {
         qtc.QWidget_SetSizePolicy2(@ptrCast(self.ptr), @bitCast(horizontal), @bitCast(vertical));
     }
+
+    /// ### DEPRECATED: Use `visibleRegion` instead
+    ///
+    pub const VisibleRegion = visibleRegion;
 
     /// Inherited from QWidget
     ///
@@ -4523,9 +5735,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn VisibleRegion(self: QWebEngineView) QRegion {
+    pub fn visibleRegion(self: QWebEngineView) QRegion {
         return .{ .ptr = qtc.QWidget_VisibleRegion(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins` instead
+    ///
+    pub const SetContentsMargins = setContentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4543,9 +5759,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` bottom: i32 `
     ///
-    pub fn SetContentsMargins(self: QWebEngineView, left: i32, top: i32, right: i32, bottom: i32) void {
+    pub fn setContentsMargins(self: QWebEngineView, left: i32, top: i32, right: i32, bottom: i32) void {
         qtc.QWidget_SetContentsMargins(@ptrCast(self.ptr), @bitCast(left), @bitCast(top), @bitCast(right), @bitCast(bottom));
     }
+
+    /// ### DEPRECATED: Use `setContentsMargins2` instead
+    ///
+    pub const SetContentsMargins2 = setContentsMargins2;
 
     /// Inherited from QWidget
     ///
@@ -4557,10 +5777,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` margins: QMargins `
     ///
-    pub fn SetContentsMargins2(self: QWebEngineView, margins: anytype) void {
+    pub fn setContentsMargins2(self: QWebEngineView, margins: anytype) void {
         comptime _ = @TypeOf(margins)._is_QMargins;
         qtc.QWidget_SetContentsMargins2(@ptrCast(self.ptr), @ptrCast(margins.ptr));
     }
+
+    /// ### DEPRECATED: Use `contentsMargins` instead
+    ///
+    pub const ContentsMargins = contentsMargins;
 
     /// Inherited from QWidget
     ///
@@ -4570,9 +5794,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ContentsMargins(self: QWebEngineView) QMargins {
+    pub fn contentsMargins(self: QWebEngineView) QMargins {
         return .{ .ptr = qtc.QWidget_ContentsMargins(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `contentsRect` instead
+    ///
+    pub const ContentsRect = contentsRect;
 
     /// Inherited from QWidget
     ///
@@ -4582,9 +5810,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ContentsRect(self: QWebEngineView) QRect {
+    pub fn contentsRect(self: QWebEngineView) QRect {
         return .{ .ptr = qtc.QWidget_ContentsRect(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `layout` instead
+    ///
+    pub const Layout = layout;
 
     /// Inherited from QWidget
     ///
@@ -4594,9 +5826,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Layout(self: QWebEngineView) QLayout {
+    pub fn layout(self: QWebEngineView) QLayout {
         return .{ .ptr = qtc.QWidget_Layout(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setLayout` instead
+    ///
+    pub const SetLayout = setLayout;
 
     /// Inherited from QWidget
     ///
@@ -4606,12 +5842,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` layout: QLayout `
+    /// ` _layout: QLayout `
     ///
-    pub fn SetLayout(self: QWebEngineView, layout: anytype) void {
-        comptime _ = @TypeOf(layout)._is_QLayout;
-        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(layout.ptr));
+    pub fn setLayout(self: QWebEngineView, _layout: anytype) void {
+        comptime _ = @TypeOf(_layout)._is_QLayout;
+        qtc.QWidget_SetLayout(@ptrCast(self.ptr), @ptrCast(_layout.ptr));
     }
+
+    /// ### DEPRECATED: Use `updateGeometry` instead
+    ///
+    pub const UpdateGeometry = updateGeometry;
 
     /// Inherited from QWidget
     ///
@@ -4621,24 +5861,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UpdateGeometry(self: QWebEngineView) void {
+    pub fn updateGeometry(self: QWebEngineView) void {
         qtc.QWidget_UpdateGeometry(@ptrCast(self.ptr));
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `setParent` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineView `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn SetParent(self: QWebEngineView, parent: anytype) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(parent.ptr));
-    }
+    pub const SetParent = setParent;
 
     /// Inherited from QWidget
     ///
@@ -4648,14 +5877,37 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn setParent(self: QWebEngineView, _parent: anytype) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent(@ptrCast(self.ptr), @ptrCast(_parent.ptr));
+    }
+
+    /// ### DEPRECATED: Use `setParent2` instead
+    ///
+    pub const SetParent2 = setParent2;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#setParent)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineView `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` f: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetParent2(self: QWebEngineView, parent: anytype, f: i32) void {
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(parent.ptr), @bitCast(f));
+    pub fn setParent2(self: QWebEngineView, _parent: anytype, f: i32) void {
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        qtc.QWidget_SetParent2(@ptrCast(self.ptr), @ptrCast(_parent.ptr), @bitCast(f));
     }
+
+    /// ### DEPRECATED: Use `scroll` instead
+    ///
+    pub const Scroll = scroll;
 
     /// Inherited from QWidget
     ///
@@ -4669,9 +5921,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` dy: i32 `
     ///
-    pub fn Scroll(self: QWebEngineView, dx: i32, dy: i32) void {
+    pub fn scroll(self: QWebEngineView, dx: i32, dy: i32) void {
         qtc.QWidget_Scroll(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy));
     }
+
+    /// ### DEPRECATED: Use `scroll2` instead
+    ///
+    pub const Scroll2 = scroll2;
 
     /// Inherited from QWidget
     ///
@@ -4687,10 +5943,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param3: QRect `
     ///
-    pub fn Scroll2(self: QWebEngineView, dx: i32, dy: i32, param3: anytype) void {
+    pub fn scroll2(self: QWebEngineView, dx: i32, dy: i32, param3: anytype) void {
         comptime _ = @TypeOf(param3)._is_QRect;
         qtc.QWidget_Scroll2(@ptrCast(self.ptr), @bitCast(dx), @bitCast(dy), @ptrCast(param3.ptr));
     }
+
+    /// ### DEPRECATED: Use `focusWidget` instead
+    ///
+    pub const FocusWidget = focusWidget;
 
     /// Inherited from QWidget
     ///
@@ -4700,9 +5960,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FocusWidget(self: QWebEngineView) QWidget {
+    pub fn focusWidget(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_FocusWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `nextInFocusChain` instead
+    ///
+    pub const NextInFocusChain = nextInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4712,9 +5976,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn NextInFocusChain(self: QWebEngineView) QWidget {
+    pub fn nextInFocusChain(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_NextInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `previousInFocusChain` instead
+    ///
+    pub const PreviousInFocusChain = previousInFocusChain;
 
     /// Inherited from QWidget
     ///
@@ -4724,9 +5992,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PreviousInFocusChain(self: QWebEngineView) QWidget {
+    pub fn previousInFocusChain(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_PreviousInFocusChain(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `acceptDrops` instead
+    ///
+    pub const AcceptDrops = acceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4736,9 +6008,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn AcceptDrops(self: QWebEngineView) bool {
+    pub fn acceptDrops(self: QWebEngineView) bool {
         return qtc.QWidget_AcceptDrops(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAcceptDrops` instead
+    ///
+    pub const SetAcceptDrops = setAcceptDrops;
 
     /// Inherited from QWidget
     ///
@@ -4750,9 +6026,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAcceptDrops(self: QWebEngineView, on: bool) void {
+    pub fn setAcceptDrops(self: QWebEngineView, on: bool) void {
         qtc.QWidget_SetAcceptDrops(@ptrCast(self.ptr), on);
     }
+
+    /// ### DEPRECATED: Use `addAction` instead
+    ///
+    pub const AddAction = addAction;
 
     /// Inherited from QWidget
     ///
@@ -4764,10 +6044,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn AddAction(self: QWebEngineView, action: anytype) void {
+    pub fn addAction(self: QWebEngineView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_AddAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `addActions` instead
+    ///
+    pub const AddActions = addActions;
 
     /// Inherited from QWidget
     ///
@@ -4777,15 +6061,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn AddActions(self: QWebEngineView, actions: []QAction) void {
+    pub fn addActions(self: QWebEngineView, _actions: []QAction) void {
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_AddActions(@ptrCast(self.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertActions` instead
+    ///
+    pub const InsertActions = insertActions;
 
     /// Inherited from QWidget
     ///
@@ -4797,16 +6085,20 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` before: QAction `
     ///
-    /// ` actions: []QAction `
+    /// ` _actions: []QAction `
     ///
-    pub fn InsertActions(self: QWebEngineView, before: anytype, actions: []QAction) void {
+    pub fn insertActions(self: QWebEngineView, before: anytype, _actions: []QAction) void {
         comptime _ = @TypeOf(before)._is_QAction;
         const actions_list = qtc.libqt_list{
-            .len = actions.len,
-            .data = @ptrCast(actions.ptr),
+            .len = _actions.len,
+            .data = @ptrCast(_actions.ptr),
         };
         qtc.QWidget_InsertActions(@ptrCast(self.ptr), @ptrCast(before.ptr), actions_list);
     }
+
+    /// ### DEPRECATED: Use `insertAction` instead
+    ///
+    pub const InsertAction = insertAction;
 
     /// Inherited from QWidget
     ///
@@ -4820,11 +6112,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn InsertAction(self: QWebEngineView, before: anytype, action: anytype) void {
+    pub fn insertAction(self: QWebEngineView, before: anytype, action: anytype) void {
         comptime _ = @TypeOf(before)._is_QAction;
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_InsertAction(@ptrCast(self.ptr), @ptrCast(before.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeAction` instead
+    ///
+    pub const RemoveAction = removeAction;
 
     /// Inherited from QWidget
     ///
@@ -4836,10 +6132,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` action: QAction `
     ///
-    pub fn RemoveAction(self: QWebEngineView, action: anytype) void {
+    pub fn removeAction(self: QWebEngineView, action: anytype) void {
         comptime _ = @TypeOf(action)._is_QAction;
         qtc.QWidget_RemoveAction(@ptrCast(self.ptr), @ptrCast(action.ptr));
     }
+
+    /// ### DEPRECATED: Use `actions` instead
+    ///
+    pub const Actions = actions;
 
     /// Inherited from QWidget
     ///
@@ -4851,15 +6151,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Actions(self: QWebEngineView, allocator: std.mem.Allocator) []QAction {
+    pub fn actions(self: QWebEngineView, allocator: std.mem.Allocator) []QAction {
         const _arr: qtc.libqt_list = qtc.QWidget_Actions(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QWebEngineView.Actions: Memory allocation failed");
-        const _data: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QAction, _arr.len) catch @panic("QWebEngineView.actions: Memory allocation failed");
+        const _data_val: [*]QtC.QAction = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `addAction2` instead
+    ///
+    pub const AddAction2 = addAction2;
 
     /// Inherited from QWidget
     ///
@@ -4871,7 +6175,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction2(self: QWebEngineView, text: []const u8) QAction {
+    pub fn addAction2(self: QWebEngineView, text: []const u8) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4879,6 +6183,10 @@ pub const QWebEngineView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction2(@ptrCast(self.ptr), text_str) };
     }
 
+    /// ### DEPRECATED: Use `addAction3` instead
+    ///
+    pub const AddAction3 = addAction3;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4887,18 +6195,22 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
-    pub fn AddAction3(self: QWebEngineView, icon: anytype, text: []const u8) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction3(self: QWebEngineView, _icon: anytype, text: []const u8) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
-        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str) };
+        return .{ .ptr = qtc.QWidget_AddAction3(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str) };
     }
+
+    /// ### DEPRECATED: Use `addAction4` instead
+    ///
+    pub const AddAction4 = addAction4;
 
     /// Inherited from QWidget
     ///
@@ -4912,7 +6224,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction4(self: QWebEngineView, text: []const u8, shortcut: anytype) QAction {
+    pub fn addAction4(self: QWebEngineView, text: []const u8, shortcut: anytype) QAction {
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
@@ -4921,6 +6233,10 @@ pub const QWebEngineView = extern struct {
         return .{ .ptr = qtc.QWidget_AddAction4(@ptrCast(self.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
 
+    /// ### DEPRECATED: Use `addAction5` instead
+    ///
+    pub const AddAction5 = addAction5;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#addAction)
@@ -4929,21 +6245,25 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
     /// ` text: []const u8 `
     ///
     /// ` shortcut: QKeySequence `
     ///
-    pub fn AddAction5(self: QWebEngineView, icon: anytype, text: []const u8, shortcut: anytype) QAction {
-        comptime _ = @TypeOf(icon)._is_QIcon;
+    pub fn addAction5(self: QWebEngineView, _icon: anytype, text: []const u8, shortcut: anytype) QAction {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
         const text_str = qtc.libqt_string{
             .len = text.len,
             .data = text.ptr,
         };
         comptime _ = @TypeOf(shortcut)._is_QKeySequence;
-        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
+        return .{ .ptr = qtc.QWidget_AddAction5(@ptrCast(self.ptr), @ptrCast(_icon.ptr), text_str, @ptrCast(shortcut.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `parentWidget` instead
+    ///
+    pub const ParentWidget = parentWidget;
 
     /// Inherited from QWidget
     ///
@@ -4953,9 +6273,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ParentWidget(self: QWebEngineView) QWidget {
+    pub fn parentWidget(self: QWebEngineView) QWidget {
         return .{ .ptr = qtc.QWidget_ParentWidget(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setWindowFlags` instead
+    ///
+    pub const SetWindowFlags = setWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4967,9 +6291,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlags(self: QWebEngineView, typeVal: i32) void {
+    pub fn setWindowFlags(self: QWebEngineView, typeVal: i32) void {
         qtc.QWidget_SetWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowFlags` instead
+    ///
+    pub const WindowFlags = windowFlags;
 
     /// Inherited from QWidget
     ///
@@ -4983,9 +6311,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` flag of qnamespace_enums.WindowType `
     ///
-    pub fn WindowFlags(self: QWebEngineView) i32 {
+    pub fn windowFlags(self: QWebEngineView) i32 {
         return qtc.QWidget_WindowFlags(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag` instead
+    ///
+    pub const SetWindowFlag = setWindowFlag;
 
     /// Inherited from QWidget
     ///
@@ -4997,9 +6329,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WindowType `
     ///
-    pub fn SetWindowFlag(self: QWebEngineView, param1: i32) void {
+    pub fn setWindowFlag(self: QWebEngineView, param1: i32) void {
         qtc.QWidget_SetWindowFlag(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `overrideWindowFlags` instead
+    ///
+    pub const OverrideWindowFlags = overrideWindowFlags;
 
     /// Inherited from QWidget
     ///
@@ -5011,9 +6347,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: flag of qnamespace_enums.WindowType `
     ///
-    pub fn OverrideWindowFlags(self: QWebEngineView, typeVal: i32) void {
+    pub fn overrideWindowFlags(self: QWebEngineView, typeVal: i32) void {
         qtc.QWidget_OverrideWindowFlags(@ptrCast(self.ptr), @bitCast(typeVal));
     }
+
+    /// ### DEPRECATED: Use `windowType` instead
+    ///
+    pub const WindowType = windowType;
 
     /// Inherited from QWidget
     ///
@@ -5027,9 +6367,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` qnamespace_enums.WindowType `
     ///
-    pub fn WindowType(self: QWebEngineView) i32 {
+    pub fn windowType(self: QWebEngineView) i32 {
         return qtc.QWidget_WindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `find` instead
+    ///
+    pub const Find = find;
 
     /// Inherited from QWidget
     ///
@@ -5039,9 +6383,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: usize `
     ///
-    pub fn Find(param1: usize) QWidget {
+    pub fn find(param1: usize) QWidget {
         return .{ .ptr = qtc.QWidget_Find(@bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `childAt` instead
+    ///
+    pub const ChildAt = childAt;
 
     /// Inherited from QWidget
     ///
@@ -5051,13 +6399,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` x: i32 `
+    /// ` _x: i32 `
     ///
-    /// ` y: i32 `
+    /// ` _y: i32 `
     ///
-    pub fn ChildAt(self: QWebEngineView, x: i32, y: i32) QWidget {
-        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(x), @bitCast(y)) };
+    pub fn childAt(self: QWebEngineView, _x: i32, _y: i32) QWidget {
+        return .{ .ptr = qtc.QWidget_ChildAt(@ptrCast(self.ptr), @bitCast(_x), @bitCast(_y)) };
     }
+
+    /// ### DEPRECATED: Use `childAt2` instead
+    ///
+    pub const ChildAt2 = childAt2;
 
     /// Inherited from QWidget
     ///
@@ -5069,10 +6421,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` p: QPoint `
     ///
-    pub fn ChildAt2(self: QWebEngineView, p: anytype) QWidget {
+    pub fn childAt2(self: QWebEngineView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPoint;
         return .{ .ptr = qtc.QWidget_ChildAt2(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `childAt3` instead
+    ///
+    pub const ChildAt3 = childAt3;
 
     /// Inherited from QWidget
     ///
@@ -5084,10 +6440,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` p: QPointF `
     ///
-    pub fn ChildAt3(self: QWebEngineView, p: anytype) QWidget {
+    pub fn childAt3(self: QWebEngineView, p: anytype) QWidget {
         comptime _ = @TypeOf(p)._is_QPointF;
         return .{ .ptr = qtc.QWidget_ChildAt3(@ptrCast(self.ptr), @ptrCast(p.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setAttribute` instead
+    ///
+    pub const SetAttribute = setAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5099,9 +6459,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn SetAttribute(self: QWebEngineView, param1: i32) void {
+    pub fn setAttribute(self: QWebEngineView, param1: i32) void {
         qtc.QWidget_SetAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `testAttribute` instead
+    ///
+    pub const TestAttribute = testAttribute;
 
     /// Inherited from QWidget
     ///
@@ -5113,9 +6477,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qnamespace_enums.WidgetAttribute `
     ///
-    pub fn TestAttribute(self: QWebEngineView, param1: i32) bool {
+    pub fn testAttribute(self: QWebEngineView, param1: i32) bool {
         return qtc.QWidget_TestAttribute(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `ensurePolished` instead
+    ///
+    pub const EnsurePolished = ensurePolished;
 
     /// Inherited from QWidget
     ///
@@ -5125,9 +6493,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn EnsurePolished(self: QWebEngineView) void {
+    pub fn ensurePolished(self: QWebEngineView) void {
         qtc.QWidget_EnsurePolished(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isAncestorOf` instead
+    ///
+    pub const IsAncestorOf = isAncestorOf;
 
     /// Inherited from QWidget
     ///
@@ -5139,10 +6511,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` child: QWidget `
     ///
-    pub fn IsAncestorOf(self: QWebEngineView, child: anytype) bool {
+    pub fn isAncestorOf(self: QWebEngineView, child: anytype) bool {
         comptime _ = @TypeOf(child)._is_QWidget;
         return qtc.QWidget_IsAncestorOf(@ptrCast(self.ptr), @ptrCast(child.ptr));
     }
+
+    /// ### DEPRECATED: Use `autoFillBackground` instead
+    ///
+    pub const AutoFillBackground = autoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5152,9 +6528,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn AutoFillBackground(self: QWebEngineView) bool {
+    pub fn autoFillBackground(self: QWebEngineView) bool {
         return qtc.QWidget_AutoFillBackground(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setAutoFillBackground` instead
+    ///
+    pub const SetAutoFillBackground = setAutoFillBackground;
 
     /// Inherited from QWidget
     ///
@@ -5166,9 +6546,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enabled: bool `
     ///
-    pub fn SetAutoFillBackground(self: QWebEngineView, enabled: bool) void {
+    pub fn setAutoFillBackground(self: QWebEngineView, enabled: bool) void {
         qtc.QWidget_SetAutoFillBackground(@ptrCast(self.ptr), enabled);
     }
+
+    /// ### DEPRECATED: Use `backingStore` instead
+    ///
+    pub const BackingStore = backingStore;
 
     /// Inherited from QWidget
     ///
@@ -5178,9 +6562,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn BackingStore(self: QWebEngineView) QBackingStore {
+    pub fn backingStore(self: QWebEngineView) QBackingStore {
         return .{ .ptr = qtc.QWidget_BackingStore(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowHandle` instead
+    ///
+    pub const WindowHandle = windowHandle;
 
     /// Inherited from QWidget
     ///
@@ -5190,9 +6578,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn WindowHandle(self: QWebEngineView) QWindow {
+    pub fn windowHandle(self: QWebEngineView) QWindow {
         return .{ .ptr = qtc.QWidget_WindowHandle(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `screen` instead
+    ///
+    pub const Screen = screen;
 
     /// Inherited from QWidget
     ///
@@ -5202,9 +6594,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Screen(self: QWebEngineView) QScreen {
+    pub fn screen(self: QWebEngineView) QScreen {
         return .{ .ptr = qtc.QWidget_Screen(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `setScreen` instead
+    ///
+    pub const SetScreen = setScreen;
 
     /// Inherited from QWidget
     ///
@@ -5214,12 +6610,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` screen: QScreen `
+    /// ` _screen: QScreen `
     ///
-    pub fn SetScreen(self: QWebEngineView, screen: anytype) void {
-        comptime _ = @TypeOf(screen)._is_QScreen;
-        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(screen.ptr));
+    pub fn setScreen(self: QWebEngineView, _screen: anytype) void {
+        comptime _ = @TypeOf(_screen)._is_QScreen;
+        qtc.QWidget_SetScreen(@ptrCast(self.ptr), @ptrCast(_screen.ptr));
     }
+
+    /// ### DEPRECATED: Use `createWindowContainer` instead
+    ///
+    pub const CreateWindowContainer = createWindowContainer;
 
     /// Inherited from QWidget
     ///
@@ -5227,12 +6627,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    pub fn CreateWindowContainer(window: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(window.ptr)) };
+    pub fn createWindowContainer(_window: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer(@ptrCast(_window.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `windowTitleChanged` instead
+    ///
+    pub const WindowTitleChanged = windowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5242,15 +6646,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` title: []const u8 `
+    /// ` _title: []const u8 `
     ///
-    pub fn WindowTitleChanged(self: QWebEngineView, title: []const u8) void {
+    pub fn windowTitleChanged(self: QWebEngineView, _title: []const u8) void {
         const title_str = qtc.libqt_string{
-            .len = title.len,
-            .data = title.ptr,
+            .len = _title.len,
+            .data = _title.ptr,
         };
         qtc.QWidget_WindowTitleChanged(@ptrCast(self.ptr), title_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowTitleChanged` instead
+    ///
+    pub const OnWindowTitleChanged = onWindowTitleChanged;
 
     /// Inherited from QWidget
     ///
@@ -5262,9 +6670,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, title: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowTitleChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowTitleChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowTitleChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconChanged` instead
+    ///
+    pub const WindowIconChanged = windowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5274,12 +6686,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` icon: QIcon `
+    /// ` _icon: QIcon `
     ///
-    pub fn WindowIconChanged(self: QWebEngineView, icon: anytype) void {
-        comptime _ = @TypeOf(icon)._is_QIcon;
-        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(icon.ptr));
+    pub fn windowIconChanged(self: QWebEngineView, _icon: anytype) void {
+        comptime _ = @TypeOf(_icon)._is_QIcon;
+        qtc.QWidget_WindowIconChanged(@ptrCast(self.ptr), @ptrCast(_icon.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWindowIconChanged` instead
+    ///
+    pub const OnWindowIconChanged = onWindowIconChanged;
 
     /// Inherited from QWidget
     ///
@@ -5291,9 +6707,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, icon: QIcon) callconv(.c) void `
     ///
-    pub fn OnWindowIconChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QIcon) callconv(.c) void) void {
+    pub fn onWindowIconChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, QIcon) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `windowIconTextChanged` instead
+    ///
+    pub const WindowIconTextChanged = windowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5305,13 +6725,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` iconText: []const u8 `
     ///
-    pub fn WindowIconTextChanged(self: QWebEngineView, iconText: []const u8) void {
+    pub fn windowIconTextChanged(self: QWebEngineView, iconText: []const u8) void {
         const iconText_str = qtc.libqt_string{
             .len = iconText.len,
             .data = iconText.ptr,
         };
         qtc.QWidget_WindowIconTextChanged(@ptrCast(self.ptr), iconText_str);
     }
+
+    /// ### DEPRECATED: Use `onWindowIconTextChanged` instead
+    ///
+    pub const OnWindowIconTextChanged = onWindowIconTextChanged;
 
     /// Inherited from QWidget
     ///
@@ -5323,9 +6747,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, iconText: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnWindowIconTextChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onWindowIconTextChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
         qtc.QWidget_Connect_WindowIconTextChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customContextMenuRequested` instead
+    ///
+    pub const CustomContextMenuRequested = customContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5335,12 +6763,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` pos: QPoint `
+    /// ` _pos: QPoint `
     ///
-    pub fn CustomContextMenuRequested(self: QWebEngineView, pos: anytype) void {
-        comptime _ = @TypeOf(pos)._is_QPoint;
-        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(pos.ptr));
+    pub fn customContextMenuRequested(self: QWebEngineView, _pos: anytype) void {
+        comptime _ = @TypeOf(_pos)._is_QPoint;
+        qtc.QWidget_CustomContextMenuRequested(@ptrCast(self.ptr), @ptrCast(_pos.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomContextMenuRequested` instead
+    ///
+    pub const OnCustomContextMenuRequested = onCustomContextMenuRequested;
 
     /// Inherited from QWidget
     ///
@@ -5352,9 +6784,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, pos: QPoint) callconv(.c) void `
     ///
-    pub fn OnCustomContextMenuRequested(self: QWebEngineView, callback: *const fn (QWebEngineView, QPoint) callconv(.c) void) void {
+    pub fn onCustomContextMenuRequested(self: QWebEngineView, callback: *const fn (QWebEngineView, QPoint) callconv(.c) void) void {
         qtc.QWidget_Connect_CustomContextMenuRequested(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodHints` instead
+    ///
+    pub const InputMethodHints = inputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5368,9 +6804,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn InputMethodHints(self: QWebEngineView) i32 {
+    pub fn inputMethodHints(self: QWebEngineView) i32 {
         return qtc.QWidget_InputMethodHints(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setInputMethodHints` instead
+    ///
+    pub const SetInputMethodHints = setInputMethodHints;
 
     /// Inherited from QWidget
     ///
@@ -5382,9 +6822,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` hints: flag of qnamespace_enums.InputMethodHint `
     ///
-    pub fn SetInputMethodHints(self: QWebEngineView, hints: i32) void {
+    pub fn setInputMethodHints(self: QWebEngineView, hints: i32) void {
         qtc.QWidget_SetInputMethodHints(@ptrCast(self.ptr), @bitCast(hints));
     }
+
+    /// ### DEPRECATED: Use `render22` instead
+    ///
+    pub const Render22 = render22;
 
     /// Inherited from QWidget
     ///
@@ -5398,11 +6842,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render22(self: QWebEngineView, target: anytype, targetOffset: anytype) void {
+    pub fn render22(self: QWebEngineView, target: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render22(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render3` instead
+    ///
+    pub const Render3 = render3;
 
     /// Inherited from QWidget
     ///
@@ -5418,13 +6866,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render3(self: QWebEngineView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render3(self: QWebEngineView, target: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render3(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
 
+    /// ### DEPRECATED: Use `render4` instead
+    ///
+    pub const Render4 = render4;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#render)
@@ -5441,12 +6893,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render4(self: QWebEngineView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render4(self: QWebEngineView, target: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(target)._is_QPaintDevice;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render4(@ptrCast(self.ptr), @ptrCast(target.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `render23` instead
+    ///
+    pub const Render23 = render23;
 
     /// Inherited from QWidget
     ///
@@ -5460,11 +6916,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` targetOffset: QPoint `
     ///
-    pub fn Render23(self: QWebEngineView, painter: anytype, targetOffset: anytype) void {
+    pub fn render23(self: QWebEngineView, painter: anytype, targetOffset: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         qtc.QWidget_Render23(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr));
     }
+
+    /// ### DEPRECATED: Use `render32` instead
+    ///
+    pub const Render32 = render32;
 
     /// Inherited from QWidget
     ///
@@ -5480,12 +6940,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` sourceRegion: QRegion `
     ///
-    pub fn Render32(self: QWebEngineView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
+    pub fn render32(self: QWebEngineView, painter: anytype, targetOffset: anytype, sourceRegion: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render32(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr));
     }
+
+    /// ### DEPRECATED: Use `render42` instead
+    ///
+    pub const Render42 = render42;
 
     /// Inherited from QWidget
     ///
@@ -5503,12 +6967,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` renderFlags: flag of qwidget_enums.RenderFlag `
     ///
-    pub fn Render42(self: QWebEngineView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
+    pub fn render42(self: QWebEngineView, painter: anytype, targetOffset: anytype, sourceRegion: anytype, renderFlags: i32) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         comptime _ = @TypeOf(targetOffset)._is_QPoint;
         comptime _ = @TypeOf(sourceRegion)._is_QRegion;
         qtc.QWidget_Render42(@ptrCast(self.ptr), @ptrCast(painter.ptr), @ptrCast(targetOffset.ptr), @ptrCast(sourceRegion.ptr), @bitCast(renderFlags));
     }
+
+    /// ### DEPRECATED: Use `grab1` instead
+    ///
+    pub const Grab1 = grab1;
 
     /// Inherited from QWidget
     ///
@@ -5520,10 +6988,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` rectangle: QRect `
     ///
-    pub fn Grab1(self: QWebEngineView, rectangle: anytype) QPixmap {
+    pub fn grab1(self: QWebEngineView, rectangle: anytype) QPixmap {
         comptime _ = @TypeOf(rectangle)._is_QRect;
         return .{ .ptr = qtc.QWidget_Grab1(@ptrCast(self.ptr), @ptrCast(rectangle.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `grabGesture2` instead
+    ///
+    pub const GrabGesture2 = grabGesture2;
 
     /// Inherited from QWidget
     ///
@@ -5537,9 +7009,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` flags: flag of qnamespace_enums.GestureFlag `
     ///
-    pub fn GrabGesture2(self: QWebEngineView, typeVal: i32, flags: i32) void {
+    pub fn grabGesture2(self: QWebEngineView, typeVal: i32, flags: i32) void {
         qtc.QWidget_GrabGesture2(@ptrCast(self.ptr), @bitCast(typeVal), @bitCast(flags));
     }
+
+    /// ### DEPRECATED: Use `grabShortcut2` instead
+    ///
+    pub const GrabShortcut2 = grabShortcut2;
 
     /// Inherited from QWidget
     ///
@@ -5553,10 +7029,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` context: qnamespace_enums.ShortcutContext `
     ///
-    pub fn GrabShortcut2(self: QWebEngineView, key: anytype, context: i32) i32 {
+    pub fn grabShortcut2(self: QWebEngineView, key: anytype, context: i32) i32 {
         comptime _ = @TypeOf(key)._is_QKeySequence;
         return qtc.QWidget_GrabShortcut2(@ptrCast(self.ptr), @ptrCast(key.ptr), @bitCast(context));
     }
+
+    /// ### DEPRECATED: Use `setShortcutEnabled2` instead
+    ///
+    pub const SetShortcutEnabled2 = setShortcutEnabled2;
 
     /// Inherited from QWidget
     ///
@@ -5570,9 +7050,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutEnabled2(self: QWebEngineView, id: i32, enable: bool) void {
+    pub fn setShortcutEnabled2(self: QWebEngineView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutEnabled2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setShortcutAutoRepeat2` instead
+    ///
+    pub const SetShortcutAutoRepeat2 = setShortcutAutoRepeat2;
 
     /// Inherited from QWidget
     ///
@@ -5586,9 +7070,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` enable: bool `
     ///
-    pub fn SetShortcutAutoRepeat2(self: QWebEngineView, id: i32, enable: bool) void {
+    pub fn setShortcutAutoRepeat2(self: QWebEngineView, id: i32, enable: bool) void {
         qtc.QWidget_SetShortcutAutoRepeat2(@ptrCast(self.ptr), @bitCast(id), enable);
     }
+
+    /// ### DEPRECATED: Use `setWindowFlag2` instead
+    ///
+    pub const SetWindowFlag2 = setWindowFlag2;
 
     /// Inherited from QWidget
     ///
@@ -5602,9 +7090,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetWindowFlag2(self: QWebEngineView, param1: i32, on: bool) void {
+    pub fn setWindowFlag2(self: QWebEngineView, param1: i32, on: bool) void {
         qtc.QWidget_SetWindowFlag2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
+
+    /// ### DEPRECATED: Use `setAttribute2` instead
+    ///
+    pub const SetAttribute2 = setAttribute2;
 
     /// Inherited from QWidget
     ///
@@ -5618,25 +7110,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` on: bool `
     ///
-    pub fn SetAttribute2(self: QWebEngineView, param1: i32, on: bool) void {
+    pub fn setAttribute2(self: QWebEngineView, param1: i32, on: bool) void {
         qtc.QWidget_SetAttribute2(@ptrCast(self.ptr), @bitCast(param1), on);
     }
 
-    /// Inherited from QWidget
+    /// ### DEPRECATED: Use `createWindowContainer2` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` window: QWindow `
-    ///
-    /// ` parent: QWidget `
-    ///
-    pub fn CreateWindowContainer2(window: anytype, parent: anytype) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(window.ptr), @ptrCast(parent.ptr)) };
-    }
+    pub const CreateWindowContainer2 = createWindowContainer2;
 
     /// Inherited from QWidget
     ///
@@ -5644,17 +7124,41 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` window: QWindow `
+    /// ` _window: QWindow `
     ///
-    /// ` parent: QWidget `
+    /// ` _parent: QWidget `
+    ///
+    pub fn createWindowContainer2(_window: anytype, _parent: anytype) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer2(@ptrCast(_window.ptr), @ptrCast(_parent.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `createWindowContainer3` instead
+    ///
+    pub const CreateWindowContainer3 = createWindowContainer3;
+
+    /// Inherited from QWidget
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#createWindowContainer)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` _window: QWindow `
+    ///
+    /// ` _parent: QWidget `
     ///
     /// ` flags: flag of qnamespace_enums.WindowType `
     ///
-    pub fn CreateWindowContainer3(window: anytype, parent: anytype, flags: i32) QWidget {
-        comptime _ = @TypeOf(window)._is_QWindow;
-        comptime _ = @TypeOf(parent)._is_QWidget;
-        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(window.ptr), @ptrCast(parent.ptr), @bitCast(flags)) };
+    pub fn createWindowContainer3(_window: anytype, _parent: anytype, flags: i32) QWidget {
+        comptime _ = @TypeOf(_window)._is_QWindow;
+        comptime _ = @TypeOf(_parent)._is_QWidget;
+        return .{ .ptr = qtc.QWidget_CreateWindowContainer3(@ptrCast(_window.ptr), @ptrCast(_parent.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `objectName` instead
+    ///
+    pub const ObjectName = objectName;
 
     /// Inherited from QObject
     ///
@@ -5666,13 +7170,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn ObjectName(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
+    pub fn objectName(self: QWebEngineView, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QObject_ObjectName(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.ObjectName: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QWebEngineView.objectName: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setObjectName` instead
+    ///
+    pub const SetObjectName = setObjectName;
 
     /// Inherited from QObject
     ///
@@ -5684,13 +7192,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` name: []const u8 `
     ///
-    pub fn SetObjectName(self: QWebEngineView, name: []const u8) void {
+    pub fn setObjectName(self: QWebEngineView, name: []const u8) void {
         const name_str = qtc.libqt_string{
             .len = name.len,
             .data = name.ptr,
         };
         qtc.QObject_SetObjectName(@ptrCast(self.ptr), name_str);
     }
+
+    /// ### DEPRECATED: Use `isWidgetType` instead
+    ///
+    pub const IsWidgetType = isWidgetType;
 
     /// Inherited from QObject
     ///
@@ -5700,9 +7212,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsWidgetType(self: QWebEngineView) bool {
+    pub fn isWidgetType(self: QWebEngineView) bool {
         return qtc.QObject_IsWidgetType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isWindowType` instead
+    ///
+    pub const IsWindowType = isWindowType;
 
     /// Inherited from QObject
     ///
@@ -5712,9 +7228,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsWindowType(self: QWebEngineView) bool {
+    pub fn isWindowType(self: QWebEngineView) bool {
         return qtc.QObject_IsWindowType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `isQuickItemType` instead
+    ///
+    pub const IsQuickItemType = isQuickItemType;
 
     /// Inherited from QObject
     ///
@@ -5724,9 +7244,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn IsQuickItemType(self: QWebEngineView) bool {
+    pub fn isQuickItemType(self: QWebEngineView) bool {
         return qtc.QObject_IsQuickItemType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `signalsBlocked` instead
+    ///
+    pub const SignalsBlocked = signalsBlocked;
 
     /// Inherited from QObject
     ///
@@ -5736,9 +7260,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SignalsBlocked(self: QWebEngineView) bool {
+    pub fn signalsBlocked(self: QWebEngineView) bool {
         return qtc.QObject_SignalsBlocked(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `blockSignals` instead
+    ///
+    pub const BlockSignals = blockSignals;
 
     /// Inherited from QObject
     ///
@@ -5750,9 +7278,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` b: bool `
     ///
-    pub fn BlockSignals(self: QWebEngineView, b: bool) bool {
+    pub fn blockSignals(self: QWebEngineView, b: bool) bool {
         return qtc.QObject_BlockSignals(@ptrCast(self.ptr), b);
     }
+
+    /// ### DEPRECATED: Use `thread` instead
+    ///
+    pub const Thread = thread;
 
     /// Inherited from QObject
     ///
@@ -5762,9 +7294,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Thread(self: QWebEngineView) QThread {
+    pub fn thread(self: QWebEngineView) QThread {
         return .{ .ptr = qtc.QObject_Thread(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `moveToThread` instead
+    ///
+    pub const MoveToThread = moveToThread;
 
     /// Inherited from QObject
     ///
@@ -5774,12 +7310,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` thread: QThread `
+    /// ` _thread: QThread `
     ///
-    pub fn MoveToThread(self: QWebEngineView, thread: anytype) bool {
-        comptime _ = @TypeOf(thread)._is_QThread;
-        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(thread.ptr));
+    pub fn moveToThread(self: QWebEngineView, _thread: anytype) bool {
+        comptime _ = @TypeOf(_thread)._is_QThread;
+        return qtc.QObject_MoveToThread(@ptrCast(self.ptr), @ptrCast(_thread.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer` instead
+    ///
+    pub const StartTimer = startTimer;
 
     /// Inherited from QObject
     ///
@@ -5791,9 +7331,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` interval: i32 `
     ///
-    pub fn StartTimer(self: QWebEngineView, interval: i32) i32 {
+    pub fn startTimer(self: QWebEngineView, interval: i32) i32 {
         return qtc.QObject_StartTimer(@ptrCast(self.ptr), @bitCast(interval));
     }
+
+    /// ### DEPRECATED: Use `startTimer2` instead
+    ///
+    pub const StartTimer2 = startTimer2;
 
     /// Inherited from QObject
     ///
@@ -5805,9 +7349,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` time: i64 of nanoseconds `
     ///
-    pub fn StartTimer2(self: QWebEngineView, time: i64) i32 {
+    pub fn startTimer2(self: QWebEngineView, time: i64) i32 {
         return qtc.QObject_StartTimer2(@ptrCast(self.ptr), @bitCast(time));
     }
+
+    /// ### DEPRECATED: Use `killTimer` instead
+    ///
+    pub const KillTimer = killTimer;
 
     /// Inherited from QObject
     ///
@@ -5819,9 +7367,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` id: i32 `
     ///
-    pub fn KillTimer(self: QWebEngineView, id: i32) void {
+    pub fn killTimer(self: QWebEngineView, id: i32) void {
         qtc.QObject_KillTimer(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `killTimer2` instead
+    ///
+    pub const KillTimer2 = killTimer2;
 
     /// Inherited from QObject
     ///
@@ -5833,9 +7385,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` id: qnamespace_enums.TimerId `
     ///
-    pub fn KillTimer2(self: QWebEngineView, id: i32) void {
+    pub fn killTimer2(self: QWebEngineView, id: i32) void {
         qtc.QObject_KillTimer2(@ptrCast(self.ptr), @bitCast(id));
     }
+
+    /// ### DEPRECATED: Use `children` instead
+    ///
+    pub const Children = children;
 
     /// Inherited from QObject
     ///
@@ -5847,15 +7403,19 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Children(self: QWebEngineView, allocator: std.mem.Allocator) []QObject {
+    pub fn children(self: QWebEngineView, allocator: std.mem.Allocator) []QObject {
         const _arr: qtc.libqt_list = qtc.QObject_Children(@ptrCast(self.ptr));
         defer qtc.libqt_free(_arr.data);
-        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineView.Children: Memory allocation failed");
-        const _data: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
-        for (0.._arr.len) |ii|
-            _ret[ii] = .{ .ptr = _data[ii] };
+        const _ret = allocator.alloc(QObject, _arr.len) catch @panic("QWebEngineView.children: Memory allocation failed");
+        const _data_val: [*]QtC.QObject = @ptrCast(@alignCast(_arr.data));
+        for (0.._arr.len) |j|
+            _ret[j] = .{ .ptr = _data_val[j] };
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `installEventFilter` instead
+    ///
+    pub const InstallEventFilter = installEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5867,10 +7427,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` filterObj: QObject `
     ///
-    pub fn InstallEventFilter(self: QWebEngineView, filterObj: anytype) void {
+    pub fn installEventFilter(self: QWebEngineView, filterObj: anytype) void {
         comptime _ = @TypeOf(filterObj)._is_QObject;
         qtc.QObject_InstallEventFilter(@ptrCast(self.ptr), @ptrCast(filterObj.ptr));
     }
+
+    /// ### DEPRECATED: Use `removeEventFilter` instead
+    ///
+    pub const RemoveEventFilter = removeEventFilter;
 
     /// Inherited from QObject
     ///
@@ -5882,10 +7446,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` obj: QObject `
     ///
-    pub fn RemoveEventFilter(self: QWebEngineView, obj: anytype) void {
+    pub fn removeEventFilter(self: QWebEngineView, obj: anytype) void {
         comptime _ = @TypeOf(obj)._is_QObject;
         qtc.QObject_RemoveEventFilter(@ptrCast(self.ptr), @ptrCast(obj.ptr));
     }
+
+    /// ### DEPRECATED: Use `connect` instead
+    ///
+    pub const Connect = connect;
 
     /// Inherited from QObject
     ///
@@ -5893,7 +7461,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5901,13 +7469,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `connect2` instead
+    ///
+    pub const Connect2 = connect2;
 
     /// Inherited from QObject
     ///
@@ -5915,7 +7487,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5923,13 +7495,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` method: QMetaMethod `
     ///
-    pub fn Connect2(sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect2(_sender: anytype, signal: anytype, receiver: anytype, method: anytype) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
+        return .{ .ptr = qtc.QObject_Connect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `connect3` instead
+    ///
+    pub const Connect3 = connect3;
 
     /// Inherited from QObject
     ///
@@ -5939,18 +7515,22 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Connect3(self: QWebEngineView, sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect3(self: QWebEngineView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring) };
+        return .{ .ptr = qtc.QObject_Connect3(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `disconnect` instead
+    ///
+    pub const Disconnect = disconnect;
 
     /// Inherited from QObject
     ///
@@ -5958,7 +7538,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -5966,13 +7546,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return qtc.QObject_Disconnect(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
+        return qtc.QObject_Disconnect(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect2` instead
+    ///
+    pub const Disconnect2 = disconnect2;
 
     /// Inherited from QObject
     ///
@@ -5980,7 +7564,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -5988,13 +7572,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` member: QMetaMethod `
     ///
-    pub fn Disconnect2(sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn disconnect2(_sender: anytype, signal: anytype, receiver: anytype, member: anytype) bool {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(member)._is_QMetaMethod;
-        return qtc.QObject_Disconnect2(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
+        return qtc.QObject_Disconnect2(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(member.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect3` instead
+    ///
+    pub const Disconnect3 = disconnect3;
 
     /// Inherited from QObject
     ///
@@ -6004,9 +7592,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Disconnect3(self: QWebEngineView) bool {
+    pub fn disconnect3(self: QWebEngineView) bool {
         return qtc.QObject_Disconnect3(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect4` instead
+    ///
+    pub const Disconnect4 = disconnect4;
 
     /// Inherited from QObject
     ///
@@ -6018,10 +7610,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect4(self: QWebEngineView, receiver: anytype) bool {
+    pub fn disconnect4(self: QWebEngineView, receiver: anytype) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect4(@ptrCast(self.ptr), @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect5` instead
+    ///
+    pub const Disconnect5 = disconnect5;
 
     /// Inherited from QObject
     ///
@@ -6031,10 +7627,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QMetaObject__Connection `
     ///
-    pub fn Disconnect5(param1: anytype) bool {
+    pub fn disconnect5(param1: anytype) bool {
         comptime _ = @TypeOf(param1)._is_QMetaObject__Connection;
         return qtc.QObject_Disconnect5(@ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectTree` instead
+    ///
+    pub const DumpObjectTree = dumpObjectTree;
 
     /// Inherited from QObject
     ///
@@ -6044,9 +7644,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DumpObjectTree(self: QWebEngineView) void {
+    pub fn dumpObjectTree(self: QWebEngineView) void {
         qtc.QObject_DumpObjectTree(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `dumpObjectInfo` instead
+    ///
+    pub const DumpObjectInfo = dumpObjectInfo;
 
     /// Inherited from QObject
     ///
@@ -6056,9 +7660,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DumpObjectInfo(self: QWebEngineView) void {
+    pub fn dumpObjectInfo(self: QWebEngineView) void {
         qtc.QObject_DumpObjectInfo(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `setProperty` instead
+    ///
+    pub const SetProperty = setProperty;
 
     /// Inherited from QObject
     ///
@@ -6072,11 +7680,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` value: QVariant `
     ///
-    pub fn SetProperty(self: QWebEngineView, name: [:0]const u8, value: anytype) bool {
+    pub fn setProperty(self: QWebEngineView, name: [:0]const u8, value: anytype) bool {
         const name_Cstring = name.ptr;
         comptime _ = @TypeOf(value)._is_QVariant;
         return qtc.QObject_SetProperty(@ptrCast(self.ptr), name_Cstring, @ptrCast(value.ptr));
     }
+
+    /// ### DEPRECATED: Use `property` instead
+    ///
+    pub const Property = property;
 
     /// Inherited from QObject
     ///
@@ -6088,10 +7700,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` name: [:0]const u8 `
     ///
-    pub fn Property(self: QWebEngineView, name: [:0]const u8) QVariant {
+    pub fn property(self: QWebEngineView, name: [:0]const u8) QVariant {
         const name_Cstring = name.ptr;
         return .{ .ptr = qtc.QObject_Property(@ptrCast(self.ptr), name_Cstring) };
     }
+
+    /// ### DEPRECATED: Use `dynamicPropertyNames` instead
+    ///
+    pub const DynamicPropertyNames = dynamicPropertyNames;
 
     /// Inherited from QObject
     ///
@@ -6103,7 +7719,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn DynamicPropertyNames(self: QWebEngineView, allocator: std.mem.Allocator) [][]u8 {
+    pub fn dynamicPropertyNames(self: QWebEngineView, allocator: std.mem.Allocator) [][]u8 {
         const _arr: qtc.libqt_list = qtc.QObject_DynamicPropertyNames(@ptrCast(self.ptr));
         var _str: [*]qtc.libqt_string = @ptrCast(@alignCast(_arr.data));
         defer {
@@ -6111,27 +7727,19 @@ pub const QWebEngineView = extern struct {
                 qtc.libqt_string_free(@ptrCast(&_str[i]));
             qtc.libqt_free(_arr.data);
         }
-        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineView.DynamicPropertyNames: Memory allocation failed");
+        const _ret = allocator.alloc([]u8, _arr.len) catch @panic("QWebEngineView.dynamicPropertyNames: Memory allocation failed");
         for (0.._arr.len) |i| {
-            const _data = _str[i];
-            const _buf = allocator.alloc(u8, _data.len) catch @panic("QWebEngineView.DynamicPropertyNames: Memory allocation failed");
-            @memcpy(_buf, _data.data[0.._data.len]);
+            const _data_val = _str[i];
+            const _buf = allocator.alloc(u8, _data_val.len) catch @panic("QWebEngineView.dynamicPropertyNames: Memory allocation failed");
+            @memcpy(_buf, _data_val.data[0.._data_val.len]);
             _ret[i] = _buf;
         }
         return _ret;
     }
 
-    /// Inherited from QObject
+    /// ### DEPRECATED: Use `bindingStorage` instead
     ///
-    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
-    ///
-    /// ## Parameter(s):
-    ///
-    /// ` self: QWebEngineView `
-    ///
-    pub fn BindingStorage(self: QWebEngineView) QBindingStorage {
-        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
-    }
+    pub const BindingStorage = bindingStorage;
 
     /// Inherited from QObject
     ///
@@ -6141,9 +7749,29 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn BindingStorage2(self: QWebEngineView) QBindingStorage {
+    pub fn bindingStorage(self: QWebEngineView) QBindingStorage {
+        return .{ .ptr = qtc.QObject_BindingStorage(@ptrCast(self.ptr)) };
+    }
+
+    /// ### DEPRECATED: Use `bindingStorage2` instead
+    ///
+    pub const BindingStorage2 = bindingStorage2;
+
+    /// Inherited from QObject
+    ///
+    /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#bindingStorage)
+    ///
+    /// ## Parameter(s):
+    ///
+    /// ` self: QWebEngineView `
+    ///
+    pub fn bindingStorage2(self: QWebEngineView) QBindingStorage {
         return .{ .ptr = qtc.QObject_BindingStorage2(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `destroyed` instead
+    ///
+    pub const Destroyed = destroyed;
 
     /// Inherited from QObject
     ///
@@ -6153,9 +7781,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Destroyed(self: QWebEngineView) void {
+    pub fn destroyed(self: QWebEngineView) void {
         qtc.QObject_Destroyed(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed` instead
+    ///
+    pub const OnDestroyed = onDestroyed;
 
     /// Inherited from QObject
     ///
@@ -6167,9 +7799,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView) callconv(.c) void `
     ///
-    pub fn OnDestroyed(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
+    pub fn onDestroyed(self: QWebEngineView, callback: *const fn (QWebEngineView) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `parent` instead
+    ///
+    pub const Parent = parent;
 
     /// Inherited from QObject
     ///
@@ -6179,9 +7815,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Parent(self: QWebEngineView) QObject {
+    pub fn parent(self: QWebEngineView) QObject {
         return .{ .ptr = qtc.QObject_Parent(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `inherits` instead
+    ///
+    pub const Inherits = inherits;
 
     /// Inherited from QObject
     ///
@@ -6193,10 +7833,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` classname: [:0]const u8 `
     ///
-    pub fn Inherits(self: QWebEngineView, classname: [:0]const u8) bool {
+    pub fn inherits(self: QWebEngineView, classname: [:0]const u8) bool {
         const classname_Cstring = classname.ptr;
         return qtc.QObject_Inherits(@ptrCast(self.ptr), classname_Cstring);
     }
+
+    /// ### DEPRECATED: Use `deleteLater` instead
+    ///
+    pub const DeleteLater = deleteLater;
 
     /// Inherited from QObject
     ///
@@ -6206,9 +7850,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DeleteLater(self: QWebEngineView) void {
+    pub fn deleteLater(self: QWebEngineView) void {
         qtc.QObject_DeleteLater(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `startTimer22` instead
+    ///
+    pub const StartTimer22 = startTimer22;
 
     /// Inherited from QObject
     ///
@@ -6222,9 +7870,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer22(self: QWebEngineView, interval: i32, timerType: i32) i32 {
+    pub fn startTimer22(self: QWebEngineView, interval: i32, timerType: i32) i32 {
         return qtc.QObject_StartTimer22(@ptrCast(self.ptr), @bitCast(interval), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `startTimer23` instead
+    ///
+    pub const StartTimer23 = startTimer23;
 
     /// Inherited from QObject
     ///
@@ -6238,9 +7890,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` timerType: qnamespace_enums.TimerType `
     ///
-    pub fn StartTimer23(self: QWebEngineView, time: i64, timerType: i32) i32 {
+    pub fn startTimer23(self: QWebEngineView, time: i64, timerType: i32) i32 {
         return qtc.QObject_StartTimer23(@ptrCast(self.ptr), @bitCast(time), @bitCast(timerType));
     }
+
+    /// ### DEPRECATED: Use `connect5` instead
+    ///
+    pub const Connect5 = connect5;
 
     /// Inherited from QObject
     ///
@@ -6248,7 +7904,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6258,13 +7914,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param5: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect5(sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect5(_sender: anytype, signal: [:0]const u8, receiver: anytype, member: [:0]const u8, param5: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
+        return .{ .ptr = qtc.QObject_Connect5(@ptrCast(_sender.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring, @bitCast(param5)) };
     }
+
+    /// ### DEPRECATED: Use `connect52` instead
+    ///
+    pub const Connect52 = connect52;
 
     /// Inherited from QObject
     ///
@@ -6272,7 +7932,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: QMetaMethod `
     ///
@@ -6282,13 +7942,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect52(sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect52(_sender: anytype, signal: anytype, receiver: anytype, method: anytype, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         comptime _ = @TypeOf(receiver)._is_QObject;
         comptime _ = @TypeOf(method)._is_QMetaMethod;
-        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect52(@ptrCast(_sender.ptr), @ptrCast(signal.ptr), @ptrCast(receiver.ptr), @ptrCast(method.ptr), @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `connect4` instead
+    ///
+    pub const Connect4 = connect4;
 
     /// Inherited from QObject
     ///
@@ -6298,7 +7962,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` sender: QObject `
+    /// ` _sender: QObject `
     ///
     /// ` signal: [:0]const u8 `
     ///
@@ -6306,12 +7970,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` typeVal: qnamespace_enums.ConnectionType `
     ///
-    pub fn Connect4(self: QWebEngineView, sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
-        comptime _ = @TypeOf(sender)._is_QObject;
+    pub fn connect4(self: QWebEngineView, _sender: anytype, signal: [:0]const u8, member: [:0]const u8, typeVal: i32) QMetaObject__Connection {
+        comptime _ = @TypeOf(_sender)._is_QObject;
         const signal_Cstring = signal.ptr;
         const member_Cstring = member.ptr;
-        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
+        return .{ .ptr = qtc.QObject_Connect4(@ptrCast(self.ptr), @ptrCast(_sender.ptr), signal_Cstring, member_Cstring, @bitCast(typeVal)) };
     }
+
+    /// ### DEPRECATED: Use `disconnect1` instead
+    ///
+    pub const Disconnect1 = disconnect1;
 
     /// Inherited from QObject
     ///
@@ -6323,10 +7991,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Disconnect1(self: QWebEngineView, signal: [:0]const u8) bool {
+    pub fn disconnect1(self: QWebEngineView, signal: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         return qtc.QObject_Disconnect1(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `disconnect22` instead
+    ///
+    pub const Disconnect22 = disconnect22;
 
     /// Inherited from QObject
     ///
@@ -6340,11 +8012,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` receiver: QObject `
     ///
-    pub fn Disconnect22(self: QWebEngineView, signal: [:0]const u8, receiver: anytype) bool {
+    pub fn disconnect22(self: QWebEngineView, signal: [:0]const u8, receiver: anytype) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         return qtc.QObject_Disconnect22(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr));
     }
+
+    /// ### DEPRECATED: Use `disconnect32` instead
+    ///
+    pub const Disconnect32 = disconnect32;
 
     /// Inherited from QObject
     ///
@@ -6360,13 +8036,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect32(self: QWebEngineView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect32(self: QWebEngineView, signal: [:0]const u8, receiver: anytype, member: [:0]const u8) bool {
         const signal_Cstring = signal.ptr;
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect32(@ptrCast(self.ptr), signal_Cstring, @ptrCast(receiver.ptr), member_Cstring);
     }
 
+    /// ### DEPRECATED: Use `disconnect23` instead
+    ///
+    pub const Disconnect23 = disconnect23;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#disconnect)
@@ -6379,11 +8059,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` member: [:0]const u8 `
     ///
-    pub fn Disconnect23(self: QWebEngineView, receiver: anytype, member: [:0]const u8) bool {
+    pub fn disconnect23(self: QWebEngineView, receiver: anytype, member: [:0]const u8) bool {
         comptime _ = @TypeOf(receiver)._is_QObject;
         const member_Cstring = member.ptr;
         return qtc.QObject_Disconnect23(@ptrCast(self.ptr), @ptrCast(receiver.ptr), member_Cstring);
     }
+
+    /// ### DEPRECATED: Use `destroyed1` instead
+    ///
+    pub const Destroyed1 = destroyed1;
 
     /// Inherited from QObject
     ///
@@ -6395,10 +8079,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QObject `
     ///
-    pub fn Destroyed1(self: QWebEngineView, param1: anytype) void {
+    pub fn destroyed1(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QObject;
         qtc.QObject_Destroyed1(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroyed1` instead
+    ///
+    pub const OnDestroyed1 = onDestroyed1;
 
     /// Inherited from QObject
     ///
@@ -6410,9 +8098,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QObject) callconv(.c) void `
     ///
-    pub fn OnDestroyed1(self: QWebEngineView, callback: *const fn (QWebEngineView, QObject) callconv(.c) void) void {
+    pub fn onDestroyed1(self: QWebEngineView, callback: *const fn (QWebEngineView, QObject) callconv(.c) void) void {
         qtc.QObject_Connect_Destroyed1(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintingActive` instead
+    ///
+    pub const PaintingActive = paintingActive;
 
     /// Inherited from QPaintDevice
     ///
@@ -6422,9 +8114,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PaintingActive(self: QWebEngineView) bool {
+    pub fn paintingActive(self: QWebEngineView) bool {
         return qtc.QPaintDevice_PaintingActive(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `widthMM` instead
+    ///
+    pub const WidthMM = widthMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6434,9 +8130,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn WidthMM(self: QWebEngineView) i32 {
+    pub fn widthMM(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_WidthMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `heightMM` instead
+    ///
+    pub const HeightMM = heightMM;
 
     /// Inherited from QPaintDevice
     ///
@@ -6446,9 +8146,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HeightMM(self: QWebEngineView) i32 {
+    pub fn heightMM(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_HeightMM(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiX` instead
+    ///
+    pub const LogicalDpiX = logicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6458,9 +8162,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn LogicalDpiX(self: QWebEngineView) i32 {
+    pub fn logicalDpiX(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_LogicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `logicalDpiY` instead
+    ///
+    pub const LogicalDpiY = logicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6470,9 +8178,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn LogicalDpiY(self: QWebEngineView) i32 {
+    pub fn logicalDpiY(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_LogicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiX` instead
+    ///
+    pub const PhysicalDpiX = physicalDpiX;
 
     /// Inherited from QPaintDevice
     ///
@@ -6482,9 +8194,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PhysicalDpiX(self: QWebEngineView) i32 {
+    pub fn physicalDpiX(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_PhysicalDpiX(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `physicalDpiY` instead
+    ///
+    pub const PhysicalDpiY = physicalDpiY;
 
     /// Inherited from QPaintDevice
     ///
@@ -6494,9 +8210,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PhysicalDpiY(self: QWebEngineView) i32 {
+    pub fn physicalDpiY(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_PhysicalDpiY(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatio` instead
+    ///
+    pub const DevicePixelRatio = devicePixelRatio;
 
     /// Inherited from QPaintDevice
     ///
@@ -6506,9 +8226,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DevicePixelRatio(self: QWebEngineView) f64 {
+    pub fn devicePixelRatio(self: QWebEngineView) f64 {
         return qtc.QPaintDevice_DevicePixelRatio(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioF` instead
+    ///
+    pub const DevicePixelRatioF = devicePixelRatioF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6518,9 +8242,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DevicePixelRatioF(self: QWebEngineView) f64 {
+    pub fn devicePixelRatioF(self: QWebEngineView) f64 {
         return qtc.QPaintDevice_DevicePixelRatioF(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `colorCount` instead
+    ///
+    pub const ColorCount = colorCount;
 
     /// Inherited from QPaintDevice
     ///
@@ -6530,9 +8258,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn ColorCount(self: QWebEngineView) i32 {
+    pub fn colorCount(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_ColorCount(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `depth` instead
+    ///
+    pub const Depth = depth;
 
     /// Inherited from QPaintDevice
     ///
@@ -6542,17 +8274,25 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Depth(self: QWebEngineView) i32 {
+    pub fn depth(self: QWebEngineView) i32 {
         return qtc.QPaintDevice_Depth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `devicePixelRatioFScale` instead
+    ///
+    pub const DevicePixelRatioFScale = devicePixelRatioFScale;
 
     /// Inherited from QPaintDevice
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qpaintdevice.html#devicePixelRatioFScale)
     ///
-    pub fn DevicePixelRatioFScale() f64 {
+    pub fn devicePixelRatioFScale() f64 {
         return qtc.QPaintDevice_DevicePixelRatioFScale();
     }
+
+    /// ### DEPRECATED: Use `encodeMetricF` instead
+    ///
+    pub const EncodeMetricF = encodeMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -6560,13 +8300,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ## Parameter(s):
     ///
-    /// ` metric: qpaintdevice_enums.PaintDeviceMetric `
+    /// ` _metric: qpaintdevice_enums.PaintDeviceMetric `
     ///
     /// ` value: f64 `
     ///
-    pub fn EncodeMetricF(metric: i32, value: f64) i32 {
-        return qtc.QPaintDevice_EncodeMetricF(@bitCast(metric), @bitCast(value));
+    pub fn encodeMetricF(_metric: i32, value: f64) i32 {
+        return qtc.QPaintDevice_EncodeMetricF(@bitCast(_metric), @bitCast(value));
     }
+
+    /// ### DEPRECATED: Use `devType` instead
+    ///
+    pub const DevType = devType;
 
     /// Inherited from QWidget
     ///
@@ -6578,13 +8322,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn DevType(self: QWebEngineView) i32 {
+    pub fn devType(self: QWebEngineView) i32 {
         return qtc.QWebEngineView_DevType(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDevType` instead
+    /// ### DEPRECATED: Use `superDevType` instead
     ///
-    pub const QBaseDevType = SuperDevType;
+    pub const SuperDevType = superDevType;
 
     /// Inherited from QWidget
     ///
@@ -6596,9 +8340,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperDevType(self: QWebEngineView) i32 {
+    pub fn superDevType(self: QWebEngineView) i32 {
         return qtc.QWebEngineView_SuperDevType(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDevType` instead
+    ///
+    pub const OnDevType = onDevType;
 
     /// Inherited from QWidget
     ///
@@ -6612,9 +8360,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnDevType(self: QWebEngineView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onDevType(self: QWebEngineView, callback: *const fn () callconv(.c) i32) void {
         qtc.QWebEngineView_OnDevType(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `setVisible` instead
+    ///
+    pub const SetVisible = setVisible;
 
     /// Inherited from QWidget
     ///
@@ -6628,13 +8380,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SetVisible(self: QWebEngineView, visible: bool) void {
+    pub fn setVisible(self: QWebEngineView, visible: bool) void {
         qtc.QWebEngineView_SetVisible(@ptrCast(self.ptr), visible);
     }
 
-    /// ### DEPRECATED: Use `SuperSetVisible` instead
+    /// ### DEPRECATED: Use `superSetVisible` instead
     ///
-    pub const QBaseSetVisible = SuperSetVisible;
+    pub const SuperSetVisible = superSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6648,9 +8400,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` visible: bool `
     ///
-    pub fn SuperSetVisible(self: QWebEngineView, visible: bool) void {
+    pub fn superSetVisible(self: QWebEngineView, visible: bool) void {
         qtc.QWebEngineView_SuperSetVisible(@ptrCast(self.ptr), visible);
     }
+
+    /// ### DEPRECATED: Use `onSetVisible` instead
+    ///
+    pub const OnSetVisible = onSetVisible;
 
     /// Inherited from QWidget
     ///
@@ -6664,9 +8420,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, visible: bool) callconv(.c) void `
     ///
-    pub fn OnSetVisible(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
+    pub fn onSetVisible(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) void) void {
         qtc.QWebEngineView_OnSetVisible(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `minimumSizeHint` instead
+    ///
+    pub const MinimumSizeHint = minimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6678,13 +8438,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn MinimumSizeHint(self: QWebEngineView) QSize {
+    pub fn minimumSizeHint(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWebEngineView_MinimumSizeHint(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperMinimumSizeHint` instead
+    /// ### DEPRECATED: Use `superMinimumSizeHint` instead
     ///
-    pub const QBaseMinimumSizeHint = SuperMinimumSizeHint;
+    pub const SuperMinimumSizeHint = superMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6696,9 +8456,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperMinimumSizeHint(self: QWebEngineView) QSize {
+    pub fn superMinimumSizeHint(self: QWebEngineView) QSize {
         return .{ .ptr = qtc.QWebEngineView_SuperMinimumSizeHint(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onMinimumSizeHint` instead
+    ///
+    pub const OnMinimumSizeHint = onMinimumSizeHint;
 
     /// Inherited from QWidget
     ///
@@ -6714,9 +8478,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnMinimumSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
+    pub fn onMinimumSizeHint(self: QWebEngineView, callback: *const fn () callconv(.c) QSize) void {
         qtc.QWebEngineView_OnMinimumSizeHint(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `heightForWidth` instead
+    ///
+    pub const HeightForWidth = heightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6730,13 +8498,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn HeightForWidth(self: QWebEngineView, param1: i32) i32 {
+    pub fn heightForWidth(self: QWebEngineView, param1: i32) i32 {
         return qtc.QWebEngineView_HeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHeightForWidth` instead
     ///
-    pub const QBaseHeightForWidth = SuperHeightForWidth;
+    pub const SuperHeightForWidth = superHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6750,9 +8518,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn SuperHeightForWidth(self: QWebEngineView, param1: i32) i32 {
+    pub fn superHeightForWidth(self: QWebEngineView, param1: i32) i32 {
         return qtc.QWebEngineView_SuperHeightForWidth(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onHeightForWidth` instead
+    ///
+    pub const OnHeightForWidth = onHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6766,9 +8538,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: i32) callconv(.c) i32 `
     ///
-    pub fn OnHeightForWidth(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) i32) void {
+    pub fn onHeightForWidth(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) i32) void {
         qtc.QWebEngineView_OnHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `hasHeightForWidth` instead
+    ///
+    pub const HasHeightForWidth = hasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6780,13 +8556,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn HasHeightForWidth(self: QWebEngineView) bool {
+    pub fn hasHeightForWidth(self: QWebEngineView) bool {
         return qtc.QWebEngineView_HasHeightForWidth(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperHasHeightForWidth` instead
+    /// ### DEPRECATED: Use `superHasHeightForWidth` instead
     ///
-    pub const QBaseHasHeightForWidth = SuperHasHeightForWidth;
+    pub const SuperHasHeightForWidth = superHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6798,9 +8574,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperHasHeightForWidth(self: QWebEngineView) bool {
+    pub fn superHasHeightForWidth(self: QWebEngineView) bool {
         return qtc.QWebEngineView_SuperHasHeightForWidth(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onHasHeightForWidth` instead
+    ///
+    pub const OnHasHeightForWidth = onHasHeightForWidth;
 
     /// Inherited from QWidget
     ///
@@ -6814,9 +8594,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnHasHeightForWidth(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onHasHeightForWidth(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
         qtc.QWebEngineView_OnHasHeightForWidth(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEngine` instead
+    ///
+    pub const PaintEngine = paintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6828,13 +8612,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn PaintEngine(self: QWebEngineView) QPaintEngine {
+    pub fn paintEngine(self: QWebEngineView) QPaintEngine {
         return .{ .ptr = qtc.QWebEngineView_PaintEngine(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEngine` instead
+    /// ### DEPRECATED: Use `superPaintEngine` instead
     ///
-    pub const QBasePaintEngine = SuperPaintEngine;
+    pub const SuperPaintEngine = superPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6846,9 +8630,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperPaintEngine(self: QWebEngineView) QPaintEngine {
+    pub fn superPaintEngine(self: QWebEngineView) QPaintEngine {
         return .{ .ptr = qtc.QWebEngineView_SuperPaintEngine(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onPaintEngine` instead
+    ///
+    pub const OnPaintEngine = onPaintEngine;
 
     /// Inherited from QWidget
     ///
@@ -6862,10 +8650,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPaintEngine `
     ///
-    pub fn OnPaintEngine(self: QWebEngineView, callback: *const fn () callconv(.c) QPaintEngine) void {
+    pub fn onPaintEngine(self: QWebEngineView, callback: *const fn () callconv(.c) QPaintEngine) void {
         qtc.QWebEngineView_OnPaintEngine(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mousePressEvent` instead
+    ///
+    pub const MousePressEvent = mousePressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mousePressEvent)
@@ -6876,16 +8668,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MousePressEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mousePressEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_MousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMousePressEvent` instead
+    /// ### DEPRECATED: Use `superMousePressEvent` instead
     ///
-    pub const QBaseMousePressEvent = SuperMousePressEvent;
+    pub const SuperMousePressEvent = superMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6897,12 +8689,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMousePressEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMousePressEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_SuperMousePressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMousePressEvent` instead
+    ///
+    pub const OnMousePressEvent = onMousePressEvent;
 
     /// Inherited from QWidget
     ///
@@ -6916,10 +8712,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMousePressEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMousePressEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnMousePressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseReleaseEvent` instead
+    ///
+    pub const MouseReleaseEvent = mouseReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseReleaseEvent)
@@ -6930,16 +8730,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseReleaseEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseReleaseEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_MouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseReleaseEvent` instead
+    /// ### DEPRECATED: Use `superMouseReleaseEvent` instead
     ///
-    pub const QBaseMouseReleaseEvent = SuperMouseReleaseEvent;
+    pub const SuperMouseReleaseEvent = superMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6951,12 +8751,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseReleaseEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseReleaseEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_SuperMouseReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseReleaseEvent` instead
+    ///
+    pub const OnMouseReleaseEvent = onMouseReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -6970,10 +8774,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseReleaseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseReleaseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnMouseReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseDoubleClickEvent` instead
+    ///
+    pub const MouseDoubleClickEvent = mouseDoubleClickEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseDoubleClickEvent)
@@ -6984,16 +8792,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseDoubleClickEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseDoubleClickEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_MouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseDoubleClickEvent` instead
+    /// ### DEPRECATED: Use `superMouseDoubleClickEvent` instead
     ///
-    pub const QBaseMouseDoubleClickEvent = SuperMouseDoubleClickEvent;
+    pub const SuperMouseDoubleClickEvent = superMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7005,12 +8813,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseDoubleClickEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseDoubleClickEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_SuperMouseDoubleClickEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseDoubleClickEvent` instead
+    ///
+    pub const OnMouseDoubleClickEvent = onMouseDoubleClickEvent;
 
     /// Inherited from QWidget
     ///
@@ -7024,10 +8836,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseDoubleClickEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseDoubleClickEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnMouseDoubleClickEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `mouseMoveEvent` instead
+    ///
+    pub const MouseMoveEvent = mouseMoveEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#mouseMoveEvent)
@@ -7038,16 +8854,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn MouseMoveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn mouseMoveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_MouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMouseMoveEvent` instead
+    /// ### DEPRECATED: Use `superMouseMoveEvent` instead
     ///
-    pub const QBaseMouseMoveEvent = SuperMouseMoveEvent;
+    pub const SuperMouseMoveEvent = superMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7059,12 +8875,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMouseEvent `
+    /// ` _event: QMouseEvent `
     ///
-    pub fn SuperMouseMoveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMouseEvent;
-        qtc.QWebEngineView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMouseMoveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMouseEvent;
+        qtc.QWebEngineView_SuperMouseMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMouseMoveEvent` instead
+    ///
+    pub const OnMouseMoveEvent = onMouseMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7078,9 +8898,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QMouseEvent) callconv(.c) void `
     ///
-    pub fn OnMouseMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
+    pub fn onMouseMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMouseEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnMouseMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `wheelEvent` instead
+    ///
+    pub const WheelEvent = wheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7092,16 +8916,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn WheelEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QWebEngineView_WheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn wheelEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QWebEngineView_WheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperWheelEvent` instead
+    /// ### DEPRECATED: Use `superWheelEvent` instead
     ///
-    pub const QBaseWheelEvent = SuperWheelEvent;
+    pub const SuperWheelEvent = superWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7113,12 +8937,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QWheelEvent `
+    /// ` _event: QWheelEvent `
     ///
-    pub fn SuperWheelEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QWheelEvent;
-        qtc.QWebEngineView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superWheelEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QWheelEvent;
+        qtc.QWebEngineView_SuperWheelEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onWheelEvent` instead
+    ///
+    pub const OnWheelEvent = onWheelEvent;
 
     /// Inherited from QWidget
     ///
@@ -7132,10 +8960,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QWheelEvent) callconv(.c) void `
     ///
-    pub fn OnWheelEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QWheelEvent) callconv(.c) void) void {
+    pub fn onWheelEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QWheelEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnWheelEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyPressEvent` instead
+    ///
+    pub const KeyPressEvent = keyPressEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyPressEvent)
@@ -7146,16 +8978,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyPressEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QWebEngineView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyPressEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QWebEngineView_KeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyPressEvent` instead
+    /// ### DEPRECATED: Use `superKeyPressEvent` instead
     ///
-    pub const QBaseKeyPressEvent = SuperKeyPressEvent;
+    pub const SuperKeyPressEvent = superKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7167,12 +8999,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyPressEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QWebEngineView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyPressEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QWebEngineView_SuperKeyPressEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyPressEvent` instead
+    ///
+    pub const OnKeyPressEvent = onKeyPressEvent;
 
     /// Inherited from QWidget
     ///
@@ -7186,10 +9022,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyPressEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyPressEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QKeyEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnKeyPressEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `keyReleaseEvent` instead
+    ///
+    pub const KeyReleaseEvent = keyReleaseEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#keyReleaseEvent)
@@ -7200,16 +9040,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn KeyReleaseEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QWebEngineView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn keyReleaseEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QWebEngineView_KeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperKeyReleaseEvent` instead
+    /// ### DEPRECATED: Use `superKeyReleaseEvent` instead
     ///
-    pub const QBaseKeyReleaseEvent = SuperKeyReleaseEvent;
+    pub const SuperKeyReleaseEvent = superKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7221,12 +9061,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QKeyEvent `
+    /// ` _event: QKeyEvent `
     ///
-    pub fn SuperKeyReleaseEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QKeyEvent;
-        qtc.QWebEngineView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superKeyReleaseEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QKeyEvent;
+        qtc.QWebEngineView_SuperKeyReleaseEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onKeyReleaseEvent` instead
+    ///
+    pub const OnKeyReleaseEvent = onKeyReleaseEvent;
 
     /// Inherited from QWidget
     ///
@@ -7240,10 +9084,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QKeyEvent) callconv(.c) void `
     ///
-    pub fn OnKeyReleaseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QKeyEvent) callconv(.c) void) void {
+    pub fn onKeyReleaseEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QKeyEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnKeyReleaseEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusInEvent` instead
+    ///
+    pub const FocusInEvent = focusInEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusInEvent)
@@ -7254,16 +9102,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusInEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QWebEngineView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusInEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QWebEngineView_FocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusInEvent` instead
+    /// ### DEPRECATED: Use `superFocusInEvent` instead
     ///
-    pub const QBaseFocusInEvent = SuperFocusInEvent;
+    pub const SuperFocusInEvent = superFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7275,12 +9123,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusInEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QWebEngineView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusInEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QWebEngineView_SuperFocusInEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusInEvent` instead
+    ///
+    pub const OnFocusInEvent = onFocusInEvent;
 
     /// Inherited from QWidget
     ///
@@ -7294,10 +9146,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusInEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusInEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QFocusEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnFocusInEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusOutEvent` instead
+    ///
+    pub const FocusOutEvent = focusOutEvent;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusOutEvent)
@@ -7308,16 +9164,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn FocusOutEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QWebEngineView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn focusOutEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QWebEngineView_FocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusOutEvent` instead
+    /// ### DEPRECATED: Use `superFocusOutEvent` instead
     ///
-    pub const QBaseFocusOutEvent = SuperFocusOutEvent;
+    pub const SuperFocusOutEvent = superFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7329,12 +9185,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QFocusEvent `
+    /// ` _event: QFocusEvent `
     ///
-    pub fn SuperFocusOutEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QFocusEvent;
-        qtc.QWebEngineView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superFocusOutEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QFocusEvent;
+        qtc.QWebEngineView_SuperFocusOutEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusOutEvent` instead
+    ///
+    pub const OnFocusOutEvent = onFocusOutEvent;
 
     /// Inherited from QWidget
     ///
@@ -7348,9 +9208,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QFocusEvent) callconv(.c) void `
     ///
-    pub fn OnFocusOutEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QFocusEvent) callconv(.c) void) void {
+    pub fn onFocusOutEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QFocusEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnFocusOutEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `enterEvent` instead
+    ///
+    pub const EnterEvent = enterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7362,16 +9226,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn EnterEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QWebEngineView_EnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn enterEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QWebEngineView_EnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEnterEvent` instead
+    /// ### DEPRECATED: Use `superEnterEvent` instead
     ///
-    pub const QBaseEnterEvent = SuperEnterEvent;
+    pub const SuperEnterEvent = superEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7383,12 +9247,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEnterEvent `
+    /// ` _event: QEnterEvent `
     ///
-    pub fn SuperEnterEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEnterEvent;
-        qtc.QWebEngineView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superEnterEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEnterEvent;
+        qtc.QWebEngineView_SuperEnterEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEnterEvent` instead
+    ///
+    pub const OnEnterEvent = onEnterEvent;
 
     /// Inherited from QWidget
     ///
@@ -7402,9 +9270,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QEnterEvent) callconv(.c) void `
     ///
-    pub fn OnEnterEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEnterEvent) callconv(.c) void) void {
+    pub fn onEnterEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEnterEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnEnterEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `leaveEvent` instead
+    ///
+    pub const LeaveEvent = leaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7416,16 +9288,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn LeaveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebEngineView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn leaveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebEngineView_LeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperLeaveEvent` instead
+    /// ### DEPRECATED: Use `superLeaveEvent` instead
     ///
-    pub const QBaseLeaveEvent = SuperLeaveEvent;
+    pub const SuperLeaveEvent = superLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7437,12 +9309,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperLeaveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebEngineView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superLeaveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebEngineView_SuperLeaveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onLeaveEvent` instead
+    ///
+    pub const OnLeaveEvent = onLeaveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7456,9 +9332,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnLeaveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
+    pub fn onLeaveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnLeaveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `paintEvent` instead
+    ///
+    pub const PaintEvent = paintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7470,16 +9350,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn PaintEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QWebEngineView_PaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn paintEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QWebEngineView_PaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperPaintEvent` instead
+    /// ### DEPRECATED: Use `superPaintEvent` instead
     ///
-    pub const QBasePaintEvent = SuperPaintEvent;
+    pub const SuperPaintEvent = superPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7491,12 +9371,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QPaintEvent `
+    /// ` _event: QPaintEvent `
     ///
-    pub fn SuperPaintEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QPaintEvent;
-        qtc.QWebEngineView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superPaintEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QPaintEvent;
+        qtc.QWebEngineView_SuperPaintEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onPaintEvent` instead
+    ///
+    pub const OnPaintEvent = onPaintEvent;
 
     /// Inherited from QWidget
     ///
@@ -7510,9 +9394,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QPaintEvent) callconv(.c) void `
     ///
-    pub fn OnPaintEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QPaintEvent) callconv(.c) void) void {
+    pub fn onPaintEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QPaintEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnPaintEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `moveEvent` instead
+    ///
+    pub const MoveEvent = moveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7524,16 +9412,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn MoveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QWebEngineView_MoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn moveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QWebEngineView_MoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperMoveEvent` instead
+    /// ### DEPRECATED: Use `superMoveEvent` instead
     ///
-    pub const QBaseMoveEvent = SuperMoveEvent;
+    pub const SuperMoveEvent = superMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7545,12 +9433,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QMoveEvent `
+    /// ` _event: QMoveEvent `
     ///
-    pub fn SuperMoveEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QMoveEvent;
-        qtc.QWebEngineView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superMoveEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QMoveEvent;
+        qtc.QWebEngineView_SuperMoveEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onMoveEvent` instead
+    ///
+    pub const OnMoveEvent = onMoveEvent;
 
     /// Inherited from QWidget
     ///
@@ -7564,9 +9456,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QMoveEvent) callconv(.c) void `
     ///
-    pub fn OnMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMoveEvent) callconv(.c) void) void {
+    pub fn onMoveEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QMoveEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnMoveEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `resizeEvent` instead
+    ///
+    pub const ResizeEvent = resizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7578,16 +9474,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn ResizeEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QWebEngineView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn resizeEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QWebEngineView_ResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperResizeEvent` instead
+    /// ### DEPRECATED: Use `superResizeEvent` instead
     ///
-    pub const QBaseResizeEvent = SuperResizeEvent;
+    pub const SuperResizeEvent = superResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7599,12 +9495,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QResizeEvent `
+    /// ` _event: QResizeEvent `
     ///
-    pub fn SuperResizeEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QResizeEvent;
-        qtc.QWebEngineView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superResizeEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QResizeEvent;
+        qtc.QWebEngineView_SuperResizeEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onResizeEvent` instead
+    ///
+    pub const OnResizeEvent = onResizeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7618,9 +9518,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QResizeEvent) callconv(.c) void `
     ///
-    pub fn OnResizeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QResizeEvent) callconv(.c) void) void {
+    pub fn onResizeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QResizeEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnResizeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `tabletEvent` instead
+    ///
+    pub const TabletEvent = tabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7632,16 +9536,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn TabletEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QWebEngineView_TabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn tabletEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QWebEngineView_TabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTabletEvent` instead
+    /// ### DEPRECATED: Use `superTabletEvent` instead
     ///
-    pub const QBaseTabletEvent = SuperTabletEvent;
+    pub const SuperTabletEvent = superTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7653,12 +9557,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QTabletEvent `
+    /// ` _event: QTabletEvent `
     ///
-    pub fn SuperTabletEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTabletEvent;
-        qtc.QWebEngineView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTabletEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTabletEvent;
+        qtc.QWebEngineView_SuperTabletEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTabletEvent` instead
+    ///
+    pub const OnTabletEvent = onTabletEvent;
 
     /// Inherited from QWidget
     ///
@@ -7672,9 +9580,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QTabletEvent) callconv(.c) void `
     ///
-    pub fn OnTabletEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QTabletEvent) callconv(.c) void) void {
+    pub fn onTabletEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QTabletEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnTabletEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `actionEvent` instead
+    ///
+    pub const ActionEvent = actionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7686,16 +9598,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn ActionEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QWebEngineView_ActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn actionEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QWebEngineView_ActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperActionEvent` instead
+    /// ### DEPRECATED: Use `superActionEvent` instead
     ///
-    pub const QBaseActionEvent = SuperActionEvent;
+    pub const SuperActionEvent = superActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7707,12 +9619,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QActionEvent `
+    /// ` _event: QActionEvent `
     ///
-    pub fn SuperActionEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QActionEvent;
-        qtc.QWebEngineView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superActionEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QActionEvent;
+        qtc.QWebEngineView_SuperActionEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onActionEvent` instead
+    ///
+    pub const OnActionEvent = onActionEvent;
 
     /// Inherited from QWidget
     ///
@@ -7726,9 +9642,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QActionEvent) callconv(.c) void `
     ///
-    pub fn OnActionEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QActionEvent) callconv(.c) void) void {
+    pub fn onActionEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QActionEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnActionEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `nativeEvent` instead
+    ///
+    pub const NativeEvent = nativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7746,7 +9666,7 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn NativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn nativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
@@ -7754,9 +9674,9 @@ pub const QWebEngineView = extern struct {
         return qtc.QWebEngineView_NativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
 
-    /// ### DEPRECATED: Use `SuperNativeEvent` instead
+    /// ### DEPRECATED: Use `superNativeEvent` instead
     ///
-    pub const QBaseNativeEvent = SuperNativeEvent;
+    pub const SuperNativeEvent = superNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7774,13 +9694,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` result: *isize `
     ///
-    pub fn SuperNativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
+    pub fn superNativeEvent(self: QWebEngineView, eventType: []u8, message: ?*anyopaque, result: *isize) bool {
         const eventType_str = qtc.libqt_string{
             .len = eventType.len,
             .data = eventType.ptr,
         };
         return qtc.QWebEngineView_SuperNativeEvent(@ptrCast(self.ptr), eventType_str, @ptrCast(message), @ptrCast(result));
     }
+
+    /// ### DEPRECATED: Use `onNativeEvent` instead
+    ///
+    pub const OnNativeEvent = onNativeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7794,9 +9718,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, eventType: qtc.libqt_string, message: ?*anyopaque, result: *isize) callconv(.c) bool `
     ///
-    pub fn OnNativeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
+    pub fn onNativeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, qtc.libqt_string, ?*anyopaque, *isize) callconv(.c) bool) void {
         qtc.QWebEngineView_OnNativeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `changeEvent` instead
+    ///
+    pub const ChangeEvent = changeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7810,14 +9738,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn ChangeEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn changeEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QWebEngineView_ChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChangeEvent` instead
+    /// ### DEPRECATED: Use `superChangeEvent` instead
     ///
-    pub const QBaseChangeEvent = SuperChangeEvent;
+    pub const SuperChangeEvent = superChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7831,10 +9759,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QEvent `
     ///
-    pub fn SuperChangeEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superChangeEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QEvent;
         qtc.QWebEngineView_SuperChangeEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChangeEvent` instead
+    ///
+    pub const OnChangeEvent = onChangeEvent;
 
     /// Inherited from QWidget
     ///
@@ -7848,9 +9780,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QEvent) callconv(.c) void `
     ///
-    pub fn OnChangeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
+    pub fn onChangeEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnChangeEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `metric` instead
+    ///
+    pub const Metric = metric;
 
     /// Inherited from QWidget
     ///
@@ -7864,13 +9800,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn Metric(self: QWebEngineView, param1: i32) i32 {
+    pub fn metric(self: QWebEngineView, param1: i32) i32 {
         return qtc.QWebEngineView_Metric(@ptrCast(self.ptr), @bitCast(param1));
     }
 
-    /// ### DEPRECATED: Use `SuperMetric` instead
+    /// ### DEPRECATED: Use `superMetric` instead
     ///
-    pub const QBaseMetric = SuperMetric;
+    pub const SuperMetric = superMetric;
 
     /// Inherited from QWidget
     ///
@@ -7884,9 +9820,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperMetric(self: QWebEngineView, param1: i32) i32 {
+    pub fn superMetric(self: QWebEngineView, param1: i32) i32 {
         return qtc.QWebEngineView_SuperMetric(@ptrCast(self.ptr), @bitCast(param1));
     }
+
+    /// ### DEPRECATED: Use `onMetric` instead
+    ///
+    pub const OnMetric = onMetric;
 
     /// Inherited from QWidget
     ///
@@ -7900,9 +9840,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) i32 `
     ///
-    pub fn OnMetric(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) i32) void {
+    pub fn onMetric(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) i32) void {
         qtc.QWebEngineView_OnMetric(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `initPainter` instead
+    ///
+    pub const InitPainter = initPainter;
 
     /// Inherited from QWidget
     ///
@@ -7916,14 +9860,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn InitPainter(self: QWebEngineView, painter: anytype) void {
+    pub fn initPainter(self: QWebEngineView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWebEngineView_InitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInitPainter` instead
+    /// ### DEPRECATED: Use `superInitPainter` instead
     ///
-    pub const QBaseInitPainter = SuperInitPainter;
+    pub const SuperInitPainter = superInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7937,10 +9881,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` painter: QPainter `
     ///
-    pub fn SuperInitPainter(self: QWebEngineView, painter: anytype) void {
+    pub fn superInitPainter(self: QWebEngineView, painter: anytype) void {
         comptime _ = @TypeOf(painter)._is_QPainter;
         qtc.QWebEngineView_SuperInitPainter(@ptrCast(self.ptr), @ptrCast(painter.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInitPainter` instead
+    ///
+    pub const OnInitPainter = onInitPainter;
 
     /// Inherited from QWidget
     ///
@@ -7954,9 +9902,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, painter: QPainter) callconv(.c) void `
     ///
-    pub fn OnInitPainter(self: QWebEngineView, callback: *const fn (QWebEngineView, QPainter) callconv(.c) void) void {
+    pub fn onInitPainter(self: QWebEngineView, callback: *const fn (QWebEngineView, QPainter) callconv(.c) void) void {
         qtc.QWebEngineView_OnInitPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `redirected` instead
+    ///
+    pub const Redirected = redirected;
 
     /// Inherited from QWidget
     ///
@@ -7970,14 +9922,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn Redirected(self: QWebEngineView, offset: anytype) QPaintDevice {
+    pub fn redirected(self: QWebEngineView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QWebEngineView_Redirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperRedirected` instead
+    /// ### DEPRECATED: Use `superRedirected` instead
     ///
-    pub const QBaseRedirected = SuperRedirected;
+    pub const SuperRedirected = superRedirected;
 
     /// Inherited from QWidget
     ///
@@ -7991,10 +9943,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` offset: QPoint `
     ///
-    pub fn SuperRedirected(self: QWebEngineView, offset: anytype) QPaintDevice {
+    pub fn superRedirected(self: QWebEngineView, offset: anytype) QPaintDevice {
         comptime _ = @TypeOf(offset)._is_QPoint;
         return .{ .ptr = qtc.QWebEngineView_SuperRedirected(@ptrCast(self.ptr), @ptrCast(offset.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onRedirected` instead
+    ///
+    pub const OnRedirected = onRedirected;
 
     /// Inherited from QWidget
     ///
@@ -8008,9 +9964,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, offset: QPoint) callconv(.c) QPaintDevice `
     ///
-    pub fn OnRedirected(self: QWebEngineView, callback: *const fn (QWebEngineView, QPoint) callconv(.c) QPaintDevice) void {
+    pub fn onRedirected(self: QWebEngineView, callback: *const fn (QWebEngineView, QPoint) callconv(.c) QPaintDevice) void {
         qtc.QWebEngineView_OnRedirected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sharedPainter` instead
+    ///
+    pub const SharedPainter = sharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8022,13 +9982,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SharedPainter(self: QWebEngineView) QPainter {
+    pub fn sharedPainter(self: QWebEngineView) QPainter {
         return .{ .ptr = qtc.QWebEngineView_SharedPainter(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSharedPainter` instead
+    /// ### DEPRECATED: Use `superSharedPainter` instead
     ///
-    pub const QBaseSharedPainter = SuperSharedPainter;
+    pub const SuperSharedPainter = superSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8040,9 +10000,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperSharedPainter(self: QWebEngineView) QPainter {
+    pub fn superSharedPainter(self: QWebEngineView) QPainter {
         return .{ .ptr = qtc.QWebEngineView_SuperSharedPainter(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSharedPainter` instead
+    ///
+    pub const OnSharedPainter = onSharedPainter;
 
     /// Inherited from QWidget
     ///
@@ -8056,9 +10020,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QPainter `
     ///
-    pub fn OnSharedPainter(self: QWebEngineView, callback: *const fn () callconv(.c) QPainter) void {
+    pub fn onSharedPainter(self: QWebEngineView, callback: *const fn () callconv(.c) QPainter) void {
         qtc.QWebEngineView_OnSharedPainter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodEvent` instead
+    ///
+    pub const InputMethodEvent = inputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8072,14 +10040,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn InputMethodEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn inputMethodEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QWebEngineView_InputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodEvent` instead
+    /// ### DEPRECATED: Use `superInputMethodEvent` instead
     ///
-    pub const QBaseInputMethodEvent = SuperInputMethodEvent;
+    pub const SuperInputMethodEvent = superInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8093,10 +10061,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: QInputMethodEvent `
     ///
-    pub fn SuperInputMethodEvent(self: QWebEngineView, param1: anytype) void {
+    pub fn superInputMethodEvent(self: QWebEngineView, param1: anytype) void {
         comptime _ = @TypeOf(param1)._is_QInputMethodEvent;
         qtc.QWebEngineView_SuperInputMethodEvent(@ptrCast(self.ptr), @ptrCast(param1.ptr));
     }
+
+    /// ### DEPRECATED: Use `onInputMethodEvent` instead
+    ///
+    pub const OnInputMethodEvent = onInputMethodEvent;
 
     /// Inherited from QWidget
     ///
@@ -8110,9 +10082,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, param1: QInputMethodEvent) callconv(.c) void `
     ///
-    pub fn OnInputMethodEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QInputMethodEvent) callconv(.c) void) void {
+    pub fn onInputMethodEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QInputMethodEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnInputMethodEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `inputMethodQuery` instead
+    ///
+    pub const InputMethodQuery = inputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8126,13 +10102,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn InputMethodQuery(self: QWebEngineView, param1: i32) QVariant {
+    pub fn inputMethodQuery(self: QWebEngineView, param1: i32) QVariant {
         return .{ .ptr = qtc.QWebEngineView_InputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
 
-    /// ### DEPRECATED: Use `SuperInputMethodQuery` instead
+    /// ### DEPRECATED: Use `superInputMethodQuery` instead
     ///
-    pub const QBaseInputMethodQuery = SuperInputMethodQuery;
+    pub const SuperInputMethodQuery = superInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8146,9 +10122,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` param1: qnamespace_enums.InputMethodQuery `
     ///
-    pub fn SuperInputMethodQuery(self: QWebEngineView, param1: i32) QVariant {
+    pub fn superInputMethodQuery(self: QWebEngineView, param1: i32) QVariant {
         return .{ .ptr = qtc.QWebEngineView_SuperInputMethodQuery(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `onInputMethodQuery` instead
+    ///
+    pub const OnInputMethodQuery = onInputMethodQuery;
 
     /// Inherited from QWidget
     ///
@@ -8164,9 +10144,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// **Warning:** Memory for the returned type of the callback is freed by the library.
     ///
-    pub fn OnInputMethodQuery(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) QVariant) void {
+    pub fn onInputMethodQuery(self: QWebEngineView, callback: *const fn (QWebEngineView, i32) callconv(.c) QVariant) void {
         qtc.QWebEngineView_OnInputMethodQuery(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusNextPrevChild` instead
+    ///
+    pub const FocusNextPrevChild = focusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8180,13 +10164,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn FocusNextPrevChild(self: QWebEngineView, next: bool) bool {
+    pub fn focusNextPrevChild(self: QWebEngineView, next: bool) bool {
         return qtc.QWebEngineView_FocusNextPrevChild(@ptrCast(self.ptr), next);
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextPrevChild` instead
+    /// ### DEPRECATED: Use `superFocusNextPrevChild` instead
     ///
-    pub const QBaseFocusNextPrevChild = SuperFocusNextPrevChild;
+    pub const SuperFocusNextPrevChild = superFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8200,9 +10184,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` next: bool `
     ///
-    pub fn SuperFocusNextPrevChild(self: QWebEngineView, next: bool) bool {
+    pub fn superFocusNextPrevChild(self: QWebEngineView, next: bool) bool {
         return qtc.QWebEngineView_SuperFocusNextPrevChild(@ptrCast(self.ptr), next);
     }
+
+    /// ### DEPRECATED: Use `onFocusNextPrevChild` instead
+    ///
+    pub const OnFocusNextPrevChild = onFocusNextPrevChild;
 
     /// Inherited from QWidget
     ///
@@ -8216,9 +10204,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, next: bool) callconv(.c) bool `
     ///
-    pub fn OnFocusNextPrevChild(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) bool) void {
+    pub fn onFocusNextPrevChild(self: QWebEngineView, callback: *const fn (QWebEngineView, bool) callconv(.c) bool) void {
         qtc.QWebEngineView_OnFocusNextPrevChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `eventFilter` instead
+    ///
+    pub const EventFilter = eventFilter;
 
     /// Inherited from QObject
     ///
@@ -8232,17 +10224,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn EventFilter(self: QWebEngineView, watched: anytype, event: anytype) bool {
+    pub fn eventFilter(self: QWebEngineView, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebEngineView_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebEngineView_EventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperEventFilter` instead
+    /// ### DEPRECATED: Use `superEventFilter` instead
     ///
-    pub const QBaseEventFilter = SuperEventFilter;
+    pub const SuperEventFilter = superEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8256,13 +10248,17 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` watched: QObject `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperEventFilter(self: QWebEngineView, watched: anytype, event: anytype) bool {
+    pub fn superEventFilter(self: QWebEngineView, watched: anytype, _event: anytype) bool {
         comptime _ = @TypeOf(watched)._is_QObject;
-        comptime _ = @TypeOf(event)._is_QEvent;
-        return qtc.QWebEngineView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(event.ptr));
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        return qtc.QWebEngineView_SuperEventFilter(@ptrCast(self.ptr), @ptrCast(watched.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onEventFilter` instead
+    ///
+    pub const OnEventFilter = onEventFilter;
 
     /// Inherited from QObject
     ///
@@ -8276,9 +10272,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, watched: QObject, event: QEvent) callconv(.c) bool `
     ///
-    pub fn OnEventFilter(self: QWebEngineView, callback: *const fn (QWebEngineView, QObject, QEvent) callconv(.c) bool) void {
+    pub fn onEventFilter(self: QWebEngineView, callback: *const fn (QWebEngineView, QObject, QEvent) callconv(.c) bool) void {
         qtc.QWebEngineView_OnEventFilter(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `timerEvent` instead
+    ///
+    pub const TimerEvent = timerEvent;
 
     /// Inherited from QObject
     ///
@@ -8290,16 +10290,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn TimerEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWebEngineView_TimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn timerEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWebEngineView_TimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperTimerEvent` instead
+    /// ### DEPRECATED: Use `superTimerEvent` instead
     ///
-    pub const QBaseTimerEvent = SuperTimerEvent;
+    pub const SuperTimerEvent = superTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8311,12 +10311,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QTimerEvent `
+    /// ` _event: QTimerEvent `
     ///
-    pub fn SuperTimerEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QTimerEvent;
-        qtc.QWebEngineView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superTimerEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QTimerEvent;
+        qtc.QWebEngineView_SuperTimerEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onTimerEvent` instead
+    ///
+    pub const OnTimerEvent = onTimerEvent;
 
     /// Inherited from QObject
     ///
@@ -8330,9 +10334,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QTimerEvent) callconv(.c) void `
     ///
-    pub fn OnTimerEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QTimerEvent) callconv(.c) void) void {
+    pub fn onTimerEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QTimerEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnTimerEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `childEvent` instead
+    ///
+    pub const ChildEvent = childEvent;
 
     /// Inherited from QObject
     ///
@@ -8344,16 +10352,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn ChildEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWebEngineView_ChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn childEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWebEngineView_ChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperChildEvent` instead
+    /// ### DEPRECATED: Use `superChildEvent` instead
     ///
-    pub const QBaseChildEvent = SuperChildEvent;
+    pub const SuperChildEvent = superChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8365,12 +10373,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QChildEvent `
+    /// ` _event: QChildEvent `
     ///
-    pub fn SuperChildEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QChildEvent;
-        qtc.QWebEngineView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superChildEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QChildEvent;
+        qtc.QWebEngineView_SuperChildEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onChildEvent` instead
+    ///
+    pub const OnChildEvent = onChildEvent;
 
     /// Inherited from QObject
     ///
@@ -8384,9 +10396,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QChildEvent) callconv(.c) void `
     ///
-    pub fn OnChildEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QChildEvent) callconv(.c) void) void {
+    pub fn onChildEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QChildEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnChildEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `customEvent` instead
+    ///
+    pub const CustomEvent = customEvent;
 
     /// Inherited from QObject
     ///
@@ -8398,16 +10414,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn CustomEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebEngineView_CustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn customEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebEngineView_CustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCustomEvent` instead
+    /// ### DEPRECATED: Use `superCustomEvent` instead
     ///
-    pub const QBaseCustomEvent = SuperCustomEvent;
+    pub const SuperCustomEvent = superCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8419,12 +10435,16 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    /// ` event: QEvent `
+    /// ` _event: QEvent `
     ///
-    pub fn SuperCustomEvent(self: QWebEngineView, event: anytype) void {
-        comptime _ = @TypeOf(event)._is_QEvent;
-        qtc.QWebEngineView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(event.ptr));
+    pub fn superCustomEvent(self: QWebEngineView, _event: anytype) void {
+        comptime _ = @TypeOf(_event)._is_QEvent;
+        qtc.QWebEngineView_SuperCustomEvent(@ptrCast(self.ptr), @ptrCast(_event.ptr));
     }
+
+    /// ### DEPRECATED: Use `onCustomEvent` instead
+    ///
+    pub const OnCustomEvent = onCustomEvent;
 
     /// Inherited from QObject
     ///
@@ -8438,9 +10458,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, event: QEvent) callconv(.c) void `
     ///
-    pub fn OnCustomEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
+    pub fn onCustomEvent(self: QWebEngineView, callback: *const fn (QWebEngineView, QEvent) callconv(.c) void) void {
         qtc.QWebEngineView_OnCustomEvent(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `connectNotify` instead
+    ///
+    pub const ConnectNotify = connectNotify;
 
     /// Inherited from QObject
     ///
@@ -8454,14 +10478,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn ConnectNotify(self: QWebEngineView, signal: anytype) void {
+    pub fn connectNotify(self: QWebEngineView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebEngineView_ConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperConnectNotify` instead
+    /// ### DEPRECATED: Use `superConnectNotify` instead
     ///
-    pub const QBaseConnectNotify = SuperConnectNotify;
+    pub const SuperConnectNotify = superConnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8475,11 +10499,15 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperConnectNotify(self: QWebEngineView, signal: anytype) void {
+    pub fn superConnectNotify(self: QWebEngineView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebEngineView_SuperConnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
+    /// ### DEPRECATED: Use `onConnectNotify` instead
+    ///
+    pub const OnConnectNotify = onConnectNotify;
+
     /// Inherited from QObject
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qobject.html#connectNotify)
@@ -8492,9 +10520,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnConnectNotify(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) void) void {
+    pub fn onConnectNotify(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) void) void {
         qtc.QWebEngineView_OnConnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `disconnectNotify` instead
+    ///
+    pub const DisconnectNotify = disconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8508,14 +10540,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn DisconnectNotify(self: QWebEngineView, signal: anytype) void {
+    pub fn disconnectNotify(self: QWebEngineView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebEngineView_DisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDisconnectNotify` instead
+    /// ### DEPRECATED: Use `superDisconnectNotify` instead
     ///
-    pub const QBaseDisconnectNotify = SuperDisconnectNotify;
+    pub const SuperDisconnectNotify = superDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8529,10 +10561,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperDisconnectNotify(self: QWebEngineView, signal: anytype) void {
+    pub fn superDisconnectNotify(self: QWebEngineView, signal: anytype) void {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         qtc.QWebEngineView_SuperDisconnectNotify(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDisconnectNotify` instead
+    ///
+    pub const OnDisconnectNotify = onDisconnectNotify;
 
     /// Inherited from QObject
     ///
@@ -8546,10 +10582,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, signal: QMetaMethod) callconv(.c) void `
     ///
-    pub fn OnDisconnectNotify(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) void) void {
+    pub fn onDisconnectNotify(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) void) void {
         qtc.QWebEngineView_OnDisconnectNotify(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `updateMicroFocus` instead
+    ///
+    pub const UpdateMicroFocus = updateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8560,13 +10600,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn UpdateMicroFocus(self: QWebEngineView) void {
+    pub fn updateMicroFocus(self: QWebEngineView) void {
         qtc.QWebEngineView_UpdateMicroFocus(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperUpdateMicroFocus` instead
+    /// ### DEPRECATED: Use `superUpdateMicroFocus` instead
     ///
-    pub const QBaseUpdateMicroFocus = SuperUpdateMicroFocus;
+    pub const SuperUpdateMicroFocus = superUpdateMicroFocus;
 
     /// Inherited from QWidget
     ///
@@ -8578,10 +10618,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperUpdateMicroFocus(self: QWebEngineView) void {
+    pub fn superUpdateMicroFocus(self: QWebEngineView) void {
         qtc.QWebEngineView_SuperUpdateMicroFocus(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onUpdateMicroFocus` instead
+    ///
+    pub const OnUpdateMicroFocus = onUpdateMicroFocus;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#updateMicroFocus)
@@ -8594,10 +10638,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnUpdateMicroFocus(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
+    pub fn onUpdateMicroFocus(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
         qtc.QWebEngineView_OnUpdateMicroFocus(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `create` instead
+    ///
+    pub const Create = create;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8608,13 +10656,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Create(self: QWebEngineView) void {
+    pub fn create(self: QWebEngineView) void {
         qtc.QWebEngineView_Create(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperCreate` instead
+    /// ### DEPRECATED: Use `superCreate` instead
     ///
-    pub const QBaseCreate = SuperCreate;
+    pub const SuperCreate = superCreate;
 
     /// Inherited from QWidget
     ///
@@ -8626,10 +10674,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperCreate(self: QWebEngineView) void {
+    pub fn superCreate(self: QWebEngineView) void {
         qtc.QWebEngineView_SuperCreate(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onCreate` instead
+    ///
+    pub const OnCreate = onCreate;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#create)
@@ -8642,9 +10694,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnCreate(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
+    pub fn onCreate(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
         qtc.QWebEngineView_OnCreate(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `destroy` instead
+    ///
+    pub const Destroy = destroy;
 
     /// Inherited from QWidget
     ///
@@ -8656,13 +10712,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Destroy(self: QWebEngineView) void {
+    pub fn destroy(self: QWebEngineView) void {
         qtc.QWebEngineView_Destroy(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperDestroy` instead
+    /// ### DEPRECATED: Use `superDestroy` instead
     ///
-    pub const QBaseDestroy = SuperDestroy;
+    pub const SuperDestroy = superDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8674,9 +10730,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperDestroy(self: QWebEngineView) void {
+    pub fn superDestroy(self: QWebEngineView) void {
         qtc.QWebEngineView_SuperDestroy(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onDestroy` instead
+    ///
+    pub const OnDestroy = onDestroy;
 
     /// Inherited from QWidget
     ///
@@ -8690,10 +10750,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) void `
     ///
-    pub fn OnDestroy(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
+    pub fn onDestroy(self: QWebEngineView, callback: *const fn () callconv(.c) void) void {
         qtc.QWebEngineView_OnDestroy(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
+    /// ### DEPRECATED: Use `focusNextChild` instead
+    ///
+    pub const FocusNextChild = focusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8704,13 +10768,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FocusNextChild(self: QWebEngineView) bool {
+    pub fn focusNextChild(self: QWebEngineView) bool {
         return qtc.QWebEngineView_FocusNextChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusNextChild` instead
+    /// ### DEPRECATED: Use `superFocusNextChild` instead
     ///
-    pub const QBaseFocusNextChild = SuperFocusNextChild;
+    pub const SuperFocusNextChild = superFocusNextChild;
 
     /// Inherited from QWidget
     ///
@@ -8722,10 +10786,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperFocusNextChild(self: QWebEngineView) bool {
+    pub fn superFocusNextChild(self: QWebEngineView) bool {
         return qtc.QWebEngineView_SuperFocusNextChild(@ptrCast(self.ptr));
     }
 
+    /// ### DEPRECATED: Use `onFocusNextChild` instead
+    ///
+    pub const OnFocusNextChild = onFocusNextChild;
+
     /// Inherited from QWidget
     ///
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwidget.html#focusNextChild)
@@ -8738,9 +10806,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusNextChild(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusNextChild(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
         qtc.QWebEngineView_OnFocusNextChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `focusPreviousChild` instead
+    ///
+    pub const FocusPreviousChild = focusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8752,13 +10824,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn FocusPreviousChild(self: QWebEngineView) bool {
+    pub fn focusPreviousChild(self: QWebEngineView) bool {
         return qtc.QWebEngineView_FocusPreviousChild(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperFocusPreviousChild` instead
+    /// ### DEPRECATED: Use `superFocusPreviousChild` instead
     ///
-    pub const QBaseFocusPreviousChild = SuperFocusPreviousChild;
+    pub const SuperFocusPreviousChild = superFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8770,9 +10842,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperFocusPreviousChild(self: QWebEngineView) bool {
+    pub fn superFocusPreviousChild(self: QWebEngineView) bool {
         return qtc.QWebEngineView_SuperFocusPreviousChild(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onFocusPreviousChild` instead
+    ///
+    pub const OnFocusPreviousChild = onFocusPreviousChild;
 
     /// Inherited from QWidget
     ///
@@ -8786,9 +10862,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) bool `
     ///
-    pub fn OnFocusPreviousChild(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
+    pub fn onFocusPreviousChild(self: QWebEngineView, callback: *const fn () callconv(.c) bool) void {
         qtc.QWebEngineView_OnFocusPreviousChild(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `sender` instead
+    ///
+    pub const Sender = sender;
 
     /// Inherited from QObject
     ///
@@ -8800,13 +10880,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Sender(self: QWebEngineView) QObject {
+    pub fn sender(self: QWebEngineView) QObject {
         return .{ .ptr = qtc.QWebEngineView_Sender(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `SuperSender` instead
+    /// ### DEPRECATED: Use `superSender` instead
     ///
-    pub const QBaseSender = SuperSender;
+    pub const SuperSender = superSender;
 
     /// Inherited from QObject
     ///
@@ -8818,9 +10898,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperSender(self: QWebEngineView) QObject {
+    pub fn superSender(self: QWebEngineView) QObject {
         return .{ .ptr = qtc.QWebEngineView_SuperSender(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `onSender` instead
+    ///
+    pub const OnSender = onSender;
 
     /// Inherited from QObject
     ///
@@ -8834,9 +10918,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) QObject `
     ///
-    pub fn OnSender(self: QWebEngineView, callback: *const fn () callconv(.c) QObject) void {
+    pub fn onSender(self: QWebEngineView, callback: *const fn () callconv(.c) QObject) void {
         qtc.QWebEngineView_OnSender(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `senderSignalIndex` instead
+    ///
+    pub const SenderSignalIndex = senderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8848,13 +10936,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SenderSignalIndex(self: QWebEngineView) i32 {
+    pub fn senderSignalIndex(self: QWebEngineView) i32 {
         return qtc.QWebEngineView_SenderSignalIndex(@ptrCast(self.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperSenderSignalIndex` instead
+    /// ### DEPRECATED: Use `superSenderSignalIndex` instead
     ///
-    pub const QBaseSenderSignalIndex = SuperSenderSignalIndex;
+    pub const SuperSenderSignalIndex = superSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8866,9 +10954,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn SuperSenderSignalIndex(self: QWebEngineView) i32 {
+    pub fn superSenderSignalIndex(self: QWebEngineView) i32 {
         return qtc.QWebEngineView_SuperSenderSignalIndex(@ptrCast(self.ptr));
     }
+
+    /// ### DEPRECATED: Use `onSenderSignalIndex` instead
+    ///
+    pub const OnSenderSignalIndex = onSenderSignalIndex;
 
     /// Inherited from QObject
     ///
@@ -8882,9 +10974,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn () callconv(.c) i32 `
     ///
-    pub fn OnSenderSignalIndex(self: QWebEngineView, callback: *const fn () callconv(.c) i32) void {
+    pub fn onSenderSignalIndex(self: QWebEngineView, callback: *const fn () callconv(.c) i32) void {
         qtc.QWebEngineView_OnSenderSignalIndex(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `receivers` instead
+    ///
+    pub const Receivers = receivers;
 
     /// Inherited from QObject
     ///
@@ -8898,14 +10994,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn Receivers(self: QWebEngineView, signal: [:0]const u8) i32 {
+    pub fn receivers(self: QWebEngineView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebEngineView_Receivers(@ptrCast(self.ptr), signal_Cstring);
     }
 
-    /// ### DEPRECATED: Use `SuperReceivers` instead
+    /// ### DEPRECATED: Use `superReceivers` instead
     ///
-    pub const QBaseReceivers = SuperReceivers;
+    pub const SuperReceivers = superReceivers;
 
     /// Inherited from QObject
     ///
@@ -8919,10 +11015,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: [:0]const u8 `
     ///
-    pub fn SuperReceivers(self: QWebEngineView, signal: [:0]const u8) i32 {
+    pub fn superReceivers(self: QWebEngineView, signal: [:0]const u8) i32 {
         const signal_Cstring = signal.ptr;
         return qtc.QWebEngineView_SuperReceivers(@ptrCast(self.ptr), signal_Cstring);
     }
+
+    /// ### DEPRECATED: Use `onReceivers` instead
+    ///
+    pub const OnReceivers = onReceivers;
 
     /// Inherited from QObject
     ///
@@ -8936,9 +11036,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, signal: [*:0]const u8) callconv(.c) i32 `
     ///
-    pub fn OnReceivers(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) i32) void {
+    pub fn onReceivers(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) i32) void {
         qtc.QWebEngineView_OnReceivers(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `isSignalConnected` instead
+    ///
+    pub const IsSignalConnected = isSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8952,14 +11056,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn IsSignalConnected(self: QWebEngineView, signal: anytype) bool {
+    pub fn isSignalConnected(self: QWebEngineView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebEngineView_IsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
 
-    /// ### DEPRECATED: Use `SuperIsSignalConnected` instead
+    /// ### DEPRECATED: Use `superIsSignalConnected` instead
     ///
-    pub const QBaseIsSignalConnected = SuperIsSignalConnected;
+    pub const SuperIsSignalConnected = superIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8973,10 +11077,14 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` signal: QMetaMethod `
     ///
-    pub fn SuperIsSignalConnected(self: QWebEngineView, signal: anytype) bool {
+    pub fn superIsSignalConnected(self: QWebEngineView, signal: anytype) bool {
         comptime _ = @TypeOf(signal)._is_QMetaMethod;
         return qtc.QWebEngineView_SuperIsSignalConnected(@ptrCast(self.ptr), @ptrCast(signal.ptr));
     }
+
+    /// ### DEPRECATED: Use `onIsSignalConnected` instead
+    ///
+    pub const OnIsSignalConnected = onIsSignalConnected;
 
     /// Inherited from QObject
     ///
@@ -8990,9 +11098,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, signal: QMetaMethod) callconv(.c) bool `
     ///
-    pub fn OnIsSignalConnected(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) bool) void {
+    pub fn onIsSignalConnected(self: QWebEngineView, callback: *const fn (QWebEngineView, QMetaMethod) callconv(.c) bool) void {
         qtc.QWebEngineView_OnIsSignalConnected(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `getDecodedMetricF` instead
+    ///
+    pub const GetDecodedMetricF = getDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9008,13 +11120,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn GetDecodedMetricF(self: QWebEngineView, metricA: i32, metricB: i32) f64 {
+    pub fn getDecodedMetricF(self: QWebEngineView, metricA: i32, metricB: i32) f64 {
         return qtc.QWebEngineView_GetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
 
-    /// ### DEPRECATED: Use `SuperGetDecodedMetricF` instead
+    /// ### DEPRECATED: Use `superGetDecodedMetricF` instead
     ///
-    pub const QBaseGetDecodedMetricF = SuperGetDecodedMetricF;
+    pub const SuperGetDecodedMetricF = superGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9030,9 +11142,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` metricB: qpaintdevice_enums.PaintDeviceMetric `
     ///
-    pub fn SuperGetDecodedMetricF(self: QWebEngineView, metricA: i32, metricB: i32) f64 {
+    pub fn superGetDecodedMetricF(self: QWebEngineView, metricA: i32, metricB: i32) f64 {
         return qtc.QWebEngineView_SuperGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(metricA), @bitCast(metricB));
     }
+
+    /// ### DEPRECATED: Use `onGetDecodedMetricF` instead
+    ///
+    pub const OnGetDecodedMetricF = onGetDecodedMetricF;
 
     /// Inherited from QPaintDevice
     ///
@@ -9046,9 +11162,13 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, metricA: qpaintdevice_enums.PaintDeviceMetric, metricB: qpaintdevice_enums.PaintDeviceMetric) callconv(.c) f64 `
     ///
-    pub fn OnGetDecodedMetricF(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32) callconv(.c) f64) void {
+    pub fn onGetDecodedMetricF(self: QWebEngineView, callback: *const fn (QWebEngineView, i32, i32) callconv(.c) f64) void {
         qtc.QWebEngineView_OnGetDecodedMetricF(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
+
+    /// ### DEPRECATED: Use `onObjectNameChanged` instead
+    ///
+    pub const OnObjectNameChanged = onObjectNameChanged;
 
     /// Inherited from QObject
     ///
@@ -9062,23 +11182,23 @@ pub const QWebEngineView = extern struct {
     ///
     /// ` callback: *const fn (self: QWebEngineView, objectName: [*:0]const u8) callconv(.c) void `
     ///
-    pub fn OnObjectNameChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
+    pub fn onObjectNameChanged(self: QWebEngineView, callback: *const fn (QWebEngineView, [*:0]const u8) callconv(.c) void) void {
         qtc.QObject_Connect_ObjectNameChanged(@ptrCast(self.ptr), @bitCast(@intFromPtr(callback)));
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qwebengineview.html#dtor.QWebEngineView)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QWebEngineView `
     ///
-    pub fn Delete(self: QWebEngineView) void {
+    pub fn delete(self: QWebEngineView) void {
         qtc.QWebEngineView_Delete(@ptrCast(self.ptr));
     }
 };

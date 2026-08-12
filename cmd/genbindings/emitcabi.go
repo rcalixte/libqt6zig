@@ -1481,6 +1481,8 @@ func emitVirtualBindingHeader(src *CppParsedHeader, packageName string) (string,
 				paramNames := emitParameterNames(ctor, false)
 
 				// hacking around this poor constructor definition
+				// safe to remove on next rebase
+				// @ref https://invent.kde.org/frameworks/kwidgetsaddons/-/merge_requests/334
 				if paramNames == "title, text, selectedMimeTypes, defaultGroup" {
 					paramNames += ", nullptr"
 				}
@@ -2331,9 +2333,9 @@ func emitBindingCpp(src *CppParsedHeader, filename string) (string, error) {
 				if m.IsVariable {
 					ret.WriteString(maybeMacro + returnCabi + " " + methodPrefixName + "_" + mSafeMethodName + "(" + emitParametersCabi(m, maybeConst+methodPrefixName+"*") + ") {\n")
 					if strings.HasPrefix(m.MethodName, "set") {
-						ret.WriteString(preamble + "self->" + m.VariableFieldName + " = " + forwarding + ";\n}\n" + maybeEndMacro + "\n")
+						ret.WriteString(preamble + "self->" + m.OverrideMethodName + " = " + forwarding + ";\n}\n" + maybeEndMacro + "\n")
 					} else {
-						retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, "self->"+m.VariableFieldName)
+						retExpr, _ = emitAssignCppToCabi("\treturn ", m.ReturnType, "self->"+m.OverrideMethodName)
 						ret.WriteString(retExpr + "}\n" + maybeEndMacro + "\n")
 					}
 					continue

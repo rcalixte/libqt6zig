@@ -12,22 +12,34 @@ pub const QPlaceUser = extern struct {
 
     pub const _is_QPlaceUser = {};
 
-    /// New constructs a new QPlaceUser object.
+    /// ### DEPRECATED: Use `new` instead
     ///
-    pub fn New() QPlaceUser {
+    pub const New = new;
+
+    /// Allocate a new QPlaceUser object in C++ memory
+    ///
+    pub fn new() QPlaceUser {
         return .{ .ptr = qtc.QPlaceUser_new() };
     }
 
-    /// New2 constructs a new QPlaceUser object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QPlaceUser object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` other: QPlaceUser `
     ///
-    pub fn New2(other: anytype) QPlaceUser {
+    pub fn new2(other: anytype) QPlaceUser {
         comptime _ = @TypeOf(other)._is_QPlaceUser;
         return .{ .ptr = qtc.QPlaceUser_new2(@ptrCast(other.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#operator-eq)
     ///
@@ -37,10 +49,14 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` other: QPlaceUser `
     ///
-    pub fn OperatorAssign(self: QPlaceUser, other: anytype) void {
+    pub fn operatorAssign(self: QPlaceUser, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceUser;
         qtc.QPlaceUser_OperatorAssign(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `swap` instead
+    ///
+    pub const Swap = swap;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#swap)
     ///
@@ -50,10 +66,14 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` other: QPlaceUser `
     ///
-    pub fn Swap(self: QPlaceUser, other: anytype) void {
+    pub fn swap(self: QPlaceUser, other: anytype) void {
         comptime _ = @TypeOf(other)._is_QPlaceUser;
         qtc.QPlaceUser_Swap(@ptrCast(self.ptr), @ptrCast(other.ptr));
     }
+
+    /// ### DEPRECATED: Use `userId` instead
+    ///
+    pub const UserId = userId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#userId)
     ///
@@ -63,13 +83,17 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn UserId(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn userId(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceUser_UserId(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.UserId: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.userId: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setUserId` instead
+    ///
+    pub const SetUserId = setUserId;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#setUserId)
     ///
@@ -79,13 +103,17 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` identifier: []const u8 `
     ///
-    pub fn SetUserId(self: QPlaceUser, identifier: []const u8) void {
+    pub fn setUserId(self: QPlaceUser, identifier: []const u8) void {
         const identifier_str = qtc.libqt_string{
             .len = identifier.len,
             .data = identifier.ptr,
         };
         qtc.QPlaceUser_SetUserId(@ptrCast(self.ptr), identifier_str);
     }
+
+    /// ### DEPRECATED: Use `name` instead
+    ///
+    pub const Name = name;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#name)
     ///
@@ -95,13 +123,17 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` allocator: std.mem.Allocator `
     ///
-    pub fn Name(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
+    pub fn name(self: QPlaceUser, allocator: std.mem.Allocator) []const u8 {
         var _str = qtc.QPlaceUser_Name(@ptrCast(self.ptr));
         defer qtc.libqt_string_free(&_str);
-        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.Name: Memory allocation failed");
+        const _ret = allocator.alloc(u8, _str.len) catch @panic("QPlaceUser.name: Memory allocation failed");
         @memcpy(_ret, _str.data[0.._str.len]);
         return _ret;
     }
+
+    /// ### DEPRECATED: Use `setName` instead
+    ///
+    pub const SetName = setName;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#setName)
     ///
@@ -109,29 +141,29 @@ pub const QPlaceUser = extern struct {
     ///
     /// ` self: QPlaceUser `
     ///
-    /// ` name: []const u8 `
+    /// ` _name: []const u8 `
     ///
-    pub fn SetName(self: QPlaceUser, name: []const u8) void {
+    pub fn setName(self: QPlaceUser, _name: []const u8) void {
         const name_str = qtc.libqt_string{
-            .len = name.len,
-            .data = name.ptr,
+            .len = _name.len,
+            .data = _name.ptr,
         };
         qtc.QPlaceUser_SetName(@ptrCast(self.ptr), name_str);
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qplaceuser.html#dtor.QPlaceUser)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QPlaceUser `
     ///
-    pub fn Delete(self: QPlaceUser) void {
+    pub fn delete(self: QPlaceUser) void {
         qtc.QPlaceUser_Delete(@ptrCast(self.ptr));
     }
 };

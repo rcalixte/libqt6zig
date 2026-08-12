@@ -14,40 +14,56 @@ pub const QTreeWidgetItemIterator = extern struct {
 
     pub const _is_QTreeWidgetItemIterator = {};
 
-    /// New constructs a new QTreeWidgetItemIterator object.
+    /// ### DEPRECATED: Use `new` instead
+    ///
+    pub const New = new;
+
+    /// Allocate a new QTreeWidgetItemIterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` it: QTreeWidgetItemIterator `
     ///
-    pub fn New(it: anytype) QTreeWidgetItemIterator {
+    pub fn new(it: anytype) QTreeWidgetItemIterator {
         comptime _ = @TypeOf(it)._is_QTreeWidgetItemIterator;
         return .{ .ptr = qtc.QTreeWidgetItemIterator_new(@ptrCast(it.ptr)) };
     }
 
-    /// New2 constructs a new QTreeWidgetItemIterator object.
+    /// ### DEPRECATED: Use `new2` instead
+    ///
+    pub const New2 = new2;
+
+    /// Allocate a new QTreeWidgetItemIterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` widget: QTreeWidget `
     ///
-    pub fn New2(widget: anytype) QTreeWidgetItemIterator {
+    pub fn new2(widget: anytype) QTreeWidgetItemIterator {
         comptime _ = @TypeOf(widget)._is_QTreeWidget;
         return .{ .ptr = qtc.QTreeWidgetItemIterator_new2(@ptrCast(widget.ptr)) };
     }
 
-    /// New3 constructs a new QTreeWidgetItemIterator object.
+    /// ### DEPRECATED: Use `new3` instead
+    ///
+    pub const New3 = new3;
+
+    /// Allocate a new QTreeWidgetItemIterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
     /// ` item: QTreeWidgetItem `
     ///
-    pub fn New3(item: anytype) QTreeWidgetItemIterator {
+    pub fn new3(item: anytype) QTreeWidgetItemIterator {
         comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
         return .{ .ptr = qtc.QTreeWidgetItemIterator_new3(@ptrCast(item.ptr)) };
     }
 
-    /// New4 constructs a new QTreeWidgetItemIterator object.
+    /// ### DEPRECATED: Use `new4` instead
+    ///
+    pub const New4 = new4;
+
+    /// Allocate a new QTreeWidgetItemIterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -55,12 +71,16 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
     ///
-    pub fn New4(widget: anytype, flags: i32) QTreeWidgetItemIterator {
+    pub fn new4(widget: anytype, flags: i32) QTreeWidgetItemIterator {
         comptime _ = @TypeOf(widget)._is_QTreeWidget;
         return .{ .ptr = qtc.QTreeWidgetItemIterator_new4(@ptrCast(widget.ptr), @bitCast(flags)) };
     }
 
-    /// New5 constructs a new QTreeWidgetItemIterator object.
+    /// ### DEPRECATED: Use `new5` instead
+    ///
+    pub const New5 = new5;
+
+    /// Allocate a new QTreeWidgetItemIterator object in C++ memory
     ///
     /// ## Parameter(s):
     ///
@@ -68,10 +88,14 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` flags: flag of qtreewidgetitemiterator_enums.IteratorFlag `
     ///
-    pub fn New5(item: anytype, flags: i32) QTreeWidgetItemIterator {
+    pub fn new5(item: anytype, flags: i32) QTreeWidgetItemIterator {
         comptime _ = @TypeOf(item)._is_QTreeWidgetItem;
         return .{ .ptr = qtc.QTreeWidgetItemIterator_new5(@ptrCast(item.ptr), @bitCast(flags)) };
     }
+
+    /// ### DEPRECATED: Use `operatorAssign` instead
+    ///
+    pub const OperatorAssign = operatorAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-eq)
     ///
@@ -81,10 +105,14 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` it: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorAssign(self: QTreeWidgetItemIterator, it: anytype) void {
+    pub fn operatorAssign(self: QTreeWidgetItemIterator, it: anytype) void {
         comptime _ = @TypeOf(it)._is_QTreeWidgetItemIterator;
         qtc.QTreeWidgetItemIterator_OperatorAssign(@ptrCast(self.ptr), @ptrCast(it.ptr));
     }
+
+    /// ### DEPRECATED: Use `operatorPlusPlus` instead
+    ///
+    pub const OperatorPlusPlus = operatorPlusPlus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
@@ -92,9 +120,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorPlusPlus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
+    pub fn operatorPlusPlus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusPlus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusPlus2` instead
+    ///
+    pub const OperatorPlusPlus2 = operatorPlusPlus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-2b)
     ///
@@ -104,9 +136,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorPlusPlus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
+    pub fn operatorPlusPlus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusPlus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorPlusAssign` instead
+    ///
+    pub const OperatorPlusAssign = operatorPlusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2b-eq)
     ///
@@ -116,9 +152,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn OperatorPlusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
+    pub fn operatorPlusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorPlusAssign(@ptrCast(self.ptr), @bitCast(n)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus` instead
+    ///
+    pub const OperatorMinusMinus = operatorMinusMinus;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
@@ -126,9 +166,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorMinusMinus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
+    pub fn operatorMinusMinus(self: QTreeWidgetItemIterator) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusMinus(@ptrCast(self.ptr)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusMinus2` instead
+    ///
+    pub const OperatorMinusMinus2 = operatorMinusMinus2;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--)
     ///
@@ -138,9 +182,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` param1: i32 `
     ///
-    pub fn OperatorMinusMinus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
+    pub fn operatorMinusMinus2(self: QTreeWidgetItemIterator, param1: i32) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusMinus2(@ptrCast(self.ptr), @bitCast(param1)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMinusAssign` instead
+    ///
+    pub const OperatorMinusAssign = operatorMinusAssign;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator--eq)
     ///
@@ -150,9 +198,13 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` n: i32 `
     ///
-    pub fn OperatorMinusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
+    pub fn operatorMinusAssign(self: QTreeWidgetItemIterator, n: i32) QTreeWidgetItemIterator {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMinusAssign(@ptrCast(self.ptr), @bitCast(n)) };
     }
+
+    /// ### DEPRECATED: Use `operatorMultiply` instead
+    ///
+    pub const OperatorMultiply = operatorMultiply;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#operator-2a)
     ///
@@ -160,23 +212,23 @@ pub const QTreeWidgetItemIterator = extern struct {
     ///
     /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn OperatorMultiply(self: QTreeWidgetItemIterator) QTreeWidgetItem {
+    pub fn operatorMultiply(self: QTreeWidgetItemIterator) QTreeWidgetItem {
         return .{ .ptr = qtc.QTreeWidgetItemIterator_OperatorMultiply(@ptrCast(self.ptr)) };
     }
 
-    /// ### DEPRECATED: Use `Delete` instead
+    /// ### DEPRECATED: Use `delete` instead
     ///
-    pub const QDelete = Delete;
+    pub const Delete = delete;
 
     /// ### [Upstream resources](https://doc.qt.io/qt-6/qtreewidgetitemiterator.html#dtor.QTreeWidgetItemIterator)
     ///
-    /// Delete this object from C++ memory.
+    /// Delete this object from C++ memory
     ///
     /// ## Parameter:
     ///
     /// ` self: QTreeWidgetItemIterator `
     ///
-    pub fn Delete(self: QTreeWidgetItemIterator) void {
+    pub fn delete(self: QTreeWidgetItemIterator) void {
         qtc.QTreeWidgetItemIterator_Delete(@ptrCast(self.ptr));
     }
 };
